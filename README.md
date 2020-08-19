@@ -1,6 +1,6 @@
 # BallotNav
 
-BallotNav is a project of Hack for LA. Hack for LA is a brigade of a Code for America that exists to connect citizens with civic rights and responsibilities. BallotNav helps those who are concerned about using USPS for their mail-in ballots accomplish find their local drop-off points and their available days/times. The app's main features include locating the drop-off points closest to the user, and displaying what dates and times they are available; pulling in this information as it becomes available from county election supervisors; and connecting with users' social accounts to encourage dissemination of the tool and information.
+BallotNav is a project of Hack for LA. Hack for LA is a brigade of a Code for America that exists to connect citizens with civic rights and responsibilities. BallotNav helps those who are concerned about using USPS for their mail-in ballots find their local drop-off points and their available days/times. The app's main features include locating the drop-off points closest to the user, and displaying what dates and times they are available; pulling in this information as it becomes available from county election supervisors; and connecting with users' social accounts to encourage dissemination of the tool and information.
 
 ### Project context
 
