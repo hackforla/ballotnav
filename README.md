@@ -1,30 +1,27 @@
-# Project title and description
+# BallotNav
 
-Include a project description that explains **what** your project is and **why** it exists. Aim for no more than 3-5 concise sentences. For example, you might say:
-
-{Project Name} is a project of Hack for LA. Hack for LA is a brigade of a Code for America that exists to {your mission}. {Project Name} helps {target users} accomplish {goal of project}. The {app/site/thing you're building}'s main features include {very brief feature descriptions}.
+BallotNav is a project of Hack for LA. Hack for LA is a brigade of a Code for America that exists to connect citizens with civic rights and responsibilities. BallotNav helps those who are concerned about using USPS for their mail-in ballots accomplish find their local drop-off points and their available days/times. The app's main features include locating the drop-off points closest to the user, and displaying what dates and times they are available; pulling in this information as it becomes available from county election supervisors; and connecting with users' social accounts to encourage dissemination of the tool and information.
 
 ### Project context
 
-Civic projects often exist within a larger context that may include multiple stakeholders, historic relationships, associated research, or other details that are relevant but not *required* for direct contributions. Gathering these details in one place is useful, but the ReadMe isn't that place. Use this section to [link to a Google Doc](#) or other documentation repository where contributors can dig in if they so choose. This is also a good place to link to your Code of Conduct.
+Voters in the upcoming presidential election are caught between a rock and a hard place: voting at the polls carries the possibility of covid-19 infection, while at the same time, the USPS is in crisis and our Constitutionally-protcted right to reliable mail is insecure. Mail-in ballots may be securely dropped-off in person; however, the locations do not neccesarily correspond to polling places, drop-offs may need to be made on specific dates and times under varying conditions to be valid, and this information can be hard to locate. Additionally, in many cases when this information will become available is not known. A centralized, specific tool for locating this information may assist in maintaining the franchise for some individuals who might either give up in frustration, or run the risk of their vote being uncounted due to mail failures.
 
 ### Technology used
 
-- Each platform or framework should get its own bullet.
-- Each platform should include an [active link](#) to the official documentation.
+- TBD
 
 
 
 # How to contribute
 
-Explain the different ways people can contribute. For example:
+- Join the team on Slack #ballotnav.
 
-- Join the team {on Slack/at our weekly hack night/etc}.
-- To help with user research, {do ABC}.
-- To provide design support, {do XYZ}.
-- To contribute to the code, follow the instructions below.
 
-Remember to provide direct links to each channel.
+
+
+
+
+
 
 
 
