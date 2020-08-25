@@ -12,9 +12,9 @@ Voters in the upcoming presidential election are caught between a rock and a har
 
 This guide will help get you up to speed on what you need to know to get started as a project team member. Let's go!
 
-1. Join the #BallotNav slack channel and introduce yourself.
-Slack our PM Randall Ellis with your email address.
-Accept your Google Drive invite to access the shared folder.
-Add yourself to the Team Roster. Then, Slack our PM with "Added to Roster".
-Enable Two Factor Authentication on your Github Account
-Read Introduction to the Project.
+1. Join the [#BallotNav](https://hackforla.slack.com/archives/C0191KE1XB7) slack channel and introduce yourself.
+2. Slack our PM [Randall Ellis](https://hackforla.slack.com/archives/D018ZRKH45A) with your email address.
+3. Accept your Google Drive invite to access the shared folder.
+4. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/1_zTNuX9w8KB3OG4IExw7ZzkpzVW-TSPMSUJUswlZowc/edit). Then, Slack our PM with "Added to Roster".
+5. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
+6. Read Introduction to the Project.
