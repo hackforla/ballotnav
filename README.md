@@ -10,6 +10,11 @@ Voters in the upcoming presidential election are caught between a rock and a har
 
 # How to contribute
 
-- Join the team on Slack #ballotnav.
+This guide will help get you up to speed on what you need to know to get started as a project team member. Let's go!
 
-
+1. Join the #BallotNav slack channel and introduce yourself.
+Slack our PM Randall Ellis with your email address.
+Accept your Google Drive invite to access the shared folder.
+Add yourself to the Team Roster. Then, Slack our PM with "Added to Roster".
+Enable Two Factor Authentication on your Github Account
+Read Introduction to the Project.
