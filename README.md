@@ -17,4 +17,5 @@ This guide will help get you up to speed on what you need to know to get started
 3. Accept your Google Drive invite to access the shared folder.
 4. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/1_zTNuX9w8KB3OG4IExw7ZzkpzVW-TSPMSUJUswlZowc/edit). Then, Slack our PM with "Added to Roster".
 5. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
-6. Read Introduction to the Project.
+6. Read project details and review our Project Management Board 
+7. Weekly team meetings will be twice a week at minimum (times TBD) 
