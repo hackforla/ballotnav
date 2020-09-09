@@ -18,7 +18,7 @@ Voters in the upcoming presidential election are caught between a rock and a har
 
 This guide will help get you up to speed on what you need to know to get started as a project team member. Let's go!
 
-1. Read Project Context and More Information
+1. Read Project Context and More Information (above)
 2. Join the [#BallotNav](https://hackforla.slack.com/archives/C0191KE1XB7) slack channel and introduce yourself.
 3. Slack our PM's [Randall Ellis](https://hackforla.slack.com/team/U018TL37XJ6) or [Karen Coronel](https://hackforla.slack.com/team/U010KUGJATC) with your email address.
 4. Accept your Google Drive invite to access the shared folder.
