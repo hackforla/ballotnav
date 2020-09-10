@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+
+  api:
+    build: "./"
+    image: "api"
+    ports:
+      - "8080:80"
+    links:
+      - redis
+      - db
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgres://postgres:pg_pass@db:5432/main
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11.1
+    environment:
+      POSTGRES_DB: main
+      POSTGRES_PASSWORD: pg_pass
