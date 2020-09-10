@@ -1,14 +1,17 @@
-from flask import Flask 
-app = Flask(__name__) 
+from flask import Flask
 
-@app.route('/') 
-def hello(): 
-	return "Welcome to the BallotNav backend team!"
-
-@app.route('/status') 
-def hello(): 
-	return "Operational"
+app = Flask(__name__)
 
 
-if __name__ == "__main__": 
-	app.run(host ='0.0.0.0', port = 80, debug = True) 
+@app.route("/")
+def hello():
+    return "Welcome to the BallotNav backend team!"
+
+
+@app.route("/status")
+def status():
+    return "Operational"
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80, debug=True)
