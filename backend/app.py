@@ -1,17 +1,7 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-
-@app.route("/")
-def hello():
-    return "Welcome to the BallotNav backend team!"
-
-
-@app.route("/status")
-def status():
-    return "Operational"
-
+import os
+from ballotnav import create_app
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)
+    print("Running Main app dev server")
+    app = create_app()
+    app.run(host="127.0.0.1", port=os.getenv("PORT", 5000), debug=True)
