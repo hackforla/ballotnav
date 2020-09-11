@@ -1,7 +1,7 @@
 version: "3.7"
 services:
 
-  api:
+  ballotnav:
     volumes:
       - .:/ballotnav
     build: "./"
@@ -13,7 +13,7 @@ services:
     environment:
       - SQLALCHEMY_DATABASE_URI=postgres://ballotnav:pgpass@db:5432/main
       - FLASK_APP=ballotnav
-    command: flask run --host=0.0.0.0 --port=5000 --debugger
+    command: python wsgi.py
     depends_on:
       - db
 
