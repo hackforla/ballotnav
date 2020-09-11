@@ -12,11 +12,13 @@ PORT = os.getenv("PORT", 5000)
 
 @cli.command()
 def hello():
+    """ why, hello there! """
     print(f"hello: it's now {datetime.utcnow()} 🗳️ 📍 at ballotnav")
 
 
 @cli.command()
 def routes():
+    """ list the registered API routes """
     for route in app.url_map.iter_rules():
         print(f"{route}")
 

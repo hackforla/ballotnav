@@ -1,3 +1,4 @@
+
 from datetime import datetime
 import json
 
@@ -23,12 +24,6 @@ def create_app(app_config=None):
 
     # initialize marshmallow
     ma.init_app(app)
-
-    try:
-        print("=== running db upgrade here! =====")
-        migrate.upgrade()
-    except Exception:
-        return None
 
     # register the API routes
     app.register_blueprint(dropoffs, url_prefix="/api")

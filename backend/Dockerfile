@@ -21,3 +21,5 @@ COPY . /ballotnav
 WORKDIR /ballotnav
 
 EXPOSE 8888
+
+ENTRYPOINT ["./entrypoint.sh"]
