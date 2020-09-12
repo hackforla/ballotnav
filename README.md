@@ -33,6 +33,3 @@ This guide will help get you up to speed on what you need to know to get started
 
 Please contact Mya Stark (myastark@gmail.com) for more information
 
-### Building Docker Image with Selenium
-1) From your terminal in the root of this repo run `./build.sh`, this will build the image
-2) Then run `./run.sh` and you will be in the app folder of the Docker image 
