@@ -1,0 +1,13 @@
+.ballotNavLogo {
+  height: 100%;
+}
+
+.application {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.menu {
+  height: 30px;
+  padding: 5px;
+}

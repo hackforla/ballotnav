@@ -1,0 +1,9 @@
+.searchResult {
+  background-color: #ffffff;
+  margin: 5px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+}
