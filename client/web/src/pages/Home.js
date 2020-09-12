@@ -5,19 +5,15 @@ import ResizablePanels from "resizable-panels-react";
 import Background from "../assets/mapPlaceholder.png";
 import Logo from "../assets/ballotnav-logo.svg";
 import SearchResult from "../components/SearchResult";
+import "../pages/Home.css";
 
 function Home() {
   const { id } = useParams();
   const hasID = id !== undefined;
   return (
-    <div style={{ height: "100vh", overflow: "hidden" }}>
-      <div
-        style={{
-          height: "30px",
-          padding: "5px",
-        }}
-      >
-        <img src={Logo} alt="BallotNav Logo" style={{ height: "100%" }}></img>{" "}
+    <div className="application">
+      <div className="menu">
+        <img src={Logo} alt="BallotNav Logo" className="ballotNavLogo"></img>{" "}
         {hasID ? "id: " + id : ""}
       </div>
       <ResizablePanels
