@@ -13,8 +13,10 @@ Voters in the upcoming presidential election are caught between a rock and a har
 [How is Voting Related to the Social Safety Net?](https://docs.google.com/document/d/1REg7WOP-c_qfrR5dA3rDw-G3BxW2Wd6U7Ys5dh1TJS8/edit?usp=sharing)
 
 
+## Contribute 
+Data Scientists and Community Data Guardians Needed [Join Now](https://docs.google.com/document/d/1gsvoKcn3j9CaJbzxkc52ONB0HudmEq-QgV8Xps2If1g/edit?ts=5f5c3186#)
 
-# How to contribute
+### How to join the Development team 
 
 This guide will help get you up to speed on what you need to know to get started as a project team member. Let's go!
 
