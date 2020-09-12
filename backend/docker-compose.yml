@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+
+  ballotnav:
+    volumes:
+      - .:/ballotnav
+    build: "./"
+    image: "api"
+    ports:
+      - "8888:5000"
+    links:
+      - db
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgres://ballotnav:pgpass@db:5432/main
+      - FLASK_APP=ballotnav
+    command: python wsgi.py
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_USER: ballotnav
+      POSTGRES_DB: main
+      POSTGRES_PASSWORD: pgpass
+    ports:
+      # expose local postgres container on localhost:5434
+      - "5434:5432"
