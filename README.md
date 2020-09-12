@@ -27,7 +27,7 @@ This guide will help get you up to speed on what you need to know to get started
 5. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/1_zTNuX9w8KB3OG4IExw7ZzkpzVW-TSPMSUJUswlZowc/edit). Then, Slack our PM with "Added to Roster".
 6. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
 7. Read project details and review our [Project Management Board](https://github.com/hackforla/ballotnav/projects/1)
-8. Weekly team meetings will be Saturdays 4PM - 6PM, Tuesdays 6PM - 8PM, & Thursdays 5:30PM - 7:30PM (all times PDT)
+8. Weekly team meetings will be Saturdays 5PM - 6PM, Tuesdays 6PM - 8PM, & Thursdays 5:30PM - 7:30PM (all times PDT)
 
 ### Graphic Design, Videomaking, or Marketing Volunteer?
 
