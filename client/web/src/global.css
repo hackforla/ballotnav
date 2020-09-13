@@ -1,14 +1,16 @@
 * {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
 }
 
 h1 {
-  margin: 0.5rem;
+  font-size: 18pt;
+  margin: var(--standardMargin);
 }
 
-h2 {
-  margin: 0.5rem;
+p {
+  font-size: 16pt;
+  margin: var(--standardMargin);
 }
 
 a {
@@ -17,13 +19,11 @@ a {
 
 :root {
   --ballotBlue: #1b2152;
+  --ballotBlueLight: #7a80ac;
   --ballotBlueDark: #040822;
   --routeRed: #ff0029;
   --routeRedDark: #6e0012;
-}
-
-hr {
-  border: none;
-  border-top: 2px solid black;
-  background-color: black;
+  --standardMargin: 25px;
+  --standardPadding: 10px;
+  --standardRadius: 5px;
 }
