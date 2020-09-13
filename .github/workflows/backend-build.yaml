@@ -6,9 +6,9 @@ on:
       - master
       - develop
       - ci
-	pull_request:
-		- open
-		- synchronized
+    pull_request:
+      - open
+      - synchronized
 jobs:
   backend:
     runs-on: ubuntu-latest
