@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "../pages/Home.css";
+import "Home.css";
 
 // npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
