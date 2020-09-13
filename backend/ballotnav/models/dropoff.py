@@ -38,3 +38,16 @@ class DropoffsModel(ma.Schema):
             except Exception as e:
                 logger.msg("Error creating record", exc=e, dropoff=dropoff_location)
             return record
+
+    def get(self, dropoff_location: dict):
+        """ create a dropoff entry """
+        with self.app.app_context():
+            record = []
+            try:
+                record = Dropoff(**dropoff_location)
+                db_orm.session.add(record)
+                db_orm.session.commit()
+                logger.msg("Added record to the session", record=record)
+            except Exception as e:
+                logger.msg("Error creating record", exc=e, dropoff=dropoff_location)
+            return record

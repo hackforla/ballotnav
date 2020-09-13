@@ -11,7 +11,23 @@ logger = structlog.get_logger()
 
 
 @dropoffs.route("/dropoff", methods=["GET"])
-def get_location():
+@use_args(
+    {
+        "state_name": fields.Str(required=True),
+        "state_short_code": fields.Str(required=True),
+        "county": fields.Str(required=True),
+        "position": fields.Str(),
+        "contact_name": fields.Str(),
+        "address_1": fields.Str(),
+        "address_2": fields.Str(),
+        "email": fields.Str(),
+        "fax": fields.Str(),
+        "phone": fields.Str(),
+        "county_website": fields.Str(),
+        "source_url": fields.Str(),
+    }
+)
+def get_location(args):
     """ get location """
     logger.info(f"Logging this call")
 
