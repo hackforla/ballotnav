@@ -1,0 +1,6 @@
+.sidePanelScroll {
+  overflow: scroll;
+  height: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
