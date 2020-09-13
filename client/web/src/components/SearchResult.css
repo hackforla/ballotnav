@@ -1,8 +1,8 @@
 .searchResult {
-  background-color: #ffffff;
-  margin: 5px;
-  padding: 10px;
+  background-color: #f3f3f3;
+  padding: var(--standardPadding);
   transition: 300ms ease;
+  margin: 2.5pt 0 2.5pt 0;
 }
 
 .searchResult:hover {
@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.inline {
+  display: inline;
+  margin-right: calc(var(--standardMargin) * 2);
 }

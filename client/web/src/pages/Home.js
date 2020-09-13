@@ -12,16 +12,6 @@ function Home() {
   const hasID = id !== undefined;
   return (
     <div className="application">
-      <div className="menu">
-        <img src={Logo} alt="BallotNav Logo" className="ballotNavLogo"></img>
-        <div className="search">
-          <div>
-            <span className="searchText">Search</span> <input></input>
-          </div>
-          <hr></hr>
-        </div>
-        {hasID ? "id: " + id : ""}
-      </div>
       <ResizablePanels
         bkcolor="#ffffff"
         displayDirection="row"
@@ -32,23 +22,16 @@ function Home() {
         resizerColor="#333333"
         resizerSize="5px"
       >
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            backgroundImage: "url(" + Background + ")",
-            backgroundSize: "cover",
-          }}
-        ></div>
-        <div
-          style={{
-            background: "#dddddd",
-            height: "100%",
-            width: "100%",
-          }}
-        >
-          <div className="sidePanel">
+        <div className="sidePanel">
+          <div className="menu">
+            <img
+              src={Logo}
+              alt="BallotNav Logo"
+              className="ballotNavLogo"
+            ></img>
+            <input></input>
+          </div>
+          <div className="sidePanelScroll">
             <SearchResult />
             <SearchResult />
             <SearchResult />
@@ -63,6 +46,15 @@ function Home() {
             <SearchResult />
           </div>
         </div>
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            backgroundImage: "url(" + Background + ")",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </ResizablePanels>
       <br />
     </div>
