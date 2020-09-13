@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ResizablePanels from "resizable-panels-react";
 // temporary background image to represent map remove this and image file when real map put in
 import Background from "../assets/mapPlaceholder.png";
-import Logo from "../assets/ballotnav-logo.svg";
+import Logo from "../assets/ballotnav-logo.png";
 import SearchResult from "../components/SearchResult";
 import "../pages/Home.css";
 
