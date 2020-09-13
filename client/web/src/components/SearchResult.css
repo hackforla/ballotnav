@@ -2,8 +2,15 @@
   background-color: #ffffff;
   margin: 5px;
   padding: 10px;
+  transition: 300ms ease;
+}
+
+.searchResult:hover {
+  box-shadow: -3px 4px 10px -2px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }

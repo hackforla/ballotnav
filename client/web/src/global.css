@@ -8,9 +8,22 @@ h1 {
 }
 
 h2 {
-  margin: 0.5rem 2rem 0.5rem 0.5rem;
+  margin: 0.5rem;
 }
 
 a {
-  color: #1b2152;
+  color: var(--ballotBlue);
+}
+
+:root {
+  --ballotBlue: #1b2152;
+  --ballotBlueDark: #040822;
+  --routeRed: #ff0029;
+  --routeRedDark: #6e0012;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid black;
+  background-color: black;
 }

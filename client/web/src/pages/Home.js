@@ -13,7 +13,13 @@ function Home() {
   return (
     <div className="application">
       <div className="menu">
-        <img src={Logo} alt="BallotNav Logo" className="ballotNavLogo"></img>{" "}
+        <img src={Logo} alt="BallotNav Logo" className="ballotNavLogo"></img>
+        <div className="search">
+          <div>
+            <span className="searchText">Search</span> <input></input>
+          </div>
+          <hr></hr>
+        </div>
         {hasID ? "id: " + id : ""}
       </div>
       <ResizablePanels
@@ -42,7 +48,17 @@ function Home() {
             width: "100%",
           }}
         >
-          <div style={{ padding: "5px" }}>
+          <div className="sidePanel">
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
             <SearchResult />
             <SearchResult />
           </div>
