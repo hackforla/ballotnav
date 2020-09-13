@@ -11,3 +11,23 @@
   height: 30px;
   padding: 5px;
 }
+
+.sidePanel {
+  padding: 5px;
+  overflow: scroll;
+  height: 100%;
+}
+
+.search {
+  float: right;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 30vw;
+}
+
+.searchText {
+  font-size: 16pt;
+}
