@@ -1,11 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import "../pages/Home.css";
+
+// npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
+
 // temporary background image to represent map remove this and image file when real map put in
 import Background from "../assets/mapPlaceholder.png";
+
+// components
+import SidePanelList from "../components/SidePanelList";
+import SidePannelSelection from "../components/SidePanelSelection";
+
+// png logo (svg rendered oddly)
 import Logo from "../assets/ballotnav-logo.png";
-import SearchResult from "../components/SearchResult";
-import "../pages/Home.css";
 
 function Home() {
   const { id } = useParams();
@@ -29,23 +37,13 @@ function Home() {
               alt="BallotNav Logo"
               className="ballotNavLogo"
             ></img>
+            {/* search bar placeholder */}
             <input></input>
           </div>
-          <div className="sidePanelScroll">
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-          </div>
+          <SidePanelList />
+          {/* <SidePannelSelection /> */}
         </div>
+        {/* temporary image to represent map */}
         <div
           style={{
             height: "100%",
@@ -56,7 +54,6 @@ function Home() {
           }}
         ></div>
       </ResizablePanels>
-      <br />
     </div>
   );
 }

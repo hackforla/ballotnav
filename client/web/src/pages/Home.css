@@ -29,13 +29,6 @@ input {
   width: 100%;
 }
 
-.sidePanelScroll {
-  overflow: scroll;
-  height: 100%;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .sidePanelScroll::-webkit-scrollbar {
   display: none;
 }
