@@ -28,3 +28,17 @@ p {
   font-size: 16pt;
   margin: var(--standardMargin);
 }
+
+a {
+  color: var(--ballotBlue);
+}
+
+input {
+  height: 20pt;
+  margin: var(--standardMargin);
+  font-size: 18pt;
+  width: 100%;
+  border: 2px solid var(--ballotBlueLight);
+  border-radius: var(--standardRadius);
+  outline: none;
+}

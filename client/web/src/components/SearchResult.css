@@ -2,12 +2,13 @@
   background-color: #f3f3f3;
   padding: var(--standardPadding);
   transition: 300ms ease;
-  margin: 2.5pt 0 2.5pt 0;
+  margin: 5px 0 5px 5px;
 }
 
 .searchResult:hover {
-  box-shadow: -3px 4px 10px -2px rgba(0, 0, 0, 0.75);
+  /* box-shadow: -3px 4px 10px -2px rgba(0, 0, 0, 0.75); */
   cursor: pointer;
+  background-color: #ebebeb;
 }
 
 .inline {
