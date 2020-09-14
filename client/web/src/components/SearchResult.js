@@ -1,17 +1,27 @@
 import React from "react";
 import "./SearchResult.css";
+import SearchResultJSON from "./searchResult.json";
 
 export default function SearchResult() {
   return (
-    <div className="searchResult">
-      {/* dynamic data should be passed in as these value */}
-      <h1>William Faria Elementary Shool</h1>
-      {/* each <p> tag is 1 row of data */}
-      <p>10155 Barbara Ln, Cupertino, CA 95014</p>
-      <p>
-        <span className="inline">0.4 mile</span>
-        <span className="inline">20 min</span>
-      </p>
+    <div>
+      {SearchResultJSON.map((SearchResultJSON, index) => {
+        return (
+          <div className="searchResult">
+            {/* dynamic data should be passed in as these value */}
+            <h1>{SearchResultJSON.title}</h1>
+            {/* each <p> tag is 1 row of data */}
+            <p>{SearchResultJSON.location}</p>
+            <p>
+              <a href={SearchResultJSON.website}>{SearchResultJSON.website}</a>
+            </p>
+            <p>
+              <span className="inline">{SearchResultJSON.time}</span>
+              <span className="inline">{SearchResultJSON.distance} miles</span>
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }

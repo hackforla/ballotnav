@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "Home.css";
+import "./Home.css";
 
 // npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
@@ -27,7 +27,7 @@ function Home() {
         height="100%"
         panelsSize={[40, 60]}
         sizeUnitMeasure="%"
-        resizerColor="#333333"
+        resizerColor="#ffffff"
         resizerSize="5px"
       >
         <div className="sidePanel">
@@ -40,8 +40,8 @@ function Home() {
             {/* search bar placeholder */}
             <input></input>
           </div>
-          <SidePanelList />
-          {/* <SidePannelSelection /> */}
+          {/* <SidePanelList /> */}
+          <SidePannelSelection />
         </div>
         {/* temporary image to represent map */}
         <div

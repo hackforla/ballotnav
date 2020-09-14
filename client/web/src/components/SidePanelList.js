@@ -9,17 +9,6 @@ export default function SidePanelList() {
     <div className="sidePanelScroll">
       {/* search results should be dynamically inserted here */}
       <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
     </div>
   );
 }
