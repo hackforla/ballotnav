@@ -7,13 +7,11 @@ services:
     build: "./"
     image: "api"
     ports:
-      - "8888:5000"
+      - "8080:8080"
     links:
       - db
     environment:
       - SQLALCHEMY_DATABASE_URI=postgres://ballotnav:pgpass@db:5432/main
-      - FLASK_APP=ballotnav
-    command: python wsgi.py
     depends_on:
       - db
 
