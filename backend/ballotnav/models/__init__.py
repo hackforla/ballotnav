@@ -1,5 +1,5 @@
 """ models """
-from .dropoff import DropoffModel, DropoffSchema
+from .dropoff import Dropoff
 
-dropoff_schema = DropoffSchema()
-dropoffs_schema = DropoffSchema(many=True)
+# schema fields for Dropoff objects
+dropoff_schema = Dropoff.DropoffSchema()

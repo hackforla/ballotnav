@@ -25,8 +25,8 @@ def upgrade():
     op.create_table(
         "dropoffs",
         Column("id", BigInteger, primary_key=True),
-        Column("state_name", String(20), nullable=False, unique=True),
-        Column("state_short_code", String(2), nullable=False, unique=True),
+        Column("state_name", String(20), nullable=False),
+        Column("state_short_code", String(2), nullable=False),
         Column("county", String(100), nullable=False),
         Column("position", String(100)),
         Column("contact_name", String(100)),
