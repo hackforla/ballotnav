@@ -41,7 +41,7 @@ function Home() {
             <input></input>
           </div>
           {/* <SidePanelList /> */}
-          <SidePannelSelection />
+          <SidePanelList />
         </div>
         {/* temporary image to represent map */}
         <div
