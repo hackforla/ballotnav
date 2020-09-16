@@ -8,16 +8,6 @@
   padding: var(--standardPadding);
 }
 
-input {
-  height: 20pt;
-  margin: var(--standardMargin);
-  font-size: 18pt;
-  width: 100%;
-  border: 2px solid var(--ballotBlueLight);
-  border-radius: var(--standardRadius);
-  outline: none;
-}
-
 .application {
   height: 100vh;
   overflow: hidden;
@@ -27,13 +17,6 @@ input {
   background: #ffffff;
   height: 100%;
   width: 100%;
-}
-
-.sidePanelScroll {
-  overflow: scroll;
-  height: 100%;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .sidePanelScroll::-webkit-scrollbar {

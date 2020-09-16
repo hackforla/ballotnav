@@ -1,0 +1,38 @@
+.landingPage {
+  width: 100%;
+  background-color: rgb(233, 233, 233);
+  height: 100vh;
+}
+
+.landingInput {
+  margin: 0;
+  width: 400px;
+  position: absolute;
+  right: 50%;
+  top: calc(40%);
+  transform: translateX(50%);
+  text-align: center;
+}
+
+.ballotNavLogoLarge {
+  width: 300px;
+  position: absolute;
+  right: 50%;
+  top: calc(40% - 100px);
+  transform: translateX(50%);
+}
+
+.landingPageText {
+  text-align: center;
+  width: 60%;
+  position: absolute;
+  right: 50%;
+  top: calc(40% + 150px);
+  transform: translateX(50%);
+  margin: 0;
+}
+
+.landingPageP {
+  font-size: 14pt;
+  color: var(--ballotBlue);
+}

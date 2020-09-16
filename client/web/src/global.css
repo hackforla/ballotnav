@@ -1,22 +1,4 @@
-* {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-h1 {
-  font-size: 18pt;
-  margin: var(--standardMargin);
-}
-
-p {
-  font-size: 16pt;
-  margin: var(--standardMargin);
-}
-
-a {
-  color: var(--ballotBlue);
-}
-
+/* use global or create variables whenever possible */
 :root {
   --ballotBlue: #1b2152;
   --ballotBlueLight: #7a80ac;
@@ -26,4 +8,37 @@ a {
   --standardMargin: 25px;
   --standardPadding: 10px;
   --standardRadius: 5px;
+}
+
+* {
+  margin: 0;
+
+  /* choose better font */
+  font-family: sans-serif;
+}
+
+/* title in application sidebar */
+h1 {
+  font-size: 18pt;
+  margin: var(--standardMargin);
+}
+
+/* details in application sidebar */
+p {
+  font-size: 16pt;
+  margin: var(--standardMargin);
+}
+
+a {
+  color: var(--ballotBlue);
+}
+
+input {
+  height: 20pt;
+  margin: var(--standardMargin);
+  font-size: 18pt;
+  width: 100%;
+  border: 2px solid var(--ballotBlueLight);
+  border-radius: var(--standardRadius);
+  outline: none;
 }
