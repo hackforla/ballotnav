@@ -14,7 +14,6 @@ export default function SidePanelList(props) {
     isSelected(false);
   }
     isSelected(true);
-  }
   if (showList == true) {
     return (
       <div className="sidePanelScroll">
