@@ -11,7 +11,7 @@ services:
     links:
       - db
     environment:
-      - SQLALCHEMY_DATABASE_URI=postgres://ballotnav:pgpass@db:5432/main
+      - NODE_ENV=development
     depends_on:
       - db
 
