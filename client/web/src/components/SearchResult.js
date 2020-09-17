@@ -3,7 +3,7 @@ import "./SearchResult.css";
 
 export default function SearchResult(props) {
   return (
-    <button onClick={()=>props.onClick(props.id)}>
+    <div onClick={()=>props.onClick(props.id)}>
     <div className="searchResult">
       {/* dynamic data should be passed in as these value */}
       <h1>{props.title}</h1>
@@ -17,6 +17,6 @@ export default function SearchResult(props) {
         <span className="inline">{props.distance} miles</span>
       </p>
     </div>
-    </button>
+    </div>
   );
 }
