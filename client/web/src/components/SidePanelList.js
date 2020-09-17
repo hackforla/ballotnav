@@ -8,13 +8,13 @@ import { useState } from "react";
 import SearchResult from "../components/SearchResult";
 
 export default function SidePanelList(props) {
-  const [showTest, selectLocation2] = useState(true);
+  const [showTest, isSelected] = useState(true);
   function selectLocation(a) {
     console.log(a);
-    selectLocation2(false);
+    isSelected(false);
   }
   function goBack() {
-    selectLocation2(true);
+    isSelected(true);
   }
   if (showTest == true) {
     return (
