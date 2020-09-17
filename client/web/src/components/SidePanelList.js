@@ -13,7 +13,6 @@ export default function SidePanelList(props) {
     console.log(a);
     isSelected(false);
   }
-  function goBack() {
     isSelected(true);
   }
   if (showList == true) {
