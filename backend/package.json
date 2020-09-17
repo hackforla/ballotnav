@@ -16,6 +16,10 @@
   },
   "homepage": "https://github.com/hackforla/ballotnav#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "sequelize-auto": "^0.5.4"
   }
 }

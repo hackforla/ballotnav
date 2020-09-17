@@ -1,6 +1,6 @@
 --- dropoff data
 CREATE TABLE dropoffs (
-    id integer PRIMARY KEY SERIAL,
+    id SERIAL PRIMARY KEY,
     state_name varchar(20) NOT NULL,
     state_short_code varchar(2) NOT NULL,
     county varchar(100) NOT NULL,
@@ -12,7 +12,8 @@ CREATE TABLE dropoffs (
     fax varchar(40),
     phone varchar(40),
     county_website varchar(255),
-    source_url varchar(255) latitude numeric,
+    source_url varchar(255),
+    latitude numeric,
     longitude numeric,
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
