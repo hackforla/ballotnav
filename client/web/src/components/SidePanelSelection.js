@@ -3,10 +3,13 @@ import "./SidePanelSelection.css";
 import SearchResultJSON from "./searchResult.json";
 
 export default function SidePanelSelection(props) {
+  function goBack() {
+    props.state(true);
+  }
   return (
     <div className="searchSelection">
       <p>
-        <div onClick={()=>props.onClick(props)}> ~ back </div>
+        <div onClick={goBack}> ~ back </div>
       </p>
       <h1>{SearchResultJSON[0].title}</h1>
       <p>{SearchResultJSON[0].location}</p>

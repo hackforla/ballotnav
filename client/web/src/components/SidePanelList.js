@@ -33,5 +33,5 @@ export default function SidePanelList(props) {
       </div>
     );
   }
-  return <SidePanelSelection onClick={goBack} />;
+  return <SidePanelSelection state={isSelected} />;
 }
