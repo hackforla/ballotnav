@@ -4,6 +4,7 @@ services:
   ballotnav:
     volumes:
       - .:/ballotnav
+      - /ballotnav/node_modules
     build: "./"
     image: "api"
     ports:
@@ -14,6 +15,7 @@ services:
       - NODE_ENV=development
     depends_on:
       - db
+    command: npx nodemon -w /ballotnav/app.js -w /ballotnav/models -L app.js
 
   db:
     image: postgres:11

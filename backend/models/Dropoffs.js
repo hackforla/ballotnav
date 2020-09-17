@@ -3,7 +3,7 @@
  */
 
 const Dropoffs = function (sequelize, DataTypes) {
-  sequelize.define('Dropoffs', {
+  return sequelize.define('Dropoffs', {
     state_name :{
         type: DataTypes.STRING(20),
         allowNull: false

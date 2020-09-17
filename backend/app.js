@@ -10,30 +10,17 @@ const app = express();
 const router = express.Router();
 const port = 8080;
 const Dropoffs = require("./models/Dropoffs.js");
+const db = require('./models/index');
 
-router.use(function (req, res) {
-  console.log("/" + req.method);
- res.sendStatus(200);
-});
-
-app.use("/", router);
-
-
-router.get(function (req, res) {
-    console.log("/" + req.method);
-   res.send("👋Hi Developers!");
-  });
-  
-  
-router.get("/status", (req, res) =>{
-    res.send("Operating");
-});
+app.get("/status", (req, res) => {
+  res.send(`ok at ${new Date()}`)
+})
 
 
 app.get("/dropoff/:state.:state_county", function(req, res) {
   let state = req.params["state"];
   let state_county = req.params["state_county"];
-  Dropoffs.findAll(
+  db.Dropoffs.findAll(
     {where: {state_short_code: state,
     county: state_county}}).then( function(dropoffs) 
     {
