@@ -13,10 +13,6 @@ export default function SidePanelList(props) {
     console.log(a);
     isSelected(false);
   }
-<<<<<<< .merge_file_0X9Rms
-=======
-    isSelected(true);
->>>>>>> .merge_file_cK0QEx
   if (showList == true) {
     return (
       <div className="sidePanelScroll">
