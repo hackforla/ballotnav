@@ -8,7 +8,7 @@ import { useState } from "react";
 import SearchResult from "../components/SearchResult";
 
 export default function SidePanelList(props) {
-  const [showTest, isSelected] = useState(true);
+  const [showList, isSelected] = useState(true);
   function selectLocation(a) {
     console.log(a);
     isSelected(false);
@@ -16,7 +16,7 @@ export default function SidePanelList(props) {
   function goBack() {
     isSelected(true);
   }
-  if (showTest == true) {
+  if (showList == true) {
     return (
       <div className="sidePanelScroll">
         {SearchResultJSON.map((SearchResultJSON, index) => {
