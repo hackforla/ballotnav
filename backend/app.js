@@ -24,7 +24,6 @@ router.get("/status", (req, res) =>{
     res.send("Operating");
 });
 
-
 app.get('/', async function(req, res) {
   try {
     res.send(
