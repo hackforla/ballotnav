@@ -8,6 +8,7 @@
   --standardMargin: 25px;
   --standardPadding: 10px;
   --standardRadius: 5px;
+  --standardTransition: 300ms ease;
 }
 
 * {
@@ -23,6 +24,30 @@ h1 {
   margin: var(--standardMargin);
 }
 
+@font-face {
+  font-family: adobe-caslon-pro;
+  src: url(../src/assets/ACaslonPro-Bold.otf);
+}
+
+h2 {
+  font-size: 28pt;
+  margin: var(--standardMargin);
+  margin-top: 9px;
+  margin-bottom: 0px;
+  font-family: adobe-caslon-pro, serif;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ballotBlue);
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 26pt;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* details in application sidebar */
 p {
   font-size: 16pt;
@@ -32,10 +57,8 @@ p {
 a {
   color: var(--ballotBlue);
 }
-
 input {
   height: 20pt;
-  margin: var(--standardMargin);
   font-size: 18pt;
   width: 100%;
   border: 2px solid var(--ballotBlueLight);
@@ -51,4 +74,8 @@ select {
   border: 2px solid var(--ballotBlueLight);
   border-radius: var(--standardRadius);
   outline: none;
+}
+
+.noDecoration {
+  text-decoration: none;
 }
