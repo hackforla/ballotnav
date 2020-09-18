@@ -18,6 +18,7 @@
   "dependencies": {
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "node-fetch": "^2.6.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",

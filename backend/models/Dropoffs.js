@@ -18,7 +18,7 @@ const Dropoffs = function (sequelize, DataTypes) {
     },
     position: {
         type: DataTypes.STRING
-    }, 
+    },
     contact_name: {
         type: DataTypes.STRING
     },
@@ -27,7 +27,7 @@ const Dropoffs = function (sequelize, DataTypes) {
     },
     address_2: {
         type: DataTypes.STRING
-    }, 
+    },
     email: {
         type: DataTypes.STRING
     },
@@ -44,12 +44,12 @@ const Dropoffs = function (sequelize, DataTypes) {
         type: DataTypes.STRING
     },
     latitude: {
-        type: DataTypes.INTEGER
-    }, 
+        type: DataTypes.FLOAT
+    },
     longitude: {
-        type: DataTypes.INTEGER
-    } 
-  }); 
+        type: DataTypes.FLOAT
+    }
+  });
 }
 
 module.exports = Dropoffs;
