@@ -1,5 +1,5 @@
 ---
-name: Blank IssuFeature Suggestione
+name: Feature Suggestione
 about: Suggest a feature
 title: Feature Suggestion
 labels: product management
