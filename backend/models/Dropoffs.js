@@ -1,7 +1,9 @@
-const { DataTypes } = require('sequelize');
-const db = require('../db/database')
+/*
+ * define dropoffs table
+ */
 
-const Dropoffs = db.define('Dropoffs', {
+const Dropoffs = function (sequelize, DataTypes) {
+  return sequelize.define('Dropoffs', {
     state_name :{
         type: DataTypes.STRING(20),
         allowNull: false
@@ -47,5 +49,7 @@ const Dropoffs = db.define('Dropoffs', {
     longitude: {
         type: DataTypes.INTEGER
     } 
-}); 
-  module.exports = Dropoffs;
+  }); 
+}
+
+module.exports = Dropoffs;
