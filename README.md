@@ -29,6 +29,8 @@ This guide will help get you up to speed on what you need to know to get started
 7. Read project details and review our [Project Management Board](https://github.com/hackforla/ballotnav/projects/1)
 8. Weekly team meetings will be Saturdays 5PM - 6PM, Tuesdays 6PM - 8PM, & Thursdays 5:30PM - 7:30PM (all times PDT)
 
+If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
+
 ### Graphic Design, Videomaking, or Marketing Volunteer?
 
 Please contact Mya Stark (myastark@gmail.com) for more information
