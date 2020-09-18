@@ -13,7 +13,6 @@ export default function SearchResult(props) {
           <a href={props.website}>{props.website}</a>
         </p>
         <p>
-          <span className="inline">{props.time}</span>
           <span className="inline">{props.distance} miles</span>
         </p>
       </div>
