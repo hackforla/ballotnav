@@ -24,6 +24,8 @@ export default function SidePanelList(props) {
               id={SearchResultJSON.id}
               title={SearchResultJSON.title}
               location={SearchResultJSON.location}
+              distance={SearchResultJSON.distance}
+              website={SearchResultJSON.website}
             />
           );
         })}

@@ -25,7 +25,6 @@ export default function SidePanelSelection(props) {
         amet veniam incididunt commodo consequat. Sit non reprehenderit esse
         veniam qui sint ea irure voluptate deserunt.
       </p>
-
       <p className="detail">
         Proident id Lorem adipisicing pariatur aute proident dolor esse. Sit
         sunt velit ad consectetur proident duis occaecat eu in aliqua voluptate.

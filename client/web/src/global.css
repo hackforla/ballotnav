@@ -42,3 +42,13 @@ input {
   border-radius: var(--standardRadius);
   outline: none;
 }
+
+select {
+  height: 24pt;
+  margin: var(--standardMargin);
+  font-size: 18pt;
+  width: 150pt;
+  border: 2px solid var(--ballotBlueLight);
+  border-radius: var(--standardRadius);
+  outline: none;
+}

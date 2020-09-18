@@ -10,7 +10,7 @@ import Background from "../assets/mapPlaceholder.png";
 
 // components
 import SidePanelList from "../components/SidePanelList";
-import SidePannelSelection from "../components/SidePanelSelection";
+import Mapbox from "../components/Mapbox";
 
 // png logo (svg rendered oddly)
 import Logo from "../assets/ballotnav-logo.png";
@@ -32,27 +32,29 @@ function Home() {
       >
         <div className="sidePanel">
           <div className="menu">
-            <img
-              src={Logo}
-              alt="BallotNav Logo"
-              className="ballotNavLogo"
-            ></img>
+            <a href="/about">
+              <img
+                src={Logo}
+                alt="BallotNav Logo"
+                className="ballotNavLogo"
+              ></img>
+            </a>
+            <h1>Volunteer</h1>
+            <h1>Press</h1>
             {/* search bar placeholder */}
+          </div>
+          <div className="menu">
             <input></input>
+            <select>
+              <option value="english">English</option>
+              <option value="spanish">Spanish</option>
+            </select>
           </div>
           {/* <SidePanelList /> */}
           <SidePanelList />
         </div>
         {/* temporary image to represent map */}
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            backgroundImage: "url(" + Background + ")",
-            backgroundSize: "cover",
-          }}
-        ></div>
+        <Mapbox />
       </ResizablePanels>
     </div>
   );
