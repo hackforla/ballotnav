@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 import "./Home.css";
 
 // npm module for resizing panels (should be replaced)
@@ -13,7 +13,7 @@ import Mapbox from "../components/Mapbox";
 import Logo from "../assets/ballotnav-logo.png";
 
 function Home() {
-  const { id } = useParams();
+  //const { id } = useParams();
   //const hasID = id !== undefined;
   return (
     <div className="application">
