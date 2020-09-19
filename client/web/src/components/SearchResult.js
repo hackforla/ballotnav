@@ -1,17 +1,21 @@
 import React from "react";
 import "./SearchResult.css";
 
-export default function SearchResult() {
+export default function SearchResult(props) {
   return (
-    <div className="searchResult">
-      <h1>William Faria Elementary Shool</h1>
-      <div>
-        <p>10155 Barbara Ln, Cupertino, CA 95014</p>
+    <div onClick={() => props.onClick(props.id)}>
+      <div className="searchResult">
+        {/* dynamic data should be passed in as these value */}
+        <h1>{props.title}</h1>
+        {/* each <p> tag is 1 row of data */}
+        <p>{props.location}</p>
+        <p>
+          <a href={props.website}>{props.website}</a>
+        </p>
+        <p>
+          <span className="inline">{props.distance} miles</span>
+        </p>
       </div>
-      <p>
-        <span className="inline">0.4 mile</span>{" "}
-        <span className="inline">20 min</span>
-      </p>
     </div>
   );
 }

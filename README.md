@@ -14,7 +14,7 @@ Voters in the upcoming presidential election are caught between a rock and a har
 
 
 ## Contribute 
-### Data Scientists and Community Data Monitors Needed [Join Now](https://docs.google.com/document/d/1gsvoKcn3j9CaJbzxkc52ONB0HudmEq-QgV8Xps2If1g/edit?ts=5f5c3186#)
+### Data Scientists and Community Data Monitors Needed [Join Now](https://docs.google.com/document/d/1BCwUbR7_N5dSYLlMRQTgpAydi3oxQguWqZ8Y5PdTY44/edit#)
 
 ### How to join the Development team 
 
@@ -28,6 +28,8 @@ This guide will help get you up to speed on what you need to know to get started
 6. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
 7. Read project details and review our [Project Management Board](https://github.com/hackforla/ballotnav/projects/1)
 8. Weekly team meetings will be Saturdays 5PM - 6PM, Tuesdays 6PM - 8PM, & Thursdays 5:30PM - 7:30PM (all times PDT)
+
+If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
 
 ### Graphic Design, Videomaking, or Marketing Volunteer?
 

@@ -1,15 +1,20 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
+import "./Home.css";
+
+// npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
-// temporary background image to represent map remove this and image file when real map put in
-import Background from "../assets/mapPlaceholder.png";
+
+// components
+import SidePanelList from "../components/SidePanelList";
+import Mapbox from "../components/Mapbox";
+
+// png logo (svg rendered oddly)
 import Logo from "../assets/ballotnav-logo.png";
-import SearchResult from "../components/SearchResult";
-import "../pages/Home.css";
 
 function Home() {
-  const { id } = useParams();
-  const hasID = id !== undefined;
+  //const { id } = useParams();
+  //const hasID = id !== undefined;
   return (
     <div className="application">
       <ResizablePanels
@@ -19,44 +24,49 @@ function Home() {
         height="100%"
         panelsSize={[40, 60]}
         sizeUnitMeasure="%"
-        resizerColor="#333333"
+        resizerColor="#ffffff"
         resizerSize="5px"
       >
         <div className="sidePanel">
           <div className="menu">
-            <img
-              src={Logo}
-              alt="BallotNav Logo"
-              className="ballotNavLogo"
-            ></img>
+            <a href="/about">
+              <img
+                src={Logo}
+                alt="BallotNav Logo"
+                className="ballotNavLogo"
+              ></img>
+            </a>
+            <a
+              href="https://www.hackforla.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="noDecoration"
+            >
+              <h2>volunteer</h2>
+            </a>
+            <a
+              href="https://www.ballotnav.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="noDecoration"
+            >
+              <h2>press</h2>
+            </a>
+          </div>
+          <div className="menu">
             <input></input>
+            {/* <select>
+              <option value="english">English</option>
+              <option value="spanish">Spanish</option>
+            </select> */}
+            <button className="searchButton">Search</button>
           </div>
-          <div className="sidePanelScroll">
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-            <SearchResult />
-          </div>
+          {/* <SidePanelList /> */}
+          <SidePanelList />
         </div>
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            backgroundImage: "url(" + Background + ")",
-            backgroundSize: "cover",
-          }}
-        ></div>
+        {/* temporary image to represent map */}
+        <Mapbox />
       </ResizablePanels>
-      <br />
     </div>
   );
 }

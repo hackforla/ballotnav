@@ -4,18 +4,18 @@ services:
   ballotnav:
     volumes:
       - .:/ballotnav
+      - /ballotnav/node_modules
     build: "./"
     image: "api"
     ports:
-      - "8888:5000"
+      - "8080:8080"
     links:
       - db
     environment:
-      - SQLALCHEMY_DATABASE_URI=postgres://ballotnav:pgpass@db:5432/main
-      - FLASK_APP=ballotnav
-    command: python wsgi.py
+      - NODE_ENV=development
     depends_on:
       - db
+    command: npx nodemon -w /ballotnav/app.js -w /ballotnav/models -w /ballotnav/seeders -L app.js
 
   db:
     image: postgres:11
