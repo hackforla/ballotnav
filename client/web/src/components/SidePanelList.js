@@ -13,7 +13,7 @@ export default function SidePanelList(props) {
     console.log(a);
     isSelected(false);
   }
-  if (showList == true) {
+  if (showList === true) {
     return (
       <div className="sidePanelScroll">
         {SearchResultJSON.map((SearchResultJSON, index) => {

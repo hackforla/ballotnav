@@ -34,13 +34,13 @@ export default function About() {
         <div className="landingHeroWrapper">
           <img
             src={Hero}
-            alt="BallotNav Hero Image"
+            alt="BallotNav Hero"
             className="ballotnavHero"
           ></img>
         </div>
       </div>
       <div className="landingFooter">
-        <a href="https://www.hackforla.org/" target="_blank">
+        <a href="https://www.hackforla.org/" target="_blank" rel="noopener noreferrer">
           <img
             src={hackForLaLogo}
             alt="BallotNav Logo"
