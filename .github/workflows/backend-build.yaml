@@ -29,10 +29,6 @@ jobs:
         with:
           context: ./backend
           file: ./backend/Dockerfile
-          repository: ballotnav/ballotnav
-          tag_with_ref: true
-          tag_with_sha: true
-          add_git_labels: true
-          labels: description="Food Oasis LA",maintained="foodoasis+hub@hackforla.org"
+          user: ballotnav/ballotnav:latest
       - name: built image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
