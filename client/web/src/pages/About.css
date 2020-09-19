@@ -1,24 +1,84 @@
 .landingPage {
   width: 100%;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(247, 247, 247);
   height: 100vh;
+  overflow: hidden;
+}
+
+.landingFlex {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.landingSearchButton {
+  margin: 0;
+  margin-top: 20px;
+  width: 8rem;
+  text-align: center;
+  background-color: var(--ballotBlue);
+  height: 34pt;
+  color: white;
+  font-size: 18pt;
+  border-radius: var(--standardRadius);
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  transition: var(--standardTransition);
+  cursor: pointer;
+}
+
+.landingSearchButton:hover {
+  background-color: var(--ballotBlueDark);
+}
+
+.landingContentWrapper {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.landingHeroWrapper {
+  height: 100%;
+  width: 50%;
+}
+
+.landingFooterLogo {
+  height: 75px;
+  margin: 30px;
+}
+
+.landingFooter {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.contentCenter {
+  margin-top: 28vh;
+  margin-left: 10%;
 }
 
 .landingInput {
   margin: 0;
+  margin-top: 20px;
   width: 400px;
-  position: absolute;
-  right: 50%;
-  top: calc(40%);
-  transform: translateX(50%);
+  display: block;
   text-align: center;
+  background-color: white;
+  height: 30pt;
 }
 
-.ballotNavLogoLarge {
-  width: 300px;
+.ballotnavLogoLarge {
+  width: 400px;
+}
+
+.ballotnavHero {
+  height: 75vh;
   position: absolute;
-  right: 50%;
-  top: calc(40% - 100px);
+  bottom: 0;
+  left: 50%;
   transform: translateX(50%);
 }
 

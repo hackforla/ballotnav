@@ -2,7 +2,7 @@
   background-color: #f3f3f3;
   padding: var(--standardPadding);
   transition: 300ms ease;
-  margin: 5px 0 5px 5px;
+  margin: 0px 0 5px 5px;
 }
 
 .searchResult:hover {
