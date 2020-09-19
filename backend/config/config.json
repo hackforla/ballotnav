@@ -3,7 +3,7 @@
     "username": "ballotnav",
     "password": "pgpass",
     "database": "main",
-    "host": "127.0.0.1",
+    "host": "db",
     "dialect": "postgresql"
   },
   "test": {
