@@ -4,8 +4,8 @@ on:
     branches:
       - main
       - master
-    paths:
-      - "client/web/**"
+  #  paths:
+  #    - "client/web/**"
 
 jobs:
   client:
@@ -35,4 +35,4 @@ jobs:
         
       - name: Push to s3
         run: |
-          aws s3 sync /client/web/build s3://dev.ballotnav.org
+          aws s3 sync /client/web/build s3://dev.ballotnav.org --delete
