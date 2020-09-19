@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SidePanelSelection.css";
 import SearchResultJSON from "./searchResult.json";
 
-export default function SidePanelSelection(props) {
-  function goBack() {
-    props.state(true);
-  }
+export default function SidePanelSelection({ searchResultId, goToHome }) {
+  const [searchResultDetail, setSearchResultDetail] = useState(null);
+
+  useEffect(() => {
+    let index = SearchResultJSON.findIndex((x) => x.id == searchResultId);
+    setSearchResultDetail(SearchResultJSON[index]);
+  }, []);
   return (
     <div className="searchSelection">
-      <p>
-        <div onClick={goBack}> ~ back </div>
-      </p>
-      <h1>{SearchResultJSON[0].title}</h1>
-      <p>{SearchResultJSON[0].location}</p>
-      <p>
-        <a href={SearchResultJSON[0].website}>{SearchResultJSON.website}</a>
-      </p>
-      <p>{SearchResultJSON[0].time}</p>
-      <p>{SearchResultJSON[0].distance} miles</p>
+      <div onClick={goToHome} className="back">
+        <span className="back__icon">BACK</span>
+      </div>
+
+      <div>
+        {/* dynamic data should be passed in as these value */}
+        <h1>{searchResultDetail?.title}</h1>
+        {/* each <p> tag is 1 row of data */}
+        <p>{searchResultDetail?.location}</p>
+        <p>
+          <a href={searchResultDetail?.website}>
+            {searchResultDetail?.website}
+          </a>
+        </p>
+        <p>
+          <span className="inline">{searchResultDetail?.time}</span>
+          <span className="inline">{searchResultDetail?.distance} miles</span>
+        </p>
+      </div>
+
       <p className="detail">
         Reprehenderit excepteur tempor adipisicing nostrud. Magna quis nulla
         aliqua est sit cupidatat occaecat quis exercitation. Id mollit magna
@@ -25,6 +38,7 @@ export default function SidePanelSelection(props) {
         amet veniam incididunt commodo consequat. Sit non reprehenderit esse
         veniam qui sint ea irure voluptate deserunt.
       </p>
+
       <p className="detail">
         Proident id Lorem adipisicing pariatur aute proident dolor esse. Sit
         sunt velit ad consectetur proident duis occaecat eu in aliqua voluptate.
