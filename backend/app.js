@@ -1,16 +1,7 @@
 const express = require("express");
-
-const sequelize = require('sequelize');
-
-const fs = require('fs');
-const csv = require('csvtojson');
-const fetch = require("node-fetch");
-
 const app = express();
 app.use(express.json());
-const router = express.Router();
 const port = 8080;
-const Dropoffs = require("./models/Dropoffs.js");
 const db = require('./models/index');
 const loadDropoffs = require('./seeders/loadDropoffs');
 
@@ -25,20 +16,14 @@ app.get("/seed", (req, res, next) => {
     .catch(next)
 })
 
-app.get("/dropoff/:state.:state_county", function(req, res) {
+app.get("/dropoff/:state.:state_county", (req, res, next) => {
   let state = req.params["state"];
   let state_county = req.params["state_county"];
   db.Dropoffs.findAll(
     {where: {state_short_code: state,
-    county: state_county}}).then( function(dropoffs)
-    {
-        if (!dropoffs) {
-          res.send([])
-        }
-        res.send({"Dropoffs": dropoffs})
-    }).catch(function(err) {
-      res.send({"Error": "Error occurred"})
-    });
+    county: state_county}})
+    .then(dropoffs => res.send({"Dropoffs": dropoffs}))
+    .catch(next)
 });
 
 app.post("/dropoff", (req, res, next) => {
