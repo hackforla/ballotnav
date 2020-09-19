@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - master
+      - ci
   #  paths:
   #    - "client/web/**"
 
@@ -35,4 +36,4 @@ jobs:
       - name: print current directory
         run: cd client/web && ls -la
       - name: Push to s3
-        run: aws s3 sync /client/web/build/ s3://dev.ballotnav.org --delete
+        run: aws s3 sync client/web/build/ s3://dev.ballotnav.org --delete
