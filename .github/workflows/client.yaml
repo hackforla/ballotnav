@@ -35,4 +35,4 @@ jobs:
         
       - name: Push to s3
         run: |
-          aws s3 sync /client/web/build s3://dev.ballotnav.org --delete
+          aws s3 sync /client/web/build/ s3://dev.ballotnav.org --delete
