@@ -1,10 +1,7 @@
-/* global document */
+/* global */
 import * as React from "react";
 import { useState } from "react";
-import { render } from "react-dom";
 import MapGL from "react-map-gl";
-
-const MAPBOX_TOKEN = ""; // Set your mapbox token here
 
 export default function Mapbox() {
   const [viewport, setViewport] = useState({

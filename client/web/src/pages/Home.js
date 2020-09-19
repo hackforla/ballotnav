@@ -5,9 +5,6 @@ import "./Home.css";
 // npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
 
-// temporary background image to represent map remove this and image file when real map put in
-import Background from "../assets/mapPlaceholder.png";
-
 // components
 import SidePanelList from "../components/SidePanelList";
 import Mapbox from "../components/Mapbox";
@@ -17,7 +14,7 @@ import Logo from "../assets/ballotnav-logo.png";
 
 function Home() {
   const { id } = useParams();
-  const hasID = id !== undefined;
+  //const hasID = id !== undefined;
   return (
     <div className="application">
       <ResizablePanels
@@ -42,6 +39,7 @@ function Home() {
             <a
               href="https://www.hackforla.org/"
               target="_blank"
+              rel="noopener noreferrer"
               className="noDecoration"
             >
               <h2>volunteer</h2>
@@ -49,6 +47,7 @@ function Home() {
             <a
               href="https://www.ballotnav.org/"
               target="_blank"
+              rel="noopener noreferrer"
               className="noDecoration"
             >
               <h2>press</h2>
