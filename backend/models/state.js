@@ -16,6 +16,23 @@ module.exports = (sequelize, DataTypes) => {
   state.init({
     abbreviation: DataTypes.STRING,
     name: DataTypes.STRING
+    authority_name: DataTypes.STRING,
+    fax: DataTypes.STRING,
+    fips_code: DataTypes.STRING,
+    geojson: DataTypes.JSON,
+    late_registration_possible: DataTypes.BOOLEAN,
+    phone: DataTypes.STRING,
+    website: DataTypes.STRING,
+    website_voter_registration: DataTypes.STRING,
+    website_ballot_check: DataTypes.STRING,
+    createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+    },
+    updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+    }
   }, {
     sequelize,
     modelName: 'state',
