@@ -13,6 +13,7 @@ services:
       - db
     environment:
       - NODE_ENV=development
+      - DISABLE_DB_MIGRATION_AUTO_RUN
     depends_on:
       - db
     command: npx nodemon -w /ballotnav/app.js -w /ballotnav/models -w /ballotnav/seeders -L app.js
