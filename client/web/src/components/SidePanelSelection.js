@@ -2,15 +2,16 @@ import React from "react";
 import "./SidePanelSelection.css";
 import SearchResultJSON from "./searchResult.json";
 
-export default function SidePanelSelection() {
+export default function SidePanelSelection(props) {
+  function goBack() {
+    props.state(true);
+  }
   return (
     <div className="searchSelection">
       <p>
-        <pre> ~ back </pre>
+        <div onClick={goBack}> ~ back </div>
       </p>
-      {/* dynamic data should be passed in as these value */}
       <h1>{SearchResultJSON[0].title}</h1>
-      {/* each <p> tag is 1 row of data */}
       <p>{SearchResultJSON[0].location}</p>
       <p>
         <a href={SearchResultJSON[0].website}>{SearchResultJSON.website}</a>
@@ -24,7 +25,6 @@ export default function SidePanelSelection() {
         amet veniam incididunt commodo consequat. Sit non reprehenderit esse
         veniam qui sint ea irure voluptate deserunt.
       </p>
-
       <p className="detail">
         Proident id Lorem adipisicing pariatur aute proident dolor esse. Sit
         sunt velit ad consectetur proident duis occaecat eu in aliqua voluptate.

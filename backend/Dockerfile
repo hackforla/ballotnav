@@ -1,7 +1,8 @@
 FROM node:12
 
-COPY package*.json ./
+COPY package*.json ./ballotnav/
 
+WORKDIR /ballotnav
 RUN npm install
 
 COPY . .

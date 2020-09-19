@@ -1,52 +1,68 @@
 const express = require("express");
+
+const sequelize = require('sequelize');
+
 const fs = require('fs');
 const csv = require('csvtojson');
 const fetch = require("node-fetch");
 
 const app = express();
+app.use(express.json());
 const router = express.Router();
-
 const port = 8080;
+const Dropoffs = require("./models/Dropoffs.js");
+const db = require('./models/index');
+const loadDropoffs = require('./seeders/loadDropoffs');
 
-router.use(function (req, res) {
-  console.log("/" + req.method);
- res.sendStatus(200);
-});
+app.get("/status", (req, res) => {
+  res.send(`ok at ${new Date()}`)
+})
 
+app.get("/seed", (req, res, next) => {
+  db.sequelize.sync({ force: true }) // reset db
+    .then(loadDropoffs)
+    .then(() => res.json({ message: "database seeded" }))
+    .catch(next)
+})
 
-router.get(function (req, res) {
-    console.log("/" + req.method);
-   res.send("👋Hi Developers!");
-  });
-  
-  
-router.get("/status", (req, res) =>{
-    res.send("Operating");
-});
-
-app.get('/', async function(req, res) {
-  try {
-    res.send(
-      (async () =>{
-        const locationdata = await csv().fromFile("Kansas County Officials - data.csv")
-        const access_token = "pk.eyJ1IjoiYmFsbG90bmF2IiwiYSI6ImNrZjAycnpldzBzdzkzMW51eGdwOWxtaWIifQ.KlkcMSLbgrj8qkX2_RSaog";
-    
-        for(i = 1; i < locationdata.length; i++){
-            
-            fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationdata[i].field5}.json?access_token=${access_token}`)
-      .then(response => response.json())
-      .then(json => console.log(json.features[1].center))
-           
+app.get("/dropoff/:state.:state_county", function(req, res) {
+  let state = req.params["state"];
+  let state_county = req.params["state_county"];
+  db.Dropoffs.findAll(
+    {where: {state_short_code: state,
+    county: state_county}}).then( function(dropoffs)
+    {
+        if (!dropoffs) {
+          res.send([])
         }
-        
-    })()
-    );
-  } catch (err) {
-    res.json({err})
-  }
-}),
+        res.send({"Dropoffs": dropoffs})
+    }).catch(function(err) {
+      res.send({"Error": "Error occurred"})
+    });
+});
 
-app.use("/", router);
+app.post("/dropoff", (req, res, next) => {
+  db.Dropoffs.create(req.body)
+    .then(data => res.json(data))
+    .catch(next)
+})
+
+app.post("/dropoffs", (req, res, next) => {
+  db.Dropoffs.bulkCreate(req.body, { validate: true })
+    .then(data => res.json(data))
+    .catch(next)
+})
+
+// handle errors
+app.use((err, req, res, next) => {
+  if (
+    err instanceof db.Sequelize.ValidationError ||
+    err instanceof db.Sequelize.AggregateError
+  )
+    res.status(400).send(err)
+  else
+    res.status(500).send(err.message)
+})
 
 app.listen(port, function () {
   console.log("App listening on port 8080!");

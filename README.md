@@ -14,7 +14,7 @@ Voters in the upcoming presidential election are caught between a rock and a har
 
 
 ## Contribute 
-### Data Scientists and Community Data Monitors Needed [Join Now](https://docs.google.com/document/d/1gsvoKcn3j9CaJbzxkc52ONB0HudmEq-QgV8Xps2If1g/edit?ts=5f5c3186#)
+### Data Scientists and Community Data Monitors Needed [Join Now](https://docs.google.com/document/d/1BCwUbR7_N5dSYLlMRQTgpAydi3oxQguWqZ8Y5PdTY44/edit#)
 
 ### How to join the Development team 
 
