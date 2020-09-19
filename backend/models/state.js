@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   state.init({
     abbreviation: DataTypes.STRING,
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
     authority_name: DataTypes.STRING,
     fax: DataTypes.STRING,
     fips_code: DataTypes.STRING,
