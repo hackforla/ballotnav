@@ -39,16 +39,28 @@ function Home() {
                 className="ballotNavLogo"
               ></img>
             </a>
-            <h1>Volunteer</h1>
-            <h1>Press</h1>
-            {/* search bar placeholder */}
+            <a
+              href="https://www.hackforla.org/"
+              target="_blank"
+              className="noDecoration"
+            >
+              <h2>volunteer</h2>
+            </a>
+            <a
+              href="https://www.ballotnav.org/"
+              target="_blank"
+              className="noDecoration"
+            >
+              <h2>press</h2>
+            </a>
           </div>
           <div className="menu">
             <input></input>
-            <select>
+            {/* <select>
               <option value="english">English</option>
               <option value="spanish">Spanish</option>
-            </select>
+            </select> */}
+            <button className="searchButton">Search</button>
           </div>
           {/* <SidePanelList /> */}
           <SidePanelList />

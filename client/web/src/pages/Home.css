@@ -1,11 +1,12 @@
 .ballotNavLogo {
   height: 25pt;
-  margin: var(--standardMargin);
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .menu {
   display: flex;
-  padding: var(--standardPadding);
+  padding-left: 5px;
 }
 
 .application {
@@ -15,18 +16,31 @@
 
 .sidePanel {
   background: #ffffff;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  position: relative;
 }
 
 .sidePanelScroll::-webkit-scrollbar {
   display: none;
 }
 
-.search {
-  float: right;
-}
-
 .searchText {
   font-size: 16pt;
+}
+
+.searchButton {
+  width: 8rem;
+  text-align: center;
+  background-color: var(--ballotBlue);
+  height: 24pt;
+  color: white;
+  font-size: 18pt;
+  border-radius: var(--standardRadius);
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  transition: var(--standardTransition);
+  cursor: pointer;
+  margin-bottom: 5px;
 }
