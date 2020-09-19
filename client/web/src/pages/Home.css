@@ -1,0 +1,32 @@
+.ballotNavLogo {
+  height: 25pt;
+  margin: var(--standardMargin);
+}
+
+.menu {
+  display: flex;
+  padding: var(--standardPadding);
+}
+
+.application {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidePanel {
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+}
+
+.sidePanelScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.search {
+  float: right;
+}
+
+.searchText {
+  font-size: 16pt;
+}
