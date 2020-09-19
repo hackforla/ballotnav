@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - master
     paths:
       - "client/web/**"
 
@@ -24,7 +25,7 @@ jobs:
       - name: Install Packages
         run: cd client/web && npm install
       - name: Build React App
-        run: npm run build
+        run: cd client/web && npm run build
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
