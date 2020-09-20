@@ -1,5 +1,7 @@
 'use strict'
 
+require('module-alias/register')
+
 const fs = require('fs')
 const Sequelize = require('sequelize')
 const env = process.env.NODE_ENV || 'development'

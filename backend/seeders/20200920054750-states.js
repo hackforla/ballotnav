@@ -74,7 +74,7 @@ function generateState(abbr) {
     fax: faker.phone.phoneNumberFormat(),
     fips_code: faker.address.zipCodeByState(state),
     geojson: null,
-    late_registration_possible: fakeer.random.boolean(),
+    late_registration_possible: faker.random.boolean(),
     phone: faker.phone.phoneNumberFormat(),
     website: faker.internet.url(),
     website_voter_registration: faker.internet.url(),
