@@ -74,23 +74,23 @@ function generateState(abbr) {
     fax: faker.phone.phoneNumberFormat(),
     fips_code: faker.address.zipCodeByState(state),
     geojson: null,
-    late_registration_possible: true,
+    late_registration_possible: fakeer.random.boolean(),
     phone: faker.phone.phoneNumberFormat(),
     website: faker.internet.url(),
     website_voter_registration: faker.internet.url(),
     website_ballot_check: faker.internet.url(),
-    createdAt: new Date(),
-    updatedAt: new Date()
+    created_at: new Date(),
+    updated_at: new Date()
   }
 }
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const records = Object.keys(STATES).map(generateState)
-    await queryInterface.bulkInsert('States', records)
+    await queryInterface.bulkInsert('states', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('States', null, {})
+    await queryInterface.bulkDelete('states', null, {})
   }
 };

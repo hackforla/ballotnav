@@ -10,9 +10,11 @@ const app = express();
 app.use(express.json());
 const router = express.Router();
 const port = 8080;
-const Dropoffs = require("./models/Dropoffs.js");
+// const Dropoffs = require("./models/Dropoffs.js");
 const db = require('./models/index');
 // const loadDropoffs = require('./seeders/loadDropoffs');
+
+console.log(Object.keys(db))
 
 async function test() {
   const states = await db.Jurisdiction.findAll({ raw: true })

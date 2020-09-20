@@ -22,8 +22,8 @@ function generateJurisdiction(stateId) {
     fips_place_code: faker.random.number(),
     fips_cons_city_code: faker.random.number(),
     authority_name: null,
-    createdAt: new Date(),
-    updatedAt: new Date()
+    created_at: new Date(),
+    updated_at: new Date()
   }
 }
 
@@ -39,10 +39,10 @@ module.exports = {
       records.push(generateJurisdiction(stateId))
     })
 
-    await queryInterface.bulkInsert('Jurisdictions', records)
+    await queryInterface.bulkInsert('jurisdictions', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Jurisdictions', null, {})
+    await queryInterface.bulkDelete('jurisdictions', null, {})
   }
 };

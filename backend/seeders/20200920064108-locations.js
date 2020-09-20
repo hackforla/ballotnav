@@ -31,8 +31,8 @@ function generateLocation(jurisdictionId) {
     continuous_open: faker.date.future(),
     continuous_close: faker.date.future(),
     schedule_description: null,
-    createdAt: new Date(),
-    updatedAt: new Date()
+    created_at: new Date(),
+    updated_at: new Date()
   }
 }
 
@@ -48,10 +48,10 @@ module.exports = {
       records.push(generateLocation(jurisdictionId))
     })
 
-    await queryInterface.bulkInsert('Locations', records)
+    await queryInterface.bulkInsert('locations', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Locations', null, {})
+    await queryInterface.bulkDelete('locations', null, {})
   }
 };
