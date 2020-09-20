@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Jurisdiction extends Model {
     /**
@@ -12,31 +10,36 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.Jurisdiction.belongsTo(models.State, { foreignKey: 'state_id' })
-      models.Jurisdiction.hasMany(models.Location, { foreignKey: 'jurisdiction_id' })
+      models.Jurisdiction.hasMany(models.Location, {
+        foreignKey: 'jurisdiction_id',
+      })
     }
-  };
-  Jurisdiction.init({
-    name: {
-      allowNull: false,
-      type: DataTypes.STRING,
+  }
+  Jurisdiction.init(
+    {
+      name: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      email: DataTypes.STRING,
+      internal_contact_name: DataTypes.STRING,
+      internal_contact_email: DataTypes.STRING,
+      internal_contact_phone: DataTypes.STRING,
+      internal_contact_fax: DataTypes.STRING,
+      internal_notes: DataTypes.STRING,
+      geojson: DataTypes.JSON,
+      fips_category: DataTypes.STRING,
+      fips_county_code: DataTypes.STRING,
+      fips_stateandcounty_code: DataTypes.STRING,
+      fips_county_sub_code: DataTypes.STRING,
+      fips_place_code: DataTypes.STRING,
+      fips_cons_city_code: DataTypes.STRING,
+      authority_name: DataTypes.STRING,
     },
-    email: DataTypes.STRING,
-    internal_contact_name: DataTypes.STRING,
-    internal_contact_email: DataTypes.STRING,
-    internal_contact_phone: DataTypes.STRING,
-    internal_contact_fax: DataTypes.STRING,
-    internal_notes: DataTypes.STRING,
-    geojson: DataTypes.JSON,
-    fips_category: DataTypes.STRING,
-    fips_county_code: DataTypes.STRING,
-    fips_stateandcounty_code: DataTypes.STRING,
-    fips_county_sub_code: DataTypes.STRING,
-    fips_place_code: DataTypes.STRING,
-    fips_cons_city_code: DataTypes.STRING,
-    authority_name: DataTypes.STRING,
-  }, {
-    sequelize,
-    modelName: 'Jurisdiction',
-  });
-  return Jurisdiction;
-};
+    {
+      sequelize,
+      modelName: 'Jurisdiction',
+    }
+  )
+  return Jurisdiction
+}

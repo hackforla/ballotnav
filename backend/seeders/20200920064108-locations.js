@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const faker = require('faker')
 faker.seed(123)
@@ -32,17 +32,17 @@ function generateLocation(jurisdictionId) {
     continuous_close: faker.date.future(),
     schedule_description: null,
     created_at: new Date(),
-    updated_at: new Date()
+    updated_at: new Date(),
   }
 }
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const jurisdictions = await db.Jurisdiction.findAll()
-    const jurisdictionIds = jurisdictions.map(jurisdiction => jurisdiction.id)
+    const jurisdictionIds = jurisdictions.map((jurisdiction) => jurisdiction.id)
 
     const records = []
-    jurisdictionIds.forEach(jurisdictionId => {
+    jurisdictionIds.forEach((jurisdictionId) => {
       records.push(generateLocation(jurisdictionId))
       records.push(generateLocation(jurisdictionId))
       records.push(generateLocation(jurisdictionId))
@@ -53,5 +53,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete('locations', null, {})
-  }
-};
+  },
+}

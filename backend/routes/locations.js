@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', (req, res, next) => {
   db.Location.create(req.body)
-    .then(data => res.json(data))
+    .then((data) => res.json(data))
     .catch(next)
 })
 

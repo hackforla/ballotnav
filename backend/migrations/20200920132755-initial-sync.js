@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const db = require('../models')
 
@@ -8,6 +8,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropAllTables();
-  }
-};
+    await queryInterface.dropAllTables()
+  },
+}

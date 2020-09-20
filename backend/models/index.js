@@ -11,20 +11,20 @@ const sequelize = new Sequelize({
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-  }
+  },
 })
 
 const db = fs
   .readdirSync(__dirname)
-  .map(file => file.replace('.js', ''))
-  .filter(file => file !== 'index')
+  .map((file) => file.replace('.js', ''))
+  .filter((file) => file !== 'index')
   .reduce((models, modelName) => {
     const model = require(`./${modelName}`)(sequelize, Sequelize.DataTypes)
     models[model.name] = model
     return models
   }, {})
 
-Object.keys(db).forEach(modelName => {
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db)
   }

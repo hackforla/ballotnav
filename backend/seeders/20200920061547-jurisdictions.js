@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const faker = require('faker')
 faker.seed(123)
@@ -23,17 +23,17 @@ function generateJurisdiction(stateId) {
     fips_cons_city_code: faker.random.number(),
     authority_name: null,
     created_at: new Date(),
-    updated_at: new Date()
+    updated_at: new Date(),
   }
 }
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const states = await db.State.findAll()
-    const stateIds = states.map(state => state.id)
+    const stateIds = states.map((state) => state.id)
 
     const records = []
-    stateIds.forEach(stateId => {
+    stateIds.forEach((stateId) => {
       records.push(generateJurisdiction(stateId))
       records.push(generateJurisdiction(stateId))
       records.push(generateJurisdiction(stateId))
@@ -44,5 +44,5 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete('jurisdictions', null, {})
-  }
-};
+  },
+}

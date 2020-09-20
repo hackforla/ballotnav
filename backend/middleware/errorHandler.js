@@ -6,8 +6,7 @@ function errorHandler(err, req, res, next) {
     err instanceof db.Sequelize.AggregateError
   )
     res.status(400).send(err)
-  else
-    res.status(500).send(err.message)
+  else res.status(500).send(err.message)
 }
 
 module.exports = errorHandler
