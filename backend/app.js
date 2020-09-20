@@ -15,7 +15,8 @@ const db = require('./models/index');
 // const loadDropoffs = require('./seeders/loadDropoffs');
 
 async function test() {
-  const states = await db.State.findAll()
+  const states = await db.Jurisdiction.findAll({ raw: true })
+  console.log(states[0])
   const stateIds = states.map(state => state.id)
   console.log(stateIds)
 }
