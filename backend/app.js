@@ -14,6 +14,14 @@ const Dropoffs = require("./models/Dropoffs.js");
 const db = require('./models/index');
 // const loadDropoffs = require('./seeders/loadDropoffs');
 
+async function test() {
+  const states = await db.State.findAll()
+  const stateIds = states.map(state => state.id)
+  console.log(stateIds)
+}
+
+test()
+
 app.get("/status", (req, res) => {
   res.send(`ok at ${new Date()}`)
 })

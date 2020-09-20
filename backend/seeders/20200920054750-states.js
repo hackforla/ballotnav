@@ -87,10 +87,10 @@ function generateState(abbr) {
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const records = Object.keys(STATES).map(generateState)
-    await queryInterface.bulkInsert('states', records)
+    await queryInterface.bulkInsert('States', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('states', null, {})
+    await queryInterface.bulkDelete('States', null, {})
   }
 };
