@@ -12,18 +12,18 @@ const router = express.Router();
 const port = 8080;
 const Dropoffs = require("./models/Dropoffs.js");
 const db = require('./models/index');
-const loadDropoffs = require('./seeders/loadDropoffs');
+// const loadDropoffs = require('./seeders/loadDropoffs');
 
 app.get("/status", (req, res) => {
   res.send(`ok at ${new Date()}`)
 })
 
-app.get("/seed", (req, res, next) => {
-  db.sequelize.sync({ force: true }) // reset db
-    .then(loadDropoffs)
-    .then(() => res.json({ message: "database seeded" }))
-    .catch(next)
-})
+// app.get("/seed", (req, res, next) => {
+//   db.sequelize.sync({ force: true }) // reset db
+//     .then(loadDropoffs)
+//     .then(() => res.json({ message: "database seeded" }))
+//     .catch(next)
+// })
 
 app.get("/dropoff/:state.:state_county", function(req, res) {
   let state = req.params["state"];
