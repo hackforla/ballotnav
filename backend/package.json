@@ -10,8 +10,7 @@
     "format": "npx prettier -w '**.js'",
     "db:clean": "npx sequelize-cli db:migrate:undo:all",
     "db:migrate": "npx sequelize-cli db:migrate",
-    "db:seed": "npx sequelize-cli db:seed:all",
-    "db:reset": "npm run db:clean && && npm run db:migrate && npm run db:seed"
+    "db:reset": "npm run db:clean && npm run db:migrate"
   },
   "repository": {
     "type": "git",
