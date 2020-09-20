@@ -35,7 +35,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       geojson: {
-        type: Sequelize.STRING
+        type: Sequelize.JSON
       },
       fips_category: {
         type: Sequelize.STRING

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.State.hasMany(models.jurisdiction)
+      models.State.hasMany(models.Jurisdiction)
     }
   };
   State.init({
@@ -26,14 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     website: DataTypes.STRING,
     website_voter_registration: DataTypes.STRING,
     website_ballot_check: DataTypes.STRING,
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE
-    }
   }, {
     sequelize,
     modelName: 'State',
