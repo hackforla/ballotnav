@@ -6,33 +6,33 @@ const db = require('../models')
 
 function generateLocation(jurisdictionId) {
   return {
-    jurisdiction_id: jurisdictionId,
-    location_name: faker.address.city(),
-    location_info: null,
-    address_1: faker.address.streetAddress(),
-    address_2: faker.address.secondaryAddress(),
-    address_3: null,
-    contact_name: faker.name.firstName() + ' ' + faker.name.lastName(),
-    contact_email: faker.internet.email(),
-    contact_fax: faker.phone.phoneNumberFormat(),
-    contact_phone: faker.phone.phoneNumberFormat(),
-    internal_note: null,
+    jurisdictionId: jurisdictionId,
+    locationName: faker.address.city(),
+    locationInfo: null,
+    address1: faker.address.streetAddress(),
+    address2: faker.address.secondaryAddress(),
+    address3: null,
+    contactName: faker.name.firstName() + ' ' + faker.name.lastName(),
+    contactEmail: faker.internet.email(),
+    contactFax: faker.phone.phoneNumberFormat(),
+    contactPhone: faker.phone.phoneNumberFormat(),
+    internalNote: null,
     latitude: faker.address.latitude(),
     longitude: faker.address.longitude(),
-    is_early_dropoff_location: faker.random.boolean(),
-    is_early_voting_location: faker.random.boolean(),
-    is_elections_office: faker.random.boolean(),
-    is_polling_location: faker.random.boolean(),
+    isEarlyDropoffLocation: faker.random.boolean(),
+    isEarlyVotingLocation: faker.random.boolean(),
+    isElectionsOffice: faker.random.boolean(),
+    isPollingLocation: faker.random.boolean(),
     scheduletype: null,
-    is_drop_box: faker.random.boolean(),
-    facilitytype_id: faker.random.number(),
+    isDropBox: faker.random.boolean(),
+    facilitytypeId: faker.random.number(),
     tempstring: null,
     timezone: null,
-    continuous_open: faker.date.future(),
-    continuous_close: faker.date.future(),
-    schedule_description: null,
-    created_at: new Date(),
-    updated_at: new Date(),
+    continuousOpen: faker.date.future(),
+    continuousClose: faker.date.future(),
+    scheduleDescription: null,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }
 }
 
@@ -48,10 +48,10 @@ module.exports = {
       records.push(generateLocation(jurisdictionId))
     })
 
-    await queryInterface.bulkInsert('locations', records)
+    await queryInterface.bulkInsert('Locations', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('locations', null, {})
+    await queryInterface.bulkDelete('Locations', null, {})
   },
 }

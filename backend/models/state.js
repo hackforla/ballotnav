@@ -9,22 +9,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.State.hasMany(models.Jurisdiction, { foreignKey: 'state_id' })
+      models.State.hasMany(models.Jurisdiction, { foreignKey: 'stateId' })
     }
   }
   State.init(
     {
       abbreviation: DataTypes.STRING,
       name: DataTypes.STRING,
-      authority_name: DataTypes.STRING,
+      authorityName: DataTypes.STRING,
       fax: DataTypes.STRING,
-      fips_code: DataTypes.STRING,
+      fipsCode: DataTypes.STRING,
       geojson: DataTypes.JSON,
-      late_registration_possible: DataTypes.BOOLEAN,
+      lateRegistrationPossible: DataTypes.BOOLEAN,
       phone: DataTypes.STRING,
       website: DataTypes.STRING,
-      website_voter_registration: DataTypes.STRING,
-      website_ballot_check: DataTypes.STRING,
+      websiteVoterRegistration: DataTypes.STRING,
+      websiteBallotCheck: DataTypes.STRING,
     },
     {
       sequelize,

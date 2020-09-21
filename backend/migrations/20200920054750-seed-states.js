@@ -70,27 +70,27 @@ function generateState(abbr) {
   return {
     abbreviation: abbr,
     name: state,
-    authority_name: '',
+    authorityName: '',
     fax: faker.phone.phoneNumberFormat(),
-    fips_code: faker.address.zipCodeByState(state),
+    fipsCode: faker.address.zipCodeByState(state),
     geojson: null,
-    late_registration_possible: faker.random.boolean(),
+    lateRegistrationPossible: faker.random.boolean(),
     phone: faker.phone.phoneNumberFormat(),
     website: faker.internet.url(),
-    website_voter_registration: faker.internet.url(),
-    website_ballot_check: faker.internet.url(),
-    created_at: new Date(),
-    updated_at: new Date(),
+    websiteVoterRegistration: faker.internet.url(),
+    websiteBallotCheck: faker.internet.url(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }
 }
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const records = Object.keys(STATES).map(generateState)
-    await queryInterface.bulkInsert('states', records)
+    await queryInterface.bulkInsert('States', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('states', null, {})
+    await queryInterface.bulkDelete('States', null, {})
   },
 }

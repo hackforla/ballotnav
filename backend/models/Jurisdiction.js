@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Jurisdiction.belongsTo(models.State, { foreignKey: 'state_id' })
+      models.Jurisdiction.belongsTo(models.State, { foreignKey: 'stateId' })
       models.Jurisdiction.hasMany(models.Location, {
-        foreignKey: 'jurisdiction_id',
+        foreignKey: 'jurisdictionId',
       })
     }
   }
@@ -22,19 +22,19 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       email: DataTypes.STRING,
-      internal_contact_name: DataTypes.STRING,
-      internal_contact_email: DataTypes.STRING,
-      internal_contact_phone: DataTypes.STRING,
-      internal_contact_fax: DataTypes.STRING,
-      internal_notes: DataTypes.STRING,
+      internalContactName: DataTypes.STRING,
+      internalContactEmail: DataTypes.STRING,
+      internalContactPhone: DataTypes.STRING,
+      internalContactFax: DataTypes.STRING,
+      internalNotes: DataTypes.STRING,
       geojson: DataTypes.JSON,
-      fips_category: DataTypes.STRING,
-      fips_county_code: DataTypes.STRING,
-      fips_stateandcounty_code: DataTypes.STRING,
-      fips_county_sub_code: DataTypes.STRING,
-      fips_place_code: DataTypes.STRING,
-      fips_cons_city_code: DataTypes.STRING,
-      authority_name: DataTypes.STRING,
+      fipsCategory: DataTypes.STRING,
+      fipsCountyCode: DataTypes.STRING,
+      fipsStateAndCountyCode: DataTypes.STRING,
+      fipsCountySubCode: DataTypes.STRING,
+      fipsPlaceCode: DataTypes.STRING,
+      fipsConsCityCode: DataTypes.STRING,
+      authorityName: DataTypes.STRING,
     },
     {
       sequelize,

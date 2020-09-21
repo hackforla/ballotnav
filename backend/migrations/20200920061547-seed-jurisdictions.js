@@ -6,24 +6,24 @@ const db = require('../models')
 
 function generateJurisdiction(stateId) {
   return {
-    state_id: stateId,
+    stateId: stateId,
     name: faker.address.county(),
     email: faker.internet.email(),
-    internal_contact_name: faker.name.firstName() + ' ' + faker.name.lastName(),
-    internal_contact_email: faker.internet.email(),
-    internal_contact_phone: faker.phone.phoneNumberFormat(),
-    internal_contact_fax: faker.phone.phoneNumberFormat(),
-    internal_notes: '',
+    internalContactName: faker.name.firstName() + ' ' + faker.name.lastName(),
+    internalContactEmail: faker.internet.email(),
+    internalContactPhone: faker.phone.phoneNumberFormat(),
+    internalContactFax: faker.phone.phoneNumberFormat(),
+    internalNotes: '',
     geojson: null,
-    fips_category: '',
-    fips_county_code: faker.random.number(),
-    fips_stateandcounty_code: faker.random.number(),
-    fips_county_sub_code: faker.random.number(),
-    fips_place_code: faker.random.number(),
-    fips_cons_city_code: faker.random.number(),
-    authority_name: null,
-    created_at: new Date(),
-    updated_at: new Date(),
+    fipsCategory: '',
+    fipsCountyCode: faker.random.number(),
+    fipsStateAndCountyCode: faker.random.number(),
+    fipsCountySubCode: faker.random.number(),
+    fipsPlaceCode: faker.random.number(),
+    fipsConsCityCode: faker.random.number(),
+    authorityName: null,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }
 }
 
@@ -39,10 +39,10 @@ module.exports = {
       records.push(generateJurisdiction(stateId))
     })
 
-    await queryInterface.bulkInsert('jurisdictions', records)
+    await queryInterface.bulkInsert('Jurisdictions', records)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('jurisdictions', null, {})
+    await queryInterface.bulkDelete('Jurisdictions', null, {})
   },
 }
