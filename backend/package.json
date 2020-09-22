@@ -4,7 +4,13 @@
   "description": "BallotNav is a project of Hack for LA. Hack for LA is a brigade of a Code for America that exists to connect citizens with civic rights and responsibilities. BallotNav helps those who are concerned about using USPS for their mail-in ballots find their local drop-off points and their available days/times. The app's main features include locating the drop-off points closest to the user, and displaying what dates and times they are available; pulling in this information as it becomes available from county election supervisors; and connecting with users' social accounts to encourage dissemination of the tool and information.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "npx nodemon -L app.js",
+    "format": "npx prettier -w '**.js'",
+    "db:clean": "npx sequelize-cli db:migrate:undo:all",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:reset": "npm run db:clean && npm run db:migrate"
   },
   "repository": {
     "type": "git",
@@ -16,9 +22,11 @@
   },
   "homepage": "https://github.com/hackforla/ballotnav#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
@@ -27,6 +35,13 @@
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "2.1.2"
+  },
+  "_moduleAliases": {
+    "@config": "./config/config.json",
+    "@middleware": "./middleware",
+    "@models": "./models",
+    "@routes": "./routes"
   }
 }

@@ -4,7 +4,6 @@ services:
   ballotnav:
     volumes:
       - .:/ballotnav
-      - /ballotnav/node_modules
     build: "./"
     image: "api"
     ports:
@@ -16,7 +15,7 @@ services:
       - DISABLE_DB_MIGRATION_AUTO_RUN
     depends_on:
       - db
-    command: npx nodemon -w /ballotnav/app.js -w /ballotnav/models -w /ballotnav/seeders -L app.js
+    command: npm run dev
 
   db:
     image: postgres:11

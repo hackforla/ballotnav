@@ -1,67 +1,57 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('states', {
+    await queryInterface.createTable('States', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       abbreviation: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       authority_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       fax: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       fips_code: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       geojson: {
-        type: Sequelize.JSON
+        type: Sequelize.JSON,
       },
-
       late_registration_possible: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
-
       phone: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       website: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       website_voter_registration: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       website_ballot_check: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
+        type: Sequelize.DATE,
+      },
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('states');
-  }
-};
+    await queryInterface.dropTable('States')
+  },
+}
