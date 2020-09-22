@@ -1,9 +1,10 @@
 FROM node:12
 
-COPY package*.json ./ballotnav/
+COPY package.json ./ballotnav/
+COPY package-lock.json ./ballotnav/
 
 WORKDIR /ballotnav
-RUN npm install
+RUN npm ci
 
 COPY . .
 
