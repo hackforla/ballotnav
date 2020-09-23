@@ -3,11 +3,25 @@ set -e
 
 # check if we should run migrations
 if [ -z $DISABLE_DB_MIGRATION_AUTO_RUN ]; then
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
+
     printf "%s\n" "Checking status of pending migrations:"
     npx sequelize-cli db:migrate:status
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
 
+
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
     printf "%s\n" "Running sequelize migrations..."
     npx sequelize-cli db:migrate
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
+    printf "%s\n" "======================================"
 
     if [ $? -gt 0 ]; then
         printf "%s\n" "=================================="
