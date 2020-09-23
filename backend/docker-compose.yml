@@ -4,7 +4,7 @@ services:
   ballotnav:
     volumes:
       - .:/ballotnav
-    build: "./"
+    build: .
     image: "api"
     ports:
       - "8080:8080"
@@ -18,7 +18,7 @@ services:
     command: npm run dev
 
   db:
-    image: postgres:11
+    image: jred/postgres:11-postgis
     restart: always
     environment:
       POSTGRES_USER: ballotnav
