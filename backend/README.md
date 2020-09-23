@@ -63,8 +63,40 @@ ballotnav_1  | App listening on port 8080
 ```
 
 ### development
-The `docker-compose` should launch a database instance running on 127.0.0.1:5432
+The `docker-compose` should launch a database instance running on 127.0.0.1:5434
 and an express webserver at 127.0.0.1:8080.
-
 You can open [http://localhost:8080/status](http://localhost:8080/status) in
 your browser to see a status message.
+
+#### local database
+you should be able to attach to the running postgres container with your
+favorite database client. [https://www.tableplus.io/](https://www.tableplus.io/)
+is a nice one if you don't have a favorite. 
+
+The connection parameters are set in the
+[docker-compose.yml](./docker-compose.yml) file.
+
+```yaml
+  db:
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_USER: ballotnav
+      POSTGRES_DB: main
+      POSTGRES_PASSWORD: pgpass
+```
+
+Using `psql` do: 
+```bash
+$ psql -U ballotnav -d main -p 5434 -h localhost
+```
+
+and enter the value of `POSTGRES_PASSWORD` in docker-compose.yml.
+
+#### troubleshooting
+If something is acting strange try a clean rebuild. In terminal from within the
+`backend/` folder do:
+
+```bash
+$ make rebuild
+```
