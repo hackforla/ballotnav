@@ -4,7 +4,7 @@ services:
   ballotnav:
     volumes:
       - .:/ballotnav
-    build: .
+    build: "./"
     image: "api"
     ports:
       - "8080:8080"
