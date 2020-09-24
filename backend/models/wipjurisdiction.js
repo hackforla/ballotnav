@@ -3,24 +3,24 @@ const {
   Model, Deferrable
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Jurisdiction extends Model {
+  class WipJurisdiction extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Jurisdiction.belongsTo(models.State, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.JurisdictionImportantDate, { foreignKey: 'jurisdiction_id' , onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.JurisdictionInfoTab, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false});
-      models.Jurisdiction.hasMany(models.JurisdictionNews, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.JurisdictionNotice, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.JurisdictionPhone, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.JurisdictionUrl, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.Jurisdiction.hasMany(models.Location, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.belongsTo(models.Jurisdiction, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipJurisdictionImportantDate, { foreignKey: 'wip_jurisdiction_id' , onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipJurisdictionInfoTab, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false});
+      models.WipJurisdiction.hasMany(models.WipJurisdictionNews, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipJurisdictionNotice, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipJurisdictionPhone, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipJurisdictionUrl, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.WipJurisdiction.hasMany(models.WipLocation, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
     }
   };
-  Jurisdiction.init({
+  WipJurisdiction.init({
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,14 +28,14 @@ module.exports = (sequelize, DataTypes) => {
       field: 'id',
       primaryKey: true
     },
-    stateId: {
+    jurisdictionId: {
       type: DataTypes.INTEGER,
-      field: 'state_id',
+      field: 'jurisdiction_id',
       allownull: false,
       onDelete: 'restrict',
       onUpdate: 'cascade',
       references: {
-        model: 'state',
+        model: 'jurisdiction',
         key: 'id',
         deferrable: Deferrable.INITIALLY_IMMEDIATE
       }
@@ -74,11 +74,6 @@ module.exports = (sequelize, DataTypes) => {
     internalNotes: {
       type: DataTypes.TEXT,
       field: 'internal_notes', 
-      allowNull: true
-    },
-    geojson: {
-      type: DataTypes.TEXT,
-      field: 'geojson', 
       allowNull: true
     },
     fipsCategory: {
@@ -121,15 +116,32 @@ module.exports = (sequelize, DataTypes) => {
       field: 'fips_cons_city_code', 
       allowNull: true
     },
+    publishedDate: {
+      type: DataTypes.DATE,
+      field: 'published_date',
+      allowNull: true
+    },
+    publishedUserId: {
+      type: DataTypes.INTEGER,
+      field: 'published_user_id',
+      allowNull: true,
+      onDelete: 'restrict',
+      onupdate: 'cascade',
+      reference: {
+        model: 'user',
+        key: 'id',
+        deferrable: Deferrable.INITIALLY_IMMEDIATE
+      }
+    }
   }, {
     sequelize,
-    modelName: 'Jurisdiction',
-    tableName: 'jurisdiction',
+    modelName: 'WipJurisdiction',
+    tableName: 'wip_jurisdiction',
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
     underscored: true,
     paranoid: true
   });
-  return Jurisdiction;
+  return WipJurisdiction;
 };

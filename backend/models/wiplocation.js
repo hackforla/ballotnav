@@ -3,18 +3,18 @@ const {
   Model, Deferrable
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Location extends Model {
+  class WipLocation extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Location.belongsTo(models.Jurisdiction, { foreignKey: 'jurisdiction_id', onDelete:'restrict', onupdate:'cascade' });
-      models.Location.hasMany(models.LocationHours, { foreignKey: 'location_id', onDelete:'restrict', onupdate:'cascade' });
+      models.WipLocation.belongsTo(models.WipJurisdiction, { foreignKey: 'wip_jurisdiction_id', onDelete:'restrict', onupdate:'cascade' });
+      models.WipLocation.hasMany(models.WipLocationHours, { foreignKey: 'wip_location_id', onDelete:'restrict', onupdate:'cascade' });
     }
   };
-  Location.init({
+  WipLocation.init({
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
       field: 'id',
       primaryKey: true
     },
-    jurisdictionId: {
+    wipJurisdictionId: {
       type: DataTypes.INTEGER,
-      field: 'jurisdiction_id',
+      field: 'wip_jurisdiction_id',
       allownull: false,
       onDelete: 'restrict',
       onUpdate: 'cascade',
       references: {
-        model: 'jurisdiction',
+        model: 'wip_jurisdiction',
         key: 'id',
         deferrable: Deferrable.INITIALLY_IMMEDIATE
       }
@@ -205,13 +205,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Location',
-    tableName: 'location',
+    modelName: 'WipLocation',
+    tableName: 'wip_location',
     createdAt: 'created_at',
     updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
     underscored: true,
     paranoid: true
   });
-  return Location;
+  return WipLocation;
 };

@@ -15,32 +15,43 @@ module.exports = (sequelize, DataTypes) => {
     {
       firstName: {
         allowNull: false,
-        type: DataTypes.STRING,
+        field: 'first_name',
+        type: DataTypes.TEXT,
       },
       lastName: {
         allowNull: false,
-        type: DataTypes.STRING,
+        field: 'last_name',
+        type: DataTypes.TEXT,
       },
       email: {
         allowNull: false,
+        field: 'email',
         unique: true,
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         validate: {
           isEmail: true,
         },
       },
       role: {
         allowNull: false,
+        field: 'role',
         type: DataTypes.ENUM('volunteer', 'admin'),
       },
       passwordHash: {
         allowNull: false,
-        type: DataTypes.STRING,
+        field: 'password_hash',
+        type: DataTypes.TEXT,
       },
     },
     {
       sequelize,
       modelName: 'User',
+      tableName: 'user',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      deletedAt: 'deleted_at',
+      underscored: true,
+      paranoid: true
     }
   )
   return User
