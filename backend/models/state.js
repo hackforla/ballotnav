@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model, Deferrable
-} = require('sequelize');
+'use strict'
+const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class State extends Model {
     /**
@@ -10,90 +8,135 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.State.hasMany(models.Jurisdiction, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StateImportantDate, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StateInfoTab, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StateNews, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StateNotice, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StatePhone, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
-      models.State.hasMany(models.StateUrl, { foreignKey: 'state_id', onDelete:'restrict', onupdate:'cascade', allownull: false });
+      models.State.hasMany(models.Jurisdiction, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StateImportantDate, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StateInfoTab, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StateNews, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StateNotice, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StatePhone, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
+      models.State.hasMany(models.StateUrl, {
+        foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        allownull: false,
+      })
     }
-  };
-  State.init({
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      field: 'id',
-      primaryKey: true
+  }
+  State.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        field: 'id',
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.TEXT,
+        field: 'name',
+        allowNull: false,
+      },
+      abbreviation: {
+        type: DataTypes.TEXT,
+        field: 'abbreviation',
+        allowNull: false,
+      },
+      authorityName: {
+        type: DataTypes.TEXT,
+        field: 'authority_name',
+      },
+      jurisdictionType: {
+        type: DataTypes.ENUM(
+          'County',
+          'Parish',
+          'County or City',
+          'City or Township',
+          'Municipality',
+          'Town or City'
+        ),
+        field: 'jurisdiction_type',
+        allowNull: false,
+        defaultValue: 'County',
+      },
+      internalNotes: {
+        type: DataTypes.TEXT,
+        field: 'internal_notes',
+      },
+      isLateRegistrationPossible: {
+        type: DataTypes.ENUM('Y', 'N', 'U'),
+        field: 'is_late_registration_possible',
+        allowNull: false,
+        defaultValue: 'U',
+      },
+      voterRegistrationAuthority: {
+        type: DataTypes.ENUM('state', 'jurisdiction'),
+        field: 'voter_registration_authority',
+        allowNull: false,
+        defaultValue: 'jurisdiction',
+      },
+      fipsCode: {
+        type: DataTypes.TEXT,
+        field: 'fips_code',
+      },
+      fipsNumber: {
+        type: DataTypes.INTEGER,
+        field: 'fips_number',
+      },
+      stateType: {
+        type: DataTypes.ENUM('State', 'Commonwealth', 'Federal District'),
+        field: 'state_type',
+        allowNull: false,
+        defaultValue: 'State',
+      },
+      timezoneDefault: {
+        type: DataTypes.TEXT,
+        field: 'timezone_default',
+      },
+      geoJSON: {
+        type: DataTypes.TEXT,
+        field: 'geojson',
+      },
     },
-    name: {
-      type: DataTypes.TEXT,
-      field: 'name',
-      allowNull: false
-    },
-    abbreviation: {
-      type: DataTypes.TEXT,
-      field: 'abbreviation',
-      allowNull: false
-    },
-    authorityName: {
-      type: DataTypes.TEXT,
-      field: 'authority_name'
-    },
-    jurisdictionType: {
-      type: DataTypes.ENUM('County', 'Parish', 'County or City', 'City or Township', 'Municipality', 'Town or City'),
-      field: 'jurisdiction_type',
-      allowNull: false,
-      defaultValue: 'County'
-    },
-    internalNotes: {
-      type: DataTypes.TEXT,
-      field: 'internal_notes'
-    },
-    isLateRegistrationPossible: {
-      type: DataTypes.ENUM('Y','N','U'),
-      field: 'is_late_registration_possible',
-      allowNull: false,
-      defaultValue: 'U'
-    },
-    voterRegistrationAuthority: {
-      type: DataTypes.ENUM('state','jurisdiction'),
-      field: 'voter_registration_authority',
-      allowNull: false,
-      defaultValue: 'jurisdiction'
-    },
-    fipsCode: {
-      type: DataTypes.TEXT,
-      field: 'fips_code'
-    },
-    fipsNumber: {
-      type: DataTypes.INTEGER,
-      field: 'fips_number'
-    },
-    stateType: {
-      type: DataTypes.ENUM('State', 'Commonwealth', 'Federal District'),
-      field: 'state_type',
-      allowNull: false,
-      defaultValue: 'State'
-    },
-    timezoneDefault: {
-      type: DataTypes.TEXT,
-      field: 'timezone_default'
-    },
-    geoJSON: {
-      type: DataTypes.TEXT,
-      field: 'geojson'
+    {
+      sequelize,
+      modelName: 'State',
+      tableName: 'state',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      deletedAt: 'deleted_at',
+      underscored: true,
+      paranoid: true,
     }
-  }, {
-    sequelize,
-    modelName: 'State',
-    tableName: 'state',
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-    deletedAt: 'deleted_at',
-    underscored: true,
-    paranoid: true
-  });
-  return State;
-};
+  )
+  return State
+}

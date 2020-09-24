@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model, Deferrable
-} = require('sequelize');
+'use strict'
+const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class FacilityType extends Model {
     /**
@@ -12,30 +10,33 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  FacilityType.init({
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      field: 'id',
-      primaryKey: true
+  }
+  FacilityType.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        field: 'id',
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.TEXT,
+        field: 'name',
+        allowNull: false,
+        unique: true,
+      },
     },
-    name: {
-      type: DataTypes.TEXT
-      , field: 'name'
-      , allowNull: false
-      , unique: true
-    },
-  }, {
-    sequelize,
-    modelName: 'FacilityType',
-    tableName: 'facilitytype',
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-    deletedAt: 'deleted_at',
-    underscored: true,
-    paranoid: true
-  });
-  return FacilityType;
-};
+    {
+      sequelize,
+      modelName: 'FacilityType',
+      tableName: 'facilitytype',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      deletedAt: 'deleted_at',
+      underscored: true,
+      paranoid: true,
+    }
+  )
+  return FacilityType
+}

@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model, Deferrable
-} = require('sequelize');
+'use strict'
+const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class JurisdictionImportantDate extends Model {
     /**
@@ -10,67 +8,74 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.JurisdictionImportantDate.belongsTo(models.Jurisdiction, { foreignKey: 'jurisdiction_id' , onDelete:'restrict', onupdate:'cascade' });
+      models.JurisdictionImportantDate.belongsTo(models.Jurisdiction, {
+        foreignKey: 'jurisdiction_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+      })
     }
-  };
-  JurisdictionImportantDate.init({
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      field: 'id',
-      primaryKey: true
-    },
-    jurisdictionId: {
-      type: DataTypes.INTEGER,
-      field: 'jurisdiction_id',
-      allownull: false,
-      onDelete: 'restrict',
-      onUpdate: 'cascade',
-      references: {
-        model: 'jurisdiction',
-        key: 'id',
-        deferrable: Deferrable.INITIALLY_IMMEDIATE
+  }
+  JurisdictionImportantDate.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        field: 'id',
+        primaryKey: true,
       },
-      unique:'jurisdiction_id-importantdatetype_id'
-    },
-    importantDateTypeId: {
-      type: DataTypes.INTEGER,
-      field: 'importantdatetype_id',
-      allownull: false,
-      onDelete: 'restrict',
-      onUpdate: 'cascade',
-      references: {
-        model: 'importantdatetype',
-        key: 'id',
-        deferrable: Deferrable.INITIALLY_IMMEDIATE
+      jurisdictionId: {
+        type: DataTypes.INTEGER,
+        field: 'jurisdiction_id',
+        allownull: false,
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        references: {
+          model: 'jurisdiction',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+        },
+        unique: 'jurisdiction_id-importantdatetype_id',
       },
-      unique:'jurisdiction_id-importantdatetype_id'
+      importantDateTypeId: {
+        type: DataTypes.INTEGER,
+        field: 'importantdatetype_id',
+        allownull: false,
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        references: {
+          model: 'importantdatetype',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+        },
+        unique: 'jurisdiction_id-importantdatetype_id',
+      },
+      beginTime: {
+        type: DataTypes.DATE,
+        field: 'begin_time',
+        allownull: true,
+      },
+      endTime: {
+        type: DataTypes.DATE,
+        field: 'end_time',
+        allownull: false,
+      },
+      note: {
+        type: DataTypes.TEXT,
+        field: 'note',
+        allownull: true,
+      },
     },
-    beginTime: {
-      type: DataTypes.DATE,
-      field: 'begin_time',
-      allownull: true
-    },
-    endTime: {
-      type: DataTypes.DATE,
-      field: 'end_time',
-      allownull: false
-    },
-    note: {
-      type: DataTypes.TEXT,
-      field: 'note',
-      allownull: true
+    {
+      sequelize,
+      modelName: 'JurisdictionImportantDate',
+      tableName: 'jurisdiction_importantdate',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      deletedAt: 'deleted_at',
+      underscored: true,
+      paranoid: true,
     }
-  }, {
-    sequelize,
-    modelName: 'JurisdictionImportantDate',
-    tableName: 'jurisdiction_importantdate',
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-    deletedAt: 'deleted_at',
-    underscored: true,
-    paranoid: true
-  });
-  return JurisdictionImportantDate;
-};
+  )
+  return JurisdictionImportantDate
+}

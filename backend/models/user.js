@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
       underscored: true,
-      paranoid: true
+      paranoid: true,
     }
   )
   return User
