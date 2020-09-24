@@ -9,6 +9,14 @@ exports.create = (req, res, next) => {
     .catch(next)
 }
 
+exports.delete = (req, res, next) => {
+  req.db.State.destroy({
+    where: { id: req.body.id }
+  })
+    .then((data) => res.json(data))
+    .catch(next)
+}
+
 // app.get("/dropoff/:state.:state_county", function(req, res) {
 //   let state = req.params["state"];
 //   let state_county = req.params["state_county"];
