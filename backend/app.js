@@ -7,7 +7,7 @@ const database = require('@middleware/database')
 const errorHandler = require('@middleware/errorHandler')
 const db = require('@models')
 
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 
 const app = express()
 app.use(express.json())
