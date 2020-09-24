@@ -1,7 +1,7 @@
 'use strict'
-const { Model } = require('sequelize')
+const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class PhoneNumberType extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,42 +11,32 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  User.init(
+  PhoneNumberType.init(
     {
-      firstName: {
+      id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'first_name',
-        type: DataTypes.TEXT,
+        autoIncrement: true,
+        field: 'id',
+        primaryKey: true,
       },
-      lastName: {
-        allowNull: false,
-        field: 'last_name',
+      name: {
         type: DataTypes.TEXT,
-      },
-      email: {
+        field: 'name',
         allowNull: false,
-        field: 'email',
         unique: true,
-        type: DataTypes.TEXT,
-        validate: {
-          isEmail: true,
-        },
       },
-      role: {
+      sortOrder: {
+        type: DataTypes.INTEGER,
+        field: 'sort_order',
         allowNull: false,
-        field: 'role',
-        type: DataTypes.ENUM('volunteer', 'admin'),
-      },
-      passwordHash: {
-        allowNull: false,
-        field: 'password_hash',
-        type: DataTypes.TEXT,
+        defaultValue: 1,
       },
     },
     {
       sequelize,
-      modelName: 'User',
-      tableName: 'user',
+      modelName: 'PhoneNumberType',
+      tableName: 'phonenumbertype',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -54,5 +44,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return User
+  return PhoneNumberType
 }
