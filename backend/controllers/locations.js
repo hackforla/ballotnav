@@ -10,7 +10,7 @@ exports.create = (req, res, next) => {
 }
 
 exports.delete = (req, res, next) => {
-  req.db.State.destroy({
+  req.db.Location.destroy({
     where: { id: req.body.id }
   })
     .then((data) => res.json(data))
