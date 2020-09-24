@@ -8,3 +8,11 @@ exports.create = (req, res, next) => {
     .then((data) => res.json(data))
     .catch(next)
 }
+
+exports.delete = (req, res, next) => {
+  req.db.State.destroy({
+    where: { id: req.body.id }
+  })
+    .then((data) => res.json(data))
+    .catch(next)
+}

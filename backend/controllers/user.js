@@ -22,9 +22,7 @@ async function createToken(claims) {
 }
 
 async function decodeToken(token) {
-  const claims = await jwt.verify(token, TOKEN_SECRET)
-  delete claims.iat
-  return claims
+  return await jwt.verify(token, TOKEN_SECRET)
 }
 
 //// EXPORTS ////
@@ -44,6 +42,7 @@ exports.register = async (req, res, next) => {
       lastName,
       email,
       passwordHash,
+      role: 'volunteer',
     })
     delete user.passwordHash
     const token = await createToken({ user })
