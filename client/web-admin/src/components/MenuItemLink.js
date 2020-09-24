@@ -1,0 +1,39 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/styles'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import { Link } from 'react-router-dom'
+
+const useStyles = makeStyles({
+  background: {
+    backgroundColor: 'rgba(144, 194, 70)',
+  },
+})
+
+export default function MenuItemLink({ to, text, userSection, onClick }) {
+  const classes = useStyles()
+
+  const renderLink = React.useMemo(
+    () =>
+      React.forwardRef((itemProps, ref) => (
+        <Link to={to} innerRef={ref} {...itemProps} />
+      )),
+    [to]
+  )
+
+  return (
+    <span className={userSection && classes.background}>
+      <ListItem button component={renderLink} onClick={onClick}>
+        <ListItemText primary={text} />
+      </ListItem>
+    </span>
+  )
+}
+
+MenuItemLink.propTypes = {
+  to: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  userSection: PropTypes.bool,
+  onClick: PropTypes.func,
+}

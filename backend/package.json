@@ -22,10 +22,12 @@
   },
   "homepage": "https://github.com/hackforla/ballotnav#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "pg": "^8.3.3",
@@ -40,8 +42,10 @@
   },
   "_moduleAliases": {
     "@config": "./config/config.json",
+    "@controllers": "./controllers",
     "@middleware": "./middleware",
     "@models": "./models",
-    "@routes": "./routes"
+    "@routes": "./routes",
+    "@services": "./services"
   }
 }

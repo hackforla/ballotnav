@@ -1,15 +1,8 @@
 const router = require('express').Router()
-const db = require('@models')
+const control = require('@controllers/states')
+const authenticate = require('@middleware/authenticate')
 
-router.get('/', async (req, res) => {
-  const data = await db.State.findAll()
-  res.json(data)
-})
-
-router.post('/', (req, res, next) => {
-  db.State.create(req.body)
-    .then((data) => res.json(data))
-    .catch(next)
-})
+router.get('/', control.list)
+router.post('/', authenticate, control.create)
 
 module.exports = router

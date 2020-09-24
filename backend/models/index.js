@@ -7,14 +7,7 @@ const Sequelize = require('sequelize')
 const env = process.env.NODE_ENV || 'development'
 const config = require('@config')[env]
 
-const sequelize = new Sequelize({
-  ...config,
-  define: {
-    underscored: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-  },
-})
+const sequelize = new Sequelize(config)
 
 const db = fs
   .readdirSync(__dirname)
