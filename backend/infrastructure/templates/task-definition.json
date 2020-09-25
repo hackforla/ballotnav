@@ -1,7 +1,7 @@
 [
   {
     "name": "${container_name}",
-    "image": "ballotnav/ballotnav:8fa00e5",
+    "image": "ballotnav/ballotnav:${image_tag}",
     "cpu": ${container_cpu},
     "memory": ${container_memory},
     "portMappings": [
@@ -21,16 +21,23 @@
     "healthCheck": {
       "command": [
         "CMD-SHELL",
-        "curl -f http://localhost:${container_port}/status || exit 1"
+        "node -e 'console.log(200);' || exit 1"
       ],
-      "interval": 10,
-      "timeout": 10,
+      "interval": 20,
+      "timeout": 30,
       "retries": 2
     },
     "environment": [
       { "name": "NODE_ENV", "value": "production" },
-      { "name": "NODE_ENV", "value": "production" },
-      { "name": "NODE_ENV", "value": "production" }
+      { "name": "DISABLE_DB_MIGRATION_AUTO_RUN", "value": "1" },
+      { "name": "TOKEN_EXPIRY", "value": "86400" },
+      { "name": "POSTGRES_USER", "value": "ballotnav" },
+      { "name": "POSTGRES_DB", "value": "main" }
+    ],
+    "secrets": [
+      { "name": "DB_HOSTNAME", "valueFrom": "${db_hostname}" },
+      { "name": "TOKEN_SECRET", "valueFrom": "${token_secret}" },
+      { "name": "POSTGRES_PASSWORD", "valueFrom": "${postgres_password}" }
     ],
     "command": ["node", "app.js"]
   }

@@ -29,6 +29,7 @@ variable project_name {}
 
 variable container_name {}
 variable container_port {}
+variable image_tag {}
 
 variable account_id {}
 

@@ -1,3 +1,15 @@
+data "aws_ssm_parameter" "db_hostname" {
+  name = "/${var.stage}/${var.region}/DB_HOSTNAME"
+}
+
+data "aws_ssm_parameter" "token_secret" {
+  name = "/${var.stage}/${var.region}/TOKEN_SECRET"
+}
+
+data "aws_ssm_parameter" "postgres_password" {
+  name = "/${var.stage}/${var.region}/POSTGRES_PASSWORD"
+}
+
 data "template_file" "task_definition" {
   template = file("templates/task-definition.json")
   vars = {
@@ -5,9 +17,15 @@ data "template_file" "task_definition" {
     container_cpu    = var.container_cpu
     container_port   = var.container_port
     container_name   = var.container_name
+    image_tag        = var.image_tag
     cluster_name     = var.cluster_name
     task_name        = var.task_name
     region           = var.region
+    # secrets injected securely from AWS SSM systems manager param store
+    # https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
+    db_hostname = data.aws_ssm_parameter.db_hostname.arn
+    token_secret = data.aws_ssm_parameter.token_secret.arn
+    postgres_password = data.aws_ssm_parameter.postgres_password.arn
   }
 }
 
@@ -37,7 +55,7 @@ data "aws_iam_policy_document" "logs" {
     actions = [
       "ssm:Get*"
     ]
-    resources = ["arn:aws:ssm:${var.region}:${var.account_id}:parameter/${var.stage}/${var.task_name}/*"]
+    resources = ["arn:aws:ssm:${var.region}:${var.account_id}:parameter/${var.stage}/*"]
   }
 }
 
