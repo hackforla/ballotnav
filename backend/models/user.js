@@ -1,5 +1,5 @@
 'use strict'
-const { Model } = require('sequelize')
+const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -8,7 +8,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      /*
+      models.User.belongsToMany(models.Jurisdiction, {
+        through: UserJurisdiction,
+      })
+      models.User.hasMany(models.UserJurisdiction, {
+        foreignKey: 'user_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+      })
+      */
     }
   }
   User.init(

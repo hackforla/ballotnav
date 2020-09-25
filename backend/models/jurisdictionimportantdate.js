@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'jurisdiction',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
         unique: 'jurisdiction_id-importantdatetype_id',
       },
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'importantdatetype',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
         unique: 'jurisdiction_id-importantdatetype_id',
       },

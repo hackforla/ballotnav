@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'location',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       beginDate: {

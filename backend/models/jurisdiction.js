@@ -56,6 +56,20 @@ module.exports = (sequelize, DataTypes) => {
         onupdate: 'cascade',
         allownull: false,
       })
+      /*
+      
+      // not yet registerable when this loads
+
+      models.Jurisdiction.belongsToMany(models.User, {
+        through: UserJurisdiction,
+      })
+      models.Jurisdiction.hasMany(models.UserJurisdiction, {
+        foreignKey: 'jurisdiction_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+      })
+
+      */
     }
   }
   Jurisdiction.init(
@@ -76,7 +90,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'state',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       name: {
@@ -159,6 +173,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'fips_cons_city_code',
         allowNull: true,
+      },
+      wipJurisdictionId: {
+        type: DataTypes.INTEGER,
+        field: 'wip_jurisdiction_id',
+        allownull: true,
+        comment:
+          'Set to the WIP ID most recently published. This should be constrained to wip_jurisdiction.id, but sequelize does not understand cyclic dependencies.',
       },
     },
     {

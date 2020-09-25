@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'jurisdiction',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
         unique: 'jurisdiction_id-caption',
       },

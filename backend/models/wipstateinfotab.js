@@ -1,21 +1,21 @@
 'use strict'
 const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class StateInfoTab extends Model {
+  class WipStateInfoTab extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.StateInfoTab.belongsTo(models.State, {
-        foreignKey: 'state_id',
+      models.WipStateInfoTab.belongsTo(models.WipState, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
     }
   }
-  StateInfoTab.init(
+  WipStateInfoTab.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -23,19 +23,19 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         field: 'id',
         primaryKey: true,
+        unique: 'id-caption',
       },
-      stateId: {
+      wipStateId: {
         type: DataTypes.INTEGER,
-        field: 'state_id',
+        field: 'wip_state_id',
         allownull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
-          model: 'state',
+          model: 'wip_state',
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-        unique: 'state_id-caption',
       },
       sortOrder: {
         type: DataTypes.INTEGER,
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'caption',
         allowNull: false,
-        unique: 'state_id-caption',
+        unique: 'id-caption',
       },
       markdown: {
         type: DataTypes.TEXT,
@@ -67,8 +67,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'StateInfoTab',
-      tableName: 'state_infotab',
+      modelName: 'WipStateInfoTab',
+      tableName: 'wip_state_infotab',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -76,5 +76,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return StateInfoTab
+  return WipStateInfoTab
 }

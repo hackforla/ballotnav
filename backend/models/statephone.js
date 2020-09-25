@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'state',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       phoneNumberTypeId: {
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'phonenumbertype',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       phoneNumber: {

@@ -1,21 +1,21 @@
 'use strict'
 const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class StateInfoTab extends Model {
+  class WipStateNotice extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.StateInfoTab.belongsTo(models.State, {
-        foreignKey: 'state_id',
+      models.WipStateNotice.belongsTo(models.WipState, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
     }
   }
-  StateInfoTab.init(
+  WipStateNotice.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -24,51 +24,38 @@ module.exports = (sequelize, DataTypes) => {
         field: 'id',
         primaryKey: true,
       },
-      stateId: {
+      wipStateId: {
         type: DataTypes.INTEGER,
-        field: 'state_id',
+        field: 'wip_state_id',
         allownull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
-          model: 'state',
+          model: 'wip_state',
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-        unique: 'state_id-caption',
       },
-      sortOrder: {
-        type: DataTypes.INTEGER,
-        field: 'sort_order',
+      datePosted: {
+        type: DataTypes.DATE,
+        field: 'date_posted',
         allowNull: false,
-        defaultValue: 1,
       },
-      caption: {
-        type: DataTypes.TEXT,
-        field: 'caption',
+      severity: {
+        type: DataTypes.ENUM('critical', 'info'),
+        field: 'severity',
         allowNull: false,
-        unique: 'state_id-caption',
       },
-      markdown: {
+      message: {
         type: DataTypes.TEXT,
-        field: 'markdown',
-        allowNull: true,
-      },
-      html: {
-        type: DataTypes.TEXT,
-        field: 'html',
-        allowNull: true,
-      },
-      type: {
-        type: DataTypes.ENUM('document', 'infotab', 'contactinfo', 'news'),
-        field: 'type',
+        field: 'message',
         allowNull: false,
       },
     },
     {
       sequelize,
-      modelName: 'StateInfoTab',
-      tableName: 'state_infotab',
+      modelName: 'WipStateNotice',
+      tableName: 'wip_state_notice',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -76,5 +63,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return StateInfoTab
+  return WipStateNotice
 }

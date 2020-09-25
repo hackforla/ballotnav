@@ -4,7 +4,8 @@
     "password": "pgpass",
     "database": "main",
     "host": "db",
-    "dialect": "postgresql"
+    "dialect": "postgresql",
+    "migrationStorageTableName": "sequelize_meta"
   },
   "test": {
     "username": "root",
@@ -18,6 +19,7 @@
     "password": null,
     "database": "main",
     "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "dialect": "postgresql",
+    "migrationStorageTableName": "sequelize_meta"
   }
 }

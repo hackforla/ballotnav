@@ -164,7 +164,8 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
       underscored: true,
-      paranoid: true,
+      paranoid: false,
+      timestamps: false,
     }
   )
   return Calendar

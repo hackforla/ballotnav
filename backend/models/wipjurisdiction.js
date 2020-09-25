@@ -76,8 +76,15 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'jurisdiction',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
+      },
+      editBasisWipJurisdictionId: {
+        type: DataTypes.INTEGER,
+        field: 'edit_basis_wip_jurisdiction_id',
+        allowNull: true,
+        comment:
+          'This should be constrained to wip_jurisdiction.id (to identify the origin of this data) but sequelize does not understand cyclic dependencies',
       },
       name: {
         type: DataTypes.TEXT,
@@ -155,22 +162,28 @@ module.exports = (sequelize, DataTypes) => {
         field: 'fips_cons_city_code',
         allowNull: true,
       },
-      publishedDate: {
-        type: DataTypes.DATE,
-        field: 'published_date',
-        allowNull: true,
-      },
-      publishedUserId: {
+      editorUserId: {
         type: DataTypes.INTEGER,
-        field: 'published_user_id',
+        field: 'editor_user_id',
         allowNull: true,
         onDelete: 'restrict',
         onupdate: 'cascade',
         reference: {
           model: 'user',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
+      },
+      editorComments: {
+        type: DataTypes.TEXT,
+        field: 'editor_comments',
+        allowNull: true,
+      },
+      isReleased: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_released',
+        allowNull: false,
+        defaultValue: false,
       },
     },
     {

@@ -1,21 +1,21 @@
 'use strict'
 const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class StateInfoTab extends Model {
+  class WipStateUrl extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.StateInfoTab.belongsTo(models.State, {
-        foreignKey: 'state_id',
+      models.WipStateUrl.belongsTo(models.WipState, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
     }
   }
-  StateInfoTab.init(
+  WipStateUrl.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -23,52 +23,53 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         field: 'id',
         primaryKey: true,
+        unique: 'id-urltype_id',
       },
-      stateId: {
+      wipStateId: {
         type: DataTypes.INTEGER,
-        field: 'state_id',
+        field: 'wip_state_id',
         allownull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
-          model: 'state',
+          model: 'wip_state',
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-        unique: 'state_id-caption',
       },
-      sortOrder: {
+      urlTypeId: {
         type: DataTypes.INTEGER,
-        field: 'sort_order',
-        allowNull: false,
-        defaultValue: 1,
+        field: 'urltype_id',
+        allownull: false,
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        references: {
+          model: 'urltype',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_DEFERRED,
+        },
+        unique: 'id-urltype_id',
       },
-      caption: {
+      url: {
         type: DataTypes.TEXT,
-        field: 'caption',
+        field: 'url',
         allowNull: false,
-        unique: 'state_id-caption',
       },
-      markdown: {
+      name: {
         type: DataTypes.TEXT,
-        field: 'markdown',
+        field: 'name',
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
+        field: 'description',
         allowNull: true,
-      },
-      html: {
-        type: DataTypes.TEXT,
-        field: 'html',
-        allowNull: true,
-      },
-      type: {
-        type: DataTypes.ENUM('document', 'infotab', 'contactinfo', 'news'),
-        field: 'type',
-        allowNull: false,
       },
     },
     {
       sequelize,
-      modelName: 'StateInfoTab',
-      tableName: 'state_infotab',
+      modelName: 'WipStateUrl',
+      tableName: 'wip_state_url',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -76,5 +77,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return StateInfoTab
+  return WipStateUrl
 }

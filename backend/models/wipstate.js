@@ -1,72 +1,57 @@
 'use strict'
 const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class State extends Model {
+  class WipState extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.State.hasMany(models.Jurisdiction, {
+      models.WipState.belongsTo(models.State, {
         foreignKey: 'state_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+      })
+      models.WipState.hasMany(models.WipStateImportantDate, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StateImportantDate, {
-        foreignKey: 'state_id',
+      models.WipState.hasMany(models.WipStateInfoTab, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StateInfoTab, {
-        foreignKey: 'state_id',
+      models.WipState.hasMany(models.WipStateNews, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StateNews, {
-        foreignKey: 'state_id',
+      models.WipState.hasMany(models.WipStateNotice, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StateNotice, {
-        foreignKey: 'state_id',
+      models.WipState.hasMany(models.WipStatePhone, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StatePhone, {
-        foreignKey: 'state_id',
+      models.WipState.hasMany(models.WipStateUrl, {
+        foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
       })
-      models.State.hasMany(models.StateUrl, {
-        foreignKey: 'state_id',
-        onDelete: 'restrict',
-        onupdate: 'cascade',
-        allownull: false,
-      })
-      /*
-
-      // not yet registerable when this loads
-
-      models.State.hasMany(models.UserState, {
-        foreignKey: 'state_id',
-        onDelete: 'restrict',
-        onupdate: 'cascade',
-      })
-      models.State.belongsToMany(models.User, {
-        through: UserState,
-      })
-      
-      */
     }
   }
-  State.init(
+  WipState.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -74,6 +59,18 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         field: 'id',
         primaryKey: true,
+      },
+      stateId: {
+        type: DataTypes.INTEGER,
+        field: 'state_id',
+        allownull: false,
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        references: {
+          model: 'state',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_DEFERRED,
+        },
       },
       name: {
         type: DataTypes.TEXT,
@@ -140,18 +137,41 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'geojson',
       },
-      wipStateId: {
+      editBasisWipStateId: {
         type: DataTypes.INTEGER,
-        field: 'wip_state_id',
-        allownull: true,
+        field: 'edit_basis_wip_state_id',
+        allowNull: true,
         comment:
-          'Set to the WIP ID most recently published. This should be constrained to wip_state.id, but sequelize does not understand cyclic dependencies.',
+          'This should be constrained to wip_jurisdiction.id (to identify the origin of this data) but sequelize does not understand cyclic dependencies',
+      },
+      editorUserId: {
+        type: DataTypes.INTEGER,
+        field: 'editor_user_id',
+        allowNull: true,
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+        reference: {
+          model: 'user',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_DEFERRED,
+        },
+      },
+      editorComments: {
+        type: DataTypes.TEXT,
+        field: 'editor_comments',
+        allowNull: true,
+      },
+      isReleased: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_released',
+        allowNull: false,
+        defaultValue: false,
       },
     },
     {
       sequelize,
-      modelName: 'State',
-      tableName: 'state',
+      modelName: 'WipState',
+      tableName: 'wip_state',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -159,5 +179,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return State
+  return WipState
 }
