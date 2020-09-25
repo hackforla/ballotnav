@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'wip_jurisdiction',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       facilityTypeId: {
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'facilitytype',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       name: {

@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'jurisdiction',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       facilityTypeId: {
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'facilitytype',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
       name: {
@@ -123,14 +123,19 @@ module.exports = (sequelize, DataTypes) => {
         field: 'internal_note',
         allowNull: true,
       },
-      latitude: {
+      geomLatitude: {
         type: DataTypes.TEXT,
-        field: 'latitude',
+        field: 'geom_latitude',
         allowNull: true,
       },
-      longitude: {
+      geomLongitude: {
         type: DataTypes.TEXT,
-        field: 'longitude',
+        field: 'geom_longitude',
+        allowNull: true,
+      },
+      geomDataSource: {
+        type: DataTypes.TEXT,
+        field: 'geom_data_source',
         allowNull: true,
       },
       geomPoint: {

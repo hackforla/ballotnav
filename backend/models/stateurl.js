@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'state',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
         unique: 'state_id-urltype_id',
       },
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'urltype',
           key: 'id',
-          deferrable: Deferrable.INITIALLY_IMMEDIATE,
+          deferrable: Deferrable.INITIALLY_DEFERRED,
         },
         unique: 'state_id-urltype_id',
       },

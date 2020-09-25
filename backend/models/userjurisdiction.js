@@ -1,21 +1,26 @@
 'use strict'
 const { Model, Deferrable } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class StateInfoTab extends Model {
+  class UserJurisdiction extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.StateInfoTab.belongsTo(models.State, {
-        foreignKey: 'state_id',
+      models.UserJurisdiction.belongsTo(models.Jurisdiction, {
+        foreignKey: 'jurisdiction_id',
+        onDelete: 'restrict',
+        onupdate: 'cascade',
+      })
+      models.UserJurisdiction.belongsTo(models.User, {
+        foreignKey: 'user_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
     }
   }
-  StateInfoTab.init(
+  UserJurisdiction.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -24,51 +29,40 @@ module.exports = (sequelize, DataTypes) => {
         field: 'id',
         primaryKey: true,
       },
-      stateId: {
+      userId: {
         type: DataTypes.INTEGER,
-        field: 'state_id',
+        field: 'user_id',
         allownull: false,
-        onDelete: 'restrict',
+        onDelete: 'cascade',
         onUpdate: 'cascade',
         references: {
-          model: 'state',
+          model: 'user',
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-        unique: 'state_id-caption',
       },
-      sortOrder: {
+      jurisdictionId: {
         type: DataTypes.INTEGER,
-        field: 'sort_order',
+        field: 'jurisdiction_id',
+        allownull: false,
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+        references: {
+          model: 'jurisdiction',
+          key: 'id',
+          deferrable: Deferrable.INITIALLY_DEFERRED,
+        },
+      },
+      status: {
         allowNull: false,
-        defaultValue: 1,
-      },
-      caption: {
-        type: DataTypes.TEXT,
-        field: 'caption',
-        allowNull: false,
-        unique: 'state_id-caption',
-      },
-      markdown: {
-        type: DataTypes.TEXT,
-        field: 'markdown',
-        allowNull: true,
-      },
-      html: {
-        type: DataTypes.TEXT,
-        field: 'html',
-        allowNull: true,
-      },
-      type: {
-        type: DataTypes.ENUM('document', 'infotab', 'contactinfo', 'news'),
-        field: 'type',
-        allowNull: false,
+        field: 'status',
+        type: DataTypes.ENUM('requested', 'editor', 'none'),
       },
     },
     {
       sequelize,
-      modelName: 'StateInfoTab',
-      tableName: 'state_infotab',
+      modelName: 'UserJurisdiction',
+      tableName: 'user_jurisdiction',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
@@ -76,5 +70,5 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true,
     }
   )
-  return StateInfoTab
+  return UserJurisdiction
 }
