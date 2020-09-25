@@ -1,10 +1,9 @@
 import React from "react";
-import "./SidePanelList.css";
-import SearchResultJSON from "./searchResult.json";
+import SearchResultJSON from '../../searchResult';
 import SidePanelSelection from "./SidePanelSelection";
 
 // components
-import SearchResult from "../components/SearchResult";
+import SearchResult from "./SearchResult";
 
 export default function SidePanelList({ goToDetails }) {
   function selectLocation(a) {

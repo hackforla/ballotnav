@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SidePanelSelection.css";
-import SearchResultJSON from "./searchResult.json";
+import SearchResultJSON from '../../searchResult';
 
 export default function SidePanelSelection({ searchResultId, goToHome }) {
   const [searchResultDetail, setSearchResultDetail] = useState(null);

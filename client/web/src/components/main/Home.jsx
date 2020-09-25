@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 //import { useParams } from "react-router-dom";
-import "./Home.css";
 
 // npm module for resizing panels (should be replaced)
 import ResizablePanels from "resizable-panels-react";
 
 // components
-import SidePanelList from "../components/SidePanelList";
-import SidePanelSelection from "../components/SidePanelSelection";
-import Mapbox from "../components/Mapbox";
+import SidePanelList from "../map/SidePanelList";
+import SidePanelSelection from "../map/SidePanelSelection";
+import Mapbox from "../map/Mapbox";
 
 // png logo (svg rendered oddly)
-import Logo from "../assets/ballotnav-logo.png";
+import Logo from "../../assets/ballotnav-logo.png";
 
 function Home() {
   //const { id } = useParams();

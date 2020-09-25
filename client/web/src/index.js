@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import RoutePage from "./pages/Router";
 import * as serviceWorker from "./serviceWorker";
-import "./global.css";
+import "./styles/styles.scss";
+
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RoutePage />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

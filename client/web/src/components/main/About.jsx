@@ -1,9 +1,8 @@
 import React from "react";
-import "./About.css";
-import Logo from "../assets/ballotnav-logo.png";
-import Hero from "../assets/ballotnavHero.svg";
-import codeForAmericaLogo from "../assets/codeForAmericaLogo.png";
-import hackForLaLogo from "../assets/hackForLaLogo.png";
+import Logo from "../../assets/ballotnav-logo.png";
+import Hero from "../../assets/ballotnavHero.svg";
+import codeForAmericaLogo from "../../assets/codeForAmericaLogo.png";
+import hackForLaLogo from "../../assets/hackForLaLogo.png";
 
 export default function About() {
   return (
