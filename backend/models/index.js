@@ -7,7 +7,7 @@ const Sequelize = require('sequelize')
 const env = process.env.NODE_ENV || 'development'
 const config = require('../config/config.js')[env]
 
-if (env.toLowerCase === 'production') {
+if (env.toLowerCase() === 'production') {
   console.log('Loading production database config');
   config.host = process.env.DB_HOSTNAME;
   config.password = process.env.POSTGRES_PASSWORD;
