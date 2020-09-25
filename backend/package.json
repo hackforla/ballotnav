@@ -34,7 +34,8 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "sequelize-auto": "^0.5.4",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "umzug": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
