@@ -16,6 +16,5 @@ app.use(database)
 app.use(routes)
 app.use(errorHandler)
 
-db.sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
-})
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
