@@ -5,17 +5,17 @@ import {
   Route,
 } from 'react-router-dom';
 import Home from './components/main/Home';
-import About from './components/main/About';
+import Map from './components/main/Map';
 
 class Routes extends React.Component {
   render() {
     return <Router>
       <Switch>
         <Route exact path="/">
-          <About />
-        </Route>
-        <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/map">
+          <Map />
         </Route>
       </Switch>
     </Router>;

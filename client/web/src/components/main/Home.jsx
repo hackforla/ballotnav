@@ -1,93 +1,59 @@
-import React, { useState } from 'react';
-//import { useParams } from "react-router-dom";
-
-// npm module for resizing panels (should be replaced)
-import ResizablePanels from "resizable-panels-react";
-
-// components
-import SidePanelList from "../map/SidePanelList";
-import SidePanelSelection from "../map/SidePanelSelection";
-import Mapbox from "../map/Mapbox";
-
-// png logo (svg rendered oddly)
+import React from "react";
 import Logo from "../../assets/ballotnav-logo.png";
+import Hero from "../../assets/ballotnavHero.svg";
+import codeForAmericaLogo from "../../assets/codeForAmericaLogo.png";
+import hackForLaLogo from "../../assets/hackForLaLogo.png";
 
-function Home() {
-  //const { id } = useParams();
-  //const hasID = id !== undefined;
-  const [showDetails, setShowDetails] = useState(false);
-  const [searchResultId, setSearchResultId] = useState(0);
-  function goToDetails(id) {
-    setShowDetails(true);
-    setSearchResultId(id);
-  }
-
-  function goToHome() {
-    setShowDetails(false);
-  }
+export default function Home() {
   return (
-    <div className="application">
-      <ResizablePanels
-        bkcolor="#ffffff"
-        displayDirection="row"
-        width="100%"
-        height="100%"
-        panelsSize={[40, 60]}
-        sizeUnitMeasure="%"
-        resizerColor="#ffffff"
-        resizerSize="5px"
-      >
-        <div className="sidePanel">
-          <div className="menu">
-            <a href="/about">
-              <img
-                src={Logo}
-                alt="BallotNav Logo"
-                className="ballotNavLogo"
-              ></img>
-            </a>
-            <a
-              href="https://www.hackforla.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="noDecoration"
-            >
-              <h2>volunteer</h2>
-            </a>
-            <a
-              href="https://www.ballotnav.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="noDecoration"
-            >
-              <h2>press</h2>
-            </a>
+    <div className="landingPage">
+      <div className="landingFlex">
+        <div className="landingContentWrapper">
+          <div className="contentCenter">
+            <img
+              src={Logo}
+              alt="BallotNav Logo"
+              className="ballotnavLogoLarge"
+            ></img>
+            <h3>
+              Find safe, secure, in-person locations to
+              <br /> drop off your mail-in or absentee ballot
+            </h3>
+            <div className="landingFlex">
+              <input
+                className="landingInput"
+                placeholder="Enter an address or zip code"
+              ></input>
+              <a href="/">
+                <button className="landingSearchButton">Search</button>
+              </a>
+            </div>
           </div>
-          <div className="menu">
-            <input></input>
-            {/* <select>
-              <option value="english">English</option>
-              <option value="spanish">Spanish</option>
-            </select> */}
-            <button className="searchButton">Search</button>
-          </div>
-          {!showDetails ? (
-            <SidePanelList
-              goToDetails={goToDetails}
-              showDetails={showDetails}
-            />
-          ) : (
-            <SidePanelSelection
-              searchResultId={searchResultId}
-              goToHome={goToHome}
-            />
-          )}
         </div>
-        {/* temporary image to represent map */}
-        <Mapbox />
-      </ResizablePanels>
+        <div className="landingHeroWrapper">
+          <img
+            src={Hero}
+            alt="BallotNav Hero"
+            className="ballotnavHero"
+          ></img>
+        </div>
+      </div>
+      <div className="landingFooter">
+        <a href="https://www.hackforla.org/" target="_blank" rel="noopener noreferrer">
+          <img
+            src={hackForLaLogo}
+            alt="BallotNav Logo"
+            className="landingFooterLogo"
+          ></img>
+        </a>
+        <a href="https://www.codeforamerica.org/">
+          <img
+            src={codeForAmericaLogo}
+            alt="BallotNav Logo"
+            className="landingFooterLogo"
+          ></img>
+        </a>
+      </div>
     </div>
   );
 }
-
-export default Home;
