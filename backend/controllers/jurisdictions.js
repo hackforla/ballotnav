@@ -11,7 +11,7 @@ exports.create = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
   req.db.Jurisdiction.destroy({
-    where: { id: req.body.id }
+    where: { id: req.body.id },
   })
     .then((data) => res.json(data))
     .catch(next)

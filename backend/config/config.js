@@ -1,5 +1,5 @@
 require('module-alias/register')
-const fs = require('fs');
+const fs = require('fs')
 
 module.exports = {
   development: {
@@ -8,7 +8,7 @@ module.exports = {
     database: 'main',
     host: 'db',
     dialect: 'postgresql',
-    migrationStorageTableName: 'sequelize_meta'
+    migrationStorageTableName: 'sequelize_meta',
   },
   test: {
     username: 'database_test',
@@ -24,6 +24,6 @@ module.exports = {
     host: process.env.DB_HOSTNAME,
     dialect: 'postgresql',
     migrationStorageTableName: 'sequelize_meta',
-    port: process.env.DB_PORT || 5432
-  }
-};
+    port: process.env.DB_PORT || 5432,
+  },
+}
