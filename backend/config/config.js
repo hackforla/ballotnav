@@ -16,11 +16,12 @@ module.exports = {
     dialect: 'mysql'
   },
   production: {
-    username: 'ballotnav',
+    username: process.env.POSTGRES_USER || 'ballotnav',
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB || 'main',
     host: process.env.DB_HOSTNAME,
-    dialect: 'postgresql'
+    dialect: 'postgresql',
+    port: process.env.DB_PORT || 5432
   }
 };
 

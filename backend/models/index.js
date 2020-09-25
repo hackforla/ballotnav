@@ -5,7 +5,7 @@ require('module-alias/register')
 const fs = require('fs')
 const Sequelize = require('sequelize')
 const env = process.env.NODE_ENV || 'development'
-const config = require('./config/config.js')[env]
+const config = require('../config/config.js')[env]
 
 if (env.toLowerCase === 'production') {
   console.log('Loading production database config');
