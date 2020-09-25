@@ -6,14 +6,15 @@ module.exports = {
     password: 'pgpass',
     database: 'main',
     host: 'db',
-    dialect: 'postgresql'
+    dialect: 'postgresql',
+    migrationStorageTableName: 'sequelize_meta'
   },
   test: {
     username: 'database_test',
-    password: null,
+    password: 'pgpass',
     database: 'database_test',
-    host: '127.0.0.1',
-    dialect: 'mysql'
+    host: 'db',
+    dialect: 'postgresql',
   },
   production: {
     username: process.env.POSTGRES_USER || 'ballotnav',
@@ -21,7 +22,7 @@ module.exports = {
     database: process.env.POSTGRES_DB || 'main',
     host: process.env.DB_HOSTNAME,
     dialect: 'postgresql',
+    migrationStorageTableName: 'sequelize_meta',
     port: process.env.DB_PORT || 5432
   }
 };
-
