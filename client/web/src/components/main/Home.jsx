@@ -1,5 +1,7 @@
 import React from "react";
+
 import Logo from "../../assets/ballotnav-logo.png";
+import cloudImage from '../../assets/cloud-image.svg'
 import Hero from "../../assets/ballotnavHero.svg";
 import codeForAmericaLogo from "../../assets/codeForAmericaLogo.png";
 import hackForLaLogo from "../../assets/hackForLaLogo.png";
@@ -29,6 +31,14 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </div>
+        <div className="cloud-image-wrapper">
+          <img
+            src={cloudImage}
+            alt="Cloud Image"
+            className="cloud-image"
+          >
+          </img>
         </div>
         <div className="landingHeroWrapper">
           <img
