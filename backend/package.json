@@ -41,7 +41,7 @@
     "prettier": "2.1.2"
   },
   "_moduleAliases": {
-    "@config": "./config/config.json",
+    "@config": "./config/config.js",
     "@controllers": "./controllers",
     "@middleware": "./middleware",
     "@models": "./models",
