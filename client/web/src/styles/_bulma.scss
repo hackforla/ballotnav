@@ -1,1 +1,17 @@
+/*
+*  Define new sass variables or overwrite Bulma's default variables before the imports.
+*  See https://bulma.io/documentation/customize/variables/ and component-specific
+*  Bulma docs for more variables.
+*
+*  Example:
+*    $primary: #002449;
+*    $dropdown-item-color: $primary;
+*/
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$red: rgb(255,0,41);
+$family-primary: 'Open Sans';
+
 @import "~bulma/bulma.sass";
