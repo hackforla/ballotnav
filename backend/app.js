@@ -6,6 +6,7 @@ const routes = require('@routes')
 const database = require('@middleware/database')
 const errorHandler = require('@middleware/errorHandler')
 const db = require('@models')
+const migrate = require('./db/migrate')
 
 const PORT = process.env.PORT || 8080
 
@@ -16,6 +17,6 @@ app.use(database)
 app.use(routes)
 app.use(errorHandler)
 
-db.sequelize.sync().then(() => {
+migrate().then(() => {
   app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
 })
