@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const logger = require('@log')
 
 //// CONFIG ////
 
@@ -31,9 +32,13 @@ exports.getUser = async (req, res) => res.json(req.user)
 
 exports.register = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body
+  logger.info({message: 'register request', firstName: firstName, lastName: lastName, email: email })
 
   const existingUser = await req.db.User.findOne({ where: { email } })
-  if (existingUser) return res.json({ duplicateEmail: true })
+  if (existingUser) {
+    logger.info({message: 'Received request to register an existing account', email: email, route: req.route.path})
+    return res.json({ duplicateEmail: true })
+  }
 
   try {
     const passwordHash = await hashPassword(password)
@@ -48,6 +53,7 @@ exports.register = async (req, res, next) => {
     const token = await createToken({ user })
     return res.json({ isSuccess: true, token, user })
   } catch (e) {
+    logger.error({message: 'Error registering account', err: e, email: email, route: req.route.path})
     return res.status(400).send(e)
   }
 }
@@ -56,13 +62,20 @@ exports.login = async (req, res, next) => {
   const { email, password } = req.body
 
   const user = await req.db.User.findOne({ where: { email } })
-  if (!user) return res.json({ emailNotFound: true })
+  if (!user) {
+    logger.info({message: 'User login not found', email: email, route: req.route.path})
+    return res.status(401).json({ emailNotFound: true })
+  }
 
   const valid = await checkPassword(password, user.passwordHash)
-  if (!valid) return res.json({ passwordInvalid: true })
+  if (!valid) {
+    logger.info({message: 'User login attempt invalid password', email: email, route: req.route.path})
+    return res.status(401).json({ passwordInvalid: true })
+  }
 
   delete user.passwordHash
   const token = await createToken({ user })
+  logger.info({message: 'Login success', email: email, userId: user.id, route: res.route.path})
   res.json({ isSuccess: true, token, user })
 }
 
