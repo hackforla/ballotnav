@@ -5,6 +5,7 @@ const authContext = createContext()
 
 export function AuthProvider({ children }) {
   const auth = useProvideAuth()
+  if (typeof auth.user === 'undefined') return null
   return (
     <authContext.Provider value={auth}>
       {children}
@@ -17,7 +18,7 @@ export const useAuth = () => {
 }
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(undefined)
 
   const register = ({ firstName, lastName, email, password }) => {
     return api.user.register({

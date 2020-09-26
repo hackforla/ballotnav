@@ -2,19 +2,14 @@ import axios from 'axios'
 
 const BASE_URL = `${process.env.REACT_APP_API_URL}/user`
 
-const USER_ROLE = 'admin'
-
 export const getUser = async () => {
-  return null
-  // return {
-  //   role: USER_ROLE
-  // }
-  // try {
-  //   const response = await axios.get(BASE_URL)
-  //   return response.data.user
-  // } catch {
-  //   return null
-  // }
+  try {
+    const response = await axios.get(BASE_URL)
+    console.log('user:', response.data)
+    return response.data
+  } catch (err) {
+    return null
+  }
 }
 
 export const login = async ({ email, password }) => {
