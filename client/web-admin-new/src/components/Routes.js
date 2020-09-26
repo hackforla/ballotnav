@@ -16,10 +16,10 @@ import AdminHome from 'components/admin/AdminHome'
 import Review from 'components/admin/Review'
 import Header from 'components/Header'
 
-function AuthRoutes() {
+function AuthRoutes({ login }) {
   return (
     <Switch>
-      <Route path='/login'><Login /></Route>
+      <Route path='/login'><Login login={login} /></Route>
       <Route path='/register'><Register /></Route>
       <Redirect to={{ pathname: '/login' }} />
     </Switch>
@@ -37,23 +37,33 @@ function AdminRoutes() {
   )
 }
 
-function VolunteerRoutes({ user, logout }) {
+function VolunteerRoutes({ user, logout, children }) {
+  console.log('user:', user)
+  if (!user)
+    return (
+      <Redirect
+        to={{ pathname: "/login" }}
+      />
+    )
+
   return (
     <>
       <Header user={user} logout={logout} />
       <Switch>
         <Route exact path="/"><Jurisdictions /></Route>
-        <Route path="/admin"><AdminRoutes /></Route>
+        {user.role === 'admin' && (
+          <Route path="/admin"><AdminRoutes /></Route>
+        )}
         <Redirect to={{ pathname: '/' }} />
       </Switch>
     </>
   )
 }
 
-function Routes({ user, logout }) {
+function Routes({ user, logout, login }) {
   return (
     <Router>
-      { user ? <VolunteerRoutes user={user} logout={logout} /> : <AuthRoutes /> }
+      { user ? <VolunteerRoutes user={user} logout={logout} /> : <AuthRoutes login={login} /> }
     </Router>
   )
 }

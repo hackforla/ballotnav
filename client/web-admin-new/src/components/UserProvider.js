@@ -7,16 +7,23 @@ function UserProvider({ children }) {
 
   useEffect(() => {
     // api.user.getUser().then(setUser)
-    setUser('hello')
+    // console.log('setting user to null')
+    // setUser(null)
+    api.user.getUser().then(setUser)
+  }, [])
+
+  const login = useCallback(() => {
+    api.user.login().then(setUser)
   }, [])
 
   const logout = useCallback(() => {
+    console.log('setting user to null')
     setUser(null)
   }, [])
 
   if (typeof user === 'undefined') return null
   return (
-    <Routes user={user} logout={logout} />
+    <Routes user={user} logout={logout} login={login} />
   )
 }
 

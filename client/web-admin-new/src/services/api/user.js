@@ -2,24 +2,32 @@ import axios from 'axios'
 
 const BASE_URL = `${process.env.REACT_APP_API_URL}/user`
 
+const USER_ROLE = 'admin'
+
 export const getUser = async () => {
-  try {
-    const response = await axios.get(BASE_URL)
-    return response.data.user
-  } catch {
-    return null
+  return {
+    role: USER_ROLE
   }
+  // try {
+  //   const response = await axios.get(BASE_URL)
+  //   return response.data.user
+  // } catch {
+  //   return null
+  // }
 }
 
 export const login = async (email, password) => {
-  const body = { email, password }
-  try {
-    const response = await axios.post(BASE_URL + '/login', body)
-    await sessionStorage.setItem('token', response.data.token)
-    return response.data
-  } catch (err) {
-    console.log(err)
+  return {
+    role: USER_ROLE
   }
+  // const body = { email, password }
+  // try {
+  //   const response = await axios.post(BASE_URL + '/login', body)
+  //   await sessionStorage.setItem('token', response.data.token)
+  //   return response.data
+  // } catch (err) {
+  //   console.log(err)
+  // }
 }
 
 export const register = async (firstName, lastName, email, password) => {

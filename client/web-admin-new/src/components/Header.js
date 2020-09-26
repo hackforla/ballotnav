@@ -5,7 +5,9 @@ function Header({ user, logout }) {
   return (
     <div style={{ height: 100, backgroundColor: 'red'}}>
       <button onClick={logout}>logout</button>
-      <Link to='/admin'>admin</Link>
+      {user.role === 'admin' && (
+        <Link to='/admin'>admin</Link>
+      )}
     </div>
   )
 }
