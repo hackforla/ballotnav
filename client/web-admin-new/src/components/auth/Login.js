@@ -13,6 +13,7 @@ function Login() {
     onSubmit(values) {
       console.log('logging in:', values)
       login(values)
+        .catch(error => console.log('error in login:', error))
     }
   })
   return (

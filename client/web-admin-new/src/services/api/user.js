@@ -24,7 +24,7 @@ export const login = async ({ email, password }) => {
     await sessionStorage.setItem('token', response.data.token)
     return response.data
   } catch (err) {
-    console.log(err)
+    return Promise.reject(err.response.data)
   }
 }
 
