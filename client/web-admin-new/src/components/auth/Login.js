@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
+import { useToast } from 'components/use-toast'
 
 function Login() {
   const { login } = useAuth()
+  const toast = useToast()
   const { handleSubmit, handleChange } = useFormik({
     initialValues: {
       email: 'jake.mensch@gmail.com',
@@ -12,8 +14,10 @@ function Login() {
     },
     onSubmit(values) {
       console.log('logging in:', values)
-      login(values)
-        .catch(error => console.log('error in login:', error))
+      login(values).catch(error => {
+        if (error.emailNotFound)
+          toast({ message: 'Email not found' })
+      })
     }
   })
   return (
