@@ -35,6 +35,7 @@
     "sequelize": "^6.3.5",
     "sequelize-auto": "^0.5.4",
     "sequelize-cli": "^6.2.0",
+    "winston": "^3.3.3",
     "umzug": "^2.3.0"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
   "_moduleAliases": {
     "@config": "./config/config.js",
     "@controllers": "./controllers",
+    "@log": "./log.js",
     "@middleware": "./middleware",
     "@models": "./models",
     "@routes": "./routes",
