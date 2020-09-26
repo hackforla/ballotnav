@@ -39,6 +39,11 @@ export const register = async ({ firstName, lastName, email, password }) => {
   }
 }
 
+export const logout = async () => {
+  await sessionStorage.removeItem('token')
+  return null
+}
+
 // export const getAll = async () => {
 //   const response = await axios.get(BASE_URL)
 //   return response.user

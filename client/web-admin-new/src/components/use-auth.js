@@ -42,7 +42,7 @@ function useProvideAuth() {
   }
 
   const logout = () => {
-    setUser(null)
+    return api.user.logout().then(setUser)
   }
 
   useEffect(() => {
