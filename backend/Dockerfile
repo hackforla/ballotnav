@@ -10,5 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT ["./entrypoint.sh"]
 CMD ["node", "app.js"]
