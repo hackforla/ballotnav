@@ -9,9 +9,12 @@
 */
 
 @charset "utf-8";
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-$red: rgb(255,0,41);
+$red: #FF0029;
+$navy-blue: #1B2152;
+
 $family-primary: 'Open Sans';
 
 @import "~bulma/bulma.sass";

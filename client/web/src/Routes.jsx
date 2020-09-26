@@ -4,12 +4,13 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+
 import Home from './components/main/Home';
 import Map from './components/main/Map';
 
-class Routes extends React.Component {
-  render() {
-    return <Router>
+const Routes = () => {
+  return (
+    <Router>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -18,8 +19,8 @@ class Routes extends React.Component {
           <Map />
         </Route>
       </Switch>
-    </Router>;
-  }
+    </Router>
+  );
 }
 
 export default Routes;

@@ -21,12 +21,20 @@
 
 .hero-text-wrapper {
   position: absolute;
-  bottom: 70px;
+  bottom: 55px;
   left: 10px;
-  width: 200px;
+  width: 220px;
 
   h2 {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 700;
+    color: $red;
+  }
+
+  h3 {
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 5px;
+    color: $navy-blue;
   }
 }
