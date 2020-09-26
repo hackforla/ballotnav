@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
+import { useToast } from 'components/use-toast'
 
 function Register() {
   const { register } = useAuth()
+  const toast = useToast()
   const { handleSubmit, handleChange } = useFormik({
     initialValues: {
       firstName: 'jake',
@@ -13,8 +15,12 @@ function Register() {
       password: 'hellothere1',
     },
     onSubmit(values) {
-      console.log('registering:', values)
-      register(values)
+      register(values).catch(error => {
+        if (error.duplicateEmail)
+          toast({ message: 'email already registered' })
+        else if (error.unknownError)
+          toast({ message: 'unknown error creating account' })
+      })
     }
   })
   return (

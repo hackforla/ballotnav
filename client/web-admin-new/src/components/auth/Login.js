@@ -13,10 +13,13 @@ function Login() {
       password: 'hellothere1',
     },
     onSubmit(values) {
-      console.log('logging in:', values)
       login(values).catch(error => {
         if (error.emailNotFound)
-          toast({ message: 'Email not found' })
+          toast({ message: 'email not found' })
+        else if (error.passwordInvalid)
+          toast({ message: 'password invalid' })
+        else
+          toast({ message: 'server error' })
       })
     }
   })

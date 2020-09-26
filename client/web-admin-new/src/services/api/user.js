@@ -30,9 +30,13 @@ export const login = async ({ email, password }) => {
 
 export const register = async ({ firstName, lastName, email, password }) => {
   const body = { firstName, lastName, email, password }
-  const response = await axios.post(BASE_URL + '/register', body)
-  await sessionStorage.setItem('token', response.data.token)
-  return response.data
+  try {
+    const response = await axios.post(BASE_URL + '/register', body)
+    await sessionStorage.setItem('token', response.data.token)
+    return response.data
+  } catch (err) {
+    return Promise.reject(err.response.data)
+  }
 }
 
 // export const getAll = async () => {
