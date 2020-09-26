@@ -5,13 +5,11 @@ module.exports = createLogger({
   level: 'info',
   format: format.combine(
     format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
+      format: 'YYYY-MM-DD HH:mm:ss',
     }),
     format.errors({ stack: true }),
     format.json()
   ),
   defaultMeta: { service: 'ballotnav' },
-  transports: [
-    new transports.Console()
-  ]
-});
+  transports: [new transports.Console()],
+})
