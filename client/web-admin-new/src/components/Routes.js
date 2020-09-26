@@ -15,11 +15,12 @@ import Jurisdictions from 'components/volunteer/Jurisdictions'
 import AdminHome from 'components/admin/AdminHome'
 import Review from 'components/admin/Review'
 import Header from 'components/Header'
+import { useAuth } from 'components/use-auth'
 
-function AuthRoutes({ login }) {
+function AuthRoutes() {
   return (
     <Switch>
-      <Route path='/login'><Login login={login} /></Route>
+      <Route path='/login'><Login /></Route>
       <Route path='/register'><Register /></Route>
       <Redirect to={{ pathname: '/login' }} />
     </Switch>
@@ -37,7 +38,8 @@ function AdminRoutes() {
   )
 }
 
-function VolunteerRoutes({ user, logout, children }) {
+function VolunteerRoutes() {
+  const { user, logout } = useAuth()
   console.log('user:', user)
   if (!user)
     return (
@@ -60,12 +62,14 @@ function VolunteerRoutes({ user, logout, children }) {
   )
 }
 
-function Routes({ user, logout, login }) {
+function Routes() {
+  const { user } = useAuth()
   return (
     <Router>
-      { user ? <VolunteerRoutes user={user} logout={logout} /> : <AuthRoutes login={login} /> }
+      { user ? <VolunteerRoutes /> : <AuthRoutes /> }
     </Router>
   )
 }
+
 
 export default Routes

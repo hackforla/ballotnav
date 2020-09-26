@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from 'components/use-auth'
 
-function Login({ login }) {
+function Login() {
+  const { login } = useAuth()
   return (
     <>
       <div>Login Page</div>

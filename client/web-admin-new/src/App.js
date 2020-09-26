@@ -1,10 +1,12 @@
 import React from 'react'
-import UserProvider from 'components/UserProvider'
 import Routes from 'components/Routes'
+import { AuthProvider } from 'components/use-auth'
 
 function App() {
   return (
-    <UserProvider />
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   )
 }
 
