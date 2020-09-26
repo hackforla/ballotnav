@@ -136,6 +136,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'timezone_default',
       },
+      timezoneEnforced: {
+        type: DataTypes.BOOLEAN,
+        field: 'timezone_enforced',
+        allowNull: false,
+        defaultValue: false,
+      },
       geoJSON: {
         type: DataTypes.TEXT,
         field: 'geojson',

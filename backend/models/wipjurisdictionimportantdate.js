@@ -50,13 +50,23 @@ module.exports = (sequelize, DataTypes) => {
         },
         unique: 'jurisdiction_id-importantdatetype_id',
       },
-      beginTime: {
+      beginDate: {
         type: DataTypes.DATE,
+        field: 'begin_date',
+        allownull: true,
+      },
+      beginTime: {
+        type: DataTypes.TEXT,
         field: 'begin_time',
         allownull: true,
       },
-      endTime: {
+      endDate: {
         type: DataTypes.DATE,
+        field: 'end_date',
+        allownull: false,
+      },
+      endTime: {
+        type: DataTypes.TEXT,
         field: 'end_time',
         allownull: false,
       },
