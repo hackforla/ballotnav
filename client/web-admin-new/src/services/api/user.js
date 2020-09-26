@@ -17,21 +17,18 @@ export const getUser = async () => {
   // }
 }
 
-export const login = async (email, password) => {
-  return {
-    role: USER_ROLE
+export const login = async ({ email, password }) => {
+  const body = { email, password }
+  try {
+    const response = await axios.post(BASE_URL + '/login', body)
+    await sessionStorage.setItem('token', response.data.token)
+    return response.data
+  } catch (err) {
+    console.log(err)
   }
-  // const body = { email, password }
-  // try {
-  //   const response = await axios.post(BASE_URL + '/login', body)
-  //   await sessionStorage.setItem('token', response.data.token)
-  //   return response.data
-  // } catch (err) {
-  //   console.log(err)
-  // }
 }
 
-export const register = async (firstName, lastName, email, password) => {
+export const register = async ({ firstName, lastName, email, password }) => {
   const body = { firstName, lastName, email, password }
   const response = await axios.post(BASE_URL + '/register', body)
   await sessionStorage.setItem('token', response.data.token)

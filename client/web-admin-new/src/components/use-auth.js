@@ -19,8 +19,26 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(null)
 
-  const login = (email, password) => {
-    return api.user.login(email, password).then(setUser)
+  const register = ({ firstName, lastName, email, password }) => {
+    return api.user.register({
+      firstName,
+      lastName,
+      email,
+      password,
+    }).then(response => {
+      setUser(response.user)
+      return response
+    })
+  }
+
+  const login = ({ email, password }) => {
+    return api.user.login({
+      email,
+      password ,
+    }).then(response => {
+      setUser(response.user)
+      return response
+    })
   }
 
   const logout = () => {
@@ -35,5 +53,6 @@ function useProvideAuth() {
     user,
     login,
     logout,
+    register,
   }
 }
