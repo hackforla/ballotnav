@@ -101,7 +101,7 @@ exports.login = async (req, res, next) => {
     message: 'Login success',
     email: email,
     userId: user.id,
-    route: res.route.path,
+    route: req.route.path,
   })
   res.json({ isSuccess: true, token, user })
 }
