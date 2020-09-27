@@ -9,17 +9,19 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
     handleChange,
     handleBlur,
     errors,
-    isSubmitting
+    isSubmitting,
   } = useFormik({
-    initialValues: initialValues || (() => {
-      return Object.keys(model).reduce((vals, field) => {
-        vals[field] = model[field].defaultValue || ''
-        return vals
-      }, {})
-    })(),
-    validate: values => {
+    initialValues:
+      initialValues ||
+      (() => {
+        return Object.keys(model).reduce((vals, field) => {
+          vals[field] = model[field].defaultValue || ''
+          return vals
+        }, {})
+      })(),
+    validate: (values) => {
       const errors = {}
-      Object.keys(model).forEach(field => {
+      Object.keys(model).forEach((field) => {
         if (model[field].allowNull === false && !values[field])
           errors[field] = 'This field is required.'
       })
@@ -30,23 +32,23 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
 
   return (
     <form onSubmit={handleSubmit} style={style}>
-      {Object.keys(model).map(field => {
+      {Object.keys(model).map((field) => {
         const { type } = model[field]
 
         if (
-            !type
-            || field === 'createdAt'
-            || field === 'updatedAt'
-            || (model[field].field || '') === 'id'
-            || (model[field].field || '').endsWith('_id')
-          )
+          !type ||
+          field === 'createdAt' ||
+          field === 'updatedAt' ||
+          (model[field].field || '') === 'id' ||
+          (model[field].field || '').endsWith('_id')
+        )
           return null
 
         if (type === 'text')
           return (
             <TextField
               key={field}
-              type='text'
+              type="text"
               id={field}
               label={field}
               name={field}

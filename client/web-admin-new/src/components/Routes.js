@@ -20,8 +20,8 @@ import Header from 'components/Header'
 function Auth() {
   return (
     <Switch>
-      <Route path='/login' component={Login} />
-      <Route path='/register' component={Register} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Redirect to={{ pathname: '/login' }} />
     </Switch>
   )
@@ -41,7 +41,7 @@ function Admin() {
 function Dashboard() {
   const { user } = useAuth()
 
-  if (!user) return <Redirect to={{ pathname: "/login" }} />
+  if (!user) return <Redirect to={{ pathname: '/login' }} />
 
   return (
     <>
@@ -49,9 +49,12 @@ function Dashboard() {
       <div style={{ padding: 20 }}>
         <Switch>
           <Route exact path="/" component={Jurisdiction} />
-          <Route path="/jurisdictions/:jid/location/:lid" component={Location} />
+          <Route
+            path="/jurisdictions/:jid/location/:lid"
+            component={Location}
+          />
           <Route path="/jurisdictions/:id" component={Jurisdiction} />
-          {user.role === 'admin' && <Route path="/admin" component={Admin} /> }
+          {user.role === 'admin' && <Route path="/admin" component={Admin} />}
           <Redirect to={{ pathname: '/' }} />
         </Switch>
       </div>
@@ -61,12 +64,7 @@ function Dashboard() {
 
 function Routes() {
   const { user } = useAuth()
-  return (
-    <Router>
-      { user ? <Dashboard /> : <Auth /> }
-    </Router>
-  )
+  return <Router>{user ? <Dashboard /> : <Auth />}</Router>
 }
-
 
 export default Routes

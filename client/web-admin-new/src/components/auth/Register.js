@@ -8,28 +8,36 @@ import { Grid, TextField, Button } from '@material-ui/core'
 function Register() {
   const { register } = useAuth()
   const toast = useToast()
-  const { values, handleSubmit, handleChange, touched, errors, isSubmitting, handleBlur } = useFormik({
+  const {
+    values,
+    handleSubmit,
+    handleChange,
+    touched,
+    errors,
+    isSubmitting,
+    handleBlur,
+  } = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
       email: '',
       password: '',
-      passwordConfirm: ''
+      passwordConfirm: '',
     },
     onSubmit(values, { setSubmitting }) {
-      register(values)
-        .catch(error => {
-          if (error.duplicateEmail)
-            toast({ message: 'email already registered' })
-          else if (error.unknownError)
-            toast({ message: 'unknown error creating account' })
-          setSubmitting(false)
-        })
-    }
+      register(values).catch((error) => {
+        if (error.duplicateEmail) toast({ message: 'email already registered' })
+        else if (error.unknownError)
+          toast({ message: 'unknown error creating account' })
+        setSubmitting(false)
+      })
+    },
   })
   return (
     <div style={{ padding: 100, maxWidth: 400, margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>Register</div>
+      <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>
+        Register
+      </div>
       <form noValidate onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
@@ -110,12 +118,8 @@ function Register() {
               value={values.passwordConfirm}
               onChange={handleChange}
               onBlur={handleBlur}
-              helperText={
-                touched.passwordConfirm ? errors.passwordConfirm : ''
-              }
-              error={
-                touched.passwordConfirm && Boolean(errors.passwordConfirm)
-              }
+              helperText={touched.passwordConfirm ? errors.passwordConfirm : ''}
+              error={touched.passwordConfirm && Boolean(errors.passwordConfirm)}
             />
           </Grid>
         </Grid>
@@ -130,12 +134,9 @@ function Register() {
           Register
         </Button>
         <Grid container justify="center">
-          <Link to="/login">
-            Already have an account? Login here.
-          </Link>
+          <Link to="/login">Already have an account? Login here.</Link>
         </Grid>
       </form>
-
     </div>
   )
 }

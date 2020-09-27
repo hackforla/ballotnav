@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from 'react'
 import api from 'services/api'
 
 const authContext = createContext()
@@ -6,11 +6,7 @@ const authContext = createContext()
 export function AuthProvider({ children }) {
   const auth = useProvideAuth()
   if (typeof auth.user === 'undefined') return null
-  return (
-    <authContext.Provider value={auth}>
-      {children}
-    </authContext.Provider>
-  )
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>
 }
 
 export const useAuth = () => {
@@ -21,25 +17,29 @@ function useProvideAuth() {
   const [user, setUser] = useState(undefined)
 
   const register = ({ firstName, lastName, email, password }) => {
-    return api.user.register({
-      firstName,
-      lastName,
-      email,
-      password,
-    }).then(response => {
-      setUser(response.user)
-      return response
-    })
+    return api.user
+      .register({
+        firstName,
+        lastName,
+        email,
+        password,
+      })
+      .then((response) => {
+        setUser(response.user)
+        return response
+      })
   }
 
   const login = ({ email, password }) => {
-    return api.user.login({
-      email,
-      password ,
-    }).then(response => {
-      setUser(response.user)
-      return response
-    })
+    return api.user
+      .login({
+        email,
+        password,
+      })
+      .then((response) => {
+        setUser(response.user)
+        return response
+      })
   }
 
   const logout = () => {

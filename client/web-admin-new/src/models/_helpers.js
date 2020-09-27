@@ -1,4 +1,3 @@
-
 export const DataTypes = {
   INTEGER: 'text',
   TEXT: 'text',

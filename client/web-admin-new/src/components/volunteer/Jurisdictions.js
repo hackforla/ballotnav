@@ -11,10 +11,10 @@ function Jurisdictions() {
 
   return (
     <div>
-      {jurisdictions.map(juris => (
+      {jurisdictions.map((juris) => (
         <div key={juris.id}>
           <Link key={juris.id} to={`/jurisdictions/${juris.id}`}>
-            { juris.name }
+            {juris.name}
           </Link>
         </div>
       ))}

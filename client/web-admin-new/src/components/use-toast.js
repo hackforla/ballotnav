@@ -24,13 +24,12 @@ export function ToastProvider({ children }) {
             padding: 20,
             borderRadius: 5,
             color: 'white',
-          }}>
-          { message }
+          }}
+        >
+          {message}
         </div>
       )}
-      <toastContext.Provider value={toast}>
-        {children}
-      </toastContext.Provider>
+      <toastContext.Provider value={toast}>{children}</toastContext.Provider>
     </>
   )
 }

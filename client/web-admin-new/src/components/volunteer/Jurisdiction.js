@@ -13,11 +13,13 @@ function Jurisdiction() {
   if (!jurisdiction) return null
   return (
     <>
-      <div>{ jurisdiction.id }</div>
+      <div>{jurisdiction.id}</div>
       <div>
-        {jurisdiction.locations.map(loc => (
+        {jurisdiction.locations.map((loc) => (
           <div key={loc.id}>
-            <Link to={`/jurisdictions/${id}/location/${loc.id}`}>{ loc.name }</Link>
+            <Link to={`/jurisdictions/${id}/location/${loc.id}`}>
+              {loc.name}
+            </Link>
           </div>
         ))}
       </div>

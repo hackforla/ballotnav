@@ -15,29 +15,27 @@ function Login() {
     touched,
     handleBlur,
     values,
-    isSubmitting
+    isSubmitting,
   } = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit(values, { setSubmitting }) {
-      login(values)
-        .catch(error => {
-          if (error.emailNotFound)
-            toast({ message: 'email not found' })
-          else if (error.passwordInvalid)
-            toast({ message: 'password invalid' })
-          else
-            toast({ message: 'server error' })
-          setSubmitting(false)
-        })
-    }
+      login(values).catch((error) => {
+        if (error.emailNotFound) toast({ message: 'email not found' })
+        else if (error.passwordInvalid) toast({ message: 'password invalid' })
+        else toast({ message: 'server error' })
+        setSubmitting(false)
+      })
+    },
   })
 
   return (
     <div style={{ padding: 100, maxWidth: 400, margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>Login</div>
+      <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>
+        Login
+      </div>
       <form onSubmit={handleSubmit}>
         <TextField
           type="email"
@@ -82,10 +80,9 @@ function Login() {
           Sign In
         </Button>
         <Grid container justify="center">
-          <Link to='/register'>Need an account? Register here.</Link>
+          <Link to="/register">Need an account? Register here.</Link>
         </Grid>
       </form>
-
     </div>
   )
 }
