@@ -34,7 +34,7 @@ function Register() {
     },
   })
   return (
-    <div style={{ padding: 100, maxWidth: 400, margin: '0 auto' }}>
+    <div style={{ padding: 100, maxWidth: 600, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>
         Register
       </div>
