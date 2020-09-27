@@ -7,7 +7,7 @@ import ResizablePanels from "resizable-panels-react";
 // components
 import SidePanelList from "../map/SidePanelList";
 import SidePanelSelection from "../map/SidePanelSelection";
-import Mapbox from "../map/Mapbox";
+import Map from "./Map";
 
 // png logo (svg rendered oddly)
 import Logo from "../../assets/ballotnav-logo.png";
@@ -84,7 +84,7 @@ function MapContainer() {
           )}
         </div>
         {/* temporary image to represent map */}
-        <Mapbox />
+        <Map />
       </ResizablePanels>
     </div>
   );
