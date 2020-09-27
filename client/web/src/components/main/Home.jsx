@@ -1,7 +1,9 @@
 import React from "react";
-import MapSearch from './MapSearch';
+import HomeMapSearch from './HomeMapSearch';
 
-export default function Home() {
+const Home = ({
+  map,
+}) => {
   return (
     <div className="hero-wrapper" role="banner">
       <div className="cloud-background" />
@@ -9,7 +11,9 @@ export default function Home() {
         <h2>Find your <br /> drop off locations</h2>
         <h3>Find safe, secure, in-person locations to drop off your mail-in or absentee ballot</h3>
       </div>
-      <MapSearch />
+      <HomeMapSearch map={map} />
     </div>
   );
 }
+
+export default Home;
