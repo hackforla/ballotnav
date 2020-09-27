@@ -1,13 +1,13 @@
 import React from 'react'
-import Routes from 'components/Routes'
 import { AuthProvider } from 'components/use-auth'
 import { ToastProvider } from 'components/use-toast'
+import Main from 'components/Main'
 
 function App() {
   return (
     <AuthProvider>
       <ToastProvider>
-        <Routes />
+        <Main />
       </ToastProvider>
     </AuthProvider>
   )
