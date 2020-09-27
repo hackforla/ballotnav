@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
 import { useToast } from 'components/use-toast'
+import { Button, TextField } from '@material-ui/core'
 
 function Login() {
   const { login } = useAuth()
   const toast = useToast()
-  const { handleSubmit, handleChange } = useFormik({
+  const {
+    handleSubmit,
+    handleChange,
+    errors,
+    touched,
+    handleBlur,
+    values,
+    isSubmitting
+  } = useFormik({
     initialValues: {
       email: 'jake.mensch@gmail.com',
       password: 'hellothere1',
@@ -23,15 +32,55 @@ function Login() {
       })
     }
   })
+
   return (
-    <div>
-      <div>Login Page</div>
+    <div style={{ padding: 100, maxWidth: 400, margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>Login</div>
       <form onSubmit={handleSubmit}>
-        <input name="email" onChange={handleChange} />
-        <input name="password" onChange={handleChange}  />
-        <button type="submit">submit</button>
+        <TextField
+          type="email"
+          id="email"
+          label="Email"
+          name="email"
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          autoComplete="email"
+          autoFocus
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          helperText={touched.email ? errors.email : ''}
+          error={touched.email && Boolean(errors.email)}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          helperText={touched.password ? errors.password : ''}
+          error={touched.password && Boolean(errors.password)}
+        />
+        <Button
+          style={{ marginTop: 20, marginBottom: 20 }}
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          margin="normal"
+          disabled={isSubmitting}
+        >
+          Sign In
+        </Button>
       </form>
-      <Link to='/register'>register</Link>
+      <Link style={{ marginTop: 20, textAlign: 'center' }} to='/register'>register</Link>
     </div>
   )
 }
