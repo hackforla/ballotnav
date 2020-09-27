@@ -12,6 +12,7 @@ function Header() {
           <Link to='/admin'>admin</Link>
         )}
       </div>
+      <div style={{ marginRight: 40 }}>Hi { user.firstName } ❤️ 🙏</div>
       <Button disableElevation variant='contained' onClick={logout}>logout</Button>
     </div>
   )
