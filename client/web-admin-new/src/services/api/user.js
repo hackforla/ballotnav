@@ -5,7 +5,6 @@ const BASE_URL = `${process.env.REACT_APP_API_URL}/user`
 export const getUser = async () => {
   try {
     const response = await axios.get(BASE_URL)
-    console.log('user:', response.data)
     return response.data
   } catch (err) {
     return null

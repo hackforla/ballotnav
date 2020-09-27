@@ -1,6 +1,6 @@
-import axios from 'axios'
-
-const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
+// import axios from 'axios'
+//
+// const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
 
 export const list = async () => {
   return [{

@@ -4,7 +4,7 @@ import { useAuth } from 'components/use-auth'
 import { Button } from '@material-ui/core'
 
 function Header() {
-  const { user, logout, login } = useAuth()
+  const { user, logout } = useAuth()
   return (
     <div style={{ display: 'flex', padding: 20, alignItems: 'center', borderBottom: '1px black solid' }}>
       <div style={{ flex: 1 }}>

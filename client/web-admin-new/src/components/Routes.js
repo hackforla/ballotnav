@@ -3,10 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  useHistory,
-  useLocation,
   useRouteMatch,
 } from 'react-router-dom'
 import Login from 'components/auth/Login'
@@ -30,7 +27,7 @@ function AuthRoutes() {
 }
 
 function AdminRoutes() {
-  const { path, url } = useRouteMatch()
+  const { path } = useRouteMatch()
   return (
     <Switch>
       <Route exact path={`${path}/`}><AdminHome /></Route>
@@ -42,7 +39,6 @@ function AdminRoutes() {
 
 function VolunteerRoutes() {
   const { user, logout } = useAuth()
-  console.log('user:', user)
   if (!user)
     return (
       <Redirect
