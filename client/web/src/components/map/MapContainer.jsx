@@ -12,7 +12,7 @@ import Mapbox from "../map/Mapbox";
 // png logo (svg rendered oddly)
 import Logo from "../../assets/ballotnav-logo.png";
 
-function Map() {
+function MapContainer() {
   //const { id } = useParams();
   //const hasID = id !== undefined;
   const [showDetails, setShowDetails] = useState(false);
@@ -90,4 +90,4 @@ function Map() {
   );
 }
 
-export default Map;
+export default MapContainer;

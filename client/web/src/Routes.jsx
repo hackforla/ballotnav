@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/main/Home';
-import Map from './components/map/Map';
+import MapContainer from './components/map/MapContainer';
 
 const Routes = () => {
   return (
@@ -14,7 +14,7 @@ const Routes = () => {
         <Home />
       </Route>
       <Route path="/map">
-        <Map />
+        <MapContainer />
       </Route>
     </Switch>
   );
