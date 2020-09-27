@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { TextField, MenuItem, Button } from '@material-ui/core'
 
-function AutoForm({ model, initialValues, onSubmit, style }) {
+function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
   const {
     values,
     handleSubmit,
@@ -99,7 +99,7 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
         margin="normal"
         disabled={isSubmitting}
       >
-        Submit
+        { submitText || 'Submit' }
       </Button>
     </form>
   )
