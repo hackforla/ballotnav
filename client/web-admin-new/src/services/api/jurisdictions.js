@@ -2,41 +2,45 @@
 //
 // const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
 
+const JURISDICTIONS = [
+  {
+    id: 1,
+    name: 'Geneva County',
+  },
+  {
+    id: 2,
+    name: 'Lee County',
+  },
+  {
+    id: 3,
+    name: 'Monroe County',
+  },
+]
+
+const LOCATIONS = [
+  {
+    id: 1,
+    name: 'Town Hall'
+  },
+  {
+    id: 2,
+    name: 'The Library'
+  },
+  {
+    id: 3,
+    name: 'McDonalds'
+  }
+]
+
 export const list = async () => {
-  return [
-    {
-      id: 1,
-      name: 'Jurisdiction 1',
-    },
-    {
-      id: 2,
-      name: 'Jurisdiction 2',
-    },
-    {
-      id: 3,
-      name: 'Jurisdiction 3',
-    },
-  ]
+  return JURISDICTIONS
 }
 
 export const getById = async (id) => {
   return {
     id,
-    name: `Jurisdiction ${id}`,
-    locations: [
-      {
-        id: 1,
-        name: 'Location 1',
-      },
-      {
-        id: 2,
-        name: 'Location 2',
-      },
-      {
-        id: 3,
-        name: 'Location 3',
-      },
-    ],
+    name: JURISDICTIONS.find(j => j.id == id)?.name,
+    locations: LOCATIONS,
   }
 }
 

@@ -6,6 +6,7 @@ import locationModel from 'models/location'
 import AutoForm from './AutoForm'
 import { Tabs, Tab, Box, Accordion, AccordionSummary, AccordionDetails, Divider } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { useHeader } from './Layout'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,16 +32,20 @@ function EditJurisdiction() {
   const { jid } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
   const [tabNum, setTabNum] = useState(0)
+  const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.getById(jid).then(setJurisdiction)
+    api.jurisdictions.getById(jid).then(jurisdiction => {
+      setTitle(`Editing jurisdiction: ${jurisdiction.name}`)
+      setJurisdiction(jurisdiction)
+    })
   }, [jid])
 
   if (!jurisdiction) return null
   return (
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        <Tab label='Jurisdiction' />
+        <Tab label='Jurisdiction Details' />
         <Tab label='Locations' />
         <Tab label='Important Dates' />
       </Tabs>
@@ -83,7 +88,7 @@ function EditJurisdiction() {
               expandIcon={<ExpandMoreIcon />}
               id={`accordion-${loc.id}`}
             >
-              Edit { loc.name }
+              Edit location: { loc.name }
             </AccordionSummary>
             <AccordionDetails>
               <AutoForm

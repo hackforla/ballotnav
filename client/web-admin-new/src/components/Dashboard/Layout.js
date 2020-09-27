@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -12,6 +12,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DrawerMenu from './DrawerMenu'
 
 const DRAWER_WIDTH = 240;
+
+const headerContext = createContext()
+
+export const useHeader = () => {
+  return useContext(headerContext)
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,7 +80,8 @@ const useStyles = makeStyles((theme) => ({
 export default function PersistentDrawerRight({ children }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [title, setTitle] = useState(null)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,51 +92,55 @@ export default function PersistentDrawerRight({ children }) {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Persistent drawer
-          </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            className={clsx(open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        { children }
-      </main>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="right"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <DrawerMenu />
-      </Drawer>
-    </div>
+    <headerContext.Provider value={{ setTitle }}>
+      <div className={classes.root}>
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar>
+            {title && (
+              <Typography variant="h6" noWrap className={classes.title}>
+                { title }
+              </Typography>
+            )}
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerOpen}
+              className={clsx(open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <main
+          className={clsx(classes.content, {
+            [classes.contentShift]: open,
+          })}
+        >
+          { children }
+        </main>
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="right"
+          open={open}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </div>
+          <DrawerMenu />
+        </Drawer>
+      </div>
+    </headerContext.Provider>
   );
 }

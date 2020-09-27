@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import api from 'services/api'
+import { useHeader } from './Layout'
 
 function Jurisdictions() {
   const history = useHistory()
   const [jurisdictions, setJurisdictions] = useState([])
+  const { setTitle } = useHeader()
 
   useEffect(() => {
     api.jurisdictions.list().then(setJurisdictions)
+    setTitle('Select a jurisdiction to edit.')
   }, [])
 
   return (
