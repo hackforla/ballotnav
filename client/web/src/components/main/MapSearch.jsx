@@ -10,8 +10,9 @@ class MapSearch extends React.Component {
     this.geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
     });
-    
+
     this.geocoder.addTo('#geocoder');
+    this.geocoder.setPlaceholder('Enter an address or ZIP');
   }
 
   render () {
