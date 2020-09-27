@@ -11,7 +11,6 @@ class HomeMapSearch extends React.Component {
     });
 
     this.geocoder.addTo('#geocoder');
-    document.getElementById('geocoder').appendChild(this.geocoder.onAdd(map));
     this.geocoder.setPlaceholder('Enter an address or ZIP');
   }
 

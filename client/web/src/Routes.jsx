@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/main/Home';
-import Map from './components/main/Map';
+import Map from './components/map/Map';
 
 const Routes = () => {
   return (

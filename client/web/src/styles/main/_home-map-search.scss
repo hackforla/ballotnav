@@ -3,6 +3,10 @@
   bottom: 0;
   width: 100%;
 
+  .mapbox-ctrl-geocoder {
+    min-width: 100%;
+  }
+
   .mapboxgl-ctrl-geocoder--input {
     font-size: 1.1em;
     text-align: center;

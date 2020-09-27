@@ -1,7 +1,8 @@
 @import './bulma';
 
-@import './main/map';
 @import './main/home';
-@import './main/mapsearch';
+@import './main/home-map-search';
 @import './main/header';
 @import './main/footer';
+
+@import './map/map';
