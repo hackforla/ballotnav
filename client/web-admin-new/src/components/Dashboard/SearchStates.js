@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import api from 'services/api'
+import { useHeader } from './Layout'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function SearchStates() {
+  const history = useHistory()
   const [states, setStates] = useState([])
+  const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.states.list().then(setStates)
+    api.states.list().then(states => {
+      setStates(states)
+      setTitle('Select a state.')
+    })
   }, [])
 
   return (
-    <div>
+    <List>
       {states.map((state) => (
-        <div key={state.id}>
-          <Link key={state.id} to={`/states/${state.id}`}>
-            {state.name}
-          </Link>
-        </div>
+        <ListItem
+          key={state.id}
+          button
+          onClick={() => history.push(`/states/${state.id}`)}>
+          <ListItemText primary={state.name} />
+        </ListItem>
       ))}
-    </div>
+    </List>
   )
 }
 

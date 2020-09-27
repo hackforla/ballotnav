@@ -7,26 +7,7 @@ import AutoForm from './AutoForm'
 import { Tabs, Tab, Box, Accordion, AccordionSummary, AccordionDetails, Divider } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { useHeader } from './Layout'
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          { children }
-        </Box>
-      )}
-    </div>
-  );
-}
+import TabPanel from './TabPanel'
 
 function EditJurisdiction() {
   const { jid } = useParams()

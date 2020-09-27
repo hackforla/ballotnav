@@ -24,11 +24,8 @@ const ADMIN_ITEMS = [
     path: '/review',
   },
   {
-    title: 'Edit States',
+    title: 'Edit States/Jurisdictions',
     path: '/states',
-  }, {
-    title: 'Edit Jurisdictions',
-    path: '/jurisdictions/search',
   },
 ]
 
