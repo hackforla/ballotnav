@@ -22,7 +22,7 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
     validate: (values) => {
       const errors = {}
       Object.keys(model).forEach((field) => {
-        if (model[field].allowNull === false && !values[field])
+        if (model[field].allowNull === false && typeof values[field] === 'undefined')
           errors[field] = 'This field is required.'
       })
       return errors
@@ -82,7 +82,7 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
             >
               {type.options.map((option) => (
                 <MenuItem key={option} value={option}>
-                  {option}
+                  {option.toString()}
                 </MenuItem>
               ))}
             </TextField>

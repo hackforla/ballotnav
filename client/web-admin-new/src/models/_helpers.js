@@ -3,7 +3,7 @@ export const DataTypes = {
   TEXT: 'text',
   BOOLEAN: {
     type: 'select',
-    options: ['true', 'false']
+    options: [true, false]
   },
   ENUM: (...options) => ({
     type: 'select',
