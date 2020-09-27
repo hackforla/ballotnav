@@ -1,0 +1,34 @@
+.navbar {
+  .navbar-item img {
+    max-height: 1.35em;
+  }
+
+  .navbar-burger {
+    color: $navy-blue;
+    height: auto;
+
+    span {
+      width: 30px;
+      height: 2px;
+      left: 0;
+    }
+
+    span:nth-child(1) {
+      top: calc(50% - 8px);
+    }
+
+    span:nth-child(3) {
+      top: calc(50% + 6px);
+    }
+  }
+
+  .navbar-burger.is-active {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
