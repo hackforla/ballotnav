@@ -21,12 +21,12 @@ function Dashboard() {
       <div style={{ padding: 20 }}>
         <Switch>
           <Route exact path='/jurisdictions' component={UserJurisdictions} />
+          { isAdmin && <Route exact path="/jurisdictions/search" component={SearchJurisdictions} /> }
           <Route exact path="/jurisdictions/:jid" component={EditJurisdiction} />
           <Route exact path="/jurisdictions/:jid/locations/:lid" component={EditLocation} />
           <Route exact path="/jurisdictions/:jid/locations/new" component={AddLocation} />
           { isAdmin && <Route exact path="/states" component={SearchStates} /> }
           { isAdmin && <Route exact path="/states/:id" component={EditState} /> }
-          { isAdmin && <Route exact path="/jurisdictions/search" component={SearchJurisdictions} /> }
           { isAdmin && <Route exact path="/review" component={ReviewWIP} /> }
           <Redirect to='/jurisdictions' />
         </Switch>

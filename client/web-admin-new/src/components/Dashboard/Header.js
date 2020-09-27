@@ -34,7 +34,8 @@ function Header() {
     >
       <List>
         <ListItemLink to='/jurisdictions' text='My Jurisdictions' />
-        <ListItemLink to='/states' text='States' />
+        <ListItemLink to='/states' text='Edit States' />
+        <ListItemLink to='/jurisdictions/search' text='Edit Jurisdictions' />
         <Divider />
         <Button onClick={logout}>Logout</Button>
       </List>
