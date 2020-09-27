@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import clx from 'classnames';
 
 import logo from "../../assets/ballotnav-logo.png";
 
 const Header = () => {
+  const [activeBurger, setActiveBurger] = useState(false);
+
+  const handleClick = () => {
+    setActiveBurger(!activeBurger);
+  };
+
+  const handleKeyDown = e => {
+    if (e.key !== 'Tab' && e.key !== 'Shift' && e.key !== 'Alt') {
+      handleClick(e);
+    }
+  };
+
   return (
     <nav
       className="navbar"
@@ -11,18 +24,25 @@ const Header = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <img src={logo} />
+      <Link to="/" className="navbar-item">
+          <img src={logo}></img>
         </Link>
-
-        <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+        <a // eslint-disable-line
+          role="button"
+          tabIndex={0}
+          className={clx('navbar-burger', { 'is-active': activeBurger })}
+          aria-label="menu"
+          aria-expanded={activeBurger}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </a>
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
+      <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="navbar-end">
           <a className="navbar-item">
             About
