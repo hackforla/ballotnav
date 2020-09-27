@@ -1,0 +1,20 @@
+footer#footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+  background-color: $dark-blue;
+  width: 100%;
+
+  .social-wrapper a img {
+    margin: 10px 10px;
+  }
+
+  #privacy-policy {
+    margin-bottom: 10px;
+    color: $white;
+  }
+
+  #hack-for-LA-logo {
+    width: 35px;
+  }
+}

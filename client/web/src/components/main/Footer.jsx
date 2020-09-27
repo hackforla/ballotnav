@@ -1,14 +1,30 @@
 import React from 'react';
 
+import hackForLALogo from '../../assets/hack-for-LA-logo.svg';
+import twitterLogo from '../../assets/twitter-logo.svg';
+import facebookLogo from '../../assets/facebook-logo.svg';
+
+
 const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-        </p>
+    <footer className="footer" id="footer">
+      <div className="content has-text-centered">
+        <div className="social-wrapper">
+          <a href="https://www.hackforla.org">
+            <img id="hack-for-LA-logo" src={hackForLALogo} />
+          </a>
+          <a>
+            <img src={twitterLogo} />
+          </a>
+          <a>
+            <img src={facebookLogo} />
+          </a>
+        </div>
+        <div id="privacy-policy">
+          <p>
+            &#169; 2020 BallotNav | Privacy Policy
+          </p>
+        </div>
       </div>
     </footer>
   );
