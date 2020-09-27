@@ -4,7 +4,6 @@ import AutoForm from './AutoForm'
 import model from 'models/state'
 import TabPanel from './TabPanel'
 import { Tabs, Tab, List, ListItem, ListItemText } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { useHeader } from './Layout'
 import api from 'services/api'
 
@@ -16,24 +15,24 @@ function EditState() {
   const history = useHistory()
 
   useEffect(() => {
-    api.states.getById(id).then(state => {
+    api.states.getById(id).then((state) => {
       setTitle(`Editing state: ${state.name}`)
       setState(state)
     })
-  }, [id])
+  }, [id, setTitle])
 
   if (!state) return null
   return (
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        <Tab label='State Details' />
-        <Tab label='Edit Jurisdictions' />
+        <Tab label="State Details" />
+        <Tab label="Edit Jurisdictions" />
       </Tabs>
       <TabPanel value={tabNum} index={0}>
         <AutoForm
           model={model}
           initialValues={null}
-          submitText='Update State'
+          submitText="Update State"
           onSubmit={(values, funcs) => {
             console.log(values)
             funcs.setSubmitting(false)
@@ -47,7 +46,8 @@ function EditState() {
             <ListItem
               key={juris.id}
               button
-              onClick={() => history.push(`/jurisdictions/${juris.id}`)}>
+              onClick={() => history.push(`/jurisdictions/${juris.id}`)}
+            >
               <ListItemText primary={juris.name} />
             </ListItem>
           ))}

@@ -20,16 +20,16 @@ const JURISDICTIONS = [
 const LOCATIONS = [
   {
     id: 1,
-    name: 'Town Hall'
+    name: 'Town Hall',
   },
   {
     id: 2,
-    name: 'The Library'
+    name: 'The Library',
   },
   {
     id: 3,
-    name: 'McDonalds'
-  }
+    name: 'McDonalds',
+  },
 ]
 
 export const list = async () => {
@@ -39,7 +39,7 @@ export const list = async () => {
 export const getById = async (id) => {
   return {
     id,
-    name: JURISDICTIONS.find(j => j.id == id)?.name,
+    name: JURISDICTIONS.find((j) => j.id === +id)?.name,
     locations: LOCATIONS,
   }
 }

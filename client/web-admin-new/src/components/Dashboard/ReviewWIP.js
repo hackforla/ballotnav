@@ -6,7 +6,7 @@ function Review() {
 
   useEffect(() => {
     setTitle('Review WIP')
-  }, [])
+  }, [setTitle])
 
   return <div>What should go here?</div>
 }

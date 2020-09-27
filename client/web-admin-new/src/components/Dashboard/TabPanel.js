@@ -10,13 +10,9 @@ function TabPanel({ children, value, index, ...other }) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          { children }
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
-  );
+  )
 }
 
 export default TabPanel

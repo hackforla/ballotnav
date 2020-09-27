@@ -6,9 +6,9 @@ import Register from './Register'
 function Auth() {
   return (
     <Switch>
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/register' component={Register} />
-      <Redirect to='/login' />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Redirect to="/login" />
     </Switch>
   )
 }

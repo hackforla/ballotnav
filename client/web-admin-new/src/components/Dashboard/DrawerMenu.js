@@ -7,7 +7,7 @@ import {
   ListItemText,
   Divider,
   ListItemAvatar,
-  Avatar
+  Avatar,
 } from '@material-ui/core'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
@@ -55,7 +55,8 @@ function Menu() {
               key={path}
               selected={active}
               button
-              onClick={() => history.push(path)}>
+              onClick={() => history.push(path)}
+            >
               <ListItemText primary={title} />
             </ListItem>
           )
@@ -72,7 +73,8 @@ function Menu() {
                   key={path}
                   selected={active}
                   button
-                  onClick={() => history.push(path)}>
+                  onClick={() => history.push(path)}
+                >
                   <ListItemText primary={title} />
                 </ListItem>
               )
@@ -83,7 +85,7 @@ function Menu() {
       <Divider />
       <List>
         <ListItem button onClick={logout}>
-          <ListItemText primary='Log Out' />
+          <ListItemText primary="Log Out" />
         </ListItem>
       </List>
     </>

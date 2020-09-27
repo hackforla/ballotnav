@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import api from 'services/api'
 import jurisdictionModel from 'models/jurisdiction'
 import locationModel from 'models/location'
 import AutoForm from './AutoForm'
-import { Tabs, Tab, Box, Accordion, AccordionSummary, AccordionDetails, Divider } from '@material-ui/core'
+import {
+  Tabs,
+  Tab,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { useHeader } from './Layout'
 import TabPanel from './TabPanel'
@@ -16,25 +22,25 @@ function EditJurisdiction() {
   const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.getById(jid).then(jurisdiction => {
+    api.jurisdictions.getById(jid).then((jurisdiction) => {
       setTitle(`Editing jurisdiction: ${jurisdiction.name}`)
       setJurisdiction(jurisdiction)
     })
-  }, [jid])
+  }, [jid, setTitle])
 
   if (!jurisdiction) return null
   return (
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        <Tab label='Jurisdiction Details' />
-        <Tab label='Locations' />
-        <Tab label='Important Dates' />
+        <Tab label="Jurisdiction Details" />
+        <Tab label="Locations" />
+        <Tab label="Important Dates" />
       </Tabs>
       <TabPanel value={tabNum} index={0}>
         <AutoForm
           model={jurisdictionModel}
           initialValues={null}
-          submitText='Update Jurisdiction'
+          submitText="Update Jurisdiction"
           onSubmit={(values, funcs) => {
             console.log(values)
             funcs.setSubmitting(false)
@@ -43,7 +49,7 @@ function EditJurisdiction() {
         />
       </TabPanel>
       <TabPanel value={tabNum} index={1}>
-        <Accordion>
+        <Accordion style={{ marginBottom: 15 }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             id={`accordion-add-new-location`}
@@ -54,7 +60,7 @@ function EditJurisdiction() {
             <AutoForm
               model={locationModel}
               initialValues={null}
-              submitText='Add Location'
+              submitText="Add Location"
               onSubmit={(values, funcs) => {
                 console.log(values)
                 funcs.setSubmitting(false)
@@ -69,13 +75,13 @@ function EditJurisdiction() {
               expandIcon={<ExpandMoreIcon />}
               id={`accordion-${loc.id}`}
             >
-              Edit location: { loc.name }
+              Edit location: {loc.name}
             </AccordionSummary>
             <AccordionDetails>
               <AutoForm
                 model={locationModel}
                 initialValues={null}
-                submitText='Update Location'
+                submitText="Update Location"
                 onSubmit={(values, funcs) => {
                   console.log(values)
                   funcs.setSubmitting(false)

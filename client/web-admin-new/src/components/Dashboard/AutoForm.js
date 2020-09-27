@@ -22,7 +22,10 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
     validate: (values) => {
       const errors = {}
       Object.keys(model).forEach((field) => {
-        if (model[field].allowNull === false && typeof values[field] === 'undefined')
+        if (
+          model[field].allowNull === false &&
+          typeof values[field] === 'undefined'
+        )
           errors[field] = 'This field is required.'
       })
       return errors
@@ -99,7 +102,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
         margin="normal"
         disabled={isSubmitting}
       >
-        { submitText || 'Submit' }
+        {submitText || 'Submit'}
       </Button>
     </form>
   )

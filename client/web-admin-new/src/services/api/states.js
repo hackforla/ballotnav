@@ -1,6 +1,6 @@
-import axios from 'axios'
-
-const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
+// import axios from 'axios'
+//
+// const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
 
 const STATES = [
   {
@@ -18,7 +18,7 @@ const STATES = [
   {
     id: 4,
     name: 'Michigan',
-  }
+  },
 ]
 
 const JURISDICTIONS = [
@@ -45,7 +45,7 @@ export const list = async () => {
 export const getById = async (id) => {
   return {
     id,
-    name: STATES.find(s => s.id == id)?.name,
+    name: STATES.find((s) => s.id === +id)?.name,
     jurisdictions: JURISDICTIONS,
   }
 }

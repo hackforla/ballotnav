@@ -1,17 +1,17 @@
-import React, { useState, useContext, createContext } from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import React, { useState, useContext, createContext } from 'react'
+import clsx from 'clsx'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import DrawerMenu from './DrawerMenu'
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = 240
 
 const headerContext = createContext()
 
@@ -75,21 +75,21 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginRight: 0,
   },
-}));
+}))
 
 export default function PersistentDrawerRight({ children }) {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const classes = useStyles()
+  const theme = useTheme()
+  const [open, setOpen] = useState(true)
   const [title, setTitle] = useState(null)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <headerContext.Provider value={{ setTitle }}>
@@ -103,7 +103,7 @@ export default function PersistentDrawerRight({ children }) {
           <Toolbar>
             {title && (
               <Typography variant="h6" noWrap className={classes.title}>
-                { title }
+                {title}
               </Typography>
             )}
             <IconButton
@@ -122,7 +122,7 @@ export default function PersistentDrawerRight({ children }) {
             [classes.contentShift]: open,
           })}
         >
-          { children }
+          {children}
         </main>
         <Drawer
           className={classes.drawer}
@@ -135,12 +135,16 @@ export default function PersistentDrawerRight({ children }) {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+              {theme.direction === 'rtl' ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
             </IconButton>
           </div>
           <DrawerMenu />
         </Drawer>
       </div>
     </headerContext.Provider>
-  );
+  )
 }

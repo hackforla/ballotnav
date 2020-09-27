@@ -12,7 +12,7 @@ function Jurisdictions() {
   useEffect(() => {
     api.jurisdictions.list().then(setJurisdictions)
     setTitle('Select a jurisdiction to edit.')
-  }, [])
+  }, [setTitle])
 
   return (
     <List>
@@ -20,7 +20,8 @@ function Jurisdictions() {
         <ListItem
           key={juris.id}
           button
-          onClick={() => history.push(`/jurisdictions/${juris.id}`)}>
+          onClick={() => history.push(`/jurisdictions/${juris.id}`)}
+        >
           <ListItemText primary={juris.name} />
         </ListItem>
       ))}

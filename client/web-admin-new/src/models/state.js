@@ -1,4 +1,4 @@
-import { DataTypes, Deferrable } from './_helpers'
+import { DataTypes } from './_helpers'
 
 const fields = {
   id: {
