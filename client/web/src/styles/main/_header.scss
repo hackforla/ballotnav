@@ -31,4 +31,20 @@
       transform: translateY(-7px) rotate(-45deg);
     }
   }
+
+  .navbar-burger:hover {
+    background: none;
+  }
+
+  div.navbar-menu.is-active {
+    position: absolute;
+    right: 0;
+    width: 200px;
+    padding: 0;
+
+    .navbar-item {
+      margin: 0;
+      background-color: $light-blue;
+    }
+  }
 }
