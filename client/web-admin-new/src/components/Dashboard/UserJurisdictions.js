@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { List, ListItem, ListItemText } from '@material-ui/core'
 import api from 'services/api'
 
 function Jurisdictions() {
+  const history = useHistory()
   const [jurisdictions, setJurisdictions] = useState([])
 
   useEffect(() => {
@@ -10,15 +12,16 @@ function Jurisdictions() {
   }, [])
 
   return (
-    <div>
+    <List>
       {jurisdictions.map((juris) => (
-        <div key={juris.id}>
-          <Link key={juris.id} to={`/jurisdictions/${juris.id}`}>
-            {juris.name}
-          </Link>
-        </div>
+        <ListItem
+          key={juris.id}
+          button
+          onClick={() => history.push(`/jurisdictions/${juris.id}`)}>
+          <ListItemText primary={juris.name} />
+        </ListItem>
       ))}
-    </div>
+    </List>
   )
 }
 
