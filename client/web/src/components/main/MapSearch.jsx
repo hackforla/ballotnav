@@ -1,20 +1,22 @@
 import React from 'react';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import mapboxgl from 'mapbox-gl';
 
 import searchIcon from '../../assets/search-icon.svg';
 
 class MapSearch extends React.Component {
+  componentDidMount() {
+    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    this.geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+    });
+    
+    this.geocoder.addTo('#geocoder');
+  }
+
   render () {
     return (
-      <div class="field" id="map-search-wrapper">
-        <div class="control" id="search-input">
-          <input id="map-search" class="input" type="text" placeholder="Enter an address or ZIP" />
-        </div>
-        <div class="control">
-          <button class="button is-link">
-            <img src={searchIcon} />
-          </button>
-        </div>
-      </div>
+      <div id="geocoder" />
     );
   }
 };

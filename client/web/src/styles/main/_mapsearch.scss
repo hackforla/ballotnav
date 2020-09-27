@@ -1,15 +1,26 @@
-#map-search-wrapper {
+#geocoder {
   position: absolute;
   bottom: 0;
   left: 5px;
-  width: 100%;
+  width: 80%;
 
-  .control {
-    display: inline-block;
-    margin-right: 10px;
+  .mapboxgl-ctrl-geocoder--icon-search {
+    float: left;
   }
 
-  #search-input {
-    width: 55%;
+  .mapboxgl-ctrl-geocoder--pin-right {
+    float: right;
+  }
+
+  .mapboxgl-ctrl-geocoder--button {
+    position: absolute;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon-loading {
+    position: absolute;
+  }
+
+  .suggestions-wrapper {
+    position: absolute;
   }
 }
