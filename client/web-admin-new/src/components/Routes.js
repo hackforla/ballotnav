@@ -6,6 +6,8 @@ import {
   Redirect,
   useRouteMatch,
 } from 'react-router-dom'
+import { useAuth } from 'components/use-auth'
+
 import Login from 'components/auth/Login'
 import Register from 'components/auth/Register'
 import Jurisdictions from 'components/volunteer/Jurisdictions'
@@ -14,50 +16,42 @@ import Location from 'components/volunteer/Location'
 import AdminHome from 'components/admin/AdminHome'
 import Review from 'components/admin/Review'
 import Header from 'components/Header'
-import { useAuth } from 'components/use-auth'
 
-function AuthRoutes() {
+function Auth() {
   return (
     <Switch>
-      <Route path='/login'><Login /></Route>
-      <Route path='/register'><Register /></Route>
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
       <Redirect to={{ pathname: '/login' }} />
     </Switch>
   )
 }
 
-function AdminRoutes() {
+function Admin() {
   const { path } = useRouteMatch()
   return (
     <Switch>
-      <Route exact path={`${path}/`}><AdminHome /></Route>
-      <Route path={`${path}/review`}><Review /></Route>
+      <Route exact path={`${path}/`} component={AdminHome} />
+      <Route path={`${path}/review`} component={Review} />
       <Redirect to={{ pathname: `${path}/` }} />
     </Switch>
   )
 }
 
-function VolunteerRoutes() {
-  const { user, logout } = useAuth()
-  if (!user)
-    return (
-      <Redirect
-        to={{ pathname: "/login" }}
-      />
-    )
+function Dashboard() {
+  const { user } = useAuth()
+
+  if (!user) return <Redirect to={{ pathname: "/login" }} />
 
   return (
     <>
-      <Header user={user} logout={logout} />
+      <Header />
       <div style={{ padding: 20 }}>
         <Switch>
-          <Route exact path="/"><Jurisdictions /></Route>
+          <Route exact path="/" component={Jurisdiction} />
           <Route path="/jurisdictions/:jid/location/:lid" component={Location} />
           <Route path="/jurisdictions/:id" component={Jurisdiction} />
-
-          {user.role === 'admin' && (
-            <Route path="/admin"><AdminRoutes /></Route>
-          )}
+          {user.role === 'admin' && <Route path="/admin" component={Admin} /> }
           <Redirect to={{ pathname: '/' }} />
         </Switch>
       </div>
@@ -69,7 +63,7 @@ function Routes() {
   const { user } = useAuth()
   return (
     <Router>
-      { user ? <VolunteerRoutes /> : <AuthRoutes /> }
+      { user ? <Dashboard /> : <Auth /> }
     </Router>
   )
 }
