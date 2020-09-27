@@ -8,7 +8,6 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
     handleSubmit,
     handleChange,
     handleBlur,
-    touched,
     errors,
     isSubmitting
   } = useFormik({
@@ -32,10 +31,10 @@ function AutoForm({ model, initialValues, onSubmit, style }) {
   return (
     <form onSubmit={handleSubmit} style={style}>
       {Object.keys(model).map(field => {
-        const { type, defaultValue } = model[field]
+        const { type } = model[field]
 
         if (
-            !type 
+            !type
             || field === 'createdAt'
             || field === 'updatedAt'
             || (model[field].field || '') === 'id'

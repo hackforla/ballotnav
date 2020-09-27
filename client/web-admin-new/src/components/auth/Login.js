@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
 import { useToast } from 'components/use-toast'
-import { Button, TextField } from '@material-ui/core'
+import { Button, TextField, Grid } from '@material-ui/core'
 
 function Login() {
   const { login } = useAuth()
@@ -18,18 +18,20 @@ function Login() {
     isSubmitting
   } = useFormik({
     initialValues: {
-      email: 'jake.mensch@gmail.com',
-      password: 'hellothere1',
+      email: '',
+      password: '',
     },
-    onSubmit(values) {
-      login(values).catch(error => {
-        if (error.emailNotFound)
-          toast({ message: 'email not found' })
-        else if (error.passwordInvalid)
-          toast({ message: 'password invalid' })
-        else
-          toast({ message: 'server error' })
-      })
+    onSubmit(values, { setSubmitting }) {
+      login(values)
+        .catch(error => {
+          if (error.emailNotFound)
+            toast({ message: 'email not found' })
+          else if (error.passwordInvalid)
+            toast({ message: 'password invalid' })
+          else
+            toast({ message: 'server error' })
+          setSubmitting(false)
+        })
     }
   })
 
@@ -79,8 +81,11 @@ function Login() {
         >
           Sign In
         </Button>
+        <Grid container justify="center">
+          <Link to='/register'>Need an account? Register here.</Link>
+        </Grid>
       </form>
-      <Link style={{ marginTop: 20, textAlign: 'center' }} to='/register'>register</Link>
+
     </div>
   )
 }

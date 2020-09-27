@@ -2,7 +2,6 @@ import React from 'react'
 // import { useParams } from 'react-router-dom'
 import AutoForm from './AutoForm'
 import model from 'models/location'
-console.log(model)
 
 function Location() {
   // const { jid, lid } = useParams()
