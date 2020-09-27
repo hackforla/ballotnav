@@ -1,14 +1,13 @@
 #geocoder {
   position: absolute;
   bottom: 0;
-  width: 400px;
+  width: 100%;
 
   .mapboxgl-ctrl-geocoder--input {
     font-size: 1.1em;
     text-align: center;
-    // border-bottom: 1px $blue solid;
     margin: 0 0 10px 15px;
-    width: 52%;
+    width: 280px;
   }
 
   .mapboxgl-ctrl-geocoder--icon-search {
@@ -21,13 +20,19 @@
 
   .mapboxgl-ctrl-geocoder--pin-right {
     display: inline-block;
+
+    .mapboxgl-ctrl-geocoder--button {
+      margin-left: 5px;
+    }
+
+    .mapboxgl-ctrl-geocoder--icon-loading {
+      display: none;
+      width: 0;
+      height: 0;
+    }
   }
 
   .suggestions-wrapper {
     position: absolute;
-  }
-
-  .mapboxgl-ctrl-geocoder--icon-loading {
-    display: none;
   }
 }
