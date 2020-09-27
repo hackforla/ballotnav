@@ -1,4 +1,15 @@
-#map-search {
+#map-search-wrapper {
   position: absolute;
   bottom: 0;
+  left: 10px;
+  width: 100%;
+
+  .control {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  #search-input {
+    width: 55%;
+  }
 }
