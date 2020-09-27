@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
+import { Button } from '@material-ui/core'
 
 function Header() {
   const { user, logout, login } = useAuth()
   return (
-    <div style={{ height: 100, backgroundColor: 'red'}}>
-      <button onClick={logout}>logout</button>
-      {user.role === 'admin' && (
-        <Link to='/admin'>admin</Link>
-      )}
+    <div style={{ display: 'flex', padding: 20, alignItems: 'center', borderBottom: '1px black solid' }}>
+      <div style={{ flex: 1 }}>
+        {user.role === 'admin' && (
+          <Link to='/admin'>admin</Link>
+        )}
+      </div>
+      <Button disableElevation variant='contained' onClick={logout}>logout</Button>
     </div>
   )
 }
