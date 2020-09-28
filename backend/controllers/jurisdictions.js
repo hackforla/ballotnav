@@ -34,11 +34,17 @@ exports.delete = (req, res, next) => {
  * list wip jurisidictions
  */
 exports.listWip = async (req, res) => {
-  let route = req.route.path
-  logger.info({ message: 'List wip jurisdictions', route: route })
+  let editorUserId = req.query.editor
+  let queryBy = { where: {}}
+  logger.info({ message: 'List wip jurisdictions', route: req.route.path, editorUserId: editorUserId || 'all' })
+
+  if (editorUserId !== undefined) {
+    // we are listing wip created by a given editor
+    queryBy.where = { editorUserId: editorUserId }
+  }
 
   try {
-    const data = await req.db.WipJurisdiction.findAll()
+    const data = await req.db.WipJurisdiction.findAll(queryBy)
     return res.status(201).json(data)
   } catch (err) {
     return handleError(err, 400, res)
@@ -79,17 +85,20 @@ exports.listWipJurisdictionsWipLocation = async (req, res) => {
  */
 exports.createWip = async (req, res) => {
   let data = req.body
+  let editorUserId = req.user.id
   logger.info({
     message: 'Creating a wip jurisdiction',
     route: req.route.path,
+    editorUserId: editorUserId
   })
 
   try {
-    let results = await req.db.WipJurisdiction.create(data)
+    let results = await req.db.WipJurisdiction.create({ ...data, editorUserId: editorUserId })
     logger.info({
       message: 'Success: Created WipJurisdiction',
       results: results,
       route: req.route.path,
+      editorUserId: editorUserId
     })
     return res.status(201).send({ status: 'ok', results: results })
   } catch (err) {
@@ -102,6 +111,8 @@ exports.createWip = async (req, res) => {
  */
 exports.updateWip = async (req, res) => {
   let wipJurisdictionId = req.params.wipJurisdictionId
+  let editorUserId = req.user.id
+
   if (wipJurisdictionId === undefined || wipJurisdictionId === null) {
     return handleError(
       { message: 'Missing required field: wipJurisdictionId' },
@@ -115,10 +126,11 @@ exports.updateWip = async (req, res) => {
     route: req.route.path,
     wipJurisdictionId: wipJurisdictionId,
     updateData: { ...req.body },
+    editorUserId: editorUserId
   })
   try {
     let results = await req.db.WipJurisdiction.update(
-      { ...req.body },
+      { ...req.body, editorUserId: editorUserId },
       { where: { id: wipJurisdictionId } }
     )
     logger.info({

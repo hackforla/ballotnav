@@ -6,7 +6,7 @@ router.get('/', control.list)
 router.post('/', auth(['volunteer', 'admin']), control.create)
 router.delete('/', auth(['admin']), control.delete)
 
-router.get('/wip', control.listWip)
+router.get('/wip', auth(['volunteer', 'admin']), control.listWip)
 router.post('/wip', auth(['volunteer', 'admin']), control.createWip)
 router.put(
   '/wip/:wipJurisdictionId',
