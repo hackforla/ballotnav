@@ -100,3 +100,10 @@ If something is acting strange try a clean rebuild. In terminal from within the
 ```bash
 $ make rebuild
 ```
+
+If you still get some errors, such as module not found or other weirdness
+there's always the _nuclear option_ :boom: this will wipe cache and data. 
+
+```bash
+$ make reallyhardrebuild
+```
