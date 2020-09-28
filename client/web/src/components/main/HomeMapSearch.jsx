@@ -16,6 +16,7 @@ class HomeMapSearch extends React.Component {
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
+      countries: 'us',
     });
 
     geocoder.addTo('#geocoder');

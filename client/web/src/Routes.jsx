@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 
 import Home from './components/main/Home';
@@ -16,6 +17,7 @@ const Routes = () => {
       <Route path="/map">
         <MapContainer />
       </Route>
+      <Redirect to="/" />
     </Switch>
   );
 }

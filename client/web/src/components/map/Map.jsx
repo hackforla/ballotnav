@@ -30,6 +30,7 @@ class Map extends React.Component {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       marker: false,
+      countries: 'us',
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(map));
