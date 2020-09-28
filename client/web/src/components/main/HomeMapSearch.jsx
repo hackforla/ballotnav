@@ -15,6 +15,9 @@ class HomeMapSearch extends React.Component {
 
     geocoder.addTo('#geocoder');
     geocoder.setPlaceholder('Enter an address or ZIP');
+    geocoder.on('result', ({ result }) => {
+      this.props.addSearch(result);
+    });
   }
 
   render () {
