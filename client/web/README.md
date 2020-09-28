@@ -1,3 +1,5 @@
+To run the app first create a file named '.env' in this directory. Then copy the format from '.example.env' into '.env' except change 'REDACTED' to the BallotNav project's Mapbox token. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
