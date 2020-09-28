@@ -1,3 +1,5 @@
+const logger = require('@log')
+
 const { decodeToken } = require('@controllers/user')
 
 function auth(allowedRoles = []) {
@@ -9,7 +11,13 @@ function auth(allowedRoles = []) {
       const claims = await decodeToken(token)
       req.user = claims.user
     } catch {
-      return res.status(401).send('token is invalid or expired')
+      logger.error({
+        message: 'Error decoding JWT',
+        token: token,
+      })
+      return res
+        .status(401)
+        .send({ status: 'error', message: 'token is invalid or expired' })
     }
 
     if (allowedRoles.includes(req.user.role)) return next()

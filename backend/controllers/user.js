@@ -23,7 +23,8 @@ async function createToken(claims) {
 }
 
 async function decodeToken(token) {
-  return await jwt.verify(token, TOKEN_SECRET)
+  let t = token.replace(/^Bearer /i, '')
+  return await jwt.verify(t, TOKEN_SECRET)
 }
 
 //// EXPORTS ////
@@ -46,7 +47,7 @@ exports.register = async (req, res, next) => {
       email: email,
       route: req.route.path,
     })
-    return res.json({ duplicateEmail: true })
+    return res.status(400).json({ duplicateEmail: true })
   }
 
   try {
@@ -68,7 +69,7 @@ exports.register = async (req, res, next) => {
       email: email,
       route: req.route.path,
     })
-    return res.status(400).send(e)
+    return res.status(400).json({ unknownError: true })
   }
 }
 
@@ -101,7 +102,7 @@ exports.login = async (req, res, next) => {
     message: 'Login success',
     email: email,
     userId: user.id,
-    route: res.route.path,
+    route: req.route.path,
   })
   res.json({ isSuccess: true, token, user })
 }

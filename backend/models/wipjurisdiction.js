@@ -122,6 +122,16 @@ module.exports = (sequelize, DataTypes) => {
         field: 'internal_notes',
         allowNull: true,
       },
+      timezoneDefault: {
+        type: DataTypes.TEXT,
+        field: 'timezone_default',
+      },
+      timezoneEnforced: {
+        type: DataTypes.BOOLEAN,
+        field: 'timezone_enforced',
+        allowNull: false,
+        defaultValue: false,
+      },
       fipsCategory: {
         type: DataTypes.TEXT,
         field: 'fips_category',

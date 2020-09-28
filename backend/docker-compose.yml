@@ -3,8 +3,12 @@ services:
 
   ballotnav:
     volumes:
-      - .:/ballotnav
-      - /ballotnav/node_modules
+      - type: bind
+        source: ./node_modules
+        target: /ballotnav/node_modules
+      - type: bind
+        source: .
+        target: /ballotnav
     build: "./"
     image: "api"
     ports:
@@ -18,7 +22,7 @@ services:
       - TOKEN_EXPIRY=86400
     depends_on:
       - db
-    command: npm run dev
+    command: ["/usr/local/bin/wait-for-it.sh", "db:5432", "--", "npm", "run", "dev"]
 
   db:
     image: jred/postgres:11-postgis
