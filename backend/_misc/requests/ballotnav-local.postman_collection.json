@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "ef3b04ec-57d9-40c8-9383-6a7d7c40995b",
+		"name": "ballotnav-local",
+		"description": "ballotnav api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\":\"ballotnav\",\n    \"lastName\": \"dev\",\n    \"email\": {{EMAIL}},\n    \"password\" {{PASSWORD}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/user/register",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				},
+				"description": "create a volunteer user"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": {{EMAIL}},\n    \"password\" {{PASSWORD}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/user/login",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "create a volunteer user"
+			},
+			"response": []
+		},
+		{
+			"name": "list wip locations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/locations/11/wip",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"locations",
+						"11",
+						"wip"
+					]
+				},
+				"description": "list wip locations by wip jurisdiction"
+			},
+			"response": []
+		},
+		{
+			"name": "create wip location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n      \"name\": \"Franklin County Board of Elections\",\n      \"infoPublic\": \"\",\n      \"address1\": \"1700 Morse Road \",\n      \"address2\": \"\",\n      \"address3\": \"Columbus OH 43229\",\n      \"contactName\": null,\n      \"contactEmail\": null,\n      \"contactFax\": \"(614) 525-3489\",\n      \"contactPhone\": \"(614) 525-3100 \",\n      \"geomCoordinates\": \"40.06042,-82.97369\",\n      \"isEarlyDropoffLocation\": \"Y\",\n      \"isEarlyVotingLocation\": \"Y\",\n      \"isElectionsOffice\": \"Y\",\n      \"isPollingLocation\": \"N\",\n      \"isDropBox\": \"N\",\n      \"isHandicapAccessible\": \"Y\",\n      \"isStaffedLocation\": \"Y\",\n      \"timezone\": \"US/Eastern\",\n      \"scheduleType\": \"hours\",\n      \"scheduleDescription\": \"NULL\",\n      \"continuousOpen\": \"\",\n      \"continuousClose\": \"\",\n      \"facilityTypeId\": 2,\n      \"facilityTypeName\": \"Government\"\n   }",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/locations/1/wip",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"locations",
+						"1",
+						"wip"
+					]
+				},
+				"description": "creates a wip location under a wip jurisdcition"
+			},
+			"response": []
+		},
+		{
+			"name": "update wip location",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n      \"name\": \"Franklin County Board of Elections\",\n      \"contactPhone\": \"(614) 526-3100 \"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/locations/1/wip/1",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"locations",
+						"1",
+						"wip",
+						"1"
+					]
+				},
+				"description": "Update a wip location under a wip jurisdiction"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

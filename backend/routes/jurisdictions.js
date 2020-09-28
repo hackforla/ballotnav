@@ -1,6 +1,9 @@
+const { checkSchema } = require('express-validator')
+
 const router = require('express').Router()
 const control = require('@controllers/jurisdictions')
 const auth = require('@middleware/auth')
+const schemas = require('./schemas')
 
 router.get('/', control.list)
 router.post('/', auth(['volunteer', 'admin']), control.create)
@@ -16,6 +19,8 @@ router.put(
 
 router.get(
   '/wip/:wipJurisdictionId/locations',
+  auth(['volunteer', 'admin']),
+  checkSchema(schemas.wipJurisdictionId),
   control.listWipJurisdictionsWipLocation
 )
 
