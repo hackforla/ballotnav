@@ -3,6 +3,7 @@ const { handleError } = require('@controllers/error')
 
 exports.list = async (req, res) => {
   let route = req.route.path
+
   logger.info({
     message: 'List jurisdictions',
     route: route,
@@ -35,8 +36,12 @@ exports.delete = (req, res, next) => {
  */
 exports.listWip = async (req, res) => {
   let editorUserId = req.query.editor
-  let queryBy = { where: {}}
-  logger.info({ message: 'List wip jurisdictions', route: req.route.path, editorUserId: editorUserId || 'all' })
+  let queryBy = { where: {} }
+  logger.info({
+    message: 'List wip jurisdictions',
+    route: req.route.path,
+    editorUserId: editorUserId || 'all',
+  })
 
   if (editorUserId !== undefined) {
     // we are listing wip created by a given editor
@@ -89,16 +94,19 @@ exports.createWip = async (req, res) => {
   logger.info({
     message: 'Creating a wip jurisdiction',
     route: req.route.path,
-    editorUserId: editorUserId
+    editorUserId: editorUserId,
   })
 
   try {
-    let results = await req.db.WipJurisdiction.create({ ...data, editorUserId: editorUserId })
+    let results = await req.db.WipJurisdiction.create({
+      ...data,
+      editorUserId: editorUserId,
+    })
     logger.info({
       message: 'Success: Created WipJurisdiction',
       results: results,
       route: req.route.path,
-      editorUserId: editorUserId
+      editorUserId: editorUserId,
     })
     return res.status(201).send({ status: 'ok', results: results })
   } catch (err) {
@@ -126,7 +134,7 @@ exports.updateWip = async (req, res) => {
     route: req.route.path,
     wipJurisdictionId: wipJurisdictionId,
     updateData: { ...req.body },
-    editorUserId: editorUserId
+    editorUserId: editorUserId,
   })
   try {
     let results = await req.db.WipJurisdiction.update(
