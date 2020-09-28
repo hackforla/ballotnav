@@ -1,4 +1,8 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
+import { addSearch } from '../../redux/actions/search.js';
+
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
@@ -20,4 +24,10 @@ class HomeMapSearch extends React.Component {
   }
 };
 
-export default HomeMapSearch;
+const mapDispatchToProps = dispatch => {
+  return {
+    addSearch: search => dispatch(addSearch(search)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(HomeMapSearch);

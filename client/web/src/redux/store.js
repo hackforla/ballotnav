@@ -1,9 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const rootReducer = combineReducers({
-  // boards: boardsReducer,
-});
+import rootReducer from './rootReducer';
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
