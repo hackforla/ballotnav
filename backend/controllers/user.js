@@ -47,7 +47,7 @@ exports.register = async (req, res, next) => {
       email: email,
       route: req.route.path,
     })
-    return res.json({ duplicateEmail: true })
+    return res.status(400).json({ duplicateEmail: true })
   }
 
   try {
@@ -69,7 +69,7 @@ exports.register = async (req, res, next) => {
       email: email,
       route: req.route.path,
     })
-    return res.status(400).send(e)
+    return res.status(400).json({ unknownError: true })
   }
 }
 

@@ -5,28 +5,37 @@ const BASE_URL = `${process.env.REACT_APP_API_URL}/user`
 export const getUser = async () => {
   try {
     const response = await axios.get(BASE_URL)
-    return response.data.user
-  } catch {
+    return response.data
+  } catch (err) {
     return null
   }
 }
 
-export const login = async (email, password) => {
+export const login = async ({ email, password }) => {
   const body = { email, password }
   try {
     const response = await axios.post(BASE_URL + '/login', body)
     await sessionStorage.setItem('token', response.data.token)
     return response.data
   } catch (err) {
-    console.log(err)
+    return Promise.reject(err.response.data)
   }
 }
 
-export const register = async (firstName, lastName, email, password) => {
+export const register = async ({ firstName, lastName, email, password }) => {
   const body = { firstName, lastName, email, password }
-  const response = await axios.post(BASE_URL + '/register', body)
-  await sessionStorage.setItem('token', response.data.token)
-  return response.data
+  try {
+    const response = await axios.post(BASE_URL + '/register', body)
+    await sessionStorage.setItem('token', response.data.token)
+    return response.data
+  } catch (err) {
+    return Promise.reject(err.response.data)
+  }
+}
+
+export const logout = async () => {
+  await sessionStorage.removeItem('token')
+  return null
 }
 
 // export const getAll = async () => {
