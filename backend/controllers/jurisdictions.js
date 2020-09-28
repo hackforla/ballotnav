@@ -51,14 +51,24 @@ exports.listWip = async (req, res) => {
 exports.listWipJurisdictionsWipLocation = async (req, res) => {
   let wipJurisdictionId = req.params.wipJurisdictionId
   if (wipJurisdictionId === null || wipJurisdictionId === undefined) {
-    return handleError({message: 'Missing required field'}, 400, res)
+    return handleError({ message: 'Missing required field' }, 400, res)
   }
-  logger.info({ message: 'Listing wip locations by jurisdiction', route: req.route.path, wipJurisdictionId: wipJurisdictionId })
+  logger.info({
+    message: 'Listing wip locations by jurisdiction',
+    route: req.route.path,
+    wipJurisdictionId: wipJurisdictionId,
+  })
 
   try {
-    let results = await req.db.WipLocation.findAll({where: { wipJurisdictionId: wipJurisdictionId } })
-    logger.info({ message: 'Success: Got wip location results', count: results.length, wipJurisdictionId: wipJurisdictionId })
-    return res.status(200).json({status: 'ok', results: results})
+    let results = await req.db.WipLocation.findAll({
+      where: { wipJurisdictionId: wipJurisdictionId },
+    })
+    logger.info({
+      message: 'Success: Got wip location results',
+      count: results.length,
+      wipJurisdictionId: wipJurisdictionId,
+    })
+    return res.status(200).json({ status: 'ok', results: results })
   } catch (err) {
     return handleError(err, 400, res)
   }
@@ -93,21 +103,29 @@ exports.createWip = async (req, res) => {
 exports.updateWip = async (req, res) => {
   let wipJurisdictionId = req.params.wipJurisdictionId
   if (wipJurisdictionId === undefined || wipJurisdictionId === null) {
-    return handleError({message: 'Missing required field: wipJurisdictionId'}, 400, res)
+    return handleError(
+      { message: 'Missing required field: wipJurisdictionId' },
+      400,
+      res
+    )
   }
 
   logger.info({
     message: 'Updating wip jurisdiction',
     route: req.route.path,
     wipJurisdictionId: wipJurisdictionId,
-    updateData: {...req.body}
+    updateData: { ...req.body },
   })
   try {
-    let results = await req.db.WipJurisdiction.update({...req.body}, { where: { id: wipJurisdictionId }})
+    let results = await req.db.WipJurisdiction.update(
+      { ...req.body },
+      { where: { id: wipJurisdictionId } }
+    )
     logger.info({
-      message: 'Success: Updated wip jurisdiction', wipJurisdictionId: wipJurisdictionId
+      message: 'Success: Updated wip jurisdiction',
+      wipJurisdictionId: wipJurisdictionId,
     })
-    return res.status(200).send({status: 'ok'})
+    return res.status(200).send({ status: 'ok' })
   } catch (err) {
     return handleError(err, 400, res)
   }
