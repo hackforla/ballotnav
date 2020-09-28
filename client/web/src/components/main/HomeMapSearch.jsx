@@ -4,14 +4,13 @@ import mapboxgl from 'mapbox-gl';
 
 class HomeMapSearch extends React.Component {
   componentDidMount() {
-    const { map } = this.props;
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    this.geocoder = new MapboxGeocoder({
+    const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
     });
 
-    this.geocoder.addTo('#geocoder');
-    this.geocoder.setPlaceholder('Enter an address or ZIP');
+    geocoder.addTo('#geocoder');
+    geocoder.setPlaceholder('Enter an address or ZIP');
   }
 
   render () {
