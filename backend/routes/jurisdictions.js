@@ -8,6 +8,8 @@ router.delete('/', auth(['admin']), control.delete)
 
 router.get('/wip', control.listWip)
 router.post('/wip', auth(['volunteer', 'admin']), control.createWip)
-router.put('/wip', auth(['volunteer', 'admin']), control.updateWip)
+router.put('/wip/:wipJurisdictionId', auth(['volunteer', 'admin']), control.updateWip)
+
+router.get('/wip/:wipJurisdictionId/locations', control.listWipJurisdictionsWipLocation)
 
 module.exports = router
