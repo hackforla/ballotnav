@@ -1,9 +1,13 @@
 import React from 'react';
+import ResultHeader from './ResultHeader';
 import Map from './Map';
 
 const MapContainer = () => {
   return (
-    <Map />
+    <>
+      <ResultHeader />
+      <Map />
+    </>
   );
 }
 
