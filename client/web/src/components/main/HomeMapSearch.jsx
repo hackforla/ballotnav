@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
-
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
@@ -17,7 +16,8 @@ class HomeMapSearch extends React.Component {
     geocoder.setPlaceholder('Enter an address or ZIP');
     geocoder.on('result', ({ result }) => {
       this.props.addSearch(result);
-    });
+      this.props.history.push('/map');
+    })
   }
 
   render () {
@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(HomeMapSearch);
+export default withRouter(connect(null, mapDispatchToProps)(HomeMapSearch));
