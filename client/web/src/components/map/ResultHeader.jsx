@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 const ResultHeader = ({
   search,
 }) => {
-  const state = search.context[search.context.length - 2].text;
-  const county = search.context[search.context.length - 3].text;
+  if (search) {
+    var state = search.context[search.context.length - 2].text;
+    var county = search.context[search.context.length - 3].text;
+  }
 
   return (
-    <div>
-      <a>State: {state}</a>
-      <a>County: {county}</a>
+    <div className="result-header">
+      {search &&
+        <>
+          <p>{county} County, {state}</p>
+          <a>Learn more</a>
+        </>
+      }
     </div>
   );
 }

@@ -7,16 +7,22 @@ import mapboxgl from 'mapbox-gl';
 
 class HomeMapSearch extends React.Component {
   componentDidMount() {
+    const {
+      addSearch,
+      history,
+    } = this.props;
+
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
     });
 
     geocoder.addTo('#geocoder');
     geocoder.setPlaceholder('Enter an address or ZIP');
     geocoder.on('result', ({ result }) => {
-      this.props.addSearch(result);
-      this.props.history.push('/map');
+      addSearch(result);
+      history.push('/map');
     })
   }
 
@@ -27,10 +33,8 @@ class HomeMapSearch extends React.Component {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addSearch: search => dispatch(addSearch(search)),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  addSearch: search => dispatch(addSearch(search)),
+});
 
 export default withRouter(connect(null, mapDispatchToProps)(HomeMapSearch));
