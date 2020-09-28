@@ -19,6 +19,7 @@ router.put(
 
 router.get(
   '/wip/:wipJurisdictionId/locations',
+  auth(['volunteer', 'admin']),
   checkSchema(schemas.wipJurisdictionId),
   control.listWipJurisdictionsWipLocation
 )

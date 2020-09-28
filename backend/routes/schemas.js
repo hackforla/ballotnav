@@ -19,6 +19,18 @@ module.exports = {
       toInt: true,
     },
   },
+  wipLocationCreate: {
+    wipJurisdictionId: {
+      in: ['path'],
+      errorMessage: 'Missing wip jurisdiction id',
+      isInt: true,
+      toInt: true,
+    },
+    scheduleType: {
+      in: ['body'],
+      errorMessage: 'Missing required field: schedulType',
+    }
+  },
   wipLocationUpdate: {
     wipJurisdictionId: {
       in: ['path'],

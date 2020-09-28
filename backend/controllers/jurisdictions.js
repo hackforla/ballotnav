@@ -50,7 +50,7 @@ exports.listWip = async (req, res) => {
 
   try {
     const data = await req.db.WipJurisdiction.findAll(queryBy)
-    return res.status(201).json(data)
+    return res.status(201).json({status: 'ok', results: data})
   } catch (err) {
     return handleError(err, 400, res)
   }
