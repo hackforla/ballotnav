@@ -2,41 +2,4 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-
-  .mapbox-ctrl-geocoder {
-    min-width: 100%;
-  }
-
-  .mapboxgl-ctrl-geocoder--input {
-    font-size: 1.1em;
-    text-align: center;
-    margin: 0 0 10px 15px;
-    width: 280px;
-  }
-
-  .mapboxgl-ctrl-geocoder--icon-search {
-    left: 10px;
-    bottom: -14px;
-    position: relative;
-    width: 25px;
-    height: 40px;
-  }
-
-  .mapboxgl-ctrl-geocoder--pin-right {
-    display: inline-block;
-
-    .mapboxgl-ctrl-geocoder--button {
-      margin-left: 5px;
-    }
-
-    .mapboxgl-ctrl-geocoder--icon-loading {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-  }
-
-  .suggestions-wrapper {
-    position: absolute;
-  }
 }
