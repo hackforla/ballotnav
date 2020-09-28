@@ -29,7 +29,7 @@ module.exports = {
     scheduleType: {
       in: ['body'],
       errorMessage: 'Missing required field: schedulType',
-    }
+    },
   },
   wipLocationUpdate: {
     wipJurisdictionId: {
@@ -43,6 +43,6 @@ module.exports = {
       errorMessage: 'Missing wip location id',
       isInt: true,
       toInt: true,
-    }
-  }
+    },
+  },
 }

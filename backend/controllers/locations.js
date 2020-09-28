@@ -31,7 +31,7 @@ exports.listWip = async (req, res) => {
     message: 'List wip locations',
     route: req.route.path,
     editorUserId: req.user.id,
-    wipJurisdictionId: wipJurisdictionId
+    wipJurisdictionId: wipJurisdictionId,
   })
   if (wipLocationId !== undefined) {
     // we are getting a list of 1 or more specific wip location ids
@@ -40,7 +40,7 @@ exports.listWip = async (req, res) => {
 
   try {
     const data = await req.db.WipLocation.findAll(queryBy)
-    return res.status(201).json({status: 'ok', results: data})
+    return res.status(201).json({ status: 'ok', results: data })
   } catch (err) {
     return handleError(err, 400, res)
   }
@@ -64,14 +64,14 @@ exports.createWip = async (req, res) => {
     let results = await req.db.WipLocation.create({
       ...data,
       editorUserId: editorUserId,
-      wipJurisdictionId: wipJurisdictionId
+      wipJurisdictionId: wipJurisdictionId,
     })
     logger.info({
       message: 'Success: Created WipLocation',
       results: results,
       route: req.route.path,
       editorUserId: editorUserId,
-      wipJurisdictionId: wipJurisdictionId
+      wipJurisdictionId: wipJurisdictionId,
     })
     return res.status(201).json({ status: 'ok', results: results })
   } catch (err) {
@@ -81,10 +81,10 @@ exports.createWip = async (req, res) => {
 
 /**
  * update a wip location
- * example: 
+ * example:
  *  update location id 11 under jurisidtion 42:
  *
- * PUT /locations/42/wip/11 
+ * PUT /locations/42/wip/11
  *  { "address_1": "22 E. 2nd Street" }
  */
 exports.updateWip = async (req, res) => {
@@ -102,14 +102,18 @@ exports.updateWip = async (req, res) => {
   })
   try {
     let results = await req.db.WipLocation.update(
-      { ...req.body, editorUserId: editorUserId, wipJurisdictionId: wipJurisdictionId},
+      {
+        ...req.body,
+        editorUserId: editorUserId,
+        wipJurisdictionId: wipJurisdictionId,
+      },
       { where: { id: wipLocationId } }
     )
     logger.info({
       message: 'Success: Updated wip location',
       wipJurisdictionId: wipJurisdictionId,
       wipLocationId: wipLocationId,
-      editorUserId: editorUserId
+      editorUserId: editorUserId,
     })
     return res.status(200).json({ status: 'ok' })
   } catch (err) {
