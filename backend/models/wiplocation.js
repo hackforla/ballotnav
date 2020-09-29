@@ -180,6 +180,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'U',
       },
+      isOutdoors: {
+        type: DataTypes.ENUM('Y', 'N', 'U'),
+        field: 'is_outdoors',
+        allowNull: false,
+        defaultValue: 'U',
+      },
+      isDriveup: {
+        type: DataTypes.ENUM('Y', 'N', 'U'),
+        field: 'is_driveup',
+        allowNull: false,
+        defaultValue: 'U',
+      },
       scheduleType: {
         type: DataTypes.ENUM('description', 'hours', 'continuous'),
         field: 'schedule_type',
@@ -208,6 +220,11 @@ module.exports = (sequelize, DataTypes) => {
       continuousCloseTime: {
         type: DataTypes.TEXT,
         field: 'continuous_close_time',
+        allowNull: true,
+      },
+      rules: {
+        type: DataTypes.TEXT,
+        field: 'rules',
         allowNull: true,
       },
       createdAt: {

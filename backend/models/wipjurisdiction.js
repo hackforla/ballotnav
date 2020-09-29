@@ -132,46 +132,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: false,
       },
-      fipsCategory: {
-        type: DataTypes.TEXT,
-        field: 'fips_category',
-        allowNull: true,
-      },
-      fipsCountyCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_county_code',
-        allowNull: true,
-      },
-      fipsCountyNumber: {
-        type: DataTypes.INTEGER,
-        field: 'fips_county_number',
-        allowNull: true,
-      },
-      fipsCompleteCountyCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_complete_county_code',
-        allowNull: true,
-      },
-      fipsCompleteCountyNumber: {
-        type: DataTypes.INTEGER,
-        field: 'fips_complete_county_number',
-        allowNull: true,
-      },
-      fipsCountySubCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_county_sub_code',
-        allowNull: true,
-      },
-      fipsPlaceCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_place_code',
-        allowNull: true,
-      },
-      fipsConsCityCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_cons_city_code',
-        allowNull: true,
-      },
       editorUserId: {
         type: DataTypes.INTEGER,
         field: 'editor_user_id',
@@ -194,6 +154,16 @@ module.exports = (sequelize, DataTypes) => {
         field: 'is_released',
         allowNull: false,
         defaultValue: false,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at',
+        allowNull: true,
       },
     },
     {

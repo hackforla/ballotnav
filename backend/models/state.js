@@ -146,12 +146,26 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'geojson',
       },
+      jurisdictionalWarning: {
+        type: DataTypes.TEXT,
+        field: 'jurisdictional_warning',
+      },
       wipStateId: {
         type: DataTypes.INTEGER,
         field: 'wip_state_id',
         allownull: true,
         comment:
           'Set to the WIP ID most recently published. This should be constrained to wip_state.id, but sequelize does not understand cyclic dependencies.',
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at',
+        allowNull: true,
       },
     },
     {

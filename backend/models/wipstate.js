@@ -115,14 +115,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'jurisdiction',
       },
-      fipsCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_code',
-      },
-      fipsNumber: {
-        type: DataTypes.INTEGER,
-        field: 'fips_number',
-      },
       stateType: {
         type: DataTypes.ENUM('State', 'Commonwealth', 'Federal District'),
         field: 'state_type',
@@ -142,6 +134,10 @@ module.exports = (sequelize, DataTypes) => {
       geoJSON: {
         type: DataTypes.TEXT,
         field: 'geojson',
+      },
+      jurisdictionalWarning: {
+        type: DataTypes.TEXT,
+        field: 'jurisdictional_warning',
       },
       editBasisWipStateId: {
         type: DataTypes.INTEGER,
@@ -172,6 +168,16 @@ module.exports = (sequelize, DataTypes) => {
         field: 'is_released',
         allowNull: false,
         defaultValue: false,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at',
+        allowNull: true,
       },
     },
     {
