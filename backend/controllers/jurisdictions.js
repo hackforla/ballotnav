@@ -31,6 +31,38 @@ exports.delete = (req, res, next) => {
     .catch(next)
 }
 
+exports.assign = (req, res, next) => {
+  const { userId, jurisdictionId } = req.body
+  req.db.UserJurisdiction.create({
+    userId,
+    jurisdictionId,
+    status: 'editor'
+  })
+    .then((data) => res.json(data))
+    .catch(next)
+}
+
+// list user jurisdictions
+// TODO: this should use the User/UserJurisdiction/Jurisdiction
+// association but it's not working
+exports.listMine = async (req, res, next) => {
+  const userId = req.user.id
+
+  const assigns = await req.db.UserJurisdiction.findAll({
+    where: { userId }
+  })
+  const jurisIds = assigns.map(assign => assign.jurisdictionId)
+  const jurisdictions = await req.db.Jurisdiction.findAll({
+    where: {
+      id: {
+        [req.db.Sequelize.Op.in]: jurisIds
+      }
+    },
+    attributes: ['id', 'name']
+  })
+  res.json(jurisdictions)
+}
+
 /**
  * list wip jurisidictions
  */

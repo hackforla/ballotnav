@@ -10,8 +10,10 @@ function Jurisdictions() {
   const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.list().then(setJurisdictions)
-    setTitle('Select a jurisdiction to edit.')
+    api.jurisdictions.listMine().then(jurisdictions => {
+      setJurisdictions(jurisdictions)
+      setTitle('Select a jurisdiction to edit.')
+    })
   }, [setTitle])
 
   return (

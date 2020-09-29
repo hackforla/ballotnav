@@ -1,6 +1,6 @@
-// import axios from 'axios'
-//
-// const BASE_URL = `${process.env.REACT_APP_API_URL}/states`
+import axios from 'axios'
+
+const BASE_URL = `${process.env.REACT_APP_API_URL}/jurisdictions`
 
 const JURISDICTIONS = [
   {
@@ -32,6 +32,11 @@ const LOCATIONS = [
   },
 ]
 
+export const listMine = async () => {
+  const { data } = await axios.get(`${BASE_URL}/me`)
+  return data
+}
+
 export const list = async () => {
   return JURISDICTIONS
 }
@@ -44,8 +49,8 @@ export const getById = async (id) => {
   }
 }
 
-export const update = async (jurisdiction) => {
-  return {
-    updated: true,
-  }
-}
+// export const update = async (jurisdiction) => {
+//   return {
+//     updated: true,
+//   }
+// }
