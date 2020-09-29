@@ -1,3 +1,17 @@
+ALTER TABLE public.wip_state
+	DROP COLUMN fips_code ,
+	DROP COLUMN fips_number;
+
+ALTER TABLE public.wip_jurisdiction
+	DROP COLUMN fips_category ,
+	DROP COLUMN fips_county_code ,
+	DROP COLUMN fips_county_number ,
+	DROP COLUMN fips_complete_county_code ,
+	DROP COLUMN fips_complete_county_number ,
+	DROP COLUMN fips_county_sub_code ,
+	DROP COLUMN fips_place_code ,
+	DROP COLUMN fips_cons_city_code;
+
 CREATE OR REPLACE FUNCTION ftrig_state_b_iu ()
 	RETURNS TRIGGER
 	LANGUAGE PLPGSQL

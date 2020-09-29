@@ -115,14 +115,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'jurisdiction',
       },
-      fipsCode: {
-        type: DataTypes.TEXT,
-        field: 'fips_code',
-      },
-      fipsNumber: {
-        type: DataTypes.INTEGER,
-        field: 'fips_number',
-      },
       stateType: {
         type: DataTypes.ENUM('State', 'Commonwealth', 'Federal District'),
         field: 'state_type',
