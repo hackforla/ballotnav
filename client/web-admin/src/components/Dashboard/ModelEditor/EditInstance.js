@@ -13,6 +13,7 @@ import TabPanel from '../TabPanel'
 
 function EditInstance() {
   const { model, instanceId } = usePath()
+  console.log('fields:', model.fields)
   const [tabNum, setTabNum] = useState(0)
   return (
     <>
@@ -25,6 +26,18 @@ function EditInstance() {
           return <Tab key={child.name} label={label}  />
         })}
       </Tabs>
+      <TabPanel value={tabNum} index={0}>
+        <AutoForm
+          model={model.fields.default}
+          initialValues={null}
+          submitText={`Update ${model.name}`}
+          onSubmit={(values, funcs) => {
+            console.log(values)
+            funcs.setSubmitting(false)
+          }}
+          style={{ maxWidth: 400 }}
+        />
+      </TabPanel>
     </>
   )
 }
