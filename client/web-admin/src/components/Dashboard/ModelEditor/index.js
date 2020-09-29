@@ -8,6 +8,7 @@ const BASE_PATH = '/models'
 
 function ModelEditor({ model }) {
   const path = usePath()
+  console.log(path)
   switch(path.type) {
     case 'edit': return <EditInstance />
     case 'search': return <SearchInstances />

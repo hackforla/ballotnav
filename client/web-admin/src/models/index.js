@@ -1,5 +1,5 @@
 
-const model = {
+const model = [{
   name: 'state',
   fields: require('./state'),
   children: [{
@@ -35,6 +35,6 @@ const model = {
   },{
     name: 'url'
   }]
-}
+}]
 
 export default model

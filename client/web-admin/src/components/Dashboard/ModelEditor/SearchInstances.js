@@ -5,15 +5,15 @@ import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function SearchInstances() {
-  const { pathname, modelName } = usePath()
+  const { pathname, model } = usePath()
   const [instances, setInstances] = useState(null)
   const history = useHistory()
 
   useEffect(() => {
-    api.models.listInstances(modelName).then(instances => {
+    api.models.listInstances(model.name).then(instances => {
       setInstances(instances)
     })
-  }, [modelName])
+  }, [model.name])
 
   if (!instances) return null
   return (
