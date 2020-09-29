@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import usePath from './use-path'
 import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
-function SearchInstances({ modelName }) {
+function SearchInstances() {
+  const { pathname, modelName } = usePath()
   const [instances, setInstances] = useState(null)
   const history = useHistory()
-  const location = useLocation()
 
   useEffect(() => {
     api.models.listInstances(modelName).then(instances => {
@@ -21,7 +22,7 @@ function SearchInstances({ modelName }) {
         <ListItem
           key={instance.id}
           button
-          onClick={() => history.push(`${location.pathname}/${instance.id}`)}
+          onClick={() => history.push(`${pathname}/${instance.id}`)}
         >
           <ListItemText primary={instance.name} />
         </ListItem>
