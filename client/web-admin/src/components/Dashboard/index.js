@@ -8,6 +8,8 @@ import EditJurisdiction from './EditJurisdiction'
 import SearchStates from './SearchStates'
 import EditState from './EditState'
 import ReviewWIP from './ReviewWIP'
+import ModelEditor from './ModelEditor'
+import model from 'models'
 
 function Dashboard() {
   const { user } = useAuth()
@@ -15,6 +17,9 @@ function Dashboard() {
   return (
     <Layout>
       <Switch>
+        <Route path="/models/state">
+          <ModelEditor model={model} />
+        </Route>
         <Route exact path="/jurisdictions" component={UserJurisdictions} />
         <Route exact path="/jurisdictions/:jid" component={EditJurisdiction} />
         {isAdmin && <Route exact path="/states" component={SearchStates} />}

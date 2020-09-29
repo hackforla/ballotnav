@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as user from './user'
 import * as states from './states'
 import * as jurisdictions from './jurisdictions'
+import * as models from './models'
 
 axios.interceptors.request.use(
   (config) => {
@@ -33,4 +34,5 @@ export default {
   user,
   states,
   jurisdictions,
+  models,
 }
