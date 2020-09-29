@@ -19,7 +19,7 @@ services:
       - NODE_ENV=development
       - DISABLE_DB_MIGRATION_AUTO_RUN=yes
       - TOKEN_SECRET=verysecretstring
-      - TOKEN_EXPIRY=86400
+      - TOKEN_EXPIRY=86400000  # TODO: change this back to 86400
     depends_on:
       - db
     command: ["/usr/local/bin/wait-for-it.sh", "db:5432", "--", "npm", "run", "dev"]

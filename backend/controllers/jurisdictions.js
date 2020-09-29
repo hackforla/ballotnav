@@ -117,34 +117,54 @@ exports.listWipJurisdictionsWipLocation = async (req, res) => {
   }
 }
 
+exports.createWip = async (req, res, next) => {
+  const { jurisdictionId } = req.body
+  const editorUserId = req.user.id
+
+  const publishedData = await req.db.Jurisdiction.findByPk(jurisdictionId)
+
+  try {
+    const newWip = await req.db.WipJurisdiction.create({
+      ...publishedData.dataValues,
+      editorUserId,
+      jurisdictionId,
+      editBasisWipJurisdictionId: publishedData.wipJurisdictionId,
+    })
+    return res.json(newWip)
+  } catch (err) {
+    // wip already exists
+    return res.status(200).send({ alreadyExists: true })
+  }
+}
+
 /**
  * creates a WipJurisdiction entry
  */
-exports.createWip = async (req, res) => {
-  let data = req.body
-  let editorUserId = req.user.id
-  logger.info({
-    message: 'Creating a wip jurisdiction',
-    route: req.route.path,
-    editorUserId: editorUserId,
-  })
-
-  try {
-    let results = await req.db.WipJurisdiction.create({
-      ...data,
-      editorUserId: editorUserId,
-    })
-    logger.info({
-      message: 'Success: Created WipJurisdiction',
-      results: results,
-      route: req.route.path,
-      editorUserId: editorUserId,
-    })
-    return res.status(201).send({ status: 'ok', results: results })
-  } catch (err) {
-    return handleError(err, 400, res)
-  }
-}
+// exports.createWip = async (req, res) => {
+//   let data = req.body
+//   let editorUserId = req.user.id
+//   logger.info({
+//     message: 'Creating a wip jurisdiction',
+//     route: req.route.path,
+//     editorUserId: editorUserId,
+//   })
+//
+//   try {
+//     let results = await req.db.WipJurisdiction.create({
+//       ...data,
+//       editorUserId: editorUserId,
+//     })
+//     logger.info({
+//       message: 'Success: Created WipJurisdiction',
+//       results: results,
+//       route: req.route.path,
+//       editorUserId: editorUserId,
+//     })
+//     return res.status(201).send({ status: 'ok', results: results })
+//   } catch (err) {
+//     return handleError(err, 400, res)
+//   }
+// }
 
 /**
  * update a wip jurisdiction
