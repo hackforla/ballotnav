@@ -1,0 +1,39 @@
+.hero-wrapper {
+  height: 300px;
+  background-image: url('../../assets/hero.svg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: 150px;
+}
+
+.cloud-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url('../../assets/cloud-image.svg');
+  background-position: center bottom;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.hero-text-wrapper {
+  position: absolute;
+  bottom: 70px;
+  left: 10px;
+  width: 220px;
+
+  h2 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: $red;
+  }
+
+  h3 {
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 5px;
+    color: $blue;
+  }
+}
