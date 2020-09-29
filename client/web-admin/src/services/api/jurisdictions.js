@@ -37,6 +37,11 @@ export const listMine = async () => {
   return data
 }
 
+export const createWip = async (jurisdictionId) => {
+  const { data } = await axios.post(`${BASE_URL}/wip`)
+  return data
+}
+
 export const list = async () => {
   return JURISDICTIONS
 }
