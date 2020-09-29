@@ -153,6 +153,16 @@ module.exports = (sequelize, DataTypes) => {
         comment:
           'Set to the WIP ID most recently published. This should be constrained to wip_state.id, but sequelize does not understand cyclic dependencies.',
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at',
+        allowNull: true,
+      },
     },
     {
       sequelize,
