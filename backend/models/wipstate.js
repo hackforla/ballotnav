@@ -135,6 +135,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'geojson',
       },
+      jurisdictionalWarning: {
+        type: DataTypes.TEXT,
+        field: 'jurisdictional_warning',
+      },
       editBasisWipStateId: {
         type: DataTypes.INTEGER,
         field: 'edit_basis_wip_state_id',

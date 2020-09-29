@@ -1,3 +1,28 @@
+CREATE TYPE public.enum_ynu AS ENUM (
+	'Y'
+	, 'N'
+	, 'U'
+);
+
+ALTER TABLE public.location
+	ADD COLUMN is_outdoors public.enum_ynu DEFAULT 'U'::public.enum_ynu NOT NULL ,
+	ADD COLUMN is_driveup public.enum_ynu DEFAULT 'U'::public.enum_ynu NOT NULL ,
+	ADD COLUMN rules TEXT;
+
+ALTER TABLE public.wip_location
+	ADD COLUMN is_outdoors public.enum_ynu DEFAULT 'U'::public.enum_ynu NOT NULL ,
+	ADD COLUMN is_driveup public.enum_ynu DEFAULT 'U'::public.enum_ynu NOT NULL ,
+	ADD COLUMN rules TEXT;
+
+ALTER TABLE public.jurisdiction
+	ADD COLUMN population INTEGER;
+
+ALTER TABLE public.state
+	ADD COLUMN jurisdictional_warning TEXT;
+
+ALTER TABLE public.wip_state
+	ADD COLUMN jurisdictional_warning TEXT;
+
 ALTER TABLE public.wip_state
 	DROP COLUMN fips_code ,
 	DROP COLUMN fips_number;
