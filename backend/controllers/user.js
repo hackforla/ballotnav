@@ -1,6 +1,8 @@
+const { Sequelize } = require('sequelize')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const logger = require('@log')
+const { handleError } = require('@controllers/error')
 
 //// CONFIG ////
 
@@ -105,6 +107,50 @@ exports.login = async (req, res, next) => {
     route: req.route.path,
   })
   res.json({ isSuccess: true, token, user })
+}
+
+/**
+ * create a user assignment to a jurisdiction
+ */
+exports.assign = async (req, res) => {
+  let jurisdictionIds = [...req.body.jurisdictionIds]
+  let userId = req.body.userId
+  let adminUserId = req.user.id
+
+  logger.info({
+    message: 'Creating user jurisdiction',
+    route: req.route.path,
+    adminUserId,
+    jurisdictionIds,
+    userId,
+  })
+
+  try {
+    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne({
+      where: {
+        userId: userId,
+        jurisdictionId: {
+          [Sequelize.Op.in]: jurisdictionIds 
+        }
+      }
+    })
+    if (jurisdictionAssignmentAlreadyExists !== null) {
+      return handleError({statusMessage: 'Error: assignment exists'}, 400, res)
+    }
+    let records = jurisdictionIds.map(jid => ({...req.body, userId: userId, jurisdictionId: jid}))
+    let results = await req.db.UserJurisdiction.bulkCreate(records)
+    logger.info({
+      message: 'Success: created user jurisdiction',
+      route: req.route.path,
+      adminUserId,
+      jurisdictionIds,
+      userId,
+      count: records.length
+    })
+    return res.status(201).json({status: 'ok', results: results})
+  } catch (err) {
+    return handleError(err, 400, res)
+  }
 }
 
 exports.decodeToken = decodeToken

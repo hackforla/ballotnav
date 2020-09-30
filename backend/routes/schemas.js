@@ -45,4 +45,18 @@ module.exports = {
       toInt: true,
     },
   },
+  // POST /users/assignments
+  // assign a user to a jurisdiction id
+  createAssignments: {
+    userId: {
+      in: ['body'],
+      errorMessage: 'Missing required data "userId"',
+      isInt: true,
+      toInt: true,
+    },
+    jurisdictionIds: {
+      in: ['body'],
+      errorMessage: 'Missing required data "jurisdictionIds"',
+    },
+  },
 }
