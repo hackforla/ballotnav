@@ -54,11 +54,9 @@ module.exports = {
       isInt: true,
       toInt: true,
     },
-    jurisdictionId: {
+    jurisdictionIds: {
       in: ['body'],
-      errorMessage: 'Missing required data "jurisdictionId"',
-      isInt: true,
-      toInt: true,
+      errorMessage: 'Missing required data "jurisdictionIds"',
     },
   },
 }
