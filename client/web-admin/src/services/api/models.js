@@ -8,3 +8,7 @@ export const listInstances = async (modelName) => {
     name: `${modelName} instance ${idx}`
   }))
 }
+
+export const getInstance = async (modelName, instanceId) => {
+  return null
+}
