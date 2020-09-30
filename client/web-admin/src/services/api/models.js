@@ -1,14 +1,12 @@
-// import axios from 'axios'
-//
-// const BASE_URL = `${process.env.REACT_APP_API_URL}/models`
+import axios from 'axios'
 
-export const listInstances = async (modelName) => {
-  return Array.from({ length: 10 }).map((_, idx) => ({
-    id: idx,
-    name: `${modelName} instance ${idx}`
-  }))
+const BASE_URL = `${process.env.REACT_APP_API_URL}/admin`
+
+export const listInstances = async (modelPath) => {
+  const { data } = await axios.get(`${BASE_URL}/instances/${modelPath}`)
+  return data
 }
 
-export const getInstance = async (modelName, instanceId) => {
+export const getInstance = async (instancePath) => {
   return null
 }

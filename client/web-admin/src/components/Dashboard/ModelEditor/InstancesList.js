@@ -3,12 +3,12 @@ import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
-function ListInstances({ model, basepath }) {
+function ListInstances({ model, modelPath, basepath }) {
   const [instances, setInstances] = useState(null)
   const history = useHistory()
 
   useEffect(() => {
-    api.models.listInstances(model.name).then(instances => {
+    api.models.listInstances(modelPath).then(instances => {
       setInstances(instances)
     })
   }, [model.name])

@@ -12,15 +12,11 @@ export default function usePath() {
   const instanceId = pageType === 'edit' ? +sections[len - 1] : null
   const modelName = pageType === 'edit' ? sections[len - 2] : sections[len - 1]
 
-  const modelPath = []
-  sections.forEach((section, idx) => {
-    if (idx % 2 === 0)
-      modelPath.push(section)
-  })
+  const modelSections = sections.filter((section, idx) => idx % 2 === 0)
 
   let model
   let root = models
-  modelPath.forEach(modelName => {
+  modelSections.forEach(modelName => {
     model = root.find(model => model.name === modelName)
     root = model.children
   })
@@ -31,7 +27,7 @@ export default function usePath() {
     sections,
     instanceId,
     modelName,
-    modelPath,
+    modelPath: sections.join('/'),
     model,
   }
 }

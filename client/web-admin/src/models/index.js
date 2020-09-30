@@ -13,59 +13,59 @@ const models = [
             fields: require('./location'),
             children: [
               {
-                name: 'hours',
+                name: 'location_hours',
                 fields: require('./location_hours'),
               }
             ]
           },
           {
-            name: 'importantdate',
+            name: 'jurisdiction_importantdate',
             fields: require('./jurisdiction_importantdate'),
           },
           {
-            name: 'infotab',
+            name: 'jurisdiction_infotab',
             fields: require('./jurisdiction_infotab'),
           },
           {
-            name: 'news',
+            name: 'jurisdiction_news',
             fields: require('./jurisdiction_news'),
           },
           {
-            name: 'notice',
+            name: 'jurisdiction_notice',
             fields: require('./jurisdiction_notice'),
           },
           {
-            name: 'phone',
+            name: 'jurisdiction_phone',
             fields: require('./jurisdiction_phone'),
           },
           {
-            name: 'url',
+            name: 'jurisdiction_url',
             fields: require('./jurisdiction_url'),
           }
         ]
       },
       {
-        name: 'importantdate',
+        name: 'state_importantdate',
         fields: require('./state_importantdate'),
       },
       {
-        name: 'infotab',
+        name: 'state_infotab',
         fields: require('./state_infotab'),
       },
       {
-        name: 'news',
+        name: 'state_news',
         fields: require('./state_news'),
       },
       {
-        name: 'notice',
+        name: 'state_notice',
         fields: require('./state_notice'),
       },
       {
-        name: 'phone',
+        name: 'state_phone',
         fields: require('./state_phone'),
       },
       {
-        name: 'url',
+        name: 'state_url',
         fields: require('./state_url'),
       }
     ]

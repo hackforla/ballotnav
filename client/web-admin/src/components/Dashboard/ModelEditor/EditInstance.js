@@ -7,7 +7,7 @@ import InstancesList from './InstancesList'
 import InstancesAccordion from './InstancesAccordion'
 
 function EditInstance() {
-  const { model, instanceId, pathname } = usePath()
+  const { model, instanceId, pathname, modelPath } = usePath()
   const [tabNum, setTabNum] = useState(0)
 
   useEffect(() => setTabNum(0), [pathname])
@@ -39,8 +39,16 @@ function EditInstance() {
         <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
           {
             child.children
-              ? <InstancesList model={child} pathname={pathname} basepath={`${pathname}/${child.name}`} />
-              : <InstancesAccordion model={child} />
+              ? <InstancesList
+                  model={child}
+                  pathname={pathname}
+                  basepath={`${pathname}/${child.name}`}
+                  modelPath={`${modelPath}/${child.name}`}
+                />
+              : <InstancesAccordion
+                  model={child}
+                  modelPath={`${modelPath}/${child.name}`}
+                />
           }
         </TabPanel>
       ))}

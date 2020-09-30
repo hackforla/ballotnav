@@ -8,11 +8,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import api from 'services/api'
 import AutoForm from '../AutoForm'
 
-function InstancesAccordion({ model }) {
+function InstancesAccordion({ model, modelPath }) {
   const [instances, setInstances] = useState(null)
 
   useEffect(() => {
-    api.models.listInstances(model.name).then(instances => {
+    api.models.listInstances(modelPath).then(instances => {
       setInstances(instances)
     })
   }, [model.name])
