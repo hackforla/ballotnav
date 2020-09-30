@@ -8,9 +8,9 @@ export default function usePath() {
   const pathname = location.pathname
   const sections = pathname.replace(BASE_PATH, '').slice(1).split('/')
   const len = sections.length
-  const type = len % 2 === 0 ? 'edit' : 'search'
-  const instanceId = type === 'edit' ? +sections[len - 1] : null
-  const modelName = type === 'edit' ? sections[len - 2] : sections[len - 1]
+  const pageType = len % 2 === 0 ? 'edit' : 'search'
+  const instanceId = pageType === 'edit' ? +sections[len - 1] : null
+  const modelName = pageType === 'edit' ? sections[len - 2] : sections[len - 1]
 
   const modelPath = []
   sections.forEach((section, idx) => {
@@ -26,7 +26,7 @@ export default function usePath() {
   })
 
   return {
-    type,
+    pageType,
     pathname,
     sections,
     instanceId,

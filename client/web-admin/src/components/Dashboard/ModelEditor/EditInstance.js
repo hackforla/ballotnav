@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import usePath from './use-path'
 import AutoForm from '../AutoForm'
-import {
-  Tabs,
-  Tab,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { Tabs, Tab } from '@material-ui/core'
 import TabPanel from '../TabPanel'
 import ListInstances from './ListInstances'
 import InstancesAccordion from './InstancesAccordion'
@@ -16,7 +9,6 @@ import InstancesAccordion from './InstancesAccordion'
 function EditInstance() {
   const { model, instanceId, pathname } = usePath()
   const [tabNum, setTabNum] = useState(0)
-  console.log('modelname:', model.name, 'tabNum', tabNum)
 
   useEffect(() => setTabNum(0), [pathname])
 

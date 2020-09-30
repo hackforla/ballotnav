@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import usePath from './use-path'
 import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
