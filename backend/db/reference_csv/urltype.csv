@@ -1,0 +1,20 @@
+id,name,do_not_publish,is_email
+2,Check if I'm registered,N,N
+3,Online Voter Registration,N,N
+4,Find my polling place,N,N
+5,View my sample ballot,N,N
+7,State Elections Website,N,N
+8,List of early voting locations,N,N
+9,List of ballot drop-off locations,N,N
+10,Track my ballot,N,N
+11,Overseas / Military Voting Information,N,N
+1,Jurisdiction Elections Website,N,N
+12,Ballot drop-off procedures,N,N
+13,Apply for an early voting ballot,N,N
+14,Voter registration requirements,N,N
+15,Early Voting Requirements and Information,N,N
+16,Facebook,N,N
+17,Twitter,N,N
+18,Instagram,N,N
+19,Other - Do not publish,Y,N
+20,Other - Publish,N,N
