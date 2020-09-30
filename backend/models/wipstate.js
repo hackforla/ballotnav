@@ -179,6 +179,11 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: true,
       },
+      deletedAt: {
+        type: DataTypes.DATE,
+        field: 'deleted_at',
+        allowNull: true,
+      },
     },
     {
       sequelize,
@@ -187,7 +192,6 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: 'created_at',
       updatedAt: 'updated_at',
       deletedAt: 'deleted_at',
-      underscored: true,
       paranoid: true,
     }
   )

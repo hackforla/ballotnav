@@ -160,10 +160,6 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Calendar',
       tableName: 'calendar',
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
-      underscored: true,
       paranoid: false,
       timestamps: false,
     }
