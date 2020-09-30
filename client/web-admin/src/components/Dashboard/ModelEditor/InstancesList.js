@@ -16,6 +16,12 @@ function ListInstances({ model, basepath }) {
   if (!instances) return null
   return (
     <List>
+      <ListItem
+        button
+        onClick={() => history.push(`${basepath}/new`)}
+      >
+        <ListItemText primary={`Add new ${model.name}`} />
+      </ListItem>
       {instances.map((instance) => (
         <ListItem
           key={instance.id}
