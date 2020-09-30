@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const logger = require('@log')
+const { handleError } = require('@controllers/error')
 
 //// CONFIG ////
 
@@ -105,6 +106,41 @@ exports.login = async (req, res, next) => {
     route: req.route.path,
   })
   res.json({ isSuccess: true, token, user })
+}
+
+/**
+ * create a user assignment to a jurisdiction
+ */
+exports.assign = async (req, res) => {
+  let jurisdictionId = req.body.jurisdictionId
+  let userId = req.body.userId
+  let adminUserId = req.user.id
+
+  logger.info({
+    message: 'Creating user jurisdiction',
+    route: req.route.path,
+    adminUserId,
+    jurisdictionId,
+    userId,
+  })
+
+  try {
+    let results = await req.db.UserJurisdiction.create({
+      ...req.body,
+      jurisdictionId,
+      userId,
+    })
+    logger.info({
+      message: 'Success: created user jurisdiction',
+      route: req.route.path,
+      adminUserId,
+      jurisdictionId,
+      userId,
+    })
+    return res.status(201).json({ status: 'ok', results: [results] })
+  } catch (err) {
+    return handleError(err, 400, res)
+  }
 }
 
 exports.decodeToken = decodeToken
