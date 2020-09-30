@@ -3,7 +3,7 @@ import usePath from './use-path'
 import AutoForm from '../AutoForm'
 import { Tabs, Tab } from '@material-ui/core'
 import TabPanel from '../TabPanel'
-import ListInstances from './ListInstances'
+import InstancesList from './InstancesList'
 import InstancesAccordion from './InstancesAccordion'
 
 function EditInstance() {
@@ -39,7 +39,7 @@ function EditInstance() {
         <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
           {
             child.children
-              ? <ListInstances model={child} pathname={pathname} />
+              ? <InstancesList model={child} pathname={pathname} />
               : <InstancesAccordion model={child} />
           }
         </TabPanel>
