@@ -11,15 +11,14 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import TabPanel from '../TabPanel'
 import ListInstances from './ListInstances'
+import InstancesAccordion from './InstancesAccordion'
 
 function EditInstance() {
   const { model, instanceId, pathname } = usePath()
   const [tabNum, setTabNum] = useState(0)
   console.log('modelname:', model.name, 'tabNum', tabNum)
 
-  useEffect(() => {
-    setTabNum(0)
-  }, [pathname])
+  useEffect(() => setTabNum(0), [pathname])
 
   return (
     <>
@@ -46,7 +45,11 @@ function EditInstance() {
       </TabPanel>
       {model.children && model.children.map((child, idx) => (
         <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
-          <ListInstances model={child} pathname={pathname} />
+          {
+            child.children
+              ? <ListInstances model={child} pathname={pathname} />
+              : <InstancesAccordion model={child} />
+          }
         </TabPanel>
       ))}
     </>

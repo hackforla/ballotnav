@@ -70,3 +70,5 @@ const fields = {
     allowNull: true,
   },
 }
+
+export default fields
