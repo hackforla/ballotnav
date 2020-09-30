@@ -39,7 +39,7 @@ function EditInstance() {
         <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
           {
             child.children
-              ? <InstancesList model={child} pathname={pathname} />
+              ? <InstancesList model={child} pathname={pathname} basepath={`${pathname}/${child.name}`} />
               : <InstancesAccordion model={child} />
           }
         </TabPanel>

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
-function ListInstances({ model, pathname }) {
+function ListInstances({ model, basepath }) {
   const [instances, setInstances] = useState(null)
   const history = useHistory()
 
@@ -20,7 +20,7 @@ function ListInstances({ model, pathname }) {
         <ListItem
           key={instance.id}
           button
-          onClick={() => history.push(`${pathname}/${model.name}/${instance.id}`)}
+          onClick={() => history.push(`${basepath}/${instance.id}`)}
         >
           <ListItemText primary={instance.name} />
         </ListItem>
