@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import usePath from './use-path'
 import AutoForm from '../AutoForm'
 import {
@@ -10,11 +10,17 @@ import {
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import TabPanel from '../TabPanel'
+import ListInstances from './ListInstances'
 
 function EditInstance() {
-  const { model, instanceId } = usePath()
-  console.log('fields:', model.fields)
+  const { model, instanceId, pathname } = usePath()
   const [tabNum, setTabNum] = useState(0)
+  console.log('modelname:', model.name, 'tabNum', tabNum)
+
+  useEffect(() => {
+    setTabNum(0)
+  }, [pathname])
+
   return (
     <>
       <div>Editing model name: { model.name }</div>
@@ -38,6 +44,11 @@ function EditInstance() {
           style={{ maxWidth: 400 }}
         />
       </TabPanel>
+      {model.children && model.children.map((child, idx) => (
+        <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
+          <ListInstances model={child} pathname={pathname} />
+        </TabPanel>
+      ))}
     </>
   )
 }

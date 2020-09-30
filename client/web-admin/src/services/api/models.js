@@ -5,6 +5,6 @@
 export const listInstances = async (modelName) => {
   return Array.from({ length: 10 }).map((_, idx) => ({
     id: idx,
-    name: 'instance ' + idx
+    name: `${modelName} instance ${idx}`
   }))
 }
