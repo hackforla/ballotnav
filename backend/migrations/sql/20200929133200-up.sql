@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION ftrig_wip_state_b_iu ()
+	RETURNS TRIGGER
+	LANGUAGE PLPGSQL
+	AS $$
+BEGIN
+	NEW.updated_at = NOW();
+	RETURN NEW;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION ftrig_wip_jurisdiction_b_iu ()
+	RETURNS TRIGGER
+	LANGUAGE PLPGSQL
+	AS $$
+BEGIN
+	NEW.updated_at = NOW();
+	RETURN NEW;
+END;
+$$;
+
