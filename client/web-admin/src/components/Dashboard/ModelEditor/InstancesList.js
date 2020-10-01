@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import { List, ListItem, ListItemText } from '@material-ui/core'
+import InstancesTable from './InstancesTable'
 
 function ListInstances({ model, modelPath, basepath }) {
   const [instances, setInstances] = useState(null)
@@ -14,6 +15,7 @@ function ListInstances({ model, modelPath, basepath }) {
   }, [model.name])
 
   if (!instances) return null
+  return <InstancesTable model={model} instances={instances} basepath={basepath} />
   return (
     <List>
       <ListItem

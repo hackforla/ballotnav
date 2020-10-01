@@ -38,7 +38,7 @@ function EditInstance() {
       {model.children && model.children.map((child, idx) => (
         <TabPanel key={idx + 1} value={tabNum} index={idx + 1}>
           {
-            child.children
+            true //child.children
               ? <InstancesList
                   model={child}
                   pathname={pathname}
