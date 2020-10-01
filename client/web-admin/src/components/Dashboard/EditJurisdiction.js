@@ -16,17 +16,17 @@ import { useHeader } from './Layout'
 import TabPanel from './TabPanel'
 
 function EditJurisdiction() {
-  const { jid } = useParams()
+  const { id } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
   const [tabNum, setTabNum] = useState(0)
   const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.getById(jid).then((jurisdiction) => {
-      setTitle(`Editing jurisdiction: ${jurisdiction.name}`)
+    api.jurisdictions.getById(id).then((jurisdiction) => {
+      setTitle(`Jurisdiction: ${jurisdiction.name}, ${jurisdiction.State.name}`)
       setJurisdiction(jurisdiction)
     })
-  }, [jid, setTitle])
+  }, [id, setTitle])
 
   if (!jurisdiction) return null
   return (
@@ -39,7 +39,7 @@ function EditJurisdiction() {
       <TabPanel value={tabNum} index={0}>
         <AutoForm
           model={jurisdictionModel}
-          initialValues={null}
+          initialValues={jurisdiction}
           submitText="Update Jurisdiction"
           onSubmit={(values, funcs) => {
             console.log(values)
@@ -69,7 +69,7 @@ function EditJurisdiction() {
             />
           </AccordionDetails>
         </Accordion>
-        {jurisdiction.locations.map((loc) => (
+        {jurisdiction.Locations.map((loc) => (
           <Accordion key={loc.id}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}

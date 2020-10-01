@@ -42,7 +42,7 @@ function EditState() {
       </TabPanel>
       <TabPanel value={tabNum} index={1}>
         <List>
-          {state.jurisdictions.map((juris) => (
+          {state.Jurisdictions.map((juris) => (
             <ListItem
               key={juris.id}
               button

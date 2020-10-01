@@ -1,39 +1,19 @@
 import axios from 'axios'
 
-const BASE_URL = `${process.env.REACT_APP_API_URL}/jurisdictions`
+const BASE_URL = `${process.env.REACT_APP_API_URL}/admin`
 
-const JURISDICTIONS = [
-  {
-    id: 1,
-    name: 'Geneva County',
-  },
-  {
-    id: 2,
-    name: 'Lee County',
-  },
-  {
-    id: 3,
-    name: 'Monroe County',
-  },
-]
-
-const LOCATIONS = [
-  {
-    id: 1,
-    name: 'Town Hall',
-  },
-  {
-    id: 2,
-    name: 'The Library',
-  },
-  {
-    id: 3,
-    name: 'McDonalds',
-  },
-]
+export const list = async () => {
+  const { data } = await axios.get(`${BASE_URL}/jurisdictions`)
+  return data
+}
 
 export const listMine = async () => {
-  const { data } = await axios.get(`${BASE_URL}/me`)
+  const { data } = await axios.get(`${BASE_URL}/jurisdictions/me`)
+  return data
+}
+
+export const getById = async (id) => {
+  const { data } = await axios.get(`${BASE_URL}/jurisdictions/${id}`)
   return data
 }
 
@@ -41,21 +21,3 @@ export const createWip = async (jurisdictionId) => {
   const { data } = await axios.post(`${BASE_URL}/wip`)
   return data
 }
-
-export const list = async () => {
-  return JURISDICTIONS
-}
-
-export const getById = async (id) => {
-  return {
-    id,
-    name: JURISDICTIONS.find((j) => j.id === +id)?.name,
-    locations: LOCATIONS,
-  }
-}
-
-// export const update = async (jurisdiction) => {
-//   return {
-//     updated: true,
-//   }
-// }
