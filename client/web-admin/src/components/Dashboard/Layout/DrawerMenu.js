@@ -27,10 +27,6 @@ const ADMIN_ITEMS = [
     title: 'Edit States/Jurisdictions',
     path: '/states',
   },
-  {
-    title: 'Models',
-    path: '/models/state',
-  }
 ]
 
 function Menu() {

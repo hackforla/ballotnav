@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import {
   makeStyles,
   Table,
@@ -19,9 +18,9 @@ const useStyles = makeStyles({
   table: {
     display: 'inline-block'
   },
-});
+})
 
-export default function ButtonTable({ columns, rows, buttonText, onClickButton }) {
+function ButtonTable({ columns, rows, buttonText, onClickButton }) {
   const classes = useStyles()
 
   return (
@@ -51,5 +50,7 @@ export default function ButtonTable({ columns, rows, buttonText, onClickButton }
         </TableBody>
       </Table>
     </TableContainer>
-  );
+  )
 }
+
+export default ButtonTable
