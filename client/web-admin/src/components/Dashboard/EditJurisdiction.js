@@ -23,7 +23,7 @@ function EditJurisdiction() {
 
   useEffect(() => {
     api.jurisdictions.getById(id).then((jurisdiction) => {
-      setTitle(`Jurisdiction: ${jurisdiction.name}, ${jurisdiction.State.name}`)
+      setTitle(`Jurisdiction: ${jurisdiction.name}, ${jurisdiction.state.name}`)
       setJurisdiction(jurisdiction)
     })
   }, [id, setTitle])
@@ -69,7 +69,7 @@ function EditJurisdiction() {
             />
           </AccordionDetails>
         </Accordion>
-        {jurisdiction.Locations.map((loc) => (
+        {jurisdiction.locations.map((loc) => (
           <Accordion key={loc.id}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -80,7 +80,7 @@ function EditJurisdiction() {
             <AccordionDetails>
               <AutoForm
                 model={locationModel}
-                initialValues={null}
+                initialValues={loc}
                 submitText="Update Location"
                 onSubmit={(values, funcs) => {
                   console.log(values)

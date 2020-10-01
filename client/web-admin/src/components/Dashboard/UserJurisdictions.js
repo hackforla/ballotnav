@@ -15,7 +15,7 @@ function Jurisdictions() {
       const transformed = jurisdictions.map(jurisdiction => ({
         id: jurisdiction.id,
         jurisdiction: jurisdiction.name,
-        state: jurisdiction.State.name,
+        state: jurisdiction.state.name,
         'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
       }))
       setJurisdictions(transformed)
