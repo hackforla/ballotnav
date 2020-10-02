@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
+import { Collapse, Box } from '@material-ui/core'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -23,27 +24,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { editableFields } from 'models'
-
-// function createData(name, calories, fat, carbs, protein) {
-//   return { name, calories, fat, carbs, protein };
-// }
-//
-// const rows = [
-//   createData('Cupcake', 305, 3.7, 67, 4.3),
-//   createData('Donut', 452, 25.0, 51, 4.9),
-//   createData('Eclair', 262, 16.0, 24, 6.0),
-//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//   createData('Gingerbread', 356, 16.0, 49, 3.9),
-//   createData('Honeycomb', 408, 3.2, 87, 6.5),
-//   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//   createData('Jelly Bean', 375, 0.0, 94, 0.0),
-//   createData('KitKat', 518, 26.0, 65, 7.0),
-//   createData('Lollipop', 392, 0.2, 98, 0.0),
-//   createData('Marshmallow', 318, 0, 81, 2.0),
-//   createData('Nougat', 360, 19.0, 9, 37.0),
-//   createData('Oreo', 437, 18.0, 63, 4.0),
-// ];
+import AutoForm from './AutoForm'
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -80,13 +64,14 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
+        <TableCell padding="default">
+          {/*<Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{ 'aria-label': 'select all desserts' }}
-          />
+          />*/}
+          released
         </TableCell>
         {headCells.map((headCell, idx) => (
           <TableCell
@@ -316,37 +301,15 @@ export default function EnhancedTable({ model, instances }) {
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
-                    <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.id)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
+                    <Row
                       key={row.id}
-                      selected={isItemSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          inputProps={{ 'aria-labelledby': labelId }}
-                        />
-                      </TableCell>
-                      {editableFields(model).map((field, idx) => {
-                        if (idx === 0)
-                          return (
-                            <TableCell component='th' key={field} id={labelId} scope='row'>
-                              <div style={{ width: 150, fontWeight: 'bold' }}>{row[field]}</div>
-                            </TableCell>
-                          )
-                        else
-                          return (
-                            <TableCell key={field} align='right'>
-                              {row[field]}
-                            </TableCell>
-                          )
-                      })}
-                    </TableRow>
-                  );
+                      row={row}
+                      model={model}
+                      isItemSelected={isItemSelected}
+                      onClick={(event) => handleClick(event, row.id)}
+                      labelId={labelId}
+                    />
+                  )
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
@@ -367,5 +330,72 @@ export default function EnhancedTable({ model, instances }) {
         />
       </Paper>
     </div>
+  );
+}
+
+const useRowStyles = makeStyles({
+  root: {
+    '& > *': {
+      borderBottom: 'unset',
+    },
+  },
+});
+
+function Row({ model, row, isItemSelected, onClick, labelId }) {
+  const [open, setOpen] = React.useState(false);
+  const classes = useRowStyles();
+
+  const toggle = () => setOpen(!open)
+
+  return (
+    <>
+      <TableRow
+        hover
+        role="checkbox"
+        aria-checked={isItemSelected}
+        tabIndex={-1}
+        key={row.id}
+        selected={isItemSelected}
+      >
+        <TableCell padding="checkbox">
+          <Checkbox
+            checked={isItemSelected}
+            inputProps={{ 'aria-labelledby': labelId }}
+          />
+        </TableCell>
+        {editableFields(model).map((field, idx) => {
+          if (idx === 0)
+            return (
+              <TableCell style={{ cursor: 'pointer' }} onClick={toggle} component='th' key={field} id={labelId} scope='row'>
+                <div style={{ width: 150, fontWeight: 'bold' }}>{row[field]}</div>
+              </TableCell>
+            )
+          else
+            return (
+              <TableCell style={{ cursor: 'pointer' }} onClick={toggle} key={field} align='right'>
+                {row[field]}
+              </TableCell>
+            )
+        })}
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+         <Collapse in={open} timeout="auto" unmountOnExit>
+           <Box margin={1}>
+             <AutoForm
+               model={model}
+               initialValues={row}
+               submitText='Update Location'
+               onSubmit={(values, funcs) => {
+                 console.log(values)
+                 funcs.setSubmitting(false)
+               }}
+               style={{ maxWidth: 400 }}
+             />
+           </Box>
+         </Collapse>
+        </TableCell>
+       </TableRow>
+    </>
   );
 }
