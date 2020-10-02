@@ -1,4 +1,13 @@
 
+export const editableFields = model => {
+  return Object.keys(model).filter(field => (
+    field !== 'createdAt' &&
+    field !== 'updatedAt' &&
+    field !== 'id' &&
+    !field.endsWith('Id')
+  ))
+}
+
 const models = [
   {
     name: 'state',
