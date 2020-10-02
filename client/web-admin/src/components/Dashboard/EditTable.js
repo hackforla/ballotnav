@@ -88,11 +88,11 @@ function EnhancedTableHead(props) {
             inputProps={{ 'aria-label': 'select all desserts' }}
           />
         </TableCell>
-        {headCells.map((headCell) => (
+        {headCells.map((headCell, idx) => (
           <TableCell
             key={headCell.id}
             //align={headCell.numeric ? 'right' : 'left'}
-            align='right'
+            align={idx === 0 ? 'left' : 'right'}
             //padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -331,16 +331,20 @@ export default function EnhancedTable({ model, instances }) {
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </TableCell>
-                      {editableFields(model).map(field => (
-                        <TableCell key={field} align='right'>{row[field]}</TableCell>
-                      ))}
-                      {/*<TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.name}
-                      </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>*/}
+                      {editableFields(model).map((field, idx) => {
+                        if (idx === 0)
+                          return (
+                            <TableCell component='th' key={field} id={labelId} scope='row'>
+                              <div style={{ width: 150, fontWeight: 'bold' }}>{row[field]}</div>
+                            </TableCell>
+                          )
+                        else
+                          return (
+                            <TableCell key={field} align='right'>
+                              {row[field]}
+                            </TableCell>
+                          )
+                      })}
                     </TableRow>
                   );
                 })}
