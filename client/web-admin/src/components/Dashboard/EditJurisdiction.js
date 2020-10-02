@@ -107,6 +107,7 @@ function EditJurisdiction() {
             instances={jurisdiction[subModel.id]}
             displayName={subModel.displayName}
             listKey={subModel.listKey}
+            tabLabel={subModel.tabLabel}
           />
         </TabPanel>
       ))}
@@ -114,7 +115,7 @@ function EditJurisdiction() {
   )
 }
 
-function EditTab({ model, instances, displayName, listKey }) {
+function EditTab({ model, instances, displayName, tabLabel, listKey }) {
   return (
     <>
       <Accordion style={{ marginBottom: 15 }}>
@@ -137,7 +138,7 @@ function EditTab({ model, instances, displayName, listKey }) {
           />
         </AccordionDetails>
       </Accordion>
-      <EditTable model={model} instances={instances} />
+      <EditTable model={model} instances={instances} tabLabel={tabLabel} />
       {/*{instances.map((instance) => (
         <Accordion key={instance.id}>
           <AccordionSummary

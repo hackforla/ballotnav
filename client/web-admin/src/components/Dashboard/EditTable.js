@@ -4,28 +4,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { lighten, makeStyles } from '@material-ui/core/styles';
-import { Collapse, Box } from '@material-ui/core'
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import {
+  lighten,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+  TableSortLabel,
+  Toolbar,
+  Typography,
+  Paper,
+  Checkbox,
+  IconButton,
+  Tooltip,
+  FormControlLabel,
+  Switch,
+  Collapse,
+  Box,
+  Button,
+} from '@material-ui/core'
+import {
+  Delete as DeleteIcon,
+  FilterList as FilterListIcon,
+  KeyboardArrowUp as KeyboardArrowUpIcon,
+  KeyboardArrowDown as KeyboardArrowDownIcon,
+} from '@material-ui/icons'
 import { editableFields } from 'models'
 import AutoForm from './AutoForm'
 
@@ -128,11 +135,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   title: {
     flex: '1 1 100%',
   },
+  buttonLabel: {
+    whiteSpace: 'nowrap'
+  }
 }));
 
-const EnhancedTableToolbar = (props) => {
+const EnhancedTableToolbar = ({ numSelected, tabLabel }) => {
   const classes = useToolbarStyles();
-  const { numSelected } = props;
 
   return (
     <Toolbar
@@ -146,15 +155,17 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Nutrition
+          Edit { tabLabel }
         </Typography>
       )}
 
-      {numSelected > 0 ? (
+      {numSelected === 0 ? (
         <Tooltip title="Delete">
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
+          <span>
+            <Button classes={{ label: classes.buttonLabel }} variant="contained" color="primary">
+              Save Changes
+            </Button>
+          </span>
         </Tooltip>
       ) : (
         <Tooltip title="Filter list">
@@ -169,6 +180,7 @@ const EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
+  tabLabel: PropTypes.string,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -195,7 +207,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable({ model, instances }) {
+export default function EnhancedTable({ model, instances, tabLabel }) {
   // const headCells = [
   //   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
   //   { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
@@ -275,7 +287,7 @@ export default function EnhancedTable({ model, instances }) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} tabLabel={tabLabel} />
         <TableContainer>
           <Table
             className={classes.table}
