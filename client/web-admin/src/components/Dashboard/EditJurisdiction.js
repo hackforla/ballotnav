@@ -83,12 +83,12 @@ function EditJurisdiction() {
   return (
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        {/*<Tab label="Jurisdiction Details" />*/}
+        <Tab label="Jurisdiction Details" />
         {SUBMODELS.map(subModel => (
           <Tab key={subModel.tabLabel} label={subModel.tabLabel} />
         ))}
       </Tabs>
-      {/*<TabPanel value={tabNum} index={0}>
+      <TabPanel value={tabNum} index={0}>
         <AutoForm
           model={jurisdictionModel}
           initialValues={jurisdiction}
@@ -99,9 +99,9 @@ function EditJurisdiction() {
           }}
           style={{ maxWidth: 400 }}
         />
-      </TabPanel>*/}
+      </TabPanel>
       {SUBMODELS.map((subModel, idx) => (
-        <TabPanel key={subModel.id} value={tabNum} index={idx + 0}> {/*} change to + 1 when the first tab is back*/}
+        <TabPanel key={subModel.id} value={tabNum} index={idx + 1}> {/*} change to + 1 when the first tab is back*/}
           <EditTab
             model={subModel.model}
             instances={jurisdiction[subModel.id]}
@@ -139,28 +139,6 @@ function EditTab({ model, instances, displayName, tabLabel, listKey }) {
         </AccordionDetails>
       </Accordion>
       <EditTable model={model} instances={instances} tabLabel={tabLabel} />
-      {/*{instances.map((instance) => (
-        <Accordion key={instance.id}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            id={`accordion-${instance.id}`}
-          >
-            Edit {displayName}: {instance[listKey]}
-          </AccordionSummary>
-          <AccordionDetails>
-            <AutoForm
-              model={model}
-              initialValues={instance}
-              submitText={`Update ${displayName}`}
-              onSubmit={(values, funcs) => {
-                console.log(values)
-                funcs.setSubmitting(false)
-              }}
-              style={{ maxWidth: 400 }}
-            />
-          </AccordionDetails>
-        </Accordion>
-      ))}*/}
     </>
   )
 }
