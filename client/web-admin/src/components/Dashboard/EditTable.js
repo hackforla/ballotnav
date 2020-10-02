@@ -1,7 +1,7 @@
 // adapted from here: https://material-ui.com/components/tables/
 // see Sorting & Selecting
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -71,6 +71,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
+        <TableCell />
         <TableCell padding="default">
           {/*<Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -320,6 +321,7 @@ export default function EnhancedTable({ model, instances, tabLabel }) {
                       isItemSelected={isItemSelected}
                       onClick={(event) => handleClick(event, row.id)}
                       labelId={labelId}
+                      onSave={(row) => console.log('saving:', row)}
                     />
                   )
                 })}
@@ -353,11 +355,24 @@ const useRowStyles = makeStyles({
   },
 });
 
-function Row({ model, row, isItemSelected, onClick, labelId }) {
+function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
+  const [values, setValues] = useState({ ...row, isReleased: false })
 
   const toggle = () => setOpen(!open)
+
+  const handleChange = (newValues) => {
+    setValues({
+      ...values,
+      ...newValues,
+    })
+  }
+
+  const handleSave = () => {
+    console.log('saving:', values)
+    //onSave(values)
+  }
 
   return (
     <>
@@ -369,23 +384,27 @@ function Row({ model, row, isItemSelected, onClick, labelId }) {
         key={row.id}
         selected={isItemSelected}
       >
+        <TableCell>
+          <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
+        </TableCell>
         <TableCell padding="checkbox">
           <Checkbox
-            checked={isItemSelected}
+            checked={values.isReleased}
             inputProps={{ 'aria-labelledby': labelId }}
+            onChange={(event, isReleased) => handleChange({ isReleased })}
           />
         </TableCell>
         {editableFields(model).map((field, idx) => {
           if (idx === 0)
             return (
               <TableCell style={{ cursor: 'pointer' }} onClick={toggle} component='th' key={field} id={labelId} scope='row'>
-                <div style={{ width: 150, fontWeight: 'bold' }}>{row[field]}</div>
+                <div style={{ width: 150, fontWeight: 'bold' }}>{values[field]}</div>
               </TableCell>
             )
           else
             return (
               <TableCell style={{ cursor: 'pointer' }} onClick={toggle} key={field} align='right'>
-                {row[field]}
+                {values[field]}
               </TableCell>
             )
         })}
@@ -399,7 +418,8 @@ function Row({ model, row, isItemSelected, onClick, labelId }) {
                initialValues={row}
                submitText='Update Location'
                onSubmit={(values, funcs) => {
-                 console.log(values)
+                 handleChange(values)
+                 setOpen(false)
                  funcs.setSubmitting(false)
                }}
                style={{ maxWidth: 400 }}
