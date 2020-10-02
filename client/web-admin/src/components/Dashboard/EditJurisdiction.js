@@ -20,6 +20,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { useHeader } from './Layout'
 import TabPanel from './TabPanel'
+import EditTable from './EditTable'
 
 const SUBMODELS = [{
   id: 'locations',
@@ -82,12 +83,12 @@ function EditJurisdiction() {
   return (
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        <Tab label="Jurisdiction Details" />
+        {/*<Tab label="Jurisdiction Details" />*/}
         {SUBMODELS.map(subModel => (
           <Tab key={subModel.tabLabel} label={subModel.tabLabel} />
         ))}
       </Tabs>
-      <TabPanel value={tabNum} index={0}>
+      {/*<TabPanel value={tabNum} index={0}>
         <AutoForm
           model={jurisdictionModel}
           initialValues={jurisdiction}
@@ -98,9 +99,9 @@ function EditJurisdiction() {
           }}
           style={{ maxWidth: 400 }}
         />
-      </TabPanel>
+      </TabPanel>*/}
       {SUBMODELS.map((subModel, idx) => (
-        <TabPanel key={subModel.id} value={tabNum} index={idx + 1}>
+        <TabPanel key={subModel.id} value={tabNum} index={idx + 0}> {/*} change to + 1 when the first tab is back*/}
           <EditTab
             model={subModel.model}
             instances={jurisdiction[subModel.id]}
@@ -136,7 +137,8 @@ function EditTab({ model, instances, displayName, listKey }) {
           />
         </AccordionDetails>
       </Accordion>
-      {instances.map((instance) => (
+      <EditTable />
+      {/*{instances.map((instance) => (
         <Accordion key={instance.id}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -157,7 +159,7 @@ function EditTab({ model, instances, displayName, listKey }) {
             />
           </AccordionDetails>
         </Accordion>
-      ))}
+      ))}*/}
     </>
   )
 }
