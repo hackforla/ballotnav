@@ -137,7 +137,7 @@ function EditTab({ model, instances, displayName, listKey }) {
           />
         </AccordionDetails>
       </Accordion>
-      <EditTable />
+      <EditTable model={model} instances={instances} />
       {/*{instances.map((instance) => (
         <Accordion key={instance.id}>
           <AccordionSummary

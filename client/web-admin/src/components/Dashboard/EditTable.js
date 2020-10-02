@@ -67,14 +67,6 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
-];
-
 function EnhancedTableHead(props) {
   const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, headCells } = props;
   const createSortHandler = (property) => (event) => {
@@ -172,7 +164,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable({ model, instances }) {
+  // const headCells = [
+  //   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
+  //   { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
+  //   { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
+  //   { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
+  //   { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+  // ];
+
+  const headCells = Object.keys(model).map(field => ({
+    id: field,
+    disablePadding: true,
+    label: field,
+  }))
+
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
