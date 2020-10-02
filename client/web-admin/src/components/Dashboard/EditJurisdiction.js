@@ -16,6 +16,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
+  Paper,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { useHeader } from './Layout'
@@ -111,6 +113,10 @@ function EditJurisdiction() {
           />
         </TabPanel>
       ))}
+      <Paper style={{ padding: 10, display: 'flex', justifyContent: 'flex-end' }}>
+        <Button style={{ margin: 10 }} onClick={console.log} variant="contained" color="primary">Save Progress</Button>
+        <Button style={{ margin: 10 }} onClick={console.log} variant="contained" color="primary">Submit for Review</Button>
+      </Paper>
     </>
   )
 }
