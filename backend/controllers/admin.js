@@ -10,7 +10,7 @@ exports.listJurisdictions = async (req, res, next) => {
 // TODO: modify so that it returns the user's assigned jurisdictions
 exports.listMyJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({
-    limit: 10,
+    where: { id: { [req.db.Sequelize.Op.in]: [186, 187, 188, 189, 190, 650] } },  // 46,  650
     include: { association: 'state' },
   })
   return res.json(data)
