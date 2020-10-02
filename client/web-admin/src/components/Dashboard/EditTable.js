@@ -71,7 +71,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell />
+        {/*<TableCell />*/}
         <TableCell padding="default">
           {/*<Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -79,7 +79,7 @@ function EnhancedTableHead(props) {
             onChange={onSelectAllClick}
             inputProps={{ 'aria-label': 'select all desserts' }}
           />*/}
-          released
+          isValidated
         </TableCell>
         {headCells.map((headCell, idx) => (
           <TableCell
@@ -160,7 +160,7 @@ const EnhancedTableToolbar = ({ numSelected, tabLabel }) => {
         </Typography>
       )}
 
-      {numSelected === 0 ? (
+      {/*{numSelected === 0 ? (
         <Tooltip title="Delete">
           <span>
             <Button classes={{ label: classes.buttonLabel }} variant="contained" color="primary">
@@ -174,7 +174,7 @@ const EnhancedTableToolbar = ({ numSelected, tabLabel }) => {
             <FilterListIcon />
           </IconButton>
         </Tooltip>
-      )}
+      )}*/}
     </Toolbar>
   );
 };
@@ -358,7 +358,7 @@ const useRowStyles = makeStyles({
 function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
-  const [values, setValues] = useState({ ...row, isReleased: false })
+  const [values, setValues] = useState({ ...row, isValidated: false })
 
   const toggle = () => setOpen(!open)
 
@@ -384,14 +384,14 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
         key={row.id}
         selected={isItemSelected}
       >
-        <TableCell>
+        {/*<TableCell>
           <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
-        </TableCell>
+        </TableCell>*/}
         <TableCell padding="checkbox">
           <Checkbox
-            checked={values.isReleased}
+            checked={values.isValidated}
             inputProps={{ 'aria-labelledby': labelId }}
-            onChange={(event, isReleased) => handleChange({ isReleased })}
+            onChange={(event, isValidated) => handleChange({ isValidated })}
           />
         </TableCell>
         {editableFields(model).map((field, idx) => {
