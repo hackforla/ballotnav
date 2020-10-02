@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
+    maxWidth: '100%',
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -80,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PersistentDrawerRight({ children }) {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [title, setTitle] = useState(null)
 
   const handleDrawerOpen = () => {
