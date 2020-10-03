@@ -21,10 +21,6 @@ variable container_memory {
 
 variable task_name {}
 
-# variable enable_tls {
-#   default = false
-# }
-
 variable project_name {}
 
 variable container_name {}
