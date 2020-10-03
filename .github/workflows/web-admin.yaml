@@ -20,10 +20,12 @@ jobs:
         id: contextvals
         run: |
           SHA=${{ github.sha }}
+          BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
           echo ::set-output name=sha::${SHA:0:8}
           echo ::set-output name=artifactbucket::ballotnav-dev-adminui-dev-logs
           echo ::set-output name=targetbucket::admin.dev.ballotnav.org
           echo ::set-output name=apiurl::https://api.dev.ballotnav.org
+          echo ::set-output name=built_at::${BUILT_AT}
 
       - uses: actions/checkout@v2
       - name: Setup node
@@ -35,7 +37,7 @@ jobs:
         run: |
           npm ci 
           REACT_APP_API_URL=${{ steps.contextvals.outputs.apiurl }} npm run build
-          printf "%s\n" '{"version": "${{ steps.contextvals.outputs.sha }}" }' > build/version.json
+          printf "%s\n" '{"version": "${{ steps.contextvals.outputs.sha }}", "built_at" : "${{ steps.contextvals.outputs.builtat }}" }' > build/version.json
 
       - name: Create artifact
         uses: docker://busybox
