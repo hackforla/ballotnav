@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
-import Auth from './Auth'
+import Auth from './auth'
 import Dashboard from './Dashboard'
 
 function Main() {

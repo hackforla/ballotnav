@@ -1,0 +1,64 @@
+name: web-admin ui
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  adminui:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    name: build & deploy adminui
+
+    steps:
+      - name: Create artifact
+        uses: docker://busybox
+      - name: export context values
+        id: contextvals
+        run: |
+          SHA=${{ github.sha }}
+          BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
+          echo ::set-output name=sha::${SHA:0:8}
+          echo ::set-output name=artifactbucket::ballotnav-dev-adminui-dev-logs
+          echo ::set-output name=targetbucket::admin.dev.ballotnav.org
+          echo ::set-output name=apiurl::https://api.dev.ballotnav.org
+          echo ::set-output name=built_at::${BUILT_AT}
+
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: do the thing
+        working-directory: ./client/web-admin
+        run: |
+          npm ci 
+          REACT_APP_API_URL=${{ steps.contextvals.outputs.apiurl }} npm run build
+          printf "%s\n" '{"version": "${{ steps.contextvals.outputs.sha }}", "built_at" : "${{ steps.contextvals.outputs.builtat }}" }' > build/version.json
+
+      - name: Create artifact
+        uses: docker://busybox
+      - name: tarball 
+        working-directory: ./client/web-admin
+        run: |
+          tar -czf adminui-${{ steps.contextvals.outputs.sha }}.tar.gz build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: save artifact
+        working-directory: ./client/web-admin
+        run: |
+          aws s3 cp adminui-${{ steps.contextvals.outputs.sha }}.tar.gz s3://${{ steps.contextvals.outputs.artifactbucket }}/artifacts/
+      - name: deploy to bucket
+        working-directory: ./client/web-admin
+        run: |
+          aws s3 sync build s3://${{ steps.contextvals.outputs.targetbucket }}
+          aws s3 cp build/index.html s3://${{ steps.contextvals.outputs.targetbucket }}/ --cache-control no-cache
+          aws s3 cp build/version.json s3://${{ steps.contextvals.outputs.targetbucket }}/ --cache-control no-cache
