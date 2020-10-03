@@ -26,7 +26,7 @@ function EditState() {
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
         <Tab label="State Details" />
-        <Tab label="Edit Jurisdictions" />
+        <Tab label="Jurisdictions" />
       </Tabs>
       <TabPanel value={tabNum} index={0}>
         <AutoForm

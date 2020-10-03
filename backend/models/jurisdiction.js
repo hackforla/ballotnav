@@ -13,51 +13,59 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'state',
       })
       models.Jurisdiction.hasMany(models.JurisdictionImportantDate, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'importantDates',
       })
       models.Jurisdiction.hasMany(models.JurisdictionInfoTab, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'infoTabs',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNews, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'news',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNotice, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'notices',
       })
       models.Jurisdiction.hasMany(models.JurisdictionPhone, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'phones',
       })
       models.Jurisdiction.hasMany(models.JurisdictionUrl, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'urls',
       })
       models.Jurisdiction.hasMany(models.Location, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'locations',
       })
       /*
-      
+
       // not yet registerable when this loads
 
       models.Jurisdiction.belongsToMany(models.User, {

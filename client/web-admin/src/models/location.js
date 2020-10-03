@@ -8,14 +8,14 @@ const fields = {
     field: 'id',
     primaryKey: true,
   },
-  jurisdictionId: {
+  wipJurisdictionId: {
     type: DataTypes.INTEGER,
-    field: 'jurisdiction_id',
+    field: 'wip_jurisdiction_id',
     allownull: false,
     onDelete: 'restrict',
     onUpdate: 'cascade',
     references: {
-      model: 'jurisdiction',
+      model: 'wip_jurisdiction',
       key: 'id',
       deferrable: Deferrable.INITIALLY_DEFERRED,
     },
@@ -102,19 +102,14 @@ const fields = {
     field: 'internal_note',
     allowNull: true,
   },
-  geomLatitude: {
+  latitude: {
     type: DataTypes.TEXT,
-    field: 'geom_latitude',
+    field: 'latitude',
     allowNull: true,
   },
-  geomLongitude: {
+  longitude: {
     type: DataTypes.TEXT,
-    field: 'geom_longitude',
-    allowNull: true,
-  },
-  geomDataSource: {
-    type: DataTypes.TEXT,
-    field: 'geom_data_source',
+    field: 'longitude',
     allowNull: true,
   },
   geomPoint: {
@@ -164,6 +159,18 @@ const fields = {
     allowNull: false,
     defaultValue: 'U',
   },
+  isOutdoors: {
+    type: DataTypes.ENUM('Y', 'N', 'U'),
+    field: 'is_outdoors',
+    allowNull: false,
+    defaultValue: 'U',
+  },
+  isDriveup: {
+    type: DataTypes.ENUM('Y', 'N', 'U'),
+    field: 'is_driveup',
+    allowNull: false,
+    defaultValue: 'U',
+  },
   scheduleType: {
     type: DataTypes.ENUM('description', 'hours', 'continuous'),
     field: 'schedule_type',
@@ -174,14 +181,29 @@ const fields = {
     field: 'schedule_description',
     allowNull: true,
   },
-  continuousOpen: {
-    type: DataTypes.TEXT,
-    field: 'continuous_open',
+  continuousOpenDate: {
+    type: DataTypes.DATEONLY,
+    field: 'continuous_open_date',
     allowNull: true,
   },
-  continuousClose: {
+  continuousOpenTime: {
     type: DataTypes.TEXT,
-    field: 'continuous_close',
+    field: 'continuous_open_time',
+    allowNull: true,
+  },
+  continuousCloseDate: {
+    type: DataTypes.DATEONLY,
+    field: 'continuous_close_date',
+    allowNull: true,
+  },
+  continuousCloseTime: {
+    type: DataTypes.TEXT,
+    field: 'continuous_close_time',
+    allowNull: true,
+  },
+  rules: {
+    type: DataTypes.TEXT,
+    field: 'rules',
     allowNull: true,
   },
   createdAt: {
