@@ -19,19 +19,19 @@ import {
   Typography,
   Paper,
   Checkbox,
-  IconButton,
-  Tooltip,
-  FormControlLabel,
-  Switch,
+  // IconButton,
+  // Tooltip,
+  // FormControlLabel,
+  // Switch,
   Collapse,
   Box,
-  Button,
+  // Button,
 } from '@material-ui/core'
 import {
-  Delete as DeleteIcon,
-  FilterList as FilterListIcon,
-  KeyboardArrowUp as KeyboardArrowUpIcon,
-  KeyboardArrowDown as KeyboardArrowDownIcon,
+  // Delete as DeleteIcon,
+  // FilterList as FilterListIcon,
+  // KeyboardArrowUp as KeyboardArrowUpIcon,
+  // KeyboardArrowDown as KeyboardArrowDownIcon,
 } from '@material-ui/icons'
 import { editableFields } from 'models'
 import AutoForm from './AutoForm'
@@ -347,17 +347,17 @@ export default function EnhancedTable({ model, instances, tabLabel }) {
   );
 }
 
-const useRowStyles = makeStyles({
-  root: {
-    '& > *': {
-      borderBottom: 'unset',
-    },
-  },
-});
+// const useRowStyles = makeStyles({
+//   root: {
+//     '& > *': {
+//       borderBottom: 'unset',
+//     },
+//   },
+// });
 
 function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
   const [open, setOpen] = React.useState(false);
-  const classes = useRowStyles();
+  // const classes = useRowStyles();
   const [values, setValues] = useState({ ...row, isValidated: false })
 
   const toggle = () => setOpen(!open)
@@ -369,10 +369,10 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
     })
   }
 
-  const handleSave = () => {
-    console.log('saving:', values)
+  // const handleSave = () => {
+    // console.log('saving:', values)
     //onSave(values)
-  }
+  // }
 
   return (
     <>
