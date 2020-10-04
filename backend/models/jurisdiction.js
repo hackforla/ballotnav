@@ -210,6 +210,48 @@ module.exports = (sequelize, DataTypes) => {
         field: 'population',
         allowNull: true,
       },
+      isValidatedTimezone: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_timezone',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedImportantdates: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_importantdates',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedPhones: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_phones',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedUrls: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_urls',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedNotices: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_notices',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedLocations: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_locations',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isPublished: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_published',
+        allowNull: false,
+        defaultValue: false,
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: 'created_at',
