@@ -245,3 +245,11 @@ CREATE FUNCTION ingress_hoursstatementtotable (param_officehoursstring text)
 $$
 LANGUAGE SQL;
 
+ALTER TABLE jurisdiction
+	DROP COLUMN is_not_valid ,
+	ADD COLUMN is_eaj BOOLEAN NOT NULL DEFAULT TRUE ,
+	ADD COLUMN is_eaj_exclusive BOOLEAN NOT NULL DEFAULT TRUE;
+
+ALTER TABLE wip_jurisdiction
+	DROP COLUMN is_not_valid;
+

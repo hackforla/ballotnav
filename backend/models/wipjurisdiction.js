@@ -111,12 +111,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'mail_address3',
         allowNull: true,
       },
-      isNotValid: {
-        type: DataTypes.BOOLEAN,
-        field: 'is_not_valid',
-        allowNull: false,
-        defaultValue: false,
-      },
       internalNotes: {
         type: DataTypes.TEXT,
         field: 'internal_notes',
