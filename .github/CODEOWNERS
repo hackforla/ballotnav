@@ -1,8 +1,8 @@
-
 # Tech Leads & Product Owner
-* @theswerd @jmensch1 @myastark @aNullValue @adamkendis
+* @jmensch1 @myastark @aNullValue @adamkendis
 
-
+# backend
+backend/* @jafow @aNullValue 
 
 #Scrapers
-/scrapers @salice
+scrapers/* @salice
