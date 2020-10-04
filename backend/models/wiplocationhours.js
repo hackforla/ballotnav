@@ -63,6 +63,48 @@ module.exports = (sequelize, DataTypes) => {
         field: 'note',
         allowNull: true,
       },
+      useMonday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_monday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useTuesday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_tuesday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useWednesday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_wednesday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useThursday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_thursday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useFriday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_friday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useSaturday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_saturday',
+        allowNull: false,
+        defaultValue: false,
+      },
+      useSunday: {
+        type: DataTypes.BOOLEAN,
+        field: 'use_sunday',
+        allowNull: false,
+        defaultValue: false,
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: 'created_at',
