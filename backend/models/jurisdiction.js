@@ -126,11 +126,17 @@ module.exports = (sequelize, DataTypes) => {
         field: 'mail_address3',
         allowNull: true,
       },
-      isNotValid: {
+      isEaj: {
         type: DataTypes.BOOLEAN,
-        field: 'is_not_valid',
+        field: 'is_eaj',
         allowNull: false,
-        defaultValue: false,
+        defaultValue: true,
+      },
+      isEajExclusive: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_eaj_exclusive',
+        allowNull: false,
+        defaultValue: true,
       },
       internalNotes: {
         type: DataTypes.TEXT,
