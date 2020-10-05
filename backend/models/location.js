@@ -124,6 +124,11 @@ module.exports = (sequelize, DataTypes) => {
         field: 'internal_note',
         allowNull: true,
       },
+      displayNote: {
+        type: DataTypes.TEXT,
+        field: 'display_note',
+        allowNull: true,
+      },
       geomLatitude: {
         type: DataTypes.TEXT,
         field: 'geom_latitude',
@@ -232,6 +237,60 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         field: 'rules',
         allowNull: true,
+      },
+      isValidatedName: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_name',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedWayfinding: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_wayfinding',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedTimezone: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_timezone',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedPhones: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_phones',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedEmail: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_email',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedHours: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_hours',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedRules: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_rules',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedUseflags: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_useflags',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedDisplayNotes: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_displaynotes',
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         type: DataTypes.DATE,
