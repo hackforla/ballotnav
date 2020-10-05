@@ -130,18 +130,23 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       geomLatitude: {
-        type: DataTypes.TEXT,
+        type: DataTypes.DECIMAL,
         field: 'geom_latitude',
         allowNull: true,
       },
       geomLongitude: {
-        type: DataTypes.TEXT,
+        type: DataTypes.DECIMAL,
         field: 'geom_longitude',
         allowNull: true,
       },
       geomDataSource: {
         type: DataTypes.TEXT,
         field: 'geom_data_source',
+        allowNull: true,
+      },
+      geomDataNote: {
+        type: DataTypes.TEXT,
+        field: 'geom_data_note',
         allowNull: true,
       },
       geomPoint: {
