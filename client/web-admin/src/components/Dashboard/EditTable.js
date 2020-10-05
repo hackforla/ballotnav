@@ -62,8 +62,16 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-function EnhancedTableHead(props) {
-  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, headCells } = props;
+function EnhancedTableHead({
+  classes,
+  //onSelectAllClick,
+  order,
+  orderBy,
+  //numSelected,
+  //rowCount,
+  onRequestSort,
+  headCells
+}) {
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -230,7 +238,8 @@ export default function EnhancedTable({ model, instances, tabLabel }) {
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(true);
+  //const [dense, setDense] = React.useState(true);
+  const dense = true
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
@@ -275,10 +284,6 @@ export default function EnhancedTable({ model, instances, tabLabel }) {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
-  };
-
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
   };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
