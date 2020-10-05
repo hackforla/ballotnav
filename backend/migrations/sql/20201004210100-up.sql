@@ -41,3 +41,13 @@ BEGIN
 END;
 $BODY$;
 
+DROP VIEW state_with_jurisdictions_json;
+
+DROP VIEW jurisdiction_json;
+
+DROP VIEW state_json;
+
+DROP VIEW states_json;
+
+DROP VIEW location_dailyhours;
+
