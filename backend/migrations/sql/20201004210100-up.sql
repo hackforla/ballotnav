@@ -534,3 +534,8 @@ FROM
 		GROUP BY
 			t0.id) t2 ON s.id = t2.id;
 
+ALTER TABLE public.wip_jurisdiction_importantdate
+	DROP CONSTRAINT wip_jurisdiction_importantdate_importantdatetype_id_key ,
+	DROP CONSTRAINT wip_jurisdiction_importantdate_wip_jurisdiction_id_key ,
+	ADD CONSTRAINT wip_jurisdiction_importantdate_uq1 UNIQUE (wip_jurisdiction_id , importantdatetype_id);
+
