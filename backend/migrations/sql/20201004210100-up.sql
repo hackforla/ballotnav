@@ -654,3 +654,128 @@ ORDER BY
 END;
 $BODY$;
 
+CREATE OR REPLACE FUNCTION jurisdiction_to_wipjurisdiction (_param_jurisdiction_id IN int , _param_user_id IN int , _out_wip_jurisdiction_id OUT int)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+	curr_wip_jurisdiction_id int;
+BEGIN
+	IF NOT EXISTS (
+		SELECT
+			id
+		FROM
+			public.user
+		WHERE
+			id = _param_user_id) THEN
+	RAISE EXCEPTION 'user.id= % not found' , _param_user_id
+		USING HINT = 'Function can only be called with a valid user.id.';
+END IF;
+	IF NOT EXISTS (
+		SELECT
+			id
+		FROM
+			public.jurisdiction
+		WHERE
+			id = _param_jurisdiction_id) THEN
+	RAISE EXCEPTION 'jurisdiction.id= % not found' , _param_jurisdiction_id
+	USING HINT = 'Function can only be called with a valid jurisdiction.id.';
+END IF;
+INSERT INTO public.wip_jurisdiction (jurisdiction_id , edit_basis_wip_jurisdiction_id , name , authority_name , mail_address1 , mail_address2 , mail_address3 , internal_notes , timezone_default , timezone_enforced , is_validated_timezone , is_validated_importantdates , is_validated_phones , is_validated_urls , is_validated_notices , is_validated_locations , is_published , is_released , editor_user_id)
+SELECT
+	id
+	, wip_jurisdiction_id
+	, name
+	, authority_name
+	, mail_address1
+	, mail_address2
+	, mail_address3
+	, internal_notes
+	, timezone_default
+	, timezone_enforced
+	, is_validated_timezone
+	, is_validated_importantdates
+	, is_validated_phones
+	, is_validated_urls
+	, is_validated_notices
+	, is_validated_locations
+	, is_published
+	, 'N'
+	, _param_user_id
+FROM
+	public.jurisdiction
+WHERE
+	id = _param_jurisdiction_id
+RETURNING
+	id INTO curr_wip_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_url (wip_jurisdiction_id , urltype_id , url , name , description)
+SELECT
+	curr_wip_jurisdiction_id
+	, urltype_id
+	, url
+	, name
+	, description
+FROM
+	public.jurisdiction_url
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_phone (wip_jurisdiction_id , phonenumbertype_id , phone_number , description , sort_order)
+SELECT
+	curr_wip_jurisdiction_id
+	, phonenumbertype_id
+	, phone_number
+	, description
+	, sort_order
+FROM
+	public.jurisdiction_phone
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_notice (wip_jurisdiction_id , date_posted , severity , message)
+SELECT
+	curr_wip_jurisdiction_id
+	, date_posted
+	, severity
+	, message
+FROM
+	public.jurisdiction_notice
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_importantdate (wip_jurisdiction_id , importantdatetype_id , note , begin_date , begin_time , end_date , end_time)
+SELECT
+	curr_wip_jurisdiction_id
+	, importantdatetype_id
+	, note
+	, begin_date
+	, begin_time
+	, end_date
+	, end_time
+FROM
+	public.jurisdiction_importantdate
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_infotab (wip_jurisdiction_id , sort_order , caption , markdown , html , TYPE)
+SELECT
+	curr_wip_jurisdiction_id
+	, sort_order
+	, caption
+	, markdown
+	, html
+	, TYPE
+FROM
+	public.jurisdiction_infotab
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+INSERT INTO public.wip_jurisdiction_news (wip_jurisdiction_id , date_posted , caption , url , summary)
+SELECT
+	curr_wip_jurisdiction_id
+	, date_posted
+	, caption
+	, url
+	, summary
+FROM
+	public.jurisdiction_news
+WHERE
+	jurisdiction_id = _param_jurisdiction_id;
+	_out_wip_jurisdiction_id := curr_wip_jurisdiction_id;
+END;
+$$;
+
