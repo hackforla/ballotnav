@@ -527,6 +527,11 @@ END IF;
 	WHERE jurisdiction_id = _cur_jurisdiction_id;
 	DELETE FROM public.location
 	WHERE jurisdiction_id = _cur_jurisdiction_id;
+	INSERT INTO jurisdiction_publish_log (jurisdiction_id , publisher_user_id , wip_jurisdiction_id)
+	SELECT
+		_cur_jurisdiction_id
+		, _param_publisher_user_id
+		, _param_wip_jurisdiction_id;
 	UPDATE
 		public.jurisdiction
 	SET
@@ -545,7 +550,7 @@ END IF;
 		, is_validated_urls = t0.is_validated_urls
 		, is_validated_notices = t0.is_validated_notices
 		, is_validated_locations = t0.is_validated_locations
-		, is_published = t0.is_published
+		, is_published = 'Y'
 	FROM (
 		SELECT
 			wj.*
