@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-        unique: 'jurisdiction_id-importantdatetype_id',
+        unique: 'wip_jurisdiction_id-importantdatetype_id',
       },
       beginDate: {
         type: DataTypes.DATE,

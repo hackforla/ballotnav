@@ -16,7 +16,7 @@ function Dashboard() {
     <Layout>
       <Switch>
         <Route exact path="/jurisdictions" component={UserJurisdictions} />
-        <Route exact path="/jurisdictions/:jid" component={EditJurisdiction} />
+        <Route exact path="/jurisdictions/:id" component={EditJurisdiction} />
         {isAdmin && <Route exact path="/states" component={SearchStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
         {isAdmin && <Route exact path="/review" component={ReviewWIP} />}

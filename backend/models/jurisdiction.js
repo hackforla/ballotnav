@@ -13,51 +13,59 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'state',
       })
       models.Jurisdiction.hasMany(models.JurisdictionImportantDate, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'importantDates',
       })
       models.Jurisdiction.hasMany(models.JurisdictionInfoTab, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'infoTabs',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNews, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'news',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNotice, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'notices',
       })
       models.Jurisdiction.hasMany(models.JurisdictionPhone, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'phones',
       })
       models.Jurisdiction.hasMany(models.JurisdictionUrl, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'urls',
       })
       models.Jurisdiction.hasMany(models.Location, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
         allownull: false,
+        as: 'locations',
       })
       /*
-      
+
       // not yet registerable when this loads
 
       models.Jurisdiction.belongsToMany(models.User, {
@@ -118,11 +126,17 @@ module.exports = (sequelize, DataTypes) => {
         field: 'mail_address3',
         allowNull: true,
       },
-      isNotValid: {
+      isEaj: {
         type: DataTypes.BOOLEAN,
-        field: 'is_not_valid',
+        field: 'is_eaj',
         allowNull: false,
-        defaultValue: false,
+        defaultValue: true,
+      },
+      isEajExclusive: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_eaj_exclusive',
+        allowNull: false,
+        defaultValue: true,
       },
       internalNotes: {
         type: DataTypes.TEXT,
@@ -195,6 +209,48 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         field: 'population',
         allowNull: true,
+      },
+      isValidatedTimezone: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_timezone',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedImportantdates: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_importantdates',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedPhones: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_phones',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedUrls: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_urls',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedNotices: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_notices',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isValidatedLocations: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_validated_locations',
+        allowNull: false,
+        defaultValue: false,
+      },
+      isPublished: {
+        type: DataTypes.BOOLEAN,
+        field: 'is_published',
+        allowNull: false,
+        defaultValue: false,
       },
       createdAt: {
         type: DataTypes.DATE,

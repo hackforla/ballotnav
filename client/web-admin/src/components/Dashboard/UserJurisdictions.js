@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { List, ListItem, ListItemText } from '@material-ui/core'
 import api from 'services/api'
 import { useHeader } from './Layout'
+import ButtonTable from './ButtonTable'
+import moment from 'moment'
 
 function Jurisdictions() {
   const history = useHistory()
@@ -10,22 +11,25 @@ function Jurisdictions() {
   const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.list().then(setJurisdictions)
-    setTitle('Select a jurisdiction to edit.')
+    api.jurisdictions.listMine().then(jurisdictions => {
+      const transformed = jurisdictions.map(jurisdiction => ({
+        id: jurisdiction.id,
+        jurisdiction: jurisdiction.name,
+        state: jurisdiction.state.name,
+        'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
+      }))
+      setJurisdictions(transformed)
+      setTitle('Select a jurisdiction to edit.')
+    })
   }, [setTitle])
 
   return (
-    <List>
-      {jurisdictions.map((juris) => (
-        <ListItem
-          key={juris.id}
-          button
-          onClick={() => history.push(`/jurisdictions/${juris.id}`)}
-        >
-          <ListItemText primary={juris.name} />
-        </ListItem>
-      ))}
-    </List>
+    <ButtonTable
+      columns={['jurisdiction', 'state', 'last updated']}
+      rows={jurisdictions}
+      buttonText='Select'
+      onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
+    />
   )
 }
 

@@ -2,6 +2,39 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { TextField, MenuItem, Button } from '@material-ui/core'
 
+//////////////////// HELPERS /////////////////////
+
+function getInitialValues(model, initialValues) {
+  const values = initialValues
+    ? { ...initialValues }
+    : {}
+
+  Object.keys(model).forEach(field => {
+    if (typeof values[field] !== 'undefined') return
+    values[field] = typeof model[field].defaultValue === 'undefined'
+      ? ''
+      : model[field].defaultValue
+  })
+
+  return values
+}
+
+function getValidate(model) {
+  return values => {
+    const errors = {}
+    Object.keys(model).forEach((field) => {
+      if (
+        model[field].allowNull === false &&
+        typeof values[field] === 'undefined'
+      )
+        errors[field] = 'This field is required.'
+    })
+    return errors
+  }
+}
+
+/////////////////// THE COMPONENT //////////////////
+
 function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
   const {
     values,
@@ -11,25 +44,8 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
     errors,
     isSubmitting,
   } = useFormik({
-    initialValues:
-      initialValues ||
-      (() => {
-        return Object.keys(model).reduce((vals, field) => {
-          vals[field] = model[field].defaultValue || ''
-          return vals
-        }, {})
-      })(),
-    validate: (values) => {
-      const errors = {}
-      Object.keys(model).forEach((field) => {
-        if (
-          model[field].allowNull === false &&
-          typeof values[field] === 'undefined'
-        )
-          errors[field] = 'This field is required.'
-      })
-      return errors
-    },
+    initialValues: getInitialValues(model, initialValues),
+    validate: getValidate(model),
     onSubmit,
   })
 
