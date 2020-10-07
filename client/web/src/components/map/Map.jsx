@@ -2,7 +2,8 @@
 // Add points to a map: https://docs.mapbox.com/help/tutorials/add-points-pt-1/
 
 import React from 'react';
-import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
@@ -37,7 +38,7 @@ class Map extends React.Component {
 
     geocoder.on('result', ({ result }) => {
       addSearch(result);
-    })
+    });
 
     map.on('click', e => {
       const features = map.queryRenderedFeatures(e.point, {
@@ -50,7 +51,7 @@ class Map extends React.Component {
     
       const feature = features[0];
     
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+      new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
         .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
         .addTo(map);
@@ -68,7 +69,7 @@ class Map extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  search: state.search[state.search.length - 1],
+  search: state.searches[state.searches.length - 1],
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -76,3 +77,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
+
+Map.propTypes = {
+  search: PropTypes.object,
+  addSearch: PropTypes.func.isRequired,
+};

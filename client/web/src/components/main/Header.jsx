@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import clx from 'classnames';
 
 import logo from "../../assets/ballotnav-logo.png";
@@ -25,7 +25,7 @@ const Header = () => {
     >
       <div className="navbar-brand">
       <Link to="/" className="navbar-item">
-          <img src={logo}></img>
+          <img src={logo} alt="BallotNav logo"></img>
         </Link>
         <a // eslint-disable-line
           role="button"

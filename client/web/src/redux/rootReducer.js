@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import search from './reducers/search';
+import searches from './reducers/search';
+import data from './reducers/data';
 
 export default combineReducers({
-  search,
+  searches,
+  data,
 });

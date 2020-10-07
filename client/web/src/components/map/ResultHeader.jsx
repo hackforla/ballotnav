@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const ResultHeader = ({
@@ -22,7 +23,11 @@ const ResultHeader = ({
 }
 
 const mapStateToProps = state => ({
-  search: state.search[state.search.length - 1],
+  search: state.searches[state.searches.length - 1],
 });
 
 export default connect(mapStateToProps)(ResultHeader);
+
+ResultHeader.propTypes = {
+  search: PropTypes.object,
+}
