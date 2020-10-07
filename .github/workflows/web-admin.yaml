@@ -11,7 +11,7 @@ jobs:
     name: build & deploy adminui
 
     steps:
-      - name: Create artifact
+      - name: Context
         uses: docker://busybox
       - name: export context values
         id: contextvals
@@ -42,7 +42,7 @@ jobs:
       - name: Create artifact
         uses: docker://busybox
       - name: tarball 
-        if: ${{ github.ref == 'master' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           tar -czf adminui-${{ steps.contextvals.outputs.sha }}.tar.gz build
@@ -55,13 +55,13 @@ jobs:
           aws-region: us-west-2
 
       - name: Save artifact
-        if: ${{ github.ref == 'master' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           aws s3 cp adminui-${{ steps.contextvals.outputs.sha }}.tar.gz s3://${{ steps.contextvals.outputs.artifactbucket }}/artifacts/
 
       - name: Deploy to the web admin app
-        if: ${{ github.ref == 'master' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           aws s3 sync build s3://${{ steps.contextvals.outputs.targetbucket }}
