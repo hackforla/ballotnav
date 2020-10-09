@@ -61,8 +61,9 @@ class Map extends React.Component {
   render() {
     return (
       <>
-        <div id="map-container" ref={el => this.mapContainer = el} />
-        <div id="map-geocoder" />
+        <div id="map-container" ref={el => this.mapContainer = el}>
+          <div id="map-geocoder" />
+        </div>
       </>
     );
   }
