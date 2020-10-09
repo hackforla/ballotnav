@@ -11,6 +11,10 @@ const Home = () => {
         <div className="hero-text-wrapper">
           <h2>Find your <br /> drop off locations</h2>
           <h3>Find safe, secure, in-person locations to drop off your mail-in or absentee ballot</h3>
+          <div className="field">
+            <input id="switchRoundedOutlinedDefault" type="checkbox" name="switchRoundedOutlinedDefault" className="switch is-rounded is-outlined" checked="checked" />
+            <label for="switchRoundedOutlinedDefault">Switch rounded outlined default</label>
+          </div>
         </div>
         <HomeMapSearch />
       </div>
