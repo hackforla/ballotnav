@@ -5,6 +5,14 @@
   background-repeat: no-repeat;
   position: relative;
   background-size: 150px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: 768px) {
+    width: 700px;
+    height: 400px;
+    top: -45px;
+    background-size: 170px;
+  }
 }
 
 .cloud-background {
@@ -16,6 +24,12 @@
   background-size: 500px;
   background-repeat: no-repeat;
   z-index: -1;
+
+  @media only screen and (min-width: 768px) {
+    background-size: 650px;
+    background-position: left bottom;
+    left: -20px;
+  }
 }
 
 .hero-text-wrapper {
@@ -24,10 +38,18 @@
   left: 10px;
   width: 220px;
 
+  @media only screen and (min-width: 768px) {
+    width: 300px;
+  }
+
   h2 {
     font-size: 1.4em;
     font-weight: 700;
     color: $red;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 1.8em;
+    }
   }
 
   h3 {
@@ -35,5 +57,9 @@
     line-height: 1.2;
     margin-top: 5px;
     color: $blue;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 1.2em;
+    }
   }
 }
