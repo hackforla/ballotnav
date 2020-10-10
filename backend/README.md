@@ -107,3 +107,62 @@ there's always the _nuclear option_ :boom: this will wipe cache and data.
 ```bash
 $ make reallyhardrebuild
 ```
+
+# API calls
+
+## get a list of states
+```javascript
+
+axios.get('/states')
+    .then((response) => {
+    /**
+        {
+           states: [
+            {
+                id: 42,
+                name: "Iowa",
+                abbreviation: "IA",
+                authorityName: "Kim Reynolds",
+                jurisdictionType: "County,
+                isLateRegistration: "N",
+                voterRegistrationAuthority: "jurisdiction",
+                updatedAt: "2020-09-30 17:23:00"
+            },
+            {
+                id: 43,
+                name: "Ohio",
+                abbreviation: "OH",
+                jurisdictionType: "County,
+                isLateRegistration: "N",
+                voterRegistrationAuthority: "jurisdiction",
+                updatedAt: "2020-09-27 10:13:00"
+            },
+            ... etc
+           ]
+        }
+    */
+    })
+```
+
+## get a state by id
+```javascript
+axios.get('/states?id=42')
+    .then((response) => {
+    /**
+        {
+           states: [
+            {
+                id: 42,
+                name: "Iowa",
+                abbreviation: "IA",
+                authorityName: "Kim Reynolds",
+                jurisdictionType: "County,
+                isLateRegistration: "N",
+                voterRegistrationAuthority: "jurisdiction",
+                updatedAt: "2020-09-30 17:23:00"
+            },
+           ]
+        }
+    */
+    })
+```
