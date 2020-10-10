@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import clx from 'classnames';
 
 import logo from "../../assets/ballotnav-logo.png";
 
-const Header = () => {
+const Header = ({
+  location: { pathname },
+}) => {
   const [activeBurger, setActiveBurger] = useState(false);
 
   const handleClick = () => {
@@ -19,9 +22,9 @@ const Header = () => {
 
   return (
     <nav
-      className="navbar"
       role="navigation"
       aria-label="main navigation"
+      className={clx('navbar', { 'map': ['/map'].includes(pathname) })}
     >
       <div className="navbar-brand">
       <Link to="/" className="navbar-item">
@@ -59,4 +62,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default withRouter(Header);
