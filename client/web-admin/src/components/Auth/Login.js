@@ -8,7 +8,7 @@ import { Button, TextField, Grid } from '@material-ui/core'
 
 const validationSchema = Yup.object({
   email: Yup.string().email().required('Required'),
-  password: Yup.string().min().required('Required'),
+  password: Yup.string().required('Required'),
 });
 
 function Login() {
