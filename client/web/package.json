@@ -24,7 +24,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "resizable-panels-react": "^2.0.8"
+    "resizable-panels-react": "^2.0.8",
+    "rsuite": "^4.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
