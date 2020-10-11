@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
+        unique: 'user_id-state_id',
       },
       stateId: {
         type: DataTypes.INTEGER,
@@ -43,6 +44,7 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
+        unique: 'user_id-state_id',
       },
       status: {
         allowNull: false,
