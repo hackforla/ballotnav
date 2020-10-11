@@ -1,0 +1,169 @@
+{
+    "jurisdictionId": 2344,
+    "editBasisWipJurisdictionId": null,
+    "name": "Ross County",
+    "authorityName": "Ross County Board of Elections xxx",
+    "mailAddress1": null,
+    "mailAddress2": null,
+    "mailAddress3": null,
+    "internalNotes": null,
+    "timezoneDefault": "US/Eastern",
+    "timezoneEnforced": true,
+    "editorUserId": 1,
+    "isReleased": false,
+    "isValidatedTimezone": true,
+    "isValidatedImportantdates": false,
+    "isValidatedPhones": false,
+    "isValidatedUrls": false,
+    "isValidatedNotices": false,
+    "isValidatedLocations": false,
+    "isPublished": false,
+    "importantDates":
+    [
+        {
+            "importantDateTypeId": 3,
+            "beginDate": "2020-10-23",
+            "beginTime": "07:30",
+            "endDate": "2020-11-03",
+            "endTime": "19:30",
+            "note": "A noteeeee"
+        }
+    ],
+    "infoTabs":
+    [
+        {
+            "caption": "Ross County County Supervisor ordered to invalidate & destroy all mail in ballots!",
+            "sortOrder": 1,
+            "type": "news",
+            "html": "<h1>this is not real</h1>"
+        }
+    ],
+    "news":
+    [
+        {
+            "datePosted": "2020-10-11",
+            "caption": "New drop off site added!",
+            "url": "https://www.newpapersite.com",
+            "summary": "Federal District court judge ordered new drop off locations added to OH"
+        }
+    ],
+    "notices":
+    [
+        {
+            "datePosted": "2020-11-02",
+            "severity": "critical",
+            "message": "polls will be opening 4 hours later and closing 4 hours earlier in some districts!"
+        }
+    ],
+    "phones":
+    [
+        {
+            "sortOrder": 0,
+            "phoneNumberTypeId": 1,
+            "phoneNumber": "888-222-1234",
+            "description": "The office number for elections offic"
+        },
+        {
+            "sortOrder": 1,
+            "phoneNumberTypeId": 3,
+            "phoneNumber": "888-222-4444",
+            "description": "The TTY number for elections office"
+        }
+    ],
+    "urls": [
+        {
+            "urlTypeId": 8,
+            "url": "https://trackballot.org",
+            "name": "Track My Ballot - Ross County",
+            "description": "Site for tracking ballots across the county"
+        }
+    ],
+    "locations":
+    [
+        {
+            "facilityTypeId": 2,
+            "name": "Ross County Board of Elections",
+            "infoPublic": "",
+            "timezone": "US/Eastern",
+            "address1": "475 Western Ave.",
+            "address2": "Suite D ",
+            "address3": "Chillicothe OH 45601",
+            "city": null,
+            "state": null,
+            "zip": null,
+            "contactName": null,
+            "contactEmail": null,
+            "contactFax": "(740) 775-2383",
+            "contactPhone": "(740) 775-2350",
+            "internalNote": null,
+            "displayNote": null,
+            "geomLatitude": "39.334225",
+            "geomLongitude": "-83.00327",
+            "geomDataSource": "census_bureau_geocode",
+            "geomDataNote": null,
+            "isEarlyDropoffLocation": "Y",
+            "isEarlyVotingLocation": "Y",
+            "isElectionsOffice": "Y",
+            "isPollingLocation": "N",
+            "isDropBox": "N",
+            "isHandicapAccessible": "Y",
+            "isStaffedLocation": "Y",
+            "isOutdoors": "N",
+            "isDriveup": "Y",
+            "scheduleType": "hours",
+            "scheduleDescription": "NULL",
+            "continuousOpenDate": "2020-10-28",
+            "continuousOpenTime": "09:00",
+            "continuousCloseDate": "2020-11-04",
+            "continuousCloseTime": "18:30",
+            "hours":
+            [
+                {"wipLocationId":3,"beginDate":"2020-10-28","endDate":"2020-11-04","openTime":"09:00","closeTime":"18:30","note":"This is a note on this location hour","useMonday":true,"useTuesday":true,"useWednesday":false,"useFriday":true,"useSaturday":false,"useSunday":false}
+            ],
+            "rules": null,
+            "isValidatedName": false,
+            "isValidatedWayfinding": false,
+            "isValidatedTimezone": true,
+            "isValidatedPhones": false,
+            "isValidatedEmail": false,
+            "isValidatedHours": false,
+            "isValidatedRules": false,
+            "isValidatedUseflags": false,
+            "isValidatedDisplayNotes": false
+        },
+        {
+            "facilityTypeId": 2,
+            "name": "Jeffereson County High School",
+            "infoPublic": "",
+            "timezone": "US/Eastern",
+            "address1": "400 Eastern Ave.",
+            "address2": "Chillicothe OH 45601",
+            "address3": "",
+            "contactName": "Principal Skinner",
+            "contactEmail": null,
+            "contactFax": null,
+            "contactPhone": "(740) 444-1234",
+            "internalNote": "This is an internal display note",
+            "displayNote": "This is a display note",
+            "isEarlyDropoffLocation": "N",
+            "isEarlyVotingLocation": "N",
+            "isElectionsOffice": "N",
+            "isPollingLocation": "Y",
+            "isDropBox": "N",
+            "isHandicapAccessible": "Y",
+            "isStaffedLocation": "Y",
+            "isOutdoors": "N",
+            "isDriveup": "N",
+            "scheduleType": "hours",
+            "isValidatedName": false,
+            "isValidatedWayfinding": false,
+            "isValidatedTimezone": true,
+            "isValidatedPhones": false,
+            "isValidatedEmail": false,
+            "isValidatedHours": false,
+            "isValidatedRules": false,
+            "isValidatedUseflags": false,
+            "isValidatedDisplayNotes": false
+        }
+    ]
+}
