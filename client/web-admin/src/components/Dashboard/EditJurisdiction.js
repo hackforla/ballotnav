@@ -81,6 +81,32 @@ function EditJurisdiction() {
     })
   }, [id, setTitle])
 
+  const saveProgress = () => {
+    console.log('saving:', jurisdiction)
+  }
+
+  const submitForReview = () => {
+    console.log('submitting:', jurisdiction)
+  }
+
+  const updateJurisdictionDetails = (newDetails) => {
+    setJurisdiction({
+      ...jurisdiction,
+      ...newDetails,
+    })
+  }
+
+  const updateSubmodel = (id, data) => {
+    setJurisdiction({
+      ...jurisdiction,
+      [id]: data,
+    })
+  }
+
+  const log = useEffect(() => {
+    console.log('changed:', jurisdiction)
+  }, [jurisdiction])
+
   if (!jurisdiction) return null
   return (
     <>
@@ -96,7 +122,8 @@ function EditJurisdiction() {
           initialValues={jurisdiction}
           submitText="Update Jurisdiction"
           onSubmit={(values, funcs) => {
-            console.log(values)
+            //console.log(values)
+            updateJurisdictionDetails(values)
             funcs.setSubmitting(false)
           }}
           style={{ maxWidth: 400 }}
@@ -110,18 +137,32 @@ function EditJurisdiction() {
             displayName={subModel.displayName}
             listKey={subModel.listKey}
             tabLabel={subModel.tabLabel}
+            onChange={data => updateSubmodel(subModel.id, data)}
           />
         </TabPanel>
       ))}
       <Paper style={{ padding: 10, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button style={{ margin: 10 }} onClick={console.log} variant="contained" color="primary">Save Progress</Button>
+        <Button style={{ margin: 10 }} onClick={saveProgress} variant="contained" color="primary">Save Progress</Button>
         <Button style={{ margin: 10 }} onClick={console.log} variant="contained" color="primary">Submit for Review</Button>
       </Paper>
     </>
   )
 }
 
-function EditTab({ model, instances, displayName, tabLabel, listKey }) {
+function EditTab({ model, instances, displayName, tabLabel, listKey, onChange }) {
+
+  const addInstance = (newInstance) => {
+    console.log('adding:', newInstance)
+    onChange([
+      newInstance,
+      ...instances,
+    ])
+  }
+
+  const updateInstance = (newInstance) => {
+    console.log('updating:', newInstance)
+  }
+
   return (
     <>
       <Accordion style={{ marginBottom: 15 }}>
@@ -137,14 +178,15 @@ function EditTab({ model, instances, displayName, tabLabel, listKey }) {
             initialValues={null}
             submitText={`Add ${displayName}`}
             onSubmit={(values, funcs) => {
-              console.log(values)
+              // console.log(values)
+              addInstance(values)
               funcs.setSubmitting(false)
             }}
             style={{ maxWidth: 400 }}
           />
         </AccordionDetails>
       </Accordion>
-      <EditTable model={model} instances={instances} tabLabel={tabLabel} />
+      <EditTable model={model} instances={instances} tabLabel={tabLabel} onChange={console.log} />
     </>
   )
 }
