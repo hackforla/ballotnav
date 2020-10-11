@@ -146,11 +146,6 @@ module.exports = (sequelize, DataTypes) => {
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
       },
-      editorComments: {
-        type: DataTypes.TEXT,
-        field: 'editor_comments',
-        allowNull: true,
-      },
       isReleased: {
         type: DataTypes.BOOLEAN,
         field: 'is_released',
