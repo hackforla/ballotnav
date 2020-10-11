@@ -8,3 +8,9 @@ ALTER TABLE public.user_state
 	ALTER COLUMN state_id SET NOT NULL ,
 	ADD CONSTRAINT user_state_uq1 UNIQUE (user_id , state_id);
 
+ALTER TABLE public.wip_jurisdiction
+	DROP COLUMN editor_comments;
+
+ALTER TABLE public.wip_state
+	DROP COLUMN editor_comments;
+
