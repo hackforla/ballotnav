@@ -46,43 +46,21 @@ exports.getState = async (req, res, next) => {
 
 exports.getWipJurisdiction = async (req, res, next) => {
   const { jurisdictionId } = req.params
-  const editorUserId = req.user.id
+  const userId = req.user.id
 
-  const findWipJurisdiction = async () => {
-    return await req.db.WipJurisdiction.findOne({
-      where: {
-        jurisdictionId,
-        editorUserId,
-      },
-      include: [
-        { all: true },
-        {
-          association: 'locations',
-          include: { association: 'hours' },
-        },
-      ],
-    })
-  }
-
-  const createWipJurisdiction = async () => {
-    return await req.db.sequelize.query(
-      'SELECT wip_jurisdiction_create(:jurisdictionId, :editorUserId)',
+  let wipJurisdictionId
+  try {
+    const response = await req.db.sequelize.query(
+      'SELECT wip_jurisdiction_selectorcreate(:jurisdictionId, :userId)',
       {
         replacements: {
           jurisdictionId,
-          editorUserId,
-        }
+          userId,
+        },
+        type: req.db.Sequelize.QueryTypes.SELECT,
       }
     )
-  }
-
-  // try to find it
-  let data = await findWipJurisdiction()
-  if (data) return res.json(data)
-
-  // if it doesn't exist, create it
-  try {
-    await createWipJurisdiction()
+    wipJurisdictionId = response[0].wip_jurisdiction_selectorcreate
   } catch(e) {
     return res.status(500).json({
       success: false,
@@ -90,8 +68,17 @@ exports.getWipJurisdiction = async (req, res, next) => {
     })
   }
 
-  data = await findWipJurisdiction()
-  return res.json(data)
+  const wipJurisdiction = await req.db.WipJurisdiction.findByPk(wipJurisdictionId, {
+    include: [
+      { all: true },
+      {
+        association: 'locations',
+        include: { association: 'hours' },
+      },
+    ],
+  })
+
+  return res.json(wipJurisdiction)
 }
 
 exports.releaseWipJurisdiction = async (req, res, next) => {
