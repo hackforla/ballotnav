@@ -8,6 +8,8 @@ import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
+import ResultList from './ResultList';
+
 class Map extends React.Component {
   componentDidMount() {
     const {
@@ -63,6 +65,7 @@ class Map extends React.Component {
       <>
         <div id="map-container" ref={el => this.mapContainer = el}>
           <div id="map-geocoder" />
+          <ResultList />
         </div>
       </>
     );

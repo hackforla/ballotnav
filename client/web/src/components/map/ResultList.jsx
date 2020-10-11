@@ -1,4 +1,5 @@
 import React from 'react';
+import ResultHeader from './ResultHeader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Drawer } from 'rsuite';

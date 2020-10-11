@@ -14,7 +14,7 @@ const ResultHeader = ({
     <div className="result-header">
       {search &&
         <>
-          <p>{county} County, {state}</p>
+          <p>{county}, {state}</p>
           <a>Learn more</a>
         </>
       }
