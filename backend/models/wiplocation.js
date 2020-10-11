@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'wip_location_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
+        as: 'hours',
       })
     }
   }
