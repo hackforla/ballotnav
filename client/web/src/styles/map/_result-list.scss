@@ -1,4 +1,7 @@
 div.result-list {
   z-index: 2;
   position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 }
