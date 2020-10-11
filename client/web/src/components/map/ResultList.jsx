@@ -14,9 +14,7 @@ const ResultList = ({
   const [open, setOpen] = useState(false);
 
   const close = () => {
-    this.setState({
-      show: false
-    });
+    setOpen(false);
   }
 
   const toggleDrawer = () => {
