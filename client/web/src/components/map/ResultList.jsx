@@ -25,7 +25,7 @@ const ResultList = ({
   return (
     <div className="result-list">
       <ButtonToolbar>
-        <Button onClick={toggleDrawer}>Open</Button>
+        <Button onClick={toggleDrawer}>View List</Button>
       </ButtonToolbar>
       <Drawer
         show={open}
@@ -33,7 +33,7 @@ const ResultList = ({
         placement="bottom"
       >
         <Drawer.Header>
-          <Drawer.Title>Drawer Title</Drawer.Title>
+          <Drawer.Title>Dropoffs Near You</Drawer.Title>
         </Drawer.Header>
         <Drawer.Body>
           <Result />
