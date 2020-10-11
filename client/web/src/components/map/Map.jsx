@@ -66,6 +66,7 @@ class Map extends React.Component {
         <div id="map-container" ref={el => this.mapContainer = el}>
           <div id="map-geocoder" />
         </div>
+        <ResultList />
       </>
     );
   }

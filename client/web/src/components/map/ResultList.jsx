@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import ResultHeader from './ResultHeader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import { Drawer } from 'rsuite';
 import { ButtonToolbar } from 'rsuite';
 import { Button } from 'rsuite';
-import 'rsuite/dist/styles/rsuite-default.css';
 
 import Result from './Result';
 
@@ -30,6 +30,7 @@ const ResultList = ({
         <Drawer
           show={open}
           onHide={close}
+          placement="bottom"
         >
           <Drawer.Header>
             <Drawer.Title>Drawer Title</Drawer.Title>
