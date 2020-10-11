@@ -23,27 +23,27 @@ const ResultList = ({
   }
 
   return (
-    <div>
-        <ButtonToolbar>
-          <Button onClick={toggleDrawer}>Open</Button>
-        </ButtonToolbar>
-        <Drawer
-          show={open}
-          onHide={close}
-          placement="bottom"
-        >
-          <Drawer.Header>
-            <Drawer.Title>Drawer Title</Drawer.Title>
-          </Drawer.Header>
-          <Drawer.Body>
-            <Result />
-          </Drawer.Body>
-          <Drawer.Footer>
-            <Button onClick={close} appearance="primary">Confirm</Button>
-            <Button onClick={close} appearance="subtle">Cancel</Button>
-          </Drawer.Footer>
-        </Drawer>
-      </div>
+    <div className="result-list">
+      <ButtonToolbar>
+        <Button onClick={toggleDrawer}>Open</Button>
+      </ButtonToolbar>
+      <Drawer
+        show={open}
+        onHide={close}
+        placement="bottom"
+      >
+        <Drawer.Header>
+          <Drawer.Title>Drawer Title</Drawer.Title>
+        </Drawer.Header>
+        <Drawer.Body>
+          <Result />
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Button onClick={close} appearance="primary">Confirm</Button>
+          <Button onClick={close} appearance="subtle">Cancel</Button>
+        </Drawer.Footer>
+      </Drawer>
+    </div>
   );
 };
 

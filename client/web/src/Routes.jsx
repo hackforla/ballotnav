@@ -7,7 +7,6 @@ import {
 
 import Home from './components/main/Home';
 import MapContainer from './components/map/MapContainer';
-import ResultList from './components/map/ResultList';
 
 const Routes = () => {
   return (
@@ -17,9 +16,6 @@ const Routes = () => {
       </Route>
       <Route path="/map">
         <MapContainer />
-      </Route>
-      <Route path="/resultlist">
-        <ResultList />
       </Route>
       <Redirect to="/" />
     </Switch>
