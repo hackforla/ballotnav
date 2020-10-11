@@ -1,14 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ResultHeader from './ResultHeader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Drawer } from 'rsuite';
+import { ButtonToolbar } from 'rsuite';
+import { Button } from 'rsuite';
+
+import Result from './Result';
 
 const ResultList = ({
   data,
 }) => {
-  return(
-    <Drawer />
+  const [open, setOpen] = useState(false);
+
+  const close = () => {
+    this.setState({
+      show: false
+    });
+  }
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  }
+
+  return (
+    <div>
+        <ButtonToolbar>
+          <Button onClick={toggleDrawer}>Open</Button>
+        </ButtonToolbar>
+        <Drawer
+          show={open}
+          onHide={close}
+        >
+          <Drawer.Header>
+            <Drawer.Title>Drawer Title</Drawer.Title>
+          </Drawer.Header>
+          <Drawer.Body>
+            <Result />
+          </Drawer.Body>
+          <Drawer.Footer>
+            <Button onClick={close} appearance="primary">Confirm</Button>
+            <Button onClick={close} appearance="subtle">Cancel</Button>
+          </Drawer.Footer>
+        </Drawer>
+      </div>
   );
 };
 
