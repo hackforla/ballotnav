@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  //makeStyles,
+  makeStyles,
   TableRow,
   TableCell,
   Box,
@@ -10,17 +10,22 @@ import {
 import { editableFields } from 'models'
 import AutoForm from 'components/core/AutoForm'
 
-// const useRowStyles = makeStyles({
-//   root: {
-//     '& > *': {
-//       borderBottom: 'unset',
-//     },
-//   },
-// });
+const useRowStyles = makeStyles({
+  root: {
+    '& > *': {
+      // borderBottom: 'unset',
+    },
+  },
+  collapseRoot: {
+    '& > *': {
+      borderBottom: 'unset'
+    },
+  },
+});
 
 function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
   const [open, setOpen] = React.useState(false);
-  //const classes = useRowStyles();
+  const classes = useRowStyles();
   const [values, setValues] = useState({ ...row, isValidated: false })
 
   const toggle = () => setOpen(!open)
@@ -45,6 +50,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
         tabIndex={-1}
         key={row.id}
         selected={isItemSelected}
+        className={classes.root}
       >
         {/*<TableCell>
           <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
@@ -81,24 +87,24 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
             )
         })}
       </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-         <Collapse in={open} timeout="auto" unmountOnExit>
-           <Box margin={1}>
-             <AutoForm
-               model={model}
-               initialValues={row}
-               submitText='Update Location'
-               onSubmit={(values, funcs) => {
+      <TableRow className={classes.collapseRoot}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box margin={1}>
+              <AutoForm
+                model={model}
+                initialValues={row}
+                submitText='Update Location'
+                onSubmit={(values, funcs) => {
                  handleChange(values)
                  setOpen(false)
                  funcs.setSubmitting(false)
-               }}
-               style={{ maxWidth: 400 }}
+                }}
+                style={{ maxWidth: 400 }}
              />
-           </Box>
-         </Collapse>
-        </TableCell>
+            </Box>
+           </Collapse>
+         </TableCell>
        </TableRow>
     </>
   );

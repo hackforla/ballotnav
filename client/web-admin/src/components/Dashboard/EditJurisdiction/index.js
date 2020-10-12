@@ -69,8 +69,8 @@ function EditJurisdiction() {
   const { setTitle } = useHeader()
 
   useEffect(() => {
-    api.jurisdictions.getById(id).then((jurisdiction) => {
-      setTitle(`Jurisdiction: ${jurisdiction.name}, ${jurisdiction.state.name}`)
+    api.jurisdictions.getWipJurisdiction(id).then((jurisdiction) => {
+      setTitle(`Jurisdiction: ${jurisdiction.name}`)
       setJurisdiction(jurisdiction)
     })
   }, [id, setTitle])
@@ -91,10 +91,19 @@ function EditJurisdiction() {
 
   const saveProgress = () => {
     console.log('saving:', jurisdiction)
+    api.jurisdictions.updateWipJurisdiction(jurisdiction.id, jurisdiction)
+      .then(updated => {
+        console.log('updated jurisdiction', updated)
+        setJurisdiction(updated)
+      })
   }
 
   const submitForReview = () => {
     console.log('submitting:', jurisdiction)
+    api.jurisdictions.releaseWipJurisdiction(jurisdiction.id)
+      .then(data => {
+        console.log('released:', data)
+      })
   }
 
   useEffect(() => {
