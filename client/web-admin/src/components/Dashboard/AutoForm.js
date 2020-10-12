@@ -42,8 +42,6 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
     onSubmit,
   })
 
-  console.log('formik touched', formik)
-
   const {
     values,
     handleSubmit,
@@ -69,7 +67,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
         )
           return null
 
-        if (type === 'text')
+        if (type === 'text' || type === 'date')
           return (
             <TextField
               key={field}

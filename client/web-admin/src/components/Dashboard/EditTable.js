@@ -216,7 +216,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable({ model, instances, tabLabel }) {
+export default function EnhancedTable({ model, instances, tabLabel, onChangeInstance }) {
   // const headCells = [
   //   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
   //   { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
@@ -326,7 +326,7 @@ export default function EnhancedTable({ model, instances, tabLabel }) {
                       isItemSelected={isItemSelected}
                       onClick={(event) => handleClick(event, row.id)}
                       labelId={labelId}
-                      onSave={(row) => console.log('saving:', row)}
+                      onSave={(row) => onChangeInstance(row)}
                     />
                   )
                 })}
@@ -369,6 +369,10 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
 
   const handleChange = (newValues) => {
     setValues({
+      ...values,
+      ...newValues,
+    })
+    onSave({
       ...values,
       ...newValues,
     })

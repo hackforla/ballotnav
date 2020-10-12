@@ -103,7 +103,7 @@ function EditJurisdiction() {
     })
   }
 
-  const log = useEffect(() => {
+  useEffect(() => {
     console.log('changed:', jurisdiction)
   }, [jurisdiction])
 
@@ -122,7 +122,6 @@ function EditJurisdiction() {
           initialValues={jurisdiction}
           submitText="Update Jurisdiction"
           onSubmit={(values, funcs) => {
-            //console.log(values)
             updateJurisdictionDetails(values)
             funcs.setSubmitting(false)
           }}
@@ -130,7 +129,7 @@ function EditJurisdiction() {
         />
       </TabPanel>
       {SUBMODELS.map((subModel, idx) => (
-        <TabPanel key={subModel.id} value={tabNum} index={idx + 1}> {/*} change to + 1 when the first tab is back*/}
+        <TabPanel key={subModel.id} value={tabNum} index={idx + 1}>
           <EditTab
             model={subModel.model}
             instances={jurisdiction[subModel.id]}
@@ -142,8 +141,20 @@ function EditJurisdiction() {
         </TabPanel>
       ))}
       <Paper style={{ padding: 10, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button style={{ margin: 10 }} onClick={saveProgress} variant="contained" color="primary">Save Progress</Button>
-        <Button style={{ margin: 10 }} onClick={console.log} variant="contained" color="primary">Submit for Review</Button>
+        <Button
+          style={{ margin: 10 }}
+          onClick={saveProgress}
+          variant="contained"
+          color="primary">
+          Save Progress
+        </Button>
+        <Button
+          style={{ margin: 10 }}
+          onClick={submitForReview}
+          variant="contained"
+          color="primary">
+          Submit for Review
+        </Button>
       </Paper>
     </>
   )
@@ -152,7 +163,6 @@ function EditJurisdiction() {
 function EditTab({ model, instances, displayName, tabLabel, listKey, onChange }) {
 
   const addInstance = (newInstance) => {
-    console.log('adding:', newInstance)
     onChange([
       newInstance,
       ...instances,
@@ -160,7 +170,12 @@ function EditTab({ model, instances, displayName, tabLabel, listKey, onChange })
   }
 
   const updateInstance = (newInstance) => {
-    console.log('updating:', newInstance)
+    const newInstances = instances.map(instance => {
+      return instance.id === newInstance.id
+        ? newInstance
+        : instance
+    })
+    onChange(newInstances)
   }
 
   return (
@@ -186,7 +201,13 @@ function EditTab({ model, instances, displayName, tabLabel, listKey, onChange })
           />
         </AccordionDetails>
       </Accordion>
-      <EditTable model={model} instances={instances} tabLabel={tabLabel} onChange={console.log} />
+      <EditTable
+        model={model}
+        instances={instances}
+        tabLabel={tabLabel}
+        onChangeInstance={updateInstance}
+        onChange={console.log}
+      />
     </>
   )
 }
