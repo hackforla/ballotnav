@@ -1,9 +1,9 @@
 // adapted from here: https://material-ui.com/components/tables/
 // see Sorting & Selecting
 
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
+import React from 'react'
+import PropTypes from 'prop-types'
+import clsx from 'clsx'
 import {
   lighten,
   makeStyles,
@@ -18,23 +18,9 @@ import {
   Toolbar,
   Typography,
   Paper,
-  Checkbox,
-  // IconButton,
-  // Tooltip,
-  // FormControlLabel,
-  // Switch,
-  Collapse,
-  Box,
-  // Button,
 } from '@material-ui/core'
-import {
-  // Delete as DeleteIcon,
-  // FilterList as FilterListIcon,
-  // KeyboardArrowUp as KeyboardArrowUpIcon,
-  // KeyboardArrowDown as KeyboardArrowDownIcon,
-} from '@material-ui/icons'
 import { editableFields } from 'models'
-import AutoForm from 'components/core/AutoForm'
+import Row from './Row'
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -217,14 +203,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EnhancedTable({ model, instances, tabLabel, onChangeInstance }) {
-  // const headCells = [
-  //   { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
-  //   { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  //   { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  //   { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  //   { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
-  // ];
-
   const headCells = editableFields(model).map(field => ({
     id: field,
     disablePadding: true,
@@ -238,7 +216,6 @@ export default function EnhancedTable({ model, instances, tabLabel, onChangeInst
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  //const [dense, setDense] = React.useState(true);
   const dense = true
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -349,94 +326,5 @@ export default function EnhancedTable({ model, instances, tabLabel, onChangeInst
         />
       </Paper>
     </div>
-  );
-}
-
-// const useRowStyles = makeStyles({
-//   root: {
-//     '& > *': {
-//       borderBottom: 'unset',
-//     },
-//   },
-// });
-
-function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
-  const [open, setOpen] = React.useState(false);
-  // const classes = useRowStyles();
-  const [values, setValues] = useState({ ...row, isValidated: false })
-
-  const toggle = () => setOpen(!open)
-
-  const handleChange = (newValues) => {
-    setValues({
-      ...values,
-      ...newValues,
-    })
-    onSave({
-      ...values,
-      ...newValues,
-    })
-  }
-
-  // const handleSave = () => {
-    // console.log('saving:', values)
-    //onSave(values)
-  // }
-
-  return (
-    <>
-      <TableRow
-        hover
-        role="checkbox"
-        aria-checked={isItemSelected}
-        tabIndex={-1}
-        key={row.id}
-        selected={isItemSelected}
-      >
-        {/*<TableCell>
-          <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
-        </TableCell>*/}
-        <TableCell padding="checkbox">
-          <Checkbox
-            checked={values.isValidated}
-            inputProps={{ 'aria-labelledby': labelId }}
-            onChange={(event, isValidated) => handleChange({ isValidated })}
-          />
-        </TableCell>
-        {editableFields(model).map((field, idx) => {
-          if (idx === 0)
-            return (
-              <TableCell style={{ cursor: 'pointer' }} onClick={toggle} component='th' key={field} id={labelId} scope='row'>
-                <div style={{ width: 150, fontWeight: 'bold' }}>{values[field]}</div>
-              </TableCell>
-            )
-          else
-            return (
-              <TableCell style={{ cursor: 'pointer' }} onClick={toggle} key={field} align='right'>
-                {values[field]}
-              </TableCell>
-            )
-        })}
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-         <Collapse in={open} timeout="auto" unmountOnExit>
-           <Box margin={1}>
-             <AutoForm
-               model={model}
-               initialValues={row}
-               submitText='Update Location'
-               onSubmit={(values, funcs) => {
-                 handleChange(values)
-                 setOpen(false)
-                 funcs.setSubmitting(false)
-               }}
-               style={{ maxWidth: 400 }}
-             />
-           </Box>
-         </Collapse>
-        </TableCell>
-       </TableRow>
-    </>
   );
 }
