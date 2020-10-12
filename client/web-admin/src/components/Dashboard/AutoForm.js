@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import { TextField, MenuItem, Button } from '@material-ui/core'
+import { TextField, MenuItem, Button, Box } from '@material-ui/core'
 
 //////////////////// HELPERS /////////////////////
 
@@ -36,6 +36,14 @@ function getValidate(model) {
 /////////////////// THE COMPONENT //////////////////
 
 function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
+  const formik = useFormik({
+    initialValues: getInitialValues(model, initialValues),
+    validate: getValidate(model),
+    onSubmit,
+  })
+
+  console.log('formik touched', formik)
+
   const {
     values,
     handleSubmit,
@@ -43,11 +51,9 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
     handleBlur,
     errors,
     isSubmitting,
-  } = useFormik({
-    initialValues: getInitialValues(model, initialValues),
-    validate: getValidate(model),
-    onSubmit,
-  })
+    dirty,
+    resetForm,
+  } = formik
 
   return (
     <form onSubmit={handleSubmit} style={style}>
@@ -109,17 +115,35 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
 
         return null
       })}
-      <Button
-        style={{ marginTop: 20, marginBottom: 20 }}
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        margin="normal"
-        disabled={isSubmitting}
+      <Box
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: 20,
+          marginBottom: 20
+        }}
       >
-        {submitText || 'Submit'}
-      </Button>
+        <Button
+          style={{ width: '45%' }}
+          type="submit"
+          variant="contained"
+          color="primary"
+          margin="normal"
+          disabled={!dirty || isSubmitting}
+        >
+          { submitText || 'Confirm Changes' }
+        </Button>
+        <Button
+          style={{ width: '45%' }}
+          variant="contained"
+          color="primary"
+          margin="normal"
+          disabled={!dirty || isSubmitting}
+          onClick={resetForm}
+        >
+          Clear Changes
+        </Button>
+      </Box>
     </form>
   )
 }
