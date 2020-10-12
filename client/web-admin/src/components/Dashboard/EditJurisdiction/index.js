@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from 'services/api'
+import { useHeader } from '../Layout'
+
 import jurisdictionModel from 'models/jurisdiction'
 import locationModel from 'models/location'
 import importantDateModel from 'models/jurisdiction_importantdate'
@@ -9,20 +11,12 @@ import newsModel from 'models/jurisdiction_news'
 import noticeModel from 'models/jurisdiction_notice'
 import phoneModel from 'models/jurisdiction_phone'
 import urlModel from 'models/jurisdiction_url'
-import AutoForm from 'components/core/AutoForm'
-import {
-  Tabs,
-  Tab,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Button,
-  Paper,
-} from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { useHeader } from '../Layout'
+
+import { Tab, Tabs } from '@material-ui/core'
 import TabPanel from 'components/core/TabPanel'
-import EditTable from './EditTable'
+import JurisdictionTab from './JurisdictionTab'
+import SubmodelTab from './SubmodelTab'
+import Footer from './Footer'
 
 const SUBMODELS = [{
   id: 'locations',
@@ -81,26 +75,26 @@ function EditJurisdiction() {
     })
   }, [id, setTitle])
 
+  const updateJurisdiction = (newJurisdiction) => {
+    setJurisdiction({
+      ...jurisdiction,
+      ...newJurisdiction,
+    })
+  }
+
+  const updateSubmodel = (id, newSubmodel) => {
+    setJurisdiction({
+      ...jurisdiction,
+      [id]: newSubmodel,
+    })
+  }
+
   const saveProgress = () => {
     console.log('saving:', jurisdiction)
   }
 
   const submitForReview = () => {
     console.log('submitting:', jurisdiction)
-  }
-
-  const updateJurisdictionDetails = (newDetails) => {
-    setJurisdiction({
-      ...jurisdiction,
-      ...newDetails,
-    })
-  }
-
-  const updateSubmodel = (id, data) => {
-    setJurisdiction({
-      ...jurisdiction,
-      [id]: data,
-    })
   }
 
   useEffect(() => {
@@ -112,101 +106,32 @@ function EditJurisdiction() {
     <>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
         <Tab label="Jurisdiction Details" />
-        {SUBMODELS.map(subModel => (
-          <Tab key={subModel.tabLabel} label={subModel.tabLabel} />
+        {SUBMODELS.map(submodel => (
+          <Tab key={submodel.tabLabel} label={submodel.tabLabel} />
         ))}
       </Tabs>
       <TabPanel value={tabNum} index={0}>
-        <AutoForm
+        <JurisdictionTab
           model={jurisdictionModel}
-          initialValues={jurisdiction}
-          submitText="Update Jurisdiction"
-          onSubmit={(values, funcs) => {
-            updateJurisdictionDetails(values)
-            funcs.setSubmitting(false)
-          }}
-          style={{ maxWidth: 400 }}
+          jurisdiction={jurisdiction}
+          onUpdate={updateJurisdiction}
         />
       </TabPanel>
-      {SUBMODELS.map((subModel, idx) => (
-        <TabPanel key={subModel.id} value={tabNum} index={idx + 1}>
-          <EditTab
-            model={subModel.model}
-            instances={jurisdiction[subModel.id]}
-            displayName={subModel.displayName}
-            listKey={subModel.listKey}
-            tabLabel={subModel.tabLabel}
-            onChange={data => updateSubmodel(subModel.id, data)}
+      {SUBMODELS.map((submodel, idx) => (
+        <TabPanel key={submodel.id} value={tabNum} index={idx + 1}>
+          <SubmodelTab
+            model={submodel.model}
+            instances={jurisdiction[submodel.id]}
+            displayName={submodel.displayName}
+            listKey={submodel.listKey}
+            tabLabel={submodel.tabLabel}
+            onChange={newSubmodel => updateSubmodel(submodel.id, newSubmodel)}
           />
         </TabPanel>
       ))}
-      <Paper style={{ padding: 10, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button
-          style={{ margin: 10 }}
-          onClick={saveProgress}
-          variant="contained"
-          color="primary">
-          Save Progress
-        </Button>
-        <Button
-          style={{ margin: 10 }}
-          onClick={submitForReview}
-          variant="contained"
-          color="primary">
-          Submit for Review
-        </Button>
-      </Paper>
-    </>
-  )
-}
-
-function EditTab({ model, instances, displayName, tabLabel, listKey, onChange }) {
-
-  const addInstance = (newInstance) => {
-    onChange([
-      newInstance,
-      ...instances,
-    ])
-  }
-
-  const updateInstance = (newInstance) => {
-    const newInstances = instances.map(instance => {
-      return instance.id === newInstance.id
-        ? newInstance
-        : instance
-    })
-    onChange(newInstances)
-  }
-
-  return (
-    <>
-      <Accordion style={{ marginBottom: 15 }}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          id={`accordion-add-new-${displayName}`}
-        >
-          Add New {displayName}
-        </AccordionSummary>
-        <AccordionDetails>
-          <AutoForm
-            model={model}
-            initialValues={null}
-            submitText={`Add ${displayName}`}
-            onSubmit={(values, funcs) => {
-              // console.log(values)
-              addInstance(values)
-              funcs.setSubmitting(false)
-            }}
-            style={{ maxWidth: 400 }}
-          />
-        </AccordionDetails>
-      </Accordion>
-      <EditTable
-        model={model}
-        instances={instances}
-        tabLabel={tabLabel}
-        onChangeInstance={updateInstance}
-        onChange={console.log}
+      <Footer
+        onSaveProgress={saveProgress}
+        onSubmitForReview={submitForReview}
       />
     </>
   )
