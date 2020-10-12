@@ -3,11 +3,11 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import Layout from './Layout'
 
-import UserJurisdictions from './UserJurisdictions'
+import ListJurisdictions from './ListJurisdictions'
 import EditJurisdiction from './EditJurisdiction'
-import SearchStates from './SearchStates'
+import ListStates from './ListStates'
 import EditState from './EditState'
-import ReviewWIP from './ReviewWIP'
+import Review from './Review'
 
 function Dashboard() {
   const { user } = useAuth()
@@ -15,11 +15,11 @@ function Dashboard() {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/jurisdictions" component={UserJurisdictions} />
+        <Route exact path="/jurisdictions" component={ListJurisdictions} />
         <Route exact path="/jurisdictions/:id" component={EditJurisdiction} />
-        {isAdmin && <Route exact path="/states" component={SearchStates} />}
+        {isAdmin && <Route exact path="/states" component={ListStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
-        {isAdmin && <Route exact path="/review" component={ReviewWIP} />}
+        {isAdmin && <Route exact path="/review" component={Review} />}
         <Redirect to="/jurisdictions" />
       </Switch>
     </Layout>

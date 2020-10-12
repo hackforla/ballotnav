@@ -34,7 +34,7 @@ import {
   // KeyboardArrowDown as KeyboardArrowDownIcon,
 } from '@material-ui/icons'
 import { editableFields } from 'models'
-import AutoForm from './AutoForm'
+import AutoForm from 'components/core/AutoForm'
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

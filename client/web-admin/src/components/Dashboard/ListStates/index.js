@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
-import { useHeader } from './Layout'
+import { useHeader } from '../Layout'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
 function SearchStates() {

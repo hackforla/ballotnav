@@ -9,7 +9,7 @@ import newsModel from 'models/jurisdiction_news'
 import noticeModel from 'models/jurisdiction_notice'
 import phoneModel from 'models/jurisdiction_phone'
 import urlModel from 'models/jurisdiction_url'
-import AutoForm from './AutoForm'
+import AutoForm from 'components/core/AutoForm'
 import {
   Tabs,
   Tab,
@@ -20,8 +20,8 @@ import {
   Paper,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { useHeader } from './Layout'
-import TabPanel from './TabPanel'
+import { useHeader } from '../Layout'
+import TabPanel from 'components/core/TabPanel'
 import EditTable from './EditTable'
 
 const SUBMODELS = [{
