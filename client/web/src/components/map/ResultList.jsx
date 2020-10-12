@@ -31,6 +31,7 @@ const ResultList = ({
         show={open}
         onHide={close}
         placement="bottom"
+        size="lg"
       >
         <Drawer.Header>
           <Drawer.Title>Dropoffs Near You</Drawer.Title>
