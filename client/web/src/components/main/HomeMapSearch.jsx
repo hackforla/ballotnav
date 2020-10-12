@@ -18,6 +18,7 @@ class HomeMapSearch extends React.Component {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       countries: 'us',
+      types: 'address, neighborhood, locality, place, district, postcode'
     });
 
     geocoder.addTo('#geocoder');

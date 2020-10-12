@@ -25,7 +25,7 @@ const ResultList = ({
   return (
     <div className="result-list">
       <ButtonToolbar>
-        <Button onClick={toggleDrawer}>View List</Button>
+        <Button onClick={toggleDrawer}>View Dropoff List</Button>
       </ButtonToolbar>
       <Drawer
         show={open}

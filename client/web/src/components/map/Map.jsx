@@ -34,6 +34,7 @@ class Map extends React.Component {
       mapboxgl: mapboxgl,
       marker: false,
       countries: 'us',
+      types: 'address, neighborhood, locality, place, district, postcode'
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(map));

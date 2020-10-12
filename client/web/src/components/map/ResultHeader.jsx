@@ -7,15 +7,21 @@ const ResultHeader = ({
 }) => {
   if (search) {
     var state = search.context[search.context.length - 2].text;
-    var county = search.context[search.context.length - 3].text;
+
+    var city;
+    if (search.context[search.context.length - 3]) {
+      city = search.context[search.context.length - 3].text;
+    } else {
+      city = search.text;
+    }
   }
 
   return (
     <div className="result-header">
       {search &&
         <>
-          <p>{county}, {state}</p>
-          <a>Learn more</a>
+          <p>{city}, {state}</p>
+          <a>Important election information</a>
         </>
       }
     </div>
