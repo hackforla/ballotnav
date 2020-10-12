@@ -37,6 +37,7 @@ function getValidate(model) {
 
 function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
   const formik = useFormik({
+    enableReinitialize: true, // necessary for form to update when initialValues changes
     initialValues: getInitialValues(model, initialValues),
     validate: getValidate(model),
     onSubmit,
