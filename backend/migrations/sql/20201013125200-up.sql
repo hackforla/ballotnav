@@ -46,3 +46,6 @@ CREATE TABLE public.gis_shapes (
 	, CONSTRAINT gis_shapes_pkey PRIMARY KEY (id)
 );
 
+ALTER TYPE public.enum_state_jurisdiction_type
+	ADD VALUE 'Region';
+
