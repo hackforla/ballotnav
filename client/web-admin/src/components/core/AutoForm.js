@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormik } from 'formik'
 import { TextField, MenuItem, Button, Box } from '@material-ui/core'
 
@@ -24,8 +24,7 @@ function getValidate(model) {
     const errors = {}
     Object.keys(model).forEach((field) => {
       if (
-        model[field].allowNull === false &&
-        typeof values[field] === 'undefined'
+        model[field].allowNull === false && values[field] === ''
       )
         errors[field] = 'This field is required.'
     })
@@ -52,7 +51,14 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
     isSubmitting,
     dirty,
     resetForm,
+    validateForm,
   } = formik
+
+  useEffect(() => {
+    validateForm()
+  }, [validateForm])
+
+  const hasErrors = Object.keys(errors).length > 0
 
   return (
     <form onSubmit={handleSubmit} style={style}>
@@ -159,7 +165,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
           variant="contained"
           color="primary"
           margin="normal"
-          disabled={!dirty || isSubmitting}
+          disabled={!dirty || isSubmitting || hasErrors}
         >
           { submitText || 'Confirm Changes' }
         </Button>
@@ -169,7 +175,10 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
           color="primary"
           margin="normal"
           disabled={!dirty || isSubmitting}
-          onClick={resetForm}
+          onClick={() => {
+            resetForm()
+            setTimeout(validateForm)
+          }}
         >
           Clear Changes
         </Button>

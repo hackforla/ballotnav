@@ -1,5 +1,3 @@
-import { DataTypes } from './_helpers'
-
 const fields = {
   // id: {
   //   type: DataTypes.INTEGER,
@@ -11,7 +9,7 @@ const fields = {
   // wipJurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'wip_jurisdiction_id',
-  //   allownull: false,
+  //   allowNull: false,
   //   onDelete: 'restrict',
   //   onUpdate: 'cascade',
   //   references: {

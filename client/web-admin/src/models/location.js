@@ -11,7 +11,7 @@ const fields = {
   // jurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'jurisdiction_id',
-  //   allownull: false,
+  //   allowNull: false,
   //   onDelete: 'restrict',
   //   onUpdate: 'cascade',
   //   references: {
@@ -35,7 +35,7 @@ const fields = {
       ]
     },
     field: 'facilitytype_id',
-    allownull: false,
+    allowNull: false,
     // onDelete: 'restrict',
     // onUpdate: 'cascade',
     // references: {

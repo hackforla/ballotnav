@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import { TextField, MenuItem, Button, Box, Modal } from '@material-ui/core'
 import LocationHoursForm from './LocationHoursForm'
@@ -26,8 +26,7 @@ function getValidate(model) {
     const errors = {}
     Object.keys(model).forEach((field) => {
       if (
-        model[field].allowNull === false &&
-        typeof values[field] === 'undefined'
+        model[field].allowNull === false && values[field] === ''
       )
         errors[field] = 'This field is required.'
     })
@@ -55,15 +54,19 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
     isSubmitting,
     dirty,
     resetForm,
+    validateForm,
   } = formik
 
   const [modalOpen, setModalOpen] = useState(false)
 
+  useEffect(() => {
+    validateForm()
+  }, [validateForm])
+
+  const hasErrors = Object.keys(errors).length > 0
+
   return (
-    <form onSubmit={data => {
-      console.log('submitting:', data)
-      handleSubmit(data)
-    }}
+    <form onSubmit={handleSubmit}
       style={{ width: 400 }}>
       {Object.keys(model).map((field) => {
         const { type } = model[field]
@@ -219,7 +222,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
           variant="contained"
           color="primary"
           margin="normal"
-          disabled={!dirty || isSubmitting}
+          disabled={!dirty || isSubmitting || hasErrors}
         >
           { submitText || 'Confirm Changes' }
         </Button>
@@ -229,7 +232,10 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
           color="primary"
           margin="normal"
           disabled={!dirty || isSubmitting}
-          onClick={resetForm}
+          onClick={() => {
+            resetForm()
+            setTimeout(validateForm)
+          }}
         >
           Clear Changes
         </Button>

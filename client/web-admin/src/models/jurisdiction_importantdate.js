@@ -1,4 +1,4 @@
-import { DataTypes, Deferrable } from './_helpers'
+import { Deferrable } from './_helpers'
 
 const fields = {
   // id: {
@@ -11,7 +11,7 @@ const fields = {
   // wipJurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'wip_jurisdiction_id',
-  //   allownull: false,
+  //   allowNull: false,
   //   onDelete: 'restrict',
   //   onUpdate: 'cascade',
   //   references: {
@@ -32,7 +32,7 @@ const fields = {
       ]
     },
     field: 'importantdatetype_id',
-    allownull: false,
+    allowNull: false,
     onDelete: 'restrict',
     onUpdate: 'cascade',
     references: {
@@ -45,27 +45,27 @@ const fields = {
   beginDate: {
     type: 'date',
     field: 'begin_date',
-    allownull: true,
+    allowNull: true,
   },
   beginTime: {
     type: 'time',
     field: 'begin_time',
-    allownull: true,
+    allowNull: true,
   },
   endDate: {
     type: 'date',
     field: 'end_date',
-    allownull: false,
+    allowNull: false,
   },
   endTime: {
     type: 'time',
     field: 'end_time',
-    allownull: false,
+    allowNull: false,
   },
   note: {
     type: 'textarea',
     field: 'note',
-    allownull: true,
+    allowNull: true,
   },
   // createdAt: {
   //   type: DataTypes.DATE,

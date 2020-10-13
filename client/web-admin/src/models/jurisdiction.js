@@ -11,7 +11,7 @@ const fields = {
   // stateId: {
   //   type: DataTypes.INTEGER,
   //   field: 'state_id',
-  //   allownull: false,
+  //   allowNull: false,
   //   onDelete: 'restrict',
   //   onUpdate: 'cascade',
   //   references: {
@@ -120,7 +120,7 @@ const fields = {
   // wipJurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'wip_jurisdiction_id',
-  //   allownull: true,
+  //   allowNull: true,
   //   comment:
   //     'Set to the WIP ID most recently published. This should be constrained to wip_jurisdiction.id, but sequelize does not understand cyclic dependencies.',
   // },
