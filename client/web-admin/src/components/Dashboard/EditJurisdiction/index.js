@@ -65,6 +65,8 @@ const SUBMODELS = [{
 function EditJurisdiction() {
   const { id } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
+  const [canSaveProgress, setCanSaveProgress] = useState(false)
+  const [canSubmitForReview, setCanSubmitForReview] = useState(false)
   const [tabNum, setTabNum] = useState(0)
   const { setTitle } = useHeader()
 
@@ -80,6 +82,7 @@ function EditJurisdiction() {
       ...jurisdiction,
       ...newJurisdiction,
     })
+    setCanSaveProgress(true)
   }
 
   const updateSubmodel = (id, newSubmodel) => {
@@ -87,10 +90,11 @@ function EditJurisdiction() {
       ...jurisdiction,
       [id]: newSubmodel,
     })
+    setCanSaveProgress(true)
   }
 
   const saveProgress = () => {
-    console.log('saving:', jurisdiction)
+    setCanSaveProgress(false)
     api.jurisdictions.updateWipJurisdiction(jurisdiction.id, jurisdiction)
       .then(updated => {
         console.log('updated jurisdiction', updated)
@@ -99,16 +103,14 @@ function EditJurisdiction() {
   }
 
   const submitForReview = () => {
-    console.log('submitting:', jurisdiction)
+    setCanSubmitForReview(false)
     api.jurisdictions.releaseWipJurisdiction(jurisdiction.id)
       .then(data => {
         console.log('released:', data)
       })
   }
 
-  useEffect(() => {
-    console.log('changed:', jurisdiction)
-  }, [jurisdiction])
+  // useEffect(() => console.log('changed:', jurisdiction), [jurisdiction])
 
   if (!jurisdiction) return null
   return (
@@ -140,7 +142,9 @@ function EditJurisdiction() {
       ))}
       <Footer
         onSaveProgress={saveProgress}
+        canSaveProgress={canSaveProgress}
         onSubmitForReview={submitForReview}
+        canSubmitForReview={canSubmitForReview}
       />
     </Box>
   )

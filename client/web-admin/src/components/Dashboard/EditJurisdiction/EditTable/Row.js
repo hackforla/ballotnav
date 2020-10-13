@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   makeStyles,
   TableRow,
@@ -24,9 +24,9 @@ const useRowStyles = makeStyles({
 });
 
 function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
-  const [open, setOpen] = React.useState(false);
-  const classes = useRowStyles();
-  const [values, setValues] = useState({ ...row, isValidated: false })
+  const classes = useRowStyles()
+  const [open, setOpen] = React.useState(false)
+  const [values, setValues] = useState(null)
 
   const toggle = () => setOpen(!open)
 
@@ -41,6 +41,10 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
     })
   }
 
+  // set values whenever row changes
+  useEffect(() => setValues(row), [row])
+
+  if (!values) return null
   return (
     <>
       <TableRow

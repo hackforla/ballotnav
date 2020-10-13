@@ -1,7 +1,12 @@
 import React from 'react'
 import { Button, Box } from '@material-ui/core'
 
-function Footer({ onSaveProgress, onSubmitForReview }) {
+function Footer({
+  onSaveProgress,
+  canSaveProgress = false,
+  onSubmitForReview,
+  canSubmitForReview = false,
+}) {
   return (
     <Box style={{
       padding: 10,
@@ -19,14 +24,16 @@ function Footer({ onSaveProgress, onSubmitForReview }) {
         style={{ margin: 10 }}
         onClick={onSaveProgress}
         variant="contained"
-        color="primary">
+        disabled={!canSaveProgress}
+        color="secondary">
         Save Progress
       </Button>
       <Button
         style={{ margin: 10 }}
         onClick={onSubmitForReview}
         variant="contained"
-        color="primary">
+        disabled={!canSubmitForReview}
+        color="secondary">
         Submit for Review
       </Button>
     </Box>

@@ -132,7 +132,15 @@ exports.updateWipJurisdiction = async (req, res, next) => {
   const userId = req.user.id
   const updatedWip = req.body
 
-  const data = await req.db.WipJurisdiction.findByPk(wipJurisdictionId)
+  const data = await req.db.WipJurisdiction.findByPk(wipJurisdictionId, {
+    include: [
+      { all: true },
+      {
+        association: 'locations',
+        include: { association: 'hours' },
+      },
+    ],
+  })
 
   return res.json(data)
 
