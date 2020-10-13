@@ -167,6 +167,7 @@ function EditJurisdiction() {
             listKey={submodel.listKey}
             tabLabel={submodel.tabLabel}
             onChange={newSubmodel => updateSubmodel(submodel.id, newSubmodel)}
+            isLocations={submodel.id === 'locations'}
           />
         </TabPanel>
       ))}

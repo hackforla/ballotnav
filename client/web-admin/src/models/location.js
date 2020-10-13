@@ -186,10 +186,16 @@ const fields = {
     allowNull: false,
     defaultValue: 'U',
   },
+  rules: {
+    type: 'textarea',
+    field: 'rules',
+    allowNull: true,
+  },
   scheduleType: {
     type: DataTypes.ENUM('description', 'hours', 'continuous'),
     field: 'schedule_type',
     allowNull: false,
+    defaultValue: 'description',
   },
   scheduleDescription: {
     type: 'textarea',
@@ -214,11 +220,6 @@ const fields = {
   continuousCloseTime: {
     type: 'time',
     field: 'continuous_close_time',
-    allowNull: true,
-  },
-  rules: {
-    type: 'textarea',
-    field: 'rules',
     allowNull: true,
   },
   // isValidatedName: {

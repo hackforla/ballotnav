@@ -8,6 +8,7 @@ import {
   Collapse,
 } from '@material-ui/core'
 import AutoForm from 'components/core/AutoForm'
+import LocationForm from '../LocationForm'
 
 const useRowStyles = makeStyles({
   root: {
@@ -22,7 +23,7 @@ const useRowStyles = makeStyles({
   },
 });
 
-function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
+function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations }) {
   const classes = useRowStyles()
   const [open, setOpen] = React.useState(false)
   const [values, setValues] = useState(null)
@@ -79,17 +80,32 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
-              <AutoForm
-                model={model.editFields}
-                initialValues={row}
-                submitText='Update Location'
-                onSubmit={(values, funcs) => {
-                 handleChange(values)
-                 setOpen(false)
-                 funcs.setSubmitting(false)
-                }}
-                style={{ maxWidth: 400 }}
-             />
+              {
+                isLocations
+                ? (
+                  <LocationForm
+                    initialValues={row}
+                    submitText={`Add Location`}
+                    onSubmit={(values, funcs) => {
+                      handleChange(values)
+                      setOpen(false)
+                      funcs.setSubmitting(false)
+                    }}
+                  />
+                ) : (
+                  <AutoForm
+                    model={model.editFields}
+                    initialValues={row}
+                    submitText='Update Location'
+                    onSubmit={(values, funcs) => {
+                     handleChange(values)
+                     setOpen(false)
+                     funcs.setSubmitting(false)
+                    }}
+                    style={{ maxWidth: 400 }}
+                 />
+                )
+              }
             </Box>
            </Collapse>
          </TableCell>
