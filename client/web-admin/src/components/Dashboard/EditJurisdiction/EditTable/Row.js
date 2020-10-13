@@ -69,10 +69,13 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
         {model.tableFields.map((field, idx) => (
           <TableCell
             key={field}
-            style={{ cursor: 'pointer' }}
+            style={{
+              cursor: 'pointer',
+              color: values[field] ? undefined : 'lightgrey'
+            }}
             onClick={toggle}
             align='left'>
-            {values[field]}
+            {values[field] || 'none'}
           </TableCell>
         ))}
       </TableRow>
