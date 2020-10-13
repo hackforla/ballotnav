@@ -58,37 +58,22 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
         {/*<TableCell>
           <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
         </TableCell>*/}
-        <TableCell padding="checkbox">
+        {/*<TableCell padding="checkbox">
           <Checkbox
             checked={values.isValidated}
             inputProps={{ 'aria-labelledby': labelId }}
             onChange={(event, isValidated) => handleChange({ isValidated })}
           />
-        </TableCell>
-        {model.tableFields.map((field, idx) => {
-          if (idx === 0)
-            return (
-              <TableCell
-                key={field}
-                id={labelId}
-                style={{ cursor: 'pointer' }}
-                onClick={toggle}
-                component='th'
-                scope='row'>
-                <div style={{ width: 150, fontWeight: 'bold' }}>{values[field]}</div>
-              </TableCell>
-            )
-          else
-            return (
-              <TableCell
-                key={field}
-                style={{ cursor: 'pointer' }}
-                onClick={toggle}
-                align='right'>
-                {values[field]}
-              </TableCell>
-            )
-        })}
+        </TableCell>*/}
+        {model.tableFields.map((field, idx) => (
+          <TableCell
+            key={field}
+            style={{ cursor: 'pointer' }}
+            onClick={toggle}
+            align='left'>
+            {values[field]}
+          </TableCell>
+        ))}
       </TableRow>
       <TableRow className={classes.collapseRoot}>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>

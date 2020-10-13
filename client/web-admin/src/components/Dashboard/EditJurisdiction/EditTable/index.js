@@ -64,21 +64,15 @@ function EnhancedTableHead({
   return (
     <TableHead>
       <TableRow>
-        {/*<TableCell />*/}
-        <TableCell padding="default">
-          {/*<Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
-          />*/}
+        {/*<TableCell padding="default">
           isValidated
-        </TableCell>
+        </TableCell>*/}
         {headCells.map((headCell, idx) => (
           <TableCell
             key={headCell.id}
             //align={headCell.numeric ? 'right' : 'left'}
-            align={idx === 0 ? 'left' : 'right'}
+            //align={idx === 0 ? 'left' : 'right'}
+            align='left'
             //padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >

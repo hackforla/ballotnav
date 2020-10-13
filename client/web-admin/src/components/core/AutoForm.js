@@ -68,11 +68,13 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
         )
           return null
 
-        if (type === 'text' || type === 'date')
+        if (type === 'text' || type === 'date' || type === 'time' || type === 'textarea')
           return (
             <TextField
               key={field}
-              type="text"
+              type={type}
+              multiline={type === 'textarea'}
+              rows={5}
               id={field}
               label={field}
               name={field}
@@ -84,8 +86,44 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
               onBlur={handleBlur}
               helperText={errors[field] || ''}
               error={Boolean(errors[field])}
+              InputLabelProps={
+                type === 'date' || type === 'time'
+                ? { shrink: true }
+                : undefined
+              }
             />
           )
+
+        if (type === 'YNU') {
+          const opts = [
+            { value: 'Y', display: 'Yes' },
+            { value: 'N', display: 'No' },
+            { value: 'U', display: 'Unknown' },
+          ]
+          return (
+            <TextField
+              select
+              key={field}
+              id={field}
+              label={field}
+              name={field}
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              value={values[field]}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={errors[field] || ''}
+              error={Boolean(errors[field])}
+            >
+              {opts.map(opt => (
+                <MenuItem key={opt.value} value={opt.value}>
+                  { opt.display }
+                </MenuItem>
+              ))}
+            </TextField>
+          )
+        }
 
         if (typeof type === 'object' && type.type === 'select')
           return (
