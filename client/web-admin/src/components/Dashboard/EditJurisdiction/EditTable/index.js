@@ -288,7 +288,7 @@ export default function EnhancedTable({ model, instances, tabLabel, onChangeInst
 
                   return (
                     <Row
-                      key={row.id}
+                      key={index.toString()}
                       row={row}
                       model={model}
                       isItemSelected={isItemSelected}
