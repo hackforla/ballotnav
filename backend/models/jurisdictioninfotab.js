@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
     }
   }
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'cascade',
         onUpdate: 'cascade',
         references: {

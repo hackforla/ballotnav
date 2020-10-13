@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       stateId: {
         type: DataTypes.INTEGER,
         field: 'state_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       phoneNumberTypeId: {
         type: DataTypes.INTEGER,
         field: 'phonenumbertype_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {

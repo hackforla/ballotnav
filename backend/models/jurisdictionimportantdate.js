@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       importantDateTypeId: {
         type: DataTypes.INTEGER,
         field: 'importantdatetype_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -53,27 +53,27 @@ module.exports = (sequelize, DataTypes) => {
       beginDate: {
         type: DataTypes.DATE,
         field: 'begin_date',
-        allownull: true,
+        allowNull: true,
       },
       beginTime: {
         type: DataTypes.TEXT,
         field: 'begin_time',
-        allownull: true,
+        allowNull: true,
       },
       endDate: {
         type: DataTypes.DATE,
         field: 'end_date',
-        allownull: false,
+        allowNull: false,
       },
       endTime: {
         type: DataTypes.TEXT,
         field: 'end_time',
-        allownull: false,
+        allowNull: false,
       },
       note: {
         type: DataTypes.TEXT,
         field: 'note',
-        allownull: true,
+        allowNull: true,
       },
       createdAt: {
         type: DataTypes.DATE,

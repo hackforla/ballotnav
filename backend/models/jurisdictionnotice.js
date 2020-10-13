@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         references: {
           model: 'jurisdiction',
           key: 'id',
