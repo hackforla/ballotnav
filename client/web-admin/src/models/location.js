@@ -1,13 +1,13 @@
 import { DataTypes } from './_helpers'
 
 const fields = {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    field: 'id',
-    primaryKey: true,
-  },
+  // id: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  //   autoIncrement: true,
+  //   field: 'id',
+  //   primaryKey: true,
+  // },
   // jurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'jurisdiction_id',

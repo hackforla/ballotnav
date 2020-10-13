@@ -1,13 +1,13 @@
 import { DataTypes, Deferrable } from './_helpers'
 
 const fields = {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    field: 'id',
-    primaryKey: true,
-  },
+  // id: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  //   autoIncrement: true,
+  //   field: 'id',
+  //   primaryKey: true,
+  // },
   // wipStateId: {
   //   type: DataTypes.INTEGER,
   //   field: 'wip_state_id',
