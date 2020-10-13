@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EditTable from './EditTable'
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -6,6 +6,7 @@ import AutoForm from 'components/core/AutoForm'
 import LocationForm from './LocationForm'
 
 function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChange, isLocations }) {
+  const [expanded, setExpanded] = useState(false)
 
   const addInstance = (newInstance) => {
     onChange([
@@ -25,7 +26,10 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
 
   return (
     <>
-      <Accordion style={{ marginBottom: 15 }}>
+      <Accordion
+        style={{ marginBottom: 15 }}
+        expanded={expanded}
+        onChange={(event, expanded) => setExpanded(expanded)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           id={`accordion-add-new-${displayName}`}
@@ -42,6 +46,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
                 onSubmit={(values, funcs) => {
                   addInstance(values)
                   funcs.setSubmitting(false)
+                  setExpanded(false)
                 }}
               />
             ) : (
@@ -52,6 +57,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
                 onSubmit={(values, funcs) => {
                   addInstance(values)
                   funcs.setSubmitting(false)
+                  setExpanded(false)
                 }}
                 style={{ maxWidth: 500 }}
               />
@@ -65,6 +71,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
         tabLabel={tabLabel}
         onChangeInstance={updateInstance}
         isLocations={isLocations}
+        displayName={displayName}
       />
     </>
   )

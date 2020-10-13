@@ -23,7 +23,7 @@ const useRowStyles = makeStyles({
   },
 });
 
-function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations }) {
+function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations, displayName }) {
   const classes = useRowStyles()
   const [open, setOpen] = React.useState(false)
   const [values, setValues] = useState(null)
@@ -85,7 +85,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
                 ? (
                   <LocationForm
                     initialValues={row}
-                    submitText={`Add Location`}
+                    submitText={`Update Location`}
                     onSubmit={(values, funcs) => {
                       handleChange(values)
                       setOpen(false)
@@ -97,7 +97,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
                   <AutoForm
                     model={model.editFields}
                     initialValues={row}
-                    submitText='Update Location'
+                    submitText={`Update ${displayName}`}
                     onSubmit={(values, funcs) => {
                      handleChange(values)
                      setOpen(false)

@@ -195,7 +195,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function EnhancedTable({ model, instances, tabLabel, onChangeInstance, isLocations }) {
+export default function EnhancedTable({ model, instances, tabLabel, onChangeInstance, isLocations, displayName }) {
   const headCells = model.tableFields.map(field => ({
     id: field,
     disablePadding: true,
@@ -296,6 +296,7 @@ export default function EnhancedTable({ model, instances, tabLabel, onChangeInst
                       labelId={labelId}
                       onSave={(row) => onChangeInstance(row)}
                       isLocations={isLocations}
+                      displayName={displayName}
                     />
                   )
                 })}

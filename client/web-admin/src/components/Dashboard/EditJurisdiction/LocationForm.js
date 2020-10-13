@@ -187,17 +187,10 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
 
         return null
       })}
-      {/*{values['scheduleType'] === 'hours' && (
-        <Paper>
-          <LocationHoursForm
-            hours={values['hours']}
-          />
-        </Paper>
-      )}*/}
       {values['scheduleType'] === 'hours' && (
         <>
-          <Button type="button" onClick={() => setModalOpen(true)}>
-            View Hours
+          <Button color="primary" variant="outlined" type="button" onClick={() => setModalOpen(true)}>
+            View Location Hours
           </Button>
           <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
             <div style={{
@@ -212,11 +205,8 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               <LocationHoursForm
                 hours={values.hours}
                 locationName={values.name}
-                //onChange={onChangeHours}
-                onChange={hours => {
-                  console.log('new hours:', hours)
-                  onChangeHours(hours)
-                }}
+                onChange={onChangeHours}
+                onFinished={() => setModalOpen(false)}
               />
             </div>
           </Modal>
@@ -226,7 +216,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          marginTop: 20,
+          marginTop: 30,
           marginBottom: 20
         }}
       >

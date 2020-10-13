@@ -1,9 +1,9 @@
 import React from 'react'
 import model from 'models/location_hours'
-import { Box } from '@material-ui/core'
+import { Box, Button } from '@material-ui/core'
 import SubmodelTab from './SubmodelTab'
 
-function LocationHoursForm({ locationName, hours, onChange }) {
+function LocationHoursForm({ locationName, hours, onChange, onFinished }) {
   return (
     <Box style={{ padding: 50 }}>
       <h2>Hours for {locationName}</h2>
@@ -18,6 +18,7 @@ function LocationHoursForm({ locationName, hours, onChange }) {
         onChange={onChange}
         isLocations={false}
       />
+      <Button color="primary" variant="contained" onClick={onFinished}>Done Editing</Button>
     </Box>
   )
 }
