@@ -49,3 +49,17 @@ CREATE TABLE public.gis_shapes (
 ALTER TYPE public.enum_state_jurisdiction_type
 	ADD VALUE 'Region';
 
+CREATE INDEX gis_shapes_dataset_idx ON public.gis_shapes (dataset);
+
+CREATE INDEX gis_shapes_statefp_idx ON public.gis_shapes (statefp);
+
+CREATE INDEX gis_shapes_countyfp_idx ON public.gis_shapes (countyfp);
+
+CREATE INDEX gis_shapes_placefp_idx ON public.gis_shapes (placefp);
+
+CREATE INDEX gis_shapes_zcta5ce10_idx ON public.gis_shapes (zcta5ce10);
+
+CREATE INDEX gis_shapes_geo_idx ON public.gis_shapes USING GIST (geo);
+
+CREATE INDEX calendar_date_actual_idx ON public.calendar (date_actual);
+
