@@ -15,3 +15,51 @@ div.result-header {
     color: $white;
   }
 }
+
+#election-info {
+  border: 3px solid lime;
+  padding: 10px;
+  z-index: 3;
+  height: 789px;
+  width: 100%;
+  position:absolute;
+  top: 120px;
+  left: 0px;
+  background:white;
+  p {
+    color: $dark-blue;
+  }
+  p:nth-child(1), p:nth-child(5), p:nth-child(7) {
+    font-weight: 700;
+    color: $dark-blue;
+  }
+  span {
+    color: #3F3F3F;
+    font-size: .75em;
+  }
+  p:nth-child(2) {
+    margin-top: 10px;
+    line-height: 1.19em;
+  }
+  a {
+    color: $dark-blue;
+  }
+  input {
+    border-radius: 40px;
+    border: 1px solid #B3B3B3;
+    padding-left: 13px;
+    height: 40px;
+    width: 268px;
+  }
+  button {
+    position: relative;
+    bottom: 40px;
+    color: white;
+    background: #1B2152;
+    border-radius: 40px;
+    height: 40px;
+    left: 224px;
+    font-weight: 700;
+    width: 125px;
+  }
+}
