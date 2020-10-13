@@ -10,6 +10,11 @@ import mapboxgl from 'mapbox-gl';
 
 import ResultList from './ResultList';
 
+const closeAlert = () => {
+  const alert = document.getElementById('alert');
+  alert.style.display = 'none'
+}
+
 class Map extends React.Component {
   componentDidMount() {
     const {
@@ -47,23 +52,27 @@ class Map extends React.Component {
       const features = map.queryRenderedFeatures(e.point, {
         layers: ['chicago-parks'] // replace this with the name of the layer
       });
-    
+
       if (!features.length) {
         return;
       }
-    
+
       const feature = features[0];
-    
+
       new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
         .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
         .addTo(map);
     });
   }
-  
+
   render() {
     return (
       <div className="map">
+        <div id='alert'>
+          <span>Remember to verify the information through the official website and phone number before you leave</span>
+          <button onClick={() => closeAlert()}>X</button>
+        </div>
         <ResultList />
         <div id="map-container" ref={el => this.mapContainer = el}>
           <div id="map-geocoder" />
