@@ -91,6 +91,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
                       setOpen(false)
                       funcs.setSubmitting(false)
                     }}
+                    onChangeHours={hours => handleChange({ hours })}
                   />
                 ) : (
                   <AutoForm

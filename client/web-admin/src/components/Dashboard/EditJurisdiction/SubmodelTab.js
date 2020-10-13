@@ -64,7 +64,6 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
         instances={instances}
         tabLabel={tabLabel}
         onChangeInstance={updateInstance}
-        onChange={console.log}
         isLocations={isLocations}
       />
     </>

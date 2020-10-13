@@ -37,7 +37,7 @@ function getValidate(model) {
 
 /////////////////// THE COMPONENT //////////////////
 
-function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style }) {
+function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style, onChangeHours }) {
 
   const formik = useFormik({
     enableReinitialize: true, // necessary for form to update when initialValues changes
@@ -59,10 +59,12 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
 
   const [modalOpen, setModalOpen] = useState(false)
 
-  console.log('values:', values)
-
   return (
-    <form onSubmit={handleSubmit} style={{ width: 400 }}>
+    <form onSubmit={data => {
+      console.log('submitting:', data)
+      handleSubmit(data)
+    }}
+      style={{ width: 400 }}>
       {Object.keys(model).map((field) => {
         const { type } = model[field]
 
@@ -185,15 +187,36 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
 
         return null
       })}
+      {/*{values['scheduleType'] === 'hours' && (
+        <Paper>
+          <LocationHoursForm
+            hours={values['hours']}
+          />
+        </Paper>
+      )}*/}
       {values['scheduleType'] === 'hours' && (
         <>
-          <button type="button" onClick={() => setModalOpen(true)}>
-            Open Modal
-          </button>
+          <Button type="button" onClick={() => setModalOpen(true)}>
+            View Hours
+          </Button>
           <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
-            <div style={{ position: 'absolute', top: 50, bottom: 50, width: 1000, left: '10%', overflow: 'scroll', backgroundColor: 'white' }}>
+            <div style={{
+              position: 'absolute',
+              top: 50,
+              bottom: 50,
+              width: 'calc(100vw - 200px)',
+              left: 100,
+              overflow: 'scroll',
+              backgroundColor: 'white'
+            }}>
               <LocationHoursForm
-                hours={values['hours']}
+                hours={values.hours}
+                locationName={values.name}
+                //onChange={onChangeHours}
+                onChange={hours => {
+                  console.log('new hours:', hours)
+                  onChangeHours(hours)
+                }}
               />
             </div>
           </Modal>
