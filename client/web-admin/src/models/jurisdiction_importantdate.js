@@ -22,7 +22,15 @@ const fields = {
   //   unique: 'wip_jurisdiction_id-importantdatetype_id',
   // },
   importantDateTypeId: {
-    type: DataTypes.INTEGER,
+    type: {
+      type: 'select',
+      options: [
+        { value: 1, display: 'Voter Registration Deadline' },
+        { value: 2, display: 'Absentee Ballot Application Deadline' },
+        { value: 3, display: 'Polls Open' },
+        { value: 4, display: 'Absentee Ballot Return Deadline' },
+      ]
+    },
     field: 'importantdatetype_id',
     allownull: false,
     onDelete: 'restrict',

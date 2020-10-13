@@ -21,16 +21,28 @@ const fields = {
   //   },
   // },
   facilityTypeId: {
-    type: DataTypes.INTEGER,
+    type: {
+      type: 'select',
+      options: [
+        { value: 1, display: 'Business' },
+        { value: 2, display: 'Government' },
+        { value: 3, display: 'Library' },
+        { value: 4, display: 'Metro Station' },
+        { value: 5, display: 'Police Station' },
+        { value: 6, display: 'Recreation Center' },
+        { value: 7, display: 'School' },
+        { value: 8, display: 'Unknown' },
+      ]
+    },
     field: 'facilitytype_id',
     allownull: false,
-    onDelete: 'restrict',
-    onUpdate: 'cascade',
-    references: {
-      model: 'facilitytype',
-      key: 'id',
-      deferrable: Deferrable.INITIALLY_DEFERRED,
-    },
+    // onDelete: 'restrict',
+    // onUpdate: 'cascade',
+    // references: {
+    //   model: 'facilitytype',
+    //   key: 'id',
+    //   deferrable: Deferrable.INITIALLY_DEFERRED,
+    // },
   },
   name: {
     type: DataTypes.TEXT,

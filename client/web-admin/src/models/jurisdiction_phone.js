@@ -21,7 +21,14 @@ const fields = {
   //   },
   // },
   phoneNumberTypeId: {
-    type: DataTypes.INTEGER,
+    type: {
+      type: 'select',
+      options: [
+        { value: 1, display: 'Voice' },
+        { value: 2, display: 'TTY' },
+        { value: 3, display: 'Fax' },
+      ]
+    },
     field: 'phonenumbertype_id',
     allownull: false,
     onDelete: 'restrict',

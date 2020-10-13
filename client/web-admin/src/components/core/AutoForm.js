@@ -59,14 +59,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
       {Object.keys(model).map((field) => {
         const { type } = model[field]
 
-        if (
-          !type ||
-          field === 'createdAt' ||
-          field === 'updatedAt' ||
-          (model[field].field || '') === 'id' ||
-          (model[field].field || '').endsWith('_id')
-        )
-          return null
+        if (field === 'id') return null
 
         if (type === 'text' || type === 'date' || type === 'time' || type === 'textarea')
           return (
@@ -142,9 +135,9 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
               helperText={errors[field] || ''}
               error={Boolean(errors[field])}
             >
-              {type.options.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option.toString()}
+              {type.options.map((opt) => (
+                <MenuItem key={opt.value} value={opt.value}>
+                  { opt.display }
                 </MenuItem>
               ))}
             </TextField>
