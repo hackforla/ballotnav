@@ -1,7 +1,14 @@
-#map-container {
-  position: absolute;
-  top: 132px;
-  right: 0;
-  left: 0;
-  bottom: 0;
+div.map {
+  #map-container {
+    position: absolute;
+    top: 132px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+  
+  #map-geocoder {
+    margin: 10px;
+  }
 }

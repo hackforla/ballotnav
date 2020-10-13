@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const ResultHeader = ({
@@ -6,15 +7,21 @@ const ResultHeader = ({
 }) => {
   if (search) {
     var state = search.context[search.context.length - 2].text;
-    var county = search.context[search.context.length - 3].text;
+
+    var city;
+    if (search.context[search.context.length - 3]) {
+      city = search.context[search.context.length - 3].text;
+    } else {
+      city = search.text;
+    }
   }
 
   return (
     <div className="result-header">
       {search &&
         <>
-          <p>{county} County, {state}</p>
-          <a>Learn more</a>
+          <p>{city}, {state}</p>
+          <a>Important election information</a>
         </>
       }
     </div>
@@ -22,7 +29,11 @@ const ResultHeader = ({
 }
 
 const mapStateToProps = state => ({
-  search: state.search[state.search.length - 1],
+  search: state.searches[state.searches.length - 1],
 });
 
 export default connect(mapStateToProps)(ResultHeader);
+
+ResultHeader.propTypes = {
+  search: PropTypes.object,
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
@@ -17,6 +18,7 @@ class HomeMapSearch extends React.Component {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       countries: 'us',
+      types: 'address, neighborhood, locality, place, district, postcode'
     });
 
     geocoder.addTo('#geocoder');
@@ -24,10 +26,10 @@ class HomeMapSearch extends React.Component {
     geocoder.on('result', ({ result }) => {
       addSearch(result);
       history.push('/map');
-    })
+    });
   }
 
-  render () {
+  render() {
     return (
       <div id="geocoder" />
     );
@@ -39,3 +41,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(HomeMapSearch));
+
+HomeMapSearch.propTypes = {
+  addSearch: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+};

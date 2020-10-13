@@ -1,0 +1,5 @@
+id,name,datetype
+1,Voter Registration Deadline,deadline
+2,Absentee Ballot Application Deadline,deadline
+3,Polls Open,range
+4,Absentee Ballot Return Deadline,deadline
