@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Result = () => {
+const ResultCard = () => {
   return (
     <p>
       Result
@@ -8,4 +8,4 @@ const Result = () => {
   );
 }
 
-export default Result;
+export default ResultCard;

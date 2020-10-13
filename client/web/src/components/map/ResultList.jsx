@@ -23,7 +23,7 @@ const ResultList = ({
   };
 
   const renderResultCards = () => {
-    data.jurisdictionData.locations.map(location =>
+    return data.jurisdictionData.locations.map(location =>
       <ResultCard location={location} />
     );
   };
@@ -43,7 +43,7 @@ const ResultList = ({
           <Drawer.Title>Dropoffs Near You</Drawer.Title>
         </Drawer.Header>
         <Drawer.Body>
-          {renderResultCards}
+          {renderResultCards()}
         </Drawer.Body>
         <Drawer.Footer>
           <Button onClick={close} appearance="primary">Confirm</Button>
