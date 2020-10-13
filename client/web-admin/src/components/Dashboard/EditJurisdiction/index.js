@@ -111,6 +111,7 @@ function EditJurisdiction() {
       ...newJurisdiction,
     })
     setCanSaveProgress(true)
+    setCanSubmitForReview(true)
   }
 
   const updateSubmodel = (id, newSubmodel) => {
@@ -119,6 +120,7 @@ function EditJurisdiction() {
       [id]: newSubmodel,
     })
     setCanSaveProgress(true)
+    setCanSubmitForReview(true)
   }
 
   const saveProgress = () => {
@@ -172,7 +174,7 @@ function EditJurisdiction() {
         onSaveProgress={saveProgress}
         canSaveProgress={canSaveProgress}
         onSubmitForReview={submitForReview}
-        canSubmitForReview={canSubmitForReview}
+        canSubmitForReview={canSubmitForReview && !canSaveProgress}
       />
     </Box>
   )
