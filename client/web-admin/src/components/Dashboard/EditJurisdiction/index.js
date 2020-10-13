@@ -12,7 +12,7 @@ import noticeModel from 'models/jurisdiction_notice'
 import phoneModel from 'models/jurisdiction_phone'
 import urlModel from 'models/jurisdiction_url'
 
-import { Tab, Tabs } from '@material-ui/core'
+import { Tab, Tabs, Box } from '@material-ui/core'
 import TabPanel from 'components/core/TabPanel'
 import JurisdictionTab from './JurisdictionTab'
 import SubmodelTab from './SubmodelTab'
@@ -112,7 +112,7 @@ function EditJurisdiction() {
 
   if (!jurisdiction) return null
   return (
-    <>
+    <Box style={{ paddingBottom: 50 }}>
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
         <Tab label="Jurisdiction Details" />
         {SUBMODELS.map(submodel => (
@@ -142,7 +142,7 @@ function EditJurisdiction() {
         onSaveProgress={saveProgress}
         onSubmitForReview={submitForReview}
       />
-    </>
+    </Box>
   )
 }
 

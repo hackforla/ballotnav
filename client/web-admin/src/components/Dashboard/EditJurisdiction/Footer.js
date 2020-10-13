@@ -1,9 +1,20 @@
 import React from 'react'
-import { Paper, Button } from '@material-ui/core'
+import { Button, Box } from '@material-ui/core'
 
 function Footer({ onSaveProgress, onSubmitForReview }) {
   return (
-    <Paper style={{ padding: 10, display: 'flex', justifyContent: 'flex-end' }}>
+    <Box style={{
+      padding: 10,
+      display: 'flex',
+      justifyContent: 'flex-start',
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      backgroundColor: 'white',
+      opacity: 1.0,
+      zIndex: 100,
+    }}>
       <Button
         style={{ margin: 10 }}
         onClick={onSaveProgress}
@@ -18,8 +29,7 @@ function Footer({ onSaveProgress, onSubmitForReview }) {
         color="primary">
         Submit for Review
       </Button>
-    </Paper>
+    </Box>
   )
 }
-
 export default Footer
