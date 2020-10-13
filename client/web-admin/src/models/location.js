@@ -8,18 +8,18 @@ const fields = {
     field: 'id',
     primaryKey: true,
   },
-  wipJurisdictionId: {
-    type: DataTypes.INTEGER,
-    field: 'wip_jurisdiction_id',
-    allownull: false,
-    onDelete: 'restrict',
-    onUpdate: 'cascade',
-    references: {
-      model: 'wip_jurisdiction',
-      key: 'id',
-      deferrable: Deferrable.INITIALLY_DEFERRED,
-    },
-  },
+  // jurisdictionId: {
+  //   type: DataTypes.INTEGER,
+  //   field: 'jurisdiction_id',
+  //   allownull: false,
+  //   onDelete: 'restrict',
+  //   onUpdate: 'cascade',
+  //   references: {
+  //     model: 'jurisdiction',
+  //     key: 'id',
+  //     deferrable: Deferrable.INITIALLY_DEFERRED,
+  //   },
+  // },
   facilityTypeId: {
     type: DataTypes.INTEGER,
     field: 'facilitytype_id',
@@ -102,21 +102,36 @@ const fields = {
     field: 'internal_note',
     allowNull: true,
   },
-  latitude: {
+  displayNote: {
     type: DataTypes.TEXT,
-    field: 'latitude',
+    field: 'display_note',
     allowNull: true,
   },
-  longitude: {
-    type: DataTypes.TEXT,
-    field: 'longitude',
-    allowNull: true,
-  },
-  geomPoint: {
-    type: DataTypes.GEOMETRY('POINT', 4326),
-    field: 'geom_point',
-    allowNull: true,
-  },
+  // geomLatitude: {
+  //   type: DataTypes.DECIMAL,
+  //   field: 'geom_latitude',
+  //   allowNull: true,
+  // },
+  // geomLongitude: {
+  //   type: DataTypes.DECIMAL,
+  //   field: 'geom_longitude',
+  //   allowNull: true,
+  // },
+  // geomDataSource: {
+  //   type: DataTypes.TEXT,
+  //   field: 'geom_data_source',
+  //   allowNull: true,
+  // },
+  // geomDataNote: {
+  //   type: DataTypes.TEXT,
+  //   field: 'geom_data_note',
+  //   allowNull: true,
+  // },
+  // geomPoint: {
+  //   type: DataTypes.GEOMETRY('POINT', 4326),
+  //   field: 'geom_point',
+  //   allowNull: true,
+  // },
   isEarlyDropoffLocation: {
     type: DataTypes.ENUM('Y', 'N', 'U'),
     field: 'is_early_dropoff_location',
@@ -206,16 +221,75 @@ const fields = {
     field: 'rules',
     allowNull: true,
   },
-  createdAt: {
-    type: DataTypes.DATE,
-    field: 'created_at',
-    allowNull: true,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    field: 'updated_at',
-    allowNull: true,
-  },
+  // isValidatedName: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_name',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedWayfinding: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_wayfinding',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedTimezone: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_timezone',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedPhones: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_phones',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedEmail: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_email',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedHours: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_hours',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedRules: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_rules',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedUseflags: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_useflags',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // isValidatedDisplayNotes: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_validated_displaynotes',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
+  // createdAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'created_at',
+  //   allowNull: true,
+  // },
+  // updatedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'updated_at',
+  //   allowNull: true,
+  // },
+  // deletedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'deleted_at',
+  //   allowNull: true,
+  // },
 }
 
 export default fields
