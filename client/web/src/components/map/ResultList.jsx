@@ -7,7 +7,7 @@ import { Drawer } from 'rsuite';
 import { ButtonToolbar } from 'rsuite';
 import { Button } from 'rsuite';
 
-import Result from './Result';
+import ResultCard from './ResultCard';
 
 const ResultList = ({
   data,
@@ -16,11 +16,17 @@ const ResultList = ({
 
   const close = () => {
     setOpen(false);
-  }
+  };
 
   const toggleDrawer = () => {
     setOpen(!open);
-  }
+  };
+
+  const renderResultCards = () => {
+    data.jurisdictionData.locations.map(location =>
+      <ResultCard location={location} />
+    );
+  };
 
   return (
     <div className="result-list">
@@ -37,7 +43,7 @@ const ResultList = ({
           <Drawer.Title>Dropoffs Near You</Drawer.Title>
         </Drawer.Header>
         <Drawer.Body>
-          <Result />
+          {renderResultCards}
         </Drawer.Body>
         <Drawer.Footer>
           <Button onClick={close} appearance="primary">Confirm</Button>
