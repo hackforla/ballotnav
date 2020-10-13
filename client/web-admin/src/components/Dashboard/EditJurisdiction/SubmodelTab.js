@@ -33,7 +33,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
         </AccordionSummary>
         <AccordionDetails>
           <AutoForm
-            model={model}
+            model={model.editFields}
             initialValues={null}
             submitText={`Add ${displayName}`}
             onSubmit={(values, funcs) => {

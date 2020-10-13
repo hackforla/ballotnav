@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import api from 'services/api'
 import { useHeader } from '../Layout'
 
+import { editableFields } from 'models'
 import jurisdictionModel from 'models/jurisdiction'
 import locationModel from 'models/location'
 import importantDateModel from 'models/jurisdiction_importantdate'
@@ -22,43 +23,70 @@ const SUBMODELS = [{
   id: 'locations',
   tabLabel: 'Locations',
   displayName: 'Location',
-  model: locationModel,
+  model: {
+    editFields: locationModel,
+    tableFields: [
+      'name',
+      'city',
+      'contactName',
+      'contactPhone',
+      'contactEmail',
+    ],
+  },
   listKey: 'name',
 },{
   id: 'importantDates',
   tabLabel: 'Important Dates',
   displayName: 'Important Date',
-  model: importantDateModel,
+  model: {
+    editFields: importantDateModel,
+    tableFields: editableFields(importantDateModel),
+  },
   listKey: 'note',
 },{
   id: 'infoTabs',
   tabLabel: 'Info Tabs',
   displayName: 'Info Tab',
-  model: infoTabModel,
+  model: {
+    editFields: infoTabModel,
+    tableFields: editableFields(infoTabModel),
+  },
   listKey: 'caption',
 },{
   id: 'news',
   tabLabel: 'News',
   displayName: 'News',
-  model: newsModel,
+  model: {
+    editFields: newsModel,
+    tableFields: editableFields(newsModel),
+  },
   listKey: 'caption',
 },{
   id: 'notices',
   tabLabel: 'Notices',
   displayName: 'Notice',
-  model: noticeModel,
+  model: {
+    editFields: noticeModel,
+    tableFields: editableFields(noticeModel),
+  },
   listKey: 'message',
 },{
   id: 'phones',
   tabLabel: 'Phones',
   displayName: 'Phone',
-  model: phoneModel,
+  model: {
+    editFields: phoneModel,
+    tableFields: editableFields(phoneModel),
+  },
   listKey: 'phoneNumber',
 },{
   id: 'urls',
   tabLabel: 'Urls',
   displayName: 'Url',
-  model: urlModel,
+  model: {
+    editFields: urlModel,
+    tableFields: editableFields(urlModel),
+  },
   listKey: 'name',
 }]
 

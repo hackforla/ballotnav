@@ -7,7 +7,6 @@ import {
   Checkbox,
   Collapse,
 } from '@material-ui/core'
-import { editableFields } from 'models'
 import AutoForm from 'components/core/AutoForm'
 
 const useRowStyles = makeStyles({
@@ -66,7 +65,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
             onChange={(event, isValidated) => handleChange({ isValidated })}
           />
         </TableCell>
-        {editableFields(model).map((field, idx) => {
+        {model.tableFields.map((field, idx) => {
           if (idx === 0)
             return (
               <TableCell
@@ -96,7 +95,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave }) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <AutoForm
-                model={model}
+                model={model.editFields}
                 initialValues={row}
                 submitText='Update Location'
                 onSubmit={(values, funcs) => {

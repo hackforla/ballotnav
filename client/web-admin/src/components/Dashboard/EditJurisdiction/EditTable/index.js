@@ -19,7 +19,6 @@ import {
   Typography,
   Paper,
 } from '@material-ui/core'
-import { editableFields } from 'models'
 import Row from './Row'
 
 function descendingComparator(a, b, orderBy) {
@@ -203,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function EnhancedTable({ model, instances, tabLabel, onChangeInstance }) {
-  const headCells = editableFields(model).map(field => ({
+  const headCells = model.tableFields.map(field => ({
     id: field,
     disablePadding: true,
     label: field,
