@@ -8,18 +8,18 @@ const fields = {
     field: 'id',
     primaryKey: true,
   },
-  wipJurisdictionId: {
-    type: DataTypes.INTEGER,
-    field: 'wip_jurisdiction_id',
-    allownull: false,
-    onDelete: 'restrict',
-    onUpdate: 'cascade',
-    references: {
-      model: 'wip_jurisdiction',
-      key: 'id',
-      deferrable: Deferrable.INITIALLY_DEFERRED,
-    },
-  },
+  // wipStateId: {
+  //   type: DataTypes.INTEGER,
+  //   field: 'wip_state_id',
+  //   allownull: false,
+  //   onDelete: 'restrict',
+  //   onUpdate: 'cascade',
+  //   references: {
+  //     model: 'wip_state',
+  //     key: 'id',
+  //     deferrable: Deferrable.INITIALLY_DEFERRED,
+  //   },
+  // },
   phoneNumberTypeId: {
     type: DataTypes.INTEGER,
     field: 'phonenumbertype_id',
@@ -38,7 +38,7 @@ const fields = {
     allowNull: true,
   },
   description: {
-    type: DataTypes.TEXT,
+    type: 'textarea',
     field: 'description',
     allowNull: true,
   },
@@ -48,16 +48,21 @@ const fields = {
     allowNull: false,
     defaultValue: 1,
   },
-  createdAt: {
-    type: DataTypes.DATE,
-    field: 'created_at',
-    allowNull: true,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    field: 'updated_at',
-    allowNull: true,
-  },
+  // createdAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'created_at',
+  //   allowNull: true,
+  // },
+  // updatedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'updated_at',
+  //   allowNull: true,
+  // },
+  // deletedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'deleted_at',
+  //   allowNull: true,
+  // },
 }
 
 export default fields

@@ -4,7 +4,7 @@ import {
   TableRow,
   TableCell,
   Box,
-  Checkbox,
+  // Checkbox,
   Collapse,
 } from '@material-ui/core'
 import AutoForm from 'components/core/AutoForm'

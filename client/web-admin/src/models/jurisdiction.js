@@ -1,4 +1,4 @@
-import { DataTypes, Deferrable } from './_helpers'
+import { DataTypes } from './_helpers'
 
 const fields = {
   id: {
@@ -58,7 +58,7 @@ const fields = {
     defaultValue: true,
   },
   internalNotes: {
-    type: DataTypes.TEXT,
+    type: 'textarea',
     field: 'internal_notes',
     allowNull: true,
   },
@@ -77,46 +77,46 @@ const fields = {
   //   field: 'geojson',
   //   allowNull: true,
   // },
-  fipsCategory: {
-    type: DataTypes.TEXT,
-    field: 'fips_category',
-    allowNull: true,
-  },
-  fipsCountyCode: {
-    type: DataTypes.TEXT,
-    field: 'fips_county_code',
-    allowNull: true,
-  },
-  fipsCountyNumber: {
-    type: DataTypes.INTEGER,
-    field: 'fips_county_number',
-    allowNull: true,
-  },
-  fipsCompleteCountyCode: {
-    type: DataTypes.TEXT,
-    field: 'fips_complete_county_code',
-    allowNull: true,
-  },
-  fipsCompleteCountyNumber: {
-    type: DataTypes.INTEGER,
-    field: 'fips_complete_county_number',
-    allowNull: true,
-  },
-  fipsCountySubCode: {
-    type: DataTypes.TEXT,
-    field: 'fips_county_sub_code',
-    allowNull: true,
-  },
-  fipsPlaceCode: {
-    type: DataTypes.TEXT,
-    field: 'fips_place_code',
-    allowNull: true,
-  },
-  fipsConsCityCode: {
-    type: DataTypes.TEXT,
-    field: 'fips_cons_city_code',
-    allowNull: true,
-  },
+  // fipsCategory: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_category',
+  //   allowNull: true,
+  // },
+  // fipsCountyCode: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_county_code',
+  //   allowNull: true,
+  // },
+  // fipsCountyNumber: {
+  //   type: DataTypes.INTEGER,
+  //   field: 'fips_county_number',
+  //   allowNull: true,
+  // },
+  // fipsCompleteCountyCode: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_complete_county_code',
+  //   allowNull: true,
+  // },
+  // fipsCompleteCountyNumber: {
+  //   type: DataTypes.INTEGER,
+  //   field: 'fips_complete_county_number',
+  //   allowNull: true,
+  // },
+  // fipsCountySubCode: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_county_sub_code',
+  //   allowNull: true,
+  // },
+  // fipsPlaceCode: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_place_code',
+  //   allowNull: true,
+  // },
+  // fipsConsCityCode: {
+  //   type: DataTypes.TEXT,
+  //   field: 'fips_cons_city_code',
+  //   allowNull: true,
+  // },
   // wipJurisdictionId: {
   //   type: DataTypes.INTEGER,
   //   field: 'wip_jurisdiction_id',
@@ -165,12 +165,12 @@ const fields = {
   //   allowNull: false,
   //   defaultValue: false,
   // },
-  isPublished: {
-    type: DataTypes.BOOLEAN,
-    field: 'is_published',
-    allowNull: false,
-    defaultValue: false,
-  },
+  // isPublished: {
+  //   type: DataTypes.BOOLEAN,
+  //   field: 'is_published',
+  //   allowNull: false,
+  //   defaultValue: false,
+  // },
   // createdAt: {
   //   type: DataTypes.DATE,
   //   field: 'created_at',

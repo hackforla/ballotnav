@@ -40,7 +40,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
               addInstance(values)
               funcs.setSubmitting(false)
             }}
-            style={{ maxWidth: 400 }}
+            style={{ maxWidth: 500 }}
           />
         </AccordionDetails>
       </Accordion>

@@ -1,4 +1,4 @@
-import { DataTypes, Deferrable } from './_helpers'
+import { DataTypes } from './_helpers'
 
 const fields = {
   id: {
@@ -8,19 +8,19 @@ const fields = {
     field: 'id',
     primaryKey: true,
   },
-  wipJurisdictionId: {
-    type: DataTypes.INTEGER,
-    field: 'wip_jurisdiction_id',
-    allownull: false,
-    onDelete: 'restrict',
-    onUpdate: 'cascade',
-    references: {
-      model: 'wip_jurisdiction',
-      key: 'id',
-      deferrable: Deferrable.INITIALLY_DEFERRED,
-    },
-    unique: 'wip_jurisdiction_id-caption',
-  },
+  // wipJurisdictionId: {
+  //   type: DataTypes.INTEGER,
+  //   field: 'wip_jurisdiction_id',
+  //   allownull: false,
+  //   onDelete: 'restrict',
+  //   onUpdate: 'cascade',
+  //   references: {
+  //     model: 'wip_jurisdiction',
+  //     key: 'id',
+  //     deferrable: Deferrable.INITIALLY_DEFERRED,
+  //   },
+  //   unique: 'wip_jurisdiction_id-caption',
+  // },
   sortOrder: {
     type: DataTypes.INTEGER,
     field: 'sort_order',
@@ -28,18 +28,18 @@ const fields = {
     defaultValue: 1,
   },
   caption: {
-    type: DataTypes.TEXT,
+    type: 'textarea',
     field: 'caption',
     allowNull: false,
     unique: 'wip_jurisdiction_id-caption',
   },
   markdown: {
-    type: DataTypes.TEXT,
+    type: 'textarea',
     field: 'markdown',
     allowNull: true,
   },
   html: {
-    type: DataTypes.TEXT,
+    type: 'textarea',
     field: 'html',
     allowNull: true,
   },
@@ -48,16 +48,21 @@ const fields = {
     field: 'type',
     allowNull: false,
   },
-  createdAt: {
-    type: DataTypes.DATE,
-    field: 'created_at',
-    allowNull: true,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    field: 'updated_at',
-    allowNull: true,
-  },
+  // createdAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'created_at',
+  //   allowNull: true,
+  // },
+  // updatedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'updated_at',
+  //   allowNull: true,
+  // },
+  // deletedAt: {
+  //   type: DataTypes.DATE,
+  //   field: 'deleted_at',
+  //   allowNull: true,
+  // },
 }
 
 export default fields
