@@ -8,9 +8,25 @@ router.get('/jurisdictions/:id', control.getJurisdiction)
 router.get('/states', control.listStates)
 router.get('/states/:id', control.getState)
 
-router.get('/wip/jurisdictions/:jurisdictionId',auth(['volunteer', 'admin']), control.getWipJurisdiction)
-router.put('/wip/jurisdictions/:wipJurisdictionId', auth(['volunteer', 'admin']), control.updateWipJurisdiction)
-router.put('/wip/jurisdictions/:wipJurisdictionId/release', auth(['volunteer', 'admin']), control.releaseWipJurisdiction)
-router.put('/wip/jurisdictions/:wipJurisdictionId/publish', auth(['admin']), control.publishWipJurisdiction)
+router.get(
+  '/wip/jurisdictions/:jurisdictionId',
+  auth(['volunteer', 'admin']),
+  control.getWipJurisdiction
+)
+router.put(
+  '/wip/jurisdictions/:wipJurisdictionId',
+  auth(['volunteer', 'admin']),
+  control.updateWipJurisdiction
+)
+router.put(
+  '/wip/jurisdictions/:wipJurisdictionId/release',
+  auth(['volunteer', 'admin']),
+  control.releaseWipJurisdiction
+)
+router.put(
+  '/wip/jurisdictions/:wipJurisdictionId/publish',
+  auth(['admin']),
+  control.publishWipJurisdiction
+)
 
 module.exports = router
