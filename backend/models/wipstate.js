@@ -90,6 +90,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM(
           'County',
           'Parish',
+          'Region',
           'County or City',
           'City or Township',
           'Municipality',
