@@ -22,8 +22,15 @@ export const login = async ({ email, password }) => {
   }
 }
 
-export const register = async ({ firstName, lastName, email, password }) => {
-  const body = { firstName, lastName, email, password }
+export const register = async ({
+  firstName,
+  lastName,
+  email,
+  password,
+  notes,
+  slackName,
+}) => {
+  const body = { firstName, lastName, email, password, notes, slackName }
   try {
     const response = await axios.post(BASE_URL + '/register', body)
     await sessionStorage.setItem('token', response.data.token)
@@ -37,6 +44,15 @@ export const logout = async () => {
   await sessionStorage.removeItem('token')
   return null
 }
+
+export const listVolunteers = async () => {
+  try {
+    const response = await axios.get(BASE_URL + '/volunteers');
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err.response.data);
+  }
+};
 
 // export const getAll = async () => {
 //   const response = await axios.get(BASE_URL)
