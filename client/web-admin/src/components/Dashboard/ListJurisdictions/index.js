@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
-import { useHeader } from './Layout'
-import ButtonTable from './ButtonTable'
+import { useHeader } from '../Layout'
+import ButtonTable from 'components/core/ButtonTable'
 import moment from 'moment'
 
 function Jurisdictions() {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import AutoForm from './AutoForm'
+import AutoForm from 'components/core/AutoForm'
 import model from 'models/state'
-import TabPanel from './TabPanel'
+import TabPanel from 'components/core/TabPanel'
 import { Tabs, Tab, List, ListItem, ListItemText } from '@material-ui/core'
-import { useHeader } from './Layout'
+import { useHeader } from '../Layout'
 import api from 'services/api'
 
 function EditState() {

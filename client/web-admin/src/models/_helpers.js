@@ -3,11 +3,17 @@ export const DataTypes = {
   TEXT: 'text',
   BOOLEAN: {
     type: 'select',
-    options: [true, false],
+    options: [
+      { value: true, display: 'true' },
+      { value: false, display: 'false' },
+    ],
   },
-  ENUM: (...options) => ({
+  ENUM: (...opts) => ({
     type: 'select',
-    options,
+    options: opts.map(opt => ({
+      value: opt,
+      display: opt,
+    }))
   }),
   GEOMETRY: (...values) => null,
   DATE: 'date',
