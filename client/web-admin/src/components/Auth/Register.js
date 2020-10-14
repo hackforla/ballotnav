@@ -15,6 +15,8 @@ const validationSchema = Yup.object({
     [Yup.ref('password'), null],
     'Passwords must match',
   ),
+  notes: Yup.string(),
+  slackName: Yup.string(),
 });
 
 function Register() {
@@ -35,6 +37,8 @@ function Register() {
       email: '',
       password: '',
       passwordConfirm: '',
+      notes: '',
+      slackName: '',
     },
     validationSchema,
     onSubmit(values, { setSubmitting }) {
@@ -134,6 +138,34 @@ function Register() {
               onBlur={handleBlur}
               helperText={touched.passwordConfirm ? errors.passwordConfirm : ''}
               error={touched.passwordConfirm && Boolean(errors.passwordConfirm)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              name="notes"
+              label="Region / Time Zone Preference"
+              id="notes"
+              value={values.notes}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={touched.notes ? errors.notes : ''}
+              error={touched.notes && Boolean(errors.notes)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              name="slackName"
+              label="Slack Name"
+              id="slackName"
+              value={values.slackName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={touched.slackName ? errors.slackName : ''}
+              error={touched.slackName && Boolean(errors.slackName)}
             />
           </Grid>
         </Grid>
