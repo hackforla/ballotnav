@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import infoIcon from '../../assets/info-icon.svg';
+import { Drawer, Button, InputPicker } from 'rsuite';
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  return console.log(`submitted`)
+}
 
 const ResultHeader = ({
   search,
 }) => {
+  const [open, setOpen] = useState(false);
+  const [searchByLocation, setSearchByLocation] = useState(false);
+
+  const close = () => {
+    setOpen(false);
+  };
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
   if (search) {
     var state = search.context[search.context.length - 2].text;
 
@@ -19,11 +36,24 @@ const ResultHeader = ({
 
   return (
     <div className="result-header">
-      {search &&
-        <>
-          <p>{city}, {state}</p>
-          <img className="info-icon" src={infoIcon} alt="Information icon"/>
-          <a>Important election information</a>
+      <Drawer
+        show={open}
+        onHide={close}
+        placement="bottom"
+        size="lg"
+      >
+        <Drawer.Header>
+          <Drawer.Title></Drawer.Title>
+        </Drawer.Header>
+        <Drawer.Body>
+          <div className='drawer_header'>
+            <a onClick={() => setSearchByLocation(true)} className={searchByLocation ? 'active' : null}>Search by location</a>
+            <a onClick={() => setSearchByLocation(false)} className={!searchByLocation ? 'active' : null}>State and County</a>
+          </div>
+          <div className='drawer_input_container'>
+            <InputPicker></InputPicker>
+            <InputPicker></InputPicker>
+          </div>
           <div id="election-info">
             <p>California</p>
             <span>Last updated: September 14, 2020</span>
@@ -34,14 +64,28 @@ const ResultHeader = ({
             <p>Subscribe</p>
             <p>Last-minute changes to details about how to vote should be expected. Sign up for SMS notifications for updates to your Secretary of State website. Mobile messaging rates may apply.</p>
             <p>Write your phone number to receive State's updates</p>
-            <form>
-              <input is-info type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='(158)-234-6678' />
-              <button is-primary>Subscribe</button>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='(158)-234-6678' />
+                <button type="submit">Subscribe</button>
+              </div>
             </form>
           </div>
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Button onClick={close} appearance="primary">Confirm</Button>
+          <Button onClick={close} appearance="subtle">Cancel</Button>
+        </Drawer.Footer>
+      </Drawer>
+      {
+        search &&
+        <>
+          <p>{city}, {state}</p>
+          <img className="info-icon" src={infoIcon} alt="Information icon" />
+          <a onClick={toggleDrawer}>Important election information</a>
         </>
       }
-    </div>
+    </div >
   );
 }
 

@@ -23,29 +23,90 @@ div.result-header {
   }
 }
 
+.rs-drawer-content {
+  border-radius: 10px 10px 0 0;
+  
+  .rs-drawer-body {
+    // height: 550px!important;
+    margin: 20px 0 0 0;
+    .drawer_header {
+      display: flex;
+      justify-content: space-around;
+      a {
+        color: #919191;
+        font-weight: 400;
+        width: 50%;
+        text-align: center;
+        padding-bottom: 3px;
+        text-decoration:none;
+      }
+      .active {
+        font-weight: 600;
+        color: $blue;
+        border-bottom: 2px solid $blue;
+      }
+    }
+
+    .drawer_input_container {
+      background: $blue;
+      padding: 14px 20px;
+      height:68px;
+      display:flex;
+      justify-content:center;
+      .rs-picker-input {
+        border-radius: 6px;
+        color:white;
+        font-weight: 600;
+        width:74px;
+        height:36px!important;
+        border:1px solid white!important;
+
+        .rs-picker-toggle-placeholder {
+          color: white;
+          font-weight:600;
+        }
+        height: 34px;
+        border: 1px solid white;
+        background: $blue;
+        .rs-btn {
+          background: $blue!important;
+          color:white;
+          // border: 1px solid white!important;
+        }
+        .rs-picker-toggle-placeholder, .rs-picker-toggle-caret {
+          color:white;
+        }
+      }
+      .rs-picker-input:nth-child(2) {
+        width:238px;
+        margin-left:18px;
+      }
+    }
+}
+
+.rs-drawer-footer {
+  display:none;
+}
+
+}
+
 #election-info {
-  border: 3px solid lime;
-  padding: 10px;
+  padding: 20px;
   z-index: 3;
-  height: 789px;
-  width: 100%;
-  position:absolute;
-  top: 120px;
-  left: 0px;
   background:white;
   p {
     color: $dark-blue;
   }
-  p:nth-child(1), p:nth-child(5), p:nth-child(7) {
+  p.state, p:nth-child(5), p:nth-child(7) {
     font-weight: 700;
     color: $dark-blue;
   }
   span {
     color: #3F3F3F;
     font-size: .75em;
+    padding-bottom: 10px;
   }
   p:nth-child(2) {
-    margin-top: 10px;
     line-height: 1.19em;
   }
   a {
@@ -54,9 +115,13 @@ div.result-header {
   input {
     border-radius: 40px;
     border: 1px solid #B3B3B3;
-    padding-left: 13px;
+    padding-left: 14px;
     height: 40px;
     width: 268px;
+    :focus {
+      outline:none;
+      border:transparent;
+    }
   }
   button {
     position: relative;
@@ -65,8 +130,9 @@ div.result-header {
     background: #1B2152;
     border-radius: 40px;
     height: 40px;
-    left: 224px;
+    left: 190px;
     font-weight: 700;
     width: 125px;
+    font-size:.87em;
   }
 }
