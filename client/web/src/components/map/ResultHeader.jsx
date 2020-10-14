@@ -54,16 +54,16 @@ const ResultHeader = ({
             <InputPicker></InputPicker>
             <InputPicker></InputPicker>
           </div>
-          <div id="election-info">
-            <p>California</p>
+          <div className="electionInfo">
+            <p className="info_header">California</p>
             <span>Last updated: September 14, 2020</span>
             <p>
               We have found the most credible and up to date state and EAJ changes to be on <a>vote.org</a>.
             </p>
-            <a>California Secretary of State</a>
-            <p>Subscribe</p>
+            <a className='info_link'>California Secretary of State</a>
+            <p className='info_header'>Subscribe</p>
             <p>Last-minute changes to details about how to vote should be expected. Sign up for SMS notifications for updates to your Secretary of State website. Mobile messaging rates may apply.</p>
-            <p>Write your phone number to receive State's updates</p>
+            <p className='info_detail'>Write your phone number to receive State's updates</p>
             <form onSubmit={handleSubmit}>
               <div>
                 <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='(158)-234-6678' />
