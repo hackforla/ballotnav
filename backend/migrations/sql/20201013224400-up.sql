@@ -265,3 +265,7 @@ WHERE
 END;
 $$;
 
+ALTER TABLE public.user
+	ADD COLUMN notes TEXT ,
+	ADD COLUMN slack_name TEXT;
+
