@@ -17,37 +17,37 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
       models.WipState.hasMany(models.WipStateInfoTab, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
       models.WipState.hasMany(models.WipStateNews, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
       models.WipState.hasMany(models.WipStateNotice, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
       models.WipState.hasMany(models.WipStatePhone, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
       models.WipState.hasMany(models.WipStateUrl, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
     }
   }
@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
       stateId: {
         type: DataTypes.INTEGER,
         field: 'state_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {

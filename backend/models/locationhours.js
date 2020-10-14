@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       locationId: {
         type: DataTypes.INTEGER,
         field: 'location_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {

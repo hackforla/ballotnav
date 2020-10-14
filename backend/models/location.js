@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       facilityTypeId: {
         type: DataTypes.INTEGER,
         field: 'facilitytype_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {

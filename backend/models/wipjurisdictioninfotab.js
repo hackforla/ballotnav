@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
     }
   }
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       wipJurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'wip_jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
