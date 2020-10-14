@@ -11,7 +11,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import TransferList from './TransferList'
 import SimpleSelect from './Select';
-import { useHeader } from './Layout'
+import { useHeader } from '../Layout'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   gridContainer: {
     height: '575px',
-    // display: 'inline-block',
-    // marginTop: '50px 0 0 25px',
-    // marginRight: '35px',
   },
   gridItem: {
     minWidth: '250px',
@@ -29,17 +26,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '35px',
   },
   card: {
-    // minHeight: '250px',
-    // height: '100%',
-    // flex: '1 1 100%',
-    // margin: theme.spacing(1),
     marginTop: '50px',
     position: 'relative',
   },
   cardContent: {
-    marginTop: '25px',
-    marginBottom: '25px',
-    // fontSize: '11px',
+    marginTop: '10px',
+    marginBottom: '10px',
   },
   title: {
     fontWeight: 500,
@@ -47,11 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
   saveButton: {
     margin: theme.spacing(1),
+    width: '125px',
   },
   cardActions: {
     justifyContent: 'center',
-    // position: 'absolute',
-    // bottom: '25px',
   },
   select: {
     marginBottom: '100px',
@@ -101,6 +92,7 @@ function AssignJurisdictions() {
     }
     console.log(res);
     // TODO: POST to /user/assignments
+    // then re-fetch volunteers, jurisdictions
   }
   
   // fetch volunteers, unassigned jurisidictions
@@ -164,7 +156,6 @@ function AssignJurisdictions() {
     <div className={classes.root}>
       <Grid
         container
-        direction="column"
         className={classes.gridContainer}
       >
         {/****************  SELECT VOLUNTEER, STATE  ****************/}

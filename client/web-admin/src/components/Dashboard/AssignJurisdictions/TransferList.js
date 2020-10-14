@@ -12,10 +12,6 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   // display: 'inline-block',
-  //   // margin: 'auto',
-  // },
   cardHeader: {
     padding: theme.spacing(1, 2),
   },

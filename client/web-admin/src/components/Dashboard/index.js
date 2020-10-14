@@ -5,10 +5,10 @@ import Layout from './Layout'
 
 import ListJurisdictions from './ListJurisdictions'
 import EditJurisdiction from './EditJurisdiction'
+import AssignJurisdictions from './AssignJurisdictions'
 import ListStates from './ListStates'
 import EditState from './EditState'
 import Review from './Review'
-import AssignJurisdictions from './AssignJurisdictions'
 
 
 function Dashboard() {
