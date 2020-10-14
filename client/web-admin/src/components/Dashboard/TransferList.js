@@ -44,6 +44,8 @@ function union(a, b) {
 }
 
 function TransferList({
+  leftTitle,
+  rightTitle,
   rightItems,
   leftItems,
   onTransferLeft,
@@ -141,7 +143,7 @@ function TransferList({
 
   return (
     <Grid container spacing={2} justify="flex-start" alignItems="center" className={classes.root}>
-      <Grid item>{customList('Unassigned Jurisdictions', 'Select all', leftItems)}</Grid>
+      <Grid item>{customList(leftTitle, 'Select all', leftItems)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button
@@ -166,7 +168,7 @@ function TransferList({
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList('Selected Jurisdictions', 'Select all', rightItems)}</Grid>
+      <Grid item>{customList(rightTitle, 'Select all', rightItems)}</Grid>
     </Grid>
   );
 }

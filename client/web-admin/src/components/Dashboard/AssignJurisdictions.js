@@ -233,6 +233,8 @@ function AssignJurisdictions() {
         <Grid item>
         {/****************  JURISDICTION ASSIGNMENT  ****************/}
           <TransferList
+            leftTitle="Unassigned Jurisdictions"
+            rightTitle="Assign to Volunteer"
             leftItems={unassigned}
             rightItems={assigned}
             onTransferLeft={unassign}
