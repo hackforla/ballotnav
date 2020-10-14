@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import { TextField, MenuItem, Button, Box, Modal } from '@material-ui/core'
 import LocationHoursForm from './LocationHoursForm'
 import locationModel from 'models/location'
+import moment from 'moment'
 
 //////////////////// HELPERS /////////////////////
 
@@ -118,7 +119,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               variant="outlined"
               margin="dense"
               fullWidth
-              value={values[field] || ''}
+              value={type === 'date' ? moment(values[field]).utc().format('yyyy-MM-DD') : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={errors[field] || ''}
