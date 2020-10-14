@@ -36,14 +36,20 @@ function getValidate(model) {
 
 /////////////////// THE COMPONENT //////////////////
 
-function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style, onChangeHours }) {
+function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style }) {
 
   const formik = useFormik({
     enableReinitialize: true, // necessary for form to update when initialValues changes
     initialValues: getInitialValues(model, initialValues),
     validate: getValidate(model),
-    onSubmit,
+    onSubmit: (values, funcs) => {
+      values.hours = hours
+      onSubmit(values, funcs)
+    },
   })
+
+  const [hours, setHours] = useState(initialValues ? initialValues.hours : [])
+  const [hoursChanged, setHoursChanged] = useState(false)
 
   const {
     values,
@@ -199,9 +205,12 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               backgroundColor: 'white'
             }}>
               <LocationHoursForm
-                hours={values.hours}
+                hours={hours}
                 locationName={values.name}
-                onChange={onChangeHours}
+                onChange={(hours) => {
+                  setHours(hours)
+                  setHoursChanged(true)
+                }}
                 onFinished={() => setModalOpen(false)}
               />
             </div>
@@ -222,7 +231,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
           variant="contained"
           color="primary"
           margin="normal"
-          disabled={!dirty || isSubmitting || hasErrors}
+          disabled={(!hoursChanged && !dirty) || isSubmitting || hasErrors}
         >
           { submitText || 'Confirm Changes' }
         </Button>

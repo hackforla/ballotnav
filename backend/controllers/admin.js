@@ -373,13 +373,11 @@ function updateWipJurisdictionLocation(wipJurisdictionId) {
     // create the WipLocations
     try {
       let results = await db.WipLocation.bulkCreate(
-        locations.map((l) => {
-          l.wipJurisdictionId = wipJurisdictionId
-          l.WipLocationHours = l.hours || []
-          delete l.hours
-          return l
-        }),
-        { include: [db.WipLocationHours] }
+        locations.map((l) => ({
+          ...l,
+          wipJurisdictionId,
+        })),
+        { include: { association: 'hours' } }
       )
       logger.info({
         message: 'Success: created wip locations and wip location hours',
