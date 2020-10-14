@@ -109,6 +109,7 @@ function AssignJurisdictions() {
       }
     });
 
+    // TODO: switch to jurisdictions.listUnassigned
     api.jurisdictions.list().then(jurisdictions => {
       const jdxByState = {};
       const jdxs = {};
