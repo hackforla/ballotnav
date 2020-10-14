@@ -21,6 +21,7 @@ const ResultList = ({
 
   const toggleDrawer = () => {
     setOpen(!open);
+    setTimeout(function() { document.getElementById('drawer-body').style = "height: auto;" }, 100);
   };
 
   const renderResultCards = () => {
@@ -47,7 +48,7 @@ const ResultList = ({
             <a>County election information</a>
           </div>
         </Drawer.Header>
-        <Drawer.Body>
+        <Drawer.Body id="drawer-body">
           {renderResultCards()}
         </Drawer.Body>
       </Drawer>
