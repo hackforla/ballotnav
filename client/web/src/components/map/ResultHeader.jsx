@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import infoIcon from '../../assets/info-icon.svg';
 
 const ResultHeader = ({
   search,
@@ -21,6 +22,7 @@ const ResultHeader = ({
       {search &&
         <>
           <p>{city}, {state}</p>
+          <img className="info-icon" src={infoIcon} alt="Information icon"/>
           <a>Important election information</a>
           <div id="election-info">
             <p>California</p>
