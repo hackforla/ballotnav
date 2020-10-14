@@ -126,23 +126,9 @@ exports.publishWipJurisdiction = async (req, res, next) => {
 }
 
 exports.updateWipJurisdiction = async (req, res, next) => {
-  console.log('UPDATING')
-
   const { wipJurisdictionId } = req.params
   const userId = req.user.id
   const updatedWip = req.body
-
-  const data = await req.db.WipJurisdiction.findByPk(wipJurisdictionId, {
-    include: [
-      { all: true },
-      {
-        association: 'locations',
-        include: { association: 'hours' },
-      },
-    ],
-  })
-
-  return res.json(data)
 
   /*
     TODO: make the database consistent with the updatedWip
