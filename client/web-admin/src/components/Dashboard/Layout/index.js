@@ -60,14 +60,13 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    maxWidth: '100%',
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginRight: -DRAWER_WIDTH,
-    paddingTop: 75,
+    width: `calc(100vw - ${DRAWER_WIDTH}px)`,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PersistentDrawerRight({ children }) {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [title, setTitle] = useState(null)
 
   const handleDrawerOpen = () => {
@@ -123,6 +122,7 @@ export default function PersistentDrawerRight({ children }) {
             [classes.contentShift]: open,
           })}
         >
+          <div className={classes.drawerHeader} />
           {children}
         </main>
         <Drawer

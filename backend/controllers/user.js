@@ -153,18 +153,28 @@ exports.assign = async (req, res) => {
   })
 
   try {
-    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne({
-      where: {
-        userId: userId,
-        jurisdictionId: {
-          [Sequelize.Op.in]: jurisdictionIds 
-        }
+    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne(
+      {
+        where: {
+          userId: userId,
+          jurisdictionId: {
+            [Sequelize.Op.in]: jurisdictionIds,
+          },
+        },
       }
-    })
+    )
     if (jurisdictionAssignmentAlreadyExists !== null) {
-      return handleError({statusMessage: 'Error: assignment exists'}, 400, res)
+      return handleError(
+        { statusMessage: 'Error: assignment exists' },
+        400,
+        res
+      )
     }
-    let records = jurisdictionIds.map(jid => ({...req.body, userId: userId, jurisdictionId: jid}))
+    let records = jurisdictionIds.map((jid) => ({
+      ...req.body,
+      userId: userId,
+      jurisdictionId: jid,
+    }))
     let results = await req.db.UserJurisdiction.bulkCreate(records)
     logger.info({
       message: 'Success: created user jurisdiction',
@@ -172,9 +182,9 @@ exports.assign = async (req, res) => {
       adminUserId,
       jurisdictionIds,
       userId,
-      count: records.length
+      count: records.length,
     })
-    return res.status(201).json({status: 'ok', results: results})
+    return res.status(201).json({ status: 'ok', results: results })
   } catch (err) {
     return handleError(err, 400, res)
   }

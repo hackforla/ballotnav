@@ -51,6 +51,14 @@ module.exports = (sequelize, DataTypes) => {
         field: 'password_hash',
         type: DataTypes.TEXT,
       },
+      notes: {
+        type: DataTypes.TEXT,
+        field: 'notes',
+      },
+      slackName: {
+        type: DataTypes.TEXT,
+        field: 'slack_name',
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: 'created_at',

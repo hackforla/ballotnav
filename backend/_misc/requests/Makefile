@@ -19,5 +19,4 @@ updateWip: auth
 	$(CURL) -X PUT -d @update-jurisdiction.json $(HOST)/jurisdictions/wip/$(ID) | jq
 
 listWipLocation: auth
-	test $(ID) || echo "error missing ID" \
-		$(CURL) $(HOST)/jurisdictions/wip/$(ID)/locations
+	$(CURL) $(HOST)/jurisdictions/wip/$(ID)/locations |jq

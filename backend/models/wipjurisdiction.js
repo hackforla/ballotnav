@@ -12,49 +12,57 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'jurisdiction',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionImportantDate, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'importantDates',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionInfoTab, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'infoTabs',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionNews, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'news',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionNotice, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'notices',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionPhone, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'phones',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionUrl, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'urls',
       })
       models.WipJurisdiction.hasMany(models.WipLocation, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
+        as: 'locations',
       })
     }
   }
@@ -70,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -137,11 +145,6 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
           deferrable: Deferrable.INITIALLY_DEFERRED,
         },
-      },
-      editorComments: {
-        type: DataTypes.TEXT,
-        field: 'editor_comments',
-        allowNull: true,
       },
       isReleased: {
         type: DataTypes.BOOLEAN,

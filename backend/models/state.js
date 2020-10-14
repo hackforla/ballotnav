@@ -12,49 +12,49 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'jurisdictions',
       })
       models.State.hasMany(models.StateImportantDate, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'importantDates',
       })
       models.State.hasMany(models.StateInfoTab, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'infoTabs',
       })
       models.State.hasMany(models.StateNews, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'news',
       })
       models.State.hasMany(models.StateNotice, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'notices',
       })
       models.State.hasMany(models.StatePhone, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'phones',
       })
       models.State.hasMany(models.StateUrl, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'urls',
       })
       /*
@@ -100,6 +100,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM(
           'County',
           'Parish',
+          'Region',
           'County or City',
           'City or Township',
           'Municipality',
@@ -160,7 +161,7 @@ module.exports = (sequelize, DataTypes) => {
       wipStateId: {
         type: DataTypes.INTEGER,
         field: 'wip_state_id',
-        allownull: true,
+        allowNull: true,
         comment:
           'Set to the WIP ID most recently published. This should be constrained to wip_state.id, but sequelize does not understand cyclic dependencies.',
       },

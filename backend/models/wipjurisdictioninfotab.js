@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
       })
     }
   }
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       wipJurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'wip_jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -75,11 +75,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: true,
       },
-      deletedAt: {
-        type: DataTypes.DATE,
-        field: 'deleted_at',
-        allowNull: true,
-      },
     },
     {
       sequelize,
@@ -87,8 +82,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'wip_jurisdiction_infotab',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
-      paranoid: true,
     }
   )
   return WipJurisdictionInfoTab
