@@ -127,8 +127,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'location_hours',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
-      paranoid: true,
     }
   )
   return LocationHours
