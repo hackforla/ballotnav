@@ -86,7 +86,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'wip_jurisdiction_phone',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
     }
   )
   return WipJurisdictionPhone
