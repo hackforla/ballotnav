@@ -20,8 +20,10 @@ $blue: #1B2152;
 $dark-blue: #040822;
 $light-blue: #EBF3FA;
 $primary: $blue;
+$link-blue: #0819A5;
 
 $family-primary: 'Open Sans';
+$link: $link-blue;
 
 @import "~bulma/bulma.sass";
 @import "~bulma-switch/dist/css/bulma-switch.sass";
