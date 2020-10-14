@@ -54,13 +54,6 @@ function TransferList({
 }) {
   const classes = useStyles();
   const [checked, setChecked] = useState([]);
-  // const [left, setLeft] = useState(leftItems);
-  // const [right, setRight] = useState(rightItems);
-  // const [leftChecked, setLeftChecked] = useState(intersection(checked, left));
-  // const [rightChecked, setRightChecked] = useState(intersection(checked, right));
-  // const leftChecked = intersection(left, checked, schema.value);
-  // const rightChecked = intersection(right, checked, schema.value);
-
 
   const handleToggle = (item) => () => {
     const currentIndex = checked.findIndex(i => i[schema.value] === item[schema.value]);
