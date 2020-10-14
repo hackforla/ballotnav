@@ -8,6 +8,7 @@ import EditJurisdiction from './EditJurisdiction'
 import SearchStates from './SearchStates'
 import EditState from './EditState'
 import ReviewWIP from './ReviewWIP'
+import AssignJurisdictions from './AssignJurisdictions'
 
 function Dashboard() {
   const { user } = useAuth()
@@ -20,6 +21,7 @@ function Dashboard() {
         {isAdmin && <Route exact path="/states" component={SearchStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
         {isAdmin && <Route exact path="/review" component={ReviewWIP} />}
+        {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
         <Redirect to="/jurisdictions" />
       </Switch>
     </Layout>

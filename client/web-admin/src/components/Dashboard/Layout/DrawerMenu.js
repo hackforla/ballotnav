@@ -27,6 +27,10 @@ const ADMIN_ITEMS = [
     title: 'Edit States/Jurisdictions',
     path: '/states',
   },
+  {
+    title: 'Assign Jurisdictions',
+    path: '/assign'
+  },
 ]
 
 function Menu() {
