@@ -113,6 +113,7 @@ exports.login = async (req, res, next) => {
   res.json({ isSuccess: true, token, user })
 }
 
+// TODO: get jurisdiction ids already assigned to volunteers
 exports.listVolunteers = async (req, res) => {
   try {
     const data = await req.db.User.findAll({
@@ -121,8 +122,8 @@ exports.listVolunteers = async (req, res) => {
         ['first_name', 'firstName'],
         ['last_name', 'lastName'],
         'email',
-        // 'notes',
-        // ['slack_name', 'slackName'],
+        'notes',
+        ['slack_name', 'slackName'],
       ],
       where: {
         role: 'volunteer',
@@ -138,7 +139,7 @@ exports.listVolunteers = async (req, res) => {
  * create a user assignment to a jurisdiction
  */
 
- // TODO: handle bulk deletion of removed jurisdiction assignments
+// TODO: handle bulk deletion of removed jurisdiction assignments
 exports.assign = async (req, res) => {
   let jurisdictionIds = [...req.body.jurisdictionIds]
   let userId = req.body.userId
