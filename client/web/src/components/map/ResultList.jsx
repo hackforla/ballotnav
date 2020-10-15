@@ -21,7 +21,7 @@ const ResultList = ({
 
   const toggleDrawer = () => {
     setOpen(!open);
-    setTimeout(function() { document.getElementById('drawer-body').style = "height: auto;" }, 200);
+    setTimeout(function() { document.getElementById('drawer-body').style = "height: 75%;" }, 200);
   };
 
   const renderResultCards = () => {
