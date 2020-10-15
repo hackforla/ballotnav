@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 import { Drawer } from 'rsuite';
 
 const ResultDetail = ({
   location,
-  isOpen,
+  open,
+  close,
 }) => {
-  const [open, setOpen] = useState(isOpen);
-
-  const close = () => {
-    setOpen(false);
-  };
-
   return (
     <Drawer
       show={open}
@@ -29,3 +23,5 @@ const ResultDetail = ({
     </Drawer>
   );
 };
+
+export default ResultDetail;

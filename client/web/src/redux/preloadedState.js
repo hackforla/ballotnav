@@ -5,7 +5,6 @@ const preloadedState = {
   searches: [],
   ui: {
     selectedLocation: null,
-    resultDetailIsOpen: false,
   }
 }
 

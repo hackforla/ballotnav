@@ -5,11 +5,6 @@ export default (state = [], action) => {
         ...state,
         selectedLocation: action.location,
       };
-    case 'TOGGLE_RESULT_DETAIL':
-      return {
-        ...state, 
-        resultDetailIsOpen: !state.resultDetailIsOpen,
-      };
     default:
       return state;
   }
