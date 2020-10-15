@@ -1,25 +1,14 @@
 import React from 'react'
 import { Button, Box } from '@material-ui/core'
 
-function Footer({
+function HeaderButtons({
   onSaveProgress,
   canSaveProgress = false,
   onSubmitForReview,
   canSubmitForReview = false,
 }) {
   return (
-    <Box style={{
-      padding: 10,
-      display: 'flex',
-      justifyContent: 'flex-end',
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 240,
-      backgroundColor: 'white',
-      opacity: 1.0,
-      zIndex: 100,
-    }}>
+    <Box style={{ backgroundColor: 'white', borderRadius: 5 }}>
       <Button
         style={{ margin: 10 }}
         onClick={onSaveProgress}
@@ -29,7 +18,7 @@ function Footer({
         Save Progress
       </Button>
       <Button
-        style={{ margin: 10 }}
+        style={{ margin: 10, marginLeft: 0 }}
         onClick={onSubmitForReview}
         variant="contained"
         disabled={!canSubmitForReview}
@@ -39,4 +28,4 @@ function Footer({
     </Box>
   )
 }
-export default Footer
+export default HeaderButtons

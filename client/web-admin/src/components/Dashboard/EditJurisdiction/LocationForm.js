@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import { TextField, MenuItem, Button, Box, Modal } from '@material-ui/core'
 import LocationHoursForm from './LocationHoursForm'
 import locationModel from 'models/location'
+import moment from 'moment'
 
 //////////////////// HELPERS /////////////////////
 
@@ -36,14 +37,20 @@ function getValidate(model) {
 
 /////////////////// THE COMPONENT //////////////////
 
-function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style, onChangeHours }) {
+function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style }) {
 
   const formik = useFormik({
     enableReinitialize: true, // necessary for form to update when initialValues changes
     initialValues: getInitialValues(model, initialValues),
     validate: getValidate(model),
-    onSubmit,
+    onSubmit: (values, funcs) => {
+      values.hours = hours
+      onSubmit(values, funcs)
+    },
   })
+
+  const [hours, setHours] = useState(initialValues ? initialValues.hours : [])
+  const [hoursChanged, setHoursChanged] = useState(false)
 
   const {
     values,
@@ -112,7 +119,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               variant="outlined"
               margin="dense"
               fullWidth
-              value={values[field] || ''}
+              value={type === 'date' ? moment(values[field]).utc().format('yyyy-MM-DD') : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={errors[field] || ''}
@@ -199,9 +206,12 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               backgroundColor: 'white'
             }}>
               <LocationHoursForm
-                hours={values.hours}
+                hours={hours}
                 locationName={values.name}
-                onChange={onChangeHours}
+                onChange={(hours) => {
+                  setHours(hours)
+                  setHoursChanged(true)
+                }}
                 onFinished={() => setModalOpen(false)}
               />
             </div>
@@ -222,7 +232,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
           variant="contained"
           color="primary"
           margin="normal"
-          disabled={!dirty || isSubmitting || hasErrors}
+          disabled={(!hoursChanged && !dirty) || isSubmitting || hasErrors}
         >
           { submitText || 'Confirm Changes' }
         </Button>

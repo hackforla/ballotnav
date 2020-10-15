@@ -29,6 +29,23 @@ export const getWipJurisdiction = async (jurisdictionId) => {
 }
 
 export const updateWipJurisdiction = async (wipJurisdictionId, wip) => {
+  wip.locations.forEach(location => {
+    if (location.scheduleType !== 'description') {
+      location.scheduleDescription = null
+    }
+
+    if (location.scheduleType !== 'hours') {
+      location.hours = []
+    }
+
+    if (location.scheduleType !== 'continuous') {
+      location.continuousOpenDate = null
+      location.continuousCloseDate = null
+      location.continuousOpenTime = null
+      location.continuousCloseTime = null
+    }
+  })
+
   const url = `${BASE_URL}/wip/jurisdictions/${wipJurisdictionId}`
   const { data } = await axios.put(url, wip)
   return data

@@ -1,11 +1,6 @@
 
 export const editableFields = model => {
-  return Object.keys(model).filter(field => (
-    field !== 'createdAt' &&
-    field !== 'updatedAt' &&
-    field !== 'id' &&
-    !field.endsWith('Id')
-  ))
+  return Object.keys(model)
 }
 
 const models = [

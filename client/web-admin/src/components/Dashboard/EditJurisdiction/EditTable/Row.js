@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import AutoForm from 'components/core/AutoForm'
 import LocationForm from '../LocationForm'
+import moment from 'moment'
 
 const useRowStyles = makeStyles({
   root: {
@@ -75,14 +76,23 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
             }}
             onClick={toggle}
             align='left'>
-            {values[field] || 'none'}
+            {(() => {
+              if (model.editFields[field].type === 'date')
+                return moment(values[field]).utc().format('yyyy-MM-DD')
+
+              // it's a select field (hopefully) so show the display value
+              if (field.endsWith('Id'))
+                return model.editFields[field].type.options.find(opt => opt.value === values[field])?.display
+
+              return values[field] || ''
+            })()}
           </TableCell>
         ))}
       </TableRow>
       <TableRow className={classes.collapseRoot}>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
+            <Box margin={1} style={{ marginBottom: 50 }}>
               {
                 isLocations
                 ? (
@@ -94,7 +104,6 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
                       setOpen(false)
                       funcs.setSubmitting(false)
                     }}
-                    onChangeHours={hours => handleChange({ hours })}
                   />
                 ) : (
                   <AutoForm

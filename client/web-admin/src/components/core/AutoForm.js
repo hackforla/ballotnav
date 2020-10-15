@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useFormik } from 'formik'
 import { TextField, MenuItem, Button, Box } from '@material-ui/core'
+import moment from 'moment'
 
 //////////////////// HELPERS /////////////////////
 
@@ -80,7 +81,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
               variant="outlined"
               margin="dense"
               fullWidth
-              value={values[field] || ''}
+              value={type === 'date' ? moment(values[field]).utc().format('yyyy-MM-DD') : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={errors[field] || ''}
