@@ -46,6 +46,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
                 onSubmit={(values, funcs) => {
                   addInstance(values)
                   funcs.setSubmitting(false)
+                  funcs.resetForm()
                   setExpanded(false)
                 }}
               />
@@ -57,6 +58,7 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
                 onSubmit={(values, funcs) => {
                   addInstance(values)
                   funcs.setSubmitting(false)
+                  funcs.resetForm()
                   setExpanded(false)
                 }}
                 style={{ maxWidth: 500 }}
