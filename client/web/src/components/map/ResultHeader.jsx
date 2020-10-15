@@ -29,7 +29,7 @@ const ResultHeader = ({
       case 'range':
         return <span>{date.beginTime} - {date.endTime}</span>;
       default:
-        return null
+        return null;
     }
   }
 
