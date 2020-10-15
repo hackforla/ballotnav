@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from 'services/api'
+import { useToast } from 'components/use-toast'
 
 import { editableFields } from 'models'
 import jurisdictionModel from 'models/jurisdiction'
@@ -96,6 +97,7 @@ function EditJurisdiction() {
   const [canSaveProgress, setCanSaveProgress] = useState(false)
   const [canSubmitForReview, setCanSubmitForReview] = useState(false)
   const [tabNum, setTabNum] = useState(0)
+  const toast = useToast()
 
   useEffect(() => {
     api.jurisdictions.getWipJurisdiction(id).then((jurisdiction) => {
@@ -109,7 +111,7 @@ function EditJurisdiction() {
       ...newJurisdiction,
     })
     setCanSaveProgress(true)
-    setCanSubmitForReview(true)
+    setCanSubmitForReview(false)
   }
 
   const updateSubmodel = (id, newSubmodel) => {
@@ -118,15 +120,28 @@ function EditJurisdiction() {
       [id]: newSubmodel,
     })
     setCanSaveProgress(true)
-    setCanSubmitForReview(true)
+    setCanSubmitForReview(false)
   }
 
   const saveProgress = () => {
     setCanSaveProgress(false)
     api.jurisdictions.updateWipJurisdiction(jurisdiction.id, jurisdiction)
       .then(updated => {
+        toast({
+          severity: 'success',
+          autoHideDuration: 3000,
+          message: 'Progress saved.',
+        })
         console.log('updated jurisdiction', updated)
         setJurisdiction(updated)
+        setCanSubmitForReview(true)
+      })
+      .catch(error => {
+        toast({
+          severity: 'error',
+          message: error.message,
+        })
+        setCanSaveProgress(true)
       })
   }
 
@@ -134,7 +149,17 @@ function EditJurisdiction() {
     setCanSubmitForReview(false)
     api.jurisdictions.releaseWipJurisdiction(jurisdiction.id)
       .then(data => {
-        console.log('released:', data)
+        toast({
+          severity: 'success',
+          autoHideDuration: 3000,
+          message: 'Jurisdiction released for review.',
+        })
+      })
+      .catch(error => {
+        toast({
+          severity: 'error',
+          message: error.message,
+        })
       })
   }
 
@@ -147,7 +172,7 @@ function EditJurisdiction() {
           onSaveProgress={saveProgress}
           canSaveProgress={canSaveProgress}
           onSubmitForReview={submitForReview}
-          canSubmitForReview={canSubmitForReview && !canSaveProgress}
+          canSubmitForReview={canSubmitForReview}
         />
       </Header>
       {jurisdiction && (

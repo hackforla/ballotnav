@@ -43,9 +43,14 @@ function Register() {
     validationSchema,
     onSubmit(values, { setSubmitting }) {
       register(values).catch((error) => {
-        if (error.duplicateEmail) toast({ message: 'email already registered' })
-        else if (error.unknownError)
-          toast({ message: 'unknown error creating account' })
+        toast({
+          severity: 'error',
+          autoHideDuration: 3000,
+          message: (() => {
+            if (error.duplicateEmail) return 'email already registered'
+            return 'unknown error creating account'
+          })()
+        })
         setSubmitting(false)
       });
     },

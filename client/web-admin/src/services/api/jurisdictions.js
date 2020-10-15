@@ -29,6 +29,24 @@ export const getWipJurisdiction = async (jurisdictionId) => {
 }
 
 export const updateWipJurisdiction = async (wipJurisdictionId, wip) => {
+  // NOTE: optional dates and times generate errors on the backend
+  // if we pass a blank string, e.g. --
+
+  // 2020-10-15 22:24:39.407 UTC [968]
+  //  ERROR:  new row for relation "wip_jurisdiction_importantdate"
+  // violates check constraint "wip_jurisdiction_importantdate_begin_time_check"
+
+  // Getting around this by converting blank strings to null. But seems
+  // weird cuz the backend models don't identify any contraints on these fields.
+  // Talk to Drew about this. Wonder if the constraints are left over from
+  // previous migrations.
+  wip.importantDates.forEach(importantDate => {
+    if (importantDate.beginDate === '') importantDate.beginDate = null
+    if (importantDate.beginTime === '') importantDate.beginTime = null
+    if (importantDate.endDate === '') importantDate.endDate = null
+    if (importantDate.endTime === '') importantDate.endTime = null
+  })
+
   wip.locations.forEach(location => {
     if (location.scheduleType !== 'description') {
       location.scheduleDescription = null
