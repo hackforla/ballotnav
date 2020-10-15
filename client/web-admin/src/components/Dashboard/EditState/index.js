@@ -5,6 +5,7 @@ import model from 'models/state'
 import TabPanel from 'components/core/TabPanel'
 import { Tabs, Tab, List, ListItem, ListItemText } from '@material-ui/core'
 import api from 'services/api'
+import Header from 'components/Dashboard/Layout/Header'
 
 function EditState() {
   const { id } = useParams()
@@ -21,6 +22,7 @@ function EditState() {
   if (!state) return null
   return (
     <>
+      <Header title={`Editing: ${state.name}`} />
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
         <Tab label="State Details" />
         <Tab label="Jurisdictions" />
