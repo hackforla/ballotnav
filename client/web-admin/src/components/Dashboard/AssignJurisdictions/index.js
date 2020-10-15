@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from 'services/api'
-import { 
-  Grid, 
+import {
+  Grid,
   Card,
   CardContent,
   CardActions,
@@ -11,7 +11,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import TransferList from './TransferList'
 import SimpleSelect from './Select';
-import { useHeader } from '../Layout'
+import Header from 'components/Dashboard/Layout/Header'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
 const sortByPropertyAsc = (property) => (a, b) => a[property].localeCompare(b[property]);
 
 function AssignJurisdictions() {
-  const { setTitle } = useHeader()
   const classes = useStyles();
 
   const [loaded, setLoaded] = useState(false);
@@ -94,10 +93,9 @@ function AssignJurisdictions() {
     // TODO: POST to /user/assignments
     // then re-fetch volunteers, jurisdictions
   }
-  
+
   // fetch volunteers, unassigned jurisidictions
   useEffect(() => {
-    setTitle('Assign Jurisdictions')
     let isSubscribed = true;
 
     api.user.listVolunteers().then(volunteers => {
@@ -132,7 +130,7 @@ function AssignJurisdictions() {
     });
 
     return () => isSubscribed = false;
-  }, [setTitle])
+  }, [])
 
   // set selected volunteer's assigned jurisdictions to right transfer list
   useEffect(() => {
@@ -154,92 +152,95 @@ function AssignJurisdictions() {
   }, [selectedState, jurisdictionsByState])
 
   return (
-    <div className={classes.root}>
-      <Grid
-        container
-        className={classes.gridContainer}
-      >
-        {/****************  SELECT VOLUNTEER, STATE  ****************/}
-        <Grid item className={classes.gridItem} style={{ height: '30%' }} >
-          <SimpleSelect
-            className={classes.select}
-            disabled={!loaded}
-            label="Volunteer (assigned jurisdictions)"
-            items={loaded && volunteers && Object.values(volunteers).sort(sortByPropertyAsc('email'))}
-            schema={{
-              id: 'id',
-              value: 'id',
-              labelText: 'email',
-            }}
-            onChange={selectVolunteer}
-          />
-          <SimpleSelect
-            className={classes.select}
-            disabled={!loaded}
-            label="State (unassigned jurisdictions)"
-            items={loaded && states && Object.values(states).sort(sortByPropertyAsc('name'))}
-            schema={{
-              id: 'id',
-              value: 'id',
-              labelText: 'name',
-            }}
-            onChange={selectState}
-          />
-          {/****************  SELECTED VOLUNTEER'S NOTES  ****************/}
-          <Card className={classes.card} elevation={1} >
-            <CardContent>
-              <Typography className={classes.title} id="CardTitle" align="center" component="div">
-                Volunteer notes/preferences:
-              </Typography>
-              <Typography className={classes.cardContent} style={{ fontSize: '14px' }} id="cardContent" align="center" component="div">
-                { selectedVolunteer && selectedVolunteer.notes ? selectedVolunteer.notes : 'no notes/preferences provided' }
-              </Typography>
-            </CardContent>
-          </Card>
-          {/****************  REVIEW/SUBMIT  ****************/}
-          <Card className={classes.card} elevation={1} >
-            <CardContent>
-              <Typography className={classes.title} id="CardTitle" align="center" component="div">
-                Please confirm:
-              </Typography>
-              <Typography className={classes.cardContent} style={{ fontSize: '16px', fontWeight: 'bold' }} align="center" id="cardContent" component="div">
-                {assigned.length || '0'}
-              </Typography>
-              <Typography className={classes.cardContent} style={{ fontSize: '14px' }} id="cardContent" align="center" component="div">
-               jurisdictions will be assigned to:
-              </Typography>
-              <Typography className={classes.cardContent} style={{ fontSize: '14px', fontWeight: 'bold' }} align="center" id="cardContent" component="div">
-                {selectedVolunteer.email || 'no volunteer selected'}
-              </Typography>
-            </CardContent>
-            <CardActions className={classes.cardActions}>
-              <Button
-                className={classes.saveButton}
-                variant="contained"
-                color="primary"
-                onClick={handleSubmit}
-              >Save</Button>
-            </CardActions>
-          </Card>
+    <>
+      <Header title="Assign Jurisdictions" />
+      <div className={classes.root}>
+        <Grid
+          container
+          className={classes.gridContainer}
+        >
+          {/****************  SELECT VOLUNTEER, STATE  ****************/}
+          <Grid item className={classes.gridItem} style={{ height: '30%' }} >
+            <SimpleSelect
+              className={classes.select}
+              disabled={!loaded}
+              label="Volunteer (assigned jurisdictions)"
+              items={loaded && volunteers && Object.values(volunteers).sort(sortByPropertyAsc('email'))}
+              schema={{
+                id: 'id',
+                value: 'id',
+                labelText: 'email',
+              }}
+              onChange={selectVolunteer}
+            />
+            <SimpleSelect
+              className={classes.select}
+              disabled={!loaded}
+              label="State (unassigned jurisdictions)"
+              items={loaded && states && Object.values(states).sort(sortByPropertyAsc('name'))}
+              schema={{
+                id: 'id',
+                value: 'id',
+                labelText: 'name',
+              }}
+              onChange={selectState}
+            />
+            {/****************  SELECTED VOLUNTEER'S NOTES  ****************/}
+            <Card className={classes.card} elevation={1} >
+              <CardContent>
+                <Typography className={classes.title} id="CardTitle" align="center" component="div">
+                  Volunteer notes/preferences:
+                </Typography>
+                <Typography className={classes.cardContent} style={{ fontSize: '14px' }} id="cardContent" align="center" component="div">
+                  { selectedVolunteer && selectedVolunteer.notes ? selectedVolunteer.notes : 'no notes/preferences provided' }
+                </Typography>
+              </CardContent>
+            </Card>
+            {/****************  REVIEW/SUBMIT  ****************/}
+            <Card className={classes.card} elevation={1} >
+              <CardContent>
+                <Typography className={classes.title} id="CardTitle" align="center" component="div">
+                  Please confirm:
+                </Typography>
+                <Typography className={classes.cardContent} style={{ fontSize: '16px', fontWeight: 'bold' }} align="center" id="cardContent" component="div">
+                  {assigned.length || '0'}
+                </Typography>
+                <Typography className={classes.cardContent} style={{ fontSize: '14px' }} id="cardContent" align="center" component="div">
+                 jurisdictions will be assigned to:
+                </Typography>
+                <Typography className={classes.cardContent} style={{ fontSize: '14px', fontWeight: 'bold' }} align="center" id="cardContent" component="div">
+                  {selectedVolunteer.email || 'no volunteer selected'}
+                </Typography>
+              </CardContent>
+              <CardActions className={classes.cardActions}>
+                <Button
+                  className={classes.saveButton}
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSubmit}
+                >Save</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item>
+          {/****************  JURISDICTION ASSIGNMENT  ****************/}
+            <TransferList
+              leftTitle="Unassigned Jurisdictions"
+              rightTitle="Assign to Volunteer"
+              leftItems={unassigned}
+              rightItems={assigned}
+              onTransferLeft={unassign}
+              onTransferRight={assign}
+              schema={{
+                value: 'id',
+                primaryText: 'name',
+                secondaryText: 'abbreviation'
+              }}
+            />
+          </Grid>
         </Grid>
-        <Grid item>
-        {/****************  JURISDICTION ASSIGNMENT  ****************/}
-          <TransferList
-            leftTitle="Unassigned Jurisdictions"
-            rightTitle="Assign to Volunteer"
-            leftItems={unassigned}
-            rightItems={assigned}
-            onTransferLeft={unassign}
-            onTransferRight={assign}
-            schema={{
-              value: 'id',
-              primaryText: 'name',
-              secondaryText: 'abbreviation'
-            }}
-          />
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </>
   )
 }
 
