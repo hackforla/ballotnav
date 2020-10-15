@@ -4,7 +4,7 @@ const preloadedState = {
   data: dummyData,
   searches: [],
   ui: {
-    selectedLocation: undefined,
+    selectedLocation: null,
     resultDetailIsOpen: false,
   }
 }
