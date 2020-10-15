@@ -1,4 +1,6 @@
-div.result-header {
+
+
+  div.result-header {
   background-color: $blue;
   width: 100%;
   height: 80px;
@@ -23,11 +25,13 @@ div.result-header {
   }
 }
 
+.drawer_electionInfo {
+
 .rs-drawer-content {
   border-radius: 10px 10px 0 0;
   
   .rs-drawer-header {
-    margin: 8px 20px 0;
+    margin: 8px 20px 28px 0;
 
     .rs-drawer-header-close {
       left: 50vw;
@@ -168,4 +172,5 @@ div.result-header {
       left: -75px;
     }
   }
+}
 }

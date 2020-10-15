@@ -49,6 +49,7 @@ const ResultHeader = ({
   return (
     <div className="result-header">
       <Drawer
+        className='drawer_electionInfo'
         show={open}
         onHide={close}
         placement="bottom"
