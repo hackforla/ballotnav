@@ -84,7 +84,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
               if (field.endsWith('Id'))
                 return model.editFields[field].type.options.find(opt => opt.value === values[field])?.display
 
-              return values[field] || ''
+              return values[field] || 'none'
             })()}
           </TableCell>
         ))}
