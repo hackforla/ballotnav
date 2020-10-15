@@ -21,7 +21,6 @@ const ResultList = ({
 
   const toggleDrawer = () => {
     setOpen(!open);
-    setTimeout(function() { document.getElementById('drawer-body').style = "height: 75%;" }, 200);
   };
 
   const renderResultCards = () => {
@@ -40,6 +39,7 @@ const ResultList = ({
         onHide={close}
         placement="bottom"
         size="md"
+        className="result-list-drawer"
       >
         <Drawer.Header>
           <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
