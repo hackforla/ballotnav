@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import infoIcon from '../../assets/info-icon.svg';
-import { Drawer, Button, InputPicker } from 'rsuite';
+import { Drawer, InputPicker } from 'rsuite';
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -10,10 +10,22 @@ const handleSubmit = (e) => {
 }
 
 const ResultHeader = ({
-  search,
+  search, data,
 }) => {
   const [open, setOpen] = useState(false);
   const [searchByLocation, setSearchByLocation] = useState(false);
+  const { name: stateName, isLateRegistrationPossible: lateRegistration, urls, importantdates: importantDates } = data.stateData;
+
+  const renderDate = (date) => {
+    switch (date.dateType) {
+      case 'deadline':
+        return <span>{date.endTime}</span>;
+      case 'range':
+        return <span>{date.beginTime} - {date.endTime}</span>;
+      default:
+        return null
+    }
+  }
 
   const close = () => {
     setOpen(false);
@@ -55,12 +67,15 @@ const ResultHeader = ({
             <InputPicker></InputPicker>
           </div>
           <div className="electionInfo">
-            <p className="info_header">California</p>
-            <span>Last updated: September 14, 2020</span>
+            <p className="info_header">{stateName}</p>
             <p>
               We have found the most credible and up to date state and EAJ changes to be on <a>vote.org</a>.
             </p>
-            <a className='info_link'>California Secretary of State</a>
+            <p className='info_header'>Important Dates</p>
+            {importantDates.map(date => <p>{date.importantDateTypeName}: {renderDate(date)}</p>)}
+            <p className='info_header'>Links</p>
+            {urls.map(url => <a className='info_link' href={url.url}>{url.name}</a>)}
+            <p>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</p>
             <p className='info_header'>Subscribe</p>
             <p>Last-minute changes to details about how to vote should be expected. Sign up for SMS notifications for updates to your Secretary of State website. Mobile messaging rates may apply.</p>
             <p className='info_detail'>Write your phone number to receive State's updates</p>
@@ -87,6 +102,7 @@ const ResultHeader = ({
 
 const mapStateToProps = state => ({
   search: state.searches[state.searches.length - 1],
+  data: state.data
 });
 
 export default connect(mapStateToProps)(ResultHeader);
