@@ -15,7 +15,12 @@ const ResultHeader = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [searchByLocation, setSearchByLocation] = useState(false);
-  const { name: stateName, isLateRegistrationPossible: lateRegistration, urls, importantdates: importantDates } = data.stateData;
+  const {
+    name: stateName,
+    isLateRegistrationPossible: lateRegistration,
+    urls,
+    importantdates: importantDates
+  } = data.stateData;
 
   const renderDate = (date) => {
     switch (date.dateType) {
