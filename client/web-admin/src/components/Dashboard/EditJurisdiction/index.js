@@ -149,7 +149,17 @@ function EditJurisdiction() {
     setCanSubmitForReview(false)
     api.jurisdictions.releaseWipJurisdiction(jurisdiction.id)
       .then(data => {
-        console.log('released:', data)
+        toast({
+          severity: 'success',
+          autoHideDuration: 3000,
+          message: 'Jurisdiction released for review.',
+        })
+      })
+      .catch(error => {
+        toast({
+          severity: 'error',
+          message: error.message,
+        })
       })
   }
 
