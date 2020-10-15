@@ -33,6 +33,11 @@ function getValidate(model) {
   }
 }
 
+function getFormattedDate(date) {
+  if (!date) return ''
+  return moment(date).utc().format('yyyy-MM-DD')
+}
+
 /////////////////// THE COMPONENT //////////////////
 
 function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
@@ -81,7 +86,7 @@ function AutoForm({ model, initialValues, onSubmit, submitText, style }) {
               variant="outlined"
               margin="dense"
               fullWidth
-              value={type === 'date' ? moment(values[field]).utc().format('yyyy-MM-DD') : values[field] || ''}
+              value={type === 'date' ? getFormattedDate(values[field]) : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={errors[field] || ''}
