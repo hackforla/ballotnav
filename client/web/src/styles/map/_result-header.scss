@@ -26,6 +26,19 @@ div.result-header {
 .rs-drawer-content {
   border-radius: 10px 10px 0 0;
   
+  .rs-drawer-header {
+    margin: 8px 20px 0;
+
+    .rs-drawer-header-close {
+      left: 50vw;
+      margin-left: -61px;
+      border-top: 3px solid #C4C4C4;
+      width: 89px;
+      height:25px;
+      color:transparent;
+    }
+  }
+
   .rs-drawer-body {
     // height: 550px!important;
     margin: 20px 0 0 0;
@@ -71,7 +84,6 @@ div.result-header {
         .rs-btn {
           background: $blue!important;
           color:white;
-          // border: 1px solid white!important;
         }
         .rs-picker-toggle-placeholder, .rs-picker-toggle-caret {
           color:white;

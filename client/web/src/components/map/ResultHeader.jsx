@@ -6,7 +6,7 @@ import { Drawer, Button, InputPicker } from 'rsuite';
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  return console.log(`submitted`)
+  return console.log(`subscribe phone number submitted`)
 }
 
 const ResultHeader = ({
@@ -72,10 +72,6 @@ const ResultHeader = ({
             </form>
           </div>
         </Drawer.Body>
-        <Drawer.Footer>
-          <Button onClick={close} appearance="primary">Confirm</Button>
-          <Button onClick={close} appearance="subtle">Cancel</Button>
-        </Drawer.Footer>
       </Drawer>
       {
         search &&
