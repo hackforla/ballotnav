@@ -9,6 +9,11 @@ router.get('/states', control.listStates)
 router.get('/states/:id', control.getState)
 
 router.get(
+  '/wip/jurisdictions/released',
+  auth(['admin']),
+  control.listReleasedJurisdictions
+)
+router.get(
   '/wip/jurisdictions/:jurisdictionId',
   auth(['volunteer', 'admin']),
   control.getWipJurisdiction

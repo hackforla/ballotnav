@@ -9,6 +9,24 @@ exports.listJurisdictions = async (req, res, next) => {
   return res.json(data)
 }
 
+exports.listReleasedJurisdictions = async (req, res, next) => {
+  const rows = await req.db.WipJurisdiction.findAll({
+    where: { is_released: true },
+    include: {
+      association: 'jurisdiction',
+      include: { association: 'state' },
+    },
+  })
+
+  const data = rows.map(row => {
+    let values = row.dataValues
+    values.state = values.jurisdiction.state // needed for state name
+    delete values.jurisdiction
+    return values
+  })
+  return res.json(data)
+}
+
 // TODO: modify so that it returns the user's assigned jurisdictions
 exports.listMyJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({

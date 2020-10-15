@@ -12,6 +12,11 @@ export const listMine = async () => {
   return data
 }
 
+export const listReleased = async () => {
+  const { data } = await axios.get(`${BASE_URL}/wip/jurisdictions/released`)
+  return data
+}
+
 export const getById = async (id) => {
   const { data } = await axios.get(`${BASE_URL}/jurisdictions/${id}`)
   return data
@@ -71,6 +76,12 @@ export const updateWipJurisdiction = async (wipJurisdictionId, wip) => {
 
 export const releaseWipJurisdiction = async (wipJurisdictionId) => {
   const url = `${BASE_URL}/wip/jurisdictions/${wipJurisdictionId}/release`
+  const { data } = await axios.put(url)
+  return data
+}
+
+export const publishWipJurisdiction = async (wipJurisdictionId) => {
+  const url = `${BASE_URL}/wip/jurisdictions/${wipJurisdictionId}/publish`
   const { data } = await axios.put(url)
   return data
 }
