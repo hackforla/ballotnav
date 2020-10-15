@@ -92,7 +92,7 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
       <TableRow className={classes.collapseRoot}>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
+            <Box margin={1} style={{ marginBottom: 50 }}>
               {
                 isLocations
                 ? (

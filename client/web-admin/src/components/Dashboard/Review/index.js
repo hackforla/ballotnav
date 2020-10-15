@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react'
-import { useHeader } from '../Layout'
+import React from 'react'
 
 function Review() {
-  const { setTitle } = useHeader()
-
-  useEffect(() => {
-    setTitle('Review WIP')
-  }, [setTitle])
-
   return <div>What should go here?</div>
 }
 

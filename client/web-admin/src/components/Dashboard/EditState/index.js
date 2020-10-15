@@ -4,22 +4,19 @@ import AutoForm from 'components/core/AutoForm'
 import model from 'models/state'
 import TabPanel from 'components/core/TabPanel'
 import { Tabs, Tab, List, ListItem, ListItemText } from '@material-ui/core'
-import { useHeader } from '../Layout'
 import api from 'services/api'
 
 function EditState() {
   const { id } = useParams()
   const [state, setState] = useState(null)
   const [tabNum, setTabNum] = useState(0)
-  const { setTitle } = useHeader()
   const history = useHistory()
 
   useEffect(() => {
     api.states.getById(id).then((state) => {
-      setTitle(`Editing state: ${state.name}`)
       setState(state)
     })
-  }, [id, setTitle])
+  }, [id])
 
   if (!state) return null
   return (

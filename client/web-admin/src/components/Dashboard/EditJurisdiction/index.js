@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from 'services/api'
-import { useHeader } from '../Layout'
 
 import { editableFields } from 'models'
 import jurisdictionModel from 'models/jurisdiction'
@@ -17,7 +16,8 @@ import { Tab, Tabs, Box } from '@material-ui/core'
 import TabPanel from 'components/core/TabPanel'
 import JurisdictionTab from './JurisdictionTab'
 import SubmodelTab from './SubmodelTab'
-import Footer from './Footer'
+import Header from 'components/Dashboard/Layout/Header'
+import HeaderButtons from './HeaderButtons'
 
 const SUBMODELS = [{
   id: 'locations',
@@ -96,14 +96,12 @@ function EditJurisdiction() {
   const [canSaveProgress, setCanSaveProgress] = useState(false)
   const [canSubmitForReview, setCanSubmitForReview] = useState(false)
   const [tabNum, setTabNum] = useState(0)
-  const { setTitle } = useHeader()
 
   useEffect(() => {
     api.jurisdictions.getWipJurisdiction(id).then((jurisdiction) => {
-      setTitle(`Jurisdiction: ${jurisdiction.name}`)
       setJurisdiction(jurisdiction)
     })
-  }, [id, setTitle])
+  }, [id])
 
   const updateJurisdiction = (newJurisdiction) => {
     setJurisdiction({
@@ -144,40 +142,44 @@ function EditJurisdiction() {
 
   if (!jurisdiction) return null
   return (
-    <Box style={{ paddingBottom: 50 }}>
-      <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
-        <Tab label="Jurisdiction Details" />
-        {SUBMODELS.map(submodel => (
-          <Tab key={submodel.tabLabel} label={submodel.tabLabel} />
-        ))}
-      </Tabs>
-      <TabPanel value={tabNum} index={0}>
-        <JurisdictionTab
-          model={jurisdictionModel}
-          jurisdiction={jurisdiction}
-          onUpdate={updateJurisdiction}
+    <>
+      <Header title={`Jurisdiction: ${jurisdiction.name}`}>
+        <HeaderButtons
+          onSaveProgress={saveProgress}
+          canSaveProgress={canSaveProgress}
+          onSubmitForReview={submitForReview}
+          canSubmitForReview={canSubmitForReview && !canSaveProgress}
         />
-      </TabPanel>
-      {SUBMODELS.map((submodel, idx) => (
-        <TabPanel key={submodel.id} value={tabNum} index={idx + 1}>
-          <SubmodelTab
-            model={submodel.model}
-            instances={jurisdiction[submodel.id]}
-            displayName={submodel.displayName}
-            listKey={submodel.listKey}
-            tabLabel={submodel.tabLabel}
-            onChange={newSubmodel => updateSubmodel(submodel.id, newSubmodel)}
-            isLocations={submodel.id === 'locations'}
+      </Header>
+      <Box>
+        <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
+          <Tab label="Jurisdiction Details" />
+          {SUBMODELS.map(submodel => (
+            <Tab key={submodel.tabLabel} label={submodel.tabLabel} />
+          ))}
+        </Tabs>
+        <TabPanel value={tabNum} index={0}>
+          <JurisdictionTab
+            model={jurisdictionModel}
+            jurisdiction={jurisdiction}
+            onUpdate={updateJurisdiction}
           />
         </TabPanel>
-      ))}
-      <Footer
-        onSaveProgress={saveProgress}
-        canSaveProgress={canSaveProgress}
-        onSubmitForReview={submitForReview}
-        canSubmitForReview={canSubmitForReview && !canSaveProgress}
-      />
-    </Box>
+        {SUBMODELS.map((submodel, idx) => (
+          <TabPanel key={submodel.id} value={tabNum} index={idx + 1}>
+            <SubmodelTab
+              model={submodel.model}
+              instances={jurisdiction[submodel.id]}
+              displayName={submodel.displayName}
+              listKey={submodel.listKey}
+              tabLabel={submodel.tabLabel}
+              onChange={newSubmodel => updateSubmodel(submodel.id, newSubmodel)}
+              isLocations={submodel.id === 'locations'}
+            />
+          </TabPanel>
+        ))}
+      </Box>
+    </>
   )
 }
 
