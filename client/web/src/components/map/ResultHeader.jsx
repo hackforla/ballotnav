@@ -10,7 +10,8 @@ const handleSubmit = (e) => {
 }
 
 const ResultHeader = ({
-  search, data,
+  search,
+  data,
 }) => {
   const [open, setOpen] = useState(false);
   const [searchByLocation, setSearchByLocation] = useState(false);
