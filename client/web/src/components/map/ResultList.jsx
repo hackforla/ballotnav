@@ -7,6 +7,7 @@ import { Drawer } from 'rsuite';
 import { ButtonToolbar } from 'rsuite';
 import { Button } from 'rsuite';
 
+import infoIcon from '../../assets/info-icon-black.svg';
 import ResultCard from './ResultCard';
 
 const ResultList = ({
@@ -20,11 +21,12 @@ const ResultList = ({
 
   const toggleDrawer = () => {
     setOpen(!open);
+    setTimeout(function() { document.getElementById('drawer-body').style = "height: auto;" }, 100);
   };
 
   const renderResultCards = () => {
     return data.jurisdictionData.locations.map(location =>
-      <ResultCard location={location} />
+      <ResultCard location={location} key={location.id} />
     );
   };
 
@@ -37,18 +39,18 @@ const ResultList = ({
         show={open}
         onHide={close}
         placement="bottom"
-        size="lg"
+        size="md"
       >
         <Drawer.Header>
-          <Drawer.Title>Dropoffs Near You</Drawer.Title>
+          <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+          <div className="county-information-wrapper">
+            <img className="info-icon" src={infoIcon} alt="Information icon"/>
+            <a>County election information</a>
+          </div>
         </Drawer.Header>
-        <Drawer.Body>
+        <Drawer.Body id="drawer-body">
           {renderResultCards()}
         </Drawer.Body>
-        <Drawer.Footer>
-          <Button onClick={close} appearance="primary">Confirm</Button>
-          <Button onClick={close} appearance="subtle">Cancel</Button>
-        </Drawer.Footer>
       </Drawer>
     </div>
   );

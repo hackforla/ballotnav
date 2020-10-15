@@ -44,6 +44,7 @@
   bottom: 70px;
   left: 10px;
   width: 220px;
+  z-index: 1;
 
   @media only screen and (min-width: 768px) {
     width: 300px;
