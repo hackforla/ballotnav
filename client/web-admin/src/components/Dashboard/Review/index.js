@@ -12,7 +12,7 @@ function Jurisdictions() {
   useEffect(() => {
     api.jurisdictions.listReleased().then(jurisdictions => {
       const transformed = jurisdictions.map(jurisdiction => ({
-        id: jurisdiction.id,
+        id: jurisdiction.jurisdictionId,
         jurisdiction: jurisdiction.name,
         state: jurisdiction.state.name,
         'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),

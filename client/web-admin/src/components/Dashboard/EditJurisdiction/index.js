@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from 'services/api'
 import { useToast } from 'components/use-toast'
+import { useAuth } from 'components/use-auth'
 
 import { editableFields } from 'models'
 import jurisdictionModel from 'models/jurisdiction'
@@ -19,6 +20,7 @@ import JurisdictionTab from './JurisdictionTab'
 import SubmodelTab from './SubmodelTab'
 import Header from 'components/Dashboard/Layout/Header'
 import HeaderButtons from './HeaderButtons'
+import AdminHeaderButtons from './AdminHeaderButtons'
 
 const SUBMODELS = [{
   id: 'locations',
@@ -98,6 +100,8 @@ function EditJurisdiction() {
   const [canSubmitForReview, setCanSubmitForReview] = useState(false)
   const [tabNum, setTabNum] = useState(0)
   const toast = useToast()
+  const { user } = useAuth()
+  const isAdmin = user.role === 'admin'
 
   useEffect(() => {
     api.jurisdictions.getWipJurisdiction(id).then((jurisdiction) => {
@@ -163,17 +167,46 @@ function EditJurisdiction() {
       })
   }
 
+  const publish = () => {
+    api.jurisdictions.publishWipJurisdiction(jurisdiction.id)
+      .then(data => {
+        toast({
+          severity: 'success',
+          autoHideDuration: 3000,
+          message: 'Jurisdiction published.',
+        })
+      })
+      .catch(error => {
+        toast({
+          severity: 'error',
+          message: error.message,
+        })
+      })
+  }
+
   // useEffect(() => console.log('changed:', jurisdiction), [jurisdiction])
 
   return (
     <>
       <Header title={jurisdiction ? `Jurisdiction: ${jurisdiction.name}` : undefined}>
-        <HeaderButtons
-          onSaveProgress={saveProgress}
-          canSaveProgress={canSaveProgress}
-          onSubmitForReview={submitForReview}
-          canSubmitForReview={canSubmitForReview}
-        />
+        {
+          isAdmin ? (
+            <AdminHeaderButtons
+              onSaveProgress={saveProgress}
+              canSaveProgress={canSaveProgress}
+              onPublish={publish}
+              canPublish={!canSaveProgress}
+            />
+          ) : (
+            <HeaderButtons
+              onSaveProgress={saveProgress}
+              canSaveProgress={canSaveProgress}
+              onSubmitForReview={submitForReview}
+              canSubmitForReview={canSubmitForReview}
+            />
+          )
+        }
+
       </Header>
       {jurisdiction && (
         <Box>
