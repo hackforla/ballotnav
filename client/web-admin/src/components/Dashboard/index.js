@@ -17,13 +17,14 @@ function Dashboard() {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/jurisdictions" component={ListJurisdictions} />
+        {!isAdmin && <Route exact path="/jurisdictions" component={ListJurisdictions} />}
         <Route exact path="/jurisdictions/:id" component={EditJurisdiction} />
+        {!isAdmin && <Redirect to="/jurisdictions" />}
         {isAdmin && <Route exact path="/states" component={ListStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
         {isAdmin && <Route exact path="/review" component={Review} />}
         {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
-        <Redirect to="/jurisdictions" />
+        {isAdmin && <Redirect to="/review" />}
       </Switch>
     </Layout>
   )
