@@ -97,7 +97,7 @@ function EditJurisdiction() {
   const { id } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
   const [canSaveProgress, setCanSaveProgress] = useState(false)
-  const [canSubmitForReview, setCanSubmitForReview] = useState(false)
+  const [canSubmitForReview, setCanSubmitForReview] = useState(true)
   const [tabNum, setTabNum] = useState(0)
   const toast = useToast()
   const { user } = useAuth()
@@ -115,7 +115,7 @@ function EditJurisdiction() {
       ...newJurisdiction,
     })
     setCanSaveProgress(true)
-    setCanSubmitForReview(false)
+    // setCanSubmitForReview(false)
   }
 
   const updateSubmodel = (id, newSubmodel) => {
@@ -124,7 +124,7 @@ function EditJurisdiction() {
       [id]: newSubmodel,
     })
     setCanSaveProgress(true)
-    setCanSubmitForReview(false)
+    // setCanSubmitForReview(false)
   }
 
   const saveProgress = () => {
@@ -136,7 +136,6 @@ function EditJurisdiction() {
           autoHideDuration: 3000,
           message: 'Progress saved.',
         })
-        console.log('updated jurisdiction', updated)
         setJurisdiction(updated)
         setCanSubmitForReview(true)
       })
@@ -158,12 +157,15 @@ function EditJurisdiction() {
           autoHideDuration: 3000,
           message: 'Jurisdiction released for review.',
         })
+        updateJurisdiction({ isReleased: true })
+        setCanSubmitForReview(true)
       })
       .catch(error => {
         toast({
           severity: 'error',
           message: error.message,
         })
+        setCanSubmitForReview(true)
       })
   }
 
@@ -202,7 +204,7 @@ function EditJurisdiction() {
               onSaveProgress={saveProgress}
               canSaveProgress={canSaveProgress}
               onSubmitForReview={submitForReview}
-              canSubmitForReview={canSubmitForReview}
+              canSubmitForReview={jurisdiction && !jurisdiction.isReleased && !canSaveProgress && canSubmitForReview}
             />
           )
         }

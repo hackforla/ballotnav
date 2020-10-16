@@ -33,6 +33,19 @@ exports.listMyJurisdictions = async (req, res, next) => {
     where: { id: { [req.db.Sequelize.Op.in]: [186, 187, 188, 189, 190, 650] } },
     include: { association: 'state' },
   })
+
+  const jurisdictionIds = data.map(row => row.id)
+  const wipJurisdictions = await req.db.WipJurisdiction.findAll({
+    where: {
+      jurisdictionId: { [req.db.Sequelize.Op.in]: jurisdictionIds },
+      editorUserId: req.user.id,
+    }
+  })
+
+  data.forEach(row => {
+    row.dataValues.wipJurisdiction = wipJurisdictions.find(wip => wip.jurisdictionId === row.id) || null
+  })
+
   return res.json(data)
 }
 

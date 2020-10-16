@@ -11,11 +11,17 @@ function Jurisdictions() {
 
   useEffect(() => {
     api.jurisdictions.listMine().then(jurisdictions => {
+      console.log(jurisdictions)
       const transformed = jurisdictions.map(jurisdiction => ({
         id: jurisdiction.id,
         jurisdiction: jurisdiction.name,
         state: jurisdiction.state.name,
         'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
+        status: (() => {
+          if (!jurisdiction.wipJurisdiction) return 'No work in progress'
+          if (!jurisdiction.wipJurisdiction.isReleased) return 'Work in progress'
+          return 'Released for review'
+        })()
       }))
       setJurisdictions(transformed)
     })
@@ -25,7 +31,7 @@ function Jurisdictions() {
     <>
       <Header title='Select a jurisdiction to edit.' />
       <ButtonTable
-        columns={['jurisdiction', 'state', 'last updated']}
+        columns={['jurisdiction', 'state', 'last updated', 'status']}
         rows={jurisdictions}
         buttonText='Select'
         onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
