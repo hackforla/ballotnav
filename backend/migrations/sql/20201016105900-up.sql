@@ -8,6 +8,21 @@ SELECT
 	, jurisdiction_name
 	, wip_jurisdiction_id
 	, wip_jurisdiction_is_released
+	, CASE WHEN wip_jurisdiction_id IS NULL THEN
+		'Published'
+	ELSE
+		CASE WHEN wip_jurisdiction_id IS NOT NULL
+			AND wip_jurisdiction_is_released IS FALSE THEN
+			'Edit in Progress'
+		ELSE
+			CASE WHEN wip_jurisdiction_id IS NOT NULL
+				AND wip_jurisdiction_is_released IS TRUE THEN
+				'Released for Review'
+			ELSE
+				'Unknown'
+			END
+		END
+	END AS jurisdiction_status
 FROM (
 	SELECT
 		uj.user_id
