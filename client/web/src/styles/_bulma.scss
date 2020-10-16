@@ -11,7 +11,7 @@
 @charset "utf-8";
 
 @import '~rsuite/dist/styles/rsuite-default.css';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import '~mapbox-gl/dist/mapbox-gl.css';
 @import '~@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
@@ -22,7 +22,7 @@ $light-blue: #EBF3FA;
 $primary: $blue;
 $link-blue: #0819A5;
 
-$family-primary: 'Open Sans';
+$family-primary: 'Open Sans', sans-serif;
 $link: $link-blue;
 
 @import "~bulma/bulma.sass";
