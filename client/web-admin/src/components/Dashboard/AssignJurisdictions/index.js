@@ -186,6 +186,7 @@ function AssignJurisdictions() {
     } else {
       setUnassigned([]);
     }
+    // eslint-disable-next-line
   }, [volunteers, states])
 
   return (
