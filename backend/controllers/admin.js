@@ -11,7 +11,7 @@ exports.listJurisdictions = async (req, res, next) => {
 
 exports.listReleasedJurisdictions = async (req, res, next) => {
   const rows = await req.db.WipJurisdiction.findAll({
-    where: { is_released: true },
+    where: { isReleased: true },
     include: [{
       association: 'jurisdiction',
       include: { association: 'state' },
@@ -36,7 +36,14 @@ exports.getReleasedJurisdiction = async (req, res, next) => {
       isReleased: true,
       id: wipJurisdictionId,
       editorUserId,
-    }
+    },
+    include: [
+      { all: true },
+      {
+        association: 'locations',
+        include: { association: 'hours' },
+      },
+    ],
   })
   return res.json(data)
 }

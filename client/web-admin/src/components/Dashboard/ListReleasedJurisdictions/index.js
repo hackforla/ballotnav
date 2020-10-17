@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import ButtonTable from 'components/core/ButtonTable'
-import moment from 'moment'
 import Header from 'components/Dashboard/Layout/Header'
 
 function Jurisdictions() {
@@ -19,7 +18,6 @@ function Jurisdictions() {
         state: juris.state.name,
         volunteerName: `${juris.user.firstName} ${juris.user.lastName}`,
         volunteerSlackName: `${juris.user.slackName}`,
-        // 'last updated': moment(juris.updatedAt).format('MMM Do / hh:MM a'),
       }))
       setJurisdictions(transformed)
     })

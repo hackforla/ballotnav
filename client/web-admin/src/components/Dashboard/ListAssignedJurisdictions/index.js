@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import ButtonTable from 'components/core/ButtonTable'
-import moment from 'moment'
 import Header from 'components/Dashboard/Layout/Header'
 
 function Jurisdictions() {
@@ -15,7 +14,6 @@ function Jurisdictions() {
         id: juris.id,
         jurisdiction: juris.name,
         state: juris.state.name,
-        //'last updated': moment(juris.updatedAt).format('MMM Do / hh:MM a'),
         status: (() => {
           if (!juris.wipJurisdiction) return 'No work in progress'
           if (!juris.wipJurisdiction.isReleased) return 'Work in progress'
@@ -38,7 +36,6 @@ function Jurisdictions() {
         columns={[
           'jurisdiction',
           'state',
-          //'last updated',
           'status',
 
           // TODO: remove
