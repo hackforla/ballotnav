@@ -35,6 +35,11 @@ function getValidate(model) {
   }
 }
 
+function getFormattedDate(date) {
+  if (!date) return ''
+  return moment(date).utc().format('yyyy-MM-DD')
+}
+
 /////////////////// THE COMPONENT //////////////////
 
 function LocationForm({ model = locationModel, initialValues, onSubmit, submitText, style }) {
@@ -119,7 +124,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               variant="outlined"
               margin="dense"
               fullWidth
-              value={type === 'date' ? moment(values[field]).utc().format('yyyy-MM-DD') : values[field] || ''}
+              value={type === 'date' ? getFormattedDate(values[field]) : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={errors[field] || ''}

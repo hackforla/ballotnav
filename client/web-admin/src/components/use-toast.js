@@ -1,36 +1,50 @@
 import React, { useState, useContext, createContext, useCallback } from 'react'
+import { Snackbar } from '@material-ui/core'
+import { Alert } from '@material-ui/lab'
 
 const toastContext = createContext()
 
-export function ToastProvider({ children }) {
-  const [message, setMessage] = useState(null)
+const defaultConfig = {
+  message: null,
+  severity: 'success', // success, warning, info, error
+  autoHideDuration: null,
+  anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
+}
 
-  const toast = useCallback(({ message, timeout }) => {
-    setMessage(message)
-    setTimeout(() => {
-      setMessage(null)
-    }, timeout || 3000)
+export function ToastProvider({ children }) {
+  const [open, setOpen] = useState(false)
+  const [config, setConfig] = useState(defaultConfig)
+
+  const toast = useCallback(config => {
+    setOpen(true)
+    setConfig({ ...defaultConfig, ...config })
   }, [])
+
+  const handleClose = (event, reason) => {
+   if (reason === 'clickaway') return
+   setOpen(false)
+ }
 
   return (
     <>
-      {message && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 10,
-            right: 10,
-            backgroundColor: 'black',
-            padding: 20,
-            borderRadius: 5,
-            color: 'white',
-            zIndex: 5000,
-          }}
+      <Snackbar
+        open={open}
+        onClose={handleClose}
+        anchorOrigin={config.anchorOrigin}
+        autoHideDuration={config.autoHideDuration}
+      >
+        <Alert
+          severity={config.severity}
+          elevation={6}
+          variant='filled'
+          onClose={handleClose}
         >
-          {message}
-        </div>
-      )}
-      <toastContext.Provider value={toast}>{children}</toastContext.Provider>
+          { config.message }
+        </Alert>
+      </Snackbar>
+      <toastContext.Provider value={toast}>
+        {children}
+      </toastContext.Provider>
     </>
   )
 }

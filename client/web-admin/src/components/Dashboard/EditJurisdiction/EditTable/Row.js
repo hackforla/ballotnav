@@ -77,14 +77,17 @@ function Row({ model, row, isItemSelected, onClick, labelId, onSave, isLocations
             onClick={toggle}
             align='left'>
             {(() => {
-              if (model.editFields[field].type === 'date')
+              if (model.editFields[field].type === 'date') {
+                const date = values[field]
+                if (!date) return 'none'
                 return moment(values[field]).utc().format('yyyy-MM-DD')
+              }
 
               // it's a select field (hopefully) so show the display value
               if (field.endsWith('Id'))
                 return model.editFields[field].type.options.find(opt => opt.value === values[field])?.display
 
-              return values[field] || ''
+              return values[field] || 'none'
             })()}
           </TableCell>
         ))}

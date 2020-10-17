@@ -30,9 +30,15 @@ function Login() {
     validationSchema,
     onSubmit(values, { setSubmitting }) {
       login(values).catch((error) => {
-        if (error.emailNotFound) toast({ message: 'email not found' })
-        else if (error.passwordInvalid) toast({ message: 'password invalid' })
-        else toast({ message: 'server error' })
+        toast({
+          severity: 'error',
+          autoHideDuration: 3000,
+          message: (() => {
+            if (error.emailNotFound) return 'email not found'
+            if (error.passwordInvalid) return 'password invalid'
+            return 'server error'
+          })()
+        })
         setSubmitting(false)
       })
     },

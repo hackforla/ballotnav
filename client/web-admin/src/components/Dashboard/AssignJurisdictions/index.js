@@ -109,8 +109,9 @@ function AssignJurisdictions() {
             Created ${results.created.length} jurisdiction assignments.
             Removed ${results.removed} jurisdiction assignments.`
           toast({
+            severity: 'success',
+            autoHideDuration: 7000,
             message: successMessage,
-            timeout: 6000,
           });
           setSubmitting(false);
         });
