@@ -73,3 +73,16 @@ CREATE OR REPLACE FUNCTION ingress_hoursstatementtotable (param_officehoursstrin
 $$
 LANGUAGE SQL;
 
+UPDATE
+	location_hours
+SET
+	use_sunday = use_saturday
+	, use_saturday = use_friday
+	, use_friday = use_thursday
+	, use_thursday = use_wednesday
+	, use_wednesday = use_tuesday
+	, use_tuesday = use_monday
+	, use_monday = use_sunday
+WHERE
+	note IS NULL;
+
