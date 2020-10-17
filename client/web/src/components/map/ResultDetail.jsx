@@ -13,9 +13,13 @@ const ResultDetail = ({
       onHide={close}
       placement="bottom"
       size="md"
+      className="result-detail-drawer"
     >
       <Drawer.Header>
-        <p>Result Detail</p>
+        <div className="back-to-list">
+          <a id="back-arrow">&lt; &nbsp;</a>
+          <a>Back to list</a>
+        </div>
       </Drawer.Header>
       <Drawer.Body>
         <p>Details</p>
