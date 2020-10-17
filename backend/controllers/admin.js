@@ -289,9 +289,14 @@ exports.updateWipJurisdiction = async (req, res, next) => {
     delete updatedWip.locations
 
     // update the instance of wipJurisdiction
-    await req.db.WipJurisdiction.update(updatedWip, {
-      where: { id: wipJurisdictionId },
-    })
+    await req.db.WipJurisdiction.update(
+      {
+        ...updatedWip,
+        isReleased: false,
+      }, {
+        where: { id: wipJurisdictionId },
+      }
+    )
     const wj = await req.db.WipJurisdiction.findOne({
       where: { id: wipJurisdictionId },
     })
