@@ -14,16 +14,7 @@ function Jurisdictions() {
         id: juris.id,
         jurisdiction: juris.name,
         state: juris.state.name,
-        status: (() => {
-          if (!juris.wipJurisdiction) return 'No work in progress'
-          if (!juris.wipJurisdiction.isReleased) return 'Work in progress'
-          return 'Released for review'
-        })(),
-
-        // TODO: remove
-        editBasisWipJurisdictionId: juris.wipJurisdiction ? juris.wipJurisdiction.editBasisWipJurisdictionId : 'unknown',
-        hasWipJurisdiction: juris.wipJurisdiction ? 'true' : 'false',
-        isReleased: juris.wipJurisdiction ? juris.wipJurisdiction.isReleased.toString() : 'unknown',
+        status: juris.jurisdictionStatus,
       }))
       setJurisdictions(transformed)
     })
@@ -37,11 +28,6 @@ function Jurisdictions() {
           'jurisdiction',
           'state',
           'status',
-
-          // TODO: remove
-          'editBasisWipJurisdictionId',
-          'hasWipJurisdiction',
-          'isReleased'
         ]}
         rows={jurisdictions}
         buttonText='Select'

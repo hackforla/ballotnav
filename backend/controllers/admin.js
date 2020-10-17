@@ -48,26 +48,37 @@ exports.getReleasedJurisdiction = async (req, res, next) => {
   return res.json(data)
 }
 
-// TODO: modify so that it returns the user's assigned jurisdictions
 exports.listMyJurisdictions = async (req, res, next) => {
-  const data = await req.db.Jurisdiction.findAll({
-    where: { id: { [req.db.Sequelize.Op.in]: [186, 187, 188, 189, 190, 650] } },
-    include: { association: 'state' },
-  })
+  const userId = req.user.id
 
-  const jurisdictionIds = data.map(row => row.id)
-  const wipJurisdictions = await req.db.WipJurisdiction.findAll({
-    where: {
-      jurisdictionId: { [req.db.Sequelize.Op.in]: jurisdictionIds },
-      editorUserId: req.user.id,
+  const userJurisdictions = await req.db.UserJurisdiction.findAll({
+    where: { userId },
+    include: {
+      association: 'jurisdiction',
+      include: { association: 'state' },
     }
   })
 
-  data.forEach(row => {
-    row.dataValues.wipJurisdiction = wipJurisdictions.find(wip => wip.jurisdictionId === row.id) || null
-  })
+  const statuses = await req.db.sequelize.query(`
+      SELECT jurisdiction_id, jurisdiction_status
+        FROM user_jurisdiction_with_currwip
+        WHERE user_id = ':userId'
+    `,
+    {
+      replacements: { userId },
+      type: req.db.Sequelize.QueryTypes.SELECT,
+    }
+  )
 
-  return res.json(data)
+  const data = userJurisdictions.map(uJ => ({
+    ...uJ.dataValues.jurisdiction.dataValues,
+    jurisdictionStatus: (() => {
+      const status = statuses.find(status => status.jurisdiction_id === uJ.jurisdictionId)
+      return status ? status.jurisdiction_status : 'Unknown'
+    })()
+  }))
+
+  res.json(data)
 }
 
 // get all child models of jurisdiction plus hours within each location

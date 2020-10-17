@@ -175,6 +175,7 @@ exports.assign = async (req, res) => {
       ...req.body,
       userId: userId,
       jurisdictionId: jid,
+      status: 'editor',
     }))
     let results = await req.db.UserJurisdiction.bulkCreate(records)
     logger.info({
