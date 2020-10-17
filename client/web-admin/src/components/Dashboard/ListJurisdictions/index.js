@@ -49,7 +49,7 @@ function Jurisdictions() {
         ]}
         rows={jurisdictions}
         buttonText='Select'
-        onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
+        onClickButton={({ id }) => history.push(`/jurisdictions/${id}`)}
       />
     </>
   )

@@ -4,12 +4,12 @@ import { useAuth } from 'components/use-auth'
 import Layout from './Layout'
 
 import ListJurisdictions from './ListJurisdictions'
-import EditJurisdiction from './EditJurisdiction'
 import AssignJurisdictions from './AssignJurisdictions'
 import ListStates from './ListStates'
 import EditState from './EditState'
 import Review from './Review'
-
+import EditJurisVolunteer from './EditJurisVolunteer'
+import EditJurisAdmin from './EditJurisAdmin'
 
 function Dashboard() {
   const { user } = useAuth()
@@ -18,10 +18,12 @@ function Dashboard() {
     <Layout>
       <Switch>
         {!isAdmin && <Route exact path="/jurisdictions" component={ListJurisdictions} />}
-        <Route exact path="/jurisdictions/:id" component={EditJurisdiction} />
+        {!isAdmin && <Route exact path="/jurisdictions/:jurisdictionId" component={EditJurisVolunteer} />}
         {!isAdmin && <Redirect to="/jurisdictions" />}
+
         {isAdmin && <Route exact path="/states" component={ListStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
+        {isAdmin && <Route exact path="/review/:wipJurisdictionId/:editorUserId" component={EditJurisAdmin} />}
         {isAdmin && <Route exact path="/review" component={Review} />}
         {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
         {isAdmin && <Redirect to="/review" />}

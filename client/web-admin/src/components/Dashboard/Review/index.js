@@ -12,7 +12,9 @@ function Jurisdictions() {
   useEffect(() => {
     api.jurisdictions.listReleased().then(jurisdictions => {
       const transformed = jurisdictions.map(jurisdiction => ({
-        id: jurisdiction.jurisdictionId,
+        id: jurisdiction.id,  // for the key in the table
+        wipJurisdictionId: jurisdiction.id,
+        editorUserId: jurisdiction.editorUserId,
         jurisdiction: jurisdiction.name,
         state: jurisdiction.state.name,
         'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
@@ -28,7 +30,9 @@ function Jurisdictions() {
         columns={['jurisdiction', 'state', 'last updated']}
         rows={jurisdictions}
         buttonText='Select'
-        onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
+        onClickButton={({ wipJurisdictionId, editorUserId }) => {
+          history.push(`/review/${wipJurisdictionId}/${editorUserId}`)
+        }}
       />
     </>
   )
