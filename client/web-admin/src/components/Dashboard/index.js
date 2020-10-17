@@ -3,11 +3,11 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import Layout from './Layout'
 
-import ListJurisdictions from './ListJurisdictions'
+import ListAssignedJurisdictions from './ListAssignedJurisdictions'
 import AssignJurisdictions from './AssignJurisdictions'
 import ListStates from './ListStates'
 import EditState from './EditState'
-import Review from './Review'
+import ListReleasedJurisdictions from './ListReleasedJurisdictions'
 import EditJurisVolunteer from './EditJurisVolunteer'
 import EditJurisAdmin from './EditJurisAdmin'
 
@@ -17,14 +17,14 @@ function Dashboard() {
   return (
     <Layout>
       <Switch>
-        {!isAdmin && <Route exact path="/jurisdictions" component={ListJurisdictions} />}
+        {!isAdmin && <Route exact path="/jurisdictions" component={ListAssignedJurisdictions} />}
         {!isAdmin && <Route exact path="/jurisdictions/:jurisdictionId" component={EditJurisVolunteer} />}
         {!isAdmin && <Redirect to="/jurisdictions" />}
 
         {isAdmin && <Route exact path="/states" component={ListStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
         {isAdmin && <Route exact path="/review/:wipJurisdictionId/:editorUserId" component={EditJurisAdmin} />}
-        {isAdmin && <Route exact path="/review" component={Review} />}
+        {isAdmin && <Route exact path="/review" component={ListReleasedJurisdictions} />}
         {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
         {isAdmin && <Redirect to="/review" />}
       </Switch>
