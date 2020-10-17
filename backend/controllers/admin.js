@@ -10,22 +10,26 @@ exports.listJurisdictions = async (req, res, next) => {
 }
 
 exports.listReleasedJurisdictions = async (req, res, next) => {
-  const rows = await req.db.WipJurisdiction.findAll({
-    where: { isReleased: true },
-    include: [{
-      association: 'jurisdiction',
-      include: { association: 'state' },
-    },{
-      association: 'user'
-    }],
+  const rows = await req.db.sequelize.query(`
+    SELECT u.last_name, u.first_name, u.slack_name, uj.*
+    FROM user_jurisdiction_with_currwip uj
+    JOIN "user" u
+    ON (uj.user_id = u.id)
+    WHERE uj.wip_jurisdiction_is_released = true
+  `, {
+    type: req.db.Sequelize.QueryTypes.SELECT,
   })
 
-  const data = rows.map(row => {
-    let values = row.dataValues
-    values.state = values.jurisdiction.state // needed for state name
-    delete values.jurisdiction
-    return values
-  })
+  const data = rows.map(row => ({
+    wipJurisdictionId: row.wip_jurisdiction_id,
+    editorUserId: row.user_id,
+    editorName: `${row.first_name} ${row.last_name}`,
+    editorSlackName: row.slack_name,
+    jurisdictionName: row.jurisdiction_name,
+    jurisdictionStatus: row.jurisdiction_status,
+    stateName: row.state_name,
+  }))
+
   return res.json(data)
 }
 

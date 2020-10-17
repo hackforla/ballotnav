@@ -11,13 +11,11 @@ function Jurisdictions() {
   useEffect(() => {
     api.jurisdictions.listReleased().then(jurisdictions => {
       const transformed = jurisdictions.map(juris => ({
-        id: juris.id,  // for the key in the table
-        wipJurisdictionId: juris.id,
-        editorUserId: juris.editorUserId,
-        jurisdiction: juris.name,
-        state: juris.state.name,
-        volunteerName: `${juris.user.firstName} ${juris.user.lastName}`,
-        volunteerSlackName: `${juris.user.slackName}`,
+        ...juris,
+        id: juris.wipJurisdictionId,
+        volunteerName: juris.editorName,
+        volunteerSlackName: juris.editorSlackName,
+        status: juris.jurisdictionStatus,
       }))
       setJurisdictions(transformed)
     })
@@ -27,7 +25,13 @@ function Jurisdictions() {
     <>
       <Header title='Select a jurisdiction to review.' />
       <ButtonTable
-        columns={['jurisdiction', 'state', 'volunteerName', 'volunteerSlackName']}
+        columns={[
+          'jurisdictionName',
+          'stateName',
+          'volunteerName',
+          'volunteerSlackName',
+          'status',
+        ]}
         rows={jurisdictions}
         buttonText='Select'
         onClickButton={({ wipJurisdictionId, editorUserId }) => {
