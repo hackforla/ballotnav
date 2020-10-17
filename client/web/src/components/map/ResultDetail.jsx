@@ -22,6 +22,7 @@ const ResultDetail = ({
         </div>
       </Drawer.Header>
       <Drawer.Body>
+        <h1>{location.name}</h1>
         <p>Details</p>
       </Drawer.Body>
     </Drawer>
