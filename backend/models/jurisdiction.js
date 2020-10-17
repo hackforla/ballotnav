@@ -64,20 +64,17 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         as: 'locations',
       })
-      /*
-
-      // not yet registerable when this loads
-
       models.Jurisdiction.belongsToMany(models.User, {
-        through: UserJurisdiction,
+        through: models.UserJurisdiction,
+        as: 'users',
+        foreignKey: 'user_id',
       })
       models.Jurisdiction.hasMany(models.UserJurisdiction, {
+        as: 'userJurisdictions',
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
-
-      */
     }
   }
   Jurisdiction.init(
