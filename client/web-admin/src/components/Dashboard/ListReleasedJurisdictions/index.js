@@ -15,7 +15,7 @@ function Jurisdictions() {
         id: juris.wipJurisdictionId,
         volunteerName: juris.editorName,
         volunteerSlackName: juris.editorSlackName,
-        status: juris.jurisdictionStatus,
+        // status: juris.jurisdictionStatus,
       }))
       setJurisdictions(transformed)
     })
@@ -30,7 +30,7 @@ function Jurisdictions() {
           'stateName',
           'volunteerName',
           'volunteerSlackName',
-          'status',
+          // 'status',
         ]}
         rows={jurisdictions}
         buttonText='Select'

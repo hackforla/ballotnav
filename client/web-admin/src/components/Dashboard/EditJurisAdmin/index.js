@@ -75,7 +75,7 @@ function EditJurisdiction() {
           onSaveProgress={saveProgress}
           canSaveProgress={canSaveProgress}
           onPublish={publish}
-          canPublish={canPublish}
+          canPublish={canPublish && !canSaveProgress}
         />
       </Header>
       <Editor

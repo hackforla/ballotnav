@@ -208,6 +208,7 @@ exports.publishWipJurisdiction = async (req, res, next) => {
 exports.updateWipJurisdiction = async (req, res, next) => {
   const wipJurisdictionId = Number(req.params.wipJurisdictionId)
   const userId = req.user.id
+  const userRole = req.user.role
   const updatedWip = req.body
   logger.info({
     message: 'Upating WipJurisdiction',
@@ -296,7 +297,7 @@ exports.updateWipJurisdiction = async (req, res, next) => {
     await req.db.WipJurisdiction.update(
       {
         ...updatedWip,
-        isReleased: false,
+        ...(userRole === 'admin' ? {} : { isReleased: false }), // volunteer edits after release set released to false
       }, {
         where: { id: wipJurisdictionId },
       }
