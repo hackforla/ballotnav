@@ -21,7 +21,12 @@ function Jurisdictions() {
           if (!jurisdiction.wipJurisdiction) return 'No work in progress'
           if (!jurisdiction.wipJurisdiction.isReleased) return 'Work in progress'
           return 'Released for review'
-        })()
+        })(),
+
+        // TODO: remove
+        editBasisWipJurisdictionId: jurisdiction.wipJurisdiction ? jurisdiction.wipJurisdiction.editBasisWipJurisdictionId : 'unknown',
+        hasWipJurisdiction: jurisdiction.wipJurisdiction ? 'true' : 'false',
+        isReleased: jurisdiction.wipJurisdiction ? jurisdiction.wipJurisdiction.isReleased.toString() : 'unknown',
       }))
       setJurisdictions(transformed)
     })
@@ -31,7 +36,17 @@ function Jurisdictions() {
     <>
       <Header title='Select a jurisdiction to edit.' />
       <ButtonTable
-        columns={['jurisdiction', 'state', 'last updated', 'status']}
+        columns={[
+          'jurisdiction',
+          'state',
+          'last updated',
+          'status',
+
+          // TODO: remove
+          'editBasisWipJurisdictionId',
+          'hasWipJurisdiction',
+          'isReleased'
+        ]}
         rows={jurisdictions}
         buttonText='Select'
         onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
