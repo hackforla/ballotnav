@@ -1,0 +1,1004 @@
+{
+  "jurisdictionData": {
+    "id": 186,
+    "name": "Franklin County",
+    "authorityName": "Franklin County Board of Elections",
+    "mailingAddress1": "Absentee Department",
+    "mailingAddress2": "P.O. Box 182111",
+    "mailingAddress3": "Columbus, OH 43218-2111",
+    "fips": {
+      "category": "county",
+      "stateCode": "39",
+      "countyCode": "49",
+      "completeCountyCode": "39049"
+    },
+    "importantDates": [
+      {
+        "importantDateTypeId": 3,
+        "importantDateTypeName": "Polls Open",
+        "dateType": "range",
+        "beginTime": "2020-11-03 06:30:00",
+        "endTime": "2020-11-03 21:30:00",
+        "note": "Federal Judge Orders Franklin County to keep polls open until 9:30 PM"
+      }
+    ],
+    "locations": [
+      {
+        "id": 561,
+        "name": "Franklin County Board of Elections",
+        "infoPublic": "",
+        "address1": "1700 Morse Road ",
+        "address2": "",
+        "address3": "Columbus OH 43229",
+        "contactName": null,
+        "contactEmail": null,
+        "contactFax": "(614) 525-3489",
+        "contactPhone": "(614) 525-3100 ",
+        "geomCoordinates": "40.06042,-82.97369",
+        "isEarlyDropoffLocation": "Y",
+        "isEarlyVotingLocation": "Y",
+        "isElectionsOffice": "Y",
+        "isPollingLocation": "N",
+        "isDropBox": "N",
+        "isHandicapAccessible": "Y",
+        "isStaffedLocation": "Y",
+        "timezone": "US/Eastern",
+        "scheduleType": "hours",
+        "scheduleDescription": "NULL",
+        "continuousOpen": "",
+        "continuousClose": "",
+        "facilityTypeId": 2,
+        "facilityTypeName": "Government",
+        "hours": [
+          {
+            "2020-10-06": [
+              {
+                "date": "2020-10-06",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-06T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-06T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-07": [
+              {
+                "date": "2020-10-07",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-07T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-07T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-08": [
+              {
+                "date": "2020-10-08",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-08T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-08T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-09": [
+              {
+                "date": "2020-10-09",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-09T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-09T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-12": [
+              {
+                "date": "2020-10-12",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-12T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-12T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-13": [
+              {
+                "date": "2020-10-13",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-13T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-13T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-14": [
+              {
+                "date": "2020-10-14",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-14T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-14T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-15": [
+              {
+                "date": "2020-10-15",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-15T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-15T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-16": [
+              {
+                "date": "2020-10-16",
+                "openTime": "08:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-16T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-16T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-19": [
+              {
+                "date": "2020-10-19",
+                "openTime": "08:00",
+                "closeTime": "18:00",
+                "openTimeStamp": "2020-10-19T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-19T18:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-20": [
+              {
+                "date": "2020-10-20",
+                "openTime": "08:00",
+                "closeTime": "18:00",
+                "openTimeStamp": "2020-10-20T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-20T18:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-21": [
+              {
+                "date": "2020-10-21",
+                "openTime": "08:00",
+                "closeTime": "18:00",
+                "openTimeStamp": "2020-10-21T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-21T18:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-22": [
+              {
+                "date": "2020-10-22",
+                "openTime": "08:00",
+                "closeTime": "18:00",
+                "openTimeStamp": "2020-10-22T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-22T18:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-23": [
+              {
+                "date": "2020-10-23",
+                "openTime": "08:00",
+                "closeTime": "18:00",
+                "openTimeStamp": "2020-10-23T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-23T18:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-24": [
+              {
+                "date": "2020-10-24",
+                "openTime": "08:00",
+                "closeTime": "16:00",
+                "openTimeStamp": "2020-10-24T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-24T16:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-25": [
+              {
+                "date": "2020-10-25",
+                "openTime": "13:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-10-25T13:00:00-04:00",
+                "closeTimeStamp": "2020-10-25T17:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-26": [
+              {
+                "date": "2020-10-26",
+                "openTime": "08:00",
+                "closeTime": "19:00",
+                "openTimeStamp": "2020-10-26T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-26T19:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-27": [
+              {
+                "date": "2020-10-27",
+                "openTime": "08:00",
+                "closeTime": "19:00",
+                "openTimeStamp": "2020-10-27T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-27T19:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-28": [
+              {
+                "date": "2020-10-28",
+                "openTime": "08:00",
+                "closeTime": "19:00",
+                "openTimeStamp": "2020-10-28T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-28T19:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-29": [
+              {
+                "date": "2020-10-29",
+                "openTime": "08:00",
+                "closeTime": "19:00",
+                "openTimeStamp": "2020-10-29T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-29T19:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-30": [
+              {
+                "date": "2020-10-30",
+                "openTime": "08:00",
+                "closeTime": "19:00",
+                "openTimeStamp": "2020-10-30T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-30T19:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-10-31": [
+              {
+                "date": "2020-10-31",
+                "openTime": "08:00",
+                "closeTime": "16:00",
+                "openTimeStamp": "2020-10-31T08:00:00-04:00",
+                "closeTimeStamp": "2020-10-31T16:00:00-04:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-11-01": [
+              {
+                "date": "2020-11-01",
+                "openTime": "13:00",
+                "closeTime": "17:00",
+                "openTimeStamp": "2020-11-01T13:00:00-05:00",
+                "closeTimeStamp": "2020-11-01T17:00:00-05:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-11-02": [
+              {
+                "date": "2020-11-02",
+                "openTime": "08:00",
+                "closeTime": "14:00",
+                "openTimeStamp": "2020-11-02T08:00:00-05:00",
+                "closeTimeStamp": "2020-11-02T14:00:00-05:00",
+                "note": "Ohio SOS Prescribed Early Voting Hours"
+              }
+            ]
+          },
+          {
+            "2020-11-03": [
+              {
+                "date": "2020-11-03",
+                "openTime": "06:30",
+                "closeTime": "19:30",
+                "openTimeStamp": "2020-11-03T06:30:00-05:00",
+                "closeTimeStamp": "2020-11-03T19:30:00-05:00",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 619,
+        "name": "Franklin County Board of Elections",
+        "infoPublic": "Outdoor drop box",
+        "address1": "1700 Morse Road ",
+        "address2": "",
+        "address3": "Columbus OH 43229",
+        "contactName": null,
+        "contactEmail": null,
+        "contactFax": "(614) 525-3489",
+        "contactPhone": "(614) 525-3100 ",
+        "geomCoordinates": "40.06042,-82.97369",
+        "isEarlyDropoffLocation": "Y",
+        "isEarlyVotingLocation": "N",
+        "isElectionsOffice": "N",
+        "isPollingLocation": "N",
+        "isDropBox": "Y",
+        "isHandicapAccessible": "Y",
+        "isStaffedLocation": "N",
+        "timezone": "US/Eastern",
+        "scheduleType": "continuous",
+        "scheduleDescription": "NULL",
+        "continuousOpen": "2020-10-05 08:00:00-04",
+        "continuousClose": "2020-11-03 19:30:00-05",
+        "facilityTypeId": 2,
+        "facilityTypeName": "Government",
+        "hours": []
+      }
+    ],
+    "phones": [
+      {
+        "id": 1,
+        "number": "+16145253100",
+        "description": "",
+        "phoneNumberTypeName": "Voice",
+        "sortOrder": 11
+      },
+      {
+        "id": 2,
+        "number": "+16145253489",
+        "description": "",
+        "phoneNumberTypeName": "Voice",
+        "sortOrder": 11
+      }
+    ],
+    "urls": [
+      {
+        "id": 2,
+        "urlTypeId": 12,
+        "urlTypeName": "Jurisdiction Elections Website",
+        "isEmail": false,
+        "url": "https://vote.franklincountyohio.gov",
+        "name": "Franklin County Website",
+        "description": ""
+      },
+      {
+        "id": 3,
+        "urlTypeId": 3,
+        "urlTypeName": "Check if I'm registered",
+        "isEmail": false,
+        "url": "https://vote.franklincountyohio.gov/search-polling-locations",
+        "name": "Check your voter registration",
+        "description": ""
+      },
+      {
+        "id": 4,
+        "urlTypeId": 22,
+        "urlTypeName": "E-Mail Address",
+        "isEmail": true,
+        "url": "boe@franklincountyohio.gov",
+        "name": "Franklin County Board of Elections Email",
+        "description": ""
+      }
+    ],
+    "news": [
+      {
+        "id": 1,
+        "datePosted": "2020-08-23 00:00:00",
+        "jurisdictionId": 186,
+        "caption": "Absentee ballot requests flooding Ohio elections boards like never before",
+        "url": "https://www.dispatch.com/story/news/politics/2020/08/23/absentee-ballot-requests-flooding-ohio-elections-boards-like-never-before/42278209/",
+        "summary": ""
+      }
+    ],
+    "notices": [
+      {
+        "id": 2,
+        "severity": "critical",
+        "message": "Franklin County refuses to comply with SOS order to use only one ballot drop box. See news for details.",
+        "datePosted": "2020-09-25 23:55:22"
+      }
+    ],
+    "infotabs": []
+  },
+  "stateData": {
+    "id": 49,
+    "name": "Ohio",
+    "news": [
+      {
+        "id": 2,
+        "url": "https://www.nbc4i.com/news/your-local-election-hq/probe-into-discarded-ballots-becomes-campaign-outrage-fuel/",
+        "caption": "Probe into ‘discarded’ ballots becomes campaign outrage fuel",
+        "stateId": 49,
+        "summary": "",
+        "datePosted": "2020-09-25 20:37:00"
+      },
+      {
+        "id": 1,
+        "url": "https://www.nbc4i.com/news/your-local-election-hq/limit-of-1-ballot-box-per-county-reaches-ohio-appeals-court/",
+        "caption": "Limit of 1 ballot box per county reaches Ohio appeals court",
+        "stateId": 49,
+        "summary": "",
+        "datePosted": "2020-09-25 18:15:00"
+      }
+    ],
+    "urls": [
+      {
+        "id": 3,
+        "url": "https://voteohio.gov",
+        "name": "Vote Ohio",
+        "isEmail": false,
+        "urlTypeId": 2,
+        "description": "",
+        "urlTypeName": "State Website"
+      },
+      {
+        "id": 4,
+        "url": "https://voterlookup.ohiosos.gov/voterlookup.aspx",
+        "name": "Check your voter registration",
+        "isEmail": false,
+        "urlTypeId": 3,
+        "description": "Ohio uses an ancient tomcat implementation that may or may not be useful",
+        "urlTypeName": "Check if I'm registered"
+      }
+    ],
+    "phones": [
+      {
+        "id": 4,
+        "number": "+16145551212",
+        "sortOrder": 11,
+        "description": "",
+        "phoneNumberTypeName": "Voice"
+      },
+      {
+        "id": 5,
+        "number": "+18005551212",
+        "sortOrder": 11,
+        "description": "Toll-free in Ohio",
+        "phoneNumberTypeName": "Voice"
+      },
+      {
+        "id": 3,
+        "number": "+174099941414",
+        "sortOrder": 31,
+        "description": "",
+        "phoneNumberTypeName": "Fax"
+      }
+    ],
+    "notices": [
+      {
+        "id": 1,
+        "message": "Federal Court Rules Existence of Ohio Unconstitutional. See news for more information.",
+        "severity": "critical",
+        "datePosted": "2020-09-25 23:14:16"
+      }
+    ],
+    "infotabs": [],
+    "stateType": "State",
+    "abbreviation": "OH",
+    "authorityName": "Ohio Secretary of State, J Kenneth Blackwell",
+    "jurisdictions": [
+      {
+        "id": 2330,
+        "name": "Adams County",
+        "authorityName": "Adams County Board of Elections"
+      },
+      {
+        "id": 31,
+        "name": "Allen County",
+        "authorityName": "Allen County Board of Elections"
+      },
+      {
+        "id": 2,
+        "name": "Ashland County",
+        "authorityName": "Ashland County Board of Elections"
+      },
+      {
+        "id": 3,
+        "name": "Ashtabula County",
+        "authorityName": "Ashtabula County Board of Elections"
+      },
+      {
+        "id": 4,
+        "name": "Athens County",
+        "authorityName": "Athens County Board of Elections"
+      },
+      {
+        "id": 32,
+        "name": "Auglaize County",
+        "authorityName": "Auglaize County Board of Elections"
+      },
+      {
+        "id": 5,
+        "name": "Belmont County",
+        "authorityName": "Belmont County Board of Elections"
+      },
+      {
+        "id": 6,
+        "name": "Brown County",
+        "authorityName": "Brown County Board of Elections"
+      },
+      {
+        "id": 33,
+        "name": "Butler County",
+        "authorityName": "Butler County Board of Elections"
+      },
+      {
+        "id": 2331,
+        "name": "Carroll County",
+        "authorityName": "Carroll County Board of Elections"
+      },
+      {
+        "id": 36,
+        "name": "Champaign County",
+        "authorityName": "Champaign County Board of Elections"
+      },
+      {
+        "id": 37,
+        "name": "Clark County",
+        "authorityName": "Clark County Board of Elections"
+      },
+      {
+        "id": 7,
+        "name": "Clermont County",
+        "authorityName": "Clermont County Board of Elections"
+      },
+      {
+        "id": 38,
+        "name": "Clinton County",
+        "authorityName": "Clinton County Board of Elections"
+      },
+      {
+        "id": 39,
+        "name": "Columbiana County",
+        "authorityName": "Columbiana County Board of Elections"
+      },
+      {
+        "id": 40,
+        "name": "Coshocton County",
+        "authorityName": "Coshocton County Board of Elections"
+      },
+      {
+        "id": 1,
+        "name": "Crawford County",
+        "authorityName": "Crawford County Board of Elections"
+      },
+      {
+        "id": 34,
+        "name": "Cuyahoga County",
+        "authorityName": "Cuyahoga County Board of Elections"
+      },
+      {
+        "id": 35,
+        "name": "Darke County",
+        "authorityName": "Darke County Board of Elections"
+      },
+      {
+        "id": 41,
+        "name": "Defiance County",
+        "authorityName": "Defiance County Board of Elections"
+      },
+      {
+        "id": 2332,
+        "name": "Delaware County",
+        "authorityName": "Delaware County Board of Elections"
+      },
+      {
+        "id": 2333,
+        "name": "Erie County",
+        "authorityName": "Erie County Board of Elections"
+      },
+      {
+        "id": 2334,
+        "name": "Fairfield County",
+        "authorityName": "Fairfield County Board of Elections"
+      },
+      {
+        "id": 42,
+        "name": "Fayette County",
+        "authorityName": "Fayette County Board of Elections"
+      },
+      {
+        "id": 186,
+        "name": "Franklin County",
+        "authorityName": "Franklin County Board of Elections"
+      },
+      {
+        "id": 43,
+        "name": "Fulton County",
+        "authorityName": "Fulton County Board of Elections"
+      },
+      {
+        "id": 2335,
+        "name": "Gallia County",
+        "authorityName": "Gallia County Board of Elections"
+      },
+      {
+        "id": 8,
+        "name": "Geauga County",
+        "authorityName": "Geauga County Board of Elections"
+      },
+      {
+        "id": 2336,
+        "name": "Greene County",
+        "authorityName": "Greene County Board of Elections"
+      },
+      {
+        "id": 44,
+        "name": "Guernsey County",
+        "authorityName": "Guernsey County Board of Elections"
+      },
+      {
+        "id": 2337,
+        "name": "Hamilton County",
+        "authorityName": "Hamilton County Board of Elections"
+      },
+      {
+        "id": 45,
+        "name": "Hancock County",
+        "authorityName": "Hancock County Board of Elections"
+      },
+      {
+        "id": 46,
+        "name": "Hardin County",
+        "authorityName": "Hardin County Board of Elections"
+      },
+      {
+        "id": 47,
+        "name": "Harrison County",
+        "authorityName": "Harrison County Board of Elections"
+      },
+      {
+        "id": 48,
+        "name": "Henry County",
+        "authorityName": "Henry County Board of Elections"
+      },
+      {
+        "id": 187,
+        "name": "Highland County",
+        "authorityName": "Highland County Board of Elections"
+      },
+      {
+        "id": 49,
+        "name": "Hocking County",
+        "authorityName": "Hocking County Board of Elections"
+      },
+      {
+        "id": 2338,
+        "name": "Holmes County",
+        "authorityName": "Holmes County Board of Elections"
+      },
+      {
+        "id": 2339,
+        "name": "Huron County",
+        "authorityName": "Huron County Board of Elections"
+      },
+      {
+        "id": 50,
+        "name": "Jackson County",
+        "authorityName": "Jackson County Board of Elections"
+      },
+      {
+        "id": 2340,
+        "name": "Jefferson County",
+        "authorityName": "Jefferson County Board of Elections"
+      },
+      {
+        "id": 20,
+        "name": "Knox County",
+        "authorityName": "Knox County Board of Elections"
+      },
+      {
+        "id": 21,
+        "name": "Lake County",
+        "authorityName": "Lake County Board of Elections"
+      },
+      {
+        "id": 22,
+        "name": "Lawrence County",
+        "authorityName": "Lawrence County Board of Elections"
+      },
+      {
+        "id": 51,
+        "name": "Licking County",
+        "authorityName": "Licking County Board of Elections"
+      },
+      {
+        "id": 52,
+        "name": "Logan County",
+        "authorityName": "Logan County Board of Elections"
+      },
+      {
+        "id": 53,
+        "name": "Lorain County",
+        "authorityName": "Lorain County Board of Elections"
+      },
+      {
+        "id": 19,
+        "name": "Lucas County",
+        "authorityName": "Lucas County Board of Elections"
+      },
+      {
+        "id": 54,
+        "name": "Madison County",
+        "authorityName": "Madison County Board of Elections"
+      },
+      {
+        "id": 55,
+        "name": "Mahoning County",
+        "authorityName": "Mahoning County Board of Elections"
+      },
+      {
+        "id": 56,
+        "name": "Marion County",
+        "authorityName": "Marion County Board of Elections"
+      },
+      {
+        "id": 58,
+        "name": "Medina County",
+        "authorityName": "Medina County Board of Elections"
+      },
+      {
+        "id": 188,
+        "name": "Meigs County",
+        "authorityName": "Meigs County Board of Elections"
+      },
+      {
+        "id": 59,
+        "name": "Mercer County",
+        "authorityName": "Mercer County Board of Elections"
+      },
+      {
+        "id": 2341,
+        "name": "Miami County",
+        "authorityName": "Miami County Board of Elections"
+      },
+      {
+        "id": 2342,
+        "name": "Monroe County",
+        "authorityName": "Monroe County Board of Elections"
+      },
+      {
+        "id": 26,
+        "name": "Montgomery County",
+        "authorityName": "Montgomery County Board of Elections"
+      },
+      {
+        "id": 60,
+        "name": "Morgan County",
+        "authorityName": "Morgan County Board of Elections"
+      },
+      {
+        "id": 61,
+        "name": "Morrow County",
+        "authorityName": "Morrow County Board of Elections"
+      },
+      {
+        "id": 62,
+        "name": "Muskingum County",
+        "authorityName": "Muskingum County Board of Elections"
+      },
+      {
+        "id": 63,
+        "name": "Noble County",
+        "authorityName": "Noble County Board of Elections"
+      },
+      {
+        "id": 189,
+        "name": "Ottawa County",
+        "authorityName": "Ottawa County Board of Elections"
+      },
+      {
+        "id": 64,
+        "name": "Paulding County",
+        "authorityName": "Paulding County Board of Elections"
+      },
+      {
+        "id": 65,
+        "name": "Perry County",
+        "authorityName": "Perry County Board of Elections"
+      },
+      {
+        "id": 190,
+        "name": "Pickaway County",
+        "authorityName": "Pickaway County Board of Elections"
+      },
+      {
+        "id": 191,
+        "name": "Pike County",
+        "authorityName": "Pike County Board of Elections"
+      },
+      {
+        "id": 66,
+        "name": "Portage County",
+        "authorityName": "Portage County Board of Elections"
+      },
+      {
+        "id": 2343,
+        "name": "Preble County",
+        "authorityName": "Preble County Board of Elections"
+      },
+      {
+        "id": 67,
+        "name": "Putnam County",
+        "authorityName": "Putnam County Board of Elections"
+      },
+      {
+        "id": 27,
+        "name": "Richland County",
+        "authorityName": "Richland County Board of Elections"
+      },
+      {
+        "id": 2344,
+        "name": "Ross County",
+        "authorityName": "Ross County Board of Elections"
+      },
+      {
+        "id": 68,
+        "name": "Sandusky County",
+        "authorityName": "Sandusky County Board of Elections"
+      },
+      {
+        "id": 69,
+        "name": "Scioto County",
+        "authorityName": "Scioto County Board of Elections"
+      },
+      {
+        "id": 70,
+        "name": "Seneca County",
+        "authorityName": "Seneca County Board of Elections"
+      },
+      {
+        "id": 71,
+        "name": "Shelby County",
+        "authorityName": "Shelby County Board of Elections"
+      },
+      {
+        "id": 196,
+        "name": "Stark County",
+        "authorityName": "Stark County Board of Elections"
+      },
+      {
+        "id": 197,
+        "name": "Summit County",
+        "authorityName": "Summit County Board of Elections"
+      },
+      {
+        "id": 195,
+        "name": "Trumbull County",
+        "authorityName": "Trumbull County Board of Elections"
+      },
+      {
+        "id": 198,
+        "name": "Tuscarawas County",
+        "authorityName": "Tuscarawas County Board of Elections"
+      },
+      {
+        "id": 72,
+        "name": "Union County",
+        "authorityName": "Union County Board of Elections"
+      },
+      {
+        "id": 73,
+        "name": "Van Wert County",
+        "authorityName": "Van Wert County Board of Elections"
+      },
+      {
+        "id": 28,
+        "name": "Vinton County",
+        "authorityName": "Vinton County Board of Elections"
+      },
+      {
+        "id": 199,
+        "name": "Warren County",
+        "authorityName": "Warren County Board of Elections"
+      },
+      {
+        "id": 200,
+        "name": "Washington County",
+        "authorityName": "Washington County Board of Elections"
+      },
+      {
+        "id": 29,
+        "name": "Wayne County",
+        "authorityName": "Wayne County Board of Elections"
+      },
+      {
+        "id": 57,
+        "name": "Williams County",
+        "authorityName": "Williams County Board of Elections"
+      },
+      {
+        "id": 25,
+        "name": "Wood County",
+        "authorityName": "Wood County Board of Elections"
+      },
+      {
+        "id": 30,
+        "name": "Wyandot County",
+        "authorityName": "Wyandot County Board of Elections"
+      }
+    ],
+    "importantdates": [
+      {
+        "note": "Voter registration deadline",
+        "endTime": "2020-10-05 23:59:59",
+        "dateType": "deadline",
+        "beginTime": null,
+        "importantDateTypeId": 1,
+        "importantDateTypeName": "Voter Registration Deadline"
+      },
+      {
+        "note": "Last chance to request an absent voter ballot",
+        "endTime": "2020-10-31 12:00:00",
+        "dateType": "deadline",
+        "beginTime": null,
+        "importantDateTypeId": 2,
+        "importantDateTypeName": "Absentee Ballot Application Deadline"
+      },
+      {
+        "note": "",
+        "endTime": "2020-11-03 19:30:00",
+        "dateType": "deadline",
+        "beginTime": null,
+        "importantDateTypeId": 4,
+        "importantDateTypeName": "Absentee Ballot Return Deadline"
+      },
+      {
+        "note": "",
+        "endTime": "2020-11-03 19:30:00",
+        "dateType": "range",
+        "beginTime": "2020-11-03 06:30:00",
+        "importantDateTypeId": 3,
+        "importantDateTypeName": "Polls Open"
+      }
+    ],
+    "jurisdictionType": "County",
+    "isLateRegistrationPossible": "N"
+  }
+}

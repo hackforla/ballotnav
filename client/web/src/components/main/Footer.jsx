@@ -11,13 +11,13 @@ const Footer = () => {
       <div className="content has-text-centered">
         <div className="social-wrapper">
           <a href="https://www.hackforla.org">
-            <img id="hack-for-LA-logo" src={hackForLALogo} />
+            <img id="hack-for-LA-logo" src={hackForLALogo} alt="Hack for LA logo" />
           </a>
           <a>
-            <img src={twitterLogo} />
+            <img src={twitterLogo} alt="Twitter logo" />
           </a>
           <a>
-            <img src={facebookLogo} />
+            <img src={facebookLogo} alt="Facebook logo" />
           </a>
         </div>
         <div id="privacy-policy">

@@ -1,4 +1,10 @@
 .navbar {
+  margin: 0 auto;
+
+  @media only screen and (min-width: 768px) {
+    width: 700px;
+  }
+
   .navbar-item img {
     max-height: 1.6em;
   }
@@ -47,4 +53,8 @@
       background-color: $light-blue;
     }
   }
+}
+
+.navbar.map {
+  width: 100%;
 }

@@ -2,10 +2,18 @@
 // Add points to a map: https://docs.mapbox.com/help/tutorials/add-points-pt-1/
 
 import React from 'react';
-import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
+
+import ResultList from './ResultList';
+
+const closeAlert = () => {
+  const alert = document.getElementById('alert');
+  alert.style.display = 'none'
+}
 
 class Map extends React.Component {
   componentDidMount() {
@@ -31,44 +39,51 @@ class Map extends React.Component {
       mapboxgl: mapboxgl,
       marker: false,
       countries: 'us',
+      types: 'address, neighborhood, locality, place, district, postcode'
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(map));
 
     geocoder.on('result', ({ result }) => {
       addSearch(result);
-    })
+    });
 
     map.on('click', e => {
       const features = map.queryRenderedFeatures(e.point, {
         layers: ['chicago-parks'] // replace this with the name of the layer
       });
-    
+
       if (!features.length) {
         return;
       }
-    
+
       const feature = features[0];
-    
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+
+      new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
         .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
         .addTo(map);
     });
   }
-  
+
   render() {
     return (
-      <>
-        <div id="map-container" ref={el => this.mapContainer = el} />
-        <div id="map-geocoder" />
-      </>
+      <div className="map">
+        <div id='alert'>
+          <span>Remember to verify the information through the official website and phone number before you leave</span>
+          <button onClick={() => closeAlert()}>X</button>
+        </div>
+        <ResultList />
+        <div id="map-container" ref={el => this.mapContainer = el}>
+          <div id="map-geocoder" />
+        </div>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  search: state.search[state.search.length - 1],
+  search: state.searches[state.searches.length - 1],
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -76,3 +91,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
+
+Map.propTypes = {
+  search: PropTypes.object,
+  addSearch: PropTypes.func.isRequired,
+};

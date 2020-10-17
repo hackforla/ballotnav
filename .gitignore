@@ -3,3 +3,4 @@ backend/node_modules
 .env
 .DS_Store
 client/**/build
+backend/db/reference_csv
