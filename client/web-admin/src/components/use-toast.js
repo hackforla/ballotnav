@@ -5,11 +5,11 @@ const toastContext = createContext()
 export function ToastProvider({ children }) {
   const [message, setMessage] = useState(null)
 
-  const toast = useCallback(({ message }) => {
+  const toast = useCallback(({ message, timeout }) => {
     setMessage(message)
     setTimeout(() => {
       setMessage(null)
-    }, 3000)
+    }, timeout || 3000)
   }, [])
 
   return (
@@ -24,6 +24,7 @@ export function ToastProvider({ children }) {
             padding: 20,
             borderRadius: 5,
             color: 'white',
+            zIndex: 5000,
           }}
         >
           {message}
