@@ -12,10 +12,12 @@ exports.listJurisdictions = async (req, res, next) => {
 exports.listReleasedJurisdictions = async (req, res, next) => {
   const rows = await req.db.WipJurisdiction.findAll({
     where: { is_released: true },
-    include: {
+    include: [{
       association: 'jurisdiction',
       include: { association: 'state' },
-    },
+    },{
+      association: 'user'
+    }],
   })
 
   const data = rows.map(row => {

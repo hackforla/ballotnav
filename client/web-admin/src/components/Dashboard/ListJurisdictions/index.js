@@ -11,22 +11,21 @@ function Jurisdictions() {
 
   useEffect(() => {
     api.jurisdictions.listMine().then(jurisdictions => {
-      console.log(jurisdictions)
-      const transformed = jurisdictions.map(jurisdiction => ({
-        id: jurisdiction.id,
-        jurisdiction: jurisdiction.name,
-        state: jurisdiction.state.name,
-        'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
+      const transformed = jurisdictions.map(juris => ({
+        id: juris.id,
+        jurisdiction: juris.name,
+        state: juris.state.name,
+        //'last updated': moment(juris.updatedAt).format('MMM Do / hh:MM a'),
         status: (() => {
-          if (!jurisdiction.wipJurisdiction) return 'No work in progress'
-          if (!jurisdiction.wipJurisdiction.isReleased) return 'Work in progress'
+          if (!juris.wipJurisdiction) return 'No work in progress'
+          if (!juris.wipJurisdiction.isReleased) return 'Work in progress'
           return 'Released for review'
         })(),
 
         // TODO: remove
-        editBasisWipJurisdictionId: jurisdiction.wipJurisdiction ? jurisdiction.wipJurisdiction.editBasisWipJurisdictionId : 'unknown',
-        hasWipJurisdiction: jurisdiction.wipJurisdiction ? 'true' : 'false',
-        isReleased: jurisdiction.wipJurisdiction ? jurisdiction.wipJurisdiction.isReleased.toString() : 'unknown',
+        editBasisWipJurisdictionId: juris.wipJurisdiction ? juris.wipJurisdiction.editBasisWipJurisdictionId : 'unknown',
+        hasWipJurisdiction: juris.wipJurisdiction ? 'true' : 'false',
+        isReleased: juris.wipJurisdiction ? juris.wipJurisdiction.isReleased.toString() : 'unknown',
       }))
       setJurisdictions(transformed)
     })
@@ -39,7 +38,7 @@ function Jurisdictions() {
         columns={[
           'jurisdiction',
           'state',
-          'last updated',
+          //'last updated',
           'status',
 
           // TODO: remove
