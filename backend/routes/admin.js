@@ -5,6 +5,12 @@ const auth = require('@middleware/auth')
 router.get('/jurisdictions', control.listJurisdictions)
 router.get('/jurisdictions/me', control.listMyJurisdictions)
 router.get('/jurisdictions/:id', control.getJurisdiction)
+router.post(
+  '/jurisdictions/assign',
+  auth(['admin']),
+  control.assignJurisdictions,
+)
+
 router.get('/states', control.listStates)
 router.get('/states/:id', control.getState)
 
