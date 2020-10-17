@@ -10,17 +10,20 @@ exports.listJurisdictions = async (req, res, next) => {
 }
 
 exports.listReleasedJurisdictions = async (req, res, next) => {
-  const rows = await req.db.sequelize.query(`
+  const rows = await req.db.sequelize.query(
+    `
     SELECT u.last_name, u.first_name, u.slack_name, uj.*
     FROM user_jurisdiction_with_currwip uj
     JOIN "user" u
     ON (uj.user_id = u.id)
     WHERE uj.wip_jurisdiction_is_released = true
-  `, {
-    type: req.db.Sequelize.QueryTypes.SELECT,
-  })
+  `,
+    {
+      type: req.db.Sequelize.QueryTypes.SELECT,
+    }
+  )
 
-  const data = rows.map(row => ({
+  const data = rows.map((row) => ({
     wipJurisdictionId: row.wip_jurisdiction_id,
     editorUserId: row.user_id,
     editorName: `${row.first_name} ${row.last_name}`,
@@ -60,10 +63,11 @@ exports.listMyJurisdictions = async (req, res, next) => {
     include: {
       association: 'jurisdiction',
       include: { association: 'state' },
-    }
+    },
   })
 
-  const statuses = await req.db.sequelize.query(`
+  const statuses = await req.db.sequelize.query(
+    `
       SELECT jurisdiction_id, jurisdiction_status
         FROM user_jurisdiction_with_currwip
         WHERE user_id = ':userId'
@@ -74,12 +78,14 @@ exports.listMyJurisdictions = async (req, res, next) => {
     }
   )
 
-  const data = userJurisdictions.map(uJ => ({
+  const data = userJurisdictions.map((uJ) => ({
     ...uJ.dataValues.jurisdiction.dataValues,
     jurisdictionStatus: (() => {
-      const status = statuses.find(status => status.jurisdiction_id === uJ.jurisdictionId)
+      const status = statuses.find(
+        (status) => status.jurisdiction_id === uJ.jurisdictionId
+      )
       return status ? status.jurisdiction_status : 'Unknown'
-    })()
+    })(),
   }))
 
   res.json(data)
@@ -298,7 +304,8 @@ exports.updateWipJurisdiction = async (req, res, next) => {
       {
         ...updatedWip,
         ...(userRole === 'admin' ? {} : { isReleased: false }), // volunteer edits after release set released to false
-      }, {
+      },
+      {
         where: { id: wipJurisdictionId },
       }
     )

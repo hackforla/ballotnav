@@ -9,11 +9,7 @@ router.get('/', auth(['volunteer', 'admin']), control.getUser)
 router.post('/register', control.register)
 router.post('/login', control.login)
 
-router.get(
-  '/volunteers',
-  auth(['admin']),
-  control.listVolunteers
-)
+router.get('/volunteers', auth(['admin']), control.listVolunteers)
 
 router.post(
   '/assignments',

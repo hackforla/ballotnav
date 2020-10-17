@@ -127,8 +127,8 @@ exports.listVolunteers = async (req, res) => {
       ],
       where: {
         role: 'volunteer',
-      }
-    });
+      },
+    })
     res.json(data)
   } catch (err) {
     return handleError(err, 500, res)

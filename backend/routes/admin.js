@@ -3,7 +3,11 @@ const control = require('@controllers/admin')
 const auth = require('@middleware/auth')
 
 router.get('/jurisdictions', control.listJurisdictions)
-router.get('/jurisdictions/me', auth(['volunteer', 'admin']), control.listMyJurisdictions)
+router.get(
+  '/jurisdictions/me',
+  auth(['volunteer', 'admin']),
+  control.listMyJurisdictions
+)
 router.get('/jurisdictions/:id', control.getJurisdiction)
 router.get('/states', control.listStates)
 router.get('/states/:id', control.getState)
