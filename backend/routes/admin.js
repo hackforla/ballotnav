@@ -14,6 +14,11 @@ router.get(
   control.listReleasedJurisdictions
 )
 router.get(
+  '/wip/jurisdictions/released/:wipJurisdictionId/:editorUserId',
+  auth(['admin']),
+  control.getReleasedJurisdiction
+)
+router.get(
   '/wip/jurisdictions/:jurisdictionId',
   auth(['volunteer', 'admin']),
   control.getWipJurisdiction

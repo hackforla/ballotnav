@@ -17,6 +17,10 @@ export const listReleased = async () => {
   return data
 }
 
+export coonst getReleased = async (wipJurisdictionId, editorUserId) => {
+  const url = `${BASE_URL}/wip/jurisdictions/released/${wipJurisdictionId}/${editorUserId}`
+}
+
 export const getById = async (id) => {
   const { data } = await axios.get(`${BASE_URL}/jurisdictions/${id}`)
   return data

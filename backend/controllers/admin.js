@@ -27,6 +27,18 @@ exports.listReleasedJurisdictions = async (req, res, next) => {
   return res.json(data)
 }
 
+exports.getReleasedJurisdiction = async (req, res, next) => {
+  const { wipJurisdictionId, editorUserId } = req.params
+  const data = await req.db.WipJurisdiction.findOne({
+    where: {
+      isReleased: true,
+      id: wipJurisdictionId,
+      editorUserId,
+    }
+  })
+  return res.json(data)
+}
+
 // TODO: modify so that it returns the user's assigned jurisdictions
 exports.listMyJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({
