@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
+        as: 'jurisdiction',
       })
       models.UserJurisdiction.belongsTo(models.User, {
         foreignKey: 'user_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
+        as: 'user',
       })
     }
   }

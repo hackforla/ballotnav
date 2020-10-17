@@ -64,6 +64,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         as: 'locations',
       })
+      models.WipJurisdiction.belongsTo(models.User, {
+        foreignKey: 'editor_user_id',
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        allowNull: false,
+        as: 'user',
+      })
     }
   }
   WipJurisdiction.init(

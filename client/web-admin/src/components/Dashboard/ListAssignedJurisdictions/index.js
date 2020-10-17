@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import ButtonTable from 'components/core/ButtonTable'
-import moment from 'moment'
 import Header from 'components/Dashboard/Layout/Header'
 
 function Jurisdictions() {
@@ -11,11 +10,11 @@ function Jurisdictions() {
 
   useEffect(() => {
     api.jurisdictions.listMine().then(jurisdictions => {
-      const transformed = jurisdictions.map(jurisdiction => ({
-        id: jurisdiction.id,
-        jurisdiction: jurisdiction.name,
-        state: jurisdiction.state.name,
-        'last updated': moment(jurisdiction.updatedAt).format('MMM Do / hh:MM a'),
+      const transformed = jurisdictions.map(juris => ({
+        id: juris.id,
+        jurisdiction: juris.name,
+        state: juris.state.name,
+        status: juris.jurisdictionStatus,
       }))
       setJurisdictions(transformed)
     })
@@ -25,10 +24,14 @@ function Jurisdictions() {
     <>
       <Header title='Select a jurisdiction to edit.' />
       <ButtonTable
-        columns={['jurisdiction', 'state', 'last updated']}
+        columns={[
+          'jurisdiction',
+          'state',
+          'status',
+        ]}
         rows={jurisdictions}
         buttonText='Select'
-        onClickButton={(id) => history.push(`/jurisdictions/${id}`)}
+        onClickButton={({ id }) => history.push(`/jurisdictions/${id}`)}
       />
     </>
   )

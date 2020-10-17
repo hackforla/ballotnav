@@ -9,13 +9,86 @@ exports.listJurisdictions = async (req, res, next) => {
   return res.json(data)
 }
 
-// TODO: modify so that it returns the user's assigned jurisdictions
-exports.listMyJurisdictions = async (req, res, next) => {
-  const data = await req.db.Jurisdiction.findAll({
-    where: { id: { [req.db.Sequelize.Op.in]: [186, 187, 188, 189, 190, 650] } },
-    include: { association: 'state' },
+exports.listReleasedJurisdictions = async (req, res, next) => {
+  const rows = await req.db.sequelize.query(
+    `
+    SELECT u.last_name, u.first_name, u.slack_name, uj.*
+    FROM user_jurisdiction_with_currwip uj
+    JOIN "user" u
+    ON (uj.user_id = u.id)
+    WHERE uj.wip_jurisdiction_is_released = true
+  `,
+    {
+      type: req.db.Sequelize.QueryTypes.SELECT,
+    }
+  )
+
+  const data = rows.map((row) => ({
+    wipJurisdictionId: row.wip_jurisdiction_id,
+    editorUserId: row.user_id,
+    editorName: `${row.first_name} ${row.last_name}`,
+    editorSlackName: row.slack_name,
+    jurisdictionName: row.jurisdiction_name,
+    jurisdictionStatus: row.jurisdiction_status,
+    stateName: row.state_name,
+  }))
+
+  return res.json(data)
+}
+
+exports.getReleasedJurisdiction = async (req, res, next) => {
+  const { wipJurisdictionId, editorUserId } = req.params
+  const data = await req.db.WipJurisdiction.findOne({
+    where: {
+      isReleased: true,
+      id: wipJurisdictionId,
+      editorUserId,
+    },
+    include: [
+      { all: true },
+      {
+        association: 'locations',
+        include: { association: 'hours' },
+      },
+    ],
   })
   return res.json(data)
+}
+
+exports.listMyJurisdictions = async (req, res, next) => {
+  const userId = req.user.id
+
+  const userJurisdictions = await req.db.UserJurisdiction.findAll({
+    where: { userId },
+    include: {
+      association: 'jurisdiction',
+      include: { association: 'state' },
+    },
+  })
+
+  const statuses = await req.db.sequelize.query(
+    `
+      SELECT jurisdiction_id, jurisdiction_status
+        FROM user_jurisdiction_with_currwip
+        WHERE user_id = ':userId'
+    `,
+    {
+      replacements: { userId },
+      type: req.db.Sequelize.QueryTypes.SELECT,
+    }
+  )
+
+  const data = userJurisdictions.map((uJ) => ({
+    ...uJ.dataValues.jurisdiction.dataValues,
+    jurisdictionStatus: (() => {
+      const status = statuses.find(
+        (status) => status.jurisdiction_id === uJ.jurisdictionId
+      )
+      return status ? status.jurisdiction_status : 'Unknown'
+    })(),
+  }))
+
+  res.json(data)
 }
 
 // get all child models of jurisdiction plus hours within each location
@@ -141,6 +214,7 @@ exports.publishWipJurisdiction = async (req, res, next) => {
 exports.updateWipJurisdiction = async (req, res, next) => {
   const wipJurisdictionId = Number(req.params.wipJurisdictionId)
   const userId = req.user.id
+  const userRole = req.user.role
   const updatedWip = req.body
   logger.info({
     message: 'Upating WipJurisdiction',
@@ -226,9 +300,15 @@ exports.updateWipJurisdiction = async (req, res, next) => {
     delete updatedWip.locations
 
     // update the instance of wipJurisdiction
-    await req.db.WipJurisdiction.update(updatedWip, {
-      where: { id: wipJurisdictionId },
-    })
+    await req.db.WipJurisdiction.update(
+      {
+        ...updatedWip,
+        ...(userRole === 'admin' ? {} : { isReleased: false }), // volunteer edits after release set released to false
+      },
+      {
+        where: { id: wipJurisdictionId },
+      }
+    )
     const wj = await req.db.WipJurisdiction.findOne({
       where: { id: wipJurisdictionId },
     })

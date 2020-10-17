@@ -127,8 +127,8 @@ exports.listVolunteers = async (req, res) => {
       ],
       where: {
         role: 'volunteer',
-      }
-    });
+      },
+    })
     res.json(data)
   } catch (err) {
     return handleError(err, 500, res)
@@ -175,6 +175,7 @@ exports.assign = async (req, res) => {
       ...req.body,
       userId: userId,
       jurisdictionId: jid,
+      status: 'editor',
     }))
     let results = await req.db.UserJurisdiction.bulkCreate(records)
     logger.info({
