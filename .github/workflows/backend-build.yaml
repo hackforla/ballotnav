@@ -79,7 +79,7 @@ jobs:
 
     - name: Pull down currently deployed task-definition
       run: |
-        aws ecs describe-task-definition --task-definition ballotnav --query taskDefinition > task.json
+        aws ecs describe-task-definition --task-definition ballotnav-dev --query taskDefinition > task.json
 
     - name: Render task-definition template
       id: task-def
