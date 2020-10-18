@@ -35,10 +35,10 @@ jobs:
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
           if [ ${{ github.event_name == 'release' }} ]; then
-            API_URL=https://api.dev.ballotnav.org
+            API_URL=https://api.ballotnav.org
             TARGET_BUCKET=admin.ballotnav.org
           else
-            API_URL=https://api.ballotnav.org
+            API_URL=https://api.dev.ballotnav.org
             TARGET_BUCKET=admin.dev.ballotnav.org
           fi
 
@@ -58,6 +58,7 @@ jobs:
   adminui:
     runs-on: ubuntu-latest
     needs: [whatisthecontext]
+    if: ${{ needs.whatisthecontext.outputs.is_github_release != true }}
     strategy:
       matrix:
         node-version: [12.x]
