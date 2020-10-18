@@ -9,8 +9,20 @@ div.result-card {
     color: $blue;
   }
 
+  img {
+    margin-left: -10px;
+    margin-bottom: 3px;
+    float: left;
+  }
+
   h4 {
     color: $black;
+    display: inline;
+    line-height: 0px;
+  }
+
+  .result-card-content-wrapper {
+    margin-bottom: 10px;
   }
 
   a {
