@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import pinIcon from '../../assets/pin-icon.svg';
+import phoneIcon from '../../assets/phone-icon.svg';
 import ResultDetail from './ResultDetail';
 
 const ResultCard = ({
@@ -19,12 +20,15 @@ const ResultCard = ({
   return (
     <div className="result-card">
       <h3>{location.name}</h3>
-      <img className="address-icon" src={pinIcon} alt="Address icon" />
       <div className="result-card-content-wrapper">
-        <h4>{location.address1.substring(0, location.address1.length - 1)}, {location.address2}{location.address3}</h4>
+        <img className="address-icon" src={pinIcon} alt="Address icon" />
+        <h4>{location.address1.substring(0, location.address1.length - 1)}, {location.address2}</h4>
+        <br />
+        <h4 className="second-line">{location.address3}</h4>
       </div>
       <div className="result-card-content-wrapper">
-        <h4>Phone: {location.contactPhone}</h4>
+        <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
+        <h4>{location.contactPhone}</h4>
       </div>
       <a onClick={toggleResultDetailOpen}>Location requirements and hours</a>
       <ResultDetail open={resultDetailOpen} close={closeResultDetail} location={location} />

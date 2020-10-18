@@ -11,14 +11,22 @@ div.result-card {
 
   img {
     margin-left: -10px;
-    margin-bottom: 3px;
-    float: left;
+    margin-top: -2px;
+  }
+
+  img.phone-icon {
+    margin-right: 5px;
+    margin-left: -7px;
   }
 
   h4 {
     color: $black;
     display: inline;
     line-height: 0px;
+  }
+
+  .second-line {
+    margin-left: 12px;
   }
 
   .result-card-content-wrapper {
