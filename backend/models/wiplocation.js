@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       models.WipLocation.belongsTo(models.WipJurisdiction, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
       models.WipLocation.hasMany(models.WipLocationHours, {
         foreignKey: 'wip_location_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         as: 'hours',
       })
     }

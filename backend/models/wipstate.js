@@ -11,42 +11,42 @@ module.exports = (sequelize, DataTypes) => {
       models.WipState.belongsTo(models.State, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
       models.WipState.hasMany(models.WipStateImportantDate, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
       models.WipState.hasMany(models.WipStateInfoTab, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
       models.WipState.hasMany(models.WipStateNews, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
       models.WipState.hasMany(models.WipStateNotice, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
       models.WipState.hasMany(models.WipStatePhone, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
       models.WipState.hasMany(models.WipStateUrl, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
     }
@@ -152,7 +152,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'editor_user_id',
         allowNull: true,
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         reference: {
           model: 'user',
           key: 'id',

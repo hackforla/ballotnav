@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.WipLocationHours.belongsTo(models.WipLocation, {
         foreignKey: 'wip_location_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }
