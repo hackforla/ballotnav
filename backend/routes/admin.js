@@ -3,7 +3,11 @@ const control = require('@controllers/admin')
 const auth = require('@middleware/auth')
 
 router.get('/jurisdictions', control.listJurisdictions)
-router.get('/jurisdictions/me', control.listMyJurisdictions)
+router.get(
+  '/jurisdictions/me',
+  auth(['volunteer', 'admin']),
+  control.listMyJurisdictions
+)
 router.get('/jurisdictions/:id', control.getJurisdiction)
 router.post(
   '/jurisdictions/assign',
@@ -14,6 +18,16 @@ router.post(
 router.get('/states', control.listStates)
 router.get('/states/:id', control.getState)
 
+router.get(
+  '/wip/jurisdictions/released',
+  auth(['admin']),
+  control.listReleasedJurisdictions
+)
+router.get(
+  '/wip/jurisdictions/released/:wipJurisdictionId/:editorUserId',
+  auth(['admin']),
+  control.getReleasedJurisdiction
+)
 router.get(
   '/wip/jurisdictions/:jurisdictionId',
   auth(['volunteer', 'admin']),

@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import search from './reducers/search';
+import searches from './reducers/search';
+import data from './reducers/data';
+import ui from './reducers/ui';
 
 export default combineReducers({
-  search,
+  searches,
+  data,
+  ui,
 });

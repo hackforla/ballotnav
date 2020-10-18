@@ -1,4 +1,5 @@
 @import './bulma';
+@import './base';
 
 @import './main/home';
 @import './main/home-map-search';
@@ -7,3 +8,6 @@
 
 @import './map/map';
 @import './map/result-header';
+@import './map/result-list';
+@import './map/result-card';
+@import './map/result-detail';

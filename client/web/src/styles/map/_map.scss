@@ -1,7 +1,45 @@
-#map-container {
+div.map {
+  #map-container {
+    position: absolute;
+    top: 132px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+  
+  #map-geocoder {
+    margin: 10px;
+  }
+}
+
+#alert {
+  z-index:1;
+  display:flex;
+  background:$red;
+  color:white;
   position: absolute;
-  top: 132px;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  top: 200px;
+  height: 69px;
+  width: 90vw;
+  max-width: 340px;
+  left: 50%;
+  margin-left: -45vw;
+  border-radius: 14px;
+  font-size:.87em;
+  line-height: 1.37em;
+  padding: 5px 12px;
+  @media (min-width:386px) {
+    margin-left: -170px;
+  }
+
+  button {
+    background:none;
+    font-weight:700;
+    font-size:1.3em;
+  }
+}
+
+.mapboxgl-canvas {
+  z-index: 0;
 }

@@ -38,7 +38,7 @@ function ButtonTable({ columns, rows, buttonText, onClickButton }) {
           {rows.map((row, idx) => (
             <TableRow key={row.id}>
               <TableCell>
-                <Button onClick={() => onClickButton(row.id)}>
+                <Button onClick={() => onClickButton(row)}>
                   {buttonText}
                 </Button>
               </TableCell>
