@@ -1,13 +1,20 @@
 # build and push a docker image from the latest push to "develop" branch
+name: backend
 on:
   push:
     branches:
       - main
       - master
       - develop
-    pull_request:
+  pull_request:
+    types:
       - open
       - synchronized
+  release:
+    types:
+      - published
+      - created
+
 jobs:
   whatisthecontext:
     runs-on: ubuntu-latest
@@ -59,6 +66,7 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: ballotnav/ballotnav:${{ needs.whatisthecontext.outputs.sha }}
+          build-args: ["BUILD_VERSION=${{ needs.whatisthecontext.outputs.sha }}", "BUILT_AT=${{ needs.whatisthecontext.outputs.built_at }}"]
 
       - name: built image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -95,4 +103,39 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ballotnav-dev
         cluster: bn-dev
+        wait-for-service-stability: true
+
+
+  deploy_prd:   
+    name: deploy to the production environment
+    runs-on: ubuntu-latest
+    needs: [whatisthecontext]
+    if: ${{ needs.whatisthecontext.outputs.is_release == true }}
+    steps:
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+
+    - name: Pull down currently deployed task-definition
+      run: |
+        aws ecs describe-task-definition --task-definition ballotnav --query taskDefinition > task.json
+
+    - name: Render task-definition template
+      id: task-def
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task.json
+        container-name: ballotnav
+        image: ballotnav/ballotnav:${{ needs.whatisthecontext.outputs.sha }}
+
+    - name: Deploy to Amazon ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: ballotnav-prd
+        cluster: bn
         wait-for-service-stability: true
