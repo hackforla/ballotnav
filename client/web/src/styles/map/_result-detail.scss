@@ -1,6 +1,7 @@
 .result-detail-drawer {
   a {
     text-decoration: underline;
+
   }
 
   a:visited {
@@ -10,5 +11,20 @@
   #back-arrow {
     text-decoration: none;
     font-weight: bolder;
+    font-size: 1.1em;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $blue;
+  }
+
+  div.rs-drawer-header {
+    margin: 20px 20px 0;
+  }
+
+  div.rs-drawer-body {
+    margin: 0px 20px;
   }
 }

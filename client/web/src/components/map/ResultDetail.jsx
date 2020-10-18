@@ -18,7 +18,7 @@ const ResultDetail = ({
       <Drawer.Header>
         <div className="back-to-list">
           <a id="back-arrow">&lt; &nbsp;</a>
-          <a>Back to list</a>
+          <a>All drop offs</a>
         </div>
       </Drawer.Header>
       <Drawer.Body>
