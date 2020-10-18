@@ -46,6 +46,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: Inject build version
+        working-directory: ./backend
+        run: |
+          printf "%s\n" "injecting build version: ${{ needs.whatisthecontext.outputs.sha }}"
+          printf "%s\n" "BUILD_VERSION=${{ needs.whatisthecontext.outputs.sha }}" > .env
+          printf "%s\n" "injecting build at timestamp: ${{ needs.whatisthecontext.outputs.built_at }}"
+          printf "%s" "BUILT_AT=${{ needs.whatisthecontext.outputs.built_at }}" >> .env
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -66,7 +74,6 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: ballotnav/ballotnav:${{ needs.whatisthecontext.outputs.sha }}
-          build-args: ["BUILD_VERSION=${{ needs.whatisthecontext.outputs.sha }}", "BUILT_AT=${{ needs.whatisthecontext.outputs.built_at }}"]
 
       - name: built image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

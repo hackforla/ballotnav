@@ -17,8 +17,6 @@ COPY package-lock.json .
 RUN npm ci && chmod +x -R /usr/local/bin
 
 COPY . .
-ARG BUILD_VERSION=0000
-ARG BUILT_AT=
 
 # we dont want to run as sudo so create group and user
 RUN groupadd -r ballotnav_appuser && useradd --no-log-init -r -g ballotnav_appuser ballotnav_appuser
