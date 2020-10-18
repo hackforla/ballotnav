@@ -113,7 +113,6 @@ exports.login = async (req, res, next) => {
   res.json({ isSuccess: true, token, user })
 }
 
-// TODO: get jurisdiction ids already assigned to volunteers
 exports.listVolunteers = async (req, res) => {
   try {
     const data = await req.db.User.findAll({
@@ -128,8 +127,16 @@ exports.listVolunteers = async (req, res) => {
       where: {
         role: 'volunteer',
       },
+      include: {
+        model: req.db.UserJurisdiction,
+        as: 'userJurisdictions',
+        include: {
+          model: req.db.Jurisdiction,
+          as: 'jurisdiction',
+        },
+      },
     })
-    res.json(data)
+    res.json(data);
   } catch (err) {
     return handleError(err, 500, res)
   }

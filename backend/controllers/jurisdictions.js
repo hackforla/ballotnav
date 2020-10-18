@@ -63,9 +63,6 @@ exports.listMine = async (req, res, next) => {
   res.json(jurisdictions)
 }
 
-// TODO: list jurisdictions with no editor assigned
-// exports.listUnassigned = async (req, res, next) => {}
-
 /**
  * list wip jurisidictions
  */

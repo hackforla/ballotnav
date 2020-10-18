@@ -4,10 +4,39 @@ const logger = require('@log')
 // TODO: probably needs to take state id
 exports.listJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({
-    include: { association: 'state' },
+    include: [
+      { association: 'state' },
+      {
+        model: req.db.UserJurisdiction,
+        as: 'userJurisdictions',
+      },
+    ],
   })
   return res.json(data)
 }
+
+// TODO: not sure if this will be needed
+
+// exports.listUnassignedJurisdictions = async (req, res) => {
+//   const assigned = await req.db.UserJurisdiction.findAll({
+//     attributes: [
+//       'id',
+//       ['jurisdiction_id', 'jurisdictionId'],
+//     ]
+//   });
+//   const assignedIds = assigned.map(({ jurisdictionId }) => jurisdictionId);
+//   const unassignedJurisdictions = await req.db.Jurisdiction.findAll({
+//     include: {
+//       association: 'state',
+//     },
+//     where: {
+//       id: {
+//         [req.db.Sequelize.Op.notIn]: assignedIds,
+//       },
+//     },
+//   });
+//   res.json(unassignedJurisdictions);
+// }
 
 exports.listReleasedJurisdictions = async (req, res, next) => {
   const rows = await req.db.sequelize.query(
@@ -103,6 +132,44 @@ exports.getJurisdiction = async (req, res, next) => {
     ],
   })
   return res.json(data)
+}
+
+exports.assignJurisdictions = async (req, res) => {
+  let jurisdictionIds = [...req.body.jurisdictionIds];
+  let removedJurisdictionIds = [...req.body.removedJurisdictionIds];
+  let userId = req.body.userId;
+
+  logger.info({
+    message: 'Updating jurisdiction assignments',
+    userId,
+    jurisdictionIds,
+    removedJurisdictionIds,
+  });
+
+  try {
+    let assignedJdxs = jurisdictionIds.map(jid => ({
+      userId: userId,
+      jurisdictionId: jid,
+      status: 'editor',
+    }));
+    let created = await req.db.UserJurisdiction.bulkCreate(assignedJdxs)
+    let removed = await req.db.UserJurisdiction.destroy({
+        where: {
+          userId: userId,
+          jurisdictionId: {
+            [req.db.Sequelize.Op.in]: removedJurisdictionIds,
+          },
+        }
+    })
+    logger.info({
+      message: 'Success: updated jurisdiction assignments',
+      created: created,
+      removedCount: removed,
+    })
+    return res.status(201).json({ status: 'ok', results: { created, removed} })
+  } catch (err) {
+    return handleError(err, 400, res)
+  }
 }
 
 exports.listStates = async (req, res, next) => {

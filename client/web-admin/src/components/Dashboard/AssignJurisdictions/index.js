@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useToast } from 'components/use-toast'
 import api from 'services/api'
 import {
   Grid,
@@ -7,6 +8,7 @@ import {
   CardActions,
   Typography,
   Button,
+  CircularProgress,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import TransferList from './TransferList'
@@ -53,6 +55,7 @@ const sortByPropertyAsc = (property) => (a, b) => a[property].localeCompare(b[pr
 
 function AssignJurisdictions() {
   const classes = useStyles();
+  const toast = useToast();
 
   const [loaded, setLoaded] = useState(false);
   const [states, setStates] = useState([]);
@@ -60,9 +63,10 @@ function AssignJurisdictions() {
   const [jurisdictionsByState, setJurisdictionsByState] = useState(null);
   const [volunteers, setVolunteers] = useState([]);
   const [selectedVolunteer, setSelectedVolunteer] = useState({});
-  const [selectedState, setSelectedState] = useState(null);
+  const [selectedState, setSelectedState] = useState({});
   const [assigned, setAssigned] = useState([]);
   const [unassigned, setUnassigned] = useState([]);
+  const [submitting, setSubmitting] = useState(false);
 
   const assign = jurisdictions => {
     setAssigned(jurisdictions);
@@ -81,75 +85,110 @@ function AssignJurisdictions() {
   }
 
   const handleSubmit = () => {
-    const jurisdictionIds = assigned.map(jdx => jdx.id);
-    const removedJurisdictionIds = unassigned.map(jdx => jdx.id);
-    const { id } = selectedVolunteer;
-    const res = {
-      userId: id,
-      jurisdictionIds,
-      removedJurisdictionIds,
+    setSubmitting(true);
+    if (assigned.length || unassigned.length) {
+      const { id, userJurisdictions } = selectedVolunteer;
+      const userJurisdictionIds = userJurisdictions.map(jdx => jdx.id);
+      const jurisdictionIdsToAssign =
+        assigned.map(jdx => jdx.id)
+                .filter(id => !userJurisdictionIds.includes(id));
+      const removedJurisdictionIds =
+        unassigned.map(jdx => jdx.id)
+                  .filter(id => userJurisdictionIds.includes(id));
+
+      const body = {
+        userId: id,
+        jurisdictionIds: jurisdictionIdsToAssign,
+        removedJurisdictionIds,
+      }
+
+      api.jurisdictions.assignJurisdictions(body)
+        .then(({ results }) => {
+          const successMessage = `
+            Success:
+            Created ${results.created.length} jurisdiction assignments.
+            Removed ${results.removed} jurisdiction assignments.`
+          toast({
+            severity: 'success',
+            autoHideDuration: 7000,
+            message: successMessage,
+          });
+          setSubmitting(false);
+        });
     }
-    console.log(res);
-    // TODO: POST to /user/assignments
-    // then re-fetch volunteers, jurisdictions
   }
 
-  // fetch volunteers, unassigned jurisidictions
+  // fetch volunteers, jurisidictions
   useEffect(() => {
     let isSubscribed = true;
-
-    api.user.listVolunteers().then(volunteers => {
-      const transformed = volunteers.reduce((acc, volunteer) => {
-        return {...acc, [volunteer.id]: volunteer }
-      }, {});
-      if (isSubscribed) {
-        setVolunteers(transformed);
-      }
-    });
-
-    // TODO: switch to jurisdictions.listUnassigned
-    api.jurisdictions.list().then(jurisdictions => {
-      const jdxByState = {};
-      const jdxs = {};
-      const states = {};
-      jurisdictions.forEach(jdx => {
-        const { id, name, state } = jdx;
-        if (!states[state.id]) {
-          states[state.id] = state;
+    if (!submitting) {
+      api.user.listVolunteers().then(volunteers => {
+        const transformed = volunteers.reduce((acc, volunteer) => {
+          volunteer.userJurisdictions = volunteer.userJurisdictions.map(j => j.jurisdiction);
+          return {...acc, [volunteer.id]: volunteer }
+        }, {});
+        if (isSubscribed) {
+          setVolunteers(transformed);
         }
-        jdxs[jdx.id] = { id, name, state };
-        const jdxState = jdxByState[state.id] ? [...jdxByState[state.id], { id, name, state}] : [{id, name, state}];
-        jdxByState[state.id] = jdxState;
       });
-      if (isSubscribed) {
-        setJurisdictions(jdxs);
-        setJurisdictionsByState(jdxByState);
-        setStates(states);
-        setLoaded(true);
-      }
-    });
+
+      api.jurisdictions.list().then(jurisdictions => {
+        const jdxByState = {};
+        const jdxs = {};
+        const states = {};
+        jurisdictions.forEach(jdx => {
+          const { id, name, state, userJurisdictions } = jdx;
+          const newJdx = { id, name, state, userJurisdictions };
+          if (!states[state.id]) {
+            states[state.id] = state;
+          }
+          jdxs[jdx.id] = newJdx;
+          const jdxState = jdxByState[state.id] ? [...jdxByState[state.id], newJdx] : [newJdx];
+          jdxByState[state.id] = jdxState;
+        });
+        if (isSubscribed) {
+          setJurisdictions(jdxs);
+          setJurisdictionsByState(jdxByState);
+          setStates(states);
+          setLoaded(true);
+        }
+      });
+    }
 
     return () => isSubscribed = false;
-  }, [])
+  }, [submitting])
 
   // set selected volunteer's assigned jurisdictions to right transfer list
   useEffect(() => {
-    if (selectedVolunteer && selectedVolunteer.jurisdictions) {
-      const jdxs = selectedVolunteer.jurisdictions
-        .map(id => jurisdictions[id])
+    if (selectedVolunteer && selectedVolunteer.userJurisdictions) {
+      const jdxs = selectedVolunteer.userJurisdictions
+        .map(jdx => jurisdictions[jdx.id])
         .sort(sortByPropertyAsc('name'));
       setAssigned(jdxs);
     }
     return () => {}
-  }, [selectedVolunteer, jurisdictions])
+  }, [selectedVolunteer, jurisdictions, volunteers])
 
   // set selected state's unassigned jurisdictions to left transfer list
   useEffect(() => {
-    if (selectedState) {
+    if (selectedState.id) {
       setUnassigned(jurisdictionsByState[selectedState.id])
     }
     return () => {}
-  }, [selectedState, jurisdictionsByState])
+  }, [selectedState, jurisdictionsByState, states])
+
+  // refresh selected volunteer, state after new fetch
+  useEffect(() => {
+    if (selectedVolunteer.id) {
+      setSelectedVolunteer(volunteers[selectedVolunteer.id]);
+    }
+    if (selectedState.id) {
+      setSelectedState(states[selectedState.id])
+    } else {
+      setUnassigned([]);
+    }
+    // eslint-disable-next-line
+  }, [volunteers, states])
 
   return (
     <>
@@ -164,7 +203,7 @@ function AssignJurisdictions() {
             <SimpleSelect
               className={classes.select}
               disabled={!loaded}
-              label="Volunteer (assigned jurisdictions)"
+              label="Volunteer"
               items={loaded && volunteers && Object.values(volunteers).sort(sortByPropertyAsc('email'))}
               schema={{
                 id: 'id',
@@ -176,7 +215,7 @@ function AssignJurisdictions() {
             <SimpleSelect
               className={classes.select}
               disabled={!loaded}
-              label="State (unassigned jurisdictions)"
+              label="State"
               items={loaded && states && Object.values(states).sort(sortByPropertyAsc('name'))}
               schema={{
                 id: 'id',
@@ -218,7 +257,10 @@ function AssignJurisdictions() {
                   variant="contained"
                   color="primary"
                   onClick={handleSubmit}
-                >Save</Button>
+                  disabled={!(assigned.length || unassigned.length) || submitting}
+                >
+                  { submitting ? <CircularProgress size={20} variant="indeterminate" color="primary" /> : 'Save' }
+                </Button>
               </CardActions>
             </Card>
           </Grid>
@@ -227,8 +269,14 @@ function AssignJurisdictions() {
             <TransferList
               leftTitle="Unassigned Jurisdictions"
               rightTitle="Assign to Volunteer"
-              leftItems={unassigned}
-              rightItems={assigned}
+              leftItems={assigned.length ?
+                Object.values(unassigned)
+                  .filter(jdx => !assigned.map(j => j.id).includes(jdx.id))
+                  .sort(sortByPropertyAsc('name'))
+                :
+                Object.values(unassigned).sort(sortByPropertyAsc('name'))
+              }
+              rightItems={Object.values(assigned).sort(sortByPropertyAsc('name'))}
               onTransferLeft={unassign}
               onTransferRight={assign}
               schema={{

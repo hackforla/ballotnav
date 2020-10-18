@@ -86,6 +86,17 @@ export const releaseWipJurisdiction = async (wipJurisdictionId) => {
   return data
 }
 
+export const assignJurisdictions = async ({
+  userId,
+  jurisdictionIds,
+  removedJurisdictionIds,
+}) => {
+  const url = `${BASE_URL}/jurisdictions/assign`;
+  const body = { userId, jurisdictionIds, removedJurisdictionIds }
+  const { data } = await axios.post(url, body);
+  return data;
+}
+
 export const publishWipJurisdiction = async (wipJurisdictionId) => {
   const url = `${BASE_URL}/wip/jurisdictions/${wipJurisdictionId}/publish`
   const { data } = await axios.put(url)
