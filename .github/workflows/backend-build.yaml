@@ -30,7 +30,7 @@ jobs:
         run: |
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
-          IS_GITHUB_RELEASE=${{ github.event == 'release' }}
+          IS_GITHUB_RELEASE=${{ github.event_name == 'release' }}
           echo ::set-output name=sha::${SHA:0:8}
           echo ::set-output name=built_at::${BUILT_AT}
           echo ::set-output name=is_release::${IS_GITHUB_RELEASE}
