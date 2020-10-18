@@ -22,4 +22,28 @@
   div.rs-drawer-body {
     margin: 0px 20px;
   }
+
+  .result-card-content-wrapper {
+    margin-bottom: 10px;
+  }
+
+  img {
+    margin-left: -10px;
+    margin-top: -2px;
+  }
+
+  h4 {
+    color: $black;
+    display: inline;
+    line-height: 0px;
+  }
+
+  .second-line {
+    margin-left: 12px;
+  }
+
+  div.rs-drawer-body {
+    margin: 10px 0px;
+    padding: 0 20px;
+  }
 }
