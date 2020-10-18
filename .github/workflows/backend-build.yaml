@@ -93,6 +93,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ballotnav
+        service: ballotnav-dev
         cluster: bn-dev
         wait-for-service-stability: true
