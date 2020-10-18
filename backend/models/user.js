@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       })
       models.User.hasMany(models.UserJurisdiction, {
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         as: 'userJurisdictions',
         foreignKey: 'user_id',
       })

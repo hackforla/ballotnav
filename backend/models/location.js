@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       models.Location.belongsTo(models.Jurisdiction, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
       models.Location.hasMany(models.LocationHours, {
         foreignKey: 'location_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         as: 'hours',
       })
     }
