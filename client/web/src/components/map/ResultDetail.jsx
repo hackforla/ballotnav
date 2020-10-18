@@ -1,5 +1,6 @@
 import React from 'react';
 
+import backArrow from '../../assets/back-arrow-icon.svg';
 import { Drawer } from 'rsuite';
 
 const ResultDetail = ({
@@ -17,7 +18,7 @@ const ResultDetail = ({
     >
       <Drawer.Header>
         <div className="back-to-list">
-          <a id="back-arrow">&lt; &nbsp;</a>
+          <img id="back-arrow" src={backArrow} alt="Back arrow" />
           <a>All drop offs</a>
         </div>
       </Drawer.Header>
