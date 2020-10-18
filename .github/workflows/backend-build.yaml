@@ -21,7 +21,6 @@ jobs:
     outputs:
       sha: ${{ steps.contextvals.outputs.sha }}
       built_at: ${{ steps.contextvals.outputs.built_at }} 
-      is_github_release: ${{ steps.contextvals.outputs.is_release }}
       is_dev_deploy: ${{ github.ref == 'master' }}
     steps:
       - name: Export values
@@ -29,14 +28,12 @@ jobs:
         run: |
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
-          IS_GITHUB_RELEASE=${{ github.event_name == 'release' }}
           echo ::set-output name=sha::${SHA:0:8}
           echo ::set-output name=built_at::${BUILT_AT}
-          echo ::set-output name=is_release::${IS_GITHUB_RELEASE}
 
   build:
     # we do not rebuild on a release to production rather we just publish the built image at the git SHA we are releaseing from
-    if: ${{ github.event != 'release' }}
+    if: github.event_name != 'release'
     needs: whatisthecontext
     runs-on: ubuntu-latest
     name: build & push image
@@ -81,7 +78,7 @@ jobs:
     name: deploy to dev environment
     runs-on: ubuntu-latest
     needs: [whatisthecontext, build]
-    if: ${{ needs.whatisthecontext.outputs.is_release == false && needs.whatisthecontext.outputs.is_dev_deploy }}
+    if: ${{ github.event_name != 'release' && needs.whatisthecontext.outputs.is_dev_deploy }}
     steps:
 
     - name: Configure AWS credentials
@@ -116,7 +113,7 @@ jobs:
     name: deploy to the production environment
     runs-on: ubuntu-latest
     needs: [whatisthecontext]
-    if: ${{ needs.whatisthecontext.outputs.is_release == true }}
+    if: ${{ github.event_name == 'release' }}
     steps:
 
     - name: Configure AWS credentials
