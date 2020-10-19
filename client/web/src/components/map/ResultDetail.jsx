@@ -2,6 +2,7 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
 
 import pinIcon from '../../assets/pin-icon.svg';
 import backArrow from '../../assets/back-arrow-icon.svg';
@@ -37,8 +38,13 @@ const ResultDetail = ({
         <div class="dropdown is-active">
           <div class="dropdown-trigger">
             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+              <span class="icon is-small">
+                <FontAwesomeIcon icon={faClock} />
+              </span>
               <span>Hours</span>
-              <FontAwesomeIcon icon={faChevronDown} />
+              <span class="icon is-small">
+                <FontAwesomeIcon icon={faChevronDown} />
+              </span>
             </button>
           </div>
           <div class="dropdown-menu" id="dropdown-menu2" role="menu">
