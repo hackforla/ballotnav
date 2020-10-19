@@ -23,10 +23,10 @@ const ADMIN_ITEMS = [
     title: 'Review Jurisdictions',
     path: '/review',
   },
-  {
-    title: 'Edit States/Jurisdictions',
-    path: '/states',
-  },
+  // {
+  //   title: 'Edit States/Jurisdictions',
+  //   path: '/states',
+  // },
   {
     title: 'Assign Jurisdictions',
     path: '/assign'
