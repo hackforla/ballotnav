@@ -1,14 +1,18 @@
 const { Op } = require('sequelize')
 const logger = require('@log')
 
-// TODO: probably needs to take state id
 exports.listJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({
+    attributes: ['id', 'name'],
     include: [
-      { association: 'state' },
+      {
+        association: 'state',
+        attributes: ['id', 'name', 'abbreviation'],
+      },
       {
         model: req.db.UserJurisdiction,
         as: 'userJurisdictions',
+        attributes: ['id', 'jurisdictionId', 'userId'],
       },
     ],
   })
