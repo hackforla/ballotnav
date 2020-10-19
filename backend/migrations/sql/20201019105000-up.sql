@@ -17,3 +17,45 @@ CREATE TABLE location_geocode (
 	, CONSTRAINT location_geocode_uq1 UNIQUE (address1 , city , state , zip , geocoder_name)
 );
 
+CREATE VIEW measurements AS
+SELECT
+	'jurisdictions_being_edited' AS measure
+	, COUNT(DISTINCT jurisdiction_id) AS measurement
+FROM
+	jurisdictions_with_currwip
+WHERE
+	editor_user_id IS NOT NULL
+UNION ALL
+SELECT
+	'jurisdictions_never_edited'
+	, COUNT(DISTINCT id)
+FROM
+	jurisdiction
+WHERE
+	is_eaj IS TRUE
+	AND wip_jurisdiction_id IS NULL
+UNION ALL
+SELECT
+	'jurisdictions_ever_edited'
+	, COUNT(DISTINCT id)
+FROM
+	jurisdiction
+WHERE
+	is_eaj IS TRUE
+	AND wip_jurisdiction_id IS NOT NULL
+UNION ALL
+SELECT
+	'jurisdictions_with_no_locations'
+	, COUNT(j.id)
+FROM
+	jurisdiction j
+	LEFT JOIN LOCATION l ON j.id = l.jurisdiction_id
+WHERE
+	l.id IS NULL
+UNION ALL
+SELECT
+	'jurisdictions_needing_review'
+	, COUNT(*)
+FROM
+	wip_jurisdictions_needing_review;
+
