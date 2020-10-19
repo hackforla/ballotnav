@@ -48,7 +48,6 @@ const ResultDetail = ({
         </div>
       </Drawer.Header>
       <Drawer.Body>
-        <button></button>
         <h1>{location.name}</h1>
         <div className="result-card-content-wrapper">
           <img className="address-icon" src={pinIcon} alt="Address icon" />
