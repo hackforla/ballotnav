@@ -21,8 +21,8 @@ jobs:
       sha: ${{ steps.contextvals.outputs.sha }}
       built_at: ${{ steps.contextvals.outputs.built_at }}
       is_dev_deploy: ${{ github.ref == 'refs/heads/master' }}
-      api_url: ${{ steps.contextvals.outputs.api_url }}
-      target_bucket: ${{ steps.contextvals.outputs.target_bucket }}
+      apiurl: ${{ steps.contextvals.outputs.apiurl }}
+      targetbucket: ${{ steps.contextvals.outputs.targetbucket }}
       artifactbucket: ${{ 'ballotnav-dev-adminui-dev-logs'}}
       is_github_release: ${{ github.event_name == 'release' }}
     steps:
