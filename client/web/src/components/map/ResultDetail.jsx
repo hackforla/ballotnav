@@ -1,12 +1,11 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faClock } from '@fortawesome/free-solid-svg-icons'
 
 import pinIcon from '../../assets/pin-icon.svg';
 import backArrow from '../../assets/back-arrow-icon.svg';
-import { Drawer } from 'rsuite';
+import { Drawer, Dropdown } from 'rsuite';
 
 const ResultDetail = ({
   location,
@@ -35,25 +34,19 @@ const ResultDetail = ({
           <br />
           <h4 className="second-line">{location.address3}</h4>
         </div>
-        <div class="dropdown is-active">
-          <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-              <span class="icon is-small">
-                <FontAwesomeIcon icon={faClock} />
-              </span>
-              <span>Hours</span>
-              <span class="icon is-small">
-                <FontAwesomeIcon icon={faChevronDown} />
-              </span>
-            </button>
-          </div>
-          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-            <div class="dropdown-content">
-              <div class="dropdown-item">
-                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-              </div>
-            </div>
-          </div>
+        <div className="hours-dropdown">
+          <span class="icon is-small">
+            <FontAwesomeIcon icon={faClock} />
+          </span>
+          <Dropdown title="Hours">
+            <Dropdown.Item>New File</Dropdown.Item>
+            <Dropdown.Item>New File with Current Profile</Dropdown.Item>
+            <Dropdown.Item>Download As...</Dropdown.Item>
+            <Dropdown.Item>Export PDF</Dropdown.Item>
+            <Dropdown.Item>Export HTML</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
+            <Dropdown.Item>About</Dropdown.Item>
+          </Dropdown>
         </div>
       </Drawer.Body>
     </Drawer>

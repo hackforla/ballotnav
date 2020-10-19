@@ -8,6 +8,9 @@ import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 import ResultList from './ResultList';
 
 const closeAlert = () => {
@@ -70,8 +73,12 @@ class Map extends React.Component {
     return (
       <div className="map">
         <div id='alert'>
-          <span>Remember to verify the information through the official website and phone number before you leave</span>
-          <button onClick={() => closeAlert()}>X</button>
+          <span>Remember to verify information through the official website and phone number before you leave</span>
+          <button onClick={() => closeAlert()}>
+            <span class="icon is-small">
+              <FontAwesomeIcon icon={faTimes} />
+            </span>
+          </button>
         </div>
         <ResultList />
         <div id="map-container" ref={el => this.mapContainer = el}>

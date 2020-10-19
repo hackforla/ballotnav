@@ -43,7 +43,21 @@
     padding: 0 20px;
   }
 
-  div.dropdown {
-    width: 100%;
+  span.icon {
+    color: $blue;
+    float: left;
+  }
+
+  div.hours-dropdown .rs-dropdown {
+    width: 90%;
+    margin: -11px 0 0 0;
+
+    a {
+      font-size: 16px;
+    }
+
+    ul.rs-dropdown-menu {
+      width: 100%;
+    }
   }
 }
