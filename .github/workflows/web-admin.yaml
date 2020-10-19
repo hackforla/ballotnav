@@ -22,7 +22,7 @@ jobs:
       built_at: ${{ steps.contextvals.outputs.built_at }}
       is_dev_deploy: ${{ github.ref == 'refs/heads/master' }}
       api_url: ${{ steps.contextvals.outputs.api_url }}
-      target_bucket: ${{ steps.contextvals.outputs.target_bucket }}
+      targetbucket: ${{ steps.contextvals.outputs.target_bucket }}
       artifactbucket: ${{ 'ballotnav-dev-adminui-dev-logs'}}
       is_github_release: ${{ github.event_name == 'release' }}
     steps:
