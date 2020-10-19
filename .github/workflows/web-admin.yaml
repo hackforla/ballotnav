@@ -19,7 +19,7 @@ jobs:
     name: display the current build & deploy CI context and export useful values
     outputs:
       sha: ${{ steps.contextvals.outputs.sha }}
-      built_at: ${{ steps.contextvals.outputs.built_at }} 
+      built_at: ${{ steps.contextvals.outputs.built_at }}
       is_dev_deploy: ${{ github.ref == 'refs/heads/master' }}
       api_url: ${{ steps.contextvals.outputs.api_url }}
       target_bucket: ${{ steps.contextvals.outputs.target_bucket }}
@@ -79,7 +79,7 @@ jobs:
 
       - name: Create artifact
         uses: docker://busybox
-      - name: tarball 
+      - name: tarball
         if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
@@ -99,7 +99,7 @@ jobs:
           aws s3 cp adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz s3://${{ needs.whatisthecontext.outputs.artifactbucket }}/artifacts/
 
       - name: Deploy to the web admin app to dev
-        if: ${{ needs.whatisthecontext.outputs.is_dev_deploy == true }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           aws s3 sync build s3://${{ needs.whatisthecontext.outputs.targetbucket }}
