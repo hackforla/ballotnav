@@ -48,12 +48,18 @@
     float: left;
   }
 
-  div.hours-dropdown .rs-dropdown {
-    width: 90%;
-    margin: -11px 0 0 0;
+  div.hours-dropdown {
+    margin-left: -6px;
+  
+    .rs-dropdown {
+      width: 90%;
+      margin: -11px 0 0 2px;
+    }
 
     a {
       font-size: 16px;
+      padding-left: 5px;
+      margin-left: 3px;
     }
 
     ul.rs-dropdown-menu {
