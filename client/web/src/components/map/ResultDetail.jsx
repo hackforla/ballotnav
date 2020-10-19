@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 import pinIcon from '../../assets/pin-icon.svg';
 import backArrow from '../../assets/back-arrow-icon.svg';
 import { Drawer } from 'rsuite';
@@ -30,6 +33,21 @@ const ResultDetail = ({
           <h4>{location.address1.substring(0, location.address1.length - 1)}, {location.address2}</h4>
           <br />
           <h4 className="second-line">{location.address3}</h4>
+        </div>
+        <div class="dropdown is-active">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+              <span>Hours</span>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Drawer.Body>
     </Drawer>
