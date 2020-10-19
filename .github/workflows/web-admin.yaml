@@ -99,7 +99,7 @@ jobs:
           aws s3 cp adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz s3://${{ needs.whatisthecontext.outputs.artifactbucket }}/artifacts/
 
       - name: Deploy to the web admin app to dev
-        if: ${{ needs.whatisthecontext.outputs.is_dev_deploy == true }}
+        if: ${{ github.ref == 'refs/heads/master' }} true }}
         working-directory: ./client/web-admin
         run: |
           aws s3 sync build s3://${{ needs.whatisthecontext.outputs.targetbucket }}
