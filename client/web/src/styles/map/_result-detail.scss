@@ -16,7 +16,7 @@
   }
 
   div.rs-drawer-header {
-    margin: 20px 20px 0;
+    margin: 20px 20px 10px;
   }
 
   .result-card-content-wrapper {
@@ -49,7 +49,7 @@
   }
 
   div.hours-dropdown {
-    margin-left: -6px;
+    margin: 20px 0 0 -6px;
   
     .rs-dropdown {
       width: 90%;
@@ -63,7 +63,7 @@
     }
 
     ul.rs-dropdown-menu {
-      width: 100%;
+      width: 85%;
     }
   }
 }
