@@ -1,0 +1,347 @@
+﻿state ,county,location_name,location_type,address_1,address_2,city,state_2,zip,hours,notes
+Oregon,Baker,Baker County Clerk's Office,Unknown,1995 3rd St,#150,Baker City,OR,97814,,Inside County Clerk's office
+Oregon,Baker,Baker County Drive Up Drop Box,Unknown,1995 3rd St,,Baker City,OR,97814,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Baker,Halfway City Hall,Unknown,155-B East Record St,,Halfway,OR,97834,,Inside
+Oregon,Baker,Huntington City Hall,Unknown,50 E Adams,,Huntington,OR,97907,,Inside
+Oregon,Baker,Richland City Hall,Unknown,89 Main St,,Richland,OR,97870,,Inside
+Oregon,Benton,Adair Village City Hall,Unknown,6030 NE William R Carr Ave,,Adair Village,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box next to the City Hall parking lot access
+Oregon,Benton,Benton County Courthouse,Unknown,120 NW 4th St,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on Courthouse lawn on Fourth St
+Oregon,Benton,Benton County Courthouse,Unknown,120 NW 4th St,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at accessible entrance to the building on Fifth St
+Oregon,Benton,Benton County Elections Office,Unknown,120 NW 4th St,Room 13,Corvallis,OR,97330,,Inside basement room 13 of County Courthouse
+Oregon,Benton,Benton County Law Enforcement Building,Unknown,180 NW 5th St,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box across the street from the Courthouse
+Oregon,Benton,Benton County Sunset Building,Unknown,4077 SW Research Way,,Corvallis,OR,97333,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Benton,City Limits Market,Unknown,5800 NW OR-99,,Corvallis,OR,97330,,Inside
+Oregon,Benton,Corvallis Community Center (C3),Unknown,2601 NW Tyler Ave,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour Drop box near main entrance
+Oregon,Benton,Corvallis Public Library,Unknown,645 NW Monroe Ave,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour Drop box next to bike rack at corner of 6th and Monroe
+Oregon,Benton,John Boy’s Alsea Mercantile Store,Unknown,186 E Main St,,Alsea,OR,97324,,Inside
+Oregon,Benton,LBCC Benton Center,Unknown,757 NW Polk Ave,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour Drop box near main entrance
+Oregon,Benton,Lincoln Health Center,Unknown,121 SE Viewmont Ave,,Corvallis,OR,97333,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box next to bike rack at the parking lot entrance
+Oregon,Benton,Monroe Community Library,Unknown,380 N 5th St,,Monroe,OR,97456,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Benton,North Albany Shopping Center,Unknown,621 Hickory Ave NW,,Albany,OR,97321,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in front of IGA Supermarket
+Oregon,Benton,OSU Gill Coliseum,Unknown,660 SW 26th St,,Corvallis,OR,97331,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box Corner of Ralph Miller Ln and 26th St
+Oregon,Benton,Philomath Public Library,Unknown,1050 Applegate St,,Philomath,OR,97370,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box near main entrance
+Oregon,Benton,Wells Fargo Bank - Timberhill Shopping Center,Unknown,2543 NW Kings Blvd,,Corvallis,OR,97330,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in the outside drive up banking lane
+Oregon,Clackamas,Boring - Clackamas County Bank,Unknown,28500 SE Hwy 212,,Boring,OR,97009,Monday-Sunday:12:00AM-12:00AM,Drive-up 24 hour drop box
+Oregon,Clackamas,Canby - Arneson Garden,Unknown,249 Sequoia Pkwy,,Canby,OR,97013,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Canby Civic Building,Unknown,222 NE 2nd Ave,,Canby,OR,97013,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Clackamas CC - Harmony,Unknown,7738 SE Harmony Rd,,Milwaukie,OR,97222,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Clackamas County Elections Drop Box,Unknown,1710 Red Soils Ct,,Oregon City,OR,97045,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,ColtonTel,Unknown,20983 S Hwy 211,,Colton,OR,97017,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Damascus Square,Unknown,19850 SE Hwy 212,,Damascus,OR,97089,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Estacada City Hall,Unknown,475 SE Main St,,Estacada,OR,97023,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Estacada Public Library,Unknown,825 NW Wade St,,Estacada,OR,97023,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Gladstone Civic Center,Unknown,18505 Portland Ave,,Gladstone,OR,97027,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Happy Valley City Hall,Unknown,16000 SE Misty Dr,,Happy Valley,OR,97086,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Happy Valley Library,Unknown,13793 SE Sieben Park Way,,Happy Valley,OR,97015,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Hoodland Library,Unknown,24525 E Welches Rd,,Welches,OR,97067,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Lake Oswego - Westlake Park,Unknown,14165 Bunick Dr,,Lake Oswego,OR,97035,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Lake Oswego City Hall,Unknown,380 A Ave,,Lake Oswego,OR,97034,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Milwaukie City Hall,Unknown,10722 SE Main St,,Milwaukie,OR,97222,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Milwaukie Public Safety Building,Unknown,3200 SE Harrison St,,Milwaukie,OR,97222,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Molalla Public Library,Unknown,201 E 5th St,,Molalla,OR,97038,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Oak Lodge Library,Unknown,16201 SE McLoughlin Blvd,,Oak Grove,OR,97267,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Oregon City - City Hall,Unknown,625 Center St,,Oregon City,OR,97045,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,Sandy City Hall,Unknown,39250 Pioneer Blvd,,Sandy,OR,97055,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Sandy Public Library,Unknown,38980 Proctor Blvd,,Sandy,OR,97055,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clackamas,West Linn City Hall,Unknown,22500 Salamo Rd,,West Linn,OR,97068,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,West Linn Public Library,Unknown,1595 Burns St,,West Linn,OR,97068,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Clackamas,Wilsonville City Hall,Unknown,29799 Town Center Loop E,,Wilsonville,OR,97070,Monday-Sunday:12:00AM-12:00AM,Outside drive-up 24 hour drop box
+Oregon,Clatsop,Astoria - 24 Hour Drive-up Drop Box,Unknown,820 Exchange St,,Astoria,OR,97103,,"Outside of 820 Exchange St., Astoria"
+Oregon,Clatsop,Cannon Beach City Hall,Unknown,163 E Gower,,Cannon Beach,OR,97110,,Located outside of City Hall
+Oregon,Clatsop,Clatsop County Clerk & Elections Office,Unknown,820 Exchange St,Ste 220,Astoria,OR,97103,,Inside County Clerk's office
+Oregon,Clatsop,Gearhart City Hall,Unknown,698 Pacific Way,,Gearhart,OR,97138,,Located outside of City Hall
+Oregon,Clatsop,Jewell School,Unknown,83874 Hwy 103,,Seaside,OR,97138,,Located outside of school
+Oregon,Clatsop,Knappa High School,Unknown,41535 Old Hwy 30,,Knappa,OR,97103,,Located outside of High School
+Oregon,Clatsop,Seaside City Hall - 24 Hour Drive-up Drop Box,Unknown,989 Broadway St,,Seaside,OR,97138,,Located outside of City Hall
+Oregon,Clatsop,Warrenton City Hall,Unknown,225 S Main Ave,,Warrenton,OR,97146,,Located outside of City Hall
+Oregon,Columbia,Clatskanie Library Drop Box,Unknown,11 Lillich St,,Clatskanie,OR,97016,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Columbia,Columbia County Courthouse - Elections,Unknown,230 Strand St,,St Helens,OR,97051,,Inside Elections office by appointment only call 503-397-7214 or email Elections@columbiacountyor.gov
+Oregon,Columbia,Columbia County Courthouse Drop Box,Unknown,230 Strand St,,St Helens,OR,97051,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Columbia,Mist-Birkenfeld RFPD Main Station,Unknown,12525 OR-202,,Clatskanie,OR,97016,,Inside
+Oregon,Columbia,Rainier City Hall Drop Box,Unknown,106 W B St,,Rainier,OR,97048,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Columbia,Scappoose City Hall Drop Box,Unknown,33568 E Columbia Ave,,Scappoose,OR,97056,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Columbia,Vernonia Public Library Drop Box,Unknown,701 Weed Ave,,Vernonia,OR,97064,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Coos,Bandon City Hall,Unknown,555 Hwy 101,,Bandon,OR,97411,,Inside; starting 10/15
+Oregon,Coos,Coos Bay City Hall - Drive Up Drop Box,Unknown,500 Central Ave,,Coos Bay,OR,97420,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box - ADA Accessible; starting 10/15
+Oregon,Coos,Coquille Courthouse - Walk Up Drop Box,Unknown,250 N Baxter St,,Coquille,OR,97423,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box - ADA Accessible; starting 10/15
+Oregon,Coos,Lakeside City Hall Drop Box,Unknown,915 N Lake Rd,,Lakeside,OR,97449,,Use mail slot; starting 10/15
+Oregon,Coos,Myrtle Point City Hall,Unknown,424 5th St,,Myrtle Point,OR,97458,,Inside; starting 10/15
+Oregon,Coos,North Bend Fire Department Station 1,Unknown,1880 McPherson Ave,,,OR,97459,,Inside; starting 10/15
+Oregon,Coos,Powers Market,Unknown,409 2nd Ave,,Powers,OR,97466,,Inside; starting 10/15
+Oregon,Crook,Crook County Courthouse - Clerk's Office,Unknown,300 NE 3rd St,Room 23,Prineville,OR,97754,,County Clerk's office drop box beside the door
+Oregon,Crook,Crook County Courthouse Drop Box,Unknown,300 NE 3rd St,,Prineville,OR,97754,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at rear entrance of the Courthouse
+Oregon,Crook,Crook County Library,Unknown,175 NW Meadow Lakes Dr,,Prineville,OR,97754,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at south end of parking lot
+Oregon,Crook,Powell Butte Charter School,Unknown,13650 OR-126,,Powell Butte,OR,97753,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located by the front door
+Oregon,Curry,Brookings City Hall,Unknown,898 Elk Dr,,Brookings,OR,97415,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Curry,Curry County Courthouse - Clerk's Office,Unknown,29821 Ellensburg Ave,2nd Floor,Gold Beach,OR,97444,,Inside in the County Clerk's office on the 2nd floor
+Oregon,Curry,Curry County Courthouse Drop Box,Unknown,29821 Ellensburg Ave,,Gold Beach,OR,97444,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at E Moore St parking lot
+Oregon,Curry,Port Orford City Hall,Unknown,555 W 20th St,,Port Orford,OR,97465,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Deschutes,Bradbury Park & Ride,Unknown,1000 SW Bradbury Dr,,Bend,OR,97702,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located West of Pavillion at Simpson and Columbia; starting 10/16
+Oregon,Deschutes,Deschutes County Elections in the Services Building,Unknown,1300 NW Wall St,Suite 202,Bend,OR,97703,,Inside in the Elections office on Second floor - Privacy Booths Available
+Oregon,Deschutes,Deschutes County Road Department,Unknown,61150 SE 27th St,,Bend,OR,97702,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Deschutes,Deschutes County Services Building,Unknown,1300 NW Wall St,,Bend,OR,97703,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-by Drop Box located on west side of building; starting 10/16
+Oregon,Deschutes,La Pine Public Library,Unknown,16425 1st St,,La Pine,OR,97739,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at 1st St and Huntington Rd; starting 10/16
+Oregon,Deschutes,Old Mill District: Hilton Garden Inn south parking lot,Unknown,459 SW Bluff Dr,,Bend,OR,97703,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Deschutes,Pine Nursery Park,Unknown,3750 NE Purcell Blvd,,Bend,OR,97701,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located East end of parking lot; starting 10/16
+Oregon,Deschutes,Redmond Public Library,Unknown,827 SW Deschutes Ave,,Redmond,OR,97756,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Deschutes,Sisters City Hall,Unknown,520 E Cascade Ave,,Sisters,OR,97759,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Deschutes,Sunriver Public Library,Unknown,56855 Venture Ln,,Sunriver,OR,97707,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Douglas,Canyonville City - Library Book Drop,Unknown,250 N Main St,,Canyonville,OR,97417,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box: use library book drop
+Oregon,Douglas,Douglas County Annex,Unknown,680 Fir Ave,,Reedsport,OR,97467,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Douglas,Douglas County Courthouse - Clerk's Office,Unknown,1036 SE Douglas Ave,,Roseburg,OR,97470,,Inside County Clerk's office CH124 & hallway slot
+Oregon,Douglas,Douglas County Courthouse Drop Box,Unknown,1036 SE Douglas Ave,,Roseburg,OR,97470,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on front lawn
+Oregon,Douglas,Drain City Hall,Unknown,515 S Cedar St,,Drain,OR,97435,,Inside
+Oregon,Douglas,Glendale City Hall,Unknown,124 3rd St,,Glendale,OR,97442,,Inside
+Oregon,Douglas,Myrtle Creek City Hall,Unknown,207 NW Pleasant St,,Myrtle Creek,OR,97457,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Douglas,Riddle City Hall,Unknown,647 1st Ave,,Riddle,OR,97469,,Inside
+Oregon,Douglas,Roseburg Public Library East Parking Lot,Unknown,1409 NE Diamond Lake Blvd,,Roseburg,OR,97471,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in the east parking lot at the corner Fowler St and Diamond Lk Blvd
+Oregon,Douglas,Sutherlin City Hall,Unknown,126 E Central Ave,,Sutherlin,OR,97479,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Douglas,Umpqua Community College - Del Blanchard Administration Building,Unknown,1140 Umpqua College Rd,,Roseburg,OR,97470,Monday-Sunday:12:00AM-12:00AM,Outside administrative building (behind water fountain) 24 hour drop slot on side of building towards library
+Oregon,Douglas,Winston City Hall,Unknown,201 NW Douglas Blvd,,Winston,OR,97496,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Douglas,Yoncalla City Hall,Unknown,2640 Eagle Valley Rd,,Yoncalla,OR,97499,,Inside
+Oregon,Douglas,Yoncalla City Hall Drop Slot,Unknown,2640 Eagle Valley Rd,,Yoncalla,OR,97499,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box: use utility payment slot
+Oregon,Gilliam,Arlington Municipal Building,Unknown,500 W 1st St,,Arlington,OR,97812,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Gilliam,Gilliam County Courthouse Drop Box,Unknown,221 S Oregon St,,Condon,OR,97823,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Grant,Grant County Courthouse - Clerk's Office,Unknown,201 S Humbolt St,Suite 290,Canyon City,OR,97820,,Inside County Clerk's office
+Oregon,Grant,Grant County Courthouse 24 Hour Drive-Up,Unknown,205 S Humbolt St,,Canyon City,OR,97820,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Harney,County Road Dept Yard in Crane - Drive-Thru,Unknown,64319 Main Ave,,Crane,OR,97732,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-thru drop box
+Oregon,Harney,Harney County Courthouse - Clerk's Office,Unknown,450 N Buena Vista,,Burns,OR,97720,,Inside County Clerk's office
+Oregon,Harney,Harney County Courthouse Drop Box,Unknown,450 N Buena Vista,,Burns,OR,97720,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Harney,Hines City Hall - Drive-Thru,Unknown,101 E Barnes,,Hines,OR,97738,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-thru drop box
+Oregon,Hood River,Cascade Locks City Hall Drop Box,Unknown,140 Wa Na Pa St,,Cascade Locks,OR,97014,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Hood River,Hood River County Administration Building,Unknown,601 State St,,Hood River,OR,97031,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Hood River,Hood River County Business Administration Building - Elections,Unknown,601 State St,3rd Floor,Hood River,OR,97031,,Inside the Records & Assessment Department on 3rd floor
+Oregon,Jackson,Ashland Library,Unknown,410 Siskiyou Blvd,,Ashland,OR,97520,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box curbside from alley off Gresham St by book drop; starting 10/19
+Oregon,Jackson,Central Point Library,Unknown,116 S 3rd St,,Central Point,OR,97502,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box at south side of library building, main entrance; starting 10/19"
+Oregon,Jackson,Eagle Point Library,Unknown,239 W Main St,,Eagle Point,OR,97524,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at library main branch entrance; starting 10/19
+Oregon,Jackson,Jackson County Elections Drop Box,Unknown,1101 W Main St,,Medford,OR,97501,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop boxes curbside from left lane of W Main and walk up; starting 10/19
+Oregon,Jackson,Jackson County Elections Office,Unknown,1101 W Main St,Suite 201,Medford,OR,97501,,Inside the Jackson County Elections office
+Oregon,Jackson,Medford Library,Unknown,205 S Central Ave,,Medford,OR,97501,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at library parking lot off 10th; starting 10/19
+Oregon,Jackson,Phoenix Library,Unknown,510 W 1st St,,Phoenix,OR,97535,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at library main branch entrance; starting 10/19
+Oregon,Jackson,Rogue River Library,Unknown,412 E Main St,,Rogue River,OR,97537,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at library main branch entrance; starting 10/19
+Oregon,Jefferson,Crooked River Ranch Administration Area,Unknown,5195 SW Clubhouse Rd,,Terrebonne,OR,97760,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box near tennis courts
+Oregon,Jefferson,Culver City Hall,Unknown,200 W 1st St,,Culver,OR,97734,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Jefferson,Jefferson County Annex,Unknown,66 SE D St,,Madras,OR,97741-1739,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Jefferson,Jefferson County Annex - Elections,Unknown,66 SE D St,,Madras,OR,97741-1739,,Inside County Clerk's office
+Oregon,Jefferson,Metolius City Hall,Unknown,636 Jefferson St,,Metolius,OR,97741,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Jefferson,Warm Springs,Unknown,2112 Wasco St,,Warm Springs,OR,97761,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Josephine,Cave Junction City Building,Unknown,222 W Lister St,,Cave Junction,OR,97523,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Josephine,Hidden Valley Market,Unknown,7200 Williams Hwy,,Grants Pass,OR,97527,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Josephine,Josephine Community Library,Unknown,200 NW C St,,Grants Pass,OR,97526,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in rear parking lot
+Oregon,Josephine,Josephine County Courthouse - Clerk's Office,Unknown,500 NW 6th St,Room 170,Grants Pass,OR,97528,,Inside in hall outside County Clerk's office (room 170)
+Oregon,Josephine,Josephine County Courthouse North Drop Box,Unknown,500 NW 6th St,,Grants Pass,OR,97528,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box - north entrance
+Oregon,Josephine,Josephine County Courthouse South Drop Box,Unknown,500 NW 6th St,,Grants Pass,OR,97528,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box - south entrance
+Oregon,Josephine,Umpqua Bank,Unknown,3600 Merlin Rd,,Grants Pass,OR,97526,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Josephine,Washington Federal Bank,Unknown,290 Union Ave,,Grants Pass,OR,97526,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Klamath,Bonanza Town Hall,Unknown,2900 4th Ave,,Bonanza,OR,97623,,Inside
+Oregon,Klamath,Chiloquin Community Center,Unknown,140 S 1st Ave,,Chiloquin,OR,97624,,Inside
+Oregon,Klamath,Klamath Basin Senior Center,Unknown,2045 Arthur St,,Klamath Falls,OR,97603,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Klamath,Klamath Community College - Founder's Hall (Building 9),Unknown,7390 S 6th St,,Klamath Falls,OR,97603,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Klamath,Klamath County Government Center - Clerk's Office,Unknown,305 Main St,,Klamath Falls,OR,97601,,Inside County Clerk's office
+Oregon,Klamath,Klamath County Government Center Drop Box,Unknown,305 Main St,,Klamath Falls,OR,97601,Monday-Sunday:12:00AM-12:00AM,24 hour drop box in parking lot behind building
+Oregon,Klamath,La Pine Public Library,Unknown,16425 1st St,,La Pine,OR,97739,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at 1st St and Huntington Rd
+Oregon,Klamath,Malin City Hall,Unknown,2432 4th St,,Malin,OR,97632,,Inside
+Oregon,Klamath,Merrill City Hall,Unknown,300 E 1st,,Merrill,OR,97632,,Inside
+Oregon,Klamath,Oregon Institute of Technology - College Union Info Desk,Unknown,3201 Campus Dr,,Klamath Falls,OR,97601,,Inside
+Oregon,Klamath,Walker Range FPA,Unknown,135393 Highway 97,,Crescent,OR,97733,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lake,Christmas Valley Annex Building,Unknown,87541 Christmas Valley Hwy,,Christmas Valley,OR,97641,,Inside
+Oregon,Lake,Lake County Elections,Unknown,513 Center St,,Lakeview,OR,97630,,Inside
+Oregon,Lake,Lake County Elections - Outside Drop Box,Unknown,513 Center St,,Lakeview,OR,97630,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lake,Paisley Community Center,Unknown,723 Chewaucan St,,Paisley,OR,97636,,Inside
+Oregon,Lane,Amazon Pool,Unknown,2600 Hilyard St,,Eugene,OR,97405,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Bethel Library,Unknown,1990 Echo Hollow Rd,,Eugene,OR,97402,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,City of Creswell,Unknown,50 S 1st,,Creswell,OR,97426,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at North side of parking lot at corner of South 1st St and C St
+Oregon,Lane,Coburg City Hall,Unknown,91136 N Willamette St,,Coburg,OR,97408,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Cottage Grove Community Center,Unknown,700 E Gibbs Ave,,Cottage Grove,OR,97424,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Florence Police Department,Unknown,900 Greenwood St,,Florence,OR,97439,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Junction City Library,Unknown,726 Greenwood St,,Junction City,OR,97448,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Juvenile Justice Center,Unknown,2727 MLK Jr Blvd,,Eugene,OR,97401,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Lane County Elections Drop Box,Unknown,275 W 10th Ave,,Eugene,OR,97401,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box enter from Lincoln St
+Oregon,Lane,Lane County Public Works,Unknown,3050 N Delta Hwy,,Eugene,OR,97408,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at parking lot in front of the Customer Service Center
+Oregon,Lane,Lowell City Hall,Unknown,107 E 3rd St,,Lowell,OR,97452,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Oakridge Police Department,Unknown,76435 Ash St,,Oakridge,OR,97463,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Pearl Street,Unknown,777 Pearl St,,Eugene,OR,97401,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on Pearl St between 7th & 8th Ave
+Oregon,Lane,River Road Park & Recreation Center,Unknown,1400 Lake Dr,,Eugene,OR,97404,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on south island in parking lot off Lake Dr
+Oregon,Lane,Sheldon Library,Unknown,1566 Coburg Rd,,Eugene,OR,97401,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Splash! At Lively Park,Unknown,6100 Thurston Rd,,Springfield,OR,97478,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lane,Springfield City Hall,Unknown,550 A St,,Springfield,OR,97477,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in drive-through under building
+Oregon,Lane,University of Oregon - Erb Memorial Union,Unknown,1222 E 13th Ave,,Eugene,OR,97403,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on South side of circular plaza
+Oregon,Lane,Veneta City Hall,Unknown,88184 8th St,,Veneta,OR,97487,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box on island in parking lot
+Oregon,Lane,Walmart,Unknown,4550 W 11th Ave,,Eugene,OR,97402,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box North side of parking lot
+Oregon,Lincoln,Depoe Bay City Hall Drop Box,Unknown,570 SE Shell Ave,,Depoe Bay,OR,97341,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Lincoln,Eddyville Community Church,Unknown,6890 Crystal Creek Loop,,Eddyville,OR,97343,,Inside lobby
+Oregon,Lincoln,Lincoln City - City Hall,Unknown,801 SW Hwy 101,,Lincoln City,OR,97367,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in lower parking lot
+Oregon,Lincoln,Lincoln County Courthouse - Elections,Unknown,225 W Olive St,Rm 201,Newport,OR,97365,,Inside
+Oregon,Lincoln,Lincoln County Courthouse Drive Up,Unknown,225 W Olive St,,Newport,OR,97365,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lincoln,Newport City Hall Drop Box,Unknown,169 SW Coast Hwy,,Newport,OR,97365,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box use water payment box - Turn between bus stop and Chevron
+Oregon,Lincoln,Siletz City Hall Drop Box,Unknown,215 W Buford,,Siletz,OR,97380,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Lincoln,Toledo Police Station Drop Box,Unknown,250 NE Hwy 20,,Toledo,OR,97391,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lincoln,Waldport City Hall,Unknown,125 Alsea Hwy,,Waldport,OR,97394,,Inside
+Oregon,Lincoln,Waldport City Hall Drop Box,Unknown,125 Alsea Hwy,,Waldport,OR,97394,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Lincoln,Yachats City Hall Drop Box,Unknown,276 W 6th St,,Yachats,OR,97498,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (old bank building) in drive-though lane
+Oregon,Linn,Albany Public Library,Unknown,2450 14th Ave SE,,Albany,OR,97322,,Inside
+Oregon,Linn,Brownsville City Hall,Unknown,255 N Main St,,Brownsville,OR,97327,,Inside
+Oregon,Linn,Halsey City Hall,Unknown,100 Halsey St,,Harrisburg,OR,97348,,Inside
+Oregon,Linn,Harrisburg City Hall,Unknown,120 Smith St,,Harrisburg,OR,97446,,Inside
+Oregon,Linn,Lebanon Police Department Drop Box,Unknown,40 N 2nd St,Suite 100,Lebanon,OR,97355,Monday-Sunday:12:00AM-12:00AM,24 hour drop box
+Oregon,Linn,Lebanon Public Library,Unknown,55 Academy St,,Lebanon,OR,97355,,Inside
+Oregon,Linn,Linn County Courthouse - Elections,Unknown,300 4th Ave SW,Rm 205,Albany,OR,97321,,Inside County Clerk's office
+Oregon,Linn,Linn County Courthouse Drop Box,Unknown,300 4th Ave SW,,Albany,OR,97321,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-thru drop box on 5th Ave
+Oregon,Linn,Linn County Sheriff Lebanon Substation,Unknown,2590 S Main Rd,,Lebanon,OR,97355,Monday-Sunday:12:00AM-12:00AM,24 hour drop box
+Oregon,Linn,Lyons City Hall,Unknown,449 5th St,,Lyons,OR,97358,,Inside
+Oregon,Linn,Mill City - City Hall,Unknown,444 S 1st Ave,,Mill City,OR,97360,,Inside
+Oregon,Linn,Millersburg City Hall,Unknown,4222 Old Salem Rd NE,,Albany,OR,97321,,Inside
+Oregon,Linn,Scio City Hall,Unknown,38957 NW 1st Ave,,Scio,OR,97374,,Inside
+Oregon,Linn,Sweet Home City Hall,Unknown,3225 Main St,,Sweet Home,OR,97386,,Inside
+Oregon,Linn,Sweet Home Police Department Drop Box,Unknown,1950 Main St,,Sweet Home,OR,97386,Monday-Sunday:12:00AM-12:00AM,24 hour drop box
+Oregon,Malheur,Jordan Valley Drive Up,Unknown,501 Yturri Blvd,,Jordan Valley,OR,97910,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box across from Post Office at county right of way
+Oregon,Malheur,Malheur County Courthouse Drop Box,Unknown,251 B St W,,Vale,OR,97918,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box corner of “B” St and Bryant St
+Oregon,Malheur,Nyssa Public Library,Unknown,319 Main St,,Nyssa,OR,97913,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Malheur,Ontario Community Library,Unknown,388 SW 2nd Ave,,Ontario,OR,97914,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Marion,Aumsville City Hall,Unknown,595 Main St,,Aumsville,OR,97325,,Inside; starting 10/16
+Oregon,Marion,Donald City Hall,Unknown,10710 Main St,,Donald,OR,97020,,Inside; starting 10/16
+Oregon,Marion,Gervais City Hall,Unknown,592 4th St,,Gervais,OR,97026,,Inside; starting 10/16
+Oregon,Marion,Hubbard City Hall,Unknown,3720 Second St,,Hubbard,OR,97032,,Inside; starting 10/16
+Oregon,Marion,Hubbard City Hall Drop Box,Unknown,3720 Second St,,Hubbard,OR,97032,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Jefferson City Hall Drop Box,Unknown,150 N 2nd St,,Jefferson,OR,97352,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Jefferson Fire Department,Unknown,189 N Main St,,Jefferson,OR,97352,,Inside; starting 10/16
+Oregon,Marion,Keizer City Hall,Unknown,930 Chemawa Rd NE,,Keizer,OR,97303,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Marion County Courthouse Curbside,Unknown,555 Court St NE,,Salem,OR,97301,Monday-Sunday:12:00AM-12:00AM,"Outside curbside service North side of the Courthouse, 500 block Court St NE; starting 11/2"
+Oregon,Marion,Marion County Elections Office - Courthouse Square Building,Unknown,555 Court St NE,Suite 2130,Salem,OR,97301,,Inside County Clerk's office
+Oregon,Marion,Marion County Health Building,Unknown,3180 Center St NE,,Salem,OR,97301,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box curbside; starting 10/16
+Oregon,Marion,Marion County Public Works,Unknown,5155 Silverton Rd NE,,Salem,OR,97305,,Outside curbside drop box; starting 10/16
+Oregon,Marion,Mill City - City Hall,Unknown,444 S 1st Ave,,Mill City,OR,97360,,Inside; starting 10/16
+Oregon,Marion,Mt Angel Public Library Drop Box,Unknown,290 E Charles St,,Mt. Angel,OR,97362,Monday-Sunday:12:00AM-12:00AM,24 hour drop box; starting 10/16
+Oregon,Marion,Roth's Fresh Hayesville,Unknown,4746 Portland Rd NE,,Salem,OR,97305,,Inside; starting 10/16
+Oregon,Marion,Roth's Fresh Market - Sunnyslope Shopping Center,Unknown,4555 Liberty Rd S,,Salem,OR,97302,,Inside; starting 10/16
+Oregon,Marion,Roth's Fresh Market Vista,Unknown,3045 Commercial St SE,,Salem,OR,97302,,Inside; starting 10/16
+Oregon,Marion,Silverton Lewis St parking lot,Unknown,Lewis St and S 1st St,,Silverton,OR,97381,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Stayton Public Library,Unknown,515 N First Ave,,Stayton,OR,97383,,Inside; starting 10/16
+Oregon,Marion,Stayton Public Library Drop Box,Unknown,515 N First Ave,,Stayton,OR,97383,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Sublimity City Hall,Unknown,245 NW Johnson St,,Sublimity,OR,97385,,Inside; starting 10/16
+Oregon,Marion,Turner City Hall,Unknown,5255 Chicago St SE,,Turner,OR,97392,,Inside; starting 10/16
+Oregon,Marion,Turner City Hall Drop Box,Unknown,5255 Chicago St SE,,Turner,OR,97392,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Marion,Walmart on Commercial Park and Drop,Unknown,5250 Commercial Rd SE,,Salem,OR,97306,Monday-Sunday:12:00AM-12:00AM,Outside park and drop service; starting 10/16
+Oregon,Marion,Woodburn Public Library Drop Box,Unknown,280 Garfield St,,Woodburn,OR,97071,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; starting 10/16
+Oregon,Morrow,Ione Curbside,Unknown,260 Spring St,,Ione,OR,97843,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Morrow,Morrow County Bartholomew Building - Clerk's Office,Unknown,100 S Court St,RM 102,Heppner,OR,97836,,"Inside County Clerk's office, room 102"
+Oregon,Morrow,Morrow County Bartholomew Building Drop Box,Unknown,100 S Court St,,Heppner,OR,97836,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box in parking lot, follow the arrows"
+Oregon,Morrow,Morrow County Boardman Building,Unknown,101 Boardman Ave NW,,Boardman,OR,97818,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Morrow,Morrow County Planning Department - Irrigon Annex,Unknown,205 NE Third St,,Irrigon,OR,97844,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Morrow,Morrow County Public Works,Unknown,365 West Hwy 74,,Lexington,OR,97839,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Multnomah,A-Boy Supply,Unknown,7365 SW Barbur Blvd,,Portland,OR,97219,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box at the southwest corner of the parking lot, enter from SW Terwilliger Blvd"
+Oregon,Multnomah,Albina Library Drop Box,Unknown,216 NE Knott St,,Portland,OR,97212,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box (use book return)
+Oregon,Multnomah,Belmont Library Drop Box,Unknown,1038 Cesar E Chavez Blvd,,Portland,OR,97214,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box (use book return)
+Oregon,Multnomah,Capitol Hill Library Drop Box,Unknown,10723 SW Capitol Highway,,Portland,OR,97219,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box (use book return)
+Oregon,Multnomah,Central Library Drop Box,Unknown,801 SW 10th Ave,,Portland,OR,97205,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box located on the east side of SW 11th between Yamhill and Taylor (use book return)
+Oregon,Multnomah,Fairview-Columbia Library Drop Box,Unknown,1520 NE Village St,,Fairview,OR,97024,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box (use book return)
+Oregon,Multnomah,Green Zebra Grocery,Unknown,3011 N Lombard St,,Portland,OR,97217,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box, entrance for the Green Zebra Grocery rear parking lot is on N Curtis Avenue"
+Oregon,Multnomah,Gregory Heights Library Drop Box,Unknown,7921 NE Sandy Blvd,,Portland,OR,97213,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box (use book return)
+Oregon,Multnomah,Gresham Library Drop Box,Unknown,385 NW Miller Ave,,Gresham,OR,97030,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Multnomah,Gresham Voting Center Express - Multnomah County East Building,Unknown,600 NE 8th Street,,Gresham,OR,97030,,Inside first floor of the Multnomah East County Building (only available during Voting Center Express open hours); starting 10/12
+Oregon,Multnomah,Hillsdale Library Drop Box,Unknown,1525 SW Sunset Blvd,,Portland,OR,97239,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Holgate Library Drop Box,Unknown,7905 SE Holgate Blvd,,Portland,OR,97206,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Hollywood Library Drop Box,Unknown,4040 NE Tillamook St,,Portland,OR,97212,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Kenton Library Drop Box,Unknown,8226 N Denver Ave,,Portland,OR,97217,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,McCoy Park - Walk Up Drop Box,Unknown,4677 N Trenton St,,Portland,OR,97203,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour walk up drop box, located on the northwest corner of N Trenton St and N Newman Ave"
+Oregon,Multnomah,McDonald's Restaurant,Unknown,2010 NE Cesar E Chavez Blvd,,Portland,OR,97212,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located on the west side of NE 40th Ave between NE Tillamook and NE Hancock and near the Hollywood Library
+Oregon,Multnomah,Midland Library Drop Box,Unknown,805 SE 122nd Ave,,Portland,OR,97233,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Multnomah,Multnomah County Duniway-Lovejoy Elections Building,Unknown,1040 SE Morrison St,,Portland,OR,97214,,Inside County Clerk's office drop box and voting booths during voting period
+Oregon,Multnomah,Multnomah County Duniway-Lovejoy Elections Building Drop Box,Unknown,1040 SE Morrison St,,Portland,OR,97214,Monday-Sunday:12:00AM-12:00AM,Outside 24-hour ballot drop slot available to pedestrians on the north side of the building as well as a drive-up boxes located on both SE 11th and SE Belmont
+Oregon,Multnomah,North Portland Library Drop Box,Unknown,512 N Killingsworth St,,Portland,OR,97217,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Northwest Library Drop Box,Unknown,2300 NW Thurman St,,Portland,OR,97210,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Parkrose Neighborhood,Unknown,4390 NE 102nd Ave,,Portland,OR,97220,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located in the east parking lot across the St from MHCC Maywood Park Center on NE 102nd and NE Prescott
+Oregon,Multnomah,Pioneer Courthouse Square Walk up Drop Box,Unknown,701 SW 6th Ave,,Portland,OR,97205,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour walk up drop box on the 700 block of SW Broadway next to Starbucks and across from Nordstrom's
+Oregon,Multnomah,Regal Cinemas Movie Theater / M & M Car Wash,Unknown,16603 SE Division,,Portland,OR,97236,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located in the Regal Cinemas parking lot behind M & M Car Wash at SE Division St and SE 165th Ave
+Oregon,Multnomah,Rockwood Library Drop Box,Unknown,17917 SE Stark St,,Portland,OR,97233,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Sellwood-Moreland Library Drop Box,Unknown,7860 SE 13th Ave,,Portland,OR,97202,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,St Johns Library Drop Box,Unknown,7510 N Charleston Ave,,Portland,OR,97203,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Troutdale Branch Library Drop Box,Unknown,2451 SW Cherry Park Rd,,Troutdale,OR,97060,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Multnomah,Woodstock Library Drop Box,Unknown,6008 SE 49th Ave,,Portland,OR,97206,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box (use book return)
+Oregon,Polk,Falls City - Frink's General Store,Unknown,319 N Main St,,Falls City,OR,97344,,Inside
+Oregon,Polk,Independence - City Hall,Unknown,555 S Main St,,Independence,OR,97351,Monday-Sunday:12:00AM-12:00AM,Inside 24 hour drop box in the lobby
+Oregon,Polk,Monmouth - Roth's Fresh Markets,Unknown,1517 Monmouth Independence Hwy,,Monmouth,OR,97361,,Inside
+Oregon,Polk,Polk County Courhouse Drop Box,Unknown,850 Main St,,Dallas,OR,97338,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in the parking lot on the east side of Courthouse
+Oregon,Polk,Polk County Courthouse - Clerk's Office,Unknown,850 Main St,2nd Floor,Dallas,OR,97338,,Inside County Clerk's office on 2nd floor
+Oregon,Polk,West Salem - Roth's Fresh Market,Unknown,1130 Wallace Rd NW,,Salem,OR,97304,,Inside
+Oregon,Sherman,Grass Valley City Hall,Unknown,109 Mill St,,,OR,97029,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour white drop box in front of City Hall, to the left of the city payment box; starting 10/15"
+Oregon,Sherman,Rufus City Maintenance Building,Unknown,400 Main St,,Rufus,OR,97050,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour white drop box slot slot located to the right of the city payment slot; starting 10/15
+Oregon,Sherman,Sherman County Courthouse Drop Box,Unknown,500 Court St,,Moro,OR,97039,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour red, white & blue drop box located at the corner of Court and 5th Sts near the front of the courthouse; starting 10/15"
+Oregon,Sherman,Sherman County Courthouse - Clerk's Office,Unknown,500 Court St,,Moro,OR,97039,,Inside County Clerk's office - drop slot in counter
+Oregon,Sherman,Wasco City Hall,Unknown,1017 Clark St,,Wasco,OR,97065,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box; located just uphill from the stop sign at the corner of Fulton St and Clark St and south of the City Hall sidewalk; starting 10/15
+Oregon,Tillamook,Bay City - City Hall Drop Box,Unknown,5525 B St,,Bay City,OR,97107,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Cloverdale Chamber of Commerce,Unknown,34370 Hwy 101 S,,Cloverdale,OR,97112,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Garibaldi - City Hall Drop Box,Unknown,107 6th St,,Garibaldi,OR,97118,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Manzanita - City Hall Drop Box,Unknown,543 Laneda Ave,,Manzanita,OR,97130,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Pacific City Drop Box - Kiawanda Community Center,Unknown,34600 Cape Kiwanda Dr,,Pacific City,OR,97135,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Rockaway Beach - City Hall Drop Box,Unknown,276 US-101,,Rockaway Beach,OR,97136,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Tillamook,Tillamook City Drive-up Drop Box,Unknown,201 Laurel Ave,,Tillamook,OR,97141,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at NW corner of 3rd and Laurel; starting 9/18
+Oregon,Tillamook,Tillamook County Clerk's Office,Unknown,201 Laurel Ave,,Tillamook,OR,97141,,Inside County Clerk's office
+Oregon,Tillamook,Tillamook County Courthouse,Unknown,201 Laurel Ave,,Tillamook,OR,97141,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at north stairs
+Oregon,Tillamook,Tillamook Library Main Branch,Unknown,1716 3rd St,,Tillamook,OR,97141,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Umatilla,Athena City Hall,Unknown,302 E Currant St,,"Athena,",OR,97813,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Umatilla,Confederate Tribes Nixyaawii Governance Center,Unknown,46411 Ti'mine Way,,Pendleton,OR,97801,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Umatilla,Echo City Hall Drop Box,Unknown,20 S Bonanza St,,Echo,OR,97826,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Umatilla,Hermiston City Hall,Unknown,180 NE 2nd St,,Hermiston,OR,97838,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at curbside island
+Oregon,Umatilla,Milton-Freewater City Hall and Police Station,Unknown,722 S Main,,Milton-Freewater,OR,97862,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box at curbside island
+Oregon,Umatilla,Pilot Rock City Hall,Unknown,144 N Alder Pl,,Pilot Rock,OR,97868,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at the front entrance
+Oregon,Umatilla,Stanfield City Hall,Unknown,160 S Main St,,Stanfield,OR,97875,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at the front entrance
+Oregon,Umatilla,Umatilla City Hall,Unknown,700 6th St,,Umatilla,OR,97882,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located at the back alleyway entrance
+Oregon,Umatilla,Umatilla County Courthouse - Clerk's Office,Unknown,216 SE 4th St,Rm 18,Pendleton,OR,97801,,"Inside County Clerk's office, room 18"
+Oregon,Umatilla,Umatilla County Courthouse Drop Box,Unknown,216 SE 4th St,,Pendleton,OR,97801,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located in rear parking lot accessed from SE Court or Dorion Ave
+Oregon,Union,Cove City Hall,Unknown,504 Alder St,,Cove,OR,97824,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Union,Elgin City Hall,Unknown,790 S 8th Ave,,Elgin,OR,97827,Monday-Sunday:12:00AM-12:00AM,Details at https://union-county.org/county-clerk/
+Oregon,Union,Imbler City Hall,Unknown,180 Ruckman Ave,,Imbler,OR,97841,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Union,Island City - City Hall,Unknown,10605 Island Ave,,Island City,OR,97850,,Details at https://union-county.org/county-clerk/
+Oregon,Union,North Powder City Hall,Unknown,635 3rd St,,North Powder,OR,97867,,Details at https://union-county.org/county-clerk/
+Oregon,Union,Union City Hall,Unknown,342 S Main St,,Union,OR,97883,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Union,Union County Clerk's Office,Unknown,1001 Fourth Street,Suite D,La Grande,OR,97850,,Inside County Clerk's office
+Oregon,Union,Union County Offices Drop Box,Unknown,1001 Fourth Street,,La Grande,OR,97850,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wallowa,Joseph City Hall,Unknown,201 N Main St,,Joseph ,OR,97846,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wallowa,Wallowa City Hall,Unknown,211 E 2nd St,,Wallowa,OR,,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wallowa,Wallowa County Courthouse - Clerk's Office,Unknown,101 S River St,,Enterprise,OR,97828,,Inside County Clerk's office
+Oregon,Wallowa,Wallowa County Courthouse Dropsite,Unknown,101 S River St,,Enterprise,OR,97828,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box southside of Courthouse
+Oregon,Wasco,Maupin City Hall,Unknown,408 Deschutes Ave,,Maupin,OR,97037,,Inside the City Hall office
+Oregon,Wasco,Maupin Civic Center - Payments Drop Box,Unknown,507 Grant Ave,,Maupin,OR,97037,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour payments drop box on Grant Avenue
+Oregon,Wasco,Wasco County Courthouse - Clerk’s Office,Unknown,511 Washington St,#210,The Dalles,OR,97058,Monday-Sunday:12:00AM-12:00AM,"Use the mail slot in the door of the Clerk's office, Suite 201"
+Oregon,Wasco,Wasco County Elections Drop Box,Unknown,511 Washington St,,The Dalles,OR,97058,,24 hour drop box at the 5th Street entrance
+Oregon,Washington,Aloha Community Library,Unknown,17455 SW Farmington Rd,Ste 26A,Aloha,OR,97078,,"Farmington Marketplace Shopping Center, dates and hours at www.wccls.org/vote"
+Oregon,Washington,Banks City Hall and Library,Unknown,42461 NW Market St,,Banks,OR,97106,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Beaverton City Library,Unknown,12375 SW 5th St,,Beaverton,OR,97005,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Beaverton Library - Murry Scholls,Unknown,11200 SW Murray Scholls Pl,#120,Beaverton,OR,97007,,Dates and hours at www.wccls.org/vote
+Oregon,Washington,Beaverton Library Drop Box,Unknown,12375 SW 5th St,,Beaverton,OR,97005,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Bethany Library,Unknown,15325 NW Central Dr,Ste J8,Portland,OR,97229,,Dates and hours at www.wccls.org/vote
+Oregon,Washington,Cedar Mill Community Library,Unknown,12505 NW Cornell Rd,Ste 13,Portland,OR,97229,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Cornelius City Hall,Unknown,1355 N Barlow St,,Cornelius,OR,97113,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Forest Grove City Library - Curbside,Unknown,2114 Pacific Ave,,Forest Grove,OR,97116,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located on Pacific Ave just down from Birch St curbside to library
+Oregon,Washington,Garden Home Community Library,Unknown,7475 SW Oleson Rd,#6,Portland,OR,97223,Dates and hours at www.wccls.org/vote,
+Oregon,Washington,Hillsboro Main Library,Unknown,2850 NE Brookwood Pkwy,,Hillsboro,OR,97124,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box, please note: most-used box in the county, can get congested with traffic on Election Day"
+Oregon,Washington,Hillsboro Public Library - Shute Park,Unknown,775 SE 10th Ave,,Hillsboro,OR,97123,Dates and hours at www.wccls.org/vote,
+Oregon,Washington,King City - City Hall,Unknown,15300 SW 116th Ave,,King City,OR,97224,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,North Plains City Hall,Unknown,31360 NW Commercial St,,North Plains,OR,97133,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Sherwood City Hall,Unknown,22560 SW Pine St,,Sherwood,OR,97140,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Tigard City Hall,Unknown,13125 SW Hall Blvd,,Tigard,OR,97223,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Tualatin City Offices,Unknown,18880 SW Martinazzi,,Tualatin,OR,97062,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Washington County Elections Office Drop Box,Unknown,2925 NE Aloclek Dr,,Hillsboro,OR,97124,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop boxes: directly outside entrance and in southwest corner of lot
+Oregon,Washington,Washington County Service Center East,Unknown,3700 SW Murray Blvd,,Beaverton,OR,97005,Monday-Sunday:12:00AM-12:00AM,"Outside 24 hour drop box, please note: can get congested with traffic on Election Day"
+Oregon,Washington,Washington County Sheriff's Office - Headquarters & Jail,Unknown,236 SW Dennis Ave,,Hillsboro,OR,97124,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box located in the parking lot near corner of SW Dennis Ave and SW Washington St
+Oregon,Washington,West Slope Community Library Drop Box,Unknown,3678 SW 78th Ave,,Portland,OR,97225,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Washington,Westside Commons,Unknown,801 NE 34th Ave,,Hillsboro,OR,97124,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wheeler,Fossil - Wheeler County Courthouse - Clerk’s Office,Unknown,701 Adams St,Ste 204,Fossil,OR,97830,,Inside County Clerk's office
+Oregon,Wheeler,Fossil - Wheeler County Courthouse Drop Box,Unknown,701 Adams St,Ste 205,Fossil,OR,97830,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wheeler,Mitchell - Emergency Services Building,Unknown,202 SE High St,,Mitchell,OR,97750,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Wheeler,Spray - Grange Hall Drop Box,Unknown,807 Winlock St,,Spray,OR,97874,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Amity City Library,Unknown,307 S Trade St,,Amity,OR,97101,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Carlton City Hall,Unknown,191 East Main St,,Carlton,OR,97111,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Dayton City Hall,Unknown,416 Ferry St,,Dayton,OR,97114,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Dundee City Hall,Unknown,620 SW 5th St,,Dundee,OR,97115,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Lafayette City Hall,Unknown,486 3rd St,,Lafayette,OR,97127,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,McMinnville - Chemeketa Campus,Unknown,288 NE Norton Ln,,McMinnville,OR,97128,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,McMinnville - Courthouse,Unknown,535 NE 5th St,,McMinnville,OR,97128,,Inside Lobby
+Oregon,Yamhill,McMinnville - Courthouse Drop Box,Unknown,535 NE 5th St,,McMinnville,OR,97128,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box East end of Courthouse parking lot
+Oregon,Yamhill,McMinnville - Public Library Dive-up Drop Box,Unknown,225 NW Adams Street,,McMinnville,OR,97128,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drive-up drop box
+Oregon,Yamhill,McMinnville - Yamhill County Clerk’s Office,Unknown,414 NE Evans St,,McMinnville,OR,97128,,Inside County Clerk's office by appointment only call 503-434-7518
+Oregon,Yamhill,McMinnville - Yamhill County Clerk’s Office Drop Box,Unknown,414 NE Evans St,,McMinnville,OR,97128,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box
+Oregon,Yamhill,Newberg - Jaquith Park - West,Unknown,1215 North Main St,,Newberg,OR,,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Yamhill,Newberg - PCC Center,Unknown,135 Werth Blvd,,Newberg,OR,97132,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box in parking lot
+Oregon,Yamhill,Newberg - Public Safety Building,Unknown,401 E 3rd St,,Newberg,OR,97132,Monday-Sunday:12:00AM-12:00AM,Outside 24 hour drop box parking lot by Thrift Store
