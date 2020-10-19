@@ -485,3 +485,46 @@ ALTER TABLE public.wip_location_hours
 	DROP CONSTRAINT wip_location_hours_wip_location_id_fkey ,
 	ADD CONSTRAINT wip_location_hours_wip_location_id_fkey FOREIGN KEY (wip_location_id) REFERENCES public.wip_location (id) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE;
 
+CREATE OR REPLACE FUNCTION public.ftrig_location_b_iu ()
+	RETURNS TRIGGER
+	LANGUAGE 'plpgsql'
+	COST 100 VOLATILE NOT LEAKPROOF
+	AS $BODY$
+BEGIN
+	IF ((
+		SELECT
+			timezone_enforced
+		FROM
+			jurisdiction
+		WHERE
+			id = NEW.jurisdiction_id) IS TRUE) THEN
+		NEW.timezone = (
+			SELECT
+				timezone_default
+			FROM
+				jurisdiction
+			WHERE
+				id = NEW.jurisdiction_id);
+		NEW.is_validated_timezone = TRUE;
+	END IF;
+	IF (NEW.timezone IS NULL) THEN
+		NEW.timezone = (
+			SELECT
+				timezone_default
+			FROM
+				jurisdiction
+			WHERE
+				id = NEW.jurisdiction_id);
+		NEW.is_validated_timezone = FALSE;
+	END IF;
+	IF (NEW.geom_latitude IS NOT NULL AND NEW.geom_longitude IS NOT NULL) THEN
+		NEW.geom_point = ST_SetSRID (ST_MakePoint (NEW.geom_longitude , NEW.geom_latitude) , 4326);
+	END IF;
+	IF (NEW.geom_latitude IS NULL OR NEW.geom_longitude IS NULL) THEN
+		NEW.geom_point = NULL;
+	END IF;
+	NEW.updated_at = NOW();
+	RETURN NEW;
+END;
+$BODY$;
+
