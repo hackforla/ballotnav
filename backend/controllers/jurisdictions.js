@@ -36,7 +36,7 @@ exports.assign = (req, res, next) => {
   req.db.UserJurisdiction.create({
     userId,
     jurisdictionId,
-    status: 'editor'
+    status: 'editor',
   })
     .then((data) => res.json(data))
     .catch(next)
@@ -49,16 +49,16 @@ exports.listMine = async (req, res, next) => {
   const userId = req.user.id
 
   const assigns = await req.db.UserJurisdiction.findAll({
-    where: { userId }
+    where: { userId },
   })
-  const jurisIds = assigns.map(assign => assign.jurisdictionId)
+  const jurisIds = assigns.map((assign) => assign.jurisdictionId)
   const jurisdictions = await req.db.Jurisdiction.findAll({
     where: {
       id: {
-        [req.db.Sequelize.Op.in]: jurisIds
-      }
+        [req.db.Sequelize.Op.in]: jurisIds,
+      },
     },
-    attributes: ['id', 'name']
+    attributes: ['id', 'name'],
   })
   res.json(jurisdictions)
 }

@@ -2,8 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
+import * as Yup from 'yup';
 import { useToast } from 'components/use-toast'
 import { Button, TextField, Grid } from '@material-ui/core'
+
+const validationSchema = Yup.object({
+  email: Yup.string().email().required('Required'),
+  password: Yup.string().required('Required'),
+});
 
 function Login() {
   const { login } = useAuth()
@@ -21,11 +27,18 @@ function Login() {
       email: '',
       password: '',
     },
+    validationSchema,
     onSubmit(values, { setSubmitting }) {
       login(values).catch((error) => {
-        if (error.emailNotFound) toast({ message: 'email not found' })
-        else if (error.passwordInvalid) toast({ message: 'password invalid' })
-        else toast({ message: 'server error' })
+        toast({
+          severity: 'error',
+          autoHideDuration: 3000,
+          message: (() => {
+            if (error.emailNotFound) return 'email not found'
+            if (error.passwordInvalid) return 'password invalid'
+            return 'server error'
+          })()
+        })
         setSubmitting(false)
       })
     },

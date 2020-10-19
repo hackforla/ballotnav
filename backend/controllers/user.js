@@ -34,12 +34,14 @@ async function decodeToken(token) {
 exports.getUser = async (req, res) => res.json(req.user)
 
 exports.register = async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body
+  const { firstName, lastName, email, password, notes, slackName } = req.body
   logger.info({
     message: 'register request',
     firstName: firstName,
     lastName: lastName,
     email: email,
+    notes,
+    slackName,
   })
 
   const existingUser = await req.db.User.findOne({ where: { email } })
@@ -60,6 +62,8 @@ exports.register = async (req, res, next) => {
       email,
       passwordHash,
       role: 'volunteer',
+      notes,
+      slackName,
     })
     delete user.passwordHash
     const token = await createToken({ user })
@@ -109,9 +113,40 @@ exports.login = async (req, res, next) => {
   res.json({ isSuccess: true, token, user })
 }
 
+exports.listVolunteers = async (req, res) => {
+  try {
+    const data = await req.db.User.findAll({
+      attributes: [
+        'id',
+        ['first_name', 'firstName'],
+        ['last_name', 'lastName'],
+        'email',
+        'notes',
+        ['slack_name', 'slackName'],
+      ],
+      where: {
+        role: 'volunteer',
+      },
+      include: {
+        model: req.db.UserJurisdiction,
+        as: 'userJurisdictions',
+        include: {
+          model: req.db.Jurisdiction,
+          as: 'jurisdiction',
+        },
+      },
+    })
+    res.json(data);
+  } catch (err) {
+    return handleError(err, 500, res)
+  }
+}
+
 /**
  * create a user assignment to a jurisdiction
  */
+
+// TODO: handle bulk deletion of removed jurisdiction assignments
 exports.assign = async (req, res) => {
   let jurisdictionIds = [...req.body.jurisdictionIds]
   let userId = req.body.userId
@@ -126,18 +161,29 @@ exports.assign = async (req, res) => {
   })
 
   try {
-    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne({
-      where: {
-        userId: userId,
-        jurisdictionId: {
-          [Sequelize.Op.in]: jurisdictionIds 
-        }
+    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne(
+      {
+        where: {
+          userId: userId,
+          jurisdictionId: {
+            [Sequelize.Op.in]: jurisdictionIds,
+          },
+        },
       }
-    })
+    )
     if (jurisdictionAssignmentAlreadyExists !== null) {
-      return handleError({statusMessage: 'Error: assignment exists'}, 400, res)
+      return handleError(
+        { statusMessage: 'Error: assignment exists' },
+        400,
+        res
+      )
     }
-    let records = jurisdictionIds.map(jid => ({...req.body, userId: userId, jurisdictionId: jid}))
+    let records = jurisdictionIds.map((jid) => ({
+      ...req.body,
+      userId: userId,
+      jurisdictionId: jid,
+      status: 'editor',
+    }))
     let results = await req.db.UserJurisdiction.bulkCreate(records)
     logger.info({
       message: 'Success: created user jurisdiction',
@@ -145,9 +191,9 @@ exports.assign = async (req, res) => {
       adminUserId,
       jurisdictionIds,
       userId,
-      count: records.length
+      count: records.length,
     })
-    return res.status(201).json({status: 'ok', results: results})
+    return res.status(201).json({ status: 'ok', results: results })
   } catch (err) {
     return handleError(err, 400, res)
   }

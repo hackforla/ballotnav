@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       jurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       facilityTypeId: {
         type: DataTypes.INTEGER,
         field: 'facilitytype_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -130,18 +130,23 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       geomLatitude: {
-        type: DataTypes.TEXT,
+        type: DataTypes.DECIMAL,
         field: 'geom_latitude',
         allowNull: true,
       },
       geomLongitude: {
-        type: DataTypes.TEXT,
+        type: DataTypes.DECIMAL,
         field: 'geom_longitude',
         allowNull: true,
       },
       geomDataSource: {
         type: DataTypes.TEXT,
         field: 'geom_data_source',
+        allowNull: true,
+      },
+      geomDataNote: {
+        type: DataTypes.TEXT,
+        field: 'geom_data_note',
         allowNull: true,
       },
       geomPoint: {
@@ -302,11 +307,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: true,
       },
-      deletedAt: {
-        type: DataTypes.DATE,
-        field: 'deleted_at',
-        allowNull: true,
-      },
     },
     {
       sequelize,
@@ -314,8 +314,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'location',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
-      paranoid: true,
     }
   )
   return Location

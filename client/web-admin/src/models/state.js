@@ -11,7 +11,7 @@ const fields = {
   stateId: {
     type: DataTypes.INTEGER,
     field: 'state_id',
-    allownull: false,
+    allowNull: false,
     onDelete: 'restrict',
     onUpdate: 'cascade',
     references: {

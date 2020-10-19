@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import AutoForm from './AutoForm'
+import AutoForm from 'components/core/AutoForm'
 import model from 'models/state'
-import TabPanel from './TabPanel'
+import TabPanel from 'components/core/TabPanel'
 import { Tabs, Tab, List, ListItem, ListItemText } from '@material-ui/core'
-import { useHeader } from './Layout'
 import api from 'services/api'
+import Header from 'components/Dashboard/Layout/Header'
 
 function EditState() {
   const { id } = useParams()
   const [state, setState] = useState(null)
   const [tabNum, setTabNum] = useState(0)
-  const { setTitle } = useHeader()
   const history = useHistory()
 
   useEffect(() => {
     api.states.getById(id).then((state) => {
-      setTitle(`Editing state: ${state.name}`)
       setState(state)
     })
-  }, [id, setTitle])
+  }, [id])
 
   if (!state) return null
   return (
     <>
+      <Header title={`Editing: ${state.name}`} />
       <Tabs value={tabNum} onChange={(event, newValue) => setTabNum(newValue)}>
         <Tab label="State Details" />
         <Tab label="Jurisdictions" />

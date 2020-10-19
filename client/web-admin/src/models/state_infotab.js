@@ -12,7 +12,7 @@ const fields = {
   wipStateId: {
     type: DataTypes.INTEGER,
     field: 'wip_state_id',
-    allownull: false,
+    allowNull: false,
     onDelete: 'restrict',
     onUpdate: 'cascade',
     references: {

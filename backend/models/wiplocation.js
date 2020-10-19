@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'wip_location_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
+        as: 'hours',
       })
     }
   }
@@ -32,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       wipJurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'wip_jurisdiction_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -44,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       facilityTypeId: {
         type: DataTypes.INTEGER,
         field: 'facilitytype_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -128,19 +129,24 @@ module.exports = (sequelize, DataTypes) => {
         field: 'display_note',
         allowNull: true,
       },
-      latitude: {
-        type: DataTypes.TEXT,
-        field: 'latitude',
+      geomLatitude: {
+        type: DataTypes.DECIMAL,
+        field: 'geom_latitude',
         allowNull: true,
       },
-      longitude: {
-        type: DataTypes.TEXT,
-        field: 'longitude',
+      geomLongitude: {
+        type: DataTypes.DECIMAL,
+        field: 'geom_longitude',
         allowNull: true,
       },
-      geomPoint: {
-        type: DataTypes.GEOMETRY('POINT', 4326),
-        field: 'geom_point',
+      geomDataSource: {
+        type: DataTypes.TEXT,
+        field: 'geom_data_source',
+        allowNull: true,
+      },
+      geomDataNote: {
+        type: DataTypes.TEXT,
+        field: 'geom_data_note',
         allowNull: true,
       },
       isEarlyDropoffLocation: {
@@ -296,11 +302,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'updated_at',
         allowNull: true,
       },
-      deletedAt: {
-        type: DataTypes.DATE,
-        field: 'deleted_at',
-        allowNull: true,
-      },
     },
     {
       sequelize,
@@ -308,8 +309,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'wip_location',
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
-      paranoid: true,
     }
   )
   return WipLocation

@@ -2,8 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'components/use-auth'
 import { useFormik } from 'formik'
+import * as Yup from 'yup';
 import { useToast } from 'components/use-toast'
 import { Grid, TextField, Button } from '@material-ui/core'
+
+const validationSchema = Yup.object({
+  firstName: Yup.string().required('Required'),
+  lastName: Yup.string().required('Required'),
+  email: Yup.string().email().required('Required'),
+  password: Yup.string().min(8).required('Required'),
+  passwordConfirm: Yup.string().required('Required').oneOf(
+    [Yup.ref('password'), null],
+    'Passwords must match',
+  ),
+  notes: Yup.string(),
+  slackName: Yup.string(),
+});
 
 function Register() {
   const { register } = useAuth()
@@ -23,16 +37,25 @@ function Register() {
       email: '',
       password: '',
       passwordConfirm: '',
+      notes: '',
+      slackName: '',
     },
+    validationSchema,
     onSubmit(values, { setSubmitting }) {
       register(values).catch((error) => {
-        if (error.duplicateEmail) toast({ message: 'email already registered' })
-        else if (error.unknownError)
-          toast({ message: 'unknown error creating account' })
+        toast({
+          severity: 'error',
+          autoHideDuration: 3000,
+          message: (() => {
+            if (error.duplicateEmail) return 'email already registered'
+            return 'unknown error creating account'
+          })()
+        })
         setSubmitting(false)
-      })
+      });
     },
   })
+
   return (
     <div style={{ padding: 100, maxWidth: 600, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', fontSize: 30, marginBottom: 20 }}>
@@ -120,6 +143,34 @@ function Register() {
               onBlur={handleBlur}
               helperText={touched.passwordConfirm ? errors.passwordConfirm : ''}
               error={touched.passwordConfirm && Boolean(errors.passwordConfirm)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              name="notes"
+              label="Region / Time Zone Preference"
+              id="notes"
+              value={values.notes}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={touched.notes ? errors.notes : ''}
+              error={touched.notes && Boolean(errors.notes)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              name="slackName"
+              label="Slack Name"
+              id="slackName"
+              value={values.slackName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={touched.slackName ? errors.slackName : ''}
+              error={touched.slackName && Boolean(errors.slackName)}
             />
           </Grid>
         </Grid>

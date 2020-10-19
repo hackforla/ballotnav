@@ -1,0 +1,4 @@
+﻿state ,county ,location_name,location_type,address_1,address_2,city,state_2,zip,phone,county_website_url,email,fax,hours
+Delaware,Kent,Department of Elections,Elections Office,100 Enterprise Pl,Ste 5,Dover,DE,19904,(302) 739-4498,https://electionsncc.delaware.gov/,votekc@delaware.gov,(302) 739-4515,Monday-Friday: 8:00 am - 4:30 pm
+Delaware,New Castle,Department of Elections,Elections Office,820 North French St ,Suite 400,Wilmington,DE,19801,(302) 577-3464,https://electionsncc.delaware.gov/,votencc@delaware.gov,(302) 577-6545,Monday-Friday: 8:00 am - 4:30 pm
+Delaware,Sussex,Department of Elections,Elections Office,119 N. Race St,,Georgetown,DE,19947,(302) 856-5367,http://electionssc.delaware.gov/,votesc@delaware.gov,(302) 856-5082,Monday-Friday: 8:00 am - 4:30 pm

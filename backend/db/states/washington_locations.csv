@@ -1,0 +1,564 @@
+﻿type,county,place,address,address_1,address_2,csz,city,zip,description
+Dropbox,Adams,Adams County Public Services Building Drop Box,"425 E Main St, Othello WA  99344",425 E Main St,,Othello WA 99344,Othello,99344,"24-hour, convenient, safe, secure ballot drop box located just outside the front door. "
+Dropbox,Adams,Ritzville City Hall,"216 E. Main Ave, Ritzville WA  99169",216 E. Main Ave,,Ritzville WA 99169,Ritzville,99169, 
+Dropbox,Adams,Town of Washtucna City Hall,"165 S Main St, Washtucna  WA  99371",165 S Main St,,Washtucna WA 99371,Washtucna,99371, 
+Dropbox,Adams,Town of Lind - Town Clerk,"116 1/2 W. 2nd St., Lind WA  99341",116 1/2 W. 2nd St.,,Lind WA 99341,Lind,99341, 
+Dropbox,Asotin,Asotin County Courthouse Drop Box,"135 Second St., Asotin WA  99402",135 Second St.,,Asotin WA 99402,Asotin,99402,
+Dropbox,Asotin,Clarkston City Hall,"829 5th Street, Clarkston WA  99403",829 5th Street,,Clarkston WA 99403,Clarkston,99403,located in the alley behind Clarkston City Hall
+Dropbox,Asotin,Lincoln Middle School,"1945 4th Ave, Clarkston WA  99403",1945 4th Ave,,Clarkston WA 99403,Clarkston,99403,located behind Lincoln Middle School
+Dropbox,Benton,West Richland Library,"3803 W. Van Giesen, West Richland WA  99353",3803 W. Van Giesen,,West Richland WA 99353,West Richland,99353,West Richland City Hall Drop Box 
+Dropbox,Benton,Jefferson Park,"100 Symons St, Richland WA  99354",100 Symons St,,Richland WA 99354,Richland,99354,Jefferson Park Drive Thru Drop Box At the corner of George Washington Way and Symons St
+Dropbox,Benton,Prosser Auditor's Office,"620 Market St, Prosser WA  99350",620 Market St,,Prosser WA 99350,Prosser,99350,
+Dropbox,Benton,Kennewick Auditor's Annex,"5600 W Canal Dr, Kennewick WA  99336",5600 W Canal Dr,,Kennewick WA 99336,Kennewick,99336,
+Dropbox,Benton,Kennewick City Hall,"210 W 6th Ave, Kennewick WA  99336",210 W 6th Ave,,Kennewick WA 99336,Kennewick,99336,Kennewick City Hall Drive Thru Drop Box 
+Dropbox,Benton,Benton City Hall,"1009 Dale Ave, Benton City WA  99320",1009 Dale Ave,,Benton City WA 99320,Benton City,99320,Benton City City Hall Drop Box 
+Dropbox,Benton,West Richland City Shops,"3100 Belmont Blvd, West Richland WA  99353",3100 Belmont Blvd,,West Richland WA 99353,West Richland,99353,City public works shop by the new elementary school. Drive Up.  
+Dropbox,Benton,WSU Tri-Cities,"2710 Crimson Way, Richland WA  99354",2710 Crimson Way,,Richland WA 99354,Richland,99354,"Located in the student parking lot, in front of the Consolidated Information Center.  WSU will host a temporary staffed Elections Center on the following dates:   10/29 8:30 am – 4:30 pm  10/30 8:30 am – 4:30 pm  10/31 9:00 am- 2:00 pm  11/2 8:30 am– 4:30 pm  11/3 8:30 am – 8:00 pm"
+Dropbox,Benton,Badger Mt Community Park,"350 Keene Rd, Richland WA  99352",350 Keene Rd,,Richland WA 99352,Richland,99352,Drive up Box  
+Dropbox,Benton,Benton County Vote Center,"2610 N Columbia Center Blvd, Richland WA  99352",2610 N Columbia Center Blvd,,Richland WA 99352,Richland,99352,Large box located at the far end of the parking lot. 
+Dropbox,Benton,Benton County Vote Center - Inside,"2610 N Columbia Center Blvd, Richland WA  99352",2610 N Columbia Center Blvd,,Richland WA 99352,Richland,99352,Drop Box is located inside the Benton County Voter Center.  
+Dropbox,Chelan,Chelan County Auditor - Elections,"350 Orondo Ave, Wenatchee WA  98801",350 Orondo Ave,Level 3,Wenatchee WA 98801,Wenatchee,98801,Drop box is located between the Law & Justice building and the Courthouse or visit our office on Level 3.
+Dropbox,Chelan,Leavenworth City Hall,"700 Hwy 2, Leavenworth WA  98826",700 Hwy 2,,Leavenworth WA 98826,Leavenworth,98826,Drop box in parking lot 
+Dropbox,Chelan,Entiat City Hall,"14070 Kinzel St, Entiat WA  98822",14070 Kinzel St,,Entiat WA 98822,Entiat,98822,Drop box in parking lot 
+Dropbox,Chelan,Chelan City Hall,"135 East Johnson Ave, Chelan WA  98816",135 East Johnson Ave,,Chelan WA 98816,Chelan,98816,Drop box behing building 
+Dropbox,Chelan,Cashmere City Hall,"101 Woodring St, Cashmere WA  98815",101 Woodring St,,Cashmere WA 98815,Cashmere,98815,Drop box behind City Hall 
+Dropbox,Chelan,Wenatchee Public Library,"310 Douglas St, Wenatchee WA  98801",310 Douglas St,,Wenatchee WA 98801,Wenatchee,98801,Drop Box located by library book drop 
+Dropbox,Clallam,PV - Port Angeles - Drive-Thru Drop Box,"223 E 4th St, Port Angeles WA  98362",223 E 4th St,,Port Angeles WA 98362,Port Angeles,98362,"Located at the Courthouse, circular drive off 4th Street. "
+Dropbox,Clallam,FW - Forks Drop Box,"500 E Division St, Forks WA  98331",500 E Division St,,Forks WA 98331,Forks,98331,"Located outside Forks City Hall, to the right of the front entrance. "
+Dropbox,Clallam,SV - Sequim Drop Box,"651 W Washington St, Sequim WA  98382",651 W Washington St,,Sequim WA 98382,Sequim,98382,Located in the parking lot in front of JC Penney. 
+Dropbox,Clallam,All Drop Boxes,"223 E 4th St, Port Angeles WA  98362",223 E 4th St,,Port Angeles WA 98362,Port Angeles,98362,This is a consolidation of all boxes for reporting. 
+Dropbox,Clallam,CB - Clallam Bay Drop Box,"16990 Hwy 112, Clallam Bay WA  98326",16990 Hwy 112,,Clallam Bay WA 98326,Clallam Bay,98326,Located in front of the Clallam Bay Branch Library. 
+Dropbox,Clallam,CV - Carlsborg Ballot Drop Box,"261461 US-101, Carlsborg WA  98382",261461 US-101,,Carlsborg WA 98382,Carlsborg,98382,"Located next to Sunny Farms, in the far east parking lot behind Flippers. "
+Dropbox,Clallam,SB - Sekiu Ballot Drop Box,"15 Sekiu Airport Road, Sekiu WA  98381",15 Sekiu Airport Road,,Sekiu WA 98381,Sekiu,98381,Located in the drive-through at the PUD. 
+Dropbox,Clallam,PW - Port Angeles - Walk-up Drop Box,"223 E 4th St, Port Angeles WA  98362",223 E 4th St,,Port Angeles WA 98362,Port Angeles,98362,Located on the Courthouse sidewalk across from the disabled parking. 
+Dropbox,Clallam,PO - Port Angeles - inside the Courthouse,"223 E 4th St, Port Angeles WA  98362",223 E 4th St,,Port Angeles WA 98362,Port Angeles,98362,Located in the Clallam County Auditor's Office lobby. 
+Dropbox,Clallam,NB - Neah Bay Drop Box,"1450 Bayview Ave, Neah Bay WA  98357",1450 Bayview Ave,,Neah Bay WA 98357,Neah Bay,98357,Located in front of Washburn's General Store by the left Totem Pole. 
+Dropbox,Clark,Amboy Middle School,"22115 NE Chelatchie Road, Amboy WA  98601",22115 NE Chelatchie Road,,Amboy WA 98601,Amboy,98601,24 Hour Ballot Drop Box open 18 days prior to each election (located in west parking lot)
+Dropbox,Clark,Hockinson Community Center,"15916 NE 182nd Avenue, Brush Prairie WA  98606",15916 NE 182nd Avenue,,Brush Prairie WA 98606,Brush Prairie,98606,24 Hour Ballot Drop Box open 18 days prior to each election (parking lot)
+Dropbox,Clark,Camas  - The Heights Learning Center,"4600 NE Garfield Street, Camas WA  98607",4600 NE Garfield Street,,Camas WA 98607,Camas,98607,24 Hour Ballot Drop Box open 18 days prior to each election (located in south parking lot)
+Dropbox,Clark,La Center,"1001 E. 4th Street, La Center WA  98629",1001 E. 4th Street,,La Center WA 98629,La Center,98629,24 Hour Ballot Drop Box open 18 days prior to each election (west end of parking lot)
+Dropbox,Clark,Thomas Jefferson Middle School,"3000 NW 119th Street, Vancouver WA  98685",3000 NW 119th Street,,Vancouver WA 98685,Vancouver,98685,24 Hour Ballot Drop Box open 18 days prior to each election
+Dropbox,Clark,Clark Public Utilities Operations Center,"8600 NE 117th Avenue, Vancouver WA  98662",8600 NE 117th Avenue,,Vancouver WA 98662,Vancouver,98662,24 Hour Ballot Drop Box open 18 days prior to each election (located in southeast parking lot)
+Dropbox,Clark,WSU Vancouver,"14204 NE Salmon Creek Ave, Vancouver WA  98686",14204 NE Salmon Creek Ave,,Vancouver WA 98686,Vancouver,98686,"24 Hour Ballot Drop Box open 18 days prior to each election (WSU Entrance Road entering from NE Salmon Creek Avenue, turn right at the first street into the south parking lot)"
+Dropbox,Clark,Yacolt Primary School,"507 W Yacolt Road, Yacolt WA  98675",507 W Yacolt Road,,Yacolt WA 98675,Yacolt,98675,24 Hour Ballot Drop Box open 18 days prior to each election (located in south parking lot)
+Dropbox,Clark,WSU Vancouver Student Engagement Center,"14204 NE Salmon Creek Avenue, Vancouver WA  98686",14204 NE Salmon Creek Avenue,,Vancouver WA 98686,Vancouver,98686,Student Engagment Center - Firstenburg Student Commons area Location to receive online replacement ballots.
+Dropbox,Clark,Cascade Park USPS,"13651 NE 4th Street, Vancouver WA  98684",13651 NE 4th Street,,Vancouver WA 98684,Vancouver,98684,24 Hour Ballot Drop Box open 18 days prior to each election (located next to USPS mail boxes)
+Dropbox,Clark,Brush Prairie USPS,"12012 NE 150th Circle, Brush Prairie WA  98606",12012 NE 150th Circle,,Brush Prairie WA 98606,Brush Prairie,98606,24 Hour Ballot Drop Box open 18 days prior to each election (located as you drive into post office)
+Dropbox,Clark,Ridgefield,"End of North First Circle, Ridgefield WA  98642",End of North First Circle,,Ridgefield WA 98642,Ridgefield,98642,"24 Hour Ballot Drop Box Open 18 days prior to each election (Pioneer Street exit, east of I-5 at the end of North 1st Circle, in middle of cul-de-sac)"
+Dropbox,Clark,Clark College,"1933 Fort Vancouver Way, Vancouver WA  98663",1933 Fort Vancouver Way,,Vancouver WA 98663,Vancouver,98663,"24 Hour Ballot Drop Box Open  18 days prior to each election (located between Hanna Hall and Penguin Building, near flag pole)"
+Dropbox,Clark,Pioneer Elementary School - Frontier Middle Schooll,"7600 NE 166th Avenue, Vancouver WA  98682",7600 NE 166th Avenue,,Vancouver WA 98682,Vancouver,98682,24 Hour Ballot Drop Box (located in parking lot between the two schools) Open  18 days prior to each election
+Dropbox,Clark,Ridgefield School District Administrative Office,"510 Pioneer Street, Ridgefield WA  98642",510 Pioneer Street,,Ridgefield WA 98642,Ridgefield,98642,24 Hour Ballot Drop Box Open  18 days prior to each election (walk-up only)
+Dropbox,Clark,Shahala Middle School,"601 SE 192nd Ave, Vancouver WA  98683",601 SE 192nd Ave,,Vancouver WA 98683,Vancouver,98683,24 Hour Ballot Drop Box Open 18 days prior to each election (located near flag pole)
+Dropbox,Clark,Washougal Library,"1661 C Street, Washougal WA  98671",1661 C Street,,Washougal WA 98671,Washougal,98671,24 Hour Ballot Drop Box Open 18 days prior to each election (walk-up only)
+Dropbox,Clark,Clark County Elections,"1408 Franklin Street, Vancouver WA  98660",1408 Franklin Street,,Vancouver WA 98660,Vancouver,98660,Elections Office ELECTION DAY ONLY 7 am to 8 pm
+Dropbox,Clark,14th & Esther Streets,"W 14th & Esther Streets, Vancouver WA  98660",W 14th & Esther Streets,,Vancouver WA 98660,Vancouver,98660,24 Hour Ballot Drop Box Open 18 days prior to each election
+Dropbox,Clark,Vancouver Mall,"8700 NE Vancouver Mall Dr, Vancouver WA  98662",8700 NE Vancouver Mall Dr,,Vancouver WA 98662,Vancouver,98662,24 Hour Ballot Drop Box Open 18 days prior to each election (located southeast of Macy's near the C-Tran Vine Station)
+Dropbox,Clark,Fisher's Landing Transit Center,"3510 SE 164th Avenue, Vancouver WA  98683",3510 SE 164th Avenue,,Vancouver WA 98683,Vancouver,98683, 24 Hour Ballot Drop Box  Open 18 days prior to each election
+Dropbox,Clark,Battle Ground City Hall,"109 SW 1st Street, Battle Ground WA  98604",109 SW 1st Street,,Battle Ground WA 98604,Battle Ground,98604,24 Hour Ballot Drop Box Open 18 days prior to each election (located in west parking lot)
+Dropbox,Clark,Hazel Dell - 99th Street C-Tran Transit Center,"9700 NE 7th Avenue, Vancouver  WA  98665",9700 NE 7th Avenue,,Vancouver WA 98665,Vancouver,98665,24 Hour Ballot Drop Box Open 18 days prior to each election (located between 94th and 99th streets)
+Dropbox,Clark,Camas Post Office Downtown,"440 NE 5th Avenue, Camas WA  98607",440 NE 5th Avenue,,Camas WA 98607,Camas,98607,24 Hour Ballot Drop Box Open 18 days prior to each election
+Dropbox,Columbia,Courthouse Alley,"341 E. Main St., Dayton WA  99328",341 E. Main St.,,Dayton WA 99328,Dayton,99328, 
+Dropbox,Columbia,Starbuck City Hall,"200 Main St., Starbuck WA  99359",200 Main St.,,Starbuck WA 99359,Starbuck,99359, 
+Dropbox,Cowlitz,Ryderwood (Ballot Drop Box),"208 Morse St, Ryderwood WA  98581",208 Morse St,,Ryderwood WA 98581,Ryderwood,98581,Next to the Ryderwood Library 
+Dropbox,Cowlitz,Longview Civic Center Circle (Ballot Drop Box),"1525 Broadway Street, Longview WA  98632",1525 Broadway Street,,Longview WA 98632,Longview,98632,"Across from Broadway St, near the Longview Post Office boxes "
+Dropbox,Cowlitz,Broadway Street (Ballot Drop Box),"1525 Broadway Street, Longview WA  98632",1525 Broadway Street,,Longview WA 98632,Longview,98632,East of the Longview Post Office boxes 
+Dropbox,Cowlitz,Kelso (Ballot Drop Box),"Bridge Market Lane, Kelso WA  98626",Bridge Market Lane,,Kelso WA 98626,Kelso,98626,"On Bridge Market Lane, between LJ's Furness Drug Co and the Allen St bridge. "
+Dropbox,Cowlitz,Woodland City Parking Lot (Ballot Drop Box),"230 Davidson Avenue, Woodland WA  98674",230 Davidson Avenue,,Woodland WA 98674,Woodland,98674,Near the City's utility payment drop box 
+Dropbox,Cowlitz,Castle Rock (Ballot Drop Box),"137 Cowlitz St West, Castle Rock WA  98611",137 Cowlitz St West,,Castle Rock WA 98611,Castle Rock,98611,In front of the Castle Rock Library 
+Dropbox,Cowlitz,Kalama (Ballot Drop Box),"454 N 1st Street, Kalama WA  98625",454 N 1st Street,,Kalama WA 98625,Kalama,98625,Near the Kalama Post Office boxes 
+Dropbox,Douglas,Douglas County Courthouse Drop Box,"213 S Rainier St, Waterville WA  98858",213 S Rainier St,,Waterville WA 98858,Waterville,98858, 
+Dropbox,Douglas,Mansfield City Hall Drop Box,"26 Main, Mansfield WA  98830",26 Main,,Mansfield WA 98830,Mansfield,98830, 
+Dropbox,Douglas,Bridgeport City Hall Drop Box,"1206 Columbia Ave, Bridgeport WA  98813",1206 Columbia Ave,,Bridgeport WA 98813,Bridgeport,98813, 
+Dropbox,Douglas,Rock Island City Hall Drop Box,"5 N Garden, Rock Island WA  98850",5 N Garden,,Rock Island WA 98850,Rock Island,98850, 
+Dropbox,Douglas,East Wenatchee Drop Box,"110 2nd St NE, East Wenatchee WA  98802",110 2nd St NE,,East Wenatchee WA 98802,East Wenatchee,98802,
+Dropbox,Douglas,Douglas County Public Service Bldg Drop Box,"140 19th Street NW, East Wenatchee WA  98802",140 19th Street NW,,East Wenatchee WA 98802,East Wenatchee,98802, 
+Dropbox,Douglas,Coulee Dam Town Hall,"300 Lincoln Ave., Coulee Dam WA  98116",300 Lincoln Ave.,,Coulee Dam WA 98116,Coulee Dam,98116, 
+Dropbox,Douglas,East Wenatchee City Hall,"271 9th St. NE, East Wenatchee WA  98802",271 9th St. NE,,East Wenatchee WA 98802,East Wenatchee,98802, 
+Dropbox,Ferry,Danville Drop Box - Danville Outpost,"19097 N HWY 21, Danville WA  99121",19097 N HWY 21,,Danville WA 99121,Danville,99121, 
+Dropbox,Ferry,Curlew Drop Box - Curlew Fire Station,"30 Customs Rd, Curlew WA  99118",30 Customs Rd,,Curlew WA 99118,Curlew,99118, 
+Dropbox,Ferry,Keller Drop Box - Sanpoil Community Health,"11665 S HWY 21, Keller WA  99140",11665 S HWY 21,,Keller WA 99140,Keller,99140, 
+Dropbox,Ferry,Inchelium  Drop Box ,"Lake Roosevelt Community Health Center, Inchelium WA  99138",Lake Roosevelt Community Health Center,,Inchelium WA 99138,Inchelium,99138, 
+Dropbox,Ferry,Republic City Hall,"987 S. Clark Ave, Republic  WA  99166 ",987 S. Clark Ave,,Republic WA 99166,Republic,99166,Phone number is (509)775-3216.  Box is available until 8 p.m. on Election Day. 
+Dropbox,Franklin,Franklin County Annex - Elections Center,"116 N 3rd Ave, Pasco WA  99301",116 N 3rd Ave,,Pasco WA 99301,Pasco,99301,Ballot Drop Box is located on the corner of 3rd and Clark.  *Voter Registration and ballot issuance services not provided at this location. Location hours vary. Please call (509) 545-3538 for more information. 
+Dropbox,Franklin,The HAPO Center (TRAC),"6600 Burden Blvd, Pasco WA  99301",6600 Burden Blvd,,Pasco WA 99301,Pasco,99301,
+Dropbox,Franklin,Franklin County Courthouse Drop Box,"1016 N. 4th Avenue, Pasco WA  99301",1016 N. 4th Avenue,,Pasco WA 99301,Pasco,99301,The box is located near the Security Building entrance outside of the courthouse.
+Dropbox,Franklin,Fire District No 3,"2108 Road 84, Pasco WA  99301",2108 Road 84,,Pasco WA 99301,Pasco,99301,
+Dropbox,Franklin,Franklin County Auditor's Office,"1016 N 4th Ave., Pasco WA  99301",1016 N 4th Ave.,,Pasco WA 99301,Pasco,99301,"Visit for voter registration services, replacement ballot requests, and for general elections information. "
+Dropbox,Franklin,Connell PUD Shop,"619 W Clark St., Connell WA  99326",619 W Clark St.,,Connell WA 99326,Connell,99326,
+Dropbox,Garfield,Garfield County Auditor's Office Drop Box,"789 Main Street, Pomeroy WA  99347",789 Main Street,,Pomeroy WA 99347,Pomeroy,99347,
+Dropbox,Grant,Grand Coulee,"555 Grand Coulee Ave, Grand Coulee WA  99133",555 Grand Coulee Ave,,Grand Coulee WA 99133,Grand Coulee,99133,Outside Grant County PUD office 
+Dropbox,Grant,Moses Lake City Hall,"321 Balsam St, Moses Lake WA  98837",321 Balsam St,,Moses Lake WA 98837,Moses Lake,98837,Behind Moses Lake Civic Center Annex.  Just before the city payment drop box.
+Dropbox,Grant,Royal City,"101 NE Camela St, Royal City WA  99357",101 NE Camela St,,Royal City WA 99357,Royal City,99357,Next door to Confluence Health 
+Dropbox,Grant,Quincy Public Library,"208 Central Ave S, Quincy WA  98848",208 Central Ave S,,Quincy WA 98848,Quincy,98848,
+Dropbox,Grant,Grant County Courthouse,"1st & C St NW, Ephrata WA  98823",1st & C St NW,,Ephrata WA 98823,Ephrata,98823,"Grant County Courthouse, Public Parking Lot #A "
+Dropbox,Grant,Coulee City City Hall,"501 W Main St, Coulee City WA  99115",501 W Main St,,Coulee City WA 99115,Coulee City,99115,Across the street at the flag poles 
+Dropbox,Grant,Mattawa Hospital,"210 Government Rd, Mattawa WA  99349",210 Government Rd,,Mattawa WA 99349,Mattawa,99349,
+Dropbox,Grant,George City Hall,"102 E Richmond Ave, George WA  98824",102 E Richmond Ave,,George WA 98824,George,98824,
+Dropbox,Grant,Soap Lake  City Hall,"239 SE 2nd Ave, Soap Lake WA  98851",239 SE 2nd Ave,,Soap Lake WA 98851,Soap Lake,98851,
+Dropbox,Grant,Warden Community Center,"115 N Oak St, Warden WA  98857",115 N Oak St,,Warden WA 98857,Warden,98857,
+Dropbox,Grays Harbor,Elma City Hall,"202 W Main St, Elma WA  98541",202 W Main St,,Elma WA 98541,Elma,98541,Alley between City Hall & Fire Station
+Dropbox,Grays Harbor,Westport City Administration,"604 N Montesano St, Westport WA  98595",604 N Montesano St,,Westport WA 98595,Westport,98595, 
+Dropbox,Grays Harbor,Oakville City Hall,"204 E Main St, Oakville WA  98568",204 E Main St,,Oakville WA 98568,Oakville,98568,
+Dropbox,Grays Harbor,Ocean Shores Convention Center,"120 W Chance a la Mer, Ocean Shores WA  98569",120 W Chance a la Mer,,Ocean Shores WA 98569,Ocean Shores,98569, In the parking lot of the Ocean Shores Convention Center
+Dropbox,Grays Harbor,Aberdeen Tesla Parking Lot,"Wishkah and F St, Aberdeen WA  98520",Wishkah and F St,,Aberdeen WA 98520,Aberdeen,98520,New Box in the Tesla Parking Lot 
+Dropbox,Grays Harbor,Cosmopolis City Hall,"1300 1st St, Cosmopolis WA  98537",1300 1st St,,Cosmopolis WA 98537,Cosmopolis,98537,
+Dropbox,Grays Harbor,Hoquiam,"YMCA, Hoquiam WA  98550",YMCA,,Hoquiam WA 98550,Hoquiam,98550,
+Dropbox,Grays Harbor,Oakville Area,"Methodist Church, Oakville WA  98568",Methodist Church,,Oakville WA 98568,Oakville,98568,Open election day only. 
+Dropbox,Grays Harbor,South Beach Area,"Council Chambers, Westport WA  98595",Council Chambers,,Westport WA 98595,Westport,98595,Open election day only 
+Dropbox,Grays Harbor,McCleary Area,"123 3rd St, McCleary WA  98557",123 3rd St,,McCleary WA 98557,McCleary,98557,New Drop Box!  Across from the Shell Station in the median. 
+Dropbox,Grays Harbor,Grays Harbor County Auditor's Office Drop Box,"100 W Broadway, Montesano WA  98563",100 W Broadway,,Montesano WA 98563,Montesano,98563,At the corner of 1st St N and Broadway.
+Dropbox,Island,Ken's Korner Red Apple Grocery,"4141 SR 525, Clinton WA  98236",4141 SR 525,,Clinton WA 98236,Clinton,98236,
+Dropbox,Island,Oak Harbor City Hall,"865 SE Barrington Dr., Oak Harbor WA  98277",865 SE Barrington Dr.,,Oak Harbor WA 98277,Oak Harbor,98277,
+Dropbox,Island,Island County Auditor's,"400 N. Main Street, Coupeville WA  98239",400 N. Main Street,,Coupeville WA 98239,Coupeville,98239,
+Dropbox,Island,Island County Auditor's Office,"400 North Main Street, Coupeville WA  98239",400 North Main Street,,Coupeville WA 98239,Coupeville,98239,  
+Dropbox,Island,Trinity Lutheran Church,"State Hwy 525 & Woodard Rd., Freeland WA  98249",State Hwy 525 & Woodard Rd.,,Freeland WA 98249,Freeland,98249,
+Dropbox,Island,Camano Island Annex,"121 N. East Camano Drive, Camano Island WA  98282",121 N. East Camano Drive,,Camano Island WA 98282,Camano Island,98282,
+Dropbox,Island,Langley Post Office,"112 5th Street, Langley WA  98260",112 5th Street,,Langley WA 98260,Langley,98260,
+Dropbox,Jefferson,Brinnon Community Center,"306144 Hwy 101, Brinnon WA  98320",306144 Hwy 101,,Brinnon WA 98320,Brinnon,98320,The ballot drop box is located in the parking lot of the Brinnon Community Center.  
+Dropbox,Jefferson,Quilcene Community Center,"294952 Hwy 101, Quilcene WA  98376",294952 Hwy 101,,Quilcene WA 98376,Quilcene,98376,The ballot drop box is located in the parking lot of the Quilcene Community Center.
+Dropbox,Jefferson,"Nordland, East Jefferson Fire & Rescue Station 12","6633 Flagler Rd, Nordland WA  98358",6633 Flagler Rd,,Nordland WA 98358,Nordland,98358,The ballot drop box is located in the parking lot of the East Jefferson Fire & Rescue Station 12 in  
+Dropbox,Jefferson,Olympic Peninsula Gateway Visitor Center,"93 Beaver Valley Rd., Port Ludlow WA  98365",93 Beaver Valley Rd.,,Port Ludlow WA 98365,Port Ludlow,98365,"The ballot drop is accessible by vehicle, has 24 hour access."
+Dropbox,Jefferson,Jefferson County Courthouse - Walk-up,"1820 Jefferson St, Port Townsend WA  98368",1820 Jefferson St,,Port Townsend WA 98368,Port Townsend,98368,"This drop box is accessible by walk up only, has 24 hour access. "
+Dropbox,Jefferson,Hoh Indian Nation,"2261 Lower Hoh Rd., Forks WA  98331",2261 Lower Hoh Rd.,,Forks WA 98331,Forks,98331,This drop box is located outside at the front entrance to the Tribal Police Center. 
+Dropbox,Jefferson,Quinault Indian Nation (Queets),"Queets Ave., Forks WA  98331",Queets Ave.,,Forks WA 98331,Forks,98331,This box is located in front of the Queets Tribal Office. 
+Dropbox,Jefferson,Jefferson County Auditor,"1820 Jefferson St, Port Townsend WA  98368",1820 Jefferson St,,Port Townsend WA 98368,Port Townsend,98368,Election Day hours are 8:30 a.m. to 8:00 p.m. Jefferson & Cass Streets. Auditor's Office is located on the first floor of the County Courthouse. The drop box is located in the hallway just outside the Auditor's Office.
+Dropbox,Jefferson,Jefferson County Library,"620 Cedar Ave, Port Hadlock WA  98339",620 Cedar Ave,,Port Hadlock WA 98339,Port Hadlock,98339,"Located in the parking lot of the Jefferson County Library. The ballot drop box is emptied by two staff members three times a week.  On election day, the drop box is locked down at 8:00 p.m. and emptied the following morning. "
+Dropbox,Jefferson,Jefferson County Courthouse - Back Parking Lot,"1820 Jefferson St, Port Townsend WA  98368",1820 Jefferson St,,Port Townsend WA 98368,Port Townsend,98368,"This drop box is accessible by vehicle, has 24 hour access.  It is emptied every morning by two staff from the Auditor's Office.  Ballot drop box is locked down at 8:00 p.m. election night and emptied at 8:00 a.m. the following day. "
+Dropbox,King,Sammamish City Hall,"801 228th Ave SE, Sammamish WA  98075",801 228th Ave SE,,Sammamish WA 98075,Sammamish,98075,
+Dropbox,King,Valley View Library,"17850 Military Rd S, SeaTac WA  98188",17850 Military Rd S,,SeaTac WA 98188,SeaTac,98188,
+Dropbox,King,Rainier Community Center,"4600 38th Ave S, Seattle WA  98118",4600 38th Ave S,,Seattle WA 98118,Seattle,98118,
+Dropbox,King,Shoreline Library,"345 NE 175th St, Shoreline WA  98155",345 NE 175th St,,Shoreline WA 98155,Shoreline,98155,
+Dropbox,King,White Center Library,"1409 SW 107th St, Seattle WA  98146",1409 SW 107th St,,Seattle WA 98146,Seattle,98146,
+Dropbox,King,Woodinville Library,"17105 Avondale Rd NE, Woodinville WA  98072",17105 Avondale Rd NE,,Woodinville WA 98072,Woodinville,98072,
+Dropbox,King,Crossroads Shopping Center (south entrance),"15600 NE 8th St, Bellevue WA  98008",15600 NE 8th St,,Bellevue WA 98008,Bellevue,98008,
+Dropbox,King,Burien Town Square Park (corner of 5th Ave SW and SW 152nd St),"480 SW 152nd St, Burien WA  98166",480 SW 152nd St,,Burien WA 98166,Burien,98166,
+Dropbox,King,Federal Way City Hall,"33325 8th Ave S, Federal Way WA  98003",33325 8th Ave S,,Federal Way WA 98003,Federal Way,98003,
+Dropbox,King,Issaquah City Hall,"130 E Sunset Way, Issaquah WA  98027",130 E Sunset Way,,Issaquah WA 98027,Issaquah,98027,
+Dropbox,King,Lake Forest Park City Hall,"17425 Ballinger Way NE, Lake Forest Park WA  98155",17425 Ballinger Way NE,,Lake Forest Park WA 98155,Lake Forest Park,98155,
+Dropbox,King,Regional Justice Center (near parking garage entrance),"401 4th Ave N, Kent WA  98032",401 4th Ave N,,Kent WA 98032,Kent,98032,
+Dropbox,King,Tahoma School District Building,"25720 Maple Valley-Black Diamond Rd SE, Maple Valley WA  98038",25720 Maple Valley-Black Diamond Rd SE,,Maple Valley WA 98038,Maple Valley,98038,
+Dropbox,King,Redmond City Hall,"15670 NE 85th St, Redmond WA  98052",15670 NE 85th St,,Redmond WA 98052,Redmond,98052,
+Dropbox,King,King County Elections,"919 SW Grady Way, Renton WA  98057",919 SW Grady Way,,Renton WA 98057,Renton,98057,
+Dropbox,King,Ballard Branch Library,"Corner of NW 57th St and 22nd Ave NW, Seattle WA  98107",Corner of NW 57th St and 22nd Ave NW,,Seattle WA 98107,Seattle,98107,
+Dropbox,King,King County Administration Building,"500 4th Ave, Seattle WA  98104",500 4th Ave,,Seattle WA 98104,Seattle,98104,
+Dropbox,King,Kirkland City Hall,"123 5th Ave, Kirkland WA  98033",123 5th Ave,,Kirkland WA 98033,Kirkland,98033,
+Dropbox,King,"University of Washington Campus,  Schmitz Hall (by north entrance on NE 41st St)","1410 NE Campus Parkway, Seattle WA  98195",1410 NE Campus Parkway,,Seattle WA 98195,Seattle,98195,
+Dropbox,King,High Point Library,"3411 SW Raymond St, Seattle WA  98126",3411 SW Raymond St,,Seattle WA 98126,Seattle,98126,
+Dropbox,King,Fall City Library,"33415 SE 42nd Pl, Fall City WA  98024",33415 SE 42nd Pl,,Fall City WA 98024,Fall City,98024,
+Dropbox,King,Kenmore City Hall,"18120 68th Ave NE, Kenmore WA  98028",18120 68th Ave NE,,Kenmore WA 98028,Kenmore,98028,
+Dropbox,King,Hobart Food Market,"20250 276th Ave SE, Maple Valley WA  98038",20250 276th Ave SE,,Maple Valley WA 98038,Maple Valley,98038,
+Dropbox,King,Mercer Island Community & Event Center,"8236 SE 24th St, Mercer Island WA  98040",8236 SE 24th St,,Mercer Island WA 98040,Mercer Island,98040,
+Dropbox,King,Newcastle City Hall,"12835 Newcastle Way, Newcastle WA  98056",12835 Newcastle Way,,Newcastle WA 98056,Newcastle,98056,
+Dropbox,King,Boulevard Park Library,"12015 Roseberg Ave S, Seattle WA  98168",12015 Roseberg Ave S,,Seattle WA 98168,Seattle,98168,
+Dropbox,King,Garfield Community Center,"2323 E Cherry St, Seattle WA  98122",2323 E Cherry St,,Seattle WA 98122,Seattle,98122,
+Dropbox,King,Magnolia Park,"1461 Magnolia Blvd W, Seattle WA  98199",1461 Magnolia Blvd W,,Seattle WA 98199,Seattle,98199,
+Dropbox,King,Rainier Beach Community Center,"8825 Rainier Ave S, Seattle WA  98118",8825 Rainier Ave S,,Seattle WA 98118,Seattle,98118,
+Dropbox,King,Tukwila Community Center,"12424 42nd Ave S, Tukwila WA  98168",12424 42nd Ave S,,Tukwila WA 98168,Tukwila,98168,
+Dropbox,King,Enumclaw Library,"1700 1st St, Enumclaw WA  98022",1700 1st St,,Enumclaw WA 98022,Enumclaw,98022,
+Dropbox,King,Vashon Library,"17210 Vashon Highway SW, Vashon Island WA  98070",17210 Vashon Highway SW,,Vashon Island WA 98070,Vashon Island,98070,
+Dropbox,King,Muckleshoot Tribe - Philip Starr Building,"39015 172nd Ave SE, Auburn WA  98092",39015 172nd Ave SE,,Auburn WA 98092,Auburn,98092,
+Dropbox,King,Bothell City Hall,"18415 101st Ave NE, Bothell WA  98011",18415 101st Ave NE,,Bothell WA 98011,Bothell,98011,
+Dropbox,King,Covington Library,"27100 164th Ave SE, Covington WA  98042",27100 164th Ave SE,,Covington WA 98042,Covington,98042,
+Dropbox,King,Highline College (entrance across from 27th Ave S),"2400 S 240th St, Des Moines WA  98198",2400 S 240th St,,Des Moines WA 98198,Des Moines,98198,
+Dropbox,King,Kentridge High School,"12430 SE 208th St, Kent WA  98031",12430 SE 208th St,,Kent WA 98031,Kent,98031,
+Dropbox,King,Kingsgate Library,"12315 NE 143rd St, Kirkland WA  98034",12315 NE 143rd St,,Kirkland WA 98034,Kirkland,98034,
+Dropbox,King,Renton Public Health Center,"3201 NE 7th St, Renton WA  98056",3201 NE 7th St,,Renton WA 98056,Renton,98056,
+Dropbox,King,Beacon Hill Library,"2821 Beacon Ave S, Seattle WA  98144",2821 Beacon Ave S,,Seattle WA 98144,Seattle,98144,
+Dropbox,King,Uwajimaya,"619 6th Ave S, Seattle WA  98104",619 6th Ave S,,Seattle WA 98104,Seattle,98104,
+Dropbox,King,Green Lake Community Center,"7201 E Green Lake Dr N, Seattle WA  98115",7201 E Green Lake Dr N,,Seattle WA 98115,Seattle,98115,
+Dropbox,King,South Park Library,"8604 8th Ave S, Seattle WA  98108",8604 8th Ave S,,Seattle WA 98108,Seattle,98108,
+Dropbox,King,Snoqualmie Library,"7824 Center Boulevard SE, Snoqualmie  WA  98065",7824 Center Boulevard SE,,Snoqualmie WA 98065,Snoqualmie,98065,
+Dropbox,King,"Seattle Central College, Broadway-Edison Building (northeast corner)","1701 Broadway, Seattle WA  98122",1701 Broadway,,Seattle WA 98122,Seattle,98122,
+Dropbox,King,Auburn Library,"1102 Auburn Way S, Auburn WA  98002",1102 Auburn Way S,,Auburn WA 98002,Auburn,98002,
+Dropbox,King,Bellevue Library,"1111 110th Ave NE, Bellevue WA  98004",1111 110th Ave NE,,Bellevue WA 98004,Bellevue,98004,
+Dropbox,King,Algona-Pacific Library,"255 Ellingson Rd, Pacific WA  98047",255 Ellingson Rd,,Pacific WA 98047,Pacific,98047,
+Dropbox,King,Fairwood Library,"17009 140th Ave SE, Renton WA  98058",17009 140th Ave SE,,Renton WA 98058,Renton,98058,
+Dropbox,King,Broadview Library,"12755 Greenwood Ave N, Seattle WA  98133",12755 Greenwood Ave N,,Seattle WA 98133,Seattle,98133,
+Dropbox,King,Lake City Library,"12501 28th Ave NE, Seattle WA  98125",12501 28th Ave NE,,Seattle WA 98125,Seattle,98125,
+Dropbox,King,NewHolly Neighborhood Campus,"7054 32nd Ave S, Seattle WA  98118",7054 32nd Ave S,,Seattle WA 98118,Seattle,98118,
+Dropbox,King,Skyway Library,"12601 76th Ave S, Seattle WA  98178",12601 76th Ave S,,Seattle WA 98178,Seattle,98178,
+Dropbox,King,Powell Avenue Box,"725 Powell Ave SW, Renton WA  98057",725 Powell Ave SW,,Renton WA 98057,Renton,98057,
+Dropbox,King,"South Seattle College, (at the entrance of the Robert Smith Building)","6000 16th Ave SW, Seattle WA  98106",6000 16th Ave SW,,Seattle WA 98106,Seattle,98106,
+Dropbox,King,Black Diamond Library,"24707 Roberts Dr, Black Diamond WA  98010",24707 Roberts Dr,,Black Diamond WA 98010,Black Diamond,98010,
+Dropbox,King,Carnation Library,"4804 Tolt Ave, Carnation WA  98014",4804 Tolt Ave,,Carnation WA 98014,Carnation,98014,
+Dropbox,King,North Seattle College (south visitor lot access from N 95th St),"9600 College Way N, Seattle WA  98103",9600 College Way N,,Seattle WA 98103,Seattle,98103,
+Dropbox,King,South Lake Union,"310 Terry Ave N, Seattle WA  98109",310 Terry Ave N,,Seattle WA 98109,Seattle,98109,
+Dropbox,King,Duvall Police Department-Depot Park,"26225 NE Burhen Way, Duvall WA  98019",26225 NE Burhen Way,,Duvall WA 98019,Duvall,98019,
+Dropbox,King,Normandy Park Towne Center,"19901 1st Ave S, Normandy Park WA  98148",19901 1st Ave S,,Normandy Park WA 98148,Normandy Park,98148,
+Dropbox,King,Seattle Pacific University Bookstore,"310 W Bertona St, Seattle WA  98119",310 W Bertona St,,Seattle WA 98119,Seattle,98119,
+Dropbox,King,Newport Way Library,"14250 SE Newport Way, Bellevue WA  98006",14250 SE Newport Way,,Bellevue WA 98006,Bellevue,98006,
+Dropbox,King,North Bend Library,"115 E 4th St, North Bend WA  98045",115 E 4th St,,North Bend WA 98045,North Bend,98045,
+Dropbox,King,Federal Way 320th Library,"848 S 320th St, Federal Way WA  98003",848 S 320th St,,Federal Way WA 98003,Federal Way,98003,
+Dropbox,King,Auburn Park & Ride,"101 15th St NE, Auburn WA  98001",101 15th St NE,,Auburn WA 98001,Auburn,98001,
+Dropbox,King,Alaska Junction,"Corner of SW Alaska St and 44th Ave SW, Seattle WA  98116",Corner of SW Alaska St and 44th Ave SW,,Seattle WA 98116,Seattle,98116,
+Dropbox,King,Magnuson Park-The Brig,"6344 NE 74th St, Seattle WA  98115",6344 NE 74th St,,Seattle WA 98115,Seattle,98115,
+Dropbox,King,Redmond Community Center at Marymoor Village,"6505 176th Ave NE, Redmond WA  98052",6505 176th Ave NE,,Redmond WA 98052,Redmond,98052,  
+Dropbox,King,Shoreline Park & Ride,"18821 Aurora Ave N, Shoreline WA  98133",18821 Aurora Ave N,,Shoreline WA 98133,Shoreline,98133,
+Dropbox,King,Waterway 19 Park (next to Gas Works Park),"2119 N Northlake Way, Seattle WA  98103",2119 N Northlake Way,,Seattle WA 98103,Seattle,98103,
+Dropbox,King,Angle Lake Transit Station,"19955 28th Ave S, SeaTac WA  98188",19955 28th Ave S,,SeaTac WA 98188,SeaTac,98188,
+Dropbox,King,Kent YMCA,"10828 SE 248th St, Kent WA  98030",10828 SE 248th St,,Kent WA 98030,Kent,98030,
+Dropbox,Kitsap,Marvin Williams Recreation Center,"725 Park Ave, Bremerton WA  98337",725 Park Ave,,Bremerton WA 98337,Bremerton,98337,Marvin Williams Recreation Center Open Election Day. Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.
+Dropbox,Kitsap,Bangor - Naval Base Kitsap,"2500 Ohio St, NSB Silverdale WA  98315",2500 Ohio St,,NSB Silverdale WA 98315,NSB Silverdale,98315,Located near the Kitsap Credit Union and NEX Package Store
+Dropbox,Kitsap,Indianola Tennis Courts,"20761 Greenwood St NE, Indianola WA  98342",20761 Greenwood St NE,,Indianola WA 98342,Indianola,98342,
+Dropbox,Kitsap,Keyport - Central Park,"15378 Washington Ave NE, Keyport WA  98345",15378 Washington Ave NE,,Keyport WA 98345,Keyport,98345,
+Dropbox,Kitsap,Poulsbo - Olympic College,"1000 Olympic College Way NW, Poulsbo WA  98370",1000 Olympic College Way NW,,Poulsbo WA 98370,Poulsbo,98370,
+Dropbox,Kitsap,Seabeck - Green Mountain Elementary,"3860 Boundary Trail NW, Bremerton WA  98312",3860 Boundary Trail NW,,Bremerton WA 98312,Bremerton,98312,
+Dropbox,Kitsap,South Kitsap Fire Station 8,"1974 Fircrest Dr SE, Port Orchard WA  98366",1974 Fircrest Dr SE,,Port Orchard WA 98366,Port Orchard,98366,
+Dropbox,Kitsap,South Kitsap Fire Station 17,"7990 McCormick Woods Dr SW, Port Orchard WA  98367",7990 McCormick Woods Dr SW,,Port Orchard WA 98367,Port Orchard,98367,
+Dropbox,Kitsap,Hansville - Norwegian Point Park,"38950 Hansville Rd NE, Hansville WA  98340",38950 Hansville Rd NE,,Hansville WA 98340,Hansville,98340,
+Dropbox,Kitsap,Tracyton - Elks Lodge 1181,"4131 Pine Rd NE, Bremerton WA  98310",4131 Pine Rd NE,,Bremerton WA 98310,Bremerton,98310,
+Dropbox,Kitsap,Manchester - Stormwater Park,"2399 Colchester Dr E, Manchester WA  98366",2399 Colchester Dr E,,Manchester WA 98366,Manchester,98366,
+Dropbox,Kitsap,Kingston - Village Green Park,"10810 NE West Kingston Rd, Kingston WA  98346",10810 NE West Kingston Rd,,Kingston WA 98346,Kingston,98346,
+Dropbox,Kitsap,West Side Improvement Club,"4109 West E St, Bremerton WA  98312",4109 West E St,,Bremerton WA 98312,Bremerton,98312,
+Dropbox,Kitsap,Burley Store,"14972 Bethel-Burley Rd SE, Burley WA  98367",14972 Bethel-Burley Rd SE,,Burley WA 98367,Burley,98367,
+Dropbox,Kitsap,Southworth - Ferry Terminal,"11677 SE Southworth Ferry Dr, Southworth WA  98366",11677 SE Southworth Ferry Dr,,Southworth WA 98366,Southworth,98366,Enter terminal parking via Ridge Crest Way SE
+Dropbox,Kitsap,Suquamish - Tribal Council Building,"18490 Suquamish Way NE, Suquamish WA  98392",18490 Suquamish Way NE,,Suquamish WA 98392,Suquamish,98392,
+Dropbox,Kitsap,Bainbridge Island School District,"8489 Madison Ave NE, Bainbridge Island WA  98110",8489 Madison Ave NE,,Bainbridge Island WA 98110,Bainbridge Island,98110,
+Dropbox,Kitsap,Bremerton - KRL Sylvan Way Branch,"1301 Sylvan Way, Bremerton WA  98310",1301 Sylvan Way,,Bremerton WA 98310,Bremerton,98310,Kitsap Regional Library 
+Dropbox,Kitsap,Bremerton - Norm Dicks,"345 6th St, Bremerton WA  98337",345 6th St,,Bremerton WA 98337,Bremerton,98337,
+Dropbox,Kitsap,Poulsbo Fire Station,"911 NE Liberty Rd, Poulsbo WA  98370",911 NE Liberty Rd,,Poulsbo WA 98370,Poulsbo,98370,
+Dropbox,Kitsap,Silverdale - Jenne-Wright Building,"9210 Silverdale Way NW, Silverdale WA  98383",9210 Silverdale Way NW,,Silverdale WA 98383,Silverdale,98383,Central Kitsap School District Administration Bldg 
+Dropbox,Kitsap,Port Orchard - Admin Bldg,"619 Division St, Port Orchard WA  98366",619 Division St,,Port Orchard WA 98366,Port Orchard,98366,County Administration Building Located on the side of the Administration Building near the corner of Division St and Cline Ave.
+Dropbox,Kitsap,North Kitsap Vote Center,"911 NE Liberty Rd, Poulsbo WA  98370",911 NE Liberty Rd,,Poulsbo WA 98370,Poulsbo,98370,Poulsbo Fire Station  Open Election Day. Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.
+Dropbox,Kitsap,North Kitsap Fire & Rescue,"26642 Miller Bay Rd NE, Kingston WA  98346",26642 Miller Bay Rd NE,,Kingston WA 98346,Kingston,98346,
+Dropbox,Kitsap,South Kitsap Vote Center,"619 Division St, Port Orchard WA  98366",619 Division St,,Port Orchard WA 98366,Port Orchard,98366,County Administration Building Commissioners' Chambers Open Election Day - 7 a.m. to 8 p.m.  Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.    
+Dropbox,Kittitas,Upper County District Court - DROP BOX ONLY,"700 E. 1st Street, Cle Elum WA  98922",700 E. 1st Street,,Cle Elum WA 98922,Cle Elum,98922,
+Dropbox,Kittitas,Courthouse - Drive Up Drop Box,"205 W 5th Ave ave, Ellensburg WA  98926",205 W 5th Ave ave,,Ellensburg WA 98926,Ellensburg,98926,
+Dropbox,Kittitas,Central Washington University - SURC - DROP BOX ONLY,"1007 N. Chestnut St, Ellensburg WA  98926",1007 N. Chestnut St,,Ellensburg WA 98926,Ellensburg,98926,Curbside of the SURC entrance 
+Dropbox,Kittitas,Kittitas County Auditor's Office Drop Box,"205 W 5th, Ellensburg WA  98926",205 W 5th,Suite 105,Ellensburg WA 98926,Ellensburg,98926,
+Dropbox,Kittitas,Thorp Fire District No 1 - DROP BOX ONLY,"10700 Thorp Hwy N, Thorp WA 98946",10700 Thorp Hwy N,,Thorp WA 98946,Thorp,98946,Located near the Fire District sign 
+Dropbox,Kittitas,City of Kittitas - DROP BOX ONLY,"207 Main St, Kittitas WA  98934",207 Main St,,Kittitas WA 98934,Kittitas,98934,Located in the Alley behind City of Kittitas Administrative building. 
+Dropbox,Kittitas,City of Roslyn Roslyn Library - DROP BOX ONLY,"201 S. 1st St, Roslyn WA  98941",201 S. 1st St,,Roslyn WA 98941,Roslyn,98941,
+Dropbox,Kittitas,South Cle Elum Town Hall - DROP BOX ONLY,"523 Lincoln St, South Cle Elum WA  98943",523 Lincoln St,,South Cle Elum WA 98943,South Cle Elum,98943,
+Dropbox,Kittitas,Easton Fire Station - DROP BOX ONLY,"180 Cabin Creek Rd, Easton WA  98925",180 Cabin Creek Rd,,Easton WA 98925,Easton,98925,
+Dropbox,Kittitas,Ronald Fire Station - DROP BOX ONLY,"Atlantic Ave and 1st St, Ronald WA  98940",Atlantic Ave and 1st St,,Ronald WA 98940,Ronald,98940,
+Dropbox,Klickitat,Bickleton Remote Ballot Box,"E. Market & S. Madison Streets, Bickleton WA  99322",E. Market & S. Madison Streets,,Bickleton WA 99322,Bickleton,99322, Adjacent to Alderdale Grange.
+Dropbox,Klickitat,Bingen Remote Drop Box,"112 N. Ash St., Bingen WA  98605",112 N. Ash St.,,Bingen WA 98605,Bingen,98605, Outside Bingen City Hall.
+Dropbox,Klickitat,Glenwood Remote Ballot Box,"209 E. Main St., Glenwood WA  98619",209 E. Main St.,,Glenwood WA 98619,Glenwood,98619, North of the General Store.
+Dropbox,Klickitat,Trout Lake Remote Ballot Box,"Jennings Rd. & Hwy 141, Trout Lake WA  98650",Jennings Rd. & Hwy 141,,Trout Lake WA 98650,Trout Lake,98650,East of the Post Office.
+Dropbox,Klickitat,Roosevelt Remote Ballot Box,"615 Chinook Ave., Roosevelt WA  99356",615 Chinook Ave.,,Roosevelt WA 99356,Roosevelt,99356,Roosevelt School parking lot.
+Dropbox,Klickitat,Wishram Remote Ballot Box,"Park Place, Wishram WA  98635",Park Place,,Wishram WA 98635,Wishram,98635,North of Historic Locomotive
+Dropbox,Klickitat,Klickitat Remote Ballot Box,"State Hwy 142, Klickitat WA  98628",State Hwy 142,,Klickitat WA 98628,Klickitat,98628,At Depot Park
+Dropbox,Klickitat,Lyle Remote Ballot Box,"5th St. & Hwy 14, Lyle WA  98635",5th St. & Hwy 14,,Lyle WA 98635,Lyle,98635,Lyle Lions Club parking lot. 
+Dropbox,Klickitat,Dallesport Remote Ballot Box,"136 6th St., Dallesport WA  98617",136 6th St.,,Dallesport WA 98617,Dallesport,98617,Across from the Post Office in Dallesport Community Center parking lot. 
+Dropbox,Klickitat,White Salmon Remote Ballot Box,"501 NE Washington St., White Salmon WA  98672",501 NE Washington St.,,White Salmon WA 98672,White Salmon,98672,This drop box is located in the parking lot of the Pioneer Center in White Salmon (adjacent to the Post Office).
+Dropbox,Klickitat,Goldendale Remote Ballot Box,"114 S. Columbus Ave., Goldendale WA  98620",114 S. Columbus Ave.,,Goldendale WA 98620,Goldendale,98620,This drop box is located north of the alley at 114 S. Columbus Ave. It has moved across the street from its previous location.
+Dropbox,Lewis,Twin Cities Senior Center Drop Box,"2545 N National Ave, Chehalis WA  98532",2545 N National Ave,,Chehalis WA 98532,Chehalis,98532,he drive through ballot drop box is located in front of the Senior Center. The lot can be accessed from N. National Ave.
+Dropbox,Lewis,Morton Drop Box,"103 Westlake Ave, Morton WA  98356",103 Westlake Ave,,Morton WA 98356,Morton,98356,The drive throThe drive through ballot drop box at the Morton Senior Center is located across the street from the Morton High School. The lot can be accessed from E. Westlake Ave.
+Dropbox,Lewis,Chehalis Avenue Drop Box,"242 NW Chehalis Ave, Chehalis WA  98532",242 NW Chehalis Ave,,Chehalis WA 98532,Chehalis,98532,The drive through ballot drop box is located at the corner of NW Chehalis Ave and NW Center St. The lot is accessed from NW Center St. 
+Dropbox,Lewis,Toledo Drop Box,"150 Coal St., Toledo WA  98591",150 Coal St.,,Toledo WA 98591,Toledo,98591,The drive through ballot drop box is located in the Toledo Senior Center parking lot and can be accessed from Coal St.
+Dropbox,Lewis,Centralia College Drop Box,"Kemp Hall Parking Lot, Centralia WA  98531",Kemp Hall Parking Lot,,Centralia WA 98531,Centralia,98531,The drive through ballot drop box is located in the Kemp Hall parking lot and can be accessed from Rock St.
+Dropbox,Lewis,Lewis County Historic Courthouse Drop Box,"351 N.W. North St., Chehalis WA  98532",351 N.W. North St.,,Chehalis WA 98532,Chehalis,98532,The ballot drop box is located in the lobby and ballots can be dropped off between 8 a.m. and 5 p.m. Take exit 77 from I-5. Auditor's Office is at the west end of the Historic Courthouse on the main floor. 
+Dropbox,Lewis,Mossyrock Drop Box,"219 E. State St, Mossyrock WA  98564",219 E. State St,,Mossyrock WA 98564,Mossyrock,98564,The drive through ballot drop box is located in the Mossyrock Community Center parking lot.
+Dropbox,Lewis,Vader Drop Box,"State Hwy 506 between A & B Streets, Vader WA  98593",State Hwy 506 between A & B Streets,,Vader WA 98593,Vader,98593,The drive through drop box is located along the side of the City of Vader Public Works Building.
+Dropbox,Lewis,Onalaska Drop Box,"560 Carlisle Ave., Onalaska WA  98570",560 Carlisle Ave.,,Onalaska WA 98570,Onalaska,98570,The drive through drop box is located in front of the Onalaska School District Office.
+Dropbox,Lewis,Mineral Drop Box,"104 Front St. W., Mineral WA  98355",104 Front St. W.,,Mineral WA 98355,Mineral,98355,The drive through drop box is located in front of the Mineral Fire Station (Fire District No. 9).
+Dropbox,Lewis,Pe Ell Drop Box,"721 Main St., Pe Ell WA  98572",721 Main St.,,Pe Ell WA 98572,Pe Ell,98572,The drive through drop box is located in the Pe Ell Fire Station parking lot (Fire District No. 11).
+Dropbox,Lewis,Napavine Drop Box,"Corner of Jefferson & 2nd Ave, Napavine WA  98565",Corner of Jefferson & 2nd Ave,,Napavine WA 98565,Napavine,98565,The drive through drop box is located in the Napavine Fire Station parking lot (Fire District No. 5). The box can be accessed from E. Jefferson St. 
+Dropbox,Lewis,Winlock Drop Box,"119 SW Kerron St., Winlock WA  98596",119 SW Kerron St.,,Winlock WA 98596,Winlock,98596,The drive through ballot drop box is located in the Winlock Senior Center parking lot. The lot can be accessed from SW Kerron Ave.
+Dropbox,Lewis,Packwood Drop Box,"12931 US Hwy 12, Packwood WA  98361",12931 US Hwy 12,,Packwood WA 98361,Packwood,98361,The drive through ballot drop box is located in the Packwood Senior Center parking lot.
+Dropbox,Lincoln,Election Office Ballot Box,"450 Logan, Davenport WA  99122",450 Logan,,Davenport WA 99122,Davenport,99122, Located on the first floor of the court house in the auditor's office.
+Dropbox,Lincoln,Harrington City Hall,"11 South 3rd Street, Harrington WA  99134",11 South 3rd Street,,Harrington WA 99134,Harrington,99134, 
+Dropbox,Lincoln,Lincoln County Court House,"450 Logan, Davenport WA  99122",450 Logan,,Davenport WA 99122,Davenport,99122,Drive up drop box East side parking lot of court house.
+Dropbox,Mason,Mason County Auditor's Office Drop Box,"411 N 5th Street, Shelton WA  98584",411 N 5th Street,,Shelton WA 98584,Shelton,98584,Ballot drop box is available 24 hours a day.    
+Dropbox,Mason,"Belfair, John L. Scott Building","23910 NE State Route 3, Belfair WA  98528",23910 NE State Route 3,,Belfair WA 98528,Belfair,98528, 
+Dropbox,Mason,Hood Canal Visitor Center,"150 N Lake Cushman Rd, Hoodsport WA  98548",150 N Lake Cushman Rd,,Hoodsport WA 98548,Hoodsport,98548, 
+Dropbox,Mason,Port of Allyn,"18560 E State Route 3, Allyn WA  98524",18560 E State Route 3,,Allyn WA 98524,Allyn,98524, 
+Dropbox,Mason,Shelton Timberland Regional Library,"710 W Alder St, Shelton WA  98584",710 W Alder St,,Shelton WA 98584,Shelton,98584, 
+Dropbox,Mason,"Kamilche Area, Fire District No. 4 Station","3660 SE Old Olympic Hwy, Shelton WA  98584",3660 SE Old Olympic Hwy,,Shelton WA 98584,Shelton,98584, 
+Dropbox,Mason,"Grapeview, Horton Community Center","4350 Grapeview Loop Rd, Grapeview WA  98546",4350 Grapeview Loop Rd,,Grapeview WA 98546,Grapeview,98546, 
+Dropbox,Mason,"Union, Chevron Station","1031 E McReavy Rd, Union WA  98592",1031 E McReavy Rd,,Union WA 98592,Union,98592, 
+Dropbox,Mason,"Skokomish Reservation, Twin Totem Store","19390 US Hwy 101, Skokomish WA  98584",19390 US Hwy 101,,Skokomish WA 98584,Skokomish,98584,Next to Twin Totems Store 
+Dropbox,Okanogan,Omak Casino,"28968 US 97, Omak WA  98841",28968 US 97,,Omak WA 98841,Omak,98841,
+Dropbox,Okanogan,Coulee Dam,"300 Lincoln Ave, Coulee Dam WA  99116",300 Lincoln Ave,,Coulee Dam WA 99116,Coulee Dam,99116,Open until 8:00PM Election Day By City Hall
+Dropbox,Okanogan,Oroville,"1307 Main Street, Oroville WA  98844",1307 Main Street,,Oroville WA 98844,Oroville,98844,Open until 8:00PM on Election Day in front of Police Station
+Dropbox,Okanogan,Nespelem Agency,"21 Collvile St., Nespelem WA  99115",21 Collvile St.,,Nespelem WA 99115,Nespelem,99115,Open until 8:00PM Election day in front of Government building
+Dropbox,Okanogan,Tonasket,"209 S Whitcomb, Tonasket WA  98855",209 S Whitcomb,,Tonasket WA 98855,Tonasket,98855,Open until 8:00 PM Election Day. In front of City Hall/Library.
+Dropbox,Okanogan,Omak,"8 N Ash, Omak WA  98841",8 N Ash,,Omak WA 98841,Omak,98841,Open until 8:00 PM Election Day. Next to Omak Police Station.
+Dropbox,Okanogan,Pateros,"180 Pateros Mall, Pateros WA  98846",180 Pateros Mall,,Pateros WA 98846,Pateros,98846,Open until 8:00 PM Election Day. In parking lot.
+Dropbox,Okanogan,Twisp,"118 S Glover St, Twisp WA  98856",118 S Glover St,,Twisp WA 98856,Twisp,98856,Open until 8:00 PM Election Day By City Hall
+Dropbox,Okanogan,Okanogan County Auditor's Office Drop Box,"149 3rd Ave N, Okanogan WA  98840",149 3rd Ave N,,Okanogan WA 98840,Okanogan,98840,"Election day only 8:00 AM to 8:00 PM Room 104, 1st floor"
+Dropbox,Pacific,Long Beach Annex Drop Box,"7013 Sandridge Rd, Long Beach WA  98631",7013 Sandridge Rd,,Long Beach WA 98631,Long Beach,98631,First parking lot 
+Dropbox,Pacific,Pacific County Courthouse Drop Box,"300 Memorial Drive, South Bend WA  98586",300 Memorial Drive,,South Bend WA 98586,South Bend,98586,Ballots are accepted until 8 PM on election day. 
+Dropbox,Pacific,Chinook Community Center,"810 Highway 101, Chinook WA  98614",810 Highway 101,,Chinook WA 98614,Chinook,98614,Ballots accepted until 8:00 PM election day Located in Community Center Parking Lot
+Dropbox,Pacific,Naselle,"797 SR 4, Naselle WA  98638",797 SR 4,,Naselle WA 98638,Naselle,98638,Ballots accepted until 8:00 PM Election night WSP Parking Lot
+Dropbox,Pacific,Bay Center,"Park St, Bay Center WA  98527",Park St,,Bay Center WA 98527,Bay Center,98527,Ballots accepted until 8:00 PM election day Located by County Park Entrance
+Dropbox,Pacific,Raymond,"211 Commercial St, Raymond WA  98577",211 Commercial St,,Raymond WA 98577,Raymond,98577,Ballots are accepted until 8:00 PM on election day.  In parking lot next to Dept. of Public Works.
+Dropbox,Pacific,Menlo,"5 Fair Ln, Menlo WA  98561",5 Fair Ln,,Menlo WA 98561,Menlo,98561,Ballots accepted until 8:00 PM election night In front of blue commercial building
+Dropbox,Pacific,Ocean Park,"21603 O Ln, Ocean Park WA  98641",21603 O Ln,,Ocean Park WA 98641,Ocean Park,98641,Ballots accepted until 8:00 PM election night Located in Senior Center Parking Lot
+Dropbox,Pend Oreille,Camas Center for Community Wellness,"1821 LeClerc Rd N, Cusick WA  99119",1821 LeClerc Rd N,,Cusick WA 99119,Cusick,99119,To the right of the main entrance 
+Dropbox,Pend Oreille,Metaline Town Hall,"101 Housing Drive, Metaline WA  99152",101 Housing Drive,,Metaline WA 99152,Metaline,99152,Located on the front patio of the Metaline Town Hall.
+Dropbox,Pend Oreille,Ione Public Library,"112 S Central Ave, Ione WA  99139",112 S Central Ave,,Ione WA 99139,Ione,99139,Between Ione Public Library and Community Center
+Dropbox,Pend Oreille,Pend Oreille County Court House Drop Box,"625 West 4th St, Newport WA  99156",625 West 4th St,,Newport WA 99156,Newport,99156,Located in the alley behind the Court House
+Dropbox,Pend Oreille,Pend Oreille County Auditor's Office,"625 West 4th St, Newport WA  99156",625 West 4th St,,Newport WA 99156,Newport,99156,"The Auditor's Office is located in the County Court House, 1st Floor"
+Dropbox,Pierce,Anderson Island Ferry Landing Park & Ride,"Yoman Rd near Villa Beach Road, Anderson Island WA  98303",Yoman Rd near Villa Beach Road,,Anderson Island WA 98303,Anderson Island,98303,Box is located in the Pierce County Ferry Park & Ride at the top of the hill.
+Dropbox,Pierce,TACID,"6315 South 19th Street, Tacoma WA  98466",6315 South 19th Street,,Tacoma WA 98466,Tacoma,98466,Located in the front TACID parking lot.
+Dropbox,Pierce,Pierce County  Election Center,"2501 South 35th Street, Tacoma WA  98409",2501 South 35th Street,,Tacoma WA 98409,Tacoma,98409,Drop box is inside the Election Center at the Customer Service window.
+Dropbox,Pierce,Gig Harbor Fire Station 51,"6711 Kimball Drive, Gig Harbor WA  98335",6711 Kimball Drive,,Gig Harbor WA 98335,Gig Harbor,98335,Drop box is located next to the disabled parking.
+Dropbox,Pierce,Pierce County Annex,"2401 South 35th Street, Tacoma WA  98409",2401 South 35th Street,,Tacoma WA 98409,Tacoma,98409,Drop box is located in Annex parking lot.
+Dropbox,Pierce,Parkland Spanaway Library,"13718 Pacific Ave S, Tacoma WA  98444",13718 Pacific Ave S,,Tacoma WA 98444,Tacoma,98444,Drop box is pedestrian access only. It is located near the library book drop in the back parking lot
+Dropbox,Pierce,South Hill Library,"15420 Meridian E, Puyallup WA  98375",15420 Meridian E,,Puyallup WA 98375,Puyallup,98375,Located at the exit of the book drop drive-thru.
+Dropbox,Pierce,West Pierce Fire & Rescue,"3631 Drexler Dr W, University Place WA  98466",3631 Drexler Dr W,,University Place WA 98466,University Place,98466,Box is located in the fire station parking lot.
+Dropbox,Pierce,Lakewood (SR512) Park & Ride,"10417 South Tacoma Way, Lakewood WA  98499",10417 South Tacoma Way,,Lakewood WA 98499,Lakewood,98499,"Located near the disabled parking, near bus only lane."
+Dropbox,Pierce,Roy Y Park & Ride,"SR 507 & Pacific Ave S, Spanaway WA  98387",SR 507 & Pacific Ave S,,Spanaway WA 98387,Spanaway,98387,Located in the parking lot.
+Dropbox,Pierce,Bonney Lake South Park & Ride,"184th Ave E & Sky Island Dr E, Bonney Lake WA  98391",184th Ave E & Sky Island Dr E,,Bonney Lake WA 98391,Bonney Lake,98391,Located near the disabled parking.
+Dropbox,Pierce,Steilacoom Library,"2950 Steilacoom Blvd, Steilacoom WA  98388",2950 Steilacoom Blvd,,Steilacoom WA 98388,Steilacoom,98388,Box is located in the book drop drive-thru.
+Dropbox,Pierce,72nd St Transit Center,"1319 E 72nd St, Tacoma WA  98404",1319 E 72nd St,,Tacoma WA 98404,Tacoma,98404,This is a pedestrian only box. Located in the park & ride parking lot.
+Dropbox,Pierce,Puyallup Tribal Administration,"3009 Portland Ave E, Tacoma WA  98404",3009 Portland Ave E,,Tacoma WA 98404,Tacoma,98404,Box is located in a gated parking lot off Portland Ave.
+Dropbox,Pierce,Lakewood City Hall,"6000 Main Street SW, Lakewood WA  98499",6000 Main Street SW,,Lakewood WA 98499,Lakewood,98499,Located by the accessible parking.
+Dropbox,Pierce,Purdy Fire Station,"5210 144th St NW, Gig Harbor WA  98332",5210 144th St NW,,Gig Harbor WA 98332,Gig Harbor,98332,Located in the west entrance to the parking lot.
+Dropbox,Pierce,Browns Pt NE Tacoma Police Substation,"4731 Norpoint Way NE, Browns Point WA  98422",4731 Norpoint Way NE,,Browns Point WA 98422,Browns Point,98422,Box is located next to the secured police parking area by the water tank.
+Dropbox,Pierce,DuPont Ross Plaza,"1500 Wilmington Drive, DuPont WA  98327",1500 Wilmington Drive,,DuPont WA 98327,DuPont,98327,Box is located on the west end of Ross Plaza loop.
+Dropbox,Pierce,Edgewood City Hall,"2224 104th Ave E, Edgewood WA  98372",2224 104th Ave E,,Edgewood WA 98372,Edgewood,98372,Box is located in the south parking area.
+Dropbox,Pierce,Puyallup Library,"324 South Meridian, Puyallup WA  98371",324 South Meridian,,Puyallup WA 98371,Puyallup,98371,Box is located west of the front entrance to the library.
+Dropbox,Pierce,Sumner Library,"1116 Fryer Ave, Sumner WA  98390",1116 Fryer Ave,,Sumner WA 98390,Sumner,98390,Box is located at the parking lot entrance.
+Dropbox,Pierce,Gig Harbor Library,"4424 Point Fosdick Dr NW, Gig Harbor WA  98335",4424 Point Fosdick Dr NW,,Gig Harbor WA 98335,Gig Harbor,98335,Located in Parking Lot
+Dropbox,Pierce,Kandle Park Police Substation,"5140 N 26th St, Tacoma WA  98407",5140 N 26th St,,Tacoma WA 98407,Tacoma,98407,Box is located in front of the Gonyea Boys & Girls Club.
+Dropbox,Pierce,Barney's Corner,"40512 Meridian E, Eatonville WA  98328",40512 Meridian E,,Eatonville WA 98328,Eatonville,98328,Box is located between the store and the police substation.
+Dropbox,Pierce,Graham Fire & Rescue,"10012 187th Street E, Puyallup WA  98375",10012 187th Street E,,Puyallup WA 98375,Puyallup,98375,
+Dropbox,Pierce,Orting Public Safety,"401 Washington Ave SE, Orting WA  98360",401 Washington Ave SE,,Orting WA 98360,Orting,98360,
+Dropbox,Pierce,Hilltop,"902 S L Street, Tacoma WA  98405",902 S L Street,,Tacoma WA 98405,Tacoma,98405,Located in front of The Housing Authority.
+Dropbox,Pierce,Tillicum Community Center,"14916 Washington Ave SW, Lakewood WA  98498",14916 Washington Ave SW,,Lakewood WA 98498,Lakewood,98498,
+Dropbox,Pierce,Fife City Hall,"5411 23rd Street E, Fife WA  98424",5411 23rd Street E,,Fife WA 98424,Fife,98424,
+Dropbox,Pierce,Roy City Hall,"216 McNaughton Rd S, Roy WA  98580",216 McNaughton Rd S,,Roy WA 98580,Roy,98580,
+Dropbox,Pierce,Community Health Care at Salishan,"1708 E 44th Street, Tacoma WA  98404",1708 E 44th Street,,Tacoma WA 98404,Tacoma,98404,
+Dropbox,Pierce,South Prairie Fire Department,"350 SR 162 E, South Prairie WA  98385",350 SR 162 E,,South Prairie WA 98385,South Prairie,98385,
+Dropbox,Pierce,Wilkeson Town Hall,"540 Church St, Wilkeson WA  98396",540 Church St,,Wilkeson WA 98396,Wilkeson,98396,
+Dropbox,Pierce,Ashford County Park,"29801 SR 706, Ashford WA  98304",29801 SR 706,,Ashford WA 98304,Ashford,98304,
+Dropbox,Pierce,Eatonville Town Hall,"201 Center St. W, Eatonville WA  98328",201 Center St. W,,Eatonville WA 98328,Eatonville,98328,
+Dropbox,Pierce,Fircrest City Hall,"115 Ramsdell St., Fircrest WA  98466",115 Ramsdell St.,,Fircrest WA 98466,Fircrest,98466,
+Dropbox,Pierce,Fox Island Fire Station 53,"906 Kamas Dr., Fox Island WA  98333",906 Kamas Dr.,,Fox Island WA 98333,Fox Island,98333,
+Dropbox,Pierce,Key Center Food Market,"9021 Key Peninsula Hwy NW, Lakebay WA  98349",9021 Key Peninsula Hwy NW,,Lakebay WA 98349,Lakebay,98349,
+Dropbox,Pierce,Lake Kathryn Food Market,"14220 92nd Ave NW, Gig Harbor WA  98329",14220 92nd Ave NW,,Gig Harbor WA 98329,Gig Harbor,98329,
+Dropbox,Pierce,Milton City Hall,"1000 Laurel St., Milton WA  98354",1000 Laurel St.,,Milton WA 98354,Milton,98354,
+Dropbox,Pierce,Skookum Archers,"11209 Shaw Rd E, Puyallup WA  98374",11209 Shaw Rd E,,Puyallup WA 98374,Puyallup,98374,
+Dropbox,Pierce,Wapato Park (S 72nd St & S Ainsworth Ave),"1501 S 72nd St, Tacoma WA  98408",1501 S 72nd St,,Tacoma WA 98408,Tacoma,98408,
+Dropbox,Pierce,Buckley Library,"123 S River Rd, Buckley WA  98321",123 S River Rd,,Buckley WA 98321,Buckley,98321,
+Dropbox,Pierce,Summit Library,"5107 112th Street E, Tacoma WA  98446",5107 112th Street E,,Tacoma WA 98446,Tacoma,98446,
+Dropbox,Pierce,Wheelock Library,"3722 N 26th St, Tacoma WA  98407",3722 N 26th St,,Tacoma WA 98407,Tacoma,98407,This is a pedestrian only box.
+Dropbox,Pierce,Home Park,"17220 8th Ave NW, Lakebay WA  98349",17220 8th Ave NW,,Lakebay WA 98349,Lakebay,98349,Located in front of the park off Key Peninsula Hwy. 
+Dropbox,Pierce,UW Tacoma,"1906 Pacific Ave, Tacoma WA  98402",1906 Pacific Ave,,Tacoma WA 98402,Tacoma,98402,This is a pedestrian only box.
+Dropbox,San Juan,Orcas Senior Center,"62 Henry Rd, Eastsound WA  98245",62 Henry Rd,,Eastsound WA 98245,Eastsound,98245, 
+Dropbox,San Juan,Elections Office,"55 Second Street, Friday Harbor WA  98250",55 Second Street,Suite A,Friday Harbor WA 98250,Friday Harbor,98250,*Open 8:00 AM to 4:30 PM weekdays* *Open 8:00 AM to 8:00 PM Election Day* 
+Dropbox,San Juan,San Juan County Courthouse Drop Box,"350 Court Street, Friday Harbor WA  98250",350 Court Street,,Friday Harbor WA 98250,Friday Harbor,98250,
+Dropbox,San Juan,Lopez Island Fire District Office,"2228 Fisherman Bay Road, Lopez Village WA  98261",2228 Fisherman Bay Road,,Lopez Village WA 98261,Lopez Village,98261, 
+Dropbox,Skagit,Mt Vernon - Courthouse,"700 S. 2nd St, Mount Vernon WA  98273",700 S. 2nd St,,Mount Vernon WA 98273,Mount Vernon,98273, In U-shaped parking lot accessed from 3rd Street 
+Dropbox,Skagit,Swinomish,"17337 Reservation Rd, La Conner WA  98257",17337 Reservation Rd,,La Conner WA 98257,La Conner,98257,Social Services Building front 
+Dropbox,Skagit,Anacortes - Skyline,"6041 Sands Way, Anacortes WA  98221",6041 Sands Way,,Anacortes WA 98221,Anacortes,98221, Skyline Beach Club 
+Dropbox,Skagit,Sedro-Woolley,"111 Woodworth St., Sedro-Woolley WA  98284",111 Woodworth St.,,Sedro-Woolley WA 98284,Sedro-Woolley,98284, In the alley between Eastern Ave and Metcalf 
+Dropbox,Skagit,Anacortes - Library,"1220 10th Street, Anacortes WA  98221",1220 10th Street,,Anacortes WA 98221,Anacortes,98221,Behind the Anacortes Public Library near the book drop 
+Dropbox,Skagit,Burlington,"900 E. Fairhaven Street, Burlington WA  98233",900 E. Fairhaven Street,,Burlington WA 98233,Burlington,98233, Burlington Parks and Recreation Building 
+Dropbox,Skagit,Concrete,"45770 A Main Street, Concrete WA  98237",45770 A Main Street,,Concrete WA 98237,Concrete,98237, Skagit Upriver Services/Library 
+Dropbox,Skagit,La Conner,"614 E. Morris Street, La Conner WA  98257",614 E. Morris Street,,La Conner WA 98257,La Conner,98257, La Conner Regional Library 
+Dropbox,Skagit,Mt Vernon - Continental,"1805 Continential Place, Mount Vernon WA  98273",1805 Continential Place,,Mount Vernon WA 98273,Mount Vernon,98273,Mount Vernon Police Department 
+Dropbox,Skagit,Sauk-Suiattle,"6020 Mountain Goat Way, Darrington WA  98241",6020 Mountain Goat Way,,Darrington WA 98241,Darrington,98241,Near entrance to Last Chance Casino & Bingo 
+Dropbox,Skamania,Canyon Creek Middle School (parking lot),"9731 Washougal River Rd, Washougal WA  98671",9731 Washougal River Rd,,Washougal WA 98671,Washougal,98671,Canyon Creek Middle School (parking lot) 
+Dropbox,Skamania,North Bonneville Central Business District (near city hall),"210 CBD Mall Dr, North Bonneville WA  98639",210 CBD Mall Dr,,North Bonneville WA 98639,North Bonneville,98639,North Bonneville Central Business District (near city hall) 
+Dropbox,Skamania,"Skamania County Court House (north side, near door)","240 NW Vancouver Ave, Stevenson WA  98648",240 NW Vancouver Ave,,Stevenson WA 98648,Stevenson,98648,"Skamania County Court House (north side, near door) "
+Dropbox,Skamania,Carson Transit Station (near Wind River Market),"11 Carson Frontage Rd, Carson WA  98610",11 Carson Frontage Rd,,Carson WA 98610,Carson,98610,Carson Transit Station (near Wind River Market) 
+Dropbox,Skamania,The Little Church in the Valley (parking lot),"342 Hemlock Rd, Carson (Stabler) WA  98610",342 Hemlock Rd,,Carson (Stabler) WA 98610,Carson (Stabler),98610,Little Church in the Valley (parking lot) 
+Dropbox,Skamania,Underwood Community Center (parking lot),"951 Schoolhouse Rd, Underwood WA  98651",951 Schoolhouse Rd,,Underwood WA 98651,Underwood,98651,Underwood Community Center (parking lot) 
+Dropbox,Thurston,The Evergreen State College,"2700 McCann Plaza Dr NW, Olympia WA  98505",2700 McCann Plaza Dr NW,,Olympia WA 98505,Olympia,98505,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Lacey Post Office,"5815 Lacey Blvd SE, Lacey WA  98503",5815 Lacey Blvd SE,,Lacey WA 98503,Lacey,98503,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. Next to drive-up mail boxes."
+Dropbox,Thurston,"South Bay Fire 8, Station 83","5046 Boston Harbor Rd NE, Olympia WA  98506",5046 Boston Harbor Rd NE,,Olympia WA 98506,Olympia,98506,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Gloria Dei Lutheran Church,"1515 Harrison Ave NW, Olympia WA  98502",1515 Harrison Ave NW,,Olympia WA 98502,Olympia,98502,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,"South Bay Fire 8, Station 81","3506 Shincke Rd NE, Olympia WA  98506",3506 Shincke Rd NE,,Olympia WA 98506,Olympia,98506,"Is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 "
+Dropbox,Thurston,"Griffin Fire 13, Station 1","3707 Steamboat Loop NW, Olympia WA  98502",3707 Steamboat Loop NW,,Olympia WA 98502,Olympia,98502,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Lackamas Elementary,"16240 Bald Hill Rd SE, Yelm WA  98597",16240 Bald Hill Rd SE,,Yelm WA 98597,Yelm,98597,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Rainier City Hall,"102 Rochester St W, Rainier WA  98576",102 Rochester St W,,Rainier WA 98576,Rainier,98576,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Yelm Schools Administration,"110 1st Street NE, Yelm WA  98597",110 1st Street NE,,Yelm WA 98597,Yelm,98597,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Grand Mound Center,"19949 Old Highway 99 SW, Rochester WA  98579",19949 Old Highway 99 SW,,Rochester WA 98579,Rochester,98579,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Littlerock Fire 11,"10828 Littlerock Rd SW, Olympia WA  98512",10828 Littlerock Rd SW,,Olympia WA 98512,Olympia,98512,"Is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 "
+Dropbox,Thurston,"Rochester Fire 1, Station 3","18346 Albany St SW, Rochester WA  98579",18346 Albany St SW,,Rochester WA 98579,Rochester,98579,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Bucoda,"103 S Main St, Bucoda WA  98530",103 S Main St,,Bucoda WA 98530,Bucoda,98530,"Is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 "
+Dropbox,Thurston,Tenino School District Administration ,"301 Old Highway 99 SE, Tenino WA  98589",301 Old Highway 99 SE,,Tenino WA 98589,Tenino,98589,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Tumwater School Administration,"621 Linwood Ave SW, Tumwater WA  98512",621 Linwood Ave SW,,Tumwater WA 98512,Tumwater,98512,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Tumwater Timberland Library,"7023 New Market St SW, Tumwater WA  98501",7023 New Market St SW,,Tumwater WA 98501,Tumwater,98501,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Martin Village,"5600 Martin Way E, Lacey WA  98516",5600 Martin Way E,,Lacey WA 98516,Lacey,98516,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Woodland Retirement and Assisted Living Community,"4532 Intelco Loop SE, Lacey WA  98503",4532 Intelco Loop SE,,Lacey WA 98503,Lacey,98503,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,"Fire District 3, Station 35","3701 Willamette Dr NE, Lacey WA  98516",3701 Willamette Dr NE,,Lacey WA 98516,Lacey,98516,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,"Fire District 3, Station 34","8407 Steilacoom Rd SE, Lacey WA  98513",8407 Steilacoom Rd SE,,Lacey WA 98513,Lacey,98513,"Is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 "
+Dropbox,Thurston,Lacey City Hall,"420 College St SE, Lacey WA  98503",420 College St SE,,Lacey WA 98503,Lacey,98503,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Haggen NW Fresh,"1313 Cooper Point Road SW, Olympia WA  98502",1313 Cooper Point Road SW,,Olympia WA 98502,Olympia,98502,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Church of the Good Shepherd,"1601 North St SE, Olympia WA  98501",1601 North St SE,,Olympia WA 98501,Olympia,98501,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Crain's Office Supply,"1006 4th Ave E, Olympia WA  98501",1006 4th Ave E,,Olympia WA 98501,Olympia,98501,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,"McLane Black Lake Fire, Station 95","5911 Black Lake Blvd SW, Olympia WA  98512",5911 Black Lake Blvd SW,,Olympia WA 98512,Olympia,98512,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,South Puget Sound Community College,"2011 Mottman Rd SW, Olympia WA  98512",2011 Mottman Rd SW,,Olympia WA 98512,Olympia,98512,"This box is opened 20 days prior to Election Day, is available 24-hours a day"
+Dropbox,Thurston,Nisqually Tribal Admin Bldg,"4820 She Nah Num Dr SE, Olympia WA  98513",4820 She Nah Num Dr SE,,Olympia WA 98513,Olympia,98513,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Olympia City Hall,"601 4th Ave E, Olympia WA  98501",601 4th Ave E,,Olympia WA 98501,Olympia,98501,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 p.m. on Election Day. "
+Dropbox,Thurston,Thurston County Courthouse,"2000 Lakeridge Dr SW, Olympia WA  98502",2000 Lakeridge Dr SW,,Olympia WA 98502,Olympia,98502,"Is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptly at 8:00 "
+Dropbox,Spokane,Latah Town Hall - Ballot Drop Box,"108 E Market St, Latah WA  99018",108 E Market St,,Latah WA 99018,Latah,99018,Located outside front door of the Latah Town Hall/Community Center.
+Dropbox,Spokane,Millwood City Hall - Ballot Drop Box,"9103 E Frederick Ave, Spokane WA  99206",9103 E Frederick Ave,,Spokane WA 99206,Spokane,99206,Located outside near Southeast corner of the Millwood City Hall building.
+Dropbox,Spokane,Spangle Town Hall - Ballot Drop Box,"115 W 2nd St, Spangle WA  99031",115 W 2nd St,,Spangle WA 99031,Spangle,99031,Located outside on right side of the entrance to town hall.
+Dropbox,Spokane,Rockford Town Hall - Ballot Drop Box,"20 W Emma St, Rockford WA  99030",20 W Emma St,,Rockford WA 99030,Rockford,99030,Located outside near the Southeast corner of Town Hall.
+Dropbox,Spokane,Waverly Town Hall - Ballot Drop Box,"255 Commercial St, Waverly WA  99038",255 Commercial St,,Waverly WA 99038,Waverly,99038,Outside town hall near bus stop.
+Dropbox,Spokane,Shadle Aquatic Center - Ballot Drop Box,"2005 W Wellesley Ave, Spokane WA  99207",2005 W Wellesley Ave,,Spokane WA 99207,Spokane,99207,"Due to construction at the Shadle Park Library, the ballot drop box has been moved in front of the Shadle Aquatic Center in the Library parking lot."
+Dropbox,Spokane,Spokane County Courthouse - Ballot Drop Box,"1116 W Broadway Ave, Spokane WA  99201",1116 W Broadway Ave,,Spokane WA 99201,Spokane,99201,Located in front of the Spokane County Courthouse
+Dropbox,Spokane,Cheney Library - Ballot Drop Box,"610 First St, Cheney WA  99004",610 First St,,Cheney WA 99004,Cheney,99004,Drop Box is located along the sidewalk leading from the parking lot to the front door of the library.
+Dropbox,Spokane,STA Plaza Downtown Spokane - Ballot Drop Box,"701 W Riverside Ave, Spokane WA  99201",701 W Riverside Ave,,Spokane WA 99201,Spokane,99201,STA Plaza Drop Box is located in the Wall Street Entrance.  
+Dropbox,Spokane,Indian Trail Library - Ballot Drop Box,"4909 W Barnes Rd, Spokane WA  99208",4909 W Barnes Rd,,Spokane WA 99208,Spokane,99208,Near book deposit box. Can be accessed from driver's side of car. 
+Dropbox,Spokane,Hillyard Library - Ballot Drop Box,"4005 N Cook St, Spokane WA  99207",4005 N Cook St,,Spokane WA 99207,Spokane,99207,Near front entrance to library.
+Dropbox,Spokane,East Side Library - Ballot Drop Box,"524 S Stone St, Spokane WA  99202",524 S Stone St,,Spokane WA 99202,Spokane,99202,Near the Book Return. Accessible from driver's side of car.
+Dropbox,Spokane,Deer Park Library - Ballot Drop Box,"208 S Forest Ave, Deer Park WA  99006",208 S Forest Ave,,Deer Park WA 99006,Deer Park,99006,Located near exit from parking lot. Can be accessed from driver's side of car.
+Dropbox,Spokane,Argonne Library - Ballot Drop Box,"4322 N Argonne Rd, Spokane Valley WA  99212",4322 N Argonne Rd,,Spokane Valley WA 99212,Spokane Valley,99212,Located near the front entrance of the Library.
+Dropbox,Spokane,Airway Heights Library - Ballot Drop Box,"1213 S Lundstrom St, Airway Heights WA  99001",1213 S Lundstrom St,,Airway Heights WA 99001,Airway Heights,99001,Located in front of the Airway Heights Library.
+Dropbox,Spokane,Elections Office - Ballot Drop Box,"1033 W Gardner Ave, Spokane WA  99201",1033 W Gardner Ave,,Spokane WA 99201,Spokane,99201,Drop Box slot is located next to the front entrance of the Elections Office. 
+Dropbox,Spokane,Liberty Lake Library - Ballot Drop Box,"23123 E Mission Ave, Liberty Lake WA  99019",23123 E Mission Ave,,Liberty Lake WA 99019,Liberty Lake,99019,Located on right side of the entrance to the library.
+Dropbox,Spokane,Medical Lake Library - Ballot Drop Box,"321 E Herb St, Medical Lake WA  99022",321 E Herb St,,Medical Lake WA 99022,Medical Lake,99022,Located near the book deposit. Can be accessed from driver's side of car.
+Dropbox,Spokane,Moran Prairie Library - Ballot Drop Box,"6004 S Regal St, Spokane WA  99223",6004 S Regal St,,Spokane WA 99223,Spokane,99223,Located in the library parking lot on the North side of the building. Can be accessed from driver's side of car.
+Dropbox,Spokane,North Spokane Library - Ballot Drop Box,"44 E Hawthorne Rd, Spokane WA  99218",44 E Hawthorne Rd,,Spokane WA 99218,Spokane,99218,On left side of main driveway South of the building entry. Can be accessed from driver's side of car.
+Dropbox,Spokane,Otis Orchards Library - Ballot Drop Box,"22324 E Wellesley Ave, Otis Orchards WA  99027",22324 E Wellesley Ave,,Otis Orchards WA 99027,Otis Orchards,99027,Located to the left of the entrance to the library.
+Dropbox,Spokane,South Hill Library - Ballot Drop Box,"3324 S Perry St, Spokane WA  99203",3324 S Perry St,,Spokane WA 99203,Spokane,99203, Located near book deposit on South side of library. Accessible from driver's side of car.
+Dropbox,Spokane,Spokane Valley Library - Ballot Drop Box,"12004 E Main St, Spokane Valley WA  99206",12004 E Main St,,Spokane Valley WA 99206,Spokane Valley,99206,Located near book deposit on East side of the library.
+Dropbox,Spokane,Fairfield Library - Ballot Drop Box,"305 E Main St, Fairfield WA  99012",305 E Main St,,Fairfield WA 99012,Fairfield,99012,Located to the right of the entryway to the library.
+Dropbox,Spokane,Spokane Valley - Center Place,"2426 N Discovery Pl, Spokane Valley WA  99216",2426 N Discovery Pl,,Spokane Valley WA 99216,Spokane Valley,99216,Center Place is near the Valley YMCA off Mirabeau Parkway.
+Dropbox,Spokane,Election Office - Ballot Drop Box Drive Up,"1033 W Gardner Ave, Spokane WA  99201",1033 W Gardner Ave,,Spokane WA 99201,Spokane,99201, Drive up drop box located on Gardner Ave in front of the Elections Office.  Accessible from driver's side of car.
+Dropbox,Stevens,United Church of Christ,"10 E Webster Ave, Chewelah WA  99109",10 E Webster Ave,,Chewelah WA 99109,Chewelah,99109,Open 7:00 AM to 8:00 PM on Election Day only.
+Dropbox,Stevens,Stevens County Courthouse,"215 S. Oak Steet, Colville WA  99114",215 S. Oak Steet,,Colville WA 99114,Colville,99114, Located at the Elm Street Entrance of the Courthouse
+Dropbox,Stevens,Lake Spokane Elementary School,"6015 Hwy 291, Nine Mile Falls  WA  99026",6015 Hwy 291,,Nine Mile Falls WA 99026,Nine Mile Falls,99026,Open 7:00 AM to 8:00 PM on Election Day only.
+Dropbox,Stevens,Fire District 1 - District Office,"3962 Hwy 292, Loon Lake WA  99148",3962 Hwy 292,,Loon Lake WA 99148,Loon Lake,99148,Open 7:00 AM to 8:00 PM on Election Day only.
+Dropbox,Snohomish,Gold Bar,"5th and Orchard, Gold Bar WA  98251",5th and Orchard,,Gold Bar WA 98251,Gold Bar,98251,Box located at Gateway Park (Gazebo).  Box closes promptly at 8 pm on Election Night.  
+Dropbox,Snohomish,Mill Creek,"15833 Mill Creek Blvd, Mill Creek WA  98012",15833 Mill Creek Blvd,,Mill Creek WA 98012,Mill Creek,98012,Box located in traffic circle near Post Office.  Box closes promptly at 8 pm on Election Night. 
+Dropbox,Snohomish,Smokey Point,"3300 169th Pl NE, Arlington WA  98223",3300 169th Pl NE,,Arlington WA 98223,Arlington,98223,Box located in north corner of parking lot.    Box closes promptly at 8 pm on Election Night. 
+Dropbox,Snohomish,Darrington,"2005 Cascade St, Darrington WA  98241",2005 Cascade St,,Darrington WA 98241,Darrington,98241,Box located outside of library/city hall.  Box closes promptly at 8 pm on Election Night. Library/City Hall does not have key to ballot box.
+Dropbox,Snohomish,Alderwood Water & Wastewater District,"3626 156th ST SW, Lynnwood WA  98087",3626 156th ST SW,,Lynnwood WA 98087,Lynnwood,98087,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+Dropbox,Snohomish,Wyndham Garden Hotel,"16710 Smokey Point Blvd, Arlington WA  98223",16710 Smokey Point Blvd,,Arlington WA 98223,Arlington,98223,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+Dropbox,Snohomish,Snohomish County Campus,"3000 Rockefeller Ave, Everett WA  98201",3000 Rockefeller Ave,Bob Drewell Bldg - 1st Floor,Everett WA 98201,Everett,98201,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+Dropbox,Snohomish,Brier,"2901 228th St SW, Brier WA  98036",2901 228th St SW,,Brier WA 98036,Brier,98036,Box located outside of City Hall. Box closes promptly at 8 pm on Election Night. City Hall does not have key.
+Dropbox,Snohomish,Lakewood,"16800 16th Dr NE, Marysville WA  98271",16800 16th Dr NE,,Marysville WA 98271,Marysville,98271,Box located near middle school. Box closes promptly at 8 pm on Election Night.
+Dropbox,Snohomish,Silvana,"1717 Ole Larson Rd, Silvana WA  98287",1717 Ole Larson Rd,,Silvana WA 98287,Silvana,98287,Box located near Peace Lutheran Church. Box closes promptly at 8 pm on Election Night.
+Dropbox,Snohomish,Index,"511 Ave A, Index WA  98256",511 Ave A,,Index WA 98256,Index,98256,Box located near Town Hall. Box closes promptly at 8 pm on Election Night. Town Hall does not have key.
+Dropbox,Snohomish,Snohomish - Glacier Peak,"7401 144th Pl SE, Snohomish WA  98296",7401 144th Pl SE,,Snohomish WA 98296,Snohomish,98296,Box located in Glacier Peak High School parking lot. Box closes promptly at 8 pm on Election Night. School does not have a key to the ballot box.
+Dropbox,Snohomish,Startup,"14315 366th Ave SE, Sultan WA  98294",14315 366th Ave SE,,Sultan WA 98294,Sultan,98294,Box located near Event Center. Box closes promptly at 8 pm on Election Night. Event Center does not have a key to the ballot box.
+Dropbox,Snohomish,Lynnwood - Ash Way,"16327 Ash Way, Lynnwood WA  98087",16327 Ash Way,,Lynnwood WA 98087,Lynnwood,98087,Box located at Ash Way Park and Ride. Box closes promptly at 8 pm on Election Night. 
+Dropbox,Snohomish,Woodway,"23920 113th P W, Woodway WA  98020",23920 113th P W,,Woodway WA 98020,Woodway,98020,Box located outside of Town Hall. Box closes promptly at 8 pm on Election Night.  Not a drive up box - must park and walk. Town does not have key to ballot box.
+Dropbox,Snohomish,Tulalip,"6722 Totem Beach Rd, Tulalip WA  98271",6722 Totem Beach Rd,,Tulalip WA 98271,Tulalip,98271,Box located in Youth Center parking lot.  Box closes promptly at 8 pm on Election Night.  Youth Center does not have a key to the ballot box.
+Dropbox,Snohomish,Everett Community College,"1001 N Broadway Ave, Everett WA  98201",1001 N Broadway Ave,,Everett WA 98201,Everett,98201,Box located in parking lot near WSU building.  Box closes promptly at 8 pm on Election Night. College does not have a key to the ballot box.
+Dropbox,Snohomish,Sultan,"319 Main St, Sultan WA  98294",319 Main St,,Sultan WA 98294,Sultan,98294,Box located outside of library/city hall (along drive to back of building).  Box closes promptly at 8 pm on Election Night. Library/City Hall does not have key to ballot box.
+Dropbox,Snohomish,Arlington,"135 North Washington Ave, Arlington WA  98223",135 North Washington Ave,,Arlington WA 98223,Arlington,98223,  Box located outside of library.  Box closes promptly at 8 pm on Election Night.   Not a drive up box - must park and walk.  Library does not have key to ballot box.
+Dropbox,Snohomish,Edmonds,"650 Main St, Edmonds WA  98020",650 Main St,,Edmonds WA 98020,Edmonds,98020,Box located outside of library.  Box closes promptly at 8 pm on Election Night. Not a drive up box - must park and walk.  Library does not have key to ballot box.
+Dropbox,Snohomish,Bothell,"22833 Bothell Everett Hwy, Bothell WA  98021",22833 Bothell Everett Hwy,,Bothell WA 98021,Bothell,98021,Box located in QFC parking lot.  Box closes promptly at 8 pm on Election Night. QFC does not have a key to the ballot box.
+Dropbox,Snohomish,Lake Stevens,"1800 Main St, Lake Stevens WA  98258",1800 Main St,,Lake Stevens WA 98258,Lake Stevens,98258,"Box located near boat launch, behind the Baptist church.  Box closes promptly at 8 pm on Election Night. "
+Dropbox,Snohomish,County Elections Office,"3000 Rockefeller Ave, 1st Floor, Everett WA  98201",3000 Rockefeller Ave,,"1st Floor, Everett WA 98201","1st Floor, Everett",98201,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+Dropbox,Snohomish,Marysville,"1049 State Ave, Marysville WA  98270",1049 State Ave,,Marysville WA 98270,Marysville,98270,Box located behind City Hall.  Box closes promptly at 8 pm on Election Night. City Hall does not have a key to the ballot box.
+Dropbox,Snohomish,Monroe,"1070 Village Way, Monroe WA  98272",1070 Village Way,,Monroe WA 98272,Monroe,98272,Box located outside of library.  Box closes promptly at 8 pm on Election Night. Not a drive up box - must park and walk.  Library does not have key to the ballot box.
+Dropbox,Snohomish,Snohomish,"311 Maple Ave, Snohomish WA  98290",311 Maple Ave,,Snohomish WA 98290,Snohomish,98290,Box located outside of library.  Box closes promptly at 8 pm on Election Night.  Not a drive up box - must park and walk.  Library does not have a key to the ballot box. 
+Dropbox,Snohomish,Mukilteo,"4675 Harbour Pointe Blvd, Mukilteo WA  98275",4675 Harbour Pointe Blvd,,Mukilteo WA 98275,Mukilteo,98275,Box located outside of library.  Box closes promptly at 8 pm on Election Night.  Not a drive up box - must park and walk.  Library does not have key to the ballot box.
+Dropbox,Snohomish,Everett - McCollum Park,"600 128th St SE, Everett WA  98208",600 128th St SE,,Everett WA 98208,Everett,98208,Box located near bus loading area on east end of Park & Ride.  Box closes promptly at 8 pm on Election Night. 
+Dropbox,Snohomish,Lynnwood,"19100 44th Ave W, Lynnwood WA  98036",19100 44th Ave W,,Lynnwood WA 98036,Lynnwood,98036,Box located outside of City Hall.  Box closes promptly at 8 pm on Election Night. City Hall does not have a key to the ballot box.
+Dropbox,Snohomish,Everett Mall,"1402 SE Everett Mall Way, Everett WA  98208",1402 SE Everett Mall Way,,Everett WA 98208,Everett,98208,Box located in Sears area parking lot.   Box closes promptly at 8 pm on Election Night. 
+Dropbox,Snohomish,Mountlake Terrace,"23300 58th Ave W, Mountlake Terrace WA  98043",23300 58th Ave W,,Mountlake Terrace WA 98043,Mountlake Terrace,98043,Box located in library parking lot.  Box closes promptly 8 pm on Election Night. Library does not have key to the ballot box.
+Dropbox,Snohomish,Granite Falls,"815 E Galena St, Granite Falls WA  98252",815 E Galena St,,Granite Falls WA 98252,Granite Falls,98252,Box located outside of library.  Box closes promptly at 8 pm on Election Night. Not a drive up box - must park and walk.  Library does not have key to ballot box.
+Dropbox,Snohomish,Everett - County Courthouse,"3000 Rockefelller Ave, Everett WA  98201",3000 Rockefelller Ave,,Everett WA 98201,Everett,98201,   Box located at sidewalk on Wall St and Rockefeller Ave. Box closes promptly at 8 pm on Election Night. Not a drive up box - must park and walk.
+Dropbox,Snohomish,Stanwood,"9701 271st St NW, Stanwood WA  98292",9701 271st St NW,,Stanwood WA 98292,Stanwood,98292,Box located in library back parking lot.  Box closes promptly at 8 pm on Election Night. Library does not have a key to the ballot box. 
+Dropbox,Wahkiakum,Wahkiakum County Auditor's Office Drop Box,"64 Main Street, Cathlamet WA  98612",64 Main Street,,Cathlamet WA 98612,Cathlamet,98612,Ballots are accepted until 8:00pm of Election Day. Ballot drop box can be found outside of the Superior Court door. 
+Dropbox,Wahkiakum,Skamokawa Resort,"1391 WA-4, Skamokawa WA  98647",1391 WA-4,,Skamokawa WA 98647,Skamokawa,98647,"Open 18 days before Election Day.  This ballot box is located above the Skamokowa Resort parking lot, directly off State Route 4. Ballot box is next to the blue USPS mail drop box. "
+Dropbox,Wahkiakum,Johnson Park,"30 Rosburg School Road, Rosburg WA  98643",30 Rosburg School Road,,Rosburg WA 98643,Rosburg,98643,"Open 18 days before election day.  This drop box is outside of the Johnson Park building, located near the red library box. "
+Dropbox,Walla Walla,Touchet School District,"90 Champion St, Touchet WA  99360",90 Champion St,,Touchet WA 99360,Touchet,99360,Official Ballot Drop Box Located in parking lot in front of school.
+Dropbox,Walla Walla,County Fairgrounds - Pavilion,"363 Orchard St, Walla Walla WA  99362",363 Orchard St,,Walla Walla WA 99362,Walla Walla,99362,"Walla Walla County Voting Center For the November General Election, this location is replacing our voting center at 310 W Poplar St."
+Dropbox,Walla Walla,Burbank - Columbia Elementary School,"977 Maple St, Burbank WA  99323",977 Maple St,,Burbank WA 99323,Burbank,99323,Official Ballot Drop Box  Located in the parking lot in front of the school.
+Dropbox,Walla Walla,Walla Walla County Auditor's Office,"315 W. Main St.  Room 201, Walla Walla WA  99362",315 W. Main St. Room 201,,Walla Walla WA 99362,Walla Walla,99362,Official Ballot Drop Box Located inside the Auditor's Office on the 2nd floor.
+Dropbox,Walla Walla,Courthouse Alley,"315 W. Main St., Walla Walla WA  99362",315 W. Main St.,,Walla Walla WA 99362,Walla Walla,99362,Official Ballot Drop Box Located in the alley between the Courthouse & the Jail. Enter the alley from 5th St.
+Dropbox,Walla Walla,Walla Walla Fire Station #2 - Parking Lot,"170 N. Wilbur Ave., Walla Walla WA  99362",170 N. Wilbur Ave.,,Walla Walla WA 99362,Walla Walla,99362,Official Ballot Drop Box Located in parking lot on the corner of Wilbur Ave. and Tacoma St.
+Dropbox,Walla Walla,College Place City Hall,"625 S. College Avenue, College Place WA  99324",625 S. College Avenue,,College Place WA 99324,College Place,99324,Official Ballot Drop Box Located in the alley behind City Hall
+Dropbox,Walla Walla,Waitsburg City Hall - Outside,"147 Main St., Waitsburg WA  99361",147 Main St.,,Waitsburg WA 99361,Waitsburg,99361,Official Ballot Drop Box Located on sidewalk by front door outside City Hall.
+Dropbox,Walla Walla,Corner of 5th & Poplar,"310 W. Poplar St., Walla Walla WA  99362",310 W. Poplar St.,,Walla Walla WA 99362,Walla Walla,99362,Official Ballot Drop Box Located next to the ramp outside of the building.
+Dropbox,Whatcom,North Whatcom Fire & Rescue Station,"4581 Birch-Bay Lynden Rd., Blaine WA  98230",4581 Birch-Bay Lynden Rd.,,Blaine WA 98230,Blaine,98230,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Whatcom Community College,"231 W. Kellogg Rd., Bellingham WA  98226",231 W. Kellogg Rd.,,Bellingham WA 98226,Bellingham,98226,Open: 20 days before Election Day  Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Sudden Valley,"2018 Lake Whatcom Blvd., Bellingham WA  98229",2018 Lake Whatcom Blvd.,,Bellingham WA 98229,Bellingham,98229,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Sehome Village,"210 36th St., Bellingham WA  98225",210 36th St.,,Bellingham WA 98225,Bellingham,98225,Open: 20 days before Election Day  Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Kendall (North Fork Community Library),"7506 Kendall Rd., Maple Falls WA  98266",7506 Kendall Rd.,,Maple Falls WA 98266,Maple Falls,98266,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Sumas,"534 Railroad Ave., Sumas WA  98295",534 Railroad Ave.,,Sumas WA 98295,Sumas,98295,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Lummi Nation Admin Building,"2665 Kwina Rd., Bellingham WA  98226",2665 Kwina Rd.,,Bellingham WA 98226,Bellingham,98226,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Whatcom County Courthouse South Parking Lot,"201 Grand Avenue, Bellingham WA  98225",201 Grand Avenue,,Bellingham WA 98225,Bellingham,98225,Open: 20 days before Election Day Close: 8:00 pm on Election Day  
+Dropbox,Whatcom,Deming Library,"5044 Mt Baker Hwy., Deming WA  98244",5044 Mt Baker Hwy.,,Deming WA 98244,Deming,98244,Open:  20 days before Election Day Close:  8:00 pm on Election Day 
+Dropbox,Whatcom,Blaine Library,"610 3rd St., Blaine WA  98230",610 3rd St.,,Blaine WA 98230,Blaine,98230,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Everson WECU,"106 E. Main St., Everson WA  98247",106 E. Main St.,,Everson WA 98247,Everson,98247,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Ferndale City Hall,"2095 Main St., Ferndale WA  98248",2095 Main St.,,Ferndale WA 98248,Ferndale,98248,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Meridian (Laurel Grange),"6172 Guide Meridian, Bellingham WA  98226",6172 Guide Meridian,,Bellingham WA 98226,Bellingham,98226,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Lynden Library,"216 4th St., Lynden WA  98264",216 4th St.,,Lynden WA 98264,Lynden,98264,Open: 20 days before Election Day Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,Western Washington University,"1880 Bill McDonald Pkwy., Bellingham WA  98225",1880 Bill McDonald Pkwy.,,Bellingham WA 98225,Bellingham,98225,Open: 20 days before Election Day  Close: 8:00 pm on Election Day 
+Dropbox,Whatcom,WWU - Red Square,"516 High Street, Bellingham WA  98225",516 High Street,,Bellingham WA 98225,Bellingham,98225,Outside Bond hall in Red Square 
+Dropbox,Whatcom,Acme Elementary School,"5200 Turkington Rd., Acme WA  98220",5200 Turkington Rd.,,Acme WA 98220,Acme,98220,Open:  20 days before Election Day Close:  8:00 pm on Election Day 
+Dropbox,Whatcom,Custer Elementary School,"7660 Custer School Rd., Custer WA  98240",7660 Custer School Rd.,,Custer WA 98240,Custer,98240,Open:  20 days before Election Day Close:  8:00 pm on Election Day 
+Dropbox,Whatcom,International Marketplace,"480 Tyee Dr., Point Roberts WA  98281",480 Tyee Dr.,,Point Roberts WA 98281,Point Roberts,98281,Open:  20 days before Election Day during store hours (9:00 am - 7:00 pm).    
+Dropbox,Whitman,"Neill Public Library, Hecht meeting room","210 N Grand Ave, Pullman WA  99163",210 N Grand Ave,,Pullman WA 99163,Pullman,99163,
+Dropbox,Whitman,WSU Student HUB,"Compton Union Building, Pullman WA  99163",Compton Union Building,,Pullman WA 99163,Pullman,99163,2nd Floor Junior Ballroom
+Dropbox,Whitman,Alley behind Whitman County Elections Center,"N 304 Main St, Colfax WA  99111",N 304 Main St,,Colfax WA 99111,Colfax,99111, 
+Dropbox,Whitman,Pullman,"238 SE Paradise St, Pullman WA  99163",238 SE Paradise St,,Pullman WA 99163,Pullman,99163, Across from the Paradise Creek Brewery
+Dropbox,Whitman,WSU Campus,"Compton Union Building, Pullman WA  99163",Compton Union Building,,Pullman WA 99163,Pullman,99163, Outside the west entrance to the CUB on Terrell Mall
+Dropbox,Yakima,Yakima County Courthouse Security Station,"128 N 2nd St, Yakima WA  98901",128 N 2nd St,,Yakima WA 98901,Yakima,98901,
+Dropbox,Yakima,24 hour ballot return - East Martin Luther King Jr Blvd,"213 N 1st St, Yakima WA  98901",213 N 1st St,,Yakima WA 98901,Yakima,98901,the big red box across from the Courthouse access from E. Martin Luther King Jr. Blvd (one way street headed East)
+Dropbox,Yakima,Yakima County Election Office,"128 N 2nd St Rm 117, Yakima WA  98901",128 N 2nd St Rm 117,,Yakima WA 98901,Yakima,98901,
+Dropbox,Yakima,24 hour ballot return - S 8th St & Edison Ave (by Sunnyside Fire Department),"S 8th St & Edison Ave, Sunnyside WA  98944",S 8th St & Edison Ave,,Sunnyside WA 98944,Sunnyside,98944,the big red box in the parking lot by the Sunnyside Post Office and Fire Department enter from E Edison Ave
+Dropbox,Yakima,Neighborhood Health Sunnyside,"617 Scoon Road, Sunnyside WA  98944",617 Scoon Road,,Sunnyside WA 98944,Sunnyside,98944,open Election Day only 
+Dropbox,Yakima,Parker,"360 Columbia Rd, Parker WA  98939",360 Columbia Rd,,Parker WA 98939,Parker,98939,Parker Fire Station No. 5 
+Dropbox,Yakima,White Swan,"260 Curtis St, White Swan WA  98952",260 Curtis St,,White Swan WA 98952,White Swan,98952,White Swan Fire Station No. 1 
+Dropbox,Yakima,24 hour ballot return - Yakama Nation Main Agency Offices,"401 Fort Rd, Toppenish WA  98948",401 Fort Rd,,Toppenish WA 98948,Toppenish,98948,the big red box in the Yakama Nation Main Agency Offices parking lot across the street from Legends  
+Dropbox,Yakima,Grandview City Hall,"207 W 2nd St., Grandview WA  98930",207 W 2nd St.,,Grandview WA 98930,Grandview,98930,
+Dropbox,Yakima,Granger City Hall,"102 Main St., Granger WA  98932",102 Main St.,,Granger WA 98932,Granger,98932,
+Dropbox,Yakima,Harrah Town Hall,"11 E Pioneer St., Harrah WA  98933",11 E Pioneer St.,,Harrah WA 98933,Harrah,98933,
+Dropbox,Yakima,Moxee City Hall,"255 W Seattle Ave., Moxee WA  98936",255 W Seattle Ave.,,Moxee WA 98936,Moxee,98936,
+Dropbox,Yakima,Naches Town Hall,"29 E 2nd St., Naches WA  98937",29 E 2nd St.,,Naches WA 98937,Naches,98937,
+Dropbox,Yakima,Selah City Hall,"115 W Naches Ave., Selah WA  98942",115 W Naches Ave.,,Selah WA 98942,Selah,98942,
+Dropbox,Yakima,Tieton City Hall,"418 Maple St., Tieton WA  98947",418 Maple St.,,Tieton WA 98947,Tieton,98947,
+Dropbox,Yakima,Union Gap City Hall,"102 W Ahtanum Rd., Union Gap WA  98903",102 W Ahtanum Rd.,,Union Gap WA 98903,Union Gap,98903,
+Dropbox,Yakima,Zillah City Hall,"503 First Ave., Zillah WA  98953",503 First Ave.,,Zillah WA 98953,Zillah,98953,
+Dropbox,Yakima,Toppenish City Hall,"21 W 1st Ave, Toppenish WA  98948",21 W 1st Ave,,Toppenish WA 98948,Toppenish,98948,
+VoteCenter,Adams,Othello High School,"340 S 7th Ave, Othello, WA  99344",340 S 7th Ave,,"Othello, WA 99344",Othello,99344,Staff is only there on Election Day from 8:00 am to 8:00 pm 
+VoteCenter,Asotin,Asotin County Auditor's Office,"135 Second St. , Asotin, WA  99402",135 Second St.,,"Asotin, WA 99402",Asotin,99402,
+VoteCenter,Benton,Benton County Vote Center - Inside,"2610 N Columbia Center Blvd, Richland, WA  99352",2610 N Columbia Center Blvd,,"Richland, WA 99352",Richland,99352,Drop Box is located inside the Benton County Voter Center.  
+VoteCenter,Benton,Prosser Auditor's Office,"620 Market St, Prosser, WA  99350",620 Market St,,"Prosser, WA 99350",Prosser,99350,
+VoteCenter,Chelan,Chelan County Auditor - Elections,"350 Orondo Ave, Wenatchee, WA  98801",350 Orondo Ave,Level 3,"Wenatchee, WA 98801",Wenatchee,98801,Drop box is located between the Law & Justice building and the Courthouse or visit our office on Level 3.
+VoteCenter,Clallam,Clallam County Courthouse - Auditor's Office - Voter Service Center,"223 E 4th St, Port Angeles, WA  98362",223 E 4th St,,"Port Angeles, WA 98362",Port Angeles,98362,"The Auditor's Office can help with replacement ballots, voter registration and address changes.  "
+VoteCenter,Clark,Clark County Elections,"1408 Franklin Street, Vancouver, WA  98660",1408 Franklin Street,,"Vancouver, WA 98660",Vancouver,98660,Elections Office ELECTION DAY ONLY 7 am to 8 pm
+VoteCenter,Columbia,Columbia County Auditor's Office,"341 East Main Street, Dayton, WA  99328",341 East Main Street,,"Dayton, WA 99328",Dayton,99328,
+VoteCenter,Cowlitz,Cowlitz County Elections Office (Voting Center),"207 4th Ave N, Kelso, WA  98626",207 4th Ave N,Room 107,"Kelso, WA 98626",Kelso,98626,"Location for registering to vote, replacement ballots, disability access voting unit, sample ballots "
+VoteCenter,Douglas,Douglas County Auditor's Office,"213 S Rainier St, Waterville, WA  98858",213 S Rainier St,,"Waterville, WA 98858",Waterville,98858,
+VoteCenter,Ferry,Ferry County Courthouse,"350 E. Delaware Ave, Republic , WA  99166",350 E. Delaware Ave,,"Republic , WA 99166",Republic ,99166,Phone number (509)775-5200.  Office is open from 7:00 a.m. to 8:00 p.m. on Election Day only. 
+VoteCenter,Franklin,Franklin County Auditor's Office,"1016 N 4th Ave., Pasco, WA  99301",1016 N 4th Ave.,,"Pasco, WA 99301",Pasco,99301,"Visit for voter registration services, replacement ballot requests, and for general elections information. "
+VoteCenter,Garfield,Garfield County Auditor's Office,"789 Main St, Pomeroy, WA  99347",789 Main St,,"Pomeroy, WA 99347",Pomeroy,99347,
+VoteCenter,Grant,Grant County Elections Office,"35 C St NW, Ephrata, WA  98823",35 C St NW,,"Ephrata, WA 98823",Ephrata,98823,"Grant County Courthouse, Room 203 "
+VoteCenter,Grays Harbor,Grays Harbor County Auditor,"100 W Broadway , Montesano, WA  98563",100 W Broadway,,"Montesano, WA 98563",Montesano,98563,The Auditor's Office is located on the first floor of the Grays Harbor County Admin Building next to the courthouse.     Handicapped parking is available at the rear of the building.
+VoteCenter,Island,Island County Auditor's Office,"400 North Main Street, Coupeville, WA  98239",400 North Main Street,,"Coupeville, WA 98239",Coupeville,98239,  
+VoteCenter,Jefferson,Jefferson County Auditor,"1820 Jefferson St, Port Townsend, WA  98368",1820 Jefferson St,,"Port Townsend, WA 98368",Port Townsend,98368,Election Day hours are 8:30 a.m. to 8:00 p.m. Jefferson & Cass Streets. Auditor's Office is located on the first floor of the County Courthouse. The drop box is located in the hallway just outside the Auditor's Office.
+VoteCenter,King,Accesso ShoWare Center Vote Center,"625 W James Street, Kent, WA  98032",625 W James Street,,"Kent, WA 98032",Kent,98032,
+VoteCenter,King,Bellevue College Gym Vote Center,"3000 Landerholm Cir SE G, Bellevue, WA  98007",3000 Landerholm Cir SE G,,"Bellevue, WA 98007",Bellevue,98007,
+VoteCenter,King,CenturyLink Field Event Center Vote Center,"800 Occidental Ave S, Seattle, WA  98134",800 Occidental Ave S,,"Seattle, WA 98134",Seattle,98134,
+VoteCenter,King,Federal Way Performing Arts & Event Center Vote Center,"31510 Pete von Reichbauer Way S, Federal Way, WA  98003",31510 Pete von Reichbauer Way S,,"Federal Way, WA 98003",Federal Way,98003,
+VoteCenter,King,Kenmore City Hall Vote Center,"18120 68th Avenue NE, Kenmore, WA  98028",18120 68th Avenue NE,,"Kenmore, WA 98028",Kenmore,98028,
+VoteCenter,King,King County Elections Vote Center,"919 SW Grady Way, Renton, WA  98057",919 SW Grady Way,,"Renton, WA 98057",Renton,98057,
+VoteCenter,King,University of Washington Seattle Campus - Dempsey Indoor Center Vote Center,"2819 Walla Walla Rd NE, Seattle, WA  98105",2819 Walla Walla Rd NE,,"Seattle, WA 98105",Seattle,98105,
+VoteCenter,Kitsap,Marvin Williams Recreation Center,"725 Park Ave, Bremerton, WA  98337",725 Park Ave,,"Bremerton, WA 98337",Bremerton,98337,Marvin Williams Recreation Center Open Election Day. Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.
+VoteCenter,Kitsap,North Kitsap Vote Center,"911 NE Liberty Rd, Poulsbo, WA  98370",911 NE Liberty Rd,,"Poulsbo, WA 98370",Poulsbo,98370,Poulsbo Fire Station  Open Election Day. Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.
+VoteCenter,Kitsap,South Kitsap Vote Center,"619 Division St, Port Orchard, WA  98366",619 Division St,,"Port Orchard, WA 98366",Port Orchard,98366,County Administration Building Commissioners' Chambers Open Election Day - 7 a.m. to 8 p.m.  Also open the Saturday and Monday before Election Day 8:30 a.m. - 4:30 p.m.    
+VoteCenter,Kittitas,Cle Elum Centennial Center,"719 E. 3rd Street, Cle Elum, WA  98922",719 E. 3rd Street,,"Cle Elum, WA 98922",Cle Elum,98922,
+VoteCenter,Kittitas,Kittitas County Auditor's Office,"205 W 5th, Ellensburg, WA  98926",205 W 5th,Suite 105,"Ellensburg, WA 98926",Ellensburg,98926,
+VoteCenter,Klickitat,Auditor's Office,"205 S. Columbus Ave, Goldendale, WA  98620",205 S. Columbus Ave,Room 203,"Goldendale, WA 98620",Goldendale,98620,"Office is open from 8:30 a.m. to 8 p.m. on Election Day. The Auditor's Office is located in Room 203 of the County Courthouse building. Enter the main doors, come up the stairs and turn left."
+VoteCenter,Lewis,Lewis County Auditor's Office,"351 N.W. North St., Chehalis, WA  98532",351 N.W. North St.,,"Chehalis, WA 98532",Chehalis,98532,Take exit 77 from I-5. Auditor's Office is at the west end of the Historic Courthouse.
+VoteCenter,Lincoln,Election Office ,"450 Logan, Davenport, WA  99122",450 Logan,,"Davenport, WA 99122",Davenport,99122,On the 1st floor of the Lincoln County Courthouse.
+VoteCenter,Mason,Mason County Auditor's Office,"411 N 5th Street, Shelton, WA  98584",411 N 5th Street,,"Shelton, WA 98584",Shelton,98584,During business hours staff can issue ballots and accessible voting unit is available. 
+VoteCenter,Okanogan,Okanogan County Auditor,"149 3rd Ave N, Okanogan, WA  98840",149 3rd Ave N,,"Okanogan, WA 98840",Okanogan,98840,"Election Day only 8:00 AM to 8:00 PM. Room 104, 1st floor"
+VoteCenter,Pacific,Long Beach Annex Voting Center,"7013 Sandridge Rd, Long Beach, WA  98631",7013 Sandridge Rd,,"Long Beach, WA 98631",Long Beach,98631,Inside the Auditor's Office. Same office you would pick up car tabs.
+VoteCenter,Pacific,Pacific County Courthouse,"300 Memorial Drive, South Bend, WA  98586",300 Memorial Drive,,"South Bend, WA 98586",South Bend,98586,"Ballots are accepted until 8 PM on election day. The Auditor's Office is located to the right, inside the main entrance.  "
+VoteCenter,Pend Oreille,Pend Oreille County Auditor's Office,"625 West 4th St, Newport, WA  99156",625 West 4th St,,"Newport, WA 99156",Newport,99156,"The Auditor's Office is located in the County Court House, 1st Floor"
+VoteCenter,Pierce,Pierce County Election Center,"2501 S 35th St, Tacoma, WA  98409",2501 S 35th St,Suite C,"Tacoma, WA 98409",Tacoma,98409,"Open 7 a.m. to 8 p.m. on Election Day. Voting center offers touch screen accessible voting, replace Located west of the Pierce County Annex."
+VoteCenter,San Juan,Elections Office,"55 Second Street, Friday Harbor, WA  98250",55 Second Street,Suite A,"Friday Harbor, WA 98250",Friday Harbor,98250,*Open 8:00 AM to 4:30 PM weekdays* *Open 8:00 AM to 8:00 PM Election Day* 
+VoteCenter,Skagit,Skagit County Auditor's Office,"700 S 2nd St, Mt Vernon, WA  98273",700 S 2nd St,#201,"Mt Vernon, WA 98273",Mt Vernon,98273,Skagit County Auditor's Office Election's Department. 
+VoteCenter,Skamania,Skamania County Auditor's Office,"240 NW Vancouver Ave, Stevenson, WA  98648",240 NW Vancouver Ave,,"Stevenson, WA 98648",Stevenson,98648,
+VoteCenter,Thurston,South Puget Sound Community College,"2011 Mottman Rd SW, Olympia, WA  98512",2011 Mottman Rd SW,,"Olympia, WA 98512",Olympia,98512,"This box is opened 20 days prior to Election Day, is available 24-hours a day, and is locked promptl "
+VoteCenter,Spokane,Elections Office,"1033 W Gardner Ave, Spokane, WA  99201",1033 W Gardner Ave,,"Spokane, WA 99201",Spokane,99201,Located 1/2 block west of Monroe St and one block south of Boone Ave. Entrance near Southwest end of building near flagpole.  Metered parking available.
+VoteCenter,Spokane,Spokane Valley - Center Place,"2426 N Discovery Pl, Spokane Valley, WA  99216",2426 N Discovery Pl,,"Spokane Valley, WA 99216",Spokane Valley,99216,Center Place is near the Valley YMCA off Mirabeau Parkway.
+VoteCenter,Stevens,Stevens County Auditor's Office,"215 S Oak St, Colville, WA  99114",215 S Oak St,#106,"Colville, WA 99114",Colville,99114,
+VoteCenter,Snohomish,Alderwood Water & Wastewater District,"3626 156th ST SW, Lynnwood, WA  98087",3626 156th ST SW,,"Lynnwood, WA 98087",Lynnwood,98087,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+VoteCenter,Snohomish,County Elections Office,"3000 Rockefeller Ave, Everett, WA  98201",3000 Rockefeller Ave,1st Floor,"Everett, WA 98201",Everett,98201,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+VoteCenter,Snohomish,Snohomish County Campus,"3000 Rockefeller Ave, Everett, WA  98201",3000 Rockefeller Ave,"Bob Drewell Bldg, 1st Floor","Everett, WA 98201",Everett,98201,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+VoteCenter,Snohomish,Wyndham Garden Hotel,"16710 Smokey Point Blvd, Arlington, WA  98223",16710 Smokey Point Blvd,,"Arlington, WA 98223",Arlington,98223,"Accessible Voting Location, Voter Registration and Replacement Ballot Pick-up."
+VoteCenter,Wahkiakum,Wahkiakum County Auditor's Office,"64 Main Street, Cathlamet, WA  98612",64 Main Street,2nd Floor,"Cathlamet, WA 98612",Cathlamet,98612,"Ballots are accepted until 8:00pm of Election Day. Ballot box can be found on the second floor of the Courthouse, inside the Auditor's Office. "
+VoteCenter,Walla Walla,County Fairgrounds - Pavilion,"363 Orchard St, Walla Walla, WA  99362",363 Orchard St,,"Walla Walla, WA 99362",Walla Walla,99362,"Walla Walla County Voting Center For the November General Election, this location is replacing our voting center at 310 W Poplar St."
+VoteCenter,Whatcom,WWU - Student Engagement Hub,"516 High Street, Bellingham, WA  98225",516 High Street,,"Bellingham, WA 98225",Bellingham,98225,"Open Tuesday, November 3 from 8:30 am - 8:00 pm Open Tuesday, November 3 from 8:30 am - 8:00 pm"
+VoteCenter,Whatcom,Whatcom County Auditor's Office,"311 Grand Ave., Bellingham, WA  98225",311 Grand Ave.,Suite 103,"Bellingham, WA 98225",Bellingham,98225,Open until 8:00 pm on Election Day 
+VoteCenter,Whitman,"Neill Public Library, Hecht meeting room","210 N Grand Ave, Pullman, WA  99163",210 N Grand Ave,,"Pullman, WA 99163",Pullman,99163,
+VoteCenter,Whitman,Whitman County Elections Center,"N 304 Main St, Colfax, WA  99111",N 304 Main St,,"Colfax, WA 99111",Colfax,99111,"Auditor's Office open 9 AM to 5 PM except on Election Day, the hours are 8 AM to 8 PM. "
+VoteCenter,Whitman,WSU Student HUB,"Compton Union Building, Pullman, WA  99163",Compton Union Building,,"Pullman, WA 99163",Pullman,99163,2nd Floor Junior Ballroom
+VoteCenter,Yakima,Yakima County Auditor's Office,"128 N 2nd St Rm 117, Yakima, WA  98901",128 N 2nd St Rm 117,,"Yakima, WA 98901",Yakima,98901,

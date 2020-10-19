@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       stateId: {
         type: DataTypes.INTEGER,
         field: 'state_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'cascade',
         onUpdate: 'cascade',
         references: {
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       wipStateId: {
         type: DataTypes.INTEGER,
         field: 'wip_state_id',
-        allownull: true,
+        allowNull: true,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {

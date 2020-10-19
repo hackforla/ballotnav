@@ -1,0 +1,59 @@
+﻿state,county,address_1,address_2,city,state_2,zip,phone,county_website_url,email,fax,hours
+California,Alameda,1225 Fallon Street,Room G-1,Oakland,CA,94612,(510) 272-6973,https://www.acvote.org/index,,(510) 272-6982,Monday-Friday: 8:30 AM - 5:00 PM
+California,Alpine,99 Water Street,,Markleeville,CA,96120,(530) 694-2281,http://www.alpinecountyca.gov/index.aspx?NID=388,ttremayne@alpinecountyca.gov,(530) 694-2491,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Amador,810 Court Street,,Jackson,CA,95642-2132,(209) 223-6465,https://www.amadorgov.org/government/elections,Elections@amadorgov.org,(209) 223-6467,Monday-Friday: 8:30 AM - 5:00 PM
+California,Butte,155 Nelson Ave,,Oroville,CA,95965-3411,(800) 894-7761,https://clerk-recorder.buttecounty.net/#loaded,elections@buttecounty.net,(530) 538-6853,Monday-Friday: 8:30 AM - 5:00 PM
+California,Calaveras,891 Mountain Ranch Road,,San Andreas,CA,95249,(209) 754-6376,http://elections.calaverasgov.us/,electionsweb@co.calaveras.ca.us,(209) 754-6733,Monday-Friday: 8:00 AM - 4:00 PM
+California,Colusa,546 Jay Street,Suite 200,Colusa,CA,95932,(530) 458-0500,http://www.countyofcolusa.org/index.aspx?NID=197,clerkinfo@countyofcolusa.org,(530) 458-0512,Monday-Friday: 8:00 AM - 4:00 PM
+California,Contra Costa,555 Escobar Street,,Martinez,CA,94553,(925) 335-7800,https://www.cocovote.us/,voter.services@vote.cccounty.us,(925) 335-7838,Monday-Friday: 8:00 AM - 5:00 PM
+California,Del Norte,981 H Street,Room 160,Crescent City,CA,95531,(707) 464-7216,http://www.co.del-norte.ca.us/departments/clerk-recorder/elections,anorthrup@co.del-norte.ca.us,(707) 465-0321,Monday-Friday: 8:00 AM - 5:00 PM
+California,El Dorado,2850 Fairlane Court,,Placerville,CA,95667,(530) 621-7480,https://www.edcgov.us/Government/Elections/Pages/elections_main_info.aspx,elections@edcgov.us,(530) 626-5514,Monday-Friday: 8:00 AM - 5:00 PM
+California,Fresno,2221 Kern Street,,Fresno,CA,93721,(559) 600-8683,https://www.co.fresno.ca.us/departments/county-clerk-registrar-of-voters,clerk-elections@co.fresno.ca.us,(559) 488-3279,Monday-Friday: 8:30 AM - 4:00 PM
+California,Glenn,516 W. Sycamore Street,2nd Floor,Willows,CA,95988,(530) 934-6414,https://www.countyofglenn.net/dept/elections/welcome,elections@countyofglenn.net,(530) 934-6571,Monday-Friday: 8:00 AM - 5:00 PM
+California,Humboldt,2426 6th Street,,Eureka,CA,95501,(707) 445-7481,https://humboldtgov.org/890/Elections-Voter-Registration,humboldt_elections@co.humboldt.ca.us,(707) 445-7204,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Imperial,940 W. Main Street,Suite 206,El Centro,CA,92243,(442) 265-1060,http://www.co.imperial.ca.us/regvoters/index.asp,DebbiePorter@co.imperial.ca.us,(442) 265-1062,Monday-Friday: 8:00 AM - 5:00 PM
+California,Inyo,168 N. Edwards Street,,Independence,CA,93526,(760) 878-0224,https://elections.inyocounty.us/,kfoote@inyocounty.us,(760) 878-1805,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Kern,1115 Truxtun Avenue,First Floor,Bakersfield,CA,93301,(800) 452-8683,https://www.kernvote.com/,elections@co.kern.ca.us,(661) 868-3768,Monday-Friday: 8:00 AM - 5:00 PM
+California,Kings,1400 W. Lacey Blvd. ,Bldg. #7,Hanford,CA,93230,(559) 852-4401,https://www.countyofkings.com/departments/administration/elections,nini.duarte@co.kings.ca.us,(559) 585-8453,Monday-Friday: 8:00 AM - 5:00 PM
+California,Lake,255 N. Forbes Street,,Lakeport,CA,95453,(707) 263-2372,http://www.lakecountyca.gov/Government/Directory/ROV.htm,elections@lakecountyca.gov,(707) 263-2742,Monday-Thursday: 8:00 AM - 5:00 PM
+California,Lassen,220 S. Lassen Street,Suite 5,Susanville,CA,96130,(530) 251-8217,http://www.lassencounty.org/dept/county-clerk-recorder/elections/,lcclerk@co.lassen.ca.us,(530) 257-3480,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Los Angeles,12400 Imperial Hwy.,,Norwalk,CA,90650,(800) 815-2666,https://www.lavote.net/,voterinfo@rrcc.lacounty.gov,(562) 929-4790,Monday-Friday: 8:00 AM - 5:00 PM
+California,Madera,200 W. 4th Street,,Madera,CA,93637,(559) 675-7720,https://votemadera.com/,electionsinfo@co.madera.ca.gov,(559) 675-7870,Monday-Friday: 8:00 AM - 5:00 PM
+California,Marin,3501 Civic Center Drive,Room 121,San Rafael,CA,94903,(415) 473-6456,https://www.marincounty.org/depts/rv,elections@marincounty.org,(415) 473-6447,Monday-Friday: 8:00 AM - 4:30 PM
+California,Mariposa,4982 10th Street,,Mariposa,CA,95338,(209) 966-2007,http://www.mariposacounty.org/87/Elections,cmorrow@mariposacounty.org,(209) 966-6496,Monday-Friday: 8:00 AM - 5:00 PM
+California,Mendocino,501 Low Gap Road,Room 1020,Ukiah,CA,95482,(707) 234-6819,https://www.mendocinocounty.org/government/assessor-county-clerk-recorder-elections/elections,acr@co.mendocino.ca.us,(707) 463-6597,Monday-Friday: 8:00 AM - 5:00 PM
+California,Merced,2222 M Street,,Merced,CA,95340,(209) 385-7541,http://www.co.merced.ca.us/2379/Elections,,(209) 385-7387,Monday-Friday: 8:00 AM - 5:00 PM
+California,Modoc,108 E. Modoc Street,,Alturas,CA,96101,(530) 233-6205,http://www.co.modoc.ca.us/departments/elections,darcylocken@co.modoc.ca.us,(530) 233-6666,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Mono,74 N. School Street,Annex I,Bridgeport,CA,93517,(760) 932-5537,https://monocounty.ca.gov/elections,elections@mono.ca.gov,(760) 932-5531,Monday-Friday: 8:00 AM - 5:00 PM
+California,Monterey,1441 Schilling Place,North Building,Salinas,CA,93901,(831) 796-1499,https://www.montereycountyelections.us/,elections@co.monterey.ca.us,(831) 755-5485,Monday-Friday: 8:00 AM - 5:00 PM
+California,Napa,1127 First St.,Ste. E,Napa,CA,94559,(707) 253-4321,https://www.countyofnapa.org/396/Elections,elections@co.napa.ca.us,(707) 253-4390,Monday-Friday: 8:00 AM - 5:00 PM
+California,Nevada,950 Maidu Avenue,Suite 210,Nevada City,CA,95959,(530) 265-1298,https://www.mynevadacounty.com/695/Registrar-of-Voters,elections.mail@co.nevada.ca.us,(530) 265-9829,Monday-Friday: 8:00 AM - 5:00 PM
+California,Orange,1300 South Grand Avenue,Bldg. C,Santa Ana,CA,92705,(714) 567-7600,https://www.ocvote.com/,ocvoter@ocgov.com,(714) 567-7556,Monday-Friday: 8:00 AM - 5:00 PM
+California,Placer,2956 Richardson Drive,,Auburn,CA,95603,(800) 824-8683,https://www.placerelections.com/,election@placer.ca.gov,(530) 886-5688,Monday-Friday: 8:00 AM - 5:00 PM
+California,Plumas,520 Main Street,"Room 102, Courthouse",Quincy,CA,95971,(530) 283-6256,http://www.countyofplumas.com/142/Elections-Division-Home,elections@countyofplumas.com,(530) 283-6155,Monday-Friday: 8:00 AM - 5:00 PM
+California,Riverside,2724 Gateway Drive,,Riverside,CA,92507-0918,(951) 486-7200,https://www.voteinfo.net/,rovweb@co.riverside.ca.us,(951) 486-7272,Monday-Friday: 8:00 AM - 5:00 PM
+California,Sacramento,7000 65th Street,Suite A,Sacramento,CA,95823,(916) 875-6451,http://www.elections.saccounty.net/Pages/default.aspx,voterinfo@saccounty.net,(916) 876-5130,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Benito,440 Fifth Street,"Second Floor, Room 205",Hollister,CA,95023-3843,(831) 636-4016,http://sbcvote.us/,cclerk@cosb.us,(831) 636-2939,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Bernardino,777 E. Rialto Avenue,,San Bernardino,CA,92415-0770,(909) 387-8300,https://www.sbcountyelections.com/default.aspx,rovwebmail@rov.sbcounty.gov,(909) 387-2022,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Diego,5600 Overland Avenue,,San Diego,CA,92123,(800) 696-0136,https://www.sdvote.com/,rovmail@sdcounty.ca.gov,(858) 694-2955,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Francisco,1 Dr. Carlton B Goodlett Place,Room 48,San Francisco,CA,94102-4635,(415) 554-4375,https://sfelections.sfgov.org/,sfvote@sfgov.org,(415) 554-7344,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Joaquin,44 N. San Joaquin Street,"Third Floor, Suite 350",Stockton,CA,95202,(209) 468-8683,https://www.sjgov.org/department/rov/,vbm@sjgov.org,(209) 468-2889,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Luis Obispo,1055 Monterey Street,Suite D-120,San Luis Obispo,CA,93408,(805) 781-5228,https://www.slocounty.ca.gov/Departments/Clerk-Recorder.aspx,elections@co.slo.ca.us,(805) 781-1111,Monday-Friday: 8:00 AM - 5:00 PM
+California,San Mateo,40 Tower Road,,San Mateo,CA,94402,(650) 312-5222,https://www.smcacre.org/,registrar@smcacre.org,(650) 312-5348,Monday-Friday: 8:00 AM - 5:00 PM
+California,Santa Barbara,4440-A Calle Real,,Santa Barbara,CA,93110,(800) 722-8683,http://www.sbcvote.com/Home.aspx,electionssupport@co.santa-barbara.ca.us,(805) 568-2209,Monday-Friday: 8:00 AM - 5:00 PM
+California,Santa Clara,1555 Berger Drive,Bldg. 2,San Jose,CA,95112,(866) 430-8683,https://www.sccgov.org/sites/rov/Pages/Registrar-of-Voters.aspx,registrar@rov.sccgov.org,(408) 998-7314,Monday-Friday: 8:00 AM - 5:00 PM
+California,Santa Cruz,701 Ocean Street,Room 310,Santa Cruz,CA,95060,(831) 454-2060,http://www.votescount.com/,gail.pellerin@santacruzcounty.us,(831) 454-2445,Monday-Friday: 8:00 AM - 5:00 PM
+California,Shasta,1643 Market Street,,Redding,CA,96001,(530) 225-5730,https://www.elections.co.shasta.ca.us/,countyclerk@co.shasta.ca.us,(530) 225-5454,Monday-Friday: 8:00 AM - 5:00 PM
+California,Sierra,100 Courthouse Square,"Room 11, P.O. Drawer D",Downieville,CA,95936-0398,(530) 289-3295,https://www.sierracounty.ca.gov/214/Elections,hfoster@sierracounty.ca.gov,(530) 289-2830,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Siskiyou,510 N. Main Street,,Yreka,CA,96097-9910,(530) 842-8084,https://www.co.siskiyou.ca.us/elections,laura@sisqvotes.org,(530) 841-4110,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Solano,675 Texas Street,Suite 2600,Fairfield,CA,94533,(888) 933-8683,http://www.solanocounty.com/depts/rov/default.asp,elections@solanocounty.com,(707) 784-6678,Monday-Friday: 8:00 AM - 5:00 PM
+California,Sonoma,435 Fiscal Drive,,Santa Rosa,CA,95403,(800) 750-8683,http://vote.sonoma-county.org/content.aspx?sid=1009&id=1046,rov-info@sonoma-county.org,(707) 565-6843,Monday-Friday: 8:00 AM - 5:00 PM
+California,Stanislaus,1021 I Street,Suite 101,Modesto,CA,95354-2331,(209) 525-5200,http://stanvote.com/,stanvote@stancounty.com,(209) 525-5802,Monday-Friday: 8:00 AM - 5:00 PM
+California,Sutter,1435 Veterans Memorial Circle,,Yuba City,CA,95993,(530) 822-7122,https://www.suttercounty.org/doc/government/depts/cr/elections/cr_elections_home,,(530) 822-7587,Monday-Friday: 8:00 AM - 5:00 PM
+California,Tehama,633 Washington Street,Room 17,Red Bluff,CA,96080,(530) 527-8190,http://www.co.tehama.ca.us/dep-elections,jvise@co.tehama.ca.us,(530) 527-1140,Monday-Friday: 8:00 AM - 5:00 PM
+California,Trinity,11 Court Street,,Weaverville,CA,96093,(530) 623-1220,https://www.trinitycounty.org/elections,elections@trinitycounty.org,(530) 623-8398,Monday-Friday: 8:30 AM - 12:00 PM; Monday-Friday:1:00 PM - 5:00 PM
+California,Tulare,5951 S. Mooney Blvd.,,Visalia,CA,93277,(559) 624-7300,https://tularecoelections.org/elections/,absentee@co.tulare.ca.us,(559) 737-4498,Monday-Thursday:7:30 AM - 5:30 PM; Friday:8:00 AM - 12:00 PM
+California,Tuolumne,2 S. Green Street,,Sonora,CA,95370-4618,(209) 533-5570,https://www.tuolumnecounty.ca.gov/194/Election-Information,clerk@tuolumnecounty.ca.gov,(209) 694-8931,Monday-Friday: 8:00 AM - 5:00 PM
+California,Ventura,800 S. Victoria Avenue,,Ventura,CA,93009-1200,(805) 654-2664,https://recorder.countyofventura.org/elections/,,(805) 648-9200,Monday-Friday: 8:00 AM - 5:00 PM
+California,Yolo,625 Court Street,Room B-05,Woodland,CA,95695,(916) 375-6490,https://www.yoloelections.org/,elections@yolocounty.org,(530) 666-8123,Monday-Friday: 8:00 AM - 5:00 PM
+California,Yuba,915 8th Street,Suite 107,Marysville,CA,95901-5273,(530) 749-7855,https://www.yuba.org/departments/elections/index.php,elections@co.yuba.ca.us,(530) 749-7854,Monday-Friday: 8:00 AM - 5:00 PM

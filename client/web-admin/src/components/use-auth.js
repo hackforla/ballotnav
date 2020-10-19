@@ -16,13 +16,15 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(undefined)
 
-  const register = ({ firstName, lastName, email, password }) => {
+  const register = ({ firstName, lastName, email, password, notes, slackName }) => {
     return api.user
       .register({
         firstName,
         lastName,
         email,
         password,
+        notes,
+        slackName,
       })
       .then((response) => {
         setUser(response.user)

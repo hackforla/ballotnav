@@ -12,72 +12,69 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'state_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'state',
       })
       models.Jurisdiction.hasMany(models.JurisdictionImportantDate, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'importantDates',
       })
       models.Jurisdiction.hasMany(models.JurisdictionInfoTab, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'infoTabs',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNews, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'news',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNotice, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'notices',
       })
       models.Jurisdiction.hasMany(models.JurisdictionPhone, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'phones',
       })
       models.Jurisdiction.hasMany(models.JurisdictionUrl, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'urls',
       })
       models.Jurisdiction.hasMany(models.Location, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
-        allownull: false,
+        allowNull: false,
         as: 'locations',
       })
-      /*
-
-      // not yet registerable when this loads
-
       models.Jurisdiction.belongsToMany(models.User, {
-        through: UserJurisdiction,
+        through: models.UserJurisdiction,
+        as: 'users',
+        foreignKey: 'user_id',
       })
       models.Jurisdiction.hasMany(models.UserJurisdiction, {
+        as: 'userJurisdictions',
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
         onupdate: 'cascade',
       })
-
-      */
     }
   }
   Jurisdiction.init(
@@ -92,7 +89,7 @@ module.exports = (sequelize, DataTypes) => {
       stateId: {
         type: DataTypes.INTEGER,
         field: 'state_id',
-        allownull: false,
+        allowNull: false,
         onDelete: 'restrict',
         onUpdate: 'cascade',
         references: {
@@ -201,7 +198,7 @@ module.exports = (sequelize, DataTypes) => {
       wipJurisdictionId: {
         type: DataTypes.INTEGER,
         field: 'wip_jurisdiction_id',
-        allownull: true,
+        allowNull: true,
         comment:
           'Set to the WIP ID most recently published. This should be constrained to wip_jurisdiction.id, but sequelize does not understand cyclic dependencies.',
       },
