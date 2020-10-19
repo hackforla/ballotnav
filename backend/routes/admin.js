@@ -2,7 +2,10 @@ const router = require('express-promise-router')()
 const control = require('@controllers/admin')
 const auth = require('@middleware/auth')
 
-router.get('/jurisdictions', control.listJurisdictions)
+router.get('/jurisdictions', 
+  auth(['admin']),
+  control.listJurisdictions,
+)
 router.get(
   '/jurisdictions/me',
   auth(['volunteer', 'admin']),
