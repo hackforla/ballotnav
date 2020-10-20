@@ -1,3 +1,50 @@
 .county-info {
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $blue;
+    line-height: 30px;
+  }
+
+  div.rs-drawer-header {
+    margin: 20px 20px 10px;
+  }
   
+  div.rs-drawer-body {
+    margin: 0;
+    padding: 0 20px;
+    height: 510px!important;
+  }
+
+  h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: $blue;
+    margin-top: 5px;
+  }
+
+  h5 {
+    font-size: 0.9em;
+    color: $black;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  a {
+    font-size: 1em;
+    color: $link-blue;
+    text-decoration: underline;
+  };
+
+  div.links a {
+    font-size: 0.9em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  #important-dates {
+    margin-top: 5px;
+  }
 }

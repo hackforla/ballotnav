@@ -92,7 +92,7 @@ const ResultDetail = ({
       >
         <h3><b>Location and hours are subject to change</b></h3>
         <div className="to-verify">
-          <p id="important">TO VERIFY</p>
+          <p id="important">Call location to verify</p>
           <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
           <p>{location.contactPhone}</p>
         </div>

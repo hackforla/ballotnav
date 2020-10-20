@@ -23,6 +23,12 @@ const CountyInfo = ({
     urls: countyUrls,
   } = data.jurisdictionData;
 
+  const renderDateInfos = dates => {
+    return dates.map(date => (
+      <p>{date.importantDateTypeName}: {renderDate(date)}</p>
+    ));
+  };
+
   const renderDate = date => {
     switch (date.dateType) {
       case 'deadline':
@@ -32,7 +38,15 @@ const CountyInfo = ({
       default:
         return null;
     }
-  }
+  };
+
+  const renderUrls = urls => {
+    return urls.map(url => (
+      <div className="links">
+        <a href={url.url} target="_blank">{url.name}</a>
+      </div>
+    ));
+  };
 
   return (
     <Drawer
@@ -47,14 +61,14 @@ const CountyInfo = ({
       </Drawer.Header>
       <Drawer.Body>
           <p>
-            We have found the most credible and up to date state and EAJ changes to be on <a href="https://www.vote.org" target="_blank">vote.org</a>.
+            We have found the most credible and up to date election information to be on <a href="https://www.vote.org" target="_blank">vote.org</a>.
           </p>
           <h4>State Information</h4>
-          <p>Important Dates</p>
-          {stateImportantDates.map(date => <p>{date.importantDateTypeName}: {renderDate(date)}</p>)}
-          <p>Links</p>
-          {stateUrls.map(url => <a href={url.url} target="_blank">{url.name}</a>)}
-          <p>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</p>
+          <h5 id="important-dates">Important Dates</h5>
+          {renderDateInfos(stateImportantDates)}
+          <h5>Links</h5>
+          {renderUrls(stateUrls)}
+          <h5>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</h5>
       </Drawer.Body>
     </Drawer>
   );
