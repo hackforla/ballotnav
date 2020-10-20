@@ -8,17 +8,17 @@ import HeaderButtons from './HeaderButtons'
 import Editor from '../JurisdictionEditor'
 
 function EditJurisdiction() {
-  const { wipJurisdictionId, editorUserId } = useParams()
+  const { wipJurisdictionId } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
   const [canSaveProgress, setCanSaveProgress] = useState(false)
   const [canPublish, setCanPublish] = useState(true)
   const toast = useToast()
 
   useEffect(() => {
-    api.jurisdictions.getReleased(wipJurisdictionId, editorUserId).then((jurisdiction) => {
+    api.jurisdictions.getReleased(wipJurisdictionId).then((jurisdiction) => {
       setJurisdiction(jurisdiction)
     })
-  }, [wipJurisdictionId, editorUserId])
+  }, [wipJurisdictionId])
 
   const updateJurisdiction = (newJurisdiction) => {
     setJurisdiction({

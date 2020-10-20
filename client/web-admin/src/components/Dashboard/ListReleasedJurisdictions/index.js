@@ -15,7 +15,6 @@ function Jurisdictions() {
         id: juris.wipJurisdictionId,
         volunteerName: juris.editorName,
         volunteerSlackName: juris.editorSlackName,
-        // status: juris.jurisdictionStatus,
       }))
       setJurisdictions(transformed)
     })
@@ -30,12 +29,11 @@ function Jurisdictions() {
           'stateName',
           'volunteerName',
           'volunteerSlackName',
-          // 'status',
         ]}
         rows={jurisdictions}
         buttonText='Select'
-        onClickButton={({ wipJurisdictionId, editorUserId }) => {
-          history.push(`/review/${wipJurisdictionId}/${editorUserId}`)
+        onClickButton={({ wipJurisdictionId }) => {
+          history.push(`/review/${wipJurisdictionId}`)
         }}
       />
     </>

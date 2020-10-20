@@ -70,13 +70,8 @@ exports.listReleasedJurisdictions = async (req, res, next) => {
 }
 
 exports.getReleasedJurisdiction = async (req, res, next) => {
-  const { wipJurisdictionId, editorUserId } = req.params
-  const data = await req.db.WipJurisdiction.findOne({
-    where: {
-      isReleased: true,
-      id: wipJurisdictionId,
-      editorUserId,
-    },
+  const { wipJurisdictionId } = req.params
+  const data = await req.db.WipJurisdiction.findByPk(wipJurisdictionId, {
     include: [
       { all: true },
       {

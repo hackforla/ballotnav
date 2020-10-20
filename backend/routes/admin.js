@@ -2,7 +2,7 @@ const router = require('express-promise-router')()
 const control = require('@controllers/admin')
 const auth = require('@middleware/auth')
 
-router.get('/jurisdictions', 
+router.get('/jurisdictions',
   auth(['admin']),
   control.listJurisdictions,
 )
@@ -27,7 +27,7 @@ router.get(
   control.listReleasedJurisdictions
 )
 router.get(
-  '/wip/jurisdictions/released/:wipJurisdictionId/:editorUserId',
+  '/wip/jurisdictions/released/:wipJurisdictionId',
   auth(['admin']),
   control.getReleasedJurisdiction
 )
