@@ -53,8 +53,12 @@ const ResultDetail = ({
     >
       <Drawer.Header>
         <div className="back-to-list">
-          <img id="back-arrow" src={backArrow} alt="Back arrow" />
-          <a>All drop offs</a>
+          <img id="back-arrow"
+            src={backArrow}
+            alt="Back arrow"
+            onClick={close}
+          />
+          <a onClick={close}>All drop offs</a>
         </div>
       </Drawer.Header>
       <Drawer.Body>
