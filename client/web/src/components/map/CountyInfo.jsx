@@ -48,6 +48,12 @@ const CountyInfo = ({
     ));
   };
 
+  const renderPhones = phones => {
+    return phones.map(phone => (
+      <p>{phone.number}</p>
+    ));
+  };
+
   return (
     <Drawer
       className='county-info'
@@ -69,6 +75,13 @@ const CountyInfo = ({
           <h5>Links</h5>
           {renderUrls(stateUrls)}
           <h5>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</h5>
+          <h4>County Information</h4>
+          <h5 id="important-dates">Important Dates</h5>
+          {renderDateInfos(countyImportantDates)}
+          <h5>Links</h5>
+          {renderUrls(countyUrls)}
+          <h5>Phone numbers</h5>
+          {renderPhones(countyPhones)}
       </Drawer.Body>
     </Drawer>
   );
