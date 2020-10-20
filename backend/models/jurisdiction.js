@@ -11,73 +11,70 @@ module.exports = (sequelize, DataTypes) => {
       models.Jurisdiction.belongsTo(models.State, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'state',
       })
       models.Jurisdiction.hasMany(models.JurisdictionImportantDate, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'importantDates',
       })
       models.Jurisdiction.hasMany(models.JurisdictionInfoTab, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'infoTabs',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNews, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'news',
       })
       models.Jurisdiction.hasMany(models.JurisdictionNotice, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'notices',
       })
       models.Jurisdiction.hasMany(models.JurisdictionPhone, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'phones',
       })
       models.Jurisdiction.hasMany(models.JurisdictionUrl, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'urls',
       })
       models.Jurisdiction.hasMany(models.Location, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'locations',
       })
-      /*
-
-      // not yet registerable when this loads
-
       models.Jurisdiction.belongsToMany(models.User, {
-        through: UserJurisdiction,
+        through: models.UserJurisdiction,
+        as: 'users',
+        foreignKey: 'user_id',
       })
       models.Jurisdiction.hasMany(models.UserJurisdiction, {
+        as: 'userJurisdictions',
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
-
-      */
     }
   }
 

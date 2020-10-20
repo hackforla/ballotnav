@@ -45,18 +45,6 @@ const fields = {
     field: 'mail_address3',
     allowNull: true,
   },
-  isEaj: {
-    type: DataTypes.BOOLEAN,
-    field: 'is_eaj',
-    allowNull: false,
-    defaultValue: true,
-  },
-  isEajExclusive: {
-    type: DataTypes.BOOLEAN,
-    field: 'is_eaj_exclusive',
-    allowNull: false,
-    defaultValue: true,
-  },
   internalNotes: {
     type: 'textarea',
     field: 'internal_notes',

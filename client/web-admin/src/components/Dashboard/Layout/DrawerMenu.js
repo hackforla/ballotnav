@@ -20,13 +20,13 @@ const VOLUNTEER_ITEMS = [
 
 const ADMIN_ITEMS = [
   {
-    title: 'Review WIP',
+    title: 'Review Jurisdictions',
     path: '/review',
   },
-  {
-    title: 'Edit States/Jurisdictions',
-    path: '/states',
-  },
+  // {
+  //   title: 'Edit States/Jurisdictions',
+  //   path: '/states',
+  // },
   {
     title: 'Assign Jurisdictions',
     path: '/assign'
@@ -47,12 +47,25 @@ function Menu() {
               <AccountCircleIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={user.firstName} />
+          <ListItemText primary={`${user.firstName} ${user.role === 'admin' ? '(Admin)' : '(Volunteer)'}`} />
         </ListItem>
       </List>
       <Divider />
       <List>
-        {VOLUNTEER_ITEMS.map(({ title, path }, index) => {
+        {user.role === 'volunteer' && VOLUNTEER_ITEMS.map(({ title, path }, index) => {
+          const active = location.pathname === path
+          return (
+            <ListItem
+              key={path}
+              selected={active}
+              button
+              onClick={() => history.push(path)}
+            >
+              <ListItemText primary={title} />
+            </ListItem>
+          )
+        })}
+        {user.role === 'admin' && ADMIN_ITEMS.map(({ title, path }, index) => {
           const active = location.pathname === path
           return (
             <ListItem
@@ -66,26 +79,6 @@ function Menu() {
           )
         })}
       </List>
-      {user.role === 'admin' && (
-        <>
-          <Divider />
-          <List>
-            {ADMIN_ITEMS.map(({ title, path }, index) => {
-              const active = location.pathname === path
-              return (
-                <ListItem
-                  key={path}
-                  selected={active}
-                  button
-                  onClick={() => history.push(path)}
-                >
-                  <ListItemText primary={title} />
-                </ListItem>
-              )
-            })}
-          </List>
-        </>
-      )}
       <Divider />
       <List>
         <ListItem button onClick={logout}>

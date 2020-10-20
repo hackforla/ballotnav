@@ -113,7 +113,6 @@ exports.login = async (req, res, next) => {
   res.json({ isSuccess: true, token, user })
 }
 
-// TODO: get jurisdiction ids already assigned to volunteers
 exports.listVolunteers = async (req, res) => {
   try {
     const data = await req.db.User.findAll({
@@ -127,9 +126,17 @@ exports.listVolunteers = async (req, res) => {
       ],
       where: {
         role: 'volunteer',
-      }
-    });
-    res.json(data)
+      },
+      include: {
+        model: req.db.UserJurisdiction,
+        as: 'userJurisdictions',
+        include: {
+          model: req.db.Jurisdiction,
+          as: 'jurisdiction',
+        },
+      },
+    })
+    res.json(data);
   } catch (err) {
     return handleError(err, 500, res)
   }
@@ -175,6 +182,7 @@ exports.assign = async (req, res) => {
       ...req.body,
       userId: userId,
       jurisdictionId: jid,
+      status: 'editor',
     }))
     let results = await req.db.UserJurisdiction.bulkCreate(records)
     logger.info({

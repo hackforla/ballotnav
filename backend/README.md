@@ -1,5 +1,8 @@
 # ballotnav backend
-source code and scripts for the ballotnav application
+source code and scripts for the ballotnav application.
+The raw data is available for download at
+[http://raw-data.ballotnav.org/data.zip](http://raw-data.ballotnav.org/data.zip)
+and instructions for loading it are [here](http://raw-data.ballotnav.org/README.txt)
 
 # prerequisites
 for local development with a full webserver and postgres instance within docker, ensure the following are installed:

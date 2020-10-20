@@ -1,13 +1,19 @@
 # build and push a docker image from the latest push to "develop" branch
+name: backend
 on:
   push:
     branches:
       - main
       - master
       - develop
-    pull_request:
+  pull_request:
+    types:
       - open
       - synchronized
+  release:
+    types:
+      - published
+
 jobs:
   whatisthecontext:
     runs-on: ubuntu-latest
@@ -15,7 +21,6 @@ jobs:
     outputs:
       sha: ${{ steps.contextvals.outputs.sha }}
       built_at: ${{ steps.contextvals.outputs.built_at }} 
-      is_github_release: ${{ steps.contextvals.outputs.is_release }}
       is_dev_deploy: ${{ github.ref == 'master' }}
     steps:
       - name: Export values
@@ -23,14 +28,12 @@ jobs:
         run: |
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
-          IS_GITHUB_RELEASE=${{ github.event == 'release' }}
           echo ::set-output name=sha::${SHA:0:8}
           echo ::set-output name=built_at::${BUILT_AT}
-          echo ::set-output name=is_release::${IS_GITHUB_RELEASE}
 
   build:
     # we do not rebuild on a release to production rather we just publish the built image at the git SHA we are releaseing from
-    if: ${{ github.event != 'release' }}
+    if: github.event_name != 'release'
     needs: whatisthecontext
     runs-on: ubuntu-latest
     name: build & push image
@@ -38,6 +41,14 @@ jobs:
 
       - name: Checkout repo
         uses: actions/checkout@v2
+
+      - name: Inject build version
+        working-directory: ./backend
+        run: |
+          printf "%s\n" "injecting build version: ${{ needs.whatisthecontext.outputs.sha }}"
+          printf "%s\n" "BUILD_VERSION=${{ needs.whatisthecontext.outputs.sha }}" > .env
+          printf "%s\n" "injecting build at timestamp: ${{ needs.whatisthecontext.outputs.built_at }}"
+          printf "%s" "BUILT_AT=${{ needs.whatisthecontext.outputs.built_at }}" >> .env
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -67,7 +78,42 @@ jobs:
     name: deploy to dev environment
     runs-on: ubuntu-latest
     needs: [whatisthecontext, build]
-    if: ${{ needs.whatisthecontext.outputs.is_release == false && needs.whatisthecontext.outputs.is_dev_deploy }}
+    if: ${{ github.event_name != 'release' && needs.whatisthecontext.outputs.is_dev_deploy }}
+    steps:
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+
+    - name: Pull down currently deployed task-definition
+      run: |
+        aws ecs describe-task-definition --task-definition ballotnav-dev --query taskDefinition > task.json
+
+    - name: Render task-definition template
+      id: task-def
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task.json
+        container-name: ballotnav
+        image: ballotnav/ballotnav:${{ needs.whatisthecontext.outputs.sha }}
+
+    - name: Deploy to Amazon ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: ballotnav-dev
+        cluster: bn-dev
+        wait-for-service-stability: true
+
+
+  deploy_prd:   
+    name: deploy to the production environment
+    runs-on: ubuntu-latest
+    needs: [whatisthecontext]
+    if: ${{ github.event_name == 'release' }}
     steps:
 
     - name: Configure AWS credentials
@@ -93,6 +139,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ballotnav
-        cluster: bn-dev
+        service: ballotnav-prd
+        cluster: bn
         wait-for-service-stability: true

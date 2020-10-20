@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.StateInfoTab.belongsTo(models.State, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }

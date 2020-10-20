@@ -11,58 +11,65 @@ module.exports = (sequelize, DataTypes) => {
       models.WipJurisdiction.belongsTo(models.Jurisdiction, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'jurisdiction',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionImportantDate, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'importantDates',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionInfoTab, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'infoTabs',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionNews, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'news',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionNotice, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'notices',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionPhone, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'phones',
       })
       models.WipJurisdiction.hasMany(models.WipJurisdictionUrl, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'urls',
       })
       models.WipJurisdiction.hasMany(models.WipLocation, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'locations',
+      })
+      models.WipJurisdiction.belongsTo(models.User, {
+        foreignKey: 'editor_user_id',
+        onDelete: 'restrict',
+        onUpdate: 'cascade',
+        allowNull: false,
+        as: 'user',
       })
     }
   }
@@ -139,7 +146,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'editor_user_id',
         allowNull: true,
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         reference: {
           model: 'user',
           key: 'id',

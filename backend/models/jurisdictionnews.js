@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.JurisdictionNews.belongsTo(models.Jurisdiction, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }

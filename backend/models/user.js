@@ -8,16 +8,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      /*
       models.User.belongsToMany(models.Jurisdiction, {
-        through: UserJurisdiction,
+        through: models.UserJurisdiction,
+        as: 'jurisdictions',
+        foreignKey: 'jurisdiction_id',
       })
       models.User.hasMany(models.UserJurisdiction, {
-        foreignKey: 'user_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
+        as: 'userJurisdictions',
+        foreignKey: 'user_id',
       })
-      */
     }
   }
   User.init(

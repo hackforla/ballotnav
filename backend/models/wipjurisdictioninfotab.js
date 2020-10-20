@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.WipJurisdictionInfoTab.belongsTo(models.WipJurisdiction, {
         foreignKey: 'wip_jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
       })
     }
