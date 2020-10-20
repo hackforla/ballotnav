@@ -11,6 +11,7 @@ router.delete('/', auth(['admin']), control.delete)
 
 router.post('/assign', control.assign) // TODO: control access
 router.get('/me', auth(['volunteer', 'admin']), control.listMine)
+router.get('/latlon', control.getJurisdictionsFromLatLon);
 
 router.get('/wip', auth(['volunteer', 'admin']), control.listWip)
 router.post('/wip', auth(['volunteer', 'admin']), control.createWip)

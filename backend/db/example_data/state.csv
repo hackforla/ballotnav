@@ -1,0 +1,52 @@
+abbreviation,name,fips_code,state_type
+AL,Alabama,1,State
+AK,Alaska,2,State
+AZ,Arizona,4,State
+AR,Arkansas,5,State
+CA,California,6,State
+CO,Colorado,8,State
+CT,Connecticut,9,State
+DE,Delaware,10,State
+DC,District of Columbia,11,Federal District
+FL,Florida,12,State
+GA,Georgia,13,State
+HI,Hawaii,15,State
+ID,Idaho,16,State
+IL,Illinois,17,State
+IN,Indiana,18,State
+IA,Iowa,19,State
+KS,Kansas,20,State
+KY,Kentucky,21,Commonwealth
+LA,Louisiana,22,State
+ME,Maine,23,State
+MD,Maryland,24,State
+MA,Massachusetts,25,Commonwealth
+MI,Michigan,26,State
+MN,Minnesota,27,State
+MS,Mississippi,28,State
+MO,Missouri,29,State
+MT,Montana,30,State
+NE,Nebraska,31,State
+NV,Nevada,32,State
+NH,New Hampshire,33,State
+NJ,New Jersey,34,State
+NM,New Mexico,35,State
+NY,New York,36,State
+NC,North Carolina,37,State
+ND,North Dakota,38,State
+OK,Oklahoma,40,State
+OR,Oregon,41,State
+PA,Pennsylvania,42,Commonwealth
+RI,Rhode Island,44,State
+SC,South Carolina,45,State
+SD,South Dakota,46,State
+TN,Tennessee,47,State
+TX,Texas,48,State
+UT,Utah,49,State
+VT,Vermont,50,State
+OH,Ohio,39,State
+VA,Virginia,51,Commonwealth
+WA,Washington,53,State
+WV,West Virginia,54,State
+WI,Wisconsin,55,State
+WY,Wyoming,56,State
