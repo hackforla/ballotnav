@@ -23,7 +23,7 @@ function Dashboard() {
 
         {isAdmin && <Route exact path="/states" component={ListStates} />}
         {isAdmin && <Route exact path="/states/:id" component={EditState} />}
-        {isAdmin && <Route exact path="/review/:wipJurisdictionId/:editorUserId" component={EditJurisAdmin} />}
+        {isAdmin && <Route exact path="/review/:wipJurisdictionId" component={EditJurisAdmin} />}
         {isAdmin && <Route exact path="/review" component={ListReleasedJurisdictions} />}
         {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
         {isAdmin && <Redirect to="/review" />}
