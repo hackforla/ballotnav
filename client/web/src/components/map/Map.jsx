@@ -28,7 +28,7 @@ class Map extends React.Component {
     // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
     mapboxgl.accessToken = 'pk.eyJ1IjoidGFuLW5hdGUiLCJhIjoiY2tjcGF1Zjh4MDI2aDJxbzV6b3JnNDdteSJ9.mVcEpxfcbzlXg7_LPaqRBA';
 
-    const center = (search ? search.center : [-77.036556, 38.8977365]);
+    const center = (search ? search.center : [-87.6244, 41.8756]);
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
