@@ -81,7 +81,7 @@ const ResultHeader = ({
             <p className='info_header'>Important Dates</p>
             {importantDates.map(date => <p>{date.importantDateTypeName}: {renderDate(date)}</p>)}
             <p className='info_header'>Links</p>
-            {urls.map(url => <a className='info_link' href={url.url}>{url.name}</a>)}
+            {urls.map(url => <a className='info_link' href={url.url} target="_blank">{url.name}</a>)}
             <p>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</p>
             <p className='info_header'>Subscribe</p>
             <p>Last-minute changes to details about how to vote should be expected. Sign up for SMS notifications for updates to your Secretary of State website. Mobile messaging rates may apply.</p>

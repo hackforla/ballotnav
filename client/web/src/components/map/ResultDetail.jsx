@@ -38,7 +38,7 @@ const ResultDetail = ({
 
   const renderLinks = () => data.jurisdictionData.urls.map(link => (
     <div className="info-link">
-      <a href={link['url']}>{link['name']}</a>
+      <a href={link['url']} target="_blank">{link['name']}</a>
     </div>
   ));
   
