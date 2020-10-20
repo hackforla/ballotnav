@@ -32,6 +32,7 @@ function Jurisdictions() {
         rows={jurisdictions}
         buttonText='Select'
         onClickButton={({ id }) => history.push(`/jurisdictions/${id}`)}
+        noDataMessage='No jurisdictions have been assigned to you.'
       />
     </>
   )

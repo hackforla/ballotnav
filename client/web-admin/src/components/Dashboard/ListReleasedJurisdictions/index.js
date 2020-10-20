@@ -35,6 +35,7 @@ function Jurisdictions() {
         onClickButton={({ wipJurisdictionId }) => {
           history.push(`/review/${wipJurisdictionId}`)
         }}
+        noDataMessage='There are no jurisdictions to review.'
       />
     </>
   )
