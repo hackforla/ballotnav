@@ -10,6 +10,7 @@ import backArrow from '../../assets/back-arrow-icon.svg';
 
 const ResultDetail = ({
   location,
+  data,
   open,
   close,
 }) => {
@@ -32,6 +33,13 @@ const ResultDetail = ({
       );
     });
   });
+
+  const renderLinks = () => data.jurisdictionData.urls.map(link => (
+    <div>
+      <a href={link['url']}>{link['name']}</a>
+    </div>
+  ));
+  
 
   return (
     <Drawer
@@ -65,6 +73,8 @@ const ResultDetail = ({
             {renderHours()}
           </Dropdown>
         </div>
+        <h3>Important links</h3>
+        {renderLinks()}
       </Drawer.Body>
     </Drawer>
   );

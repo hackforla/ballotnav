@@ -25,7 +25,7 @@ const ResultList = ({
 
   const renderResultCards = () => {
     return data.jurisdictionData.locations.map(location =>
-      <ResultCard location={location} key={location.id} />
+      <ResultCard data={data} location={location} key={location.id} />
     );
   };
 

@@ -5,6 +5,7 @@ import phoneIcon from '../../assets/phone-icon.svg';
 import ResultDetail from './ResultDetail';
 
 const ResultCard = ({
+  data,
   location,
 }) => {
   const [resultDetailOpen, setResultDetailOpen] = useState(false);
@@ -31,7 +32,7 @@ const ResultCard = ({
         <h4>{location.contactPhone}</h4>
       </div>
       <a onClick={toggleResultDetailOpen}>Location requirements and hours</a>
-      <ResultDetail open={resultDetailOpen} close={closeResultDetail} location={location} />
+      <ResultDetail open={resultDetailOpen} close={closeResultDetail} data={data} location={location} />
     </div>
   );
 }
