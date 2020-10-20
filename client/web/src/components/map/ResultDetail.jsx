@@ -7,6 +7,8 @@ import Moment from 'react-moment';
 
 import pinIcon from '../../assets/pin-icon.svg';
 import backArrow from '../../assets/back-arrow-icon.svg';
+import infoIcon from '../../assets/info-icon-red.svg';
+import phoneIcon from '../../assets/phone-icon.svg';
 
 const ResultDetail = ({
   location,
@@ -35,7 +37,7 @@ const ResultDetail = ({
   });
 
   const renderLinks = () => data.jurisdictionData.urls.map(link => (
-    <div>
+    <div className="info-link">
       <a href={link['url']}>{link['name']}</a>
     </div>
   ));
@@ -73,9 +75,24 @@ const ResultDetail = ({
             {renderHours()}
           </Dropdown>
         </div>
-        <h3>Important links</h3>
-        {renderLinks()}
+        <div className="info-links-header">
+          <img className="info-icon" src={infoIcon} alt="Information icon"/>
+          <h3 className="info-links-header">Official election information</h3>
+        </div>
+        <div className="info-links">
+          {renderLinks()}
+        </div>
       </Drawer.Body>
+      <Drawer.Footer
+        className="result-detail-footer"
+      >
+        <h3><b>Location and hours are subject to change</b></h3>
+        <div className="to-verify">
+          <p id="important">TO VERIFY</p>
+          <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
+          <p>{location.contactPhone}</p>
+        </div>
+      </Drawer.Footer>
     </Drawer>
   );
 };
