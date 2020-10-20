@@ -80,7 +80,7 @@ class Map extends React.Component {
             </span>
           </button>
         </div>
-        <ResultList />
+        <ResultList toggleCountyInfo={this.props.toggleCountyInfo} />
         <div id="map-container" ref={el => this.mapContainer = el}>
           <div id="map-geocoder" />
         </div>
