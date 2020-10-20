@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ResultHeader from './ResultHeader';
+import ResultHeader from '../info/ResultHeader';
 import Map from './Map';
-import CountyInfo from './CountyInfo';
+import CountyInfo from '../info/CountyInfo';
 
 const MapContainer = () => {
   const [countyInfoOpen, setCountyInfoOpen] = useState(false);

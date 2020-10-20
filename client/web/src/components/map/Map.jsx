@@ -11,7 +11,7 @@ import mapboxgl from 'mapbox-gl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-import ResultList from './ResultList';
+import ResultList from '../info/ResultList';
 
 const closeAlert = () => {
   const alert = document.getElementById('alert');
@@ -25,14 +25,13 @@ class Map extends React.Component {
       addSearch,
     } = this.props;
 
-    // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGFuLW5hdGUiLCJhIjoiY2tjcGF1Zjh4MDI2aDJxbzV6b3JnNDdteSJ9.mVcEpxfcbzlXg7_LPaqRBA';
+    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
     const center = (search ? search.center : [-87.6244, 41.8756]);
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/tan-nate/ckfmcl2s35enw19qixfux8dop',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: center,
       zoom: 13,
     });
@@ -51,22 +50,22 @@ class Map extends React.Component {
       addSearch(result);
     });
 
-    map.on('click', e => {
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: ['chicago-parks'] // replace this with the name of the layer
-      });
+    // map.on('click', e => {
+    //   const features = map.queryRenderedFeatures(e.point, {
+    //     layers: ['chicago-parks'] // replace this with the name of the layer
+    //   });
 
-      if (!features.length) {
-        return;
-      }
+    //   if (!features.length) {
+    //     return;
+    //   }
 
-      const feature = features[0];
+    //   const feature = features[0];
 
-      new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-        .addTo(map);
-    });
+    //   new mapboxgl.Popup({ offset: [0, -15] })
+    //     .setLngLat(feature.geometry.coordinates)
+    //     .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+    //     .addTo(map);
+    // });
   }
 
   render() {
