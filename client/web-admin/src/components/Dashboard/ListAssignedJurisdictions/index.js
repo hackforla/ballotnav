@@ -3,12 +3,13 @@ import { useHistory } from 'react-router-dom'
 import api from 'services/api'
 import ButtonTable from 'components/core/ButtonTable'
 import Header from 'components/Dashboard/Layout/Header'
+import { Button } from '@material-ui/core'
 
 function Jurisdictions() {
   const history = useHistory()
   const [jurisdictions, setJurisdictions] = useState([])
 
-  useEffect(() => {
+  const getJurisdictions = () => {
     api.jurisdictions.listMine().then(jurisdictions => {
       const transformed = jurisdictions.map(juris => ({
         id: juris.id,
@@ -18,11 +19,19 @@ function Jurisdictions() {
       }))
       setJurisdictions(transformed)
     })
-  }, [])
+  }
+
+  useEffect(() => getJurisdictions(), [])
 
   return (
     <>
-      <Header title='Select a jurisdiction to edit.' />
+      <Header title='Select a jurisdiction to edit.'>
+        <Button onClick={getJurisdictions}>
+          <span style={{ color: 'white' }}>
+            Refresh List
+          </span>
+        </Button>
+      </Header>
       <ButtonTable
         columns={[
           'jurisdiction',
