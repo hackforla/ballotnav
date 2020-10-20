@@ -41,11 +41,21 @@ const CountyInfo = ({
   };
 
   const renderUrls = urls => {
-    return urls.map(url => (
-      <div className="links">
-        <a href={url.url} target="_blank">{url.name}</a>
-      </div>
-    ));
+    return urls.map(url => {
+      if (url.isEmail) {
+        return (
+          <div className="links">
+            <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank">{url.url}</a>
+          </div>
+        );
+      } else {
+        return(
+          <div className="links">
+            <a href={url.url} target="_blank">{url.name}</a>
+          </div>
+        );
+      }
+    });
   };
 
   const renderPhones = phones => {
