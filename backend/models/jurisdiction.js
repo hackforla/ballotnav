@@ -80,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
 
   // Get candidate jurisdictions from user latitude and longitude
   Jurisdiction.getJurisdictionsFromLatLon = async (lat, lon) => {
-    let result = await sequelize.query(`SELECT * FROM jurisdictions_from_lonlatstring('${lat} ${lon}');`);
+    let result = await sequelize.query(`SELECT * FROM jurisdictions_from_lonlatstring('${lon} ${lat}');`);
     
     return result[0]
   }
