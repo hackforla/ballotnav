@@ -46,6 +46,7 @@ class Map extends React.Component {
 
     this.map.on('load', () => {
       this.initLayers(true);
+      this.map.on('click', this.onClick);
     });
 
     const geocoder = new MapboxGeocoder({
@@ -69,6 +70,24 @@ class Map extends React.Component {
     });
   }
 
+  onClick = e => {
+    const {
+      toggleResultDetail,
+    } = this.props;
+
+    const features = this.map.queryRenderedFeatures(e.point, {
+      layers: ['result-circles'],
+    })
+
+    for (let i = 0; i < features.length; i++) {
+      const feature = features[i];
+
+      if (feature.layer.id === 'result-circles') {
+        toggleResultDetail();
+      }
+    }
+  }
+
   render() {
     const {
       chicagoParks,
@@ -90,8 +109,8 @@ class Map extends React.Component {
             results={chicagoParks}
             ref={el => this.resultsLayer = el}
           />
-          <div id="map-geocoder" />
         </div>
+        <div id="map-geocoder" />
       </div>
     );
   }

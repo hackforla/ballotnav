@@ -28,12 +28,12 @@ class ResultsLayer extends React.Component {
 
   addLayers = () => {
     this.map.addLayer({
-      id: 'request-circles',
+      id: 'result-circles',
       type: 'circle',
       source: 'results',
       paint: {
         'circle-radius': {
-          'base': 1,
+          'base': 0.5,
           'stops': [
             [10, 2],
             [15, 10]
