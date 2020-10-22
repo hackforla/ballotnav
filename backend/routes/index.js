@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const router = require('express-promise-router')()
 
 router.get('/status', (req, res) =>
   res.status(200).json({
@@ -8,11 +8,7 @@ router.get('/status', (req, res) =>
   })
 )
 
-router.use('/states', require('./states'))
-router.use('/jurisdictions', require('./jurisdictions'))
-router.use('/locations', require('./locations'))
-router.use('/user', require('./user'))
-router.use('/admin', require('./admin'))
 router.use('/public', require('./public'))
+router.use('/admin', require('./admin'))
 
 module.exports = router
