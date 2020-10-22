@@ -77,6 +77,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
+
   Jurisdiction.init(
     {
       id: {

@@ -13,5 +13,6 @@ router.use('/jurisdictions', require('./jurisdictions'))
 router.use('/locations', require('./locations'))
 router.use('/user', require('./user'))
 router.use('/admin', require('./admin'))
+router.use('/public', require('./public'))
 
 module.exports = router
