@@ -45,7 +45,6 @@ class ResultsLayer extends React.Component {
         'circle-color': '#FF0029',
         'circle-opacity': 0.8,
       },
-      filter: typeFilter(selectedTypes),
     }, BEFORE_ID);
   };
 
@@ -64,6 +63,6 @@ ResultsLayer.propTypes = {
   results: PropTypes.shape({}),
 };
 
-RequestsLayer.defaultProps = {
+ResultsLayer.defaultProps = {
   results: {},
 };
