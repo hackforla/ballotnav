@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import ResultList from '../info/ResultList';
+import ResultsLayer from './ResultsLayer';
 
 const closeAlert = () => {
   const alert = document.getElementById('alert');
@@ -81,6 +82,7 @@ class Map extends React.Component {
         </div>
         <ResultList toggleCountyInfo={this.props.toggleCountyInfo} />
         <div id="map-container" ref={el => this.mapContainer = el}>
+          <ResultsLayer />
           <div id="map-geocoder" />
         </div>
       </div>
