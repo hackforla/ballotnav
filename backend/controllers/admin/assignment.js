@@ -9,14 +9,14 @@ exports.assignJurisdictions = async (req, res) => {
     userId,
     jurisdictionIds,
     removedJurisdictionIds,
-  });
+  })
 
   try {
-    const assignedJdxs = jurisdictionIds.map(jid => ({
+    const assignedJdxs = jurisdictionIds.map((jid) => ({
       userId: userId,
       jurisdictionId: jid,
       status: 'editor',
-    }));
+    }))
     const created = await req.db.UserJurisdiction.bulkCreate(assignedJdxs)
     const removed = await req.db.UserJurisdiction.destroy({
       where: {
@@ -24,7 +24,7 @@ exports.assignJurisdictions = async (req, res) => {
         jurisdictionId: {
           [req.db.Sequelize.Op.in]: removedJurisdictionIds,
         },
-      }
+      },
     })
     logger.info({
       message: 'Success: updated jurisdiction assignments',
@@ -78,7 +78,7 @@ exports.listVolunteers = async (req, res) => {
         },
       },
     })
-    res.json(data);
+    res.json(data)
   } catch (err) {
     return handleError(err, 500, res)
   }

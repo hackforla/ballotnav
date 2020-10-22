@@ -24,22 +24,14 @@ router.post(
   '/jurisdictions',
   auth(['admin']),
   validate(schemas.assign),
-  control.assignJurisdictions,
+  control.assignJurisdictions
 )
-router.get(
-  '/jurisdictions',
-  auth(['admin']),
-  control.listJurisdictions,
-)
-router.get(
-  '/volunteers',
-  auth(['admin']),
-  control.listVolunteers,
-)
+router.get('/jurisdictions', auth(['admin']), control.listJurisdictions)
+router.get('/volunteers', auth(['admin']), control.listVolunteers)
 router.get(
   '/jurisdictions/me',
   auth(['volunteer']),
-  control.listMyJurisdictions,
+  control.listMyJurisdictions
 )
 
 module.exports = router
