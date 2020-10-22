@@ -10,7 +10,7 @@ function Jurisdictions() {
   const [jurisdictions, setJurisdictions] = useState([])
 
   const getJurisdictions = () => {
-    api.jurisdictions.listMine().then(jurisdictions => {
+    api.assignment.listMyJurisdictions().then(jurisdictions => {
       const transformed = jurisdictions.map(juris => ({
         id: juris.id,
         jurisdiction: juris.name,

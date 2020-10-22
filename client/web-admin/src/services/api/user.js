@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = `${process.env.REACT_APP_API_URL}/user`
+const BASE_URL = `${process.env.REACT_APP_API_URL}/admin/user`
 
 export const getUser = async () => {
   try {
@@ -44,15 +44,6 @@ export const logout = async () => {
   await sessionStorage.removeItem('token')
   return null
 }
-
-export const listVolunteers = async () => {
-  try {
-    const response = await axios.get(BASE_URL + '/volunteers');
-    return response.data;
-  } catch (err) {
-    return Promise.reject(err.response.data);
-  }
-};
 
 // export const getAll = async () => {
 //   const response = await axios.get(BASE_URL)

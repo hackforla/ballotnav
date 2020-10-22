@@ -10,7 +10,7 @@ function Jurisdictions() {
   const [jurisdictions, setJurisdictions] = useState([])
 
   const getJurisdictions = () => {
-    api.jurisdictions.listReleased().then(jurisdictions => {
+    api.wip.listReleasedJurisdictions().then(jurisdictions => {
       const transformed = jurisdictions.map(juris => ({
         ...juris,
         id: juris.wipJurisdictionId,

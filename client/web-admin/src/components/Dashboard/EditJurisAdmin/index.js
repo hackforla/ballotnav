@@ -16,7 +16,7 @@ function EditJurisdiction() {
   const history = useHistory()
 
   useEffect(() => {
-    api.jurisdictions.getReleased(wipJurisdictionId).then(setJurisdiction)
+    api.wip.getReleasedJurisdiction(wipJurisdictionId).then(setJurisdiction)
   }, [wipJurisdictionId])
 
   const updateJurisdiction = (newJurisdiction) => {
@@ -26,7 +26,7 @@ function EditJurisdiction() {
 
   const saveProgress = () => {
     setIsSaving(true)
-    api.jurisdictions.updateWipJurisdiction(jurisdiction.id, jurisdiction)
+    api.wip.updateJurisdiction(jurisdiction.id, jurisdiction)
       .then(updated => {
         toast({
           severity: 'success',
@@ -47,7 +47,7 @@ function EditJurisdiction() {
 
   const publish = () => {
     setIsPublishing(true)
-    api.jurisdictions.publishWipJurisdiction(jurisdiction.id)
+    api.wip.publishJurisdiction(jurisdiction.id)
       .then(data => {
         toast({
           severity: 'success',
