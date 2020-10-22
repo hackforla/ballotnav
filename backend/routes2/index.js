@@ -8,7 +8,7 @@ router.get('/status', (req, res) =>
   })
 )
 
-// router.use('/public', require('./public'))
+router.use('/public', require('./public'))
 router.use('/admin', require('./admin'))
 
 module.exports = router
