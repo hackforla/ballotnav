@@ -1,6 +1,6 @@
 const logger = require('@log')
 
-const { decodeToken } = require('@controllers/user')
+const { decodeToken } = require('@controllers/admin/user')
 
 function auth(allowedRoles = []) {
   return async (req, res, next) => {

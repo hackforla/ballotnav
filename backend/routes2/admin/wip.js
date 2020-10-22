@@ -1,5 +1,5 @@
 const router = require('express-promise-router')()
-const control = require('@controllers/wip')
+const control = require('@controllers/admin/wip')
 const auth = require('@middleware/auth')
 
 router.get(

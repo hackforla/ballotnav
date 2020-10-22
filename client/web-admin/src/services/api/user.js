@@ -4,7 +4,7 @@ const BASE_URL = `${process.env.REACT_APP_API_URL}/admin/user`
 
 export const getUser = async () => {
   try {
-    const response = await axios.get(BASE_URL)
+    const response = await axios.get(`${BASE_URL}/me`)
     return response.data
   } catch (err) {
     return null

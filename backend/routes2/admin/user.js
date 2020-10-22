@@ -1,9 +1,9 @@
 const router = require('express-promise-router')()
-const control = require('@controllers/user')
+const control = require('@controllers/admin/user')
 const auth = require('@middleware/auth')
 const validate = require('@middleware/validate')
 
-router.get('/', auth(['volunteer', 'admin']), control.getUser)
+router.get('/me', auth(['volunteer', 'admin']), control.getUser)
 router.post('/register', control.register)
 router.post('/login', control.login)
 

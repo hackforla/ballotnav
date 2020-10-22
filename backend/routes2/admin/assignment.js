@@ -1,5 +1,5 @@
 const router = require('express-promise-router')()
-const control = require('@controllers/assignment')
+const control = require('@controllers/admin/assignment')
 const auth = require('@middleware/auth')
 
 router.post(
