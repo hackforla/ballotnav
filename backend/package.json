@@ -47,11 +47,11 @@
   },
   "_moduleAliases": {
     "@config": "./config/config.js",
-    "@controllers": "./controllers2",
+    "@controllers": "./controllers",
     "@log": "./log.js",
     "@middleware": "./middleware",
     "@models": "./models",
-    "@routes": "./routes2",
+    "@routes": "./routes",
     "@services": "./services"
   }
 }
