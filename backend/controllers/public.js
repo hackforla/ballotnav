@@ -15,15 +15,17 @@ exports.getJurisdictionsFromLatLon = async (req, res) => {
       }
     )
 
-    return res.json(jurisdictions.map(j => ({
-      id: j.jurisdiction_id,
-      name: j.jurisdiction_name,
-      stateId: j.state_id,
-      stateName: j.state_name,
-      isEaj: j.is_eaj,
-      isEajExclusive: j.is_eaj_exclusive,
-      isPublished: j.is_published,
-    })))
+    return res.json(
+      jurisdictions.map((j) => ({
+        id: j.jurisdiction_id,
+        name: j.jurisdiction_name,
+        stateId: j.state_id,
+        stateName: j.state_name,
+        isEaj: j.is_eaj,
+        isEajExclusive: j.is_eaj_exclusive,
+        isPublished: j.is_published,
+      }))
+    )
   } catch (err) {
     return handleError(err, 400, res)
   }
