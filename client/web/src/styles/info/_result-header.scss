@@ -1,0 +1,24 @@
+div.result-header {
+  background-color: $blue;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  margin: 0 auto;
+
+  a {
+    color: $white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  p {
+    color: $white;
+    margin-bottom: 6px;
+  }
+
+  img.info-icon {
+    width: 16px;
+    margin-right: 7px;
+    margin-bottom: 2px;
+  }
+}

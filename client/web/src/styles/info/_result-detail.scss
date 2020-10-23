@@ -1,0 +1,124 @@
+.result-detail-drawer {
+  a {
+    text-decoration: underline;
+    color: $blue;
+    font-weight: bold;
+  }
+
+  #back-arrow {
+    margin: 0 10px 4px -6px;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $blue;
+  }
+
+  div.rs-drawer-header {
+    margin: 20px 20px 10px;
+  }
+
+  .result-card-content-wrapper {
+    margin-bottom: 10px;
+  }
+
+  img {
+    margin-left: -10px;
+    margin-top: -2px;
+  }
+
+  h4 {
+    color: $black;
+    display: inline;
+    line-height: 0px;
+  }
+
+  .second-line {
+    margin-left: 12px;
+  }
+
+  div.rs-drawer-body {
+    margin: 0;
+    padding: 0 20px;
+    height: 347px!important;
+  }
+
+  span.icon {
+    color: $blue;
+    float: left;
+  }
+
+  div.hours-dropdown {
+    margin: 20px 0 0 -6px;
+  
+    .rs-dropdown {
+      width: 90%;
+      margin: -11px 0 0 2px;
+    }
+
+    a {
+      font-size: 16px;
+      padding-left: 5px;
+      margin-left: 3px;
+    }
+
+    ul.rs-dropdown-menu {
+      width: 85%;
+    }
+  }
+
+  h3.info-links-header {
+    font-size: 1.1em;
+    color: $black;
+    display: inline;
+    font-weight: bold;
+  }
+
+  img.info-icon {
+    width: 17px;
+    margin-left: -7px;
+    margin-right: 8px;
+  }
+
+  .info-links a {
+    color: $link-blue;
+    font-weight: normal;
+    margin: 2px 0;
+  }
+
+  div.info-links-header {
+    margin-top: 5px;
+  }
+
+  div.info-link {
+    margin: 3px 0;
+  }
+
+  div.result-detail-footer {
+    border-top: 1px solid $blue;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+    #important {
+      color: $red;
+      font-weight: bold;
+      margin-right: 28px;
+    }
+
+    div.to-verify {
+      text-align: center;
+    }
+
+    img.phone-icon {
+      margin-right: 4px;
+    }
+  }
+
+  div.result-detail-footer h3, p {
+    display: inline;
+    color: $black;
+    vertical-align: bottom;
+  }
+}

@@ -7,7 +7,9 @@
 @import './main/footer';
 
 @import './map/map';
-@import './map/result-header';
-@import './map/result-list';
-@import './map/result-card';
-@import './map/result-detail';
+
+@import './info/result-header';
+@import './info/result-list';
+@import './info/result-card';
+@import './info/result-detail';
+@import './info/county-info';

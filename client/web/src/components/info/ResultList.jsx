@@ -12,6 +12,7 @@ import ResultCard from './ResultCard';
 
 const ResultList = ({
   data,
+  toggleCountyInfo,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -25,7 +26,7 @@ const ResultList = ({
 
   const renderResultCards = () => {
     return data.jurisdictionData.locations.map(location =>
-      <ResultCard location={location} key={location.id} />
+      <ResultCard data={data} location={location} key={location.id} />
     );
   };
 
@@ -45,7 +46,8 @@ const ResultList = ({
           <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
           <div className="county-information-wrapper">
             <img className="info-icon" src={infoIcon} alt="Information icon"/>
-            <a>County election information</a>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a onClick={toggleCountyInfo}>County election information</a>
           </div>
         </Drawer.Header>
         <Drawer.Body id="drawer-body">
