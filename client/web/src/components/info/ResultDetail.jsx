@@ -73,7 +73,7 @@ const ResultDetail = ({
           <h4 className="second-line">{location.address3}</h4>
         </div>
         <div className="hours-dropdown">
-          <span class="icon is-small">
+          <span className="icon is-small">
             <FontAwesomeIcon icon={faClock} />
           </span>
           <Dropdown 
