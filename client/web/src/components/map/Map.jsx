@@ -39,7 +39,7 @@ class Map extends React.Component {
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/okduncan/ckglh4q9b07ug19qkg2je0mxl',
       center: center,
       zoom: 13,
     });
@@ -78,6 +78,8 @@ class Map extends React.Component {
     const features = this.map.queryRenderedFeatures(e.point, {
       layers: ['result-circles'],
     })
+
+    console.log(features)
 
     for (let i = 0; i < features.length; i++) {
       const feature = features[i];
