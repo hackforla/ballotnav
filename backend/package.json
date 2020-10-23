@@ -30,7 +30,9 @@
     "express-promise-router": "^4.0.1",
     "express-validator": "^6.6.1",
     "faker": "^5.1.0",
+    "husky": "^4.3.0",
     "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.4.2",
     "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "pg": "^8.3.3",
@@ -43,7 +45,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
-    "prettier": "2.1.2"
+    "prettier": "^2.1.2"
   },
   "_moduleAliases": {
     "@config": "./config/config.js",
@@ -53,5 +55,15 @@
     "@models": "./models",
     "@routes": "./routes",
     "@services": "./services"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,json,md}": [
+      "prettier --write"
+    ]
   }
 }
