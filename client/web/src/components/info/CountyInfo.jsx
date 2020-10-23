@@ -24,8 +24,8 @@ const CountyInfo = ({
   } = data.jurisdictionData;
 
   const renderDateInfos = dates => {
-    return dates.map(date => (
-      <p>{date.importantDateTypeName}: {renderDate(date)}</p>
+    return dates.map((date, index) => (
+      <p key={index}>{date.importantDateTypeName}: {renderDate(date)}</p>
     ));
   };
 
@@ -44,14 +44,14 @@ const CountyInfo = ({
     return urls.map(url => {
       if (url.isEmail) {
         return (
-          <div className="links">
-            <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank">{url.url}</a>
+          <div key={url.id} className="links">
+            <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
           </div>
         );
       } else {
         return(
-          <div className="links">
-            <a href={url.url} target="_blank">{url.name}</a>
+          <div key={url.id} className="links">
+            <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
           </div>
         );
       }
@@ -60,7 +60,7 @@ const CountyInfo = ({
 
   const renderPhones = phones => {
     return phones.map(phone => (
-      <p>{phone.number}</p>
+      <p key={phone.id}>{phone.number}</p>
     ));
   };
 
@@ -77,14 +77,14 @@ const CountyInfo = ({
       </Drawer.Header>
       <Drawer.Body>
           <p>
-            We have found the most credible and up to date election information to be on <a href="https://www.vote.org" target="_blank">vote.org</a>.
+            We have found the most credible and up to date election information to be on <a href="https://www.vote.org" target="_blank" rel="noopener noreferrer">vote.org</a>.
           </p>
           <h4>State Information</h4>
           <h5 id="important-dates">Important Dates</h5>
           {renderDateInfos(stateImportantDates)}
           <h5>Links</h5>
           {renderUrls(stateUrls)}
-          <h5>Late Registration Possible: {lateRegistration == 'N' ? 'No' : 'Yes'}</h5>
+          <h5>Late Registration Possible: {lateRegistration === 'N' ? 'No' : 'Yes'}</h5>
           <h4>County Information</h4>
           <h5 id="important-dates">Important Dates</h5>
           {renderDateInfos(countyImportantDates)}

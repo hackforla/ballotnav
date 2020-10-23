@@ -17,7 +17,7 @@ const ResultDetail = ({
   close,
 }) => {
   const renderHours = () => location.hours.map(hour => {
-    return Object.keys(hour).map((key) => {
+    return Object.keys(hour).map((key, index) => {
       const dateToFormat = new Date(hour[key][0].date);
       const openingTime = new Date(hour[key][0].openTimeStamp);
       const closingTime = new Date(hour[key][0].closeTimeStamp);
@@ -27,18 +27,20 @@ const ResultDetail = ({
       yesterday.setDate(yesterday.getDate() - 1)
 
       if (dateToFormat >= yesterday) return (
-        <Dropdown.Item>
+        <Dropdown.Item key={index}>
           <b><Moment date={dateToFormat} format={'MMM Do'} />:</b>&nbsp;
           <Moment date={openingTime} format={'LT'} />&nbsp;-&nbsp;
           <Moment date={closingTime} format={'LT'} />
         </Dropdown.Item>
       );
+
+      return null;
     });
   });
 
   const renderLinks = () => data.jurisdictionData.urls.map(link => (
-    <div className="info-link">
-      <a href={link['url']} target="_blank">{link['name']}</a>
+    <div className="info-link" key={link.id}>
+      <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
     </div>
   ));
   
@@ -58,6 +60,7 @@ const ResultDetail = ({
             alt="Back arrow"
             onClick={close}
           />
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a onClick={close}>All drop offs</a>
         </div>
       </Drawer.Header>

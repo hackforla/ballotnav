@@ -46,6 +46,7 @@ const ResultList = ({
           <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
           <div className="county-information-wrapper">
             <img className="info-icon" src={infoIcon} alt="Information icon"/>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a onClick={toggleCountyInfo}>County election information</a>
           </div>
         </Drawer.Header>

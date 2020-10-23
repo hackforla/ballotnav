@@ -98,7 +98,7 @@ class Map extends React.Component {
         <div id='alert'>
           <span>Remember to verify information through the official website and phone number before you leave</span>
           <button onClick={() => closeAlert()}>
-            <span class="icon is-small">
+            <span className="icon is-small">
               <FontAwesomeIcon icon={faTimes} />
             </span>
           </button>

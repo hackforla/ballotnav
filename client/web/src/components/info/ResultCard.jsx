@@ -31,6 +31,7 @@ const ResultCard = ({
         <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
         <h4>{location.contactPhone}</h4>
       </div>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a onClick={toggleResultDetailOpen}>Location requirements and hours</a>
       <ResultDetail open={resultDetailOpen} close={closeResultDetail} data={data} location={location} />
     </div>

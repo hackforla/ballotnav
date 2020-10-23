@@ -26,6 +26,7 @@ const ResultHeader = ({
         <>
           <p>{city}, {state}</p>
           <img className="info-icon" src={infoIcon} alt="Information icon" />
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a onClick={toggleCountyInfo}>Important election information</a>
         </>
       }
