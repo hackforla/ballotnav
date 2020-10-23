@@ -38,11 +38,21 @@ const ResultDetail = ({
     });
   });
 
-  const renderLinks = () => data.jurisdictionData.urls.map(link => (
-    <div className="info-link" key={link.id}>
-      <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
-    </div>
-  ));
+  const renderLinks = () => data.jurisdictionData.urls.map(url => {
+    if (url.isEmail) {
+      return (
+        <div key={url.id} className="links">
+          <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
+        </div>
+      );
+    } else {
+      return (
+        <div key={url.id} className="links">
+          <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
+        </div>
+      );
+    }
+  });
   
 
   return (

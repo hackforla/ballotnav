@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Moment from 'react-moment';
 import { Drawer } from 'rsuite';
 
 const CountyInfo = ({
@@ -25,16 +26,26 @@ const CountyInfo = ({
 
   const renderDateInfos = dates => {
     return dates.map((date, index) => (
-      <p key={index}>{date.importantDateTypeName}: {renderDate(date)}</p>
+      <p key={index}><b>{date.importantDateTypeName}: </b>{renderDate(date)}</p>
     ));
   };
 
   const renderDate = date => {
+    const formatDate = date => {
+      const formattedDate = new Date(date);
+      return <Moment date={formattedDate} format={'MMM Do, LT'} />
+    }
+
+    const formatDateRangeEnd = date => {
+      const formattedDate = new Date(date);
+      return <Moment date={formattedDate} format={'LT'} />
+    }
+
     switch (date.dateType) {
       case 'deadline':
-        return <span>{date.endTime}</span>;
+        return <span>{formatDate(date.endTime)}</span>;
       case 'range':
-        return <span>{date.beginTime} - {date.endTime}</span>;
+        return <span>{formatDate(date.beginTime)} - {formatDateRangeEnd(date.endTime)}</span>;
       default:
         return null;
     }
@@ -49,7 +60,7 @@ const CountyInfo = ({
           </div>
         );
       } else {
-        return(
+        return (
           <div key={url.id} className="links">
             <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
           </div>
@@ -59,8 +70,18 @@ const CountyInfo = ({
   };
 
   const renderPhones = phones => {
+    function formatPhoneNumber(phoneNumberString) {
+      var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+      var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
+      if (match) {
+        var intlCode = (match[1] ? '+1 ' : '')
+        return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
+      }
+      return null
+    }
+
     return phones.map(phone => (
-      <p key={phone.id}>{phone.number}</p>
+      <p key={phone.id}>{formatPhoneNumber(phone.number)}</p>
     ));
   };
 
