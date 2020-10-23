@@ -38,6 +38,23 @@ exports.listStates = async (req, res) => {
   return res.json(data)
 }
 
+exports.getState = async (req, res) => {
+  const { stateId } = req.params
+  try {
+    const data = await req.db.State.findOne({
+      where: {
+        id: stateId
+      }
+    })
+    if (data === null) {
+      return handleError({message: 'Invalid state request'}, 400, res)
+    }
+    return res.json(data)
+  } catch (err) {
+    return handleError(err, 400, res)
+  }
+}
+
 exports.listJurisdictionsInState = async (req, res) => {
   const { stateId } = req.params
   const data = await req.db.Jurisdiction.findAll({
