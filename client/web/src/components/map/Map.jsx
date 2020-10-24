@@ -31,9 +31,10 @@ class Map extends React.Component {
     const {
       search,
       addSearch,
+      center,
     } = this.props;
 
-    const center = (search ? search.center : [-87.6244, 41.8756]);
+    //const center = (search ? search.center : [-87.6244, 41.8756]);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -57,9 +58,9 @@ class Map extends React.Component {
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(this.map));
 
-    geocoder.on('result', ({ result }) => {
-      addSearch(result);
-    });
+    // geocoder.on('result', ({ result }) => {
+    //   addSearch(result);
+    // });
   }
 
   initLayers = () => {

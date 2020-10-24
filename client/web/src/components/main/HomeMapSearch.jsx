@@ -32,10 +32,8 @@ class HomeMapSearch extends React.Component {
       const query = queryString.stringify({ jid, lon, lat });
       history.push(`/map?${query}`);
     } else {
-      history.push('/error');
+      history.push('/error'); // TODO: figure out what route to go to
     }
-    // addSearch(result);
-    // history.push('/map');
   }
 
   render() {
