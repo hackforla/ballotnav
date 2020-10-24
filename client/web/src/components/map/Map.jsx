@@ -33,7 +33,8 @@ class Map extends React.Component {
       addSearch,
     } = this.props;
 
-    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib2tkdW5jYW4iLCJhIjoiY2tnYnk5MGNwMGxydjJ6cXFhOGoxdTBzMCJ9.cFaN1ASx3IKkh1RnofRGpw';
 
     const center = (search ? search.center : [-87.6244, 41.8756]);
 
@@ -78,8 +79,6 @@ class Map extends React.Component {
     const features = this.map.queryRenderedFeatures(e.point, {
       layers: ['result-circles'],
     })
-
-    console.log(features)
 
     for (let i = 0; i < features.length; i++) {
       const feature = features[i];
