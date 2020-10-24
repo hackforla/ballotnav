@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl, { styleUrl } from 'services/mapbox';
+import queryString from 'query-string';
+import api from 'services/api';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -34,8 +36,6 @@ class Map extends React.Component {
       center,
     } = this.props;
 
-    //const center = (search ? search.center : [-87.6244, 41.8756]);
-
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: styleUrl,
@@ -53,14 +53,36 @@ class Map extends React.Component {
       mapboxgl: mapboxgl,
       marker: false,
       countries: 'us',
-      types: 'address, neighborhood, locality, place, district, postcode'
+      types: 'address, neighborhood, locality, place, district, postcode',
+      flyTo: false,
+      clearOnBlur: true,
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(this.map));
 
-    // geocoder.on('result', ({ result }) => {
-    //   addSearch(result);
-    // });
+    geocoder.on('result', ({ result }) => {
+      geocoder.clear()
+      this.handleGeocodeResult({ result})
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.center !== prevProps.center)
+      this.map.setCenter(this.props.center);
+  }
+
+  handleGeocodeResult = async ({ result }) => {
+    const { history } = this.props;
+    const [lon, lat] = result.center;
+    const jurisdictions = await api.getJurisdictions(lon, lat);
+
+    if (jurisdictions.length === 1) {
+      const { id: jid } = jurisdictions[0];
+      const query = queryString.stringify({ jid, lon, lat });
+      history.push(`/map?${query}`);
+    } else {
+      history.push('/error'); // TODO: figure out what route to go to
+    }
   }
 
   initLayers = () => {

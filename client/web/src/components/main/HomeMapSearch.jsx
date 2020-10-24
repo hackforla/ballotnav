@@ -24,7 +24,7 @@ class HomeMapSearch extends React.Component {
 
   handleGeocodeResult = async ({ result }) => {
     const { history } = this.props;
-    const [lon, lat] = result.center
+    const [lon, lat] = result.center;
     const jurisdictions = await api.getJurisdictions(lon, lat);
 
     if (jurisdictions.length === 1) {

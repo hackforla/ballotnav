@@ -16,6 +16,8 @@ const ResultDetail = ({
   open,
   close,
 }) => {
+  if (!location) return null;
+
   const renderHours = () => {
     if (location.scheduleType !== 'hours') return null;
 

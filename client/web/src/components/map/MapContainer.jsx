@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getJurisdiction } from 'redux/actions/data';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ResultHeader from '../info/ResultHeader';
@@ -15,14 +15,15 @@ const MapContainer = ({
   getJurisdiction,
 }) => {
   const [countyInfoOpen, setCountyInfoOpen] = useState(false);
+  const location = useLocation();
   const history = useHistory();
   const [center, setCenter] = useState(null);
 
   useEffect(() => {
-    const query = queryString.parse(history.location.search);
-    getJurisdiction(query.jid);
-    setCenter([query.lon, query.lat]);
-  }, [history.location.search])
+    const query = queryString.parse(location.search);
+    getJurisdiction(query.jid)
+      .then(() => setCenter([query.lon, query.lat]));
+  }, [location.search])
 
   const closeCountyInfo = () => {
     setCountyInfoOpen(false);
@@ -54,6 +55,7 @@ const MapContainer = ({
         center={center}
         toggleCountyInfo={toggleCountyInfo}
         toggleResultDetail={toggleResultDetail}
+        history={history}
       />
       <CountyInfo
         open={countyInfoOpen}
