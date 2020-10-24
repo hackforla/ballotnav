@@ -30,11 +30,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    const {
-      search,
-      addSearch,
-      center,
-    } = this.props;
+    const { center } = this.props;
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,

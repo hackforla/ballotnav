@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/jsx-no-target-blank */
+
 import React from 'react';
 
 import hackForLALogo from '../../assets/hack-for-LA-logo.svg';

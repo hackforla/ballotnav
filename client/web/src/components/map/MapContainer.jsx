@@ -23,7 +23,7 @@ const MapContainer = ({
     const query = queryString.parse(location.search);
     getJurisdiction(query.jid)
       .then(() => setCenter([query.lon, query.lat]));
-  }, [location.search])
+  }, [getJurisdiction, location.search])
 
   const closeCountyInfo = () => {
     setCountyInfoOpen(false);
