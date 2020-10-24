@@ -4,13 +4,12 @@ import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from 'services/mapbox';
 import queryString from 'query-string';
 import api from 'services/api';
 
 class HomeMapSearch extends React.Component {
   componentDidMount() {
-    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,

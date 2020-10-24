@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { styleUrl } from 'services/mapbox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -33,14 +33,11 @@ class Map extends React.Component {
       addSearch,
     } = this.props;
 
-    // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    mapboxgl.accessToken = 'pk.eyJ1Ijoib2tkdW5jYW4iLCJhIjoiY2tnYnk5MGNwMGxydjJ6cXFhOGoxdTBzMCJ9.cFaN1ASx3IKkh1RnofRGpw';
-
     const center = (search ? search.center : [-87.6244, 41.8756]);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/okduncan/ckglh4q9b07ug19qkg2je0mxl',
+      style: styleUrl,
       center: center,
       zoom: 13,
     });
