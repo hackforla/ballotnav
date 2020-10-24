@@ -40,17 +40,32 @@ exports.listStates = async (req, res) => {
 
 exports.getState = async (req, res) => {
   const { stateId } = req.params
+  logger.info({
+    message: `getState on state id ${stateId}`,
+  })
+
   try {
-    const data = await req.db.State.findOne({
-      where: {
-        id: stateId
-      }
+    const data = await req.db.State.findByPk(stateId, {
+      include: [
+        { association: 'importantDates' },
+        { association: 'infoTabs' },
+        { association: 'news' },
+        { association: 'notices' },
+        { association: 'urls' },
+      ],
     })
     if (data === null) {
-      return handleError({message: 'Invalid state request'}, 400, res)
+      logger.error({
+        message: `Error: getState called on invalid state id: ${stateId}`,
+      })
+      return handleError({ message: 'Invalid state request' }, 400, res)
     }
     return res.json(data)
   } catch (err) {
+    logger.error({
+      message: `Error: getState`,
+      error: err,
+    })
     return handleError(err, 400, res)
   }
 }
