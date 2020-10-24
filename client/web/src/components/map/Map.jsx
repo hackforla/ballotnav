@@ -33,13 +33,14 @@ class Map extends React.Component {
       addSearch,
     } = this.props;
 
-    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib2tkdW5jYW4iLCJhIjoiY2tnYnk5MGNwMGxydjJ6cXFhOGoxdTBzMCJ9.cFaN1ASx3IKkh1RnofRGpw';
 
     const center = (search ? search.center : [-87.6244, 41.8756]);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/okduncan/ckglh4q9b07ug19qkg2je0mxl',
       center: center,
       zoom: 13,
     });
