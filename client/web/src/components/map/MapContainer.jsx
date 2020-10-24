@@ -9,7 +9,6 @@ import Map from './Map';
 import CountyInfo from '../info/CountyInfo';
 import ResultDetail from '../info/ResultDetail';
 import queryString from 'query-string';
-import api from 'services/api';
 
 const MapContainer = ({
   data,
@@ -21,7 +20,6 @@ const MapContainer = ({
 
   useEffect(() => {
     const query = queryString.parse(history.location.search);
-    //api.getJurisdiction(query.jid).then(console.log);
     getJurisdiction(query.jid);
     setCenter([query.lon, query.lat]);
   }, [history.location.search])

@@ -19,26 +19,23 @@ const ResultDetail = ({
   const renderHours = () => {
     if (location.scheduleType !== 'hours') return null;
 
-    return location.hours.map(hour => {
-      return Object.keys(hour).map((key, index) => {
-        const dateToFormat = new Date(hour[key][0].date);
-        const openingTime = new Date(hour[key][0].openTimeStamp);
-        const closingTime = new Date(hour[key][0].closeTimeStamp);
+    return location.hours.map((hour, index) => {
+      const beginDate = new Date(hour.beginDate);
+      const endDate = new Date(hour.endDate);
+      const { openTime, closeTime } = hour;
 
-        const today = new Date()
-        const yesterday = new Date(today)
-        yesterday.setDate(yesterday.getDate() - 1)
+      const today = new Date();
+      const yesterday = new Date(today);
+      yesterday.setDate(yesterday.getDate() - 1);
 
-        if (dateToFormat >= yesterday) return (
-          <Dropdown.Item key={index}>
-            <b><Moment date={dateToFormat} format={'MMM Do'} />:</b>&nbsp;
-            <Moment date={openingTime} format={'LT'} />&nbsp;-&nbsp;
-            <Moment date={closingTime} format={'LT'} />
-          </Dropdown.Item>
-        );
+      if (endDate >= yesterday) return (
+        <Dropdown.Item key={index.toString()}>
+          <b><Moment utc={true} date={beginDate} format={'MMM Do'} />:</b>&nbsp;
+          { openTime }&nbsp;-&nbsp;{ closeTime }
+        </Dropdown.Item>
+      );
 
-        return null;
-      });
+      return null;
     });
   }
 

@@ -1,4 +1,3 @@
-import dummyData from './dummyData.json';
 import chicagoParks from './chicago-parks.json';
 
 const preloadedState = {
