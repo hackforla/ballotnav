@@ -16,27 +16,29 @@ const ResultDetail = ({
   open,
   close,
 }) => {
-  const renderHours = () => location.hours.map(hour => {
-    return Object.keys(hour).map((key, index) => {
-      const dateToFormat = new Date(hour[key][0].date);
-      const openingTime = new Date(hour[key][0].openTimeStamp);
-      const closingTime = new Date(hour[key][0].closeTimeStamp);
+  // const renderHours = () => location.hours.map(hour => {
+  //   return Object.keys(hour).map((key, index) => {
+  //     const dateToFormat = new Date(hour[key][0].date);
+  //     const openingTime = new Date(hour[key][0].openTimeStamp);
+  //     const closingTime = new Date(hour[key][0].closeTimeStamp);
+  //
+  //     const today = new Date()
+  //     const yesterday = new Date(today)
+  //     yesterday.setDate(yesterday.getDate() - 1)
+  //
+  //     if (dateToFormat >= yesterday) return (
+  //       <Dropdown.Item key={index}>
+  //         <b><Moment date={dateToFormat} format={'MMM Do'} />:</b>&nbsp;
+  //         <Moment date={openingTime} format={'LT'} />&nbsp;-&nbsp;
+  //         <Moment date={closingTime} format={'LT'} />
+  //       </Dropdown.Item>
+  //     );
+  //
+  //     return null;
+  //   });
+  // });
 
-      const today = new Date()
-      const yesterday = new Date(today)
-      yesterday.setDate(yesterday.getDate() - 1)
-
-      if (dateToFormat >= yesterday) return (
-        <Dropdown.Item key={index}>
-          <b><Moment date={dateToFormat} format={'MMM Do'} />:</b>&nbsp;
-          <Moment date={openingTime} format={'LT'} />&nbsp;-&nbsp;
-          <Moment date={closingTime} format={'LT'} />
-        </Dropdown.Item>
-      );
-
-      return null;
-    });
-  });
+  const renderHours = () => null;
 
   const renderLinks = () => data.jurisdictionData.urls.map(url => {
     if (url.isEmail) {
@@ -53,7 +55,7 @@ const ResultDetail = ({
       );
     }
   });
-  
+
 
   return (
     <Drawer
@@ -86,7 +88,7 @@ const ResultDetail = ({
           <span className="icon is-small">
             <FontAwesomeIcon icon={faClock} />
           </span>
-          <Dropdown 
+          <Dropdown
             title="Hours"
           >
             {renderHours()}
