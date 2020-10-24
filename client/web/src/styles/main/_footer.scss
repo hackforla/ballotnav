@@ -4,14 +4,48 @@ footer#footer {
   padding: 0;
   background-color: $dark-blue;
   width: 100%;
+  height: 242px;
+  color: white;
+
+  .social-wrapper {
+    margin: 20px 0 0 20px;
+  }
 
   .social-wrapper a img {
-    margin: 10px 10px;
+    margin-right:20px;
+  }
+
+  .share-wrapper {
+    display: flex;
+    margin:30px 0 0 20px;
+    font-weight: 700;
+    font-size: .87em;
+    .button_i-voted {
+      width:54px;
+      height:54px;
+      margin-right: 18px;
+    }
+    .div_shareButtons {
+      p {
+        margin-bottom:5px;
+      }
+      .fb-share-button {
+        bottom:5px;
+        margin-right:20px;
+      }
+    }
   }
 
   #privacy-policy {
-    margin-bottom: 10px;
-    color: $white;
+    position: absolute;
+    bottom: 22px;
+    left: 50vw;
+    width: 300px;
+    margin-left: -150px;
+    text-align: center;
+    p {
+      font-size: .75em;
+    }
   }
 
   #hack-for-LA-logo {
