@@ -4,16 +4,12 @@ import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from 'services/mapbox';
+import queryString from 'query-string';
+import api from 'services/api';
 
 class HomeMapSearch extends React.Component {
   componentDidMount() {
-    const {
-      addSearch,
-      history,
-    } = this.props;
-
-    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
@@ -23,10 +19,21 @@ class HomeMapSearch extends React.Component {
 
     geocoder.addTo('#geocoder');
     geocoder.setPlaceholder('Enter an address or ZIP');
-    geocoder.on('result', ({ result }) => {
-      addSearch(result);
-      history.push('/map');
-    });
+    geocoder.on('result', this.handleGeocodeResult);
+  }
+
+  handleGeocodeResult = async ({ result }) => {
+    const { history } = this.props;
+    const [lon, lat] = result.center;
+    const jurisdictions = await api.getJurisdictions(lon, lat);
+
+    if (jurisdictions.length === 1) {
+      const { id: jid } = jurisdictions[0];
+      const query = queryString.stringify({ jid, lon, lat });
+      history.push(`/map?${query}`);
+    } else {
+      history.push('/error'); // TODO: figure out what route to go to
+    }
   }
 
   render() {

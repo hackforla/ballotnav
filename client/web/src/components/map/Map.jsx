@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addSearch } from '../../redux/actions/search.js';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { styleUrl } from 'services/mapbox';
+import queryString from 'query-string';
+import api from 'services/api';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -28,19 +30,11 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    const {
-      search,
-      addSearch,
-    } = this.props;
-
-    // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    mapboxgl.accessToken = 'pk.eyJ1Ijoib2tkdW5jYW4iLCJhIjoiY2tnYnk5MGNwMGxydjJ6cXFhOGoxdTBzMCJ9.cFaN1ASx3IKkh1RnofRGpw';
-
-    const center = (search ? search.center : [-87.6244, 41.8756]);
+    const { center } = this.props;
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/okduncan/ckglh4q9b07ug19qkg2je0mxl',
+      style: styleUrl,
       center: center,
       zoom: 13,
     });
@@ -55,14 +49,36 @@ class Map extends React.Component {
       mapboxgl: mapboxgl,
       marker: false,
       countries: 'us',
-      types: 'address, neighborhood, locality, place, district, postcode'
+      types: 'address, neighborhood, locality, place, district, postcode',
+      flyTo: false,
+      clearOnBlur: true,
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(this.map));
 
     geocoder.on('result', ({ result }) => {
-      addSearch(result);
+      geocoder.clear()
+      this.handleGeocodeResult({ result})
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.center !== prevProps.center)
+      this.map.setCenter(this.props.center);
+  }
+
+  handleGeocodeResult = async ({ result }) => {
+    const { history } = this.props;
+    const [lon, lat] = result.center;
+    const jurisdictions = await api.getJurisdictions(lon, lat);
+
+    if (jurisdictions.length === 1) {
+      const { id: jid } = jurisdictions[0];
+      const query = queryString.stringify({ jid, lon, lat });
+      history.push(`/map?${query}`);
+    } else {
+      history.push('/error'); // TODO: figure out what route to go to
+    }
   }
 
   initLayers = () => {
