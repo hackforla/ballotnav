@@ -14,7 +14,7 @@ const CountyInfo = ({
     name: stateName,
     isLateRegistrationPossible: lateRegistration,
     urls: stateUrls,
-    importantdates: stateImportantDates,
+    importantDates: stateImportantDates,
   } = data.stateData;
 
   const {
