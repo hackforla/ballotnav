@@ -1,0 +1,351 @@
+﻿county,location_type,location_name1,location_name2,address_1,address_2,zip,city,note,schedule_date,schedule_type
+Atlantic County,Unknown,Absecon,Absecon Municipal Bldg,500 Mill Rd,,8201,Absecon ,Drop box is located in Heritage Park by the entrance to the municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Atlantic City,Atlantic County Office Bldg,1333 Atlantic Ave,,8401,Atlantic City ,Drop box is located in Police & Firemen Plaze between City Hall & County Office Building,10/5/2020,continuous
+Atlantic County,Unknown,Brigantine,Brigantine City Municipal Hall,1417 W. Brignatine Blvd,,8203,Brigantine ,Drop box is located at front entrance of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Buena Vista Twp,Buena Vista Twp Municipal Hall,890 Harding Hwy,,8310,Buena Vista Twp ,Drop box is located on side of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Egg Harbor Twp,Egg Harbor Twp Municipal Hall,3515 Bargaintown Rd,,8234,Egg Harbor Twp ,Drop box is located in front of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Egg Harbor Twp,Egg Harbor Twp Community Center,5045 English Creek Ave,,8234,Egg Harbor Twp ,Drop box is located in front of the Community Center,10/5/2020,continuous
+Atlantic County,Unknown,Galloway Twp,Galloway Twp Municipal Hall,300 E Jimmie Leeds Rd,,8205,Galloway Twp ,Drop box is located on left side of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Mays Landing,Hamilton Twp Historic Court House,5901 Main St,,8330,Mays Landing ,Drop box is located In front of Historic Court House,10/5/2020,continuous
+Atlantic County,Unknown,Hammonton,Hammonton Municipal Hall,100 Central Ave,,8037,Hammonton ,Drop box is located on right side of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Northfield,Northfield Municipal Hall,1600 Shore Rd,,8225,Northfield ,Drop box is located in front of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Pleasantville,Pleasantville Municipal Hall,18 N. First St,,8232,Pleasantville ,Drop box is located in front of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Somers Point,Somers Point Municipal Hall,1 West Jersey Ave,,8244,Somers Point ,Drop box is located in front of municipal building,10/5/2020,continuous
+Atlantic County,Unknown,Ventnor,Ventnor Municipal Hall,6201 Atlantic Ave,,8406,Ventnor ,Drop box is located in front of municipal building,10/5/2020,continuous
+Bergen County,Unknown,Bergenfield,Borough Hall,198 North Washington Ave,,7621,Bergenfield ,In rear of Borough Hall,9/25/2020,continuous
+Bergen County,Unknown,Demarest,Borough Hall,118 Serpentine Road,,7627,Demarest ,,9/25/2020,continuous
+Bergen County,Unknown,Englewood,City Hall,2-10 North Van Brunt Street,,7631,Englewood ,,9/25/2020,continuous
+Bergen County,Unknown,Fair Lawn,Borough Hall,8-01 Fair Lawn Avenue,,7410,Fair Lawn ,Behind Borough Hall,9/25/2020,continuous
+Bergen County,Unknown,Fort Lee,Fort Lee Community Ctr.,1355 Inwood Terrace/Anderson Ave Circular Dr.,,7024,Fort Lee ,,9/25/2020,continuous
+Bergen County,Unknown,Hackensack,County Administration Building,One Bergen County Plaza,,7601,Hackensack ,,9/25/2020,continuous
+Bergen County,Unknown,Hasbrouck Heights,Borough Hall,320 Boulevard,,7604,Hasbrouck Heights ,Behind Borough Hall,9/25/2020,continuous
+Bergen County,Unknown,Hillsdale,Borough Hall,380 Hillsdale Avenue,,7642,Hillsdale ,Borough Hall parking lot,9/25/2020,continuous
+Bergen County,Unknown,North Arlington,Borough Hall,214 Ridge Road,,7031,North Arlington ,,9/25/2020,continuous
+Bergen County,Unknown,Oakland,Borough Hall,One Municipal Plaza,,7436,Oakland ,Across from Library,9/25/2020,continuous
+Bergen County,Unknown,Old Tappan,Borough Hall,227 Old Tappan Road,,7675,Old Tappan ,,9/25/2020,continuous
+Bergen County,Unknown,Paramus,Borough Hall,1 Jockish Square,,7652,Paramus ,Outside main entrance,9/25/2020,continuous
+Bergen County,Unknown,Ramsey,Library,30 Wyckoff Ave,,7446,Ramsey ,Rear of Library,9/25/2020,continuous
+Bergen County,Unknown,Ridgefield,Ridgefield Community Ctr.,725 Slocum Avenue,,7657,Ridgefield ,,9/25/2020,continuous
+Bergen County,Unknown,Ridgewood,Village Hall,131 North Maple Avenue,,7450,Ridgewood ,,9/25/2020,continuous
+Bergen County,Unknown,Rutherford,Borough Hall,176 Park Avenue,,7070,Rutherford ,,9/25/2020,continuous
+Bergen County,Unknown,Teaneck,Municipal Building,818 Teaneck Road,,7666,Teaneck ,North entrance,9/25/2020,continuous
+Bergen County,Unknown,Wyckoff,Municipal Building,340 Franklin Avenue,,7481,Wyckoff ,,9/25/2020,continuous
+Burlington County,Unknown,Burlington Township,Burlington Township Municipal Building,851 Old York Road,,8060,Burlington Township ,In the rear of building,10/1/2020,continuous
+Burlington County,Unknown,Chesterfield,Chesterfield Township Municipal Building,295 Bordentown Chesterfield Rd,,8515,Chesterfield ,in front of building,6/23/2020,continuous
+Burlington County,Unknown,Cinnaminson,Cinnaminson Township Municipal Building,1621 Riverton Road,,8075,Cinnaminson ,In front of building,6/23/2020,continuous
+Burlington County,Unknown,Evesham,Evesham Township Municipal Building,984 Tuckerton Road,,8053,Marlton ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Lumberton,Lumberton Townhip Municipal Building,35 Municipal Drive,,8048,Lumberton ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Mansfield,Mansfield Township Municipal Building,3135 Route 206 South,,8022,Columbus ,in front of building,6/23/2020,continuous
+Burlington County,Unknown,Maple Shade,Maple Shade Municipal Building,200 Stiles Ave.,,8052,Maple Shade ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Medford Township,Medford Township Public Safety Building,91 Union Street,,8055,Medford ,in front of building,6/23/2020,continuous
+Burlington County,Unknown,Moorestown,Moorestown Town Hall,111 W 2nd Street,,8057,Moorestown ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Mount Holly,Burlington County Board of Elections,50 Rancocas Road,,8060,Mount Holly ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Mount Laurel,Mount Laurel Municipal Building,100 Mount Laurel Rd,,8054,Mt. Laurel ,in front of building,10/1/2020,continuous
+Burlington County,Unknown,Pemberton Township,Pemberton Community Library,16 Broadway St,,8068,Browns Mills ,in front of building,6/23/2020,continuous
+Burlington County,Unknown,Willingboro,Willingboro Township Municipal Complex,1 Rev Dr. Martin Luther King Jr. Dr.,,8046,Willingboro ,in front of building,10/1/2020,continuous
+Camden County,Unknown,Audubon,Audubon Municipal Building,606 West Nicholson Road,,8106,Audubon ,Front of building,9/24/2020,continuous
+Camden County,Unknown,Camden,Camden Administration Building,600 Market Street,,8101,Camden ,Outside of old serrogates office entrance,9/24/2020,continuous
+Camden County,Unknown,Cherry Hill,"Camden County College, CH Campus",1889 Marlton Pike East,,8002,Cherry Hill ,Parking lot,9/24/2020,continuous
+Camden County,Unknown,Cherry Hill,Cherry Hill Municipal Building,820 Mercer Street,,8002,Cherry Hill ,Driveway in front of main entrance,9/24/2020,continuous
+Camden County,Unknown,Clementon,Gloucester Twp. Municipal Building,1261 Chews Landing Road,,8021,Clementon ,Front of building,9/24/2020,continuous
+Camden County,Unknown,Haddon Township,Haddon Twp. Municipal Building,135 Haddon Avenue,,8108,Haddon Township ,Front of building,9/24/2020,continuous
+Camden County,Unknown,Lindenwold,Lindenwold Municipal Building,15 N. White Horse Pike,,8021,Lindenwold ,Left side of driveway by exit,9/24/2020,continuous
+Camden County,Unknown,Pennsauken,Pennsauken Municipal Building,5604 N. Cresent Blvd.,,8110,Pennsauken ,"Back of building, parking lot",9/24/2020,continuous
+Camden County,Unknown,Runnemede,Runnemede Municipal Building,24 N. Black Horse Pike,,8078,Runnemede ,In front of handicap parking area,9/24/2020,continuous
+Camden County,Unknown,Voorhees,Voorhees Municipal Building,2400 Voorhees Towne Center,,8043,Voorhees ,By main entrance,9/24/2020,continuous
+Camden County,Unknown,Waterford Works,Chesilhurst Municipal Building,201 Grant Avenue,,8090,Waterford Works ,Front of building,9/24/2020,continuous
+Camden County,Unknown,West Berlin,Berlin Twp. Municipal Building,135 Route 73 South,,8091,West Berlin ,"Back of building, payment drive thru",9/24/2020,continuous
+Camden County,Unknown,Winslow Twp.,Winslow Municipal Building,125 S. Route 73,,8037,Winslow Twp. ,In front of handicap parking area,9/24/2020,continuous
+Cape May County,Unknown,Cape May,Cape May Municipal Hall,643 Washington ave,,8204,Cape May ,Drop box is located by The side of building,6/30/2020,continuous
+Cape May County,Unknown,CMCH,County Clerks office,MAIN STREET RT9,,8210,CMCH ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,Erma,Lower twp. Public saftey building,405 Breakwater rd,,8204,Erma ,Drop box is located by the entrance to the court,6/30/2020,continuous
+Cape May County,Unknown,Ocean City,Ocean City City Hall,861 Asbury Avenue,,8226,Ocean City ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,SEA ISLE CITY,SEA ISLE CITY LIBRARY,4800 CENTRAL AVE,,8243,SEA ISLE CITY ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,STONE HARBOR,STONE HARBOR LIBRARY,9516 2nd AVE,,8247,STONE HARBOR ,Drop box is located by The side of building,6/30/2020,continuous
+Cape May County,Unknown,UPPER TWP,COUNTY PUBLIC WORKS,536 WOODBINE OCEAN VIEW ROAD,,8230,DENNIS TWP ,Drop box is located in the parking lot,6/30/2020,continuous
+Cape May County,Unknown,UPPER TWP,UPPER TWP. MUNICPAL HALL,2100 Tuckahoe road,,8270,UPPER TWP ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,VILLAS,Lower twp. Municipal hall,2600 BAYSHORE RD,,8251,VILLAS ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,Whitesboro,Martin Luther King Center,207 W. main street,,8252,Whitesboro ,Drop box is located by the entrance,6/30/2020,continuous
+Cape May County,Unknown,Wildwood,Wildwood Municipal Hall,4400 New Jersey ave,,8260,Wildwood ,Drop box is located by The side of building,6/30/2020,continuous
+Cumberland County,Unknown,Bridgeton,Bridgeton City Hall,181 East Commerce Street,,8302,Bridgeton ,Drop box located near side entrance,9/28/2020,continuous
+Cumberland County,Unknown,Bridgeton,Cumberland County Library,800 East Commerce Street,,8302,Bridgeton ,Drop box located near entrance,9/28/2020,continuous
+Cumberland County,Unknown,Bridgeton,Deerfield Municipal Building,736 Landis Avenue,,8302,Bridgeton ,Drop box located on the east side of building,9/28/2020,continuous
+Cumberland County,Unknown,Bridgeton,Hopewell Municipal Building,590 Shiloh Pike,,8302,Bridgeton ,Drop box located near entrance,9/28/2020,continuous
+Cumberland County,Unknown,Leesburg,Maurice River Municipal Building,590 Main Street,,8327,Leesburg ,Drop box located near entrance,9/28/2020,continuous
+Cumberland County,Unknown,Millville,City of Millville Municipal Building,12 South High Street,,8332,Millville ,Drop box located near entrance,9/28/2020,continuous
+Cumberland County,Unknown,Port Norris,Commercial Township Municipal Building,1768 Main Street,,8349,Port Norris ,Drop box located near entrance,9/28/2020,continuous
+Cumberland County,Unknown,Seabrook,Upper Deerfield Municipal Building,1325 Highway 77,,8302,Seabrook ,Drop box located near rear entrance,9/28/2020,continuous
+Cumberland County,Unknown,Vineland,CCTEC,3400 College Drive,,8360,Vineland ,Drop box located near gymnasium entrance,9/28/2020,continuous
+Cumberland County,Unknown,Vineland,Cumberland County Board of Social Services,275 North Delsea Drive,,8360,Vineland ,Drop box across from side entrance,9/28/2020,continuous
+Cumberland County,Unknown,Vineland,Vineland City Hall,640 East Wood Street,,8360,Vineland ,Drop box located on sidewalk near front of building,9/28/2020,continuous
+Essex County,Unknown,Belleville,Police Department/Town Hall,152 Washington Ave,,7109,Belleville ,Drop Box is located by the entrance to the Parking Lot,9/29/2020,continuous
+Essex County,Unknown,Bloomfield,Firehouse #3,124 East Passaic Avenue,,7003,Bloomfield ,,9/29/2020,continuous
+Essex County,Unknown,Caldwell,Town Hall,1 Provost Square,,7006,Caldwell ,,9/29/2020,continuous
+Essex County,Unknown,Cedar Grove,Department of Public Works,99 West Bradford Ave,,7009,Cedar Grove ,,9/29/2020,continuous
+Essex County,Unknown,East Orange,City Hall,44 City Hall Plaza,,7018,East Orange ,,9/29/2020,continuous
+Essex County,Unknown,Essex Fells,Municipal Building (Rear),255 Roseland Ave,,7021,Essex Fells ,Drop Box is located in the rear of the building,9/29/2020,continuous
+Essex County,Unknown,Fairfield,Police Department (Front),230 Fairfield Road,,7004,Fairfield ,Drop Box is located in the front of the building,9/29/2020,continuous
+Essex County,Unknown,Glen Ridge,Municipal Building,825 Bloomfield Ave,,7028,Glen Ridge ,,9/29/2020,continuous
+Essex County,Unknown,Irvington,Town Hall/Police Department,1 Civic Square,,7111,Irvington ,,9/29/2020,continuous
+Essex County,Unknown,Livingston,Town Hall,357 S. Livingston Ave,,7039,Livingston ,,9/29/2020,continuous
+Essex County,Unknown,Maplewood,Police & Court Building,1618 Springfield Ave,,7040,Maplewood ,,9/29/2020,continuous
+Essex County,Unknown,Millburn,Town Hall,375 Millburn Ave,,7041,Millburn ,,9/29/2020,continuous
+Essex County,Unknown,Montclair,Municipal Building,205 Claremont Ave,,7042,Montclair ,,9/29/2020,continuous
+Essex County,Unknown,North Caldwell,Borough Hall,141 Gould Ave,,7006,North Caldwell ,,9/29/2020,continuous
+Essex County,Unknown,Newark,City Hall,920 Broad Street,,7102,Newark ,Drop Box is located on the Green Street Side,9/29/2020,continuous
+Essex County,Unknown,Newark,Hall of Records,465 Dr. MLK Jr. Blvd,,7102,Newark ,Drop Box is located in the front of the building,9/29/2020,continuous
+Essex County,Unknown,Nutley,Town Hall,1 Kennedy Drive,,7110,Nutley ,,9/29/2020,continuous
+Essex County,Unknown,Orange,Freddie Pohill Law & Justice Complex,29 Park Street,,7050,Orange ,,9/29/2020,continuous
+Essex County,Unknown,Roseland,Police Station,15 Harrison Ave,,7068,Roseland ,,9/29/2020,continuous
+Essex County,Unknown,South Orange,Firehouse,56 Sloan Street,,7079,South Orange ,Drop Box located at the Gazebo,9/29/2020,continuous
+Essex County,Unknown,Verona,Civic Center,600 Bloomfield Ave,,7044,Verona ,,9/29/2020,continuous
+Essex County,Unknown,West Caldwell,Municipal Building,30 Clinton Road,,7006,West Caldwell ,,9/29/2020,continuous
+Essex County,Unknown,West Orange,South Mountain Recreation Complex,560 Northfield Ave.,,7052,West Orange ,Drop Box location is by the Parking Deck,9/29/2020,continuous
+Essex County,Unknown,West Orange,Town Hall,66 Main Street,,7052,West Orange ,,9/29/2020,continuous
+Gloucester County,Unknown,Clayton,Clayton Complex,1200 N Delsea Drive,,8312,Clayton ,,10/2/2020,continuous
+Gloucester County,Unknown,Deptford,Deptford Municipal Building,1011 Cooper Street,,8096,Deptford ,,10/2/2020,continuous
+Gloucester County,Unknown,Franklin,Franklin Municipal Building,1571 Delsea Drive,,8322,Franklin ,,10/2/2020,continuous
+Gloucester County,Unknown,Glassboro,Glassboro Municipal Building,1 S. Main Street,,8028,Glassboro ,,10/2/2020,continuous
+Gloucester County,Unknown,Mantua,Mantua Municipal Building,401 Main St.,,8051,Mantua ,,10/2/2020,continuous
+Gloucester County,Unknown,Mullica Hill,Harrison Township Municipal Building,114 Bridgeton Pike,,8062,Mullica Hill ,,10/2/2020,continuous
+Gloucester County,Unknown,Paulsboro,Paulsboro Municipal Building,1211 Delaware Street,,8066,Paulsboro ,,10/2/2020,continuous
+Gloucester County,Unknown,Sewell,Gloucester County Division Of Social Services,400 Holly Dell Dr,,8080,Sewell ,,10/2/2020,continuous
+Gloucester County,Unknown,Woolwich Twp,Woolwich Municipal Building,120 Village Green Drive,,8085,Woolwich Twp ,,10/2/2020,continuous
+Gloucester County,Unknown,Washington Twp,Washington Township Municipal Building,523 Egg Harbor Rd,,8080,Sewell ,,10/2/2020,continuous
+Gloucester County,Unknown,West Deptford,Office of Elections,550 Grove Rd,,8066,West Deptford ,,10/2/2020,continuous
+Gloucester County,Unknown,Williamstown,Monroe Municipal Building,125 Virginia Ave,,8094,Williamstown ,,10/2/2020,continuous
+Gloucester County,Unknown,Woodbury,Gloucester County Admin Building,2 S Broad St,,8096,Woodbury ,,10/2/2020,continuous
+Hudson County,Unknown,Bayonne,City hall,630 Ave C,,7002,Bayonne ,In the front of building,10/05/2020,continuous
+Hudson County,Unknown,East Newark,Municipal Building,34 Sherman Ave,,7029,East Newark ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Guttenberg,Town Hall,6808 Park Ave,,7093,Guttenberg ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Harrison,Town Hall,318 Harrison Ave,,7029,Harrison ,Police Dept Entrance on Cleveland Ave,10/05/2020,continuous
+Hudson County,Unknown,Hoboken,City Hall,94 Washington St,,7030,Hoboken ,Newark street (side of building),9/24/2020,continuous
+Hudson County,Unknown,Jersey City,Earl Morgan Library,1841 Kennedy Blvd,,7305,Jersey City ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Jersey City,St Peters University,2641 Kennedy Blvd,,7306,Jersey City ,Corner of Montgomery St & Kennedy Blvd,10/05/2020,continuous
+Hudson County,Unknown,Jersey City,Hudson County Plaza,257 Cornelison Ave,,7302,Jersey City ,Corner of Cornelison & Academy St,10/05/2020,continuous
+Hudson County,Unknown,Jersey City,North Dist Police Headquarters,282 Central Ave,,7307,Jersey City ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Jersey City,City Hall,280 Grove St,,7302,Jersey City ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Jersey City,City Hall Annex,1 Jackson Square,,7306,Jersey City ,Municipal Complex,9/24/2020,continuous
+Hudson County,Unknown,Kearny,Town Hall,402 Kearny Ave,,7032,Kearny ,In front of building,9/24/2020,continuous
+Hudson County,Unknown,North Bergen,Town Hall,4233 Kennedy Blvd,,7047,North Bergen ,Municipal Chambers Entrance,9/24/2020,continuous
+Hudson County,Unknown,Secaucus,Town Hall,1203 Paterson Plank Road,,7094,Secaucus ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,Union City,City Hall,3715 Palisade Ave,,7087,Union City ,In front of building,9/24/2020,continuous
+Hudson County,Unknown,Weehawken,Municipal Building,400 Park Ave,,7086,Weehawken ,In front of building,10/05/2020,continuous
+Hudson County,Unknown,West New York,Town Hall,428 60th St,,7093,West New York ,In front of building,10/05/2020,continuous
+Hunterdon County,Unknown,Annandale,Public Safety Building,1370 State Route 31N,,8801,Annandale ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Califon,Tewksbury Township Municipal Building,169 Old Turnpike Rd,,7830,Califon ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Clinton,North Branch County Library,65 Halstead St,,8809,Clinton ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Flemington,County Clerk's Office,71 Main Street,Hall of Records Bldg,8822,Flemington ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Flemington,Hunterdon County Public Library,314 State Route 12,Bldg 3,8822,Flemington ,next to main entrance,9/14/2020,continuous
+Hunterdon County,Unknown,Glen Gardner,Glen Gardner Borough Hall,83 Main St,,8826,Glen Gardner ,next to main entrance,9/14/2020,continuous
+Hunterdon County,Unknown,Glen Gardner,Lebanon Township Municipal Building,530 W Hill Rd,,8826,Glen Gardner ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Hampton,Union Township Municipal Building,140 Perryville Rd,,8827,Hampton ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Lambertville,Phillip L. Pittore Justice Center,25 S Union St,,8530,Lambertville ,next to main entrance,9/14/2020,continuous
+Hunterdon County,Unknown,Milford,Holland Township Municipal Building,61 Church Rd,,8848,Milford ,next to main entrance,9/14/2020,continuous
+Hunterdon County,Unknown,Pittstown,Franklin Township Municipal Building,202 Sidney Rd,,8867,Pittstown ,next to main entrance,10/01/2020,continuous
+Hunterdon County,Unknown,Whitehouse Station,Readington Township Municipal Building,508 County Rd 523,,8889,Whitehouse Station ,next to main entrance,9/14/2020,continuous
+Mercer County,Unknown,EAST WINDSOR,EAST WINDSOR COURTHOUSE-POLICE STATION,80 ONE MILE ROAD,,8520,EAST WINDSOR ,DROP BOX IS LOCATED BY THE COURTHOUSE ENTRANCE,9/28/2020,continuous
+Mercer County,Unknown,EWING,EWING MUNICIPAL BUILDING,2 JAKE GARZIO DRIVE,,8628,EWING ,IN FRONT OF MUNICIPAL BUILDING,9/28/2020,continuous
+Mercer County,Unknown,HAMILTON,HAMILTON GOLF/CALL CENTER,5 JUSTICE SAMUEL A. ALITO WAY,,8619,HAMILTON ,IN FRONT OF GOLF/CALL CENTER,9/28/2020,continuous
+Mercer County,Unknown,HAMILTON,HAMILTON MUNICIPAL BUILDING,2090 GREENWOOD AVE.,,8609,HAMILTON ,RIGHT SIDE OF THE BUILDING,9/28/2020,continuous
+Mercer County,Unknown,HAMILTON,NOTTINGHAM FIREHOUSE,200 MERCER STREET,,8690,HAMILTON ,FRONT OF THE BUILDING,9/28/2020,continuous
+Mercer County,Unknown,HIGHTSTOWN,HIGHTSTOWN FIREHOUSE #1,140 NORTH MAIN STREET,,8520,HIGHTSTOWN ,FRONT OF BUILDING,9/28/2020,continuous
+Mercer County,Unknown,LAWRENCE,LAWRENCE MUNICIPAL BUILDING,"2207 LAWRENCEVILLE ROAD, ROUTE 206",,8648,LAWRENCE ,NORTH SIDE- RIGHT SIDE OF THE MUNICIPAL BUILDING,9/28/2020,continuous
+Mercer County,Unknown,PRINCETON,PRINCETON MUNICIPAL BUILDING,400 WITHERSPOON STREET,,8540,PRINCETON ,IN FRONT OF THE MUNICIPAL BUILDING FACING WITHERSPOON ST.,9/28/2020,continuous
+Mercer County,Unknown,ROBBINSVILLE,ROBBINSVILLE MUNICIPAL BUILDING,2298 NJ-ROUTE 33,,8691,ROBBINSVILLE ,IN BACK PARKING LOT OF MUNICIPAL BUILDING,9/28/2020,continuous
+Mercer County,Unknown,TITUSVILLE,HOPEWELL TOWNSHIP ADMINISTRATION BLDG.,201 WASHINGTON CROSSING-PENNINGTON RD.,,8560,TITUSVILLE ,AT THE INTERSECTION OF SCOTCH ROAD,9/28/2020,continuous
+Mercer County,Unknown,TRENTON,COUNTY CLERK'S OFFICE-COURTHOUSE ANNEX,209 SOUTH BROAD STREET,,8608,TRENTON ,IN FRONT OF COUNTY CLERKS OFFICE,9/28/2020,continuous
+Mercer County,Unknown,TRENTON,TRENTON CITY HALL,319 EAST STATE STREET,,8608,TRENTON ,IN BACK/NEAR MUNICIPAL CLERKS OFFICE,9/28/2020,continuous
+Mercer County,Unknown,TRENTON,HENRY J. AUSTIN CENTER,321 NORTH WARREN STREET,,8618,TRENTON ,CORNER OF TUCKER,9/28/2020,continuous
+Mercer County,Unknown,TRENTON,TRENTON CENTRAL HIGH,400 CHAMBERS STREET,,8609,TRENTON ,ACROSS FROM MCDONALD'S,9/28/2020,continuous
+Mercer County,Unknown,WEST WINDSOR,WEST WINDSOR MUNICIPAL COMPLEX,271 CLARKSVILLE ROAD,,8550,WEST WINDSOR ,BETWEEN MUNICIPAL & THE SENIOR CENTER,9/28/2020,continuous
+Middlesex County,Unknown,Carteret ,Thomas Deverin Community Center,100 Cooke Avenue,,7008,Carteret ,Inside the vestibule of the building,9/23/2020,continuous
+Middlesex County,Unknown,Cranbury ,Cranbury Police Department,1 Logan Drive,,8512,Cranbury ,In front of police station,9/23/2020,continuous
+Middlesex County,Unknown,Dunellen ,Dunellen Public Library,100 New Market Road,,8812,Dunellen ,On sidewalk near entrance to library,9/23/2020,continuous
+Middlesex County,Unknown,East Brunswick ,East Brunswick Municipal Complex,1 Civic Drive,,8816,East Brunswick ,Drop box located between parking lot and Complex Building; by police the entrance.,9/23/2020,continuous
+Middlesex County,Unknown,Edison ,Edison Municipal Complex,100 Municipal Boulevard,,8817,Edison ,Drop Box located outside Municipal Complex entrance under awning.,9/23/2020,continuous
+Middlesex County,Unknown,Edison ,North Edison Library,777 Grove Ave,,8820,Edison ,Drop box located in front of library.,9/23/2020,continuous
+Middlesex County,Unknown,Edison ,Middlesex County College – College Center,2600 Woodbridge Avenue,,8818,Edison ,Drop box located by the flag pole.,9/23/2020,continuous
+Middlesex County,Unknown,Helmetta ,Helmetta Borough Hall,51 Main Street,,8828,Helmetta ,In front of borough hall,9/23/2020,continuous
+Middlesex County,Unknown,Highland Park ,Highland Park Borough Hall,221 South Fifth Avenue,,8894,Highland Park ,In front of borough hall,9/23/2020,continuous
+Middlesex County,Unknown,Jamesburg ,Jamesburg Municipal Complex,131 Perrineville Road,,8831,Jamesburg ,"Drop box located within the parking lot, in the Safe Zone",9/23/2020,continuous
+Middlesex County,Unknown,Metuchen ,Metuchen Municipal Complex,500 Main Street,,8840,Metuchen ,Drop box located in back of parking lot.,9/23/2020,continuous
+Middlesex County,Unknown,Middlesex Borough ,Middlesex Borough Hall,1200 Mountain Avenue,,8846,Middlesex Borough ,In the rear of townhall,9/23/2020,continuous
+Middlesex County,Unknown,Milltown ,Milltown Municipal Complex,39 Washington​ Avenue,,8850,Milltown ,Drop box located at beginning of side entrance accessible from the parking lot. Slated as Safe Exchange Zone,9/23/2020,continuous
+Middlesex County,Unknown,Monroe ,Monroe Township Library,4 Municipal Plaza,,8831,Monroe ,Right of the entrance to the library,9/23/2020,continuous
+Middlesex County,Unknown,New Brunswick ,County Administration Building,75 Bayard Street,,8901,New Brunswick ,Drop box located in front of Bayard Street front entrance.,9/23/2020,continuous
+Middlesex County,Unknown,New Brunswick ,The Yard at Rutgers University,40 College Ave,,8901,New Brunswick ,To the right of the bus stop ny the street.,9/23/2020,continuous
+Middlesex County,Unknown,North Brunswick ,North Brunswick Township Hall,710 Hermann Road,,8902,North Brunswick ,In front of townhall,9/23/2020,continuous
+Middlesex County,Unknown,Old Bridge ,Old Bridge Township Municipal Complex,1 Old Bridge Plaza,,8857,Old Bridge ,On the sidewalk nearest the curb in front of municipal building,9/23/2020,continuous
+Middlesex County,Unknown,Perth Amboy ,Perth Amboy Public Safety Complex,361 New Brunswick Avenue,,8861,Perth Amboy ,Drop box located between Municipal Court and Police Station; closer to police station entrance.,9/23/2020,continuous
+Middlesex County,Unknown,Piscataway ,Piscataway Municipal Complex​,455 Hoes Lane,,8854,Piscataway ,Drop box located on walkway between municipal building and police station,9/23/2020,continuous
+Middlesex County,Unknown,Piscataway ,Westergard Library,20 Murray Ave,,8854,Piscataway ,Drop box located in front of library.,9/23/2020,continuous
+Middlesex County,Unknown,Piscataway ,Westergard Library,20 Murray Ave,,8854,Piscataway ,Drop box located in front of library.,9/23/2020,continuous
+Middlesex County,Unknown,Plainsboro ,Plainsboro Municipal Complex,641 Plainsboro Road,,8856,Plainsboro ,Drop box located in front of stairs to Municipal Building,9/23/2020,continuous
+Middlesex County,Unknown,Sayreville ,Sayreville Borough Hall,167 Main Street,,8872,Sayreville ,"Drop box located behind building, on the sidewalk (right side when facing the building)",9/23/2020,continuous
+Middlesex County,Unknown,South Amboy ,South Amboy Train Station,137 N. Broadway,,8879,South Amboy ,On the curb in front of the train station across from townhall,9/23/2020,continuous
+Middlesex County,Unknown,South Brunswick ,South Brunswick Municipal Building,540 Ridge Road,,8852,South Brunswick ,In front of main building to the right of visitor parking,9/23/2020,continuous
+Middlesex County,Unknown,South Brunswick ,South Brunswick Community Center (Woodlot Park),124 New Road,Monmouth Junction,8852,South Brunswick ,Drop box located at walkway to front entrance.,9/23/2020,continuous
+Middlesex County,Unknown,South Plainfield ,South Plainfield Borough Hall,2480 Plainfield Avenue,,7080,South Plainfield ,Rear of municipal building,9/23/2020,continuous
+Middlesex County,Unknown,South River ,South River Administration Building,48 Washington Street,,8882,South River ,In front of administration building,9/23/2020,continuous
+Middlesex County,Unknown,Spotswood ,Spotswood Municipal Building,77 Summerhill Road,,8884,Spotswood ,In front of townhall,9/23/2020,continuous
+Middlesex County,Unknown,Woodbridge ,Woodbridge Municipal Building,1 Main Street,,7095,Woodbridge ,Drop Box is curbside. Adjacent to north side of main entrance stairs to town hall.,9/23/2020,continuous
+Monmouth County,Unknown,Aberdeen,Aberdeen Municipal Building,1 Aberdeen Square,,O7747,Aberdeen ,,9/25/2020,continuous
+Monmouth County,Unknown,Allentown,Allentown Borough Hall,8 North Main St.,,O8501,Allentown ,Front entrance,9/25/2020,continuous
+Monmouth County,Unknown,Asbury Park,Asbury Park City Hall,1 Municipal Plaza,,O7712,Asbury Park ,City Council Chambers (Bangs Avenue Entrance),9/25/2020,continuous
+Monmouth County,Unknown,Belmar,Borough of Belmar Municipal Bldg.,601 Main Street,,O7719,Belmar ,,9/25/2020,continuous
+Monmouth County,Unknown,Eatontown,Eatontown Borough Municipal Bldg.,47 Broad Street,,O7724,Eatontown ,Rear entrance,9/25/2020,continuous
+Monmouth County,Unknown,Freehold,Special Services Complex Bldg.,300 Halls Mill Rd.,,O7728,Freehold ,Side entrance,9/25/2020,continuous
+Monmouth County,Unknown,Hazlet,Hazlet Agency - NJ MVC Airport,1374 Highway 36,,O7730,Hazlet ,Airport Plaza,9/25/2020,continuous
+Monmouth County,Unknown,Howell,Howell Twp. Municipal Bldg.,4567 Route 9 North,,O7731,Howell ,Rear entrance,9/25/2020,continuous
+Monmouth County,Unknown,Long Branch,Long Branch City Hall,344 Broadway,,O7740,Long Branch ,,9/25/2020,continuous
+Monmouth County,Unknown,Manalapan,Manalapan Twp. Municipal Bldg.,120 Rd 522,,O7726,Manalapan ,Front entrance,9/25/2020,continuous
+Monmouth County,Unknown,Middletown,Middletown Twp. Municipal Bldg.,1 Kings Hwy.,,O7748,Middletown ,,9/25/2020,continuous
+Monmouth County,Unknown,Middletown,Croydon Hall,900 Leaonardville Rd.,,O7748,Middletown ,,9/25/2020,continuous
+Monmouth County,Unknown,Neptune,Neptune Twp. Municipal Building,25 Neptune Blvd.,,O7753,Neptune ,Library entrance,9/25/2020,continuous
+Monmouth County,Unknown,Oakhurst,Ocean Township Town Hall,399 Monmouth Rd.,,O7755,Oakhurst ,,9/25/2020,continuous
+Monmouth County,Unknown,Red Bank,Red Bank Borough Municipal Bldg.,90 Monmouth Street,,O7701,Red Bank ,,9/25/2020,continuous
+Monmouth County,Unknown,Rumson,Rumson Borough Hall,80 East River Road,,O7760,Rumson ,Front parking lot,9/25/2020,continuous
+Monmouth County,Unknown,Wall,Wall Township Municipal Building,2700 Allaire Rd.,,O7719,Wall ,,9/25/2020,continuous
+Morris County,Unknown,Budd Lake,Mount Olive Municipal Building,204 Flanders/Drakestown Rd,,7028,Budd Lake ,Outside - Parking Lot Entrance to Municipal Bldg.,06/19/20,continuous
+Morris County,Unknown,Chester,Chesster Twp Municipal Building,1 Parker Road,,7866,Chester ,Parking Lot by Clothing Drop Box,09/30/20,continuous
+Morris County,Unknown,Denville,Denville Municipal Building,1 St. Mary's Place,,7834,Denville ,Outside - Main Entrance,09/30/20,continuous
+Morris County,Unknown,Dover,Dover Municipal Building,37 N Sussex Street,,7801,"Dover, NJ ",Front of Building,10/19/20,continuous
+Morris County,Unknown,Gillette,Long Hill Town Hall,915 Valley Road,,7933,Gillette ,Side Entrance,09/30/20,continuous
+Morris County,Unknown,Kinnelon,Kinnelon Borough Town Hall,130 Kinnelon Road,,7405,Kinnelon ,Parking Lot - Back Entrance,09/30/20,continuous
+Morris County,Unknown,Ledgewood,Roxbury Township Town Hall,1715 Route 46,,7852,Ledgewood ,Outside Main Entrance,09/30/20,continuous
+Morris County,Unknown,Madison,Public Safety Complex,62 Kings Road,,7940,Madison ,Outside - Commuter Parking Lot 3,06/19/20,continuous
+Morris County,Unknown,Mendham,Mendham Boro Police Department,3 Cold Hill Road - South,,7945,Mendham ,Outside Front Entrance,09/30/20,continuous
+Morris County,Unknown,Montville,Montville Municipal Building,195 Changebridge Road,,7045,Montville ,Outside - Main Entrance,06/19/20,continuous
+Morris County,Unknown,Morristown,County Administration & Records Bldg,10 Court Street,,7960,Morristown ,Outside - Main entrance,06/19/20,continuous
+Morris County,Unknown,Oak Ridge,Jefferson Municipal Building,1033 Weldon Road,,7438,Oak Ridge ,Outside - Main Entrance,09/30/20,continuous
+Morris County,Unknown,Parsippany,Parsippany Municipal Building,1001 Parsippany Blvd,,7054,Parsippany ,Outside Main Entrance - Facing Route 287,09/30/20,continuous
+Morris County,Unknown,Randolph,Randolph Municipal Buiding,502 Millbrook Avenue,,7869,Randolph ,Outside Main Entrance,09/30/20,continuous
+Morris County,Unknown,Rockaway,Rockaway Municipal Building,65 Mount Hope Road,,7866,Rockaway ,Outside - In Front of Municipal Building,06/19/20,continuous
+Morris County,Unknown,Wharton,Wharton Municipal Building,10 Robert Street,,7885,Wharton ,Outside Main Entrance,09/30/20,continuous
+Ocean County,Unknown,Barnegat,Ocean County Library,112 Burr St,,O8005,Barnegat ,Drop box is located by the entrance,9/25/2020,continuous
+Ocean County,Unknown,Beachwood,Ocean County Library,126 Beachwood Blvd,,O8722,Beachwood ,Drop box is located by the entrance,9/24/2020,continuous
+Ocean County,Unknown,Berkeley / Bayville Section,Ocean County Library,30 Station Rd,,O8721,Bayville ,Drop box is located by the entrance,9/24/2020,continuous
+Ocean County,Unknown,Brick,Municipal Building,401 Chambers Bridge Rd,,O8723,Brick ,Drop box is located by the entrance,9/15/2020,continuous
+Ocean County,Unknown,Jackson,Ocean County Library,2 Jackson Dr,,O8527,Jackson ,Drop box is located by the entrance,9/24/2020,continuous
+Ocean County,Unknown,Lacey,Ocean County Library,10 E Lacey Rd,,O8731,Lacey ,Drop box is located by the entrance,9/24/2020,continuous
+Ocean County,Unknown,Lakewood,OC Northern Resource Center,225 4th St,,O8701,Lakewood ,Drop box is located by the entrance,9/15/2020,continuous
+Ocean County,Unknown,Lavallette,Upper Shores Library,112 Jersey City Ave,,O8735,Lavallette ,Drop box is located by the entrance,9/24/2020,continuous
+Ocean County,Unknown,Little Egg Harbor,Ocean County Library,290 Mathistown Rd,,O8087,Little Egg Harbor ,Drop box is located by the entrance,9/25/2020,continuous
+Ocean County,Unknown,Manahawkin,OC Southern Resource Center,179 South Main St,,O8050,Manahawkin ,Drop box is located by the entrance,9/15/2020,continuous
+Ocean County,Unknown,Manchester,Ocean County Library,21 Colonial Dr,,O8759,Manachester ,Drop box is located by the entrance,9/15/2020,continuous
+Ocean County,Unknown,Manchester / Whiting Section,Ocean County Library,400 Lacey Rd,,O8759,Manchester Twp ,Library next to Shop&Stop/Drop box outside of entrance,9/24/2020,continuous
+Ocean County,Unknown,Point Borough,Ocean County Library,834 Beaver Dam Rd,,O8742,Pt. Boro ,Front entrance located off Beaver Dam Road,9/24/2020,continuous
+Ocean County,Unknown,Surf City,LBI Library,217 S Central Ave,,O8008,Surf City ,Drop box is located outside of entrance,9/25/2020,continuous
+Ocean County,Unknown,Toms River,Ocean County Library,101 Washington St,,O8753,Toms River ,Drop box is located outside of Mancini Room,9/24/2020,continuous
+Ocean County,Unknown,Toms River,OC Parking Garage,Madison Ave,,O8754,Toms River ,Drop box 3rd floor of the parking garage,9/15/2020,continuous
+Ocean County,Unknown,Toms River,PIC Building,1959 U.S. 9,,O8755,Toms River ,Drop box is located by the entrance,9/28/2020,continuous
+Passaic County,Unknown,Bloomingdale ,Borough of Bloomingdale,101 Hamburg Tpk,,7403,Bloomingdale ,Back entrance to Borough Hall,10/9/2020,continuous
+Passaic County,Unknown,Clifton ,City of Clifton,900 Clifton Avenue,,7013,Clifton ,Front entrance next to the tax drop box,9/29/2020,continuous
+Passaic County,Unknown,Clifton ,City of Clifton (Community Rec Center),1232 Main Ave,,7011,Clifton ,On sidewalk in front of building,10/9/2020,continuous
+Passaic County,Unknown,Haledon ,Borough of Haledon,510 Belmont Ave,,7508,Haledon ,Outside front door to Municipal Building,9/29/2020,continuous
+Passaic County,Unknown,Hawthorne ,Borough of Hawthorne,445 Lafeyette Ave,,7506,Hawthorne ,Parking lot entrance to Borough Hall,9/29/2020,continuous
+Passaic County,Unknown,Little Falls ,Township of Little Falls,225 Main St,,7424,Little Falls ,Between the Police Station and Municipal Building Entrance,9/29/2020,continuous
+Passaic County,Unknown,North Haledon ,Borough of North Haledon,103 Overlook Avenue,,7508,North Haledon ,Main Entrance to Municipal Building,9/29/2020,continuous
+Passaic County,Unknown,Passaic ,City of Passaic,330 Passaic St,,7055,Passaic ,Main Entramce to Municipal Bui;ding,9/29/2020,continuous
+Passaic County,Unknown,Passaic,Unknown,179 Main Ave,,7055,Passaic ,,10/09/2020,continuous
+Passaic County,Unknown,Paterson,Passaic County Community College,One College Boulevard,,7505,Paterson ,Paterson Campus (Ellison Street side),10/09/2020,continuous
+Passaic County,Unknown,Paterson ,Paterson-County of Passaic Admin Bldg,Corner of Clark St & Degrasse St,,7505,Paterson ,Next to Entrance Door,9/29/2020,continuous
+Passaic County,Unknown,Paterson ,City of Paterson St. Joseph’s Hospital,703 Main St,,7503,Paterson ,Visitor's Entrance Door,10/9/2020,continuous
+Passaic County,Unknown,Pompton Lakes ,Borough of Pompton Lakes,25 Lenox Ave,,7442,Pompton Lakes ,Back Entrance to Municipal Building,9/29/2020,continuous
+Passaic County,Unknown,Prospect Park ,Borough of Prospect Park,106 Brown Avenue,,7508,Prospect Park ,North 10th Street side of the Municipal Building,9/29/2020,continuous
+Passaic County,Unknown,Ringwood ,Borough of Ringwood,60 Margaret King Ave,,7456,Ringwood ,Next to Main Entrance,9/29/2020,continuous
+Passaic County,Unknown,Totowa ,Borough of Totowa,537 Totowa Road,,7512,Totowa ,Front entrance Municipal Building,10/9/2020,continuous
+Passaic County,Unknown,Wanaque ,Borough of Wanaque,579 Ringwood Ave,,7465,Wanaque ,Front entrance Municipal Building,9/29/2020,continuous
+Passaic County,Unknown,Wayne ,Township of Wayne,475 Valley Rd,,7470,Wayne ,Walkway to Municipal Building Main entrance,9/29/2020,continuous
+Passaic County,Unknown,Wayne ,Township of Wayne Corrados Shopping Center,201 Berdan Ave,,7470,Wayne ,In front of true Value Hardware & Garden Center,10/9/2020,continuous
+Passaic County,Unknown,West Milford ,Township of West Milford,1480 Union Valley Rd,,7480,West Milford ,Front entrance Municipal Building,10/9/2020,continuous
+Passaic County,Unknown,Woodland Park ,Borough of Woodland Park,5 Brophy Lane,,7424,Woodland Park ,Front entrance Municipal Building,10/2/2020,continuous
+Salem County,Unknown,Carneys Point,Carneys Point Municipal Building,303 Harding Highway,,8069,Carneys Point ,In front of main entrance door,TBD- as soon as ballots are mailed,description
+Salem County,Unknown,Mannington,Mannington Municipal Building,491 Route 45,,8079,Mannington ,in front horseshoe driveway,TBD- as soon as ballots are mailed,description
+Salem County,Unknown,Pennsville,Pennsville Municipal Building,90 North Broadway,,8070,Pennsville ,in police state entrance side,TBD- as soon as ballots are mailed,description
+Salem County,Unknown,Pilesgrove,Pilesgrove Municipal Building,1180 Route 40,,8098,Pilesgrove ,In front of main entrance door,TBD- as soon as ballots are mailed,description
+Salem County,Unknown,Pittsgrove,Pittsgrove Municipal Building,989 Centerton RD,,8318,Pittsgrove ,Infront of Wheelchair ramp,TBD- as soon as ballots are mailed,description
+Salem County,Unknown,Alloway,Alloway Municipal Building,49 S Greenwich St,,8001,Alloway ,Near Wheelchair ramp - front of building,TBD- as soon as installed and ballots are sent,description
+Salem County,Unknown,Salem,Elsinboro Municipal Building,619 Salem Ft-Elfsborg Rd,,8079,Salem ,Near telephone pole and drive thru,TBD- as soon as installed and ballots are sent,description
+Salem County,Unknown,Hancocks Bridge,Lower Alloways Creek Municipal Building,507 Locust Island Rd,,8038,Hancocks Bridge ,In front of main entrance,TBD- as soon as installed and ballots are sent,description
+Salem County,Unknown,Oldmans,Oldmans Municipal Building,40 Freed Rd,,8067,Oldmans ,In front of main entrance,TBD- as soon as installed and ballots are sent,description
+Salem County,Unknown,Quinton,Quinton Municipal Building,885 Quinton Rd,,8072,Quinton ,In front of main entrance,TBD- as soon as installed and ballots are sent,description
+Salem County,Unknown,Elmer,Upper Pittsgrove Municipal Building,431 Route 77,,8318,Elmer ,In front of main entrance,TBD- as soon as installed and ballots are sent,description
+Somerset County,Unknown,Bedminster,Municipal Building,1 Miller Lane,,7921,Bedminster ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Bernards,Municipal Building,1 Collyer Lane,,7920,Bernards ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Bernardsville,Borough Hall,166 Mine Brook Road,,7924,Bernardsville ,Drop Box located in front of Borough Hall,09/28/20,continuous
+Somerset County,Unknown,Bound Brook,Borough Hall,230 Hamilton Street,,8805,Bound Brook ,Drop Box located in front of Borough Hall,09/28/20,continuous
+Somerset County,Unknown,Branchburg,Municipal Building,1077 Route 202,,8876,Branchburg ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Bridgewater,Municipal Building,100 Commons Way,,8807,Bridgewater ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Franklin,Municipal Building,475 Demott Lane,,8873,Franklin ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Hillsborough,Municipal Building,379 South Branch Road,,8844,Hillsborough ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Manville,Municipal Building,325 North Main Street,,8835,Manville ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,Montgomery,Municipal Building,2261 Route 206,,8502,Montgomery ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Somerset County,Unknown,North Plainfield,Community Center,614 Greenbrook Road,,7060,North Plainfield ,Drop Box located in front of Community Center Building,09/28/20,continuous
+Somerset County,Unknown,Somerville,Administration Building,20 Grove Street,,8876,Somerville ,Drop Box located in front of Administration Building,09/28/20,continuous
+Somerset County,Unknown,Warren,Municipal Building,46 Mountain Boulevard,,7059,Warren ,Drop Box located in front of Municipal Building,09/28/20,continuous
+Sussex County,Unknown,Andover,Andover Boro Municipal Bulding,137 Main St,,7821,Andover ,Located in front of the Municipal Building,TBD,description
+Sussex County,Unknown,Augusta,Frankford Township Municipal Building,151 Route 206,,7860,Augusta ,Located in front of the Municipal Building,TBD,description
+Sussex County,Unknown,Franklin,Franklin Boro Municipal Building,46 Main St,,7416,Franklin ,Located in front of the Municipal Building,TBD,description
+Sussex County,Unknown,Fredon,Fredon Township Civic Center,436 Route 94,,7860,Fredon ,Located near the building entrance,TBD,description
+Sussex County,Unknown,Hardyston,Hardyston Township Municipal Building,149 Wheatsworth Rd,,7419,Hardyston ,Located in front of the Municipal Building near the Veteran's Memorial,TBD,description
+Sussex County,Unknown,Hopatcong,Hopatcong Municipal Building,111 River Styx Rd,,7843,Hopatcong ,Located by the Municipal Building Entrance,TBD,description
+Sussex County,Unknown,Newton,Newton Municipal Building,39 Trinity St,,7860,Newton ,Located by the Municipal Building Entrance,TBD,description
+Sussex County,Unknown,Sandyston,Sandyston Municipal Building,133 Route 645,,7826,Sandyston ,Located by the Municipal Building Entrance,TBD,description
+Sussex County,Unknown,Sparta,Sparta Township Municipal Building,65 Main St,,7871,Sparta ,Located near the Police State Entrance,TBD,description
+Sussex County,Unknown,Vernon,Vernon Township Municipal Building,21 Church St,,7462,Vernon ,Located across the driveway from the Municipal Building Entrance,TBD,description
+Sussex County,Unknown,Wantage,Wantage Township Municipal Building,888 Route 23S,,7461,Wantage ,Located in front of the Municipal Building,TBD,description
+Union County,Unknown,Berkeley Heights,Snyder Avenue Park,240 Snyder Avenue,,7922,Berkeley Heights ,,9/16/2020,continuous
+Union County,Unknown,Clark,Clark Recreation Center,430 Westfield Avenue,,7066,Clark ,,9/16/2020,continuous
+Union County,Unknown,Cranford,Cranford Community Center,220 Walnut Avenue,,7016,Cranford ,,9/16/2020,continuous
+Union County,Unknown,Elizabeth,Union County Administration Building,10 Elizabethtown Plaza,,7208,Elizabeth ,,9/16/2020,continuous
+Union County,Unknown,Fanwood,Fanwood Memorial Library,5 Forest Road,,7033,Fanwood ,,9/21/2020,continuous
+Union County,Unknown,Garwood,Garwood Public Library,411 3rd Avenue,,7060,Garwood ,,9/16/2020,continuous
+Union County,Unknown,Hillside,Hillside Senior Center,265 Hollywood Avenue,,7065,Hillside ,,9/16/2020,continuous
+Union County,Unknown,Kenilworth,Kenilworth Recreation Building,575 Boulevard,,7204,Kenilworth ,,9/16/2020,continuous
+Union County,Unknown,Linden,Raymond Wood Bauer Promenade,400 North Wood Avenue,,7081,Linden ,,9/21/2020,continuous
+Union County,Unknown,Mountainside,Trailside Nature and Science Center,452 New Providence Road,,7083,Mountainside ,,9/16/2020,continuous
+Union County,Unknown,New Providence,New Providence Library,377 Elkwood Avenue,,7090,New Providence ,,9/16/2020,continuous
+Union County,Unknown,Plainfield,Plainfield City Hall,515 Watchung Avenue,,7060,Plainfield ,,9/16/2020,continuous
+Union County,Unknown,Rahway,Rahway Recreation Center,275 E. Milton Avenue,,7065,Rahway ,,9/18/2020,continuous
+Union County,Unknown,Roselle,Roselle Public Library,104 W. 4th Avenue,,7203,Roselle ,,9/29/2020,continuous
+Union County,Unknown,Roselle Park,Union County Emergency Services Building,535 Laurel Avenue,,7204,Roselle Park ,,9/18/2020,continuous
+Union County,Unknown,Scotch Plains,Scotch Plains Public Library,1927 Bartle Avenue,,7076,Scotch Plains ,,9/24/2020,continuous
+Union County,Unknown,Springfield,Chisolm Recreation Center,100 South Springfield Avenue,,7081,Springfield ,,9/21/2020,continuous
+Union County,Unknown,Summit,Chestnut Street Parking Lot (Adjacent to Fire Department),406 Broad Street, Corner of Morris Avenue and Broad Street,7901,Summit ,,9/23/2020,continuous
+Union County,Unknown,Union,Union Township Municipal Building,1976 Morris Avenue,,7083,Union ,,9/16/2020,continuous
+Union County,Unknown,Westfield,Fraser Building,300 North Avenue East,,7090,Westfield ,,9/16/2020,continuous
+Union County,Unknown,Winfield,Winfield Mutual Housing Office,Wavecrest Avenue,,7036,Winfield ,,9/28/2020,continuous
+Union County,Unknown,Elizabeth,Union County Board of Elections,271 No. Broad Street,,7207,Elizabeth ,,9/28/2020,continuous
+Warren County,Unknown,Allamuchy,Allamuchy Municipal Building,292 Alphano Rd,,7820,Allamuchy ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Belvidere,Belvidere Municipal Building,691 Water St,,7823,Belvidere ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Blairstown,Blairstown Municipal Building,106 Route 94,,7825,Blairstown ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Broadway,Franklin Municipal Building,2093 Route 57,,8808,Broadway ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Columbia,Knowlton Municipal Building,628 Zroute 94,,7832,Columbia ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Hackettstown,Hackettstown Municipal Building,215 Stiger St,,7840,Hackettstown ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Hope,Hope Municipal Building,407 Hope -Great Meadows Rd,,7844,Hope ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Phillipsburg,Lopatcong Municipal Building,232 S Third St,,8865,Phillipsburg ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Phillipsburg,Phillipsburg Public Works,441 Heckman St,,8865,Phillipsburg ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Port Murray,Mansfied Municipal Building,100 Port Murray Rd,,7865,Port Murray ,Drop Box in front,10/1/2020,continuous
+Warren County,Unknown,Washington,Washington Twsp Administrative,211 State Route 31 N,,7882,Washington ,Drop Box in front,10/1/2020,continuous
+Atlantic County,Elections Office,Atlantic County,Board of Elections,5903 Main Street,,8330,Mays Landing,,Unknown,description
+Bergen County,Elections Office,Bergen County,Board of Elections,One Bergen County Plaza,Room 310,7601,Hackensack,,Unknown,description
+Burlington County,Elections Office,Burlington County,Board of Elections,50 Rancocas Road,1st Floor,8060,Mount Holly,,Unknown,description
+Camden County,Elections Office,Camden County,Board of Elections,100  University Court,,8012,Blackwood,,Unknown,description
+Cape May County,Elections Office,Cape May County,Board of Elections,10 West Mechanic Street,,08210-5000,,,Unknown,description
+Cumberland County,Elections Office,Cumberland County,Board of Elections,555 Shiloh Pike,,8302,Bridgeton,,Unknown,description
+Essex County,Elections Office,Essex County,Board of Elections,465 Dr. Martin Luther King Jr. Boulevard,"Fourth Floor, Room 411",7102,Newark,,Unknown,description
+Hudson County,Elections Office,Hudson County,Board of Elections,257 Cornelison Avenue,4th Floor,7302,Jersey City,,Unknown,description
+Hunterdon County,Elections Office,Hunterdon County,Board of Elections,71 Main Street,"Bldg. 3A, 3rd Floor, P.O. Box 2900",8822,Flemington,,Unknown,description
+Mercer County,Elections Office,Mercer County,Board of Elections,640 S. Broad Street,,8650,Trenton,,Unknown,description
+Middlesex County,Elections Office,Middlesex County,Board of Elections,11 Kennedy Boulevard,,08816-1250,East Brunswick,,Unknown,description
+Monmouth County,Elections Office,Monmouth County,Board of Elections,300 Halls Mill Road,,7728,Freehold,,Unknown,description
+Morris County,Elections Office,Morris County,Board of Elections,110 Court Street,2nd Floor,07963-0900,Morristown,,Unknown,description
+Ocean County,Elections Office,Ocean County,Board of Elections,129 Hooper Avenue,,08754-2006,Toms River,,Unknown,description
+Passaic County,Elections Office,Passaic County,Board of Elections,401 Grand Street,Room 123,7503,Paterson,,Unknown,description
+Salem County,Elections Office,Salem County,Board of Elections,110 Fifth St,Suite 1000,8079,Salem,,Unknown,description
+Somerset County,Elections Office,Somerset County,Board of Elections,20 Grove Street,,08876-1262,Somerville,,Unknown,description
+Sussex County,Elections Office,Sussex County,Board of Elections,83 Spring Street,Suite 305,07860-2080,Newton,,Unknown,description
+Union County,Elections Office,Union County,Board of Elections,271 North Broad Street,,7208,Elizabeth,,Unknown,description
+Warren County,Elections Office,Warren County,Board of Elections,202 Mansfield Street,,7823,Belvidere,,Unknown,description

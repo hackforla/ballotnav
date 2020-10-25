@@ -25,5 +25,23 @@ $link-blue: #0819A5;
 $family-primary: 'Open Sans', sans-serif;
 $link: $link-blue;
 
+// $breakpoints: (
+//   "mobile": 360px,
+//   "tablet": 768px,
+//   "desktop": 1366px,
+// ) !default;
+
+@mixin media($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: 22.5em) {@content} 
+  }
+  @if $breakpoint == tablet {
+    @media (min-width: 48em) {@content}
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 85.375em) {@content}
+  }
+}
+
 @import "~bulma/bulma.sass";
 @import "~bulma-switch/dist/css/bulma-switch.sass";
