@@ -29,8 +29,8 @@ const Footer = () => {
           <img className='button_i-voted' src={ivoted} />
           <div className='div_shareButtons'>
             <p>Share with your friends</p>
-            <div class="fb-share-button" data-href="https://www.ballotnav.org/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ballotnav.org%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="https://www.ballotnav.org/" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <div className="fb-share-button" data-href="https://www.ballotnav.org/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ballotnav.org%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-size="large" data-url="https://www.ballotnav.org/" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
         <div id="privacy-policy">
