@@ -14,7 +14,7 @@ jobs:
       matrix:
         node-version: [12.x]
     name: build & push client
-    
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -35,4 +35,4 @@ jobs:
       - name: print current directory
         run: cd client/web && ls -la
       - name: Push to s3
-        run: aws s3 sync client/web/build/ s3://dev.ballotnav.org --delete
+        run: aws s3 sync client/web/build/ s3://dev.ballotnav.org

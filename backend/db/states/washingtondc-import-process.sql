@@ -18,10 +18,23 @@ WHERE lower("location_type") NOT IN (
 )
 ;
 
+-- remove all existing locations from DC because i failed to import them with their latlon the first time
+DELETE FROM wip_location
+WHERE wip_jurisdiction_id IN (
+	SELECT DISTINCT cwj.wip_jurisdiction_id wip_jurisdiction_id
+	FROM jurisdiction j
+	INNER JOIN state s ON j.state_id = s.id
+	INNER JOIN jurisdictions_with_currwip cwj ON j.id = cwj.jurisdiction_id
+	INNER JOIN public.user u ON cwj.editor_user_id = u.id
+	WHERE s.abbreviation = 'DC'
+	AND j.is_eaj IS TRUE
+	AND u.email = 'drew@anullvalue.net'
+);
+
 -- insert the continuous locations
-INSERT INTO wip_location (wip_jurisdiction_id, facilitytype_id, name, address1, address2, city, state, zip, tempstring, schedule_type, continuous_open_date, continuous_open_time, continuous_close_date, continuous_close_time)
+INSERT INTO wip_location (wip_jurisdiction_id, facilitytype_id, name, address1, address2, city, state, zip, tempstring, schedule_type, continuous_open_date, continuous_open_time, continuous_close_date, continuous_close_time, geom_latitude, geom_longitude, geom_data_source)
 SELECT cwj.wip_jurisdiction_id, ft.id, 'Drop box @ ' || imp.location_name, imp.address_1, imp.address_2, 'Washington', 'DC', imp.zip, 'washingtondc-'||imp.entrytype tempstring, 'continuous',
-imp.open_date::date, imp.open_time, imp.close_date::date, imp.close_time
+imp.open_date::date, imp.open_time, imp.close_date::date, imp.close_time, imp.latitude::numeric, imp.longitude::numeric, 'washington-dc-open-data'
 FROM jurisdiction j
 CROSS JOIN import_washingtondc_locations imp
 INNER JOIN state s ON j.state_id = s.id
@@ -34,8 +47,8 @@ AND imp.schedule_type = 'continuous'
 ;
 
 -- insert the hours locations
-INSERT INTO wip_location (wip_jurisdiction_id, facilitytype_id, name, address1, address2, city, state, zip, tempstring, schedule_type)
-SELECT cwj.wip_jurisdiction_id, ft.id, 'Vote Center @ ' || initcap(imp.location_name), initcap(imp.address_1), imp.address_2, 'Washington', 'DC', imp.zip, 'washingtondc-'||imp.entrytype tempstring, 'hours'
+INSERT INTO wip_location (wip_jurisdiction_id, facilitytype_id, name, address1, address2, city, state, zip, tempstring, schedule_type, geom_latitude, geom_longitude, geom_data_source)
+SELECT cwj.wip_jurisdiction_id, ft.id, 'Vote Center @ ' || initcap(imp.location_name), initcap(imp.address_1), imp.address_2, 'Washington', 'DC', imp.zip, 'washingtondc-'||imp.entrytype tempstring, 'hours', imp.latitude::numeric, imp.longitude::numeric, 'washington-dc-open-data'
 FROM jurisdiction j
 INNER JOIN state s ON j.state_id = s.id
 CROSS JOIN import_washingtondc_locations imp
@@ -76,7 +89,6 @@ AND wl.schedule_type = 'hours'
 AND wl.tempstring='washingtondc-electionday'
 ORDER BY wl.id
 ;
-
 
 -- mark as released 
 UPDATE wip_jurisdiction
