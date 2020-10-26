@@ -7,7 +7,7 @@ div.map {
     bottom: 0;
     margin: 0 auto;
 
-    @media only screen and (min-width: 1224px) {
+    @media only screen and (min-width: 1024px) {
       left: 400px;
     }
   }
@@ -33,7 +33,7 @@ div.map {
   font-size:.87em;
   line-height: 1.37em;
   padding: 5px 12px;
-  @media (min-width: 1224px) {
+  @media (min-width: 1024px) {
     margin-left: 0;
     transform: none;
   }

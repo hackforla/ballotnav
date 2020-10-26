@@ -22,7 +22,7 @@ const CountyInfo = ({ open, close, data }) => {
   } = data.jurisdictionData
 
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
+    query: '(min-width: 1024px)'
   });
 
   let size;

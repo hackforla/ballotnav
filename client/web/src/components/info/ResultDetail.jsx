@@ -18,7 +18,7 @@ const ResultDetail = ({
   close,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
+    query: '(min-width: 1024px)'
   });
   
   if (!location) return null;
