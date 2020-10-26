@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ResultHeader from './ResultHeader';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -14,22 +14,15 @@ import ResultCard from './ResultCard'
 const ResultList = ({
   data,
   toggleCountyInfo,
+  toggleDrawer,
+  close,
+  open,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1024px)'
   });
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1023px)' });
-
-  const [open, setOpen] = useState(true);
-
-  const close = () => {
-    setOpen(false)
-  }
-
-  const toggleDrawer = () => {
-    setOpen(!open)
-  }
 
   const renderResultCards = () => {
     return data.jurisdictionData.locations.map((location) => (

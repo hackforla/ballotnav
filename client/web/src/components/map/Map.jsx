@@ -27,6 +27,7 @@ class Map extends React.Component {
 
     this.map = null
     this.resultsLayer = null
+    this.state = { resultListOpen: true };
   }
 
   componentDidMount() {
@@ -67,6 +68,14 @@ class Map extends React.Component {
       this.map.setCenter(this.props.center)
   }
 
+  toggleResultList = () => {
+    this.setState({ resultListOpen: !this.state.resultListOpen });
+  }
+
+  closeResultList = () => {
+    this.setState({ resultListOpen: false });
+  }
+
   handleGeocodeResult = async ({ result }) => {
     const { history } = this.props
     const [lon, lat] = result.center
@@ -76,6 +85,7 @@ class Map extends React.Component {
       const { id: jid } = jurisdictions[0]
       const query = queryString.stringify({ jid, lon, lat })
       history.push(`/map?${query}`)
+      this.toggleResultList();
     } else {
       history.push('/error') // TODO: figure out what route to go to
     }
@@ -119,7 +129,7 @@ class Map extends React.Component {
             </span>
           </button>
         </div>
-        <ResultList toggleCountyInfo={this.props.toggleCountyInfo} />
+        <ResultList toggleCountyInfo={this.props.toggleCountyInfo} toggleDrawer={this.toggleResultList} close={this.closeResultList} open={this.state.resultListOpen} />
         <div id="map-container" ref={(el) => (this.mapContainer = el)}>
           <ResultsLayer
             results={chicagoParks}
