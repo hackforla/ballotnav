@@ -6,10 +6,10 @@ import { Drawer, Dropdown } from 'rsuite';
 import Moment from 'react-moment';
 import { useMediaQuery } from 'react-responsive';
 
-import pinIcon from '../../assets/pin-icon.svg'
-import backArrow from '../../assets/back-arrow-icon.svg'
-import infoIcon from '../../assets/info-icon-red.svg'
-import phoneIcon from '../../assets/phone-icon.svg'
+import pinIcon from 'assets/pin-icon.svg'
+import backArrow from 'assets/back-arrow-icon.svg'
+import infoIcon from 'assets/info-icon-red.svg'
+import phoneIcon from 'assets/phone-icon.svg'
 
 const ResultDetail = ({
   location,
@@ -20,7 +20,7 @@ const ResultDetail = ({
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1024px)'
   });
-  
+
   if (!location) return null;
 
   let size;
@@ -66,7 +66,7 @@ const ResultDetail = ({
       );
     }
 
-    return location.hours.map((hour, index) => {
+    return location.hours.map((hour) => {
       const beginDate = new Date(hour.beginDate)
       const endDate = new Date(hour.endDate)
       const { openTime, closeTime } = hour
@@ -77,15 +77,15 @@ const ResultDetail = ({
 
       if (endDate >= yesterday)
         return (
-          <>
-            <Dropdown.Item key={index.toString()}>
+          <React.Fragment key={hour.id}>
+            <Dropdown.Item>
               <b><Moment utc={true} date={beginDate} format={'MMM Do'} /> - <Moment utc={true} date={endDate} format={'MMM Do'} /></b>
             </Dropdown.Item>
             {renderDaysOpen(hour)}
             <Dropdown.Item>
               <b>Hours: </b>{openTime}&nbsp;-&nbsp;{closeTime}
             </Dropdown.Item>
-          </>
+          </React.Fragment>
         )
 
       return null
