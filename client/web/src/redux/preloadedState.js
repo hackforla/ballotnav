@@ -1,4 +1,4 @@
-import chicagoParks from './chicago-parks.json';
+import chicagoParks from './chicago-parks.json'
 
 const preloadedState = {
   data: null,
@@ -6,7 +6,7 @@ const preloadedState = {
   searches: [],
   ui: {
     selectedLocation: null,
-  }
+  },
 }
 
-export default preloadedState;
+export default preloadedState

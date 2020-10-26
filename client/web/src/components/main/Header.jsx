@@ -1,35 +1,33 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { useState } from 'react';
-import { withRouter } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import clx from 'classnames';
+import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import clx from 'classnames'
 
-import logo from "../../assets/ballotnav-logo.png";
+import logo from '../../assets/ballotnav-logo.png'
 
-const Header = ({
-  location: { pathname },
-}) => {
-  const [activeBurger, setActiveBurger] = useState(false);
+const Header = ({ location: { pathname } }) => {
+  const [activeBurger, setActiveBurger] = useState(false)
 
   const handleClick = () => {
-    setActiveBurger(!activeBurger);
-  };
+    setActiveBurger(!activeBurger)
+  }
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     if (e.key !== 'Tab' && e.key !== 'Shift' && e.key !== 'Alt') {
-      handleClick(e);
+      handleClick(e)
     }
-  };
+  }
 
   return (
     <nav
       role="navigation"
       aria-label="main navigation"
-      className={clx('navbar', { 'map': ['/map'].includes(pathname) })}
+      className={clx('navbar', { map: ['/map'].includes(pathname) })}
     >
       <div className="navbar-brand">
-      <Link to="/" className="navbar-item">
+        <Link to="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
         </Link>
         <a // eslint-disable-line
@@ -49,19 +47,13 @@ const Header = ({
 
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="navbar-end">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Volunteer
-          </a>
-          <a className="navbar-item">
-            Press
-          </a>
+          <a className="navbar-item">About</a>
+          <a className="navbar-item">Volunteer</a>
+          <a className="navbar-item">Press</a>
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default withRouter(Header);
+export default withRouter(Header)
