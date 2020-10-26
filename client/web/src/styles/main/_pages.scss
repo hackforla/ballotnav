@@ -1,4 +1,4 @@
-.About-wrapper, .Volunteer, .Press{
+.About-wrapper, .Volunteer-wrapper, .Press{
   margin: 0 auto;
   max-width: 1024px;
   padding: 35px 20px 0;
@@ -17,15 +17,11 @@
     font-size:1.125em;
     font-weight:700;
   }
+  h3 {
+    line-height: 1.18em;
+  }
   p {
     font-size: .875em;
     line-height: 1.18em;
   }
-}
-
-.bold {
-  font-weight:700;
-}
-.underline {
-  text-decoration:underline;
 }

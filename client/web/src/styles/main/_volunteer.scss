@@ -1,0 +1,92 @@
+.Volunteer-wrapper {
+  .header-wrapper {
+    display:flex;
+    flex-direction:column;
+    @media only screen and (min-width: 1024px) {
+      flex-direction:row;
+    }
+    .header-content {
+      @media only screen and (min-width: 1024px) {
+        width:60%;
+        }
+    }
+    h1 {
+      line-height:45px;
+    }
+    h2 {
+      margin-top:20px;
+      @media only screen and (min-width: 1024px) {
+        line-height:30px;
+        margin-top:45px;
+      }
+    }
+    img {
+      overflow:hidden;
+      height:144px;
+      margin: 0 0 -13px -12px;
+      @media only screen and (min-width: 1024px) {
+        height:211px;
+      }
+    }
+  }
+  .cards-wrapper {
+    display:flex;
+    flex-direction:column;
+    @media only screen and (min-width: 1024px) {
+      flex-direction:row
+    }
+    .volunteer-card {
+      color: $dark-blue;
+      background:$light-blue;
+      height: 70px;
+      padding: 20px 20px 0 20px;
+      @media only screen and (min-width: 1024px) {
+        border-radius:20px;
+        height:108px;
+        width:269px;
+        margin-right:15px;
+      }
+      p {
+        margin-top:5px;
+      }
+    }
+    :nth-child(1) {
+      border-top-left-radius:20px;
+      border-top-right-radius:20px;
+      
+    }
+    :nth-child(4) {
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      height:80px;
+      @media only screen and (min-width: 1024px) {
+        height:108px;
+      }
+    }
+  }
+  .apply-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: 1024px) {
+      display:block;
+    }
+    p {
+      margin-top:40px;
+    }
+    button {
+      color:white;
+      background:$blue;
+      border-radius:40px;
+      height:54px;
+      width:124px;
+      font-weight:700;
+      margin-top:50px;
+    }
+    div {
+      display:flex;
+      justify-content:center;
+      margin-bottom:160px;
+    }
+  }
+}
