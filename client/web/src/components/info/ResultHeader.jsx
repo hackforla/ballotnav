@@ -1,17 +1,15 @@
-import React from 'react';
-import infoIcon from 'assets/info-icon.svg';
+import React from 'react'
+import infoIcon from 'assets/info-icon.svg'
 
-const ResultHeader = ({
-  toggleCountyInfo,
-  stateName,
-  jurisdictionName,
-}) => (
+const ResultHeader = ({ toggleCountyInfo, stateName, jurisdictionName }) => (
   <div className="result-header">
-    <p>{jurisdictionName}, {stateName}</p>
+    <p>
+      {jurisdictionName}, {stateName}
+    </p>
     <img className="info-icon" src={infoIcon} alt="Information icon" />
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a onClick={toggleCountyInfo}>Important election information</a>
-  </div >
-);
+  </div>
+)
 
-export default ResultHeader;
+export default ResultHeader

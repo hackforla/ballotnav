@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import pinIcon from '../../assets/pin-icon.svg';
-import phoneIcon from '../../assets/phone-icon.svg';
-import ResultDetail from './ResultDetail';
+import pinIcon from '../../assets/pin-icon.svg'
+import phoneIcon from '../../assets/phone-icon.svg'
+import ResultDetail from './ResultDetail'
 
-const ResultCard = ({
-  data,
-  location,
-}) => {
-  const [resultDetailOpen, setResultDetailOpen] = useState(false);
+const ResultCard = ({ data, location }) => {
+  const [resultDetailOpen, setResultDetailOpen] = useState(false)
 
   const toggleResultDetailOpen = () => {
-    setResultDetailOpen(!resultDetailOpen);
-  };
+    setResultDetailOpen(!resultDetailOpen)
+  }
 
   const closeResultDetail = () => {
-    setResultDetailOpen(false);
+    setResultDetailOpen(false)
   }
 
   return (
@@ -38,9 +35,14 @@ const ResultCard = ({
       </div>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a onClick={toggleResultDetailOpen}>Location requirements and hours</a>
-      <ResultDetail open={resultDetailOpen} close={closeResultDetail} data={data} location={location} />
+      <ResultDetail
+        open={resultDetailOpen}
+        close={closeResultDetail}
+        data={data}
+        location={location}
+      />
     </div>
-  );
+  )
 }
 
-export default ResultCard;
+export default ResultCard

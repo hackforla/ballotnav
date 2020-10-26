@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
@@ -6,10 +6,10 @@ import { Drawer, Dropdown } from 'rsuite';
 import Moment from 'react-moment';
 import { useMediaQuery } from 'react-responsive';
 
-import pinIcon from '../../assets/pin-icon.svg';
-import backArrow from '../../assets/back-arrow-icon.svg';
-import infoIcon from '../../assets/info-icon-red.svg';
-import phoneIcon from '../../assets/phone-icon.svg';
+import pinIcon from '../../assets/pin-icon.svg'
+import backArrow from '../../assets/back-arrow-icon.svg'
+import infoIcon from '../../assets/info-icon-red.svg'
+import phoneIcon from '../../assets/phone-icon.svg'
 
 const ResultDetail = ({
   location,
@@ -48,23 +48,27 @@ const ResultDetail = ({
     }
 
     return location.hours.map((hour, index) => {
-      const beginDate = new Date(hour.beginDate);
-      const endDate = new Date(hour.endDate);
-      const { openTime, closeTime } = hour;
+      const beginDate = new Date(hour.beginDate)
+      const endDate = new Date(hour.endDate)
+      const { openTime, closeTime } = hour
 
-      const today = new Date();
-      const yesterday = new Date(today);
-      yesterday.setDate(yesterday.getDate() - 1);
+      const today = new Date()
+      const yesterday = new Date(today)
+      yesterday.setDate(yesterday.getDate() - 1)
 
-      if (endDate >= yesterday) return (
-        <Dropdown.Item key={index.toString()}>
-          <b><Moment utc={true} date={beginDate} format={'MMM Do'} />:</b>&nbsp;
-          { openTime }&nbsp;-&nbsp;{ closeTime }
-        </Dropdown.Item>
-      );
+      if (endDate >= yesterday)
+        return (
+          <Dropdown.Item key={index.toString()}>
+            <b>
+              <Moment utc={true} date={beginDate} format={'MMM Do'} />:
+            </b>
+            &nbsp;
+            {openTime}&nbsp;-&nbsp;{closeTime}
+          </Dropdown.Item>
+        )
 
-      return null;
-    });
+      return null
+    })
   }
 
   const renderLinks = () => {
@@ -101,7 +105,8 @@ const ResultDetail = ({
     >
       <Drawer.Header>
         <div className="back-to-list">
-          <img id="back-arrow"
+          <img
+            id="back-arrow"
             src={backArrow}
             alt="Back arrow"
             onClick={close}
@@ -124,24 +129,18 @@ const ResultDetail = ({
           <span className="icon is-small">
             <FontAwesomeIcon icon={faClock} />
           </span>
-          <Dropdown
-            title="Hours"
-          >
-            {renderHours()}
-          </Dropdown>
+          <Dropdown title="Hours">{renderHours()}</Dropdown>
         </div>
         <div className="info-links-header">
-          <img className="info-icon" src={infoIcon} alt="Information icon"/>
+          <img className="info-icon" src={infoIcon} alt="Information icon" />
           <h3 className="info-links-header">Official election information</h3>
         </div>
-        <div className="info-links">
-          {renderLinks()}
-        </div>
+        <div className="info-links">{renderLinks()}</div>
       </Drawer.Body>
-      <Drawer.Footer
-        className="result-detail-footer"
-      >
-        <h3><b>Location and hours are subject to change</b></h3>
+      <Drawer.Footer className="result-detail-footer">
+        <h3>
+          <b>Location and hours are subject to change</b>
+        </h3>
         <div className="to-verify">
           <p id="important">Call location to verify</p>
           <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
@@ -152,7 +151,7 @@ const ResultDetail = ({
         </div>
       </Drawer.Footer>
     </Drawer>
-  );
-};
+  )
+}
 
-export default ResultDetail;
+export default ResultDetail

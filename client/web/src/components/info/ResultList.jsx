@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 
-import { Drawer } from 'rsuite';
-import { ButtonToolbar } from 'rsuite';
-import { Button } from 'rsuite';
+import { Drawer } from 'rsuite'
+import { ButtonToolbar } from 'rsuite'
+import { Button } from 'rsuite'
 
-import infoIcon from '../../assets/info-icon-black.svg';
-import ResultCard from './ResultCard';
+import infoIcon from '../../assets/info-icon-black.svg'
+import ResultCard from './ResultCard'
 
 const ResultList = ({
   data,
@@ -24,18 +24,18 @@ const ResultList = ({
   const [open, setOpen] = useState(true);
 
   const close = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const toggleDrawer = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   const renderResultCards = () => {
-    return data.jurisdictionData.locations.map(location =>
+    return data.jurisdictionData.locations.map((location) => (
       <ResultCard data={data} location={location} key={location.id} />
-    );
-  };
+    ))
+  }
 
   return (
     <div className="result-list">
@@ -46,7 +46,7 @@ const ResultList = ({
             : <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
           }
           <div className="county-information-wrapper">
-            <img className="info-icon" src={infoIcon} alt="Information icon"/>
+            <img className="info-icon" src={infoIcon} alt="Information icon" />
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a onClick={toggleCountyInfo}>County election information</a>
           </div>
@@ -82,14 +82,14 @@ const ResultList = ({
         </Drawer>
       </>}
     </div>
-  );
-};
+  )
+}
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.data,
-});
+})
 
-export default connect(mapStateToProps)(ResultList);
+export default connect(mapStateToProps)(ResultList)
 
 ResultHeader.propTypes = {
   data: PropTypes.object,
