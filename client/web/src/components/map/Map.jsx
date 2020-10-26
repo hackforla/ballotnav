@@ -27,7 +27,7 @@ class Map extends React.Component {
 
     this.map = null
     this.resultsLayer = null
-    this.state = { resultListOpen: true };
+    this.state = { resultListOpen: true }
   }
 
   componentDidMount() {
@@ -55,8 +55,10 @@ class Map extends React.Component {
       clearOnBlur: true,
     })
 
-    document.getElementById('map-geocoder').appendChild(geocoder.onAdd(this.map));
-    geocoder.setPlaceholder('Enter an address or ZIP');
+    document
+      .getElementById('map-geocoder')
+      .appendChild(geocoder.onAdd(this.map))
+    geocoder.setPlaceholder('Enter an address or ZIP')
     geocoder.on('result', ({ result }) => {
       geocoder.clear()
       this.handleGeocodeResult({ result })
@@ -69,11 +71,11 @@ class Map extends React.Component {
   }
 
   toggleResultList = () => {
-    this.setState({ resultListOpen: !this.state.resultListOpen });
+    this.setState({ resultListOpen: !this.state.resultListOpen })
   }
 
   closeResultList = () => {
-    this.setState({ resultListOpen: false });
+    this.setState({ resultListOpen: false })
   }
 
   handleGeocodeResult = async ({ result }) => {
@@ -85,7 +87,7 @@ class Map extends React.Component {
       const { id: jid } = jurisdictions[0]
       const query = queryString.stringify({ jid, lon, lat })
       history.push(`/map?${query}`)
-      this.toggleResultList();
+      this.toggleResultList()
     } else {
       history.push('/error') // TODO: figure out what route to go to
     }
@@ -104,8 +106,7 @@ class Map extends React.Component {
       layers: ['result-circles'],
     })
 
-    if (features[0])
-      onSelectLocation(features[0].properties.id)
+    if (features[0]) onSelectLocation(features[0].properties.id)
   }
 
   render() {
@@ -124,7 +125,12 @@ class Map extends React.Component {
             </span>
           </button>
         </div>
-        <ResultList toggleCountyInfo={this.props.toggleCountyInfo} toggleDrawer={this.toggleResultList} close={this.closeResultList} open={this.state.resultListOpen} />
+        <ResultList
+          toggleCountyInfo={this.props.toggleCountyInfo}
+          toggleDrawer={this.toggleResultList}
+          close={this.closeResultList}
+          open={this.state.resultListOpen}
+        />
         <div id="map-container" ref={(el) => (this.mapContainer = el)}>
           <ResultsLayer
             results={locations}
@@ -145,12 +151,9 @@ function locationsToGeoJson(locations) {
       properties: loc,
       geometry: {
         type: 'Point',
-        coordinates: [
-          loc.geomLongitude,
-          loc.geomLatitude,
-        ]
-      }
-    }))
+        coordinates: [loc.geomLongitude, loc.geomLatitude],
+      },
+    })),
   }
 }
 

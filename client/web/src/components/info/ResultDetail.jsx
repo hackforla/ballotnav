@@ -2,68 +2,60 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { Drawer, Dropdown } from 'rsuite';
-import Moment from 'react-moment';
-import { useMediaQuery } from 'react-responsive';
+import { Drawer, Dropdown } from 'rsuite'
+import Moment from 'react-moment'
+import { useMediaQuery } from 'react-responsive'
 
 import pinIcon from 'assets/pin-icon.svg'
 import backArrow from 'assets/back-arrow-icon.svg'
 import infoIcon from 'assets/info-icon-red.svg'
 import phoneIcon from 'assets/phone-icon.svg'
 
-const ResultDetail = ({
-  location,
-  data,
-  open,
-  close,
-}) => {
+const ResultDetail = ({ location, data, open, close }) => {
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1024px)'
-  });
+    query: '(min-width: 1024px)',
+  })
 
-  if (!location) return null;
+  if (!location) return null
 
-  let size;
-  let placement;
+  let size
+  let placement
 
   if (isDesktopOrLaptop) {
-    size = "xs";
+    size = 'xs'
   } else {
-    size = "md";
+    size = 'md'
   }
 
   if (isDesktopOrLaptop) {
-    placement = "left";
+    placement = 'left'
   } else {
-    placement = "bottom";
+    placement = 'bottom'
   }
 
-  const renderDaysOpen = hour => {
-    const daysArray = [];
-    if (hour.useMonday) daysArray.push('M');
-    if (hour.useTuesday) daysArray.push('Tu');
-    if (hour.useWednesday) daysArray.push('W');
-    if (hour.useThursday) daysArray.push('Th');
-    if (hour.useFriday) daysArray.push('F');
-    if (hour.useSaturday) daysArray.push('Sa');
-    if (hour.useSunday) daysArray.push('Su');
+  const renderDaysOpen = (hour) => {
+    const daysArray = []
+    if (hour.useMonday) daysArray.push('M')
+    if (hour.useTuesday) daysArray.push('Tu')
+    if (hour.useWednesday) daysArray.push('W')
+    if (hour.useThursday) daysArray.push('Th')
+    if (hour.useFriday) daysArray.push('F')
+    if (hour.useSaturday) daysArray.push('Sa')
+    if (hour.useSunday) daysArray.push('Su')
 
-    const daysText = daysArray.join(', ');
+    const daysText = daysArray.join(', ')
 
     return (
       <Dropdown.Item>
-        <b>Days open: </b>{daysText}
+        <b>Days open: </b>
+        {daysText}
       </Dropdown.Item>
-    );
+    )
   }
 
   const renderHours = () => {
     if (location.hours.length === 0) {
-      return (
-        <Dropdown.Item>
-          Not available yet
-        </Dropdown.Item>
-      );
+      return <Dropdown.Item>Not available yet</Dropdown.Item>
     }
 
     return location.hours.map((hour) => {
@@ -79,11 +71,15 @@ const ResultDetail = ({
         return (
           <React.Fragment key={hour.id}>
             <Dropdown.Item>
-              <b><Moment utc={true} date={beginDate} format={'MMM Do'} /> - <Moment utc={true} date={endDate} format={'MMM Do'} /></b>
+              <b>
+                <Moment utc={true} date={beginDate} format={'MMM Do'} /> -{' '}
+                <Moment utc={true} date={endDate} format={'MMM Do'} />
+              </b>
             </Dropdown.Item>
             {renderDaysOpen(hour)}
             <Dropdown.Item>
-              <b>Hours: </b>{openTime}&nbsp;-&nbsp;{closeTime}
+              <b>Hours: </b>
+              {openTime}&nbsp;-&nbsp;{closeTime}
             </Dropdown.Item>
           </React.Fragment>
         )
@@ -94,26 +90,33 @@ const ResultDetail = ({
 
   const renderLinks = () => {
     if (data.jurisdictionData.urls.length === 0) {
-      return (
-        <p className="gray">Not available yet</p>
-      );
+      return <p className="gray">Not available yet</p>
     }
 
-    return data.jurisdictionData.urls.map(url => {
+    return data.jurisdictionData.urls.map((url) => {
       if (url.urlType.isEmail) {
         return (
           <div key={url.id} className="links">
-            <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
+            <p className="email">Email address: </p>
+            <a
+              href={'mailto:' + url.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {url.url}
+            </a>
           </div>
-        );
+        )
       } else {
         return (
           <div key={url.id} className="links">
-            <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
+            <a href={url.url} target="_blank" rel="noopener noreferrer">
+              {url.name}
+            </a>
           </div>
-        );
+        )
       }
-    });
+    })
   }
 
   return (
@@ -144,7 +147,9 @@ const ResultDetail = ({
           <h4>{location.address2}</h4>&nbsp;
           <h4>{location.address3}</h4>&nbsp;
           <br />
-          <h4 className="second-line">{location.city}, {location.state} {location.zip}</h4>
+          <h4 className="second-line">
+            {location.city}, {location.state} {location.zip}
+          </h4>
         </div>
         <div className="hours-dropdown">
           <span className="icon is-small">
@@ -165,10 +170,11 @@ const ResultDetail = ({
         <div className="to-verify">
           <p id="important">Call location to verify</p>
           <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
-          {location.contactPhone
-            ? <p>{location.contactPhone}</p>
-            : <p className="gray">Not available yet</p>
-          }
+          {location.contactPhone ? (
+            <p>{location.contactPhone}</p>
+          ) : (
+            <p className="gray">Not available yet</p>
+          )}
         </div>
       </Drawer.Footer>
     </Drawer>

@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Press = () => {
-  return (
-    <div className="Press">
-      Press page
-    </div>
-  )
+  return <div className="Press">Press page</div>
 }
 
-export default Press;
+export default Press
