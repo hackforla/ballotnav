@@ -24,14 +24,17 @@ const ResultCard = ({ data, location }) => {
         <h4>{location.address2}</h4>&nbsp;
         <h4>{location.address3}</h4>&nbsp;
         <br />
-        <h4 className="second-line">{location.city}, {location.state} {location.zip}</h4>
+        <h4 className="second-line">
+          {location.city}, {location.state} {location.zip}
+        </h4>
       </div>
       <div className="result-card-content-wrapper">
         <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
-        {location.contactPhone
-          ? <h4>{location.contactPhone}</h4>
-          : <h4 className="gray">Not available yet</h4>
-        }
+        {location.contactPhone ? (
+          <h4>{location.contactPhone}</h4>
+        ) : (
+          <h4 className="gray">Not available yet</h4>
+        )}
       </div>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a onClick={toggleResultDetailOpen}>Location requirements and hours</a>

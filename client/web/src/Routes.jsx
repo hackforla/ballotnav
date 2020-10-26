@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Home from './components/main/Home';
-import About from './components/main/About';
-import Volunteer from './components/main/Volunteer';
-import Press from './components/main/Press';
-import MapContainer from './components/map/MapContainer';
+import Home from './components/main/Home'
+import About from './components/main/About'
+import Volunteer from './components/main/Volunteer'
+import Press from './components/main/Press'
+import MapContainer from './components/map/MapContainer'
 
 const Routes = () => {
   return (

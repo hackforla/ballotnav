@@ -38,7 +38,7 @@ const MapContainer = ({ data, getJurisdiction }) => {
 
   const onSelectLocation = (locationId) => {
     const { locations } = data.jurisdictionData
-    const location = locations.find(loc => loc.id === locationId)
+    const location = locations.find((loc) => loc.id === locationId)
 
     setSelectedLocation(location)
     setResultDetailOpen(true)
