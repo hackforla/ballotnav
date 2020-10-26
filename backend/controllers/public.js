@@ -96,7 +96,7 @@ exports.getJurisdiction = async (req, res) => {
         association: 'urls',
         include: {
           association: 'urlType',
-          attributes: ['name'],
+          attributes: ['name', 'isEmail'],
         },
       },
     ],
