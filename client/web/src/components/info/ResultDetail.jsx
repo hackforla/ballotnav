@@ -67,21 +67,29 @@ const ResultDetail = ({
     });
   }
 
-  const renderLinks = () => data.jurisdictionData.urls.map(url => {
-    if (url.isEmail) {
+  const renderLinks = () => {
+    if (data.jurisdictionData.urls.length === 0) {
       return (
-        <div key={url.id} className="links">
-          <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
-        </div>
-      );
-    } else {
-      return (
-        <div key={url.id} className="links">
-          <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
-        </div>
+        <p className="gray">Not available yet</p>
       );
     }
-  });
+    
+    data.jurisdictionData.urls.map(url => {
+      if (url.isEmail) {
+        return (
+          <div key={url.id} className="links">
+            <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
+          </div>
+        );
+      } else {
+        return (
+          <div key={url.id} className="links">
+            <a href={url.url} target="_blank" rel="noopener noreferrer">{url.name}</a>
+          </div>
+        );
+      }
+    });
+  }
 
   return (
     <Drawer

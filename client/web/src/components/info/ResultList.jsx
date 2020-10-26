@@ -41,7 +41,10 @@ const ResultList = ({
     <div className="result-list">
       {isDesktopOrLaptop && <>
         <div className="result-list-desktop">
-          <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+          {data.jurisdictionData.locations.length === 1
+            ? <p>{data.jurisdictionData.locations.length} drop off location available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+            : <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+          }
           <div className="county-information-wrapper">
             <img className="info-icon" src={infoIcon} alt="Information icon"/>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -63,7 +66,10 @@ const ResultList = ({
           className="result-list-drawer"
         >
           <Drawer.Header>
-            <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+            {data.jurisdictionData.locations.length === 1
+              ? <p>{data.jurisdictionData.locations.length} drop off location available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+              : <p>{data.jurisdictionData.locations.length} drop off locations available in <b>{data.jurisdictionData.name}, {data.stateData.name}</b></p>
+            }
             <div className="county-information-wrapper">
               <img className="info-icon" src={infoIcon} alt="Information icon"/>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
