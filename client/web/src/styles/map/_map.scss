@@ -6,6 +6,10 @@ div.map {
     left: 0;
     bottom: 0;
     margin: 0 auto;
+
+    @media only screen and (min-width: 1024px) {
+      left: 400px;
+    }
   }
   
   #map-geocoder {
@@ -24,13 +28,14 @@ div.map {
   width: 90vw;
   max-width: 340px;
   left: 50%;
-  margin-left: -45vw;
+  transform: translateX(-50%);
   border-radius: 14px;
   font-size:.87em;
   line-height: 1.37em;
   padding: 5px 12px;
-  @media (min-width:386px) {
-    margin-left: -170px;
+  @media (min-width: 1024px) {
+    margin-left: 0;
+    transform: none;
   }
 
   button {

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.JurisdictionPublishLog.belongsTo(models.Jurisdiction, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'publisher_user_id',
         allowNull: true,
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         reference: {
           model: 'user',
           key: 'id',

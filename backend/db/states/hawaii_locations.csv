@@ -1,0 +1,51 @@
+﻿state,county,location_type,location_name,address_1,address_2,city,state_2,zip,phone,schedule_type,hour_description,hours,hours_start_date,hours_stop_date,hours_nov3,continuous_begin_date,continuous_begin_time,continuous_end_date,continuous_end_time
+Hawaii,County of Hawaii,Place of Deposit,Hawaii County Building,25 Aupuni Street,,Hilo,HI,96720,(808) 961-8331,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,Naalehu Police Station,95-5355 Mamalahoa Highway,,Naalehu,HI,96772,(808) 939-2520,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,Pahoa Police Station,15-2615 Keaau-Pahoa Road,,Pahoa,HI,96778,(808) 965-2716,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,Rodney Yano Hall,82-6156 Mamalahoa Highway,,Captain Cook,HI,96704,,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,Waimea Police Station,67-5185 Kamamalu Street,,Waimea,HI,96743,(808) 887-3080,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Hawaii Voter Service Center,West Hawaii Civic Center,74-5044 Ane Keohokalole Highway,Community Room Building G,Kailua-Kona,HI,96740,(808) 323-4444,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,North Kohala Police Station,54-3900 Akoni Pule Highway,,Kapaau,HI,96755,(808) 889-6540,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Hawaii,Place of Deposit,Laupahoehoe Police Station,36-2285 Old Mamalahoa Highway,,Laupahoehoe,HI,96764,(808) 962-2120,continuous,,,,,,2020/10/14,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Haiku Community Center,Hana Highway at Pilialoha Street,,Haiku,HI,96708,(808) 572-8122,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Hana Fire Station,4655 Hana Highway,,Hana,HI,96713,(808) 876-4595,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Kahului Fire Station,200 Dairy Road,,Kahului,HI,96732,(808) 270-7911,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Kalana O Maui County Building,200 S. High Street,,Wailuku,HI,96793,,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Kihei Fire Station,11 Waimahaihai Street,,Kihei,HI,96753,(808) 879-2741,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Kula Fire Station,50 Calasa Road,,Kula,HI,96790,(808) 876-0044,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Lahaina Civic Center,1840 Honoapiilani Highway,,Lahaina,HI,96761,(808) 661-4685,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Makawao Fire Station,134 Makawao Avenue,,Makawao,HI,96768,(808) 572-9160,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Napili Fire Station,4950 Hanawai Street,,Lahaina,HI,96761,(808) 669-4300,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Paia Community Center,252 Hana Highway,,Paia,HI,96779,808) 579-8354,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Maui,Place of Deposit,Wailea Fire Station,300 Kilohana Drive,,Kihei,HI,96753,(808) 874-8520,continuous,,,,,,2020/10/08,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Hanalei Fire Station,5-4390 Kuhio Hwy,,Princeville,HI,96722,(808) 826-6333,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Hanapepe Fire Station,1-3787 Kaumualii Highway,,Hanapepe,HI,96716,(808) 826-6333,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Kalaheo Fire Station,2-2480 Kaumualii Highway,,Kalaheo,HI,96741,(808) 332-8021,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Kapaa Fire Station,4-757 Kuhio Highway,,Kapaa,HI,96746,(808) 822-4381,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,County Clerk Elections Division Lihue,4386 Rice St,"Front of our building, facing Rice Street",Lihue,HI,96766,(808) 961-8277,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Hanalei Neighborhood Center,5-5358 Kuhio Highway,,Hanalei,HI,96714,(808) 826-5153,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Kilauea Neighborhood Center,2460 Keneke Street,,Kilauea,HI,96754,(808) 828-1421,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,County of Kauai,Place of Deposit,Waimea Neighborhood Center,4556 Makeke Road,,Waimea,HI,96796,8082413148,continuous,,,,,,2020/10/12,23:59,2020/11/03,19:00
+Hawaii,City & County of Honolulu,Park,Bill Balfour Jr. Waipahu District Park,94-230 Paiwa Street,,Waipahu,HI,96797,,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Hawaii Kai Park and Ride,240 Keahole Street,,Honolulu,HI,96825,,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Kahuku District Park,56-170 Pualalea Street,,Kahuku,HI,96731,808) 293-5116,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Kailua District Park,21 South Kainalu Drive,,Kailua,HI,96734,(808) 266-7652,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Kalihi Valley District Park,1911 Kamehameha IV Road,,Honolulu,HI,96819,(808) 768-8962,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Kaneohe District Park,45-660 Keaahala Road,,Kaneohe,HI,96744,(808) 768-8991,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Kanewai Community Park,2695 Dole Street,,Honolulu,HI,96822,(808) 733-7366,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Mililani Park and Ride,95-1101 Ukuwai Street,,Mililani,HI,96789,(808) 222-3826,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Neal S. Blaisdell Park,98-319 Kamehameha Highway,,Aiea,HI,96701,(808) 453-7527,description,Follows regular park hours.,,,,,,,,
+Hawaii,City & County of Honolulu,Park,Waianae District Park,85-601 Farrington Highway,,Waianae,HI,96792,(808) 696-5039,description,Follows regular park hours.,,,,,,,,
+Hawaii,Hawaii,Elections Office,Hawaiʻi County Building,25 Aupuni Street,Room 1502,Hilo,HI,96720,(808) 961-8277,description,Unknown,,,,,,,,
+Hawaii,Hawaii,Elections Office,West Hawaiʻi Civic Center,74-5044 Ane Keohokālole Highway,"Building B, 2nd Floor",Kailua-Kona,HI,96740,(808) 323-4400,description,Unknown,,,,,,,,
+Hawaii,Maui,Elections Office,Maui County Elections,200 South High Street,Room 708,Wailuku,HI,96793,(808) 270-7749,description,Unknown,,,,,,,,
+Hawaii,Honolulu,Elections Office,Office of the City Clerk,530 South King Street,Room 100,Honolulu,HI,96813,(808) 768-3800,description,Unknown,,,,,,,,
+Hawaii,City & County of Honolulu,Hawaii Voter Service Center,Honolulu Hale,530 South King Street,,Honolulu,HI,96813,,hours,"Between Oct 6 and Nov 2, Monday-Friday: 07:45-16:30. On Nov 3, 7am-7pm.",Monday-Friday: 07:45-16:30,2020/10/06,2020/11/02,07:00-19:00,,,,
+Hawaii,City & County of Honolulu,Hawaii Voter Service Center,Kapolei Hale,1000 Uluohia Street,,Kapolei,HI,96707,,hours,"Between Oct 6 and Nov 2, Monday-Friday: 07:45-16:30. On Nov 3, 7am-7pm.",Monday-Friday: 07:45-16:30,2020/10/06,2020/11/02,07:00-19:00,,,,
+Hawaii,Kauai,Elections Office,Office of the County Clerk,4386 Rice Street,Room 101,Lihue,HI,96766,(808) 241-4800,hours,"Between Oct 12 and Nov 2, Monday-Friday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-FRIDAY: 8:00 AM-4:30 PM,2020/10/12,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Hawaii,Hawaii Voter Service Center,County of Hawaii Aupuni Center,101 Pauahi Street,Conference Room,Hilo,HI,96720,(808) 961-8211,hours,"Between Oct 20 and Nov 2, Monday-Saturday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-SATURDAY: 8:00 AM-4:30 PM,2020/10/20,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Maui,Hawaii Voter Service Center,Lanai Police Station,855 Fraser Avenue,Conference Room,Lanai City,HI,96763,(808) 565-6428,hours,"Between Oct 20 and Nov 2, Monday-Saturday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-SATURDAY: 8:00 AM-4:30 PM,2020/10/20,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Maui,Hawaii Voter Service Center,Mitchell Pauole Center,90 Ainoa Street,Conference Room,Kaunakakai,HI,96748,(808) 553-3204,hours,"Between Oct 20 and Nov 2, Monday-Saturday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-SATURDAY: 8:00 AM-4:30 PM,2020/10/20,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Maui,Hawaii Voter Service Center,Velma McWayne Santos Community Center,395 Waena Street,,Wailuku,HI,96793,(808) 270-7232,hours,"Between Oct 20 and Nov 2, Monday-Saturday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-SATURDAY: 8:00 AM-4:30 PM,2020/10/20,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Kauai,Hawaii Voter Service Center,Piikoi Building,4444 Rice Street,Conference Room A / B,Lihue,HI,96766,(808) 596-0585,hours,"Between Oct 20 and Nov 2, Monday-Saturday: 8am-4:30pm. On Nov 3, 7am-7pm.",MONDAY-SATURDAY: 8:00 AM-4:30 PM,2020/10/12,2020/11/02,07:00-19:00,,,,
+Hawaii,County of Maui,Place of Deposit,Aloha Aina Center,810 Kokomo Road,,Haiku,HI,96708,(808) 575-9383,hours,"Between Oct 8 and Nov 2, Monday-Sunday: 7am-7pm. On Nov 3, 7am-7pm.",MONDAY-SUNDAY: 7:00 AM-7:00 PM,2020/10/08,2020/11/03,07:00-19:00,,,,

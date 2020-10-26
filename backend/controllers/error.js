@@ -15,7 +15,8 @@ exports.handleError = (err, errCode = 400, res) => {
     message: err.message,
     err: err,
   })
-  return res
-    .status(errCode)
-    .send({ status: 'error', message: err.statusMessage || 'Error' })
+  return res.status(errCode).send({
+    status: 'error',
+    message: err.statusMessage || err.message || 'Error',
+  })
 }

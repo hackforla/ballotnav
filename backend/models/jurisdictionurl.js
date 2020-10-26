@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       models.JurisdictionUrl.belongsTo(models.Jurisdiction, {
         foreignKey: 'jurisdiction_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
+      })
+      models.JurisdictionUrl.belongsTo(models.UrlType, {
+        foreignKey: 'urltype_id',
+        as: 'urlType',
       })
     }
   }

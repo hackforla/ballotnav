@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       models.WipStateNews.belongsTo(models.WipState, {
         foreignKey: 'wip_state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }

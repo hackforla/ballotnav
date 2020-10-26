@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './components/main/Home';
 import About from './components/main/About';
@@ -31,7 +27,7 @@ const Routes = () => {
       </Route>
       <Redirect to="/" />
     </Switch>
-  );
+  )
 }
 
-export default Routes;
+export default Routes

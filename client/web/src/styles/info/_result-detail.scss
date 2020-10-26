@@ -13,6 +13,8 @@
     font-size: 1.2em;
     font-weight: bold;
     color: $blue;
+    line-height: 24px;
+    margin: 10px 0;    
   }
 
   div.rs-drawer-header {
@@ -41,7 +43,10 @@
   div.rs-drawer-body {
     margin: 0;
     padding: 0 20px;
-    height: 347px!important;
+
+    @media (max-width:1023px) {
+      height: 347px!important;
+    }
   }
 
   span.icon {
@@ -120,5 +125,9 @@
     display: inline;
     color: $black;
     vertical-align: bottom;
+  }
+
+  p.gray {
+    color: $grey;
   }
 }

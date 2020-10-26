@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 
-import { editableFields } from 'models'
 import jurisdictionModel from 'models/jurisdiction'
 import locationModel from 'models/location'
-import importantDateModel from 'models/jurisdiction_importantdate'
-import infoTabModel from 'models/jurisdiction_infotab'
-import newsModel from 'models/jurisdiction_news'
 import noticeModel from 'models/jurisdiction_notice'
 import phoneModel from 'models/jurisdiction_phone'
 import urlModel from 'models/jurisdiction_url'
@@ -31,39 +27,12 @@ const SUBMODELS = [{
   },
   listKey: 'name',
 },{
-  id: 'importantDates',
-  tabLabel: 'Important Dates',
-  displayName: 'Important Date',
-  model: {
-    editFields: importantDateModel,
-    tableFields: editableFields(importantDateModel),
-  },
-  listKey: 'note',
-},{
-  id: 'infoTabs',
-  tabLabel: 'Info Tabs',
-  displayName: 'Info Tab',
-  model: {
-    editFields: infoTabModel,
-    tableFields: editableFields(infoTabModel),
-  },
-  listKey: 'caption',
-},{
-  id: 'news',
-  tabLabel: 'News',
-  displayName: 'News',
-  model: {
-    editFields: newsModel,
-    tableFields: editableFields(newsModel),
-  },
-  listKey: 'caption',
-},{
   id: 'notices',
   tabLabel: 'Notices',
   displayName: 'Notice',
   model: {
     editFields: noticeModel,
-    tableFields: editableFields(noticeModel),
+    tableFields: Object.keys(noticeModel),
   },
   listKey: 'message',
 },{
@@ -72,7 +41,7 @@ const SUBMODELS = [{
   displayName: 'Phone',
   model: {
     editFields: phoneModel,
-    tableFields: editableFields(phoneModel),
+    tableFields: Object.keys(phoneModel),
   },
   listKey: 'phoneNumber',
 },{
@@ -81,7 +50,7 @@ const SUBMODELS = [{
   displayName: 'Url',
   model: {
     editFields: urlModel,
-    tableFields: editableFields(urlModel),
+    tableFields: Object.keys(urlModel),
   },
   listKey: 'name',
 }]

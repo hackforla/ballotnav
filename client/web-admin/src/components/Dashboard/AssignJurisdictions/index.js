@@ -102,7 +102,7 @@ function AssignJurisdictions() {
         removedJurisdictionIds,
       }
 
-      api.jurisdictions.assignJurisdictions(body)
+      api.assignment.assignJurisdictions(body)
         .then(({ results }) => {
           const successMessage = `
             Success:
@@ -122,7 +122,7 @@ function AssignJurisdictions() {
   useEffect(() => {
     let isSubscribed = true;
     if (!submitting) {
-      api.user.listVolunteers().then(volunteers => {
+      api.assignment.listAllVolunteers().then(volunteers => {
         const transformed = volunteers.reduce((acc, volunteer) => {
           volunteer.userJurisdictions = volunteer.userJurisdictions.map(j => j.jurisdiction);
           return {...acc, [volunteer.id]: volunteer }
@@ -132,7 +132,7 @@ function AssignJurisdictions() {
         }
       });
 
-      api.jurisdictions.list().then(jurisdictions => {
+      api.assignment.listAllJurisdictions().then(jurisdictions => {
         const jdxByState = {};
         const jdxs = {};
         const states = {};

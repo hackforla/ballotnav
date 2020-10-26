@@ -11,49 +11,49 @@ module.exports = (sequelize, DataTypes) => {
       models.State.hasMany(models.Jurisdiction, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'jurisdictions',
       })
       models.State.hasMany(models.StateImportantDate, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'importantDates',
       })
       models.State.hasMany(models.StateInfoTab, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'infoTabs',
       })
       models.State.hasMany(models.StateNews, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'news',
       })
       models.State.hasMany(models.StateNotice, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'notices',
       })
       models.State.hasMany(models.StatePhone, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'phones',
       })
       models.State.hasMany(models.StateUrl, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
         allowNull: false,
         as: 'urls',
       })
@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
       models.State.hasMany(models.UserState, {
         foreignKey: 'state_id',
         onDelete: 'restrict',
-        onupdate: 'cascade',
+        onUpdate: 'cascade',
       })
       models.State.belongsToMany(models.User, {
         through: UserState,

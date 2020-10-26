@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import api from 'services/api'
 import { useToast } from 'components/use-toast'
-
 import Header from 'components/Dashboard/Layout/Header'
 import HeaderButtons from './HeaderButtons'
 import Editor from '../JurisdictionEditor'
@@ -10,28 +9,24 @@ import Editor from '../JurisdictionEditor'
 function EditJurisdiction() {
   const { jurisdictionId } = useParams()
   const [jurisdiction, setJurisdiction] = useState(null)
-  const [canSaveProgress, setCanSaveProgress] = useState(false)
-  const [canSubmitForReview, setCanSubmitForReview] = useState(true)
+  const [isSaving, setIsSaving] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [hasChanges, setHasChanges] = useState(false)
   const toast = useToast()
+  const history = useHistory()
 
   useEffect(() => {
-    api.jurisdictions.getWipJurisdiction(jurisdictionId).then((jurisdiction) => {
-      setJurisdiction(jurisdiction)
-    })
+    api.wip.getJurisdiction(jurisdictionId).then(setJurisdiction)
   }, [jurisdictionId])
 
   const updateJurisdiction = (newJurisdiction) => {
-    setJurisdiction({
-      ...jurisdiction,
-      ...newJurisdiction,
-    })
-    setCanSaveProgress(true)
-    // setCanSubmitForReview(false)
+    setJurisdiction({ ...jurisdiction, ...newJurisdiction })
+    setHasChanges(true)
   }
 
   const saveProgress = () => {
-    setCanSaveProgress(false)
-    api.jurisdictions.updateWipJurisdiction(jurisdiction.id, jurisdiction)
+    setIsSaving(true)
+    api.wip.updateJurisdiction(jurisdiction.id, jurisdiction)
       .then(updated => {
         toast({
           severity: 'success',
@@ -39,35 +34,34 @@ function EditJurisdiction() {
           message: 'Progress saved.',
         })
         setJurisdiction(updated)
-        setCanSubmitForReview(true)
+        setHasChanges(false)
       })
       .catch(error => {
         toast({
           severity: 'error',
           message: error.message,
         })
-        setCanSaveProgress(true)
       })
+      .finally(() => setIsSaving(false))
   }
 
   const submitForReview = () => {
-    setCanSubmitForReview(false)
-    api.jurisdictions.releaseWipJurisdiction(jurisdiction.id)
+    setIsSubmitting(true)
+    api.wip.releaseJurisdiction(jurisdiction.id)
       .then(data => {
         toast({
           severity: 'success',
-          autoHideDuration: 3000,
-          message: 'Jurisdiction released for review.',
+          autoHideDuration: 5000,
+          message: `Released ${jurisdiction.name} for review.`,
         })
-        updateJurisdiction({ isReleased: true })
-        setCanSubmitForReview(true)
+        history.push('/jurisdictions')
       })
       .catch(error => {
         toast({
           severity: 'error',
           message: error.message,
         })
-        setCanSubmitForReview(true)
+        setIsSubmitting(false)
       })
   }
 
@@ -76,9 +70,14 @@ function EditJurisdiction() {
       <Header title={jurisdiction ? `Jurisdiction: ${jurisdiction.name}` : undefined}>
         <HeaderButtons
           onSaveProgress={saveProgress}
-          canSaveProgress={canSaveProgress}
+          canSaveProgress={hasChanges && !isSaving}
           onSubmitForReview={submitForReview}
-          canSubmitForReview={jurisdiction && !jurisdiction.isReleased && !canSaveProgress && canSubmitForReview}
+          canSubmitForReview={(
+            jurisdiction &&
+            !jurisdiction.isReleased &&
+            !isSubmitting &&
+            !hasChanges
+          )}
         />
       </Header>
       <Editor

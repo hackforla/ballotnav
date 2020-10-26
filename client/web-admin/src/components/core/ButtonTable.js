@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 })
 
-function ButtonTable({ columns, rows, buttonText, onClickButton }) {
+function ButtonTable({ columns, rows, buttonText, onClickButton, noDataMessage = 'No data.' }) {
   const classes = useStyles()
 
   return (
@@ -47,6 +47,15 @@ function ButtonTable({ columns, rows, buttonText, onClickButton }) {
               ))}
             </TableRow>
           ))}
+          {rows.length === 0 && (
+            <TableRow>
+              <TableCell
+                style={{ padding: 10, paddingLeft: 20 }}
+                colSpan={columns.length + 1}>
+                { noDataMessage }
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </TableContainer>

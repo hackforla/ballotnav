@@ -1,8 +1,6 @@
-const { Sequelize } = require('sequelize')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const logger = require('@log')
-const { handleError } = require('@controllers/error')
 
 //// CONFIG ////
 
@@ -37,9 +35,9 @@ exports.register = async (req, res, next) => {
   const { firstName, lastName, email, password, notes, slackName } = req.body
   logger.info({
     message: 'register request',
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
+    firstName,
+    lastName,
+    email,
     notes,
     slackName,
   })
@@ -56,7 +54,7 @@ exports.register = async (req, res, next) => {
 
   try {
     const passwordHash = await hashPassword(password)
-    const user = await req.db.User.create({
+    const newUser = await req.db.User.create({
       firstName,
       lastName,
       email,
@@ -65,7 +63,7 @@ exports.register = async (req, res, next) => {
       notes,
       slackName,
     })
-    delete user.passwordHash
+    const { passwordHash: _, ...user } = newUser.dataValues
     const token = await createToken({ user })
     return res.json({ isSuccess: true, token, user })
   } catch (e) {
@@ -102,101 +100,15 @@ exports.login = async (req, res, next) => {
     return res.status(401).json({ passwordInvalid: true })
   }
 
-  delete user.passwordHash
-  const token = await createToken({ user })
+  const { passwordHash: _, ...rest } = user.dataValues
+  const token = await createToken({ user: rest })
   logger.info({
     message: 'Login success',
     email: email,
     userId: user.id,
     route: req.route.path,
   })
-  res.json({ isSuccess: true, token, user })
-}
-
-exports.listVolunteers = async (req, res) => {
-  try {
-    const data = await req.db.User.findAll({
-      attributes: [
-        'id',
-        ['first_name', 'firstName'],
-        ['last_name', 'lastName'],
-        'email',
-        'notes',
-        ['slack_name', 'slackName'],
-      ],
-      where: {
-        role: 'volunteer',
-      },
-      include: {
-        model: req.db.UserJurisdiction,
-        as: 'userJurisdictions',
-        include: {
-          model: req.db.Jurisdiction,
-          as: 'jurisdiction',
-        },
-      },
-    })
-    res.json(data);
-  } catch (err) {
-    return handleError(err, 500, res)
-  }
-}
-
-/**
- * create a user assignment to a jurisdiction
- */
-
-// TODO: handle bulk deletion of removed jurisdiction assignments
-exports.assign = async (req, res) => {
-  let jurisdictionIds = [...req.body.jurisdictionIds]
-  let userId = req.body.userId
-  let adminUserId = req.user.id
-
-  logger.info({
-    message: 'Creating user jurisdiction',
-    route: req.route.path,
-    adminUserId,
-    jurisdictionIds,
-    userId,
-  })
-
-  try {
-    let jurisdictionAssignmentAlreadyExists = await req.db.UserJurisdiction.findOne(
-      {
-        where: {
-          userId: userId,
-          jurisdictionId: {
-            [Sequelize.Op.in]: jurisdictionIds,
-          },
-        },
-      }
-    )
-    if (jurisdictionAssignmentAlreadyExists !== null) {
-      return handleError(
-        { statusMessage: 'Error: assignment exists' },
-        400,
-        res
-      )
-    }
-    let records = jurisdictionIds.map((jid) => ({
-      ...req.body,
-      userId: userId,
-      jurisdictionId: jid,
-      status: 'editor',
-    }))
-    let results = await req.db.UserJurisdiction.bulkCreate(records)
-    logger.info({
-      message: 'Success: created user jurisdiction',
-      route: req.route.path,
-      adminUserId,
-      jurisdictionIds,
-      userId,
-      count: records.length,
-    })
-    return res.status(201).json({ status: 'ok', results: results })
-  } catch (err) {
-    return handleError(err, 400, res)
-  }
+  res.json({ isSuccess: true, token, user: rest })
 }
 
 exports.decodeToken = decodeToken
