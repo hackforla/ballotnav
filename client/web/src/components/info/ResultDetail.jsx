@@ -38,6 +38,25 @@ const ResultDetail = ({
     placement = "bottom";
   }
 
+  const renderDaysOpen = hour => {
+    const daysArray = [];
+    if (hour.useMonday) daysArray.push('M');
+    if (hour.useTuesday) daysArray.push('Tu');
+    if (hour.useWednesday) daysArray.push('W');
+    if (hour.useThursday) daysArray.push('Th');
+    if (hour.useFriday) daysArray.push('F');
+    if (hour.useSaturday) daysArray.push('Sa');
+    if (hour.useSunday) daysArray.push('Su');
+
+    const daysText = daysArray.join(', ');
+
+    return (
+      <Dropdown.Item>
+        <b>Days open: </b>{daysText}
+      </Dropdown.Item>
+    );
+  }
+
   const renderHours = () => {
     if (location.hours.length === 0) {
       return (
@@ -62,30 +81,7 @@ const ResultDetail = ({
             <Dropdown.Item key={index.toString()}>
               <b><Moment utc={true} date={beginDate} format={'MMM Do'} /> - <Moment utc={true} date={endDate} format={'MMM Do'} /></b>
             </Dropdown.Item>
-            <Dropdown.Item key={index.toString()}>
-              <span><b>Days open: </b></span>
-              {hour.useMonday &&
-                <span>M, </span>
-              }
-              {hour.useTuesday &&
-                <span>Tu, </span>
-              }
-              {hour.useWednesday &&
-                <span>W, </span>
-              }
-              {hour.useThursday &&
-                <span>Th, </span>
-              }
-              {hour.useFriday &&
-                <span>F, </span>
-              }
-              {hour.useSaturday &&
-                <span>Sa, </span>
-              }
-              {hour.useSunday &&
-                <span>Su, </span>
-              }
-            </Dropdown.Item>
+            {renderDaysOpen(hour)}
             <Dropdown.Item>
               <b>Hours: </b>{openTime}&nbsp;-&nbsp;{closeTime}
             </Dropdown.Item>
