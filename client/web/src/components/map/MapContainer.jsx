@@ -15,6 +15,7 @@ const MapContainer = ({ data, getJurisdiction }) => {
   const location = useLocation()
   const history = useHistory()
   const [center, setCenter] = useState(null)
+  const [selectedLocation, setSelectedLocation] = useState(null)
 
   useEffect(() => {
     const query = queryString.parse(location.search)
@@ -35,8 +36,12 @@ const MapContainer = ({ data, getJurisdiction }) => {
     setResultDetailOpen(false)
   }
 
-  const toggleResultDetail = () => {
-    setResultDetailOpen(!resultDetailOpen)
+  const onSelectLocation = (locationId) => {
+    const { locations } = data.jurisdictionData
+    const location = locations.find(loc => loc.id === locationId)
+
+    setSelectedLocation(location)
+    setResultDetailOpen(true)
   }
 
   if (!data || !center) return null
@@ -50,7 +55,7 @@ const MapContainer = ({ data, getJurisdiction }) => {
       <Map
         center={center}
         toggleCountyInfo={toggleCountyInfo}
-        toggleResultDetail={toggleResultDetail}
+        onSelectLocation={onSelectLocation}
         history={history}
       />
       <CountyInfo open={countyInfoOpen} close={closeCountyInfo} />
@@ -58,7 +63,7 @@ const MapContainer = ({ data, getJurisdiction }) => {
         open={resultDetailOpen}
         close={closeResultDetail}
         data={data}
-        location={data.jurisdictionData.locations[0]}
+        location={selectedLocation}
       />
     </>
   )

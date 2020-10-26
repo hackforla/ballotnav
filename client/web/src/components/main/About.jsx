@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
+
 import React from 'react';
 
 import Footer from './Footer';
-import aboutHero from '../../assets/aboutHero.svg'
-import hackForLALogo from '../../assets/hack-for-LA-logo.svg'
-import codeForAmericaLogo from '../../assets/codeForAmericaLogo.png'
+import aboutHero from 'assets/aboutHero.svg'
+import hackForLALogo from 'assets/hack-for-LA-logo.svg'
+import codeForAmericaLogo from 'assets/codeForAmericaLogo.png'
 
 const About = () => {
   return (
