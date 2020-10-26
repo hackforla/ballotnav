@@ -40,8 +40,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "npx prettier --write 'src/**/*.{js,jsx,json}'",
-    "format:check": "npx prettier --check 'src/**/*.{js,jsx,json}'"
+    "lint": "npx prettier --write 'src/**/*.{js,jsx,json}'",
+    "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'"
   },
   "eslintConfig": {
     "extends": "react-app"
