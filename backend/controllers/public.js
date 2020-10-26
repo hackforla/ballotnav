@@ -38,6 +38,20 @@ exports.listStates = async (req, res) => {
   return res.json(data)
 }
 
+exports.listStatesAndJurisdictions = async (req, res) => {
+  const data = await req.db.State.findAll({
+    attributes: ['id', 'name'],
+    order: [['name', 'ASC']],
+    include: {
+      association: 'jurisdictions',
+      attributes: ['id', 'name'],
+      separate: true,
+      order: [['name', 'ASC']],
+    },
+  })
+  return res.json(data)
+}
+
 exports.getState = async (req, res) => {
   const { stateId } = req.params
   logger.info({

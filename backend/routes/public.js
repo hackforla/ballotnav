@@ -3,6 +3,7 @@ const control = require('@controllers/public')
 
 router.get('/jurisdictions', control.getJurisdictionsFromLatLon)
 router.get('/states', control.listStates)
+router.get('/states-and-jurisdictions', control.listStatesAndJurisdictions)
 router.get('/states/:stateId', control.getState)
 router.get('/states/:stateId/jurisdictions', control.listJurisdictionsInState)
 router.get('/jurisdictions/:jurisdictionId', control.getJurisdiction)
