@@ -5,15 +5,49 @@ div.result-list {
   left: 50%;
   transform: translateX(-50%);
 
+  @media only screen and (min-width: 1224px) {
+    left: 200px;
+    width: 350px;
+    top: 195px;
+    z-index: -5;
+  }
+
   div.rs-btn-toolbar button {
     background: $blue;
     color: $white;
+  }
+
+  .result-list-desktop {
+    h3 {
+      line-height: 24px;
+      margin: 10px 0;    
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: $black;
+    }
+
+    img.info-icon {
+      width: 16px;
+      margin-right: 7px;
+      margin-bottom: 3px;
+    }
+
+    div.result-card {
+      margin: 10px 0 15px 0;
+    }
   }
 }
 
 .result-list-drawer {
   div.rs-drawer-content {
     height: 590px!important;
+    h3 {
+      line-height: 24px;
+      margin: 10px 0;    
+    }
+    
     img.info-icon {
       width: 16px;
       margin-right: 7px;

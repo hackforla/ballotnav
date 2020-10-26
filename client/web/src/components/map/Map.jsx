@@ -55,7 +55,7 @@ class Map extends React.Component {
     });
 
     document.getElementById('map-geocoder').appendChild(geocoder.onAdd(this.map));
-
+    geocoder.setPlaceholder('Enter an address or ZIP');
     geocoder.on('result', ({ result }) => {
       geocoder.clear()
       this.handleGeocodeResult({ result})
