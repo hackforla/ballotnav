@@ -98,6 +98,17 @@
         "coordinates": [-87.769775, 41.873683],
         "type": "Point"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "MacArthur Park",
+        "description": "A park in Los Angeles with a large lake fed by natural springs"
+      },
+      "geometry": {
+        "coordinates": [-118.27704, 34.06036],
+        "type": "Point"
+      }
     }
   ],
   "type": "FeatureCollection"

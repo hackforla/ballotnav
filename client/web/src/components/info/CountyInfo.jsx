@@ -1,6 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 import Moment from 'react-moment'
 import { Drawer } from 'rsuite'
@@ -20,7 +21,26 @@ const CountyInfo = ({ open, close, data }) => {
     urls: countyUrls,
   } = data.jurisdictionData
 
-  const renderDateInfos = (dates) => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1024px)'
+  });
+
+  let size;
+  let placement;
+
+  if (isDesktopOrLaptop) {
+    size = "xs";
+  } else {
+    size = "md";
+  }
+
+  if (isDesktopOrLaptop) {
+    placement = "left";
+  } else {
+    placement = "bottom";
+  }
+
+  const renderDateInfos = dates => {
     return dates.map((date, index) => (
       <p key={index}>
         <b>{date.importantDateTypeName}: </b>
@@ -56,7 +76,7 @@ const CountyInfo = ({ open, close, data }) => {
 
   const renderUrls = (urls) => {
     return urls.map((url) => {
-      if (url.isEmail) {
+      if (url.urlType.isEmail) {
         return (
           <div key={url.id} className="links">
             <p className="email">Email address: </p>
@@ -102,8 +122,8 @@ const CountyInfo = ({ open, close, data }) => {
       className="county-info"
       show={open}
       onHide={close}
-      placement="bottom"
-      size="lg"
+      placement={placement}
+      size={size}
     >
       <Drawer.Header>
         <h2>
@@ -111,33 +131,22 @@ const CountyInfo = ({ open, close, data }) => {
         </h2>
       </Drawer.Header>
       <Drawer.Body>
-        <p>
-          We have found the most credible and up to date election information to
-          be on{' '}
-          <a
-            href="https://www.vote.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            vote.org
-          </a>
-          .
-        </p>
-        <h4>State Information</h4>
-        <h5 id="important-dates">Important Dates</h5>
-        {renderDateInfos(stateImportantDates)}
-        <h5>Links</h5>
-        {renderUrls(stateUrls)}
-        <h5>
-          Late Registration Possible: {lateRegistration === 'N' ? 'No' : 'Yes'}
-        </h5>
-        <h4>County Information</h4>
-        <h5 id="important-dates">Important Dates</h5>
-        {renderDateInfos(countyImportantDates)}
-        <h5>Links</h5>
-        {renderUrls(countyUrls)}
-        <h5>Phone numbers</h5>
-        {renderPhones(countyPhones)}
+          <p>
+            We have found the most credible and up to date election information to be on <a href="https://www.vote.org" target="_blank" rel="noopener noreferrer">vote.org</a>.
+          </p>
+          <h4>State Information</h4>
+          <h5 id="important-dates">Important Dates</h5>
+          {renderDateInfos(stateImportantDates)}
+          <h5>Links</h5>
+          {renderUrls(stateUrls)}
+          <h5>Late Registration Possible: {lateRegistration === 'N' ? 'No' : lateRegistration === 'U' ? 'Unknown' : 'Yes'}</h5>
+          <h4>County Information</h4>
+          <h5 id="important-dates">Important Dates</h5>
+          {renderDateInfos(countyImportantDates)}
+          <h5>Links</h5>
+          {renderUrls(countyUrls)}
+          <h5>Phone numbers</h5>
+          {renderPhones(countyPhones)}
       </Drawer.Body>
     </Drawer>
   )
