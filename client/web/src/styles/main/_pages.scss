@@ -1,0 +1,31 @@
+.About-wrapper, .Volunteer, .Press{
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 35px 20px 0;
+
+  // @media only screen and (min-width: 1024px) {
+    
+  // }
+  h1,h2,h3 {
+    font-weight: 700;
+  }
+  h1 {
+    color: $red;
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size:1.125em;
+    font-weight:700;
+  }
+  p {
+    font-size: .875em;
+    line-height: 1.18em;
+  }
+}
+
+.bold {
+  font-weight:700;
+}
+.underline {
+  text-decoration:underline;
+}
