@@ -47,9 +47,15 @@ const Header = ({ location: { pathname } }) => {
 
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="navbar-end">
-          <a className="navbar-item">About</a>
-          <a className="navbar-item">Volunteer</a>
-          <a className="navbar-item">Press</a>
+          <a className="navbar-item" href="/about">
+            About
+          </a>
+          <a className="navbar-item" href="/volunteer">
+            Volunteer
+          </a>
+          <a className="navbar-item" href="/press">
+            Press
+          </a>
         </div>
       </div>
     </nav>
