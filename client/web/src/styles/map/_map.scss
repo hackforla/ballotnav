@@ -6,6 +6,10 @@ div.map {
     left: 0;
     bottom: 0;
     margin: 0 auto;
+
+    @media only screen and (max-width: 1224px) {
+      left: 500px!important;
+    }
   }
   
   #map-geocoder {
