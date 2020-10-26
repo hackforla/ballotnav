@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const Home = () => {
   return (
-    <>
+    <div className="Home">
       <div className="hero-wrapper" role="banner">
         <div className="cloud-background" />
         <div className="hero-text-wrapper">
@@ -16,7 +16,7 @@ const Home = () => {
         <img className="hero-image" alt="Hero" />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

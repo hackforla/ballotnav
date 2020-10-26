@@ -27,7 +27,7 @@ const Header = ({
       className={clx('navbar', { 'map': ['/map'].includes(pathname) })}
     >
       <div className="navbar-brand">
-      <Link to="/" className="navbar-item">
+        <Link to="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
         </Link>
         <a // eslint-disable-line
@@ -47,13 +47,13 @@ const Header = ({
 
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="navbar-end">
-          <a className="navbar-item">
+          <a className="navbar-item" href="/about">
             About
           </a>
-          <a className="navbar-item">
+          <a className="navbar-item" href="/volunteer">
             Volunteer
           </a>
-          <a className="navbar-item">
+          <a className="navbar-item" href="/press">
             Press
           </a>
         </div>

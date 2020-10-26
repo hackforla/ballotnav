@@ -1,9 +1,5 @@
-
-
 .footer {
-  position: absolute;
-  bottom: 0;
-  padding: 0;
+  padding-top:15px;
   background-color: $dark-blue;
   width: 100%;
   height: 242px;
@@ -16,15 +12,14 @@
     @include media('tablet') {
       display:flex;
       align-items:center;
-      margin-top:20px;
     }
   }
 
   .social-wrapper {
     margin: 20px 0 0 20px;
-    width: 215px;
+    width: 250px;
     @include media('tablet'){
-      margin-left: 6vw;
+      margin-left: 5vw;
     }
   }
 
@@ -79,15 +74,13 @@
       .fb-share-button {
         bottom:5px;
         margin-right:15px;
+        width: 84px;
       }
     }
   }
 
   #privacy-policy {
-    position: absolute;
-    bottom: 22px;
-    left: 50vw;
-    margin-left: -150px;
+    margin-top:35px;
     text-align: center;
     font-size: .75em;
     a {
