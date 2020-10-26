@@ -3,23 +3,17 @@ import { connect } from 'react-redux';
 import { getJurisdiction } from 'redux/actions/data';
 import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
 import ResultHeader from '../info/ResultHeader';
 import Map from './Map';
 import CountyInfo from '../info/CountyInfo';
 import ResultDetail from '../info/ResultDetail';
 import queryString from 'query-string';
-import ResultList from 'components/info/ResultList';
 
 const MapContainer = ({
   data,
   getJurisdiction,
 }) => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
-  });
-
   const [countyInfoOpen, setCountyInfoOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
@@ -52,9 +46,6 @@ const MapContainer = ({
   if (!data || !center) return null;
   return (
     <>
-      {isDesktopOrLaptop && <>
-        <ResultList />
-      </>}
       <ResultHeader
         stateName={data.stateData.name}
         jurisdictionName={data.jurisdictionData.name}

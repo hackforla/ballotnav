@@ -23,6 +23,9 @@ div.result-list {
   }
 
   .result-list-desktop {
+    height: calc(100vh - 200px);
+    overflow: scroll;
+
     p {
       margin-bottom: 10px;
       color: $black;
