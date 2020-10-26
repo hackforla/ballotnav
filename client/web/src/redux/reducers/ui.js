@@ -4,8 +4,8 @@ export default (state = [], action) => {
       return {
         ...state,
         selectedLocation: action.location,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
