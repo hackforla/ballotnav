@@ -56,8 +56,6 @@ const ResultDetail = ({
       const yesterday = new Date(today)
       yesterday.setDate(yesterday.getDate() - 1)
 
-      debugger
-
       if (endDate >= yesterday)
         return (
           <>
