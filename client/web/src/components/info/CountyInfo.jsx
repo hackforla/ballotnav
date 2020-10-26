@@ -76,7 +76,7 @@ const CountyInfo = ({ open, close, data }) => {
 
   const renderUrls = (urls) => {
     return urls.map((url) => {
-      if (url.isEmail) {
+      if (url.urlType.isEmail) {
         return (
           <div key={url.id} className="links">
             <p className="email">Email address: </p>

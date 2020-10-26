@@ -20,7 +20,7 @@ const ResultCard = ({ data, location }) => {
       <h3>{location.name}</h3>
       <div className="result-card-content-wrapper">
         <img className="address-icon" src={pinIcon} alt="Address icon" />
-        <h4>{location.address1.substring(0, location.address1.length - 1)}</h4>&nbsp;
+        <h4>{location.address1}</h4>&nbsp;
         <h4>{location.address2}</h4>&nbsp;
         <h4>{location.address3}</h4>&nbsp;
         <br />

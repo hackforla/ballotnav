@@ -56,15 +56,42 @@ const ResultDetail = ({
       const yesterday = new Date(today)
       yesterday.setDate(yesterday.getDate() - 1)
 
+      debugger
+
       if (endDate >= yesterday)
         return (
-          <Dropdown.Item key={index.toString()}>
-            <b>
-              <Moment utc={true} date={beginDate} format={'MMM Do'} />:
-            </b>
-            &nbsp;
-            {openTime}&nbsp;-&nbsp;{closeTime}
-          </Dropdown.Item>
+          <>
+            <Dropdown.Item key={index.toString()}>
+              <b><Moment utc={true} date={beginDate} format={'MMM Do'} /> - <Moment utc={true} date={endDate} format={'MMM Do'} /></b>
+            </Dropdown.Item>
+            <Dropdown.Item key={index.toString()}>
+              <span><b>Days open: </b></span>
+              {hour.useMonday &&
+                <span>M, </span>
+              }
+              {hour.useTuesday &&
+                <span>Tu, </span>
+              }
+              {hour.useWednesday &&
+                <span>W, </span>
+              }
+              {hour.useThursday &&
+                <span>Th, </span>
+              }
+              {hour.useFriday &&
+                <span>F, </span>
+              }
+              {hour.useSaturday &&
+                <span>Sa, </span>
+              }
+              {hour.useSunday &&
+                <span>Su, </span>
+              }
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <b>Hours: </b>{openTime}&nbsp;-&nbsp;{closeTime}
+            </Dropdown.Item>
+          </>
         )
 
       return null
@@ -77,9 +104,9 @@ const ResultDetail = ({
         <p className="gray">Not available yet</p>
       );
     }
-    
-    data.jurisdictionData.urls.map(url => {
-      if (url.isEmail) {
+
+    return data.jurisdictionData.urls.map(url => {
+      if (url.urlType.isEmail) {
         return (
           <div key={url.id} className="links">
             <p className="email">Email address: </p><a href={"mailto:" + url.url} target="_blank" rel="noopener noreferrer">{url.url}</a>
@@ -119,7 +146,7 @@ const ResultDetail = ({
         <h1>{location.name}</h1>
         <div className="result-card-content-wrapper">
           <img className="address-icon" src={pinIcon} alt="Address icon" />
-          <h4>{location.address1.substring(0, location.address1.length - 1)}</h4>&nbsp;
+          <h4>{location.address1}</h4>&nbsp;
           <h4>{location.address2}</h4>&nbsp;
           <h4>{location.address3}</h4>&nbsp;
           <br />
