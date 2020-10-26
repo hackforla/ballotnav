@@ -16,10 +16,10 @@ const ResultList = ({
   toggleCountyInfo,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
+    query: '(min-width: 1223px)'
   });
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1223px)' });
 
   const [open, setOpen] = useState(true);
 

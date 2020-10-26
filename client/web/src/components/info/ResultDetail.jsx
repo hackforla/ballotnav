@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { Drawer, Dropdown } from 'rsuite';
 import Moment from 'react-moment';
+import { useMediaQuery } from 'react-responsive';
 
 import pinIcon from '../../assets/pin-icon.svg';
 import backArrow from '../../assets/back-arrow-icon.svg';
@@ -16,10 +17,35 @@ const ResultDetail = ({
   open,
   close,
 }) => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  });
+  
   if (!location) return null;
 
+  let size;
+  let placement;
+
+  if (isDesktopOrLaptop) {
+    size = "xs";
+  } else {
+    size = "md";
+  }
+
+  if (isDesktopOrLaptop) {
+    placement = "left";
+  } else {
+    placement = "bottom";
+  }
+
   const renderHours = () => {
-    if (location.scheduleType !== 'hours') return null;
+    if (location.hours.length === 0) {
+      return (
+        <Dropdown.Item>
+          No hours available at this time
+        </Dropdown.Item>
+      );
+    }
 
     return location.hours.map((hour, index) => {
       const beginDate = new Date(hour.beginDate);
@@ -57,13 +83,12 @@ const ResultDetail = ({
     }
   });
 
-
   return (
     <Drawer
       show={open}
       onHide={close}
-      placement="bottom"
-      size="md"
+      placement={placement}
+      size={size}
       className="result-detail-drawer"
     >
       <Drawer.Header>

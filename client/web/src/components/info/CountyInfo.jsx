@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 import Moment from 'react-moment';
 import { Drawer } from 'rsuite';
@@ -23,6 +24,25 @@ const CountyInfo = ({
     phones: countyPhones,
     urls: countyUrls,
   } = data.jurisdictionData;
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  });
+
+  let size;
+  let placement;
+
+  if (isDesktopOrLaptop) {
+    size = "xs";
+  } else {
+    size = "md";
+  }
+
+  if (isDesktopOrLaptop) {
+    placement = "left";
+  } else {
+    placement = "bottom";
+  }
 
   const renderDateInfos = dates => {
     return dates.map((date, index) => (
@@ -90,8 +110,8 @@ const CountyInfo = ({
       className='county-info'
       show={open}
       onHide={close}
-      placement="bottom"
-      size="lg"
+      placement={placement}
+      size={size}
     >
       <Drawer.Header>
         <h2>{countyName}, {stateName}</h2>
