@@ -92,7 +92,13 @@ exports.getJurisdiction = async (req, res) => {
       { association: 'news' },
       { association: 'notices' },
       { association: 'phones' },
-      { association: 'urls' },
+      {
+        association: 'urls',
+        include: {
+          association: 'urlType',
+          attributes: ['name'],
+        },
+      },
     ],
   })
   return res.json(data)
