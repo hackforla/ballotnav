@@ -42,7 +42,7 @@ const ResultDetail = ({
     if (location.hours.length === 0) {
       return (
         <Dropdown.Item>
-          No hours available at this time
+          Not available yet
         </Dropdown.Item>
       );
     }
@@ -106,9 +106,11 @@ const ResultDetail = ({
         <h1>{location.name}</h1>
         <div className="result-card-content-wrapper">
           <img className="address-icon" src={pinIcon} alt="Address icon" />
-          <h4>{location.address1.substring(0, location.address1.length - 1)}, {location.address2}</h4>
+          <h4>{location.address1.substring(0, location.address1.length - 1)}</h4>&nbsp;
+          <h4>{location.address2}</h4>&nbsp;
+          <h4>{location.address3}</h4>&nbsp;
           <br />
-          <h4 className="second-line">{location.address3}</h4>
+          <h4 className="second-line">{location.city}, {location.state} {location.zip}</h4>
         </div>
         <div className="hours-dropdown">
           <span className="icon is-small">
@@ -135,7 +137,10 @@ const ResultDetail = ({
         <div className="to-verify">
           <p id="important">Call location to verify</p>
           <img className="phone-icon" src={phoneIcon} alt="Phone icon" />
-          <p>{location.contactPhone}</p>
+          {location.contactPhone
+            ? <p>{location.contactPhone}</p>
+            : <p className="gray">Not available yet</p>
+          }
         </div>
       </Drawer.Footer>
     </Drawer>
