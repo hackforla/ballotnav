@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import clx from 'classnames'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/ballotnav-logo.png'
 
@@ -68,15 +68,15 @@ const Header = ({ location: { pathname } }) => {
           <Footer />
         </div>
         <div className="navbar-end">
-          <a className="navbar-item" href="/about">
+          <Link className="navbar-item" to="/about">
             About
-          </a>
-          <a className="navbar-item" href="/volunteer">
+          </Link>
+          <Link className="navbar-item" to="/volunteer">
             Volunteer
-          </a>
-          <a className="navbar-item" href="/press">
+          </Link>
+          <Link className="navbar-item" to="/press">
             Press
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

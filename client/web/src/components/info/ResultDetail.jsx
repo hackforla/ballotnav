@@ -46,7 +46,7 @@ const ResultDetail = ({ location, data, open, close }) => {
     const daysText = daysArray.join(', ')
 
     return (
-      <Dropdown.Item>
+      <Dropdown.Item className="hours-smaller">
         <b>Days open: </b>
         {daysText}
       </Dropdown.Item>
@@ -70,14 +70,14 @@ const ResultDetail = ({ location, data, open, close }) => {
       if (endDate >= yesterday)
         return (
           <React.Fragment key={hour.id}>
-            <Dropdown.Item>
+            <Dropdown.Item className="date">
               <b>
                 <Moment utc={true} date={beginDate} format={'MMM Do'} /> -{' '}
                 <Moment utc={true} date={endDate} format={'MMM Do'} />
               </b>
             </Dropdown.Item>
             {renderDaysOpen(hour)}
-            <Dropdown.Item>
+            <Dropdown.Item className="hours-smaller">
               <b>Hours: </b>
               {openTime}&nbsp;-&nbsp;{closeTime}
             </Dropdown.Item>
