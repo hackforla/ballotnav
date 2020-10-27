@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 import { getJurisdiction } from 'redux/actions/data'
 import { useHistory, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { useMediaQuery } from 'react-responsive'
 
 import ResultHeader from '../info/ResultHeader'
 import Map from './Map'
 import CountyInfo from '../info/CountyInfo'
 import ResultDetail from '../info/ResultDetail'
 import queryString from 'query-string'
+import SearchBar from 'components/SearchBar'
 
 const MapContainer = ({ data, getJurisdiction }) => {
   const [countyInfoOpen, setCountyInfoOpen] = useState(false)
@@ -16,10 +18,16 @@ const MapContainer = ({ data, getJurisdiction }) => {
   const history = useHistory()
   const [center, setCenter] = useState(null)
   const [selectedLocation, setSelectedLocation] = useState(null)
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1023px)' })
 
   useEffect(() => {
     const query = queryString.parse(location.search)
-    getJurisdiction(query.jid).then(() => setCenter([query.lon, query.lat]))
+    getJurisdiction(query.jid).then(() =>
+      setCenter({
+        lng: parseFloat(query.lng),
+        lat: parseFloat(query.lat),
+      })
+    )
   }, [getJurisdiction, location.search])
 
   const closeCountyInfo = () => {
@@ -46,12 +54,13 @@ const MapContainer = ({ data, getJurisdiction }) => {
 
   if (!data || !center) return null
   return (
-    <>
+    <div className="map-container">
       <ResultHeader
         stateName={data.stateData.name}
         jurisdictionName={data.jurisdictionData.name}
         toggleCountyInfo={toggleCountyInfo}
       />
+      {isTabletOrMobile && <SearchBar center={center} />}
       <Map
         center={center}
         toggleCountyInfo={toggleCountyInfo}
@@ -65,7 +74,7 @@ const MapContainer = ({ data, getJurisdiction }) => {
         data={data}
         location={selectedLocation}
       />
-    </>
+    </div>
   )
 }
 

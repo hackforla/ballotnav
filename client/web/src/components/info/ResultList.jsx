@@ -10,8 +10,16 @@ import { Button } from 'rsuite'
 
 import infoIcon from '../../assets/info-icon-black.svg'
 import ResultCard from './ResultCard'
+import SearchBar from 'components/SearchBar'
 
-const ResultList = ({ data, toggleCountyInfo, toggleDrawer, close, open }) => {
+const ResultList = ({
+  data,
+  toggleCountyInfo,
+  toggleDrawer,
+  close,
+  open,
+  center,
+}) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1024px)',
   })
@@ -29,6 +37,7 @@ const ResultList = ({ data, toggleCountyInfo, toggleDrawer, close, open }) => {
       {isDesktopOrLaptop && (
         <>
           <div className="result-list-desktop">
+            <SearchBar center={center} />
             {data.jurisdictionData.locations.length === 1 ? (
               <p>
                 {data.jurisdictionData.locations.length} drop off location

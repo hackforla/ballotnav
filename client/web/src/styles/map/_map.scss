@@ -1,3 +1,9 @@
+.map-container {
+  & > .search-bar {
+    margin: 10px;
+  }
+}
+
 div.map {
   #map-container {
     position: absolute;
@@ -11,7 +17,7 @@ div.map {
       left: 400px;
     }
   }
-  
+
   #map-geocoder {
     margin: 10px;
   }

@@ -71,9 +71,16 @@
       font-size: 1.2em;
     }
   }
-  
+
 }
 .Home {
+  .search-bar {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    width: 400px;
+  }
+  
   .footer {
     position:absolute;
     bottom:0;

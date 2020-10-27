@@ -5,10 +5,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addSearch } from '../../redux/actions/search.js'
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import mapboxgl, { styleUrl } from 'services/mapbox'
-import queryString from 'query-string'
-import api from 'services/api'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -44,25 +41,6 @@ class Map extends React.Component {
       this.initLayers(true)
       this.map.on('click', this.onClick)
     })
-
-    const geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      marker: false,
-      countries: 'us',
-      types: 'address, neighborhood, locality, place, district, postcode',
-      flyTo: false,
-      clearOnBlur: true,
-    })
-
-    document
-      .getElementById('map-geocoder')
-      .appendChild(geocoder.onAdd(this.map))
-    geocoder.setPlaceholder('Enter an address or ZIP')
-    geocoder.on('result', ({ result }) => {
-      geocoder.clear()
-      this.handleGeocodeResult({ result })
-    })
   }
 
   componentDidUpdate(prevProps) {
@@ -76,21 +54,6 @@ class Map extends React.Component {
 
   closeResultList = () => {
     this.setState({ resultListOpen: false })
-  }
-
-  handleGeocodeResult = async ({ result }) => {
-    const { history } = this.props
-    const [lon, lat] = result.center
-    const jurisdictions = await api.getJurisdictions(lon, lat)
-
-    if (jurisdictions.length === 1) {
-      const { id: jid } = jurisdictions[0]
-      const query = queryString.stringify({ jid, lon, lat })
-      history.push(`/map?${query}`)
-      this.toggleResultList()
-    } else {
-      history.push('/error') // TODO: figure out what route to go to
-    }
   }
 
   initLayers = () => {
@@ -110,7 +73,7 @@ class Map extends React.Component {
   }
 
   render() {
-    const { locations } = this.props
+    const { locations, center } = this.props
 
     return (
       <div className="map">
@@ -130,6 +93,7 @@ class Map extends React.Component {
           toggleDrawer={this.toggleResultList}
           close={this.closeResultList}
           open={this.state.resultListOpen}
+          center={center}
         />
         <div id="map-container" ref={(el) => (this.mapContainer = el)}>
           <ResultsLayer
@@ -137,7 +101,6 @@ class Map extends React.Component {
             ref={(el) => (this.resultsLayer = el)}
           />
         </div>
-        <div id="map-geocoder" />
       </div>
     )
   }
