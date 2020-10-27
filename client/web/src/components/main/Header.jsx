@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import clx from 'classnames'
 
 import logo from '../../assets/ballotnav-logo.png'
@@ -27,9 +26,9 @@ const Header = ({ location: { pathname } }) => {
       className={clx('navbar', { map: ['/map'].includes(pathname) })}
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <a href="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
-        </Link>
+        </a>
         <a // eslint-disable-line
           role="button"
           tabIndex={0}
