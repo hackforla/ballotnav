@@ -38,7 +38,7 @@
     .volunteer-card {
       color: $dark-blue;
       background:$light-blue;
-      height: 70px;
+      min-height: 70px;
       padding: 20px 20px 0 20px;
       @media only screen and (min-width: 1024px) {
         border-radius:20px;

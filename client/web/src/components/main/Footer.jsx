@@ -63,7 +63,7 @@ const Footer = () => {
             ></script>
           </div>
         </div>
-        <div id="privacy-policy">
+        <div className="privacy-policy">
           <p>
             &#169; COPYRIGHT 2020 BallotNav |{' '}
             <a href="https://docs.google.com/document/u/1/d/1hizUrt5hBhltZfo0_OhkzcbkZMkN8_-DdV-a2Uidiw0/edit">

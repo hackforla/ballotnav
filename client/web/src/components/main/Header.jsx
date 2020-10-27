@@ -7,6 +7,8 @@ import clx from 'classnames'
 
 import logo from '../../assets/ballotnav-logo.png'
 
+import Footer from 'components/main/Footer'
+
 const Header = ({ location: { pathname } }) => {
   const [activeBurger, setActiveBurger] = useState(false)
 
@@ -26,6 +28,10 @@ const Header = ({ location: { pathname } }) => {
       aria-label="main navigation"
       className={clx('navbar', { map: ['/map'].includes(pathname) })}
     >
+      <div
+        className={clx('backgroundBlur', { 'is-active': activeBurger })}
+        onClick={handleClick}
+      ></div>
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
@@ -46,6 +52,21 @@ const Header = ({ location: { pathname } }) => {
       </div>
 
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
+        <div className="hamburger-menu">
+          <div className="hamburger-menu-content">
+            <img src={logo} alt="" />
+            <a className="navbar-item" href="/about">
+              About
+            </a>
+            <a className="navbar-item" href="/volunteer">
+              Volunteer
+            </a>
+            <a className="navbar-item" href="/press">
+              Press
+            </a>
+          </div>
+          <Footer />
+        </div>
         <div className="navbar-end">
           <a className="navbar-item" href="/about">
             About
