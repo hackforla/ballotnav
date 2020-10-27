@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import clx from 'classnames'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/ballotnav-logo.png'
 
@@ -26,9 +27,9 @@ const Header = ({ location: { pathname } }) => {
       className={clx('navbar', { map: ['/map'].includes(pathname) })}
     >
       <div className="navbar-brand">
-        <a href="/" className="navbar-item">
+        <Link to="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
-        </a>
+        </Link>
         <a // eslint-disable-line
           role="button"
           tabIndex={0}
@@ -46,15 +47,15 @@ const Header = ({ location: { pathname } }) => {
 
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="navbar-end">
-          <a className="navbar-item" href="/about">
+          <Link className="navbar-item" to="/about">
             About
-          </a>
-          <a className="navbar-item" href="/volunteer">
+          </Link>
+          <Link className="navbar-item" to="/volunteer">
             Volunteer
-          </a>
-          <a className="navbar-item" href="/press">
+          </Link>
+          <Link className="navbar-item" to="/press">
             Press
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
