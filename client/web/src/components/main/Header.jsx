@@ -32,7 +32,7 @@ const Header = ({ location: { pathname } }) => {
         className={clx('backgroundBlur', { 'is-active': activeBurger })}
         onClick={handleClick}
       ></div>
-      <div className="navbar-brand">
+      <div className={clx('navbar-brand', { 'is-active': activeBurger })}>
         <Link to="/" className="navbar-item">
           <img src={logo} alt="BallotNav logo"></img>
         </Link>
