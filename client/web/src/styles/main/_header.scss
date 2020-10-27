@@ -1,8 +1,26 @@
 .navbar {
   margin: 0 auto;
+  max-width: 1000px;
 
-  @media only screen and (min-width: 768px) {
-    width: 700px;
+  .backgroundBlur {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    backdrop-filter:blur(10px);
+    display:none;
+  }
+  .backgroundBlur.is-active {
+    display:block;
+    @media only screen and (min-width: 1024px) {
+      display:none;
+    }
+  }
+  .navbar-brand.is-active {
+    .navbar-item {
+      z-index: -1;
+    }
   }
 
   .navbar-item img {
@@ -29,10 +47,10 @@
   }
 
   .navbar-burger.is-active {
+    z-index:1;
     span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
-
     span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
@@ -42,15 +60,70 @@
     background: none;
   }
 
-  div.navbar-menu.is-active {
+  .navbar-menu.is-active {
     position: absolute;
     right: 0;
-    width: 200px;
     padding: 0;
+    top:0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    .navbar-end {
+      @media only screen and (max-width: 1023px) {
+        display:none;
+      }
+    }
+  }
 
-    .navbar-item {
-      margin: 0;
-      background-color: $light-blue;
+  .navbar-menu.is-active .hamburger-menu {
+    width:300px;
+  }
+
+  .hamburger-menu {
+    height: 100vh;
+    width: 0px;
+    -webkit-transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
+    -moz-transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
+    -o-transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
+    transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
+    
+    @media only screen and (min-width: 1024px) {
+      display:none;
+    }
+    nth:child(1) {
+      border-top-left-radius: 25px;
+    }
+    .hamburger-menu-content {
+      img {
+        margin: 20px 20px 90px;
+        height: 23px;
+      }
+      a {
+        margin-left: 15px;
+        font-weight: 600;
+        font-size: 1.31em;
+        margin-bottom: 15px;
+      }
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      height: 240px;
+      border-bottom-left-radius:25px;
+      .content {
+        flex-direction:column;
+        align-items:flex-start;
+        .social-wrapper {
+          margin:20px 0 0 0;
+        }
+        .share-wrapper {
+          margin:33px 0 0 0;
+        }
+        .privacy-policy {
+          margin: 31px 0 0 -7px;
+          font-size:.75em;
+          width:275px;
+        }
+      }
     }
   }
 }
