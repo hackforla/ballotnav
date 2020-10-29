@@ -1,0 +1,19 @@
+.search-bar {
+  .geocoder {
+    .mapboxgl-ctrl-geocoder {
+      width: 100% !important;
+      max-width: none;
+      background-color: transparent;
+      box-shadow: none;
+      &--input {
+        border: 1px solid #B3B3B3;
+        border-radius: 40px;
+        background-color: #fff;
+        &:focus {
+          outline: none;
+          border: 1px $dark-blue solid;
+        }
+      }
+    }
+  }
+}

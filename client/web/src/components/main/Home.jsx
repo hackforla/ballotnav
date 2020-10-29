@@ -1,7 +1,6 @@
 import React from 'react'
-
-import HomeMapSearch from './HomeMapSearch'
 import Footer from './Footer'
+import SearchBar from 'components/SearchBar'
 
 const Home = () => {
   return (
@@ -17,7 +16,7 @@ const Home = () => {
             absentee ballot
           </h3>
         </div>
-        <HomeMapSearch />
+        <SearchBar />
         <img className="hero-image" alt="Hero" />
       </div>
       <Footer />
