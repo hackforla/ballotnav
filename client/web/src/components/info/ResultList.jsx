@@ -10,6 +10,7 @@ import { Button } from 'rsuite'
 
 import infoIcon from '../../assets/info-icon-black.svg'
 import ResultCard from './ResultCard'
+import SearchError from './SearchError'
 
 const ResultList = ({ data, toggleCountyInfo, toggleDrawer, close, open }) => {
   const isDesktopOrLaptop = useMediaQuery({
@@ -38,14 +39,14 @@ const ResultList = ({ data, toggleCountyInfo, toggleDrawer, close, open }) => {
                 </b>
               </p>
             ) : (
-              <p>
-                {data.jurisdictionData.locations.length} drop off locations
+                <p>
+                  {data.jurisdictionData.locations.length} drop off locations
                 available in{' '}
-                <b>
-                  {data.jurisdictionData.name}, {data.stateData.name}
-                </b>
-              </p>
-            )}
+                  <b>
+                    {data.jurisdictionData.name}, {data.stateData.name}
+                  </b>
+                </p>
+              )}
             <div className="county-information-wrapper">
               <img
                 className="info-icon"
@@ -73,32 +74,27 @@ const ResultList = ({ data, toggleCountyInfo, toggleDrawer, close, open }) => {
             className="result-list-drawer"
           >
             <Drawer.Header>
-              {data.jurisdictionData.locations.length === 1 ? (
-                <p>
-                  {data.jurisdictionData.locations.length} drop off location
+              {data.jurisdictionData.locations.length === 0 ? <SearchError /> :
+                <>
+                  <p>
+                    {data.jurisdictionData.locations.length} drop off location{data.jurisdictionData.locations.length > 1 ? <span>s</span> : null}
                   available in{' '}
-                  <b>
-                    {data.jurisdictionData.name}, {data.stateData.name}
-                  </b>
-                </p>
-              ) : (
-                <p>
-                  {data.jurisdictionData.locations.length} drop off locations
-                  available in{' '}
-                  <b>
-                    {data.jurisdictionData.name}, {data.stateData.name}
-                  </b>
-                </p>
-              )}
-              <div className="county-information-wrapper">
-                <img
-                  className="info-icon"
-                  src={infoIcon}
-                  alt="Information icon"
-                />
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a onClick={toggleCountyInfo}>County election information</a>
-              </div>
+                    <b>
+                      {data.jurisdictionData.name}, {data.stateData.name}
+                    </b>
+                  </p>
+
+                  <div className="county-information-wrapper">
+                    <img
+                      className="info-icon"
+                      src={infoIcon}
+                      alt="Information icon"
+                    />
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a onClick={toggleCountyInfo}>County election information</a>
+                  </div>
+                </>
+              }
             </Drawer.Header>
             <Drawer.Body id="drawer-body">{renderResultCards()}</Drawer.Body>
           </Drawer>
