@@ -18,20 +18,20 @@ const SearchError = () => {
           placeholder="13428 Maxella Avenue"
           className="search-input"
         ></input>
-        <img src={searchIcon} className="search-icon" alt='' />
-        <img src={buttonSearchSettings} className="search-settings" alt='' />
+        <img src={searchIcon} className="search-icon" alt="" />
+        <img src={buttonSearchSettings} className="search-settings" alt="" />
       </div>
       <h1>The address is invalid or not found</h1>
       <div className="tips">
         <h2>Search Bar tips</h2>
         <p>
           <span>
-            <img src={checkIcon} alt='' />
+            <img src={checkIcon} alt="" />
           </span>
           Check the spelling of address you provided
         </p>
         <p>
-          <img src={checkIcon} alt='' />
+          <img src={checkIcon} alt="" />
           Provide a new address or City/Town, State, Territory or Zip Code
         </p>
       </div>
@@ -47,7 +47,7 @@ const SearchError = () => {
       </div>
       <h2>Search by:</h2>
       <p>
-        <img src={pin} className="pin" alt='' />
+        <img src={pin} className="pin" alt="" />
         Current location (general location based on IP address)
       </p>
     </div>
