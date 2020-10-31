@@ -121,7 +121,7 @@ function TransferList({
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={item[schema.primaryText]} />
+              <ListItemText id={labelId} primary={item[schema.primaryText]} secondary={item[schema.secondaryText]}/>
             </ListItem>
           );
         })}

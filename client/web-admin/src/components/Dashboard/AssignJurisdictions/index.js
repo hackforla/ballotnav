@@ -138,7 +138,13 @@ function AssignJurisdictions() {
         const states = {};
         jurisdictions.forEach(jdx => {
           const { id, name, state, userJurisdictions } = jdx;
-          const newJdx = { id, name, state, userJurisdictions };
+          const newJdx = {
+            id,
+            name,
+            userJurisdictions,
+            stateId: state.id,
+            stateAbbrev: state.abbreviation,
+          };
           if (!states[state.id]) {
             states[state.id] = state;
           }
@@ -282,7 +288,7 @@ function AssignJurisdictions() {
               schema={{
                 value: 'id',
                 primaryText: 'name',
-                secondaryText: 'abbreviation'
+                secondaryText: 'stateAbbrev'
               }}
             />
           </Grid>
