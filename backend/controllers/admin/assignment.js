@@ -40,6 +40,9 @@ exports.assignJurisdictions = async (req, res) => {
 exports.listJurisdictions = async (req, res, next) => {
   const data = await req.db.Jurisdiction.findAll({
     attributes: ['id', 'name'],
+    where: {
+      is_eaj: true,
+    },
     include: [
       {
         association: 'state',
