@@ -12,7 +12,7 @@ function Geocoder({ center, onResult }) {
       accessToken: mapboxgl.accessToken,
       countries: 'us',
       types: 'address, neighborhood, locality, place, district, postcode',
-      placeholder: 'Enter an address or Zip',
+      placeholder: 'Enter an address or ZIP',
     })
 
     geocoder.current.addTo(container.current)
