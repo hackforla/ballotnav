@@ -41,14 +41,14 @@ const ResultList = ({
             <SearchBar center={center} />
             {data.jurisdictionData.locations.length === 1 ? (
               <p>
-                {data.jurisdictionData.locations.length} drop off location available in{' '}
+                {data.jurisdictionData.locations.length} drop off location available in&nbsp;
                 <b>
                   {data.jurisdictionData.name}, {data.stateData.name}
                 </b>
               </p>
             ) : (
               <p>
-                {data.jurisdictionData.locations.length} drop off locations available in{' '}
+                {data.jurisdictionData.locations.length} drop off locations available in&nbsp;
                 <b>
                   {data.jurisdictionData.name}, {data.stateData.name}
                 </b>
