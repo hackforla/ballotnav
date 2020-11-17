@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { saveQuery, getJurisdiction } from 'redux/actions'
+import DesktopLayout from './Layouts/Desktop'
+import MobileLayout from './Layouts/Mobile'
+import Hidden from '@material-ui/core/Hidden'
 
 const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
@@ -15,7 +18,12 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
     if (jurisdictionId) getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
-  return <div>Map Page</div>
+  return (
+    <>
+      <Hidden smDown><DesktopLayout /></Hidden>
+      <Hidden mdUp><MobileLayout /></Hidden>
+    </>
+  )
 }
 
 const mapStateToProps = (state) => {
