@@ -16,7 +16,7 @@ function SearchBar({ center }) {
 
       const { id: jid } = jurisdictions[0]
       const query = queryString.stringify({ jid, lng, lat })
-      history.push(`/map?${query}`)
+      history.push(`/map2?${query}`)
     },
     [history]
   )

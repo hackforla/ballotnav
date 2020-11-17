@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 
-import preloadedState from './preloadedState'
-import rootReducer from './rootReducer'
+import rootReducer from './actions'
 
 const store = createStore(
   rootReducer,
-  preloadedState,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
 )
 
 export default store
