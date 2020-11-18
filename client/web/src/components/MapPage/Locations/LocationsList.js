@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import LocationCard from './LocationCard'
+import Divider from '@material-ui/core/Divider'
 
 const LocationsList = ({ center, locations, selectLocation }) => {
   const sortedLocations = useMemo(
@@ -13,12 +14,16 @@ const LocationsList = ({ center, locations, selectLocation }) => {
     [center, locations]
   )
 
-  return sortedLocations.map(location => (
-    <LocationCard
-      key={location.id}
-      location={location}
-      selectLocation={selectLocation.bind(null, location.id)}
-    />
+  return sortedLocations.map((location, index) => (
+    <div key={location.id}>
+      <LocationCard
+        location={location}
+        selectLocation={selectLocation.bind(null, location.id)}
+      />
+      {index !== locations.length - 1 && (
+        <Divider style={{ margin: '8px 0' }} />
+      )}
+    </div>
   ))
 }
 
