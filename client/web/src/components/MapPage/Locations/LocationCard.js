@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import LocationMarker from '../LocationMarker'
 
 const useStyles = makeStyles({
   root: {
@@ -41,6 +42,7 @@ const LocationCard = ({ location, selectLocation }) => {
         { location.address1 }, { location.address2 } { location.city }, { location.state } { location.zip }
       </div>
       <div>{ distanceString(location) }</div>
+      <LocationMarker />
     </div>
   )
 }
