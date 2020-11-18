@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { renderToString } from 'react-dom/server'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
+import LocationMarker from './LocationMarker'
 
 const Map = ({ locations, center, selectLocation }) => {
   const mapContainer = useRef(null)
@@ -31,7 +33,7 @@ const Map = ({ locations, center, selectLocation }) => {
             base: 0.5,
             stops: [
               [10, 2],
-              [15, 10],
+              [15, 4],
             ],
           },
           'circle-color': '#FF0029',
@@ -54,6 +56,26 @@ const Map = ({ locations, center, selectLocation }) => {
   useEffect(() => {
     if (!loaded) return
     map.current.getSource('locations').setData(locations)
+
+    const markers = {}
+    locations.features.forEach(location => {
+      const el = document.createElement('div')
+      el.className = 'marker'
+      el.innerHTML = renderToString(<LocationMarker fill='#614799' />)
+      el.addEventListener('click', () => selectLocation(location.properties.id))
+      markers[location.properties.id] = new mapboxgl.Marker({
+        element: el,
+        offset: [0, 10],
+        anchor: 'bottom',
+      })
+        .setLngLat(location.geometry.coordinates)
+        .addTo(map.current)
+    })
+
+    return () => {
+      console.log('removing:', markers)
+      Object.values(markers).forEach(marker => marker.remove())
+    }
   }, [loaded, locations])
 
   return (
@@ -71,6 +93,7 @@ const Map = ({ locations, center, selectLocation }) => {
 }
 
 function locationsToGeoJson(locations) {
+  console.log('running locations to geojson')
   return {
     type: 'FeatureCollection',
     features: locations.map((loc) => ({
