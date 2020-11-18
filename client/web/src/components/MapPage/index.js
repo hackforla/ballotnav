@@ -26,18 +26,14 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    jurisdictionId: state.query.jurisdictionId,
-  }
-}
+const mapStateToProps = (state) => ({
+  jurisdictionId: state.query.jurisdictionId,
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    saveQuery: (urlQueryString) => dispatch(saveQuery(urlQueryString)),
-    getJurisdiction: (jurisdictionId) => dispatch(getJurisdiction(jurisdictionId)),
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  saveQuery: (urlQueryString) => dispatch(saveQuery(urlQueryString)),
+  getJurisdiction: (jurisdictionId) => dispatch(getJurisdiction(jurisdictionId)),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapPage)
 
