@@ -34,7 +34,9 @@ const LocationMarkers = ({
     locations.forEach(location => {
       const el = document.createElement('div')
       el.className = 'marker'
-      el.innerHTML = renderToString(<LocationMarker />)
+      el.innerHTML = renderToString(
+        <LocationMarker facilityTypeId={location.facilityTypeId} />
+      )
       el.addEventListener('click', () => selectLocation(location.id))
 
       markers.current[location.id] = new mapboxgl.Marker({

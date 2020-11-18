@@ -42,7 +42,7 @@ const LocationCard = ({ location, selectLocation }) => {
         { location.address1 }, { location.address2 } { location.city }, { location.state } { location.zip }
       </div>
       <div>{ distanceString(location) }</div>
-      <LocationMarker />
+      <LocationMarker facilityTypeId={location.facilityTypeId} />
     </div>
   )
 }
