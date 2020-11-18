@@ -1,21 +1,32 @@
-import React, { useMemo } from 'react'
+import React, { Fragment, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import LocationCard from './LocationCard'
 import Divider from '@material-ui/core/Divider'
+import distance from '@turf/distance'
 
 const LocationsList = ({ center, locations, selectLocation }) => {
   const sortedLocations = useMemo(
     () => {
       if (!center) return locations
 
-      // TODO: sort by distance from center
       return locations
+        .map(loc => ({
+          ...loc,
+          distanceToCenter: loc.geomLongitude && loc.geomLatitude
+            ? distance (
+              [center.lng, center.lat],
+              [loc.geomLongitude, loc.geomLatitude],
+              { units: 'miles' },
+            )
+            : Infinity
+        }))
+        .sort((a, b) => a.distanceToCenter - b.distanceToCenter)
     },
     [center, locations]
   )
 
   return sortedLocations.map((location, index) => (
-    <div key={location.id}>
+    <Fragment key={location.id}>
       <LocationCard
         location={location}
         selectLocation={selectLocation.bind(null, location.id)}
@@ -23,7 +34,7 @@ const LocationsList = ({ center, locations, selectLocation }) => {
       {index !== locations.length - 1 && (
         <Divider style={{ margin: '8px 0' }} />
       )}
-    </div>
+    </Fragment>
   ))
 }
 

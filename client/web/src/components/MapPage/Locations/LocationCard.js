@@ -12,6 +12,17 @@ const useStyles = makeStyles({
   },
 })
 
+function distanceString(location) {
+  // center not given
+  if (!location.distanceToCenter)
+    return null
+  // center given but location not geocoded
+  if (location.distanceToCenter === Infinity)
+    return 'Unknown distance'
+  // center given and location geocoded
+  return `${location.distanceToCenter.toFixed(2)} miles`
+}
+
 const LocationCard = ({ location, selectLocation }) => {
   const classes = useStyles()
   return (
@@ -29,6 +40,7 @@ const LocationCard = ({ location, selectLocation }) => {
       <div>
         { location.address1 }, { location.address2 } { location.city }, { location.state } { location.zip }
       </div>
+      <div>{ distanceString(location) }</div>
     </div>
   )
 }
