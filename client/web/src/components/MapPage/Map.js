@@ -6,6 +6,21 @@ import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
 import LocationMarker from './LocationMarker'
 
+function locationsToGeoJson(locations) {
+  console.log('running locations to geojson')
+  return {
+    type: 'FeatureCollection',
+    features: locations.map((loc) => ({
+      type: 'Feature',
+      properties: loc,
+      geometry: {
+        type: 'Point',
+        coordinates: [loc.geomLongitude, loc.geomLatitude],
+      },
+    })),
+  }
+}
+
 const Map = ({ locations, center, selectLocation }) => {
   const mapContainer = useRef(null)
   const map = useRef(null)
@@ -55,20 +70,24 @@ const Map = ({ locations, center, selectLocation }) => {
 
   useEffect(() => {
     if (!loaded) return
-    map.current.getSource('locations').setData(locations)
+
+    map.current.getSource('locations').setData(locationsToGeoJson(locations))
 
     const markers = {}
-    locations.features.forEach(location => {
+    locations.forEach(location => {
       const el = document.createElement('div')
       el.className = 'marker'
       el.innerHTML = renderToString(<LocationMarker fill='#614799' />)
-      el.addEventListener('click', () => selectLocation(location.properties.id))
-      markers[location.properties.id] = new mapboxgl.Marker({
+      el.addEventListener('click', () => selectLocation(location.id))
+      markers[location.id] = new mapboxgl.Marker({
         element: el,
         offset: [0, 10],
         anchor: 'bottom',
       })
-        .setLngLat(location.geometry.coordinates)
+        .setLngLat({
+          lng: location.geomLongitude,
+          lat: location.geomLatitude,
+        })
         .addTo(map.current)
     })
 
@@ -76,7 +95,7 @@ const Map = ({ locations, center, selectLocation }) => {
       console.log('removing:', markers)
       Object.values(markers).forEach(marker => marker.remove())
     }
-  }, [loaded, locations])
+  }, [selectLocation, loaded, locations])
 
   return (
     <div
@@ -92,23 +111,8 @@ const Map = ({ locations, center, selectLocation }) => {
   )
 }
 
-function locationsToGeoJson(locations) {
-  console.log('running locations to geojson')
-  return {
-    type: 'FeatureCollection',
-    features: locations.map((loc) => ({
-      type: 'Feature',
-      properties: loc,
-      geometry: {
-        type: 'Point',
-        coordinates: [loc.geomLongitude, loc.geomLatitude],
-      },
-    })),
-  }
-}
-
 const mapStateToProps = (state) => ({
-  locations: locationsToGeoJson(state.data.locations),
+  locations: state.data.locations,
   center: state.query.lngLat,
 })
 
@@ -119,7 +123,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Map)
 
 Map.propTypes = {
-  locations: PropTypes.shape({}),
+  locations: PropTypes.arrayOf(PropTypes.shape({})),
   center: PropTypes.shape({
     lng: PropTypes.number,
     lat: PropTypes.number,
