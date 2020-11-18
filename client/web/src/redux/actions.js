@@ -48,11 +48,7 @@ const initialState = {
     lngLat: null,
     address: null,
   },
-  data: {
-    state: null,
-    jurisdiction: null,
-    locations: [],
-  },
+  data: null,
   ui: {
     selectedLocationId: null,
   },

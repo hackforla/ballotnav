@@ -1,8 +1,10 @@
 import React, { Fragment, useMemo } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import LocationCard from './LocationCard'
 import Divider from '@material-ui/core/Divider'
 import distance from '@turf/distance'
+import { selectLocation } from 'redux/actions'
 
 const LocationsList = ({ center, locations, selectLocation }) => {
   const sortedLocations = useMemo(
@@ -38,7 +40,16 @@ const LocationsList = ({ center, locations, selectLocation }) => {
   ))
 }
 
-export default LocationsList
+const mapStateToProps = (state) => ({
+  center: state.query.lngLat,
+  locations: state.data.locations,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  selectLocation: (locationId) => dispatch(selectLocation(locationId)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationsList)
 
 LocationsList.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),

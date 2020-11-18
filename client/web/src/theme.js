@@ -14,6 +14,9 @@ export default createMuiTheme({
     link: {
       main: '#0819A5',
     },
+    background: {
+      default: '#FFF',
+    }
   },
   typography: {
     fontFamily: [
