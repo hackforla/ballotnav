@@ -3,6 +3,7 @@ import JurisdictionSelect from '../JurisdictionSelect'
 import VerifyAlert from '../VerifyAlert'
 import SearchBar from 'components/SearchBar'
 import Locations from '../Locations'
+import Map from '../Map'
 import { makeStyles } from '@material-ui/core'
 
 const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
@@ -23,6 +24,7 @@ const useStyles = makeStyles({
     top: 0,
     bottom: 0,
     left: 0,
+    width: SIDEBAR_WIDTH,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -60,7 +62,7 @@ const Desktop = () => {
           </div>
         </div>
         <div className={classes.map}>
-          Map
+          <Map />
         </div>
       </div>
     </div>
