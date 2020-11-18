@@ -2,6 +2,23 @@ import React, { useEffect, useRef } from 'react'
 import { renderToString } from 'react-dom/server'
 import mapboxgl from 'services/mapbox'
 import LocationMarker from '../LocationMarker'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  '@global': {
+    '.mapboxgl-canvas-container': {
+      '& .marker svg': {
+        fill: '#614799',
+      },
+      '& .marker.selected': {
+        zIndex: 1,
+        '& svg': {
+          fill: '#FF0029',
+        },
+      },
+    },
+  },
+})
 
 const LocationMarkers = ({
   map,
@@ -9,6 +26,7 @@ const LocationMarkers = ({
   selectLocation,
   selectedLocationId
 }) => {
+  useStyles()
   const markers = useRef({})
 
   // add/remove markers
@@ -37,7 +55,7 @@ const LocationMarkers = ({
     }
   }, [map, selectLocation, locations])
 
-  // highlight selected marke
+  // highlight selected marker
   useEffect(() => {
     if (!selectedLocationId) return
     const marker = markers.current[selectedLocationId]

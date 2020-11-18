@@ -3,33 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
-import { makeStyles } from '@material-ui/core/styles'
 import LocationsLayer from './LocationsLayer'
 import LocationMarkers from './LocationMarkers'
-
-const useStyles = makeStyles({
-  root: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    '& .marker svg': {
-      fill: '#614799',
-    },
-    '& .marker.selected': {
-      zIndex: 1,
-      '& svg': {
-        fill: '#FF0029',
-      },
-    }
-  }
-})
 
 const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
-  const classes = useStyles()
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -47,7 +26,16 @@ const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
   }, [map, center])
 
   return (
-    <div ref={mapContainer} className={classes.root}>
+    <div
+      ref={mapContainer}
+      style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      }}
+    >
       {map && (
         <>
           <LocationsLayer
