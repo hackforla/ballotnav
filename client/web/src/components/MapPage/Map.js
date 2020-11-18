@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
 import LocationMarker from './LocationMarker'
+import { makeStyles } from '@material-ui/core/styles'
 
 function locationsToGeoJson(locations) {
-  console.log('running locations to geojson')
   return {
     type: 'FeatureCollection',
     features: locations.map((loc) => ({
@@ -21,10 +21,28 @@ function locationsToGeoJson(locations) {
   }
 }
 
-const Map = ({ locations, center, selectLocation }) => {
+const useStyles = makeStyles({
+  root: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    '& .marker svg': {
+      fill: '#614799',
+    },
+    '& .marker.selected svg': {
+      fill: '#FF0029',
+    }
+  }
+})
+
+const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
   const mapContainer = useRef(null)
   const map = useRef(null)
+  const markers = useRef({})
   const [loaded, setLoaded] = useState(false)
+  const classes = useStyles()
 
   useEffect(() => {
     map.current = new mapboxgl.Map({
@@ -73,13 +91,12 @@ const Map = ({ locations, center, selectLocation }) => {
 
     map.current.getSource('locations').setData(locationsToGeoJson(locations))
 
-    const markers = {}
     locations.forEach(location => {
       const el = document.createElement('div')
       el.className = 'marker'
-      el.innerHTML = renderToString(<LocationMarker fill='#614799' />)
+      el.innerHTML = renderToString(<LocationMarker />)
       el.addEventListener('click', () => selectLocation(location.id))
-      markers[location.id] = new mapboxgl.Marker({
+      markers.current[location.id] = new mapboxgl.Marker({
         element: el,
         offset: [0, 10],
         anchor: 'bottom',
@@ -92,28 +109,27 @@ const Map = ({ locations, center, selectLocation }) => {
     })
 
     return () => {
-      console.log('removing:', markers)
-      Object.values(markers).forEach(marker => marker.remove())
+      Object.values(markers.current).forEach(marker => marker.remove())
+      markers.current = {}
     }
   }, [selectLocation, loaded, locations])
 
-  return (
-    <div
-      ref={mapContainer}
-      style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-      }}
-    />
-  )
+  useEffect(() => {
+    if (!selectedLocationId) return
+    const marker = markers.current[selectedLocationId]
+    if (!marker) return
+
+    marker.getElement().classList.add('selected')
+    return () => marker.getElement().classList.remove('selected')
+  }, [selectedLocationId])
+
+  return <div ref={mapContainer} className={classes.root} />
 }
 
 const mapStateToProps = (state) => ({
   locations: state.data.locations,
   center: state.query.lngLat,
+  selectedLocationId: state.ui.selectedLocationId,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -129,9 +145,11 @@ Map.propTypes = {
     lat: PropTypes.number,
   }),
   selectLocation: PropTypes.func.isRequired,
+  selectedLocationId: PropTypes.number,
 }
 
 Map.defaultProps = {
   locations: [],
   center: null,
+  selectedLocationId: null,
 }
