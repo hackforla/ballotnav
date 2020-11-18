@@ -17,8 +17,11 @@ const useStyles = makeStyles({
     '& .marker svg': {
       fill: '#614799',
     },
-    '& .marker.selected svg': {
-      fill: '#FF0029',
+    '& .marker.selected': {
+      zIndex: 1,
+      '& svg': {
+        fill: '#FF0029',
+      },
     }
   }
 })
