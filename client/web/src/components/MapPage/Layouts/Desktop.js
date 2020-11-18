@@ -1,6 +1,8 @@
 import React from 'react'
 import JurisdictionSelect from '../JurisdictionSelect'
 import VerifyAlert from '../VerifyAlert'
+import SearchBar from 'components/SearchBar'
+import Locations from '../Locations'
 import { makeStyles } from '@material-ui/core'
 
 const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
@@ -15,15 +17,23 @@ const useStyles = makeStyles({
   main: {
     position: 'relative',
     flex: 1,
-    backgroundColor: 'orange',
   },
   sidebar: {
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
-    width: SIDEBAR_WIDTH,
-    backgroundColor: 'yellow',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  searchBar: {
+    padding: 10,
+    flex: 0,
+  },
+  locations: {
+    flex: 1,
+    overflow: 'auto',
+    padding: 10,
   },
   map: {
     position: 'absolute',
@@ -42,7 +52,12 @@ const Desktop = () => {
       <VerifyAlert />
       <div className={classes.main}>
         <div className={classes.sidebar}>
-          Sidebar
+          <div className={classes.searchBar}>
+            <SearchBar />
+          </div>
+          <div className={classes.locations}>
+            <Locations />
+          </div>
         </div>
         <div className={classes.map}>
           Map
