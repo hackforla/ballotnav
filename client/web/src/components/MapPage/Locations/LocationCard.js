@@ -13,6 +13,13 @@ const useStyles = makeStyles({
   },
 })
 
+function addressString(location) {
+  return [
+    `${ location.address1 }, ${ location.address2 } ${ location.city },`,
+    `${ location.state } ${ location.zip }`,
+  ].join(' ')
+}
+
 function distanceString(location) {
   // center not given
   if (!location.distanceToCenter)
@@ -38,9 +45,7 @@ const LocationCard = ({ location, selectLocation }) => {
       >
         { location.name }
       </Typography>
-      <div>
-        { location.address1 }, { location.address2 } { location.city }, { location.state } { location.zip }
-      </div>
+      <div>{ addressString(location) }</div>
       <div>{ distanceString(location) }</div>
       <LocationMarker facilityTypeId={location.facilityTypeId} />
     </div>
