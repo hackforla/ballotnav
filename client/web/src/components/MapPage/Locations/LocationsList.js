@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
+import LocationCard from './LocationCard'
 
 const LocationsList = ({ center, locations, selectLocation }) => {
   const sortedLocations = useMemo(
@@ -13,11 +14,11 @@ const LocationsList = ({ center, locations, selectLocation }) => {
   )
 
   return sortedLocations.map(location => (
-    <div
+    <LocationCard
       key={location.id}
-      onClick={() => selectLocation(location.id)}>
-      { location.name }
-    </div>
+      location={location}
+      selectLocation={selectLocation.bind(null, location.id)}
+    />
   ))
 }
 
