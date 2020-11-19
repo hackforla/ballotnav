@@ -7,10 +7,10 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   '@global': {
     '.mapboxgl-canvas-container': {
-      '& .marker svg': {
+      '& .location-marker svg': {
         fill: '#614799',
       },
-      '& .marker.selected': {
+      '& .location-marker.selected': {
         zIndex: 1,
         '& svg': {
           fill: '#FF0029',
@@ -35,7 +35,7 @@ const LocationMarkers = ({
 
     locations.forEach(location => {
       const el = document.createElement('div')
-      el.className = 'marker'
+      el.className = 'location-marker'
       el.innerHTML = renderToString(
         <LocationMarker facilityTypeId={location.facilityTypeId} />
       )

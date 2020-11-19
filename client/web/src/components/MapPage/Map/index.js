@@ -5,8 +5,9 @@ import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
 import LocationsLayer from './LocationsLayer'
 import LocationMarkers from './LocationMarkers'
+import UserMarker from './UserMarker'
 
-const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
+const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) => {
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
 
@@ -27,8 +28,8 @@ const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
 
   useEffect(() => {
     if (!map) return
-    map.setCenter(center)
-  }, [map, center])
+    map.setCenter(userLocation)
+  }, [map, userLocation])
 
   return (
     <div
@@ -54,6 +55,10 @@ const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
             selectLocation={selectLocation}
             selectedLocationId={selectedLocationId}
           />
+          <UserMarker
+            map={map}
+            userLocation={userLocation}
+          />
         </>
       )}
     </div>
@@ -62,7 +67,7 @@ const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
 
 const mapStateToProps = (state) => ({
   locations: state.data.locations,
-  center: state.query.lngLat,
+  userLocation: state.query.lngLat,
   selectedLocationId: state.ui.selectedLocationId,
 })
 
@@ -74,7 +79,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Map)
 
 Map.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
-  center: PropTypes.shape({
+  userLocation: PropTypes.shape({
     lng: PropTypes.number,
     lat: PropTypes.number,
   }),
@@ -84,6 +89,6 @@ Map.propTypes = {
 
 Map.defaultProps = {
   locations: [],
-  center: null,
+  userLocation: null,
   selectedLocationId: null,
 }

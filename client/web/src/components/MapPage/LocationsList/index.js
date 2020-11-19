@@ -6,18 +6,18 @@ import Divider from '@material-ui/core/Divider'
 import distance from '@turf/distance'
 import { selectLocation } from 'redux/actions'
 
-const LocationsList = ({ center, locations, selectLocation }) => {
+const LocationsList = ({ locations, userLocation, selectLocation }) => {
   const sortedLocations = useMemo(
     () => {
       if (!locations) return []
-      if (!center) return locations
+      if (!userLocation) return locations
 
       return locations
         .map(loc => ({
           ...loc,
           distanceToCenter: loc.geomLongitude && loc.geomLatitude
             ? distance (
-              [center.lng, center.lat],
+              [userLocation.lng, userLocation.lat],
               [loc.geomLongitude, loc.geomLatitude],
               { units: 'miles' },
             )
@@ -25,7 +25,7 @@ const LocationsList = ({ center, locations, selectLocation }) => {
         }))
         .sort((a, b) => a.distanceToCenter - b.distanceToCenter)
     },
-    [center, locations]
+    [userLocation, locations]
   )
 
   return sortedLocations.map((location, index) => (
@@ -42,7 +42,7 @@ const LocationsList = ({ center, locations, selectLocation }) => {
 }
 
 const mapStateToProps = (state) => ({
-  center: state.query.lngLat,
+  userLocation: state.query.lngLat,
   locations: state.data.locations,
 })
 
@@ -54,7 +54,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocationsList)
 
 LocationsList.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
-  center: PropTypes.shape({
+  userLocation: PropTypes.shape({
     lng: PropTypes.number,
     lat: PropTypes.number,
   }),
@@ -63,5 +63,5 @@ LocationsList.propTypes = {
 
 LocationsList.defaultProps = {
   locations: [],
-  center: null,
+  userLocation: null,
 }
