@@ -12,7 +12,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Map from '../Map'
 
 const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
-const SIDEBAR_WIDTH = 400
+const SIDEBAR_WIDTH = 500
 const TRANSITION_SECONDS = 0.25
 
 const useStyles = makeStyles({
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
   },
   searchBar: {
-    padding: 10,
+    padding: '20px 10px 10px 10px',
     flex: 0,
   },
   locations: {

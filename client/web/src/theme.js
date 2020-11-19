@@ -16,7 +16,8 @@ export default createMuiTheme({
     },
     background: {
       default: '#FFF',
-    }
+    },
+    divider: '#CCD3DD',
   },
   typography: {
     fontFamily: [
