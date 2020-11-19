@@ -18,6 +18,11 @@ const Map = ({ locations, center, selectedLocationId, selectLocation }) => {
     })
 
     map.on('load', () => setMap(map))
+
+    // deal with resizing when alert is closed
+    const handleResize = () => setTimeout(() => map.resize())
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   useEffect(() => {

@@ -22,6 +22,12 @@ const VerifyAlert = () => {
   const classes = useStyles()
   const [open, setOpen] = useState(true)
 
+  const handleClose = () => {
+    // let the map know to resize
+    window.dispatchEvent(new Event('resize'))
+    setOpen(false)
+  }
+
   if (!open) return null
   return (
     <div className={classes.root}>
@@ -31,7 +37,7 @@ const VerifyAlert = () => {
       </Typography>
       <IconButton
         aria-label='close'
-        onClick={() => setOpen(false)}>
+        onClick={handleClose}>
         <CloseIcon fontSize='small' />
       </IconButton>
     </div>
