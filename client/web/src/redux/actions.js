@@ -3,6 +3,8 @@ import queryString from 'query-string'
 
 export const types = {
   SAVE_QUERY: 'SAVE_QUERY',
+  GET_JURISDICTION_PENDING: 'GET_JURISDICTION_PENDING',
+  GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
   SELECT_LOCATION: 'SELECT_LOCATION',
 }
@@ -23,17 +25,20 @@ export const saveQuery = (urlQueryString) => {
 }
 
 export const getJurisdiction = (jurisdictionId) => {
-  return async (dispatch) => {
-    const {
-      state,
-      jurisdiction,
-      locations,
-    } = await api.getJurisdiction(jurisdictionId)
+  return (dispatch) => {
+    dispatch({ type: types.GET_JURISDICTION_PENDING })
 
-    return dispatch({
-      type: types.GET_JURISDICTION_SUCCESS,
-      data: { state, jurisdiction, locations },
-    })
+    return api.getJurisdiction(jurisdictionId)
+      .then(({ state, jurisdiction, locations }) =>
+        dispatch({
+          type: types.GET_JURISDICTION_SUCCESS,
+          data: { state, jurisdiction, locations },
+        }))
+      .catch(error =>
+        dispatch({
+          type: types.GET_JURISDICTION_ERROR,
+          data: { error },
+        }))
   }
 }
 
@@ -48,7 +53,13 @@ const initialState = {
     lngLat: null,
     address: null,
   },
-  data: null,
+  data: {
+    isLoading: false,
+    error: null,
+    state: null,
+    jurisdiction: null,
+    locations: null,
+  },
   ui: {
     selectedLocationId: null,
   },
@@ -65,13 +76,35 @@ const reducer = (state = initialState, action) => {
           address: action.data.address,
         },
       }
+    case types.GET_JURISDICTION_PENDING:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          isLoading: true,
+        },
+        ui: {
+          ...state.ui,
+          selectedLocationId: null,
+        }
+      }
     case types.GET_JURISDICTION_SUCCESS:
       return {
         ...state,
         data: {
+          isLoading: false,
+          error: null,
           state: action.data.state,
           jurisdiction: action.data.jurisdiction,
           locations: action.data.locations,
+        },
+      }
+    case types.GET_JURISDICTION_ERROR:
+      return {
+        ...state,
+        data: {
+          isLoading: false,
+          error: action.error,
         },
       }
     case types.SELECT_LOCATION:

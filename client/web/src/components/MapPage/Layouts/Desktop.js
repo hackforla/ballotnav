@@ -8,6 +8,7 @@ import JurisdictionSelect from '../JurisdictionSelect'
 import LocationsList from '../LocationsList'
 import BackButton from '../BackButton'
 import LocationDetail from '../LocationDetail'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Map from '../Map'
 
 const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
@@ -41,6 +42,12 @@ const useStyles = makeStyles({
     flex: 1,
     position: 'relative',
   },
+  locationsLoader: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   locationsList: {
     position: 'absolute',
     width: SIDEBAR_WIDTH,
@@ -70,7 +77,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Desktop = ({ dataLoaded, locationSelected, deselectLocation }) => {
+const Desktop = ({ isLoading, locationSelected, deselectLocation }) => {
   const [showDetail, setShowDetail] = useState(false)
   const classes = useStyles({ showDetail })
 
@@ -80,6 +87,10 @@ const Desktop = ({ dataLoaded, locationSelected, deselectLocation }) => {
   }, [deselectLocation])
 
   useEffect(() => {
+    if (isLoading) setShowDetail(false)
+  }, [isLoading])
+
+  useEffect(() => {
     if (locationSelected) setShowDetail(true)
   }, [locationSelected])
 
@@ -87,34 +98,42 @@ const Desktop = ({ dataLoaded, locationSelected, deselectLocation }) => {
     <div className={classes.root}>
       <JurisdictionSelect />
       <VerifyAlert />
-      {dataLoaded && (
-        <div className={classes.main}>
-          <div className={classes.sidebar}>
-            <div className={classes.searchBar}>
-              <SearchBar />
-            </div>
-            <div className={classes.locations}>
-              <div className={classes.locationsList}>
-                <LocationsList />
-              </div>
-              <div className={classes.locationDetail}>
-                <BackButton onClick={hideDetail} />
-                <LocationDetail />
-              </div>
-            </div>
+      <div className={classes.main}>
+        <div className={classes.sidebar}>
+          <div className={classes.searchBar}>
+            <SearchBar />
           </div>
-          <div className={classes.map}>
-            <Map />
+          <div className={classes.locations}>
+            {isLoading
+              ? (
+                <div className={classes.locationsLoader}>
+                  <CircularProgress />
+                </div>
+              ) : (
+                <>
+                  <div className={classes.locationsList}>
+                    <LocationsList />
+                  </div>
+                  <div className={classes.locationDetail}>
+                    <BackButton onClick={hideDetail} />
+                    <LocationDetail />
+                  </div>
+                </>
+              )
+            }
           </div>
         </div>
-      )}
+        <div className={classes.map}>
+          <Map />
+        </div>
+      </div>
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  dataLoaded: !!state.data,
   locationSelected: !!state.ui.selectedLocationId,
+  isLoading: state.data.isLoading,
 })
 
 const mapDispatchToProps = (dispatch) => ({

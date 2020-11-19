@@ -9,6 +9,7 @@ import { selectLocation } from 'redux/actions'
 const LocationsList = ({ center, locations, selectLocation }) => {
   const sortedLocations = useMemo(
     () => {
+      if (!locations) return []
       if (!center) return locations
 
       return locations

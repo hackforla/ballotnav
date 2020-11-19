@@ -44,6 +44,7 @@ const LocationsLayer = ({ map, locations, selectLocation }) => {
   }, [map, selectLocation])
 
   useEffect(() => {
+    if (!locations) return
     map.getSource('locations').setData(locationsToGeoJson(locations))
   }, [map, locations])
 

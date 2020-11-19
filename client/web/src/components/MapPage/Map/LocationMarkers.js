@@ -31,6 +31,8 @@ const LocationMarkers = ({
 
   // add/remove markers
   useEffect(() => {
+    if (!locations) return
+
     locations.forEach(location => {
       const el = document.createElement('div')
       el.className = 'marker'
