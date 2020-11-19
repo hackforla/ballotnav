@@ -6,11 +6,13 @@ import SearchBar from 'components/SearchBar'
 import VerifyAlert from '../VerifyAlert'
 import JurisdictionSelect from '../JurisdictionSelect'
 import LocationsList from '../LocationsList'
+import BackButton from '../BackButton'
 import LocationDetail from '../LocationDetail'
 import Map from '../Map'
 
 const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
 const SIDEBAR_WIDTH = 400
+const TRANSITION_SECONDS = 0.25
 
 const useStyles = makeStyles({
   root: {
@@ -53,8 +55,8 @@ const useStyles = makeStyles({
     width: SIDEBAR_WIDTH,
     top: 0,
     bottom: 0,
-    left: ({ detailOpen }) => detailOpen ? 0 : -SIDEBAR_WIDTH,
-    transition: 'all 0.25s ease-in-out',
+    left: ({ showDetail }) => showDetail ? 0 : -SIDEBAR_WIDTH,
+    transition: `all ${TRANSITION_SECONDS}s ease-in-out`,
     overflow: 'auto',
     padding: 10,
     backgroundColor: '#FFF',
@@ -69,16 +71,16 @@ const useStyles = makeStyles({
 })
 
 const Desktop = ({ dataLoaded, locationSelected, deselectLocation }) => {
-  const [detailOpen, setDetailOpen] = useState(false)
-  const classes = useStyles({ detailOpen })
+  const [showDetail, setShowDetail] = useState(false)
+  const classes = useStyles({ showDetail })
 
-  const handleClose = useCallback(() => {
-    setDetailOpen(false)
-    setTimeout(deselectLocation, 250)
+  const hideDetail = useCallback(() => {
+    setShowDetail(false)
+    setTimeout(deselectLocation, TRANSITION_SECONDS * 1000)
   }, [deselectLocation])
 
   useEffect(() => {
-    if (locationSelected) setDetailOpen(true)
+    if (locationSelected) setShowDetail(true)
   }, [locationSelected])
 
   return (
@@ -96,7 +98,7 @@ const Desktop = ({ dataLoaded, locationSelected, deselectLocation }) => {
                 <LocationsList />
               </div>
               <div className={classes.locationDetail}>
-                <div onClick={handleClose}>Close Now</div>
+                <BackButton onClick={hideDetail} />
                 <LocationDetail />
               </div>
             </div>
