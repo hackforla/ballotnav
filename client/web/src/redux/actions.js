@@ -54,7 +54,7 @@ const initialState = {
     address: null,
   },
   data: {
-    isLoading: false,
+    isLoading: true,
     error: null,
     state: null,
     jurisdiction: null,

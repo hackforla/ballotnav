@@ -89,11 +89,9 @@ function addressString(location) {
 
 function distanceString(location) {
   // center not given
-  if (!location.distanceToCenter)
-    return null
+  if (!location.distanceToCenter) return null
   // center given but location not geocoded
-  if (location.distanceToCenter === Infinity)
-    return 'Unknown distance'
+  if (location.distanceToCenter === Infinity) return 'Unknown distance'
   // center given and location geocoded
   return `${location.distanceToCenter.toFixed(2)} miles`
 }

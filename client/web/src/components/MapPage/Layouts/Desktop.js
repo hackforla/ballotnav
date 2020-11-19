@@ -5,6 +5,7 @@ import { selectLocation } from 'redux/actions'
 import SearchBar from 'components/SearchBar'
 import VerifyAlert from '../VerifyAlert'
 import JurisdictionSelect from '../JurisdictionSelect'
+import LocationsSummary from '../LocationsSummary'
 import LocationsList from '../LocationsList'
 import BackButton from '../BackButton'
 import LocationDetail from '../LocationDetail'
@@ -35,8 +36,9 @@ const useStyles = makeStyles({
     flexDirection: 'column',
   },
   searchBar: {
-    padding: '20px 10px 10px 10px',
+    padding: '20px 15px',
     flex: 0,
+    borderBottom: '1px lightgrey solid',
   },
   locations: {
     flex: 1,
@@ -55,7 +57,7 @@ const useStyles = makeStyles({
     bottom: 0,
     left: 0,
     overflow: 'auto',
-    padding: 10,
+    padding: '10px 15px',
   },
   locationDetail: {
     position: 'absolute',
@@ -65,7 +67,7 @@ const useStyles = makeStyles({
     left: ({ showDetail }) => showDetail ? 0 : -SIDEBAR_WIDTH,
     transition: `all ${TRANSITION_SECONDS}s ease-in-out`,
     overflow: 'auto',
-    padding: 10,
+    padding: '10px 15px',
     backgroundColor: '#FFF',
   },
   map: {
@@ -112,6 +114,7 @@ const Desktop = ({ isLoading, locationSelected, deselectLocation }) => {
               ) : (
                 <>
                   <div className={classes.locationsList}>
+                    <LocationsSummary />
                     <LocationsList />
                   </div>
                   <div className={classes.locationDetail}>

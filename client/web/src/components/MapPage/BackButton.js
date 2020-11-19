@@ -10,7 +10,7 @@ const BackButton = ({ onClick }) => (
       display: 'flex',
       alignItems: 'center',
       cursor: 'pointer',
-      marginBottom: 15,
+      margin: '10px 0',
     }}
   >
     <KeyboardBackspaceIcon color='primary' />
