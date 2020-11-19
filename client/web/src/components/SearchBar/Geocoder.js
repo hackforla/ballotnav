@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import mapboxgl from 'services/mapbox'
 
-function Geocoder({ center, onResult }) {
+function Geocoder({ center, address, onResult }) {
   const container = useRef(null)
   const geocoder = useRef(null)
 
@@ -12,7 +12,6 @@ function Geocoder({ center, onResult }) {
       accessToken: mapboxgl.accessToken,
       countries: 'us',
       types: 'address, neighborhood, locality, place, district, postcode',
-      placeholder: 'Enter an address or ZIP',
     })
 
     geocoder.current.addTo(container.current)
@@ -20,8 +19,10 @@ function Geocoder({ center, onResult }) {
 
   useEffect(() => {
     const handleResult = ({ result }) => {
-      const [lng, lat] = result.center
-      onResult({ lng, lat })
+      geocoder.current.setPlaceholder(' ')
+      geocoder.current.clear()
+      const { center: [lng, lat], place_name: address } = result
+      onResult({ lng, lat, address })
     }
 
     geocoder.current.on('result', handleResult)
@@ -37,6 +38,10 @@ function Geocoder({ center, onResult }) {
     else geocoder.current.setProximity(null)
   }, [center])
 
+  useEffect(() => {
+    geocoder.current.setPlaceholder(address || 'Enter an address or ZIP')
+  }, [address])
+
   return <div ref={container} className="geocoder" />
 }
 
@@ -47,10 +52,12 @@ Geocoder.propTypes = {
     lng: PropTypes.number,
     lat: PropTypes.number,
   }),
+  address: PropTypes.string,
   onResult: PropTypes.func,
 }
 
 Geocoder.defaultProps = {
   center: null,
+  address: null,
   onResult: (lngLat) => {},
 }

@@ -12,6 +12,7 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
 
   useEffect(() => {
     saveQuery(location.search)
+    return () => saveQuery(null)
   }, [saveQuery, location.search])
 
   useEffect(() => {
