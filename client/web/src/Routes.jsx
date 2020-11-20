@@ -5,7 +5,6 @@ import Home from './components/main/Home'
 import About from './components/main/About'
 import Volunteer from './components/main/Volunteer'
 import Press from './components/main/Press'
-// import MapContainer from './components/map/MapContainer'
 import MapPage from 'components/MapPage'
 
 const Routes = () => {
@@ -14,10 +13,7 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      {/*<Route path="/map">
-        <MapContainer />
-      </Route>*/}
-      <Route path="/map2">
+      <Route path="/map">
         <MapPage />
       </Route>
       <Route path="/about">
