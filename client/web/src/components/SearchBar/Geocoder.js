@@ -2,10 +2,32 @@ import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import mapboxgl from 'services/mapbox'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& .mapboxgl-ctrl-geocoder': {
+      width: '100% !important',
+      maxWidth: 'none',
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      '&--input': {
+        border: '1px solid #B3B3B3',
+        borderRadius: 40,
+        backgroundColor: '#FFF',
+        '&:focus': {
+          outline: 'none',
+          border: `1px ${theme.palette.primary.main} solid`,
+        }
+      }
+    }
+  }
+}))
 
 function Geocoder({ center, address, onResult }) {
   const container = useRef(null)
   const geocoder = useRef(null)
+  const classes = useStyles()
 
   useEffect(() => {
     geocoder.current = new MapboxGeocoder({
@@ -42,7 +64,7 @@ function Geocoder({ center, address, onResult }) {
     geocoder.current.setPlaceholder(address || 'Enter an address or ZIP')
   }, [address])
 
-  return <div ref={container} className="geocoder" />
+  return <div ref={container} className={classes.root} />
 }
 
 export default Geocoder
