@@ -7,7 +7,7 @@ const LocationDetail = ({ location }) => {
   return (
     <div>
       <CheckSteps />
-      <div>below content</div>
+      <div>{ location.name }</div>
     </div>
   )
 }

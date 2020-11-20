@@ -11,6 +11,7 @@ const BackButton = ({ onClick }) => (
       alignItems: 'center',
       cursor: 'pointer',
       margin: '10px 0',
+      userSelect: 'none',
     }}
   >
     <KeyboardBackspaceIcon color='primary' />

@@ -43,13 +43,13 @@ const useStyles = makeStyles(theme => ({
     color: '#1C1C1C',
     fontWeight: 400,
     fontSize: 16,
-    marginRight: 14,
     display: 'inline-block',
   },
   distance: {
     color: '#808080',
     fontWeight: 400,
     fontSize: 14,
+    marginLeft: 14,
   },
   link: {
     color: theme.palette.link.main,
@@ -122,8 +122,10 @@ const LocationCard = ({ location, selectLocation }) => {
           <PinIcon width={25} height={30} />
         </div>
         <div className={classes.textCell}>
-          <span className={classes.address}>{ addressString(location) }</span>
-          <span className={classes.distance}>{ distanceString(location) }</span>
+          <span className={classes.address}>
+            { addressString(location) }
+            <span className={classes.distance}>{ distanceString(location) }</span>
+          </span>
         </div>
       </div>
       <div className={classes.row}>
