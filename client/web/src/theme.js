@@ -24,4 +24,10 @@ export default createMuiTheme({
       'Open Sans',
     ],
   },
+  breakpoints: {
+    values: {
+      mobile: 0,
+      desktop: 960,
+    },
+  },
 })

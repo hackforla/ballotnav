@@ -5,10 +5,11 @@ import { useLocation } from 'react-router-dom'
 import { saveQuery, getJurisdiction } from 'redux/actions'
 import DesktopLayout from './Layouts/Desktop'
 import MobileLayout from './Layouts/Mobile'
-import Hidden from '@material-ui/core/Hidden'
+import useBreakpoints from 'hooks/useBreakpoints'
 
 const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
+  const { isMobile } = useBreakpoints()
 
   useEffect(() => {
     saveQuery(location.search)
@@ -19,12 +20,7 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
     if (jurisdictionId) getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
-  return (
-    <>
-      <Hidden smDown><DesktopLayout /></Hidden>
-      <Hidden mdUp><MobileLayout /></Hidden>
-    </>
-  )
+  return isMobile ? <MobileLayout /> : <DesktopLayout />
 }
 
 const mapStateToProps = (state) => ({
