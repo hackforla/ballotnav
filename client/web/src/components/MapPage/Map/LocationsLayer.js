@@ -1,3 +1,6 @@
+// NOTE: this is currently unused because we're using markers instead
+// of a layer to render the location points on the map
+
 import { useEffect } from 'react'
 
 function locationsToGeoJson(locations) {

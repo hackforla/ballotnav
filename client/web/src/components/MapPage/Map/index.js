@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
-// import LocationsLayer from './LocationsLayer'
 
 const useStyles = makeStyles({
   root: {
@@ -61,11 +60,6 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
             map={map}
             userLocation={userLocation}
           />
-          {/*<LocationsLayer
-            map={map}
-            locations={locations}
-            selectLocation={selectLocation}
-          />*/}
         </>
       )}
     </div>

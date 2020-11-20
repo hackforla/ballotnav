@@ -41,6 +41,8 @@ const LocationMarkers = ({
       )
       el.addEventListener('click', () => selectLocation(location.id))
 
+      // NOTE: comment the options in Marker to use the default markers.
+      // this lets you check that the offset is correct for the custom markers
       markers.current[location.id] = new mapboxgl.Marker({
         element: el,
         offset: [0, 12],
