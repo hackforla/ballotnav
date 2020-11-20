@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { makeStyles } from '@material-ui/core'
+import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
+import { makeStyles } from '@material-ui/core'
 import SearchBar from 'components/SearchBar'
 import LocationsSummary from './LocationsSummary'
 import LocationsList from './LocationsList'
@@ -101,8 +102,8 @@ const Locations = ({ isLoading, locationSelected, deselectLocation }) => {
 }
 
 const mapStateToProps = (state) => ({
-  locationSelected: !!state.ui.selectedLocationId,
-  isLoading: state.data.isLoading,
+  locationSelected: !!select.selectedLocationId(state),
+  isLoading: select.isLoading(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

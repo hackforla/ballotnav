@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import distance from '@turf/distance'
 
 export const query = state => state.query
+export const isLoading = state => state.data.isLoading
 export const state = state => state.data.state
 export const jurisdiction = state => state.data.jurisdiction
 export const locations = state => state.data.locations
