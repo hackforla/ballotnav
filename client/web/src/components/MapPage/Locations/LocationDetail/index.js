@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import CheckSteps from './CheckSteps'
 
 const LocationDetail = ({ location }) => {
   if (!location) return null
   return (
     <div>
-      { location.name }
+      <CheckSteps />
+      <div>below content</div>
     </div>
   )
 }
