@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import LocationMarker from '../LocationMarker'
+import LocationMarker from '../../LocationMarker'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
 import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
 
