@@ -43,7 +43,7 @@ const LocationMarkers = ({
 
       markers.current[location.id] = new mapboxgl.Marker({
         element: el,
-        offset: [0, 10],
+        offset: [0, 12],
         anchor: 'bottom',
       })
         .setLngLat({

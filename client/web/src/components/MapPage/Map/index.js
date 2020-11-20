@@ -1,13 +1,28 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
-import LocationsLayer from './LocationsLayer'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
+// import LocationsLayer from './LocationsLayer'
+
+const useStyles = makeStyles({
+  root: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    '& canvas.mapboxgl-canvas:focus': {
+      outline: 'none',
+    },
+  }
+})
 
 const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) => {
+  const classes = useStyles()
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
 
@@ -32,23 +47,9 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
   }, [map, userLocation])
 
   return (
-    <div
-      ref={mapContainer}
-      style={{
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-      }}
-    >
+    <div ref={mapContainer} className={classes.root}>
       {map && (
         <>
-          <LocationsLayer
-            map={map}
-            locations={locations}
-            selectLocation={selectLocation}
-          />
           <LocationMarkers
             map={map}
             locations={locations}
@@ -59,6 +60,11 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
             map={map}
             userLocation={userLocation}
           />
+          {/*<LocationsLayer
+            map={map}
+            locations={locations}
+            selectLocation={selectLocation}
+          />*/}
         </>
       )}
     </div>
