@@ -24,7 +24,7 @@ const LocationMarkers = ({
   map,
   locations,
   selectLocation,
-  selectedLocationId
+  selectedLocationId,
 }) => {
   useStyles()
   const markers = useRef({})

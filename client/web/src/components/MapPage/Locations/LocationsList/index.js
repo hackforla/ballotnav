@@ -1,34 +1,13 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import LocationCard from './LocationCard'
 import Divider from '@material-ui/core/Divider'
-import distance from '@turf/distance'
 import { selectLocation } from 'redux/actions'
+import * as select from 'redux/selectors'
 
-const LocationsList = ({ locations, userLocation, selectLocation }) => {
-  const sortedLocations = useMemo(
-    () => {
-      if (!locations) return []
-      if (!userLocation) return locations
-
-      return locations
-        .map(loc => ({
-          ...loc,
-          distanceToCenter: loc.geomLongitude && loc.geomLatitude
-            ? distance (
-              [userLocation.lng, userLocation.lat],
-              [loc.geomLongitude, loc.geomLatitude],
-              { units: 'miles' },
-            )
-            : Infinity
-        }))
-        .sort((a, b) => a.distanceToCenter - b.distanceToCenter)
-    },
-    [userLocation, locations]
-  )
-
-  return sortedLocations.map((location, index) => (
+const LocationsList = ({ locations, selectLocation }) => {
+  return locations.map((location, index) => (
     <Fragment key={location.id}>
       <LocationCard
         location={location}
@@ -42,8 +21,7 @@ const LocationsList = ({ locations, userLocation, selectLocation }) => {
 }
 
 const mapStateToProps = (state) => ({
-  userLocation: state.query.lngLat,
-  locations: state.data.locations,
+  locations: select.sortedLocations(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -54,14 +32,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocationsList)
 
 LocationsList.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
-  userLocation: PropTypes.shape({
-    lng: PropTypes.number,
-    lat: PropTypes.number,
-  }),
   selectLocation: PropTypes.func.isRequired,
 }
 
 LocationsList.defaultProps = {
   locations: [],
-  userLocation: null,
 }

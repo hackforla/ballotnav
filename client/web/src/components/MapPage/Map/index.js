@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as select from 'redux/selectors'
 import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import { selectLocation } from 'redux/actions'
@@ -72,9 +73,9 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
 }
 
 const mapStateToProps = (state) => ({
-  locations: state.data.locations,
-  userLocation: state.query.lngLat,
-  selectedLocationId: state.ui.selectedLocationId,
+  locations: select.sortedLocations(state),
+  userLocation: select.userLocation(state),
+  selectedLocationId: select.selectedLocationId(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

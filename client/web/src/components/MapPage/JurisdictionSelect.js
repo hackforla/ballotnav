@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main,
     color: '#FFFFFF',
     padding: '20px 15px',
-  }
+  },
 }))
 
 const JurisdictionSelect = () => {

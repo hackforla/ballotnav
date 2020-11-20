@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import LocationMarker from '../../LocationMarker'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
@@ -89,11 +90,11 @@ function addressString(location) {
 
 function distanceString(location) {
   // center not given
-  if (!location.distanceToCenter) return null
+  if (!location.distanceFromUser) return null
   // center given but location not geocoded
-  if (location.distanceToCenter === Infinity) return 'Unknown distance'
+  if (location.distanceFromUser === Infinity) return 'Unknown distance'
   // center given and location geocoded
-  return `${location.distanceToCenter.toFixed(2)} miles`
+  return `${location.distanceFromUser.toFixed(2)} miles`
 }
 
 const LocationCard = ({ location, selectLocation }) => {
@@ -146,3 +147,7 @@ const LocationCard = ({ location, selectLocation }) => {
 }
 
 export default LocationCard
+
+LocationCard.propTypes = {
+  location: PropTypes.shape({}).isRequired,
+}

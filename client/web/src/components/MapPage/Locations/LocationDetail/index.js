@@ -1,5 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as select from 'redux/selectors'
 import CheckSteps from './CheckSteps'
 
 const LocationDetail = ({ location }) => {
@@ -12,14 +14,16 @@ const LocationDetail = ({ location }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  const { selectedLocationId } = state.ui
-  const { locations } = state.data
-  return {
-    location: selectedLocationId
-      ? locations.find(loc => loc.id === selectedLocationId)
-      : null
-  }
-}
+const mapStateToProps = (state) => ({
+  location: select.selectedLocation(state),
+})
 
 export default connect(mapStateToProps)(LocationDetail)
+
+LocationDetail.propTypes = {
+  location: PropTypes.shape({}),
+}
+
+LocationDetail.defaultProps = {
+  location: null,
+}

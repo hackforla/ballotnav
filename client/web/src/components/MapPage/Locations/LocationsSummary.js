@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as select from 'redux/selectors'
 import PropTypes from 'prop-types'
 
 const LocationsSummary = ({ numLocations, stateAbbr, jurisdictionName }) => {
@@ -13,9 +14,9 @@ const LocationsSummary = ({ numLocations, stateAbbr, jurisdictionName }) => {
 }
 
 const mapStateToProps = (state) => ({
-  numLocations: state.data.locations.length,
-  stateAbbr: state.data.state.abbreviation,
-  jurisdictionName: state.data.jurisdiction.name,
+  numLocations: select.sortedLocations(state).length,
+  stateAbbr: select.state(state).abbreviation,
+  jurisdictionName: select.jurisdiction(state).name,
 })
 
 export default connect(mapStateToProps)(LocationsSummary)

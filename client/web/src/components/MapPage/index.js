@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as select from 'redux/selectors'
 import { useLocation } from 'react-router-dom'
 import { saveQuery, getJurisdiction } from 'redux/actions'
 import useBreakpoints from 'hooks/useBreakpoints'
@@ -11,11 +12,13 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
   const { isMobile } = useBreakpoints()
 
+  // save query params whenever url changes
   useEffect(() => {
     saveQuery(location.search)
     return () => saveQuery(null)
   }, [saveQuery, location.search])
 
+  // load the jurisdiction whenever the id changes
   useEffect(() => {
     if (jurisdictionId) getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
@@ -24,7 +27,7 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
 }
 
 const mapStateToProps = (state) => ({
-  jurisdictionId: state.query.jurisdictionId,
+  jurisdictionId: select.query(state).jurisdictionId,
 })
 
 const mapDispatchToProps = (dispatch) => ({
