@@ -7,6 +7,7 @@ export const types = {
   GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
   SELECT_LOCATION: 'SELECT_LOCATION',
+  HIDE_SELECTED_LOCATION: 'HIDE_SELECTED_LOCATION',
 }
 
 export const saveQuery = (urlQueryString) => {
@@ -47,6 +48,10 @@ export const selectLocation = (locationId) => ({
   data: { locationId },
 })
 
+export const hideSelectedLocation = () => ({
+  type: types.HIDE_SELECTED_LOCATION
+})
+
 const initialState = {
   query: {
     jurisdictionId: null,
@@ -62,6 +67,7 @@ const initialState = {
   },
   ui: {
     selectedLocationId: null,
+    showLocationDetail: false,
   },
 }
 
@@ -75,6 +81,10 @@ const reducer = (state = initialState, action) => {
           lngLat: action.data.lngLat,
           address: action.data.address,
         },
+        ui: {
+          ...state.ui,
+          showLocationDetail: false,
+        },
       }
     case types.GET_JURISDICTION_PENDING:
       return {
@@ -83,10 +93,6 @@ const reducer = (state = initialState, action) => {
           ...state.data,
           isLoading: true,
         },
-        ui: {
-          ...state.ui,
-          selectedLocationId: null,
-        }
       }
     case types.GET_JURISDICTION_SUCCESS:
       return {
@@ -98,6 +104,10 @@ const reducer = (state = initialState, action) => {
           jurisdiction: action.data.jurisdiction,
           locations: action.data.locations,
         },
+        ui: {
+          ...state.ui,
+          selectedLocationId: null,
+        }
       }
     case types.GET_JURISDICTION_ERROR:
       return {
@@ -106,6 +116,10 @@ const reducer = (state = initialState, action) => {
           isLoading: false,
           error: action.error,
         },
+        ui: {
+          ...state.ui,
+          selectedLocationId: null,
+        }
       }
     case types.SELECT_LOCATION:
       return {
@@ -113,7 +127,16 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           selectedLocationId: action.data.locationId,
+          showLocationDetail: true,
         },
+      }
+    case types.HIDE_SELECTED_LOCATION:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          showLocationDetail: false
+        }
       }
     default:
       return state

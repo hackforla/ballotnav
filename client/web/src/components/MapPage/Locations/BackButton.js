@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { hideSelectedLocation } from 'store/actions'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import Typography from '@material-ui/core/Typography'
 
-const BackButton = ({ onClick }) => (
+const BackButton = ({ hideSelectedLocation }) => (
   <div
-    onClick={onClick}
+    onClick={hideSelectedLocation}
     style={{
       display: 'flex',
       alignItems: 'center',
@@ -27,12 +29,12 @@ const BackButton = ({ onClick }) => (
   </div>
 )
 
-export default BackButton
+const mapDispatchToProps = (dispatch) => ({
+  hideSelectedLocation: () => dispatch(hideSelectedLocation())
+})
+
+export default connect(null, mapDispatchToProps)(BackButton)
 
 BackButton.propTypes = {
-  onClick: PropTypes.func,
-}
-
-BackButton.defaultProps = {
-  onClick: () => null
+  hideSelectedLocation: PropTypes.func.isRequired,
 }
