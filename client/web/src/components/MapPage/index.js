@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { saveQuery, getJurisdiction } from 'redux/actions'
-import DesktopLayout from './Layouts/Desktop'
-import MobileLayout from './Layouts/Mobile'
 import useBreakpoints from 'hooks/useBreakpoints'
+import Desktop from './layouts/Desktop'
+import Mobile from './layouts/Mobile'
 
 const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
@@ -20,7 +20,7 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
     if (jurisdictionId) getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
-  return isMobile ? <MobileLayout /> : <DesktopLayout />
+  return isMobile ? <Mobile /> : <Desktop />
 }
 
 const mapStateToProps = (state) => ({
