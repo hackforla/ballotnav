@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import VerifyAlert from '../VerifyAlert'
 import JurisdictionSelect from '../JurisdictionSelect'
 import Map from '../Map'

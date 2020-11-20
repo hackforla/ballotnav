@@ -42,7 +42,7 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
   }, [])
 
   useEffect(() => {
-    if (!map) return
+    if (!map || !userLocation) return
     map.setCenter(userLocation)
   }, [map, userLocation])
 
