@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core'
-import { selectLocation } from 'redux/actions'
+import { selectLocation } from 'store/actions'
 import SearchBar from 'components/SearchBar'
 import LocationsSummary from './LocationsSummary'
 import LocationsList from './LocationsList'

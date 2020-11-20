@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as select from 'redux/selectors'
+import * as select from 'store/selectors'
 import CheckSteps from './CheckSteps'
 
 const LocationDetail = ({ location }) => {

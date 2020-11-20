@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import * as select from 'store/selectors'
+import { selectLocation } from 'store/actions'
 import LocationCard from './LocationCard'
 import Divider from '@material-ui/core/Divider'
-import { selectLocation } from 'redux/actions'
-import * as select from 'redux/selectors'
 
 const LocationsList = ({ locations, selectLocation }) => {
   return locations.map((location, index) => (

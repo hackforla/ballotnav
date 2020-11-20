@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './theme'
 import * as serviceWorker from './serviceWorker'
 import './styles/styles.scss'
-import store from './redux/store'
+import store from './store'
 import App from './App'
 
 console.log(theme)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as select from 'redux/selectors'
+import * as select from 'store/selectors'
 import PropTypes from 'prop-types'
 
 const LocationsSummary = ({ numLocations, stateAbbr, jurisdictionName }) => {
