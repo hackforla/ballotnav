@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { renderToString } from 'react-dom/server'
 import mapboxgl from 'services/mapbox'
-import LocationMarker from '../LocationMarker'
+import LocationIcon from 'components/shared/LocationIcon'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
@@ -37,7 +37,7 @@ const LocationMarkers = ({
       const el = document.createElement('div')
       el.className = 'location-marker'
       el.innerHTML = renderToString(
-        <LocationMarker facilityTypeId={location.facilityTypeId} />
+        <LocationIcon facilityTypeId={location.facilityTypeId} />
       )
       el.addEventListener('click', () => selectLocation(location.id))
 

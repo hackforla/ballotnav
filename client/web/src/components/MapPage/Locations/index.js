@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { makeStyles } from '@material-ui/core'
-import SearchBar from 'components/SearchBar'
+import { makeStyles } from '@material-ui/core/styles'
+import SearchBar from 'components/shared/SearchBar'
 import LocationsList from './LocationsList'
 import LocationDetail from './LocationDetail'
 

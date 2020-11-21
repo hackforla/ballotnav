@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import Summary from './Summary'
 import Cards from './Cards'
 import CircularProgress from '@material-ui/core/CircularProgress'

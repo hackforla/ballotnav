@@ -1,11 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import JurisdictionSelect from 'components/shared/JurisdictionSelect'
 import VerifyAlert from '../VerifyAlert'
-import JurisdictionSelect from '../JurisdictionSelect'
 import Map from '../Map'
 import Locations from '../Locations'
 
-const HEADER_HEIGHT = 52 // TODO: put the header height in the theme
+// TODO: put these values in the theme
+const HEADER_HEIGHT = 52
 const SIDEBAR_WIDTH = 500
 
 const useStyles = makeStyles({

@@ -135,7 +135,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         ui: {
           ...state.ui,
-          showLocationDetail: false
+          showLocationDetail: false,
         }
       }
     default:
