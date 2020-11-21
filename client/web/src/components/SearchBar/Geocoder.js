@@ -41,9 +41,9 @@ function Geocoder({ center, address, onResult }) {
 
   useEffect(() => {
     const handleResult = ({ result }) => {
-      geocoder.current.setPlaceholder(' ')
-      geocoder.current.clear()
       const { center: [lng, lat], place_name: address } = result
+      geocoder.current.setPlaceholder(address)
+      geocoder.current.clear()
       onResult({ lng, lat, address })
     }
 

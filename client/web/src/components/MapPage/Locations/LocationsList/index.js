@@ -1,40 +1,47 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { selectLocation } from 'store/actions'
-import LocationCard from './LocationCard'
-import Divider from '@material-ui/core/Divider'
+import { makeStyles } from '@material-ui/core'
+import Summary from './Summary'
+import Cards from './Cards'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
-const LocationsList = ({ locations, selectLocation }) => {
-  return locations.map((location, index) => (
-    <Fragment key={location.id}>
-      <LocationCard
-        location={location}
-        selectLocation={selectLocation.bind(null, location.id)}
-      />
-      {index !== locations.length - 1 && (
-        <Divider style={{ margin: '8px 0' }} />
-      )}
-    </Fragment>
-  ))
+const useStyles = makeStyles({
+  loader: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  list: {
+    position: 'absolute',
+    width: '100%',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    overflow: 'auto',
+    padding: '10px 15px',
+  },
+})
+
+const ListView = ({ isLoading }) => {
+  const classes = useStyles()
+  if (isLoading)
+    return (
+      <div className={classes.loader}>
+        <CircularProgress />
+      </div>
+    )
+  return (
+    <div className={classes.list}>
+      <Summary />
+      <Cards />
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => ({
-  locations: select.sortedLocations(state),
+  isLoading: select.isLoading(state),
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  selectLocation: (locationId) => dispatch(selectLocation(locationId)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LocationsList)
-
-LocationsList.propTypes = {
-  locations: PropTypes.arrayOf(PropTypes.shape({})),
-  selectLocation: PropTypes.func.isRequired,
-}
-
-LocationsList.defaultProps = {
-  locations: [],
-}
+export default connect(mapStateToProps)(ListView)

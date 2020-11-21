@@ -3,11 +3,8 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core'
 import SearchBar from 'components/SearchBar'
-import ListView from './ListView'
-import BackButton from './BackButton'
+import LocationsList from './LocationsList'
 import LocationDetail from './LocationDetail'
-
-const TRANSITION_SECONDS = 0.25
 
 const useStyles = makeStyles({
   root: {
@@ -15,22 +12,22 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
   },
-  searchBar: {
+  header: {
     padding: '20px 15px',
     flex: 0,
     borderBottom: '1px lightgrey solid',
   },
-  locations: {
+  main: {
     flex: 1,
     position: 'relative',
   },
-  locationDetail: {
+  slider: {
     position: 'absolute',
     width: '100%',
     top: 0,
     bottom: 0,
-    left: ({ showLocationDetail }) => showLocationDetail ? 0 : '-100%',
-    transition: `all ${TRANSITION_SECONDS}s ease-in-out`,
+    left: ({ visible }) => visible ? 0 : '-100%',
+    transition: 'all 0.25s ease-in-out',
     overflow: 'auto',
     padding: '10px 15px',
     backgroundColor: '#FFF',
@@ -38,16 +35,15 @@ const useStyles = makeStyles({
 })
 
 const Locations = ({ showLocationDetail }) => {
-  const classes = useStyles({ showLocationDetail })
+  const classes = useStyles({ visible: showLocationDetail })
   return (
     <div className={classes.root}>
-      <div className={classes.searchBar}>
+      <div className={classes.header}>
         <SearchBar />
       </div>
-      <div className={classes.locations}>
-        <ListView />
-        <div className={classes.locationDetail}>
-          <BackButton />
+      <div className={classes.main}>
+        <LocationsList />
+        <div className={classes.slider}>
           <LocationDetail />
         </div>
       </div>

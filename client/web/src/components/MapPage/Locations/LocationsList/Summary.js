@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import PropTypes from 'prop-types'
 
-const LocationsSummary = ({ numLocations, stateAbbr, jurisdictionName }) => {
+const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
   const word = numLocations === 1 ? 'location' : 'locations'
   return (
     <div style={{ fontWeight: 700, fontSize: 16, margin: '8px 0' }}>
@@ -19,9 +19,9 @@ const mapStateToProps = (state) => ({
   jurisdictionName: select.jurisdiction(state).name,
 })
 
-export default connect(mapStateToProps)(LocationsSummary)
+export default connect(mapStateToProps)(Summary)
 
-LocationsSummary.propTypes = {
+Summary.propTypes = {
   numLocations: PropTypes.number.isRequired,
   stateAbbr: PropTypes.string.isRequired,
   jurisdictionName: PropTypes.string.isRequired,
