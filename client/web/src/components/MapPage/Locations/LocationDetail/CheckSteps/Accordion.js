@@ -6,7 +6,7 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-const Accordion = withStyles(theme => ({
+const Accordion = withStyles((theme) => ({
   root: {
     border: `1px solid ${theme.palette.primary.main}`,
     boxShadow: 'none',
@@ -24,7 +24,7 @@ const Accordion = withStyles(theme => ({
   expanded: {},
 }))(MuiAccordion)
 
-const AccordionSummary = withStyles(theme => ({
+const AccordionSummary = withStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     borderRadius: 9,
@@ -59,13 +59,13 @@ const CustomAccordion = ({ title, children }) => {
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls='check-your-steps'
-        id='check-your-steps-header'
+        aria-controls="check-your-steps"
+        id="check-your-steps-header"
       >
         <Typography>Check your steps</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div>{ children }</div>
+        <div>{children}</div>
       </AccordionDetails>
     </Accordion>
   )

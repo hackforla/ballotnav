@@ -18,10 +18,15 @@ const useStyles = makeStyles({
     '& canvas.mapboxgl-canvas:focus': {
       outline: 'none',
     },
-  }
+  },
 })
 
-const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) => {
+const Map = ({
+  locations,
+  userLocation,
+  selectedLocationId,
+  selectLocation,
+}) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
@@ -56,10 +61,7 @@ const Map = ({ locations, userLocation, selectedLocationId, selectLocation }) =>
             selectLocation={selectLocation}
             selectedLocationId={selectedLocationId}
           />
-          <UserMarker
-            map={map}
-            userLocation={userLocation}
-          />
+          <UserMarker map={map} userLocation={userLocation} />
         </>
       )}
     </div>
@@ -71,7 +73,7 @@ const mapStateToProps = (state) => ({
   userLocation: select.userLocation(state),
   selectedLocationId: select.showLocationDetail(state)
     ? select.selectedLocationId(state)
-    : null
+    : null,
 })
 
 const mapDispatchToProps = (dispatch) => ({

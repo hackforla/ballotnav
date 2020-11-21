@@ -32,7 +32,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   saveQuery: (urlQueryString) => dispatch(saveQuery(urlQueryString)),
-  getJurisdiction: (jurisdictionId) => dispatch(getJurisdiction(jurisdictionId)),
+  getJurisdiction: (jurisdictionId) =>
+    dispatch(getJurisdiction(jurisdictionId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapPage)

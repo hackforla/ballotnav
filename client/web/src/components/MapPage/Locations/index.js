@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     width: '100%',
     top: 0,
     bottom: 0,
-    left: ({ visible }) => visible ? 0 : '-100%',
+    left: ({ visible }) => (visible ? 0 : '-100%'),
     transition: 'all 0.25s ease-in-out',
     overflow: 'auto',
     padding: '10px 15px',

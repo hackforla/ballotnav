@@ -20,9 +20,7 @@ export default createMuiTheme({
     divider: '#CCD3DD',
   },
   typography: {
-    fontFamily: [
-      'Open Sans',
-    ],
+    fontFamily: ['Open Sans', 'sans-serif'],
   },
   breakpoints: {
     values: {

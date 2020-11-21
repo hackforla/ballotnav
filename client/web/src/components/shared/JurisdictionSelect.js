@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     color: '#FFFFFF',
@@ -11,11 +11,7 @@ const useStyles = makeStyles(theme => ({
 
 const JurisdictionSelect = () => {
   const classes = useStyles()
-  return (
-    <div className={classes.root}>
-      Select jurisdiction
-    </div>
-  )
+  return <div className={classes.root}>Select jurisdiction</div>
 }
 
 export default JurisdictionSelect

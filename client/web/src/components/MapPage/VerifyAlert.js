@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import CloseIcon from '@material-ui/icons/Close'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '5px 15px',
     backgroundColor: '#EA082D',
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     '& .MuiSvgIcon-root': {
       fill: '#FFFFFF',
-    }
+    },
   },
 }))
 
@@ -31,14 +31,12 @@ const VerifyAlert = () => {
   if (!open) return null
   return (
     <div className={classes.root}>
-      <Typography variant='body2'>
-        Remember to verify the information through the
-        official website and phone number before you leave.
+      <Typography variant="body2">
+        Remember to verify the information through the official website and
+        phone number before you leave.
       </Typography>
-      <IconButton
-        aria-label='close'
-        onClick={handleClose}>
-        <CloseIcon fontSize='small' />
+      <IconButton aria-label="close" onClick={handleClose}>
+        <CloseIcon fontSize="small" />
       </IconButton>
     </div>
   )

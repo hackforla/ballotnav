@@ -5,7 +5,7 @@ import LocationIcon from 'components/shared/LocationIcon'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
 import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '10px 10px 10px 0',
     // cursor: 'pointer',
@@ -78,13 +78,13 @@ const useStyles = makeStyles(theme => ({
     color: '#808080',
     fontWeight: 400,
     fontSize: 16,
-  }
+  },
 }))
 
 function addressString(location) {
   return [
-    `${ location.address1 }, ${ location.address2 } ${ location.city },`,
-    `${ location.state } ${ location.zip }`,
+    `${location.address1}, ${location.address2} ${location.city},`,
+    `${location.state} ${location.zip}`,
   ].join(' ')
 }
 
@@ -97,7 +97,7 @@ function distanceString(location) {
   return `${location.distanceFromUser.toFixed(2)} miles`
 }
 
-const LocationCard = ({ location, selectLocation }) => {
+const Card = ({ location, selectLocation }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -105,17 +105,13 @@ const LocationCard = ({ location, selectLocation }) => {
         <div className={classes.iconCell}>
           <LocationIcon
             size={42}
-            fill='#5B71C0'
+            fill="#5B71C0"
             facilityTypeId={location.facilityTypeId}
           />
         </div>
         <div className={classes.textCell}>
-          <div className={classes.locationName}>
-            { location.name }
-          </div>
-          <div className={classes.dropOff}>
-            Drop off (outside)
-          </div>
+          <div className={classes.locationName}>{location.name}</div>
+          <div className={classes.dropOff}>Drop off (outside)</div>
         </div>
       </div>
       <div className={classes.row}>
@@ -124,8 +120,8 @@ const LocationCard = ({ location, selectLocation }) => {
         </div>
         <div className={classes.textCell}>
           <span className={classes.address}>
-            { addressString(location) }
-            <span className={classes.distance}>{ distanceString(location) }</span>
+            {addressString(location)}
+            <span className={classes.distance}>{distanceString(location)}</span>
           </span>
         </div>
       </div>
@@ -146,8 +142,8 @@ const LocationCard = ({ location, selectLocation }) => {
   )
 }
 
-export default LocationCard
+export default Card
 
-LocationCard.propTypes = {
+Card.propTypes = {
   location: PropTypes.shape({}).isRequired,
 }

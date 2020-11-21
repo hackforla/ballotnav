@@ -7,8 +7,11 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
   const word = numLocations === 1 ? 'location' : 'locations'
   return (
     <div style={{ fontWeight: 700, fontSize: 16, margin: '8px 0' }}>
-      { numLocations } known drop off { word }
-      &nbsp;in <b>{ jurisdictionName }, { stateAbbr }</b>
+      {numLocations} known drop off {word}
+      &nbsp;in{' '}
+      <b>
+        {jurisdictionName}, {stateAbbr}
+      </b>
     </div>
   )
 }

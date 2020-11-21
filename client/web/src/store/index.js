@@ -6,9 +6,7 @@ import rootReducer from './actions'
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+  composeWithDevTools(applyMiddleware(thunk))
 )
 
 export default store

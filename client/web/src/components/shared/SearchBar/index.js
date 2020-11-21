@@ -24,11 +24,7 @@ function SearchBar({ center, address }) {
 
   return (
     <div className="search-bar">
-      <Geocoder
-        center={center}
-        address={address}
-        onResult={handleLngLat}
-      />
+      <Geocoder center={center} address={address} onResult={handleLngLat} />
     </div>
   )
 }

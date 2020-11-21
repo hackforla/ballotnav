@@ -11,7 +11,7 @@ const LocationDetail = ({ location }) => {
     <div>
       <BackButton />
       <CheckSteps />
-      <div>{ location.name }</div>
+      <div>{location.name}</div>
     </div>
   )
 }

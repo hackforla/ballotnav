@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     height: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 })
 
@@ -35,19 +35,16 @@ const LocationsList = ({ isLoading, locations }) => {
 
   return (
     <div ref={scrollRef} className={classes.root}>
-      {
-        isLoading
-          ? (
-            <div className={classes.loader}>
-              <CircularProgress />
-            </div>
-          ) : (
-            <>
-              <Summary />
-              <Cards />
-            </>
-          )
-      }
+      {isLoading ? (
+        <div className={classes.loader}>
+          <CircularProgress />
+        </div>
+      ) : (
+        <>
+          <Summary />
+          <Cards />
+        </>
+      )}
     </div>
   )
 }

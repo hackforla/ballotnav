@@ -4,7 +4,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import mapboxgl from 'services/mapbox'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     '& .mapboxgl-ctrl-geocoder': {
       width: '100% !important',
@@ -19,13 +19,13 @@ const useStyles = makeStyles(theme => ({
         fontSize: 16,
         '&:focus': {
           outline: 'none',
-        }
+        },
       },
       '&--icon': {
         fill: theme.palette.primary.main,
-      }
-    }
-  }
+      },
+    },
+  },
 }))
 
 function Geocoder({ center, address, onResult }) {
@@ -45,7 +45,10 @@ function Geocoder({ center, address, onResult }) {
 
   useEffect(() => {
     const handleResult = ({ result }) => {
-      const { center: [lng, lat], place_name: address } = result
+      const {
+        center: [lng, lat],
+        place_name: address,
+      } = result
       geocoder.current.setPlaceholder(address)
       geocoder.current.clear()
       onResult({ lng, lat, address })

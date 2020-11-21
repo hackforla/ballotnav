@@ -21,7 +21,7 @@ export const saveQuery = (urlQueryString) => {
       jurisdictionId: jid || null,
       lngLat: lng && lat ? { lng, lat } : null,
       address: address || null,
-    }
+    },
   }
 }
 
@@ -29,17 +29,20 @@ export const getJurisdiction = (jurisdictionId) => {
   return (dispatch) => {
     dispatch({ type: types.GET_JURISDICTION_PENDING })
 
-    return api.getJurisdiction(jurisdictionId)
+    return api
+      .getJurisdiction(jurisdictionId)
       .then(({ state, jurisdiction, locations }) =>
         dispatch({
           type: types.GET_JURISDICTION_SUCCESS,
           data: { state, jurisdiction, locations },
-        }))
-      .catch(error =>
+        })
+      )
+      .catch((error) =>
         dispatch({
           type: types.GET_JURISDICTION_ERROR,
           data: { error },
-        }))
+        })
+      )
   }
 }
 
@@ -49,7 +52,7 @@ export const selectLocation = (locationId) => ({
 })
 
 export const hideSelectedLocation = () => ({
-  type: types.HIDE_SELECTED_LOCATION
+  type: types.HIDE_SELECTED_LOCATION,
 })
 
 const initialState = {
@@ -107,19 +110,19 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           selectedLocationId: null,
-        }
+        },
       }
     case types.GET_JURISDICTION_ERROR:
       return {
         ...state,
         data: {
           isLoading: false,
-          error: action.error,
+          error: action.data.error,
         },
         ui: {
           ...state.ui,
           selectedLocationId: null,
-        }
+        },
       }
     case types.SELECT_LOCATION:
       return {
@@ -136,7 +139,7 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           showLocationDetail: false,
-        }
+        },
       }
     default:
       return state

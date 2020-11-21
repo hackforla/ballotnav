@@ -1,22 +1,21 @@
 import { createSelector } from 'reselect'
 import distance from '@turf/distance'
 
-export const query = state => state.query
-export const isLoading = state => state.data.isLoading
-export const state = state => state.data.state
-export const jurisdiction = state => state.data.jurisdiction
-export const locations = state => state.data.locations
-export const userLocation = state => state.query.lngLat
-export const selectedLocationId = state => state.ui.selectedLocationId
-export const showLocationDetail = state => state.ui.showLocationDetail
+export const query = (state) => state.query
+export const isLoading = (state) => state.data.isLoading
+export const state = (state) => state.data.state
+export const jurisdiction = (state) => state.data.jurisdiction
+export const locations = (state) => state.data.locations
+export const userLocation = (state) => state.query.lngLat
+export const selectedLocationId = (state) => state.ui.selectedLocationId
+export const showLocationDetail = (state) => state.ui.showLocationDetail
 
 export const selectedLocation = createSelector(
   [locations, selectedLocationId],
-  (locations, selectedLocationId) => (
+  (locations, selectedLocationId) =>
     selectedLocationId
-      ? locations.find(loc => loc.id === selectedLocationId)
+      ? locations.find((loc) => loc.id === selectedLocationId)
       : null
-  )
 )
 
 /*
@@ -32,15 +31,16 @@ export const sortedLocations = createSelector(
     if (!userLocation) return locations
 
     return locations
-      .map(loc => ({
+      .map((loc) => ({
         ...loc,
-        distanceFromUser: loc.geomLongitude && loc.geomLatitude
-          ? distance (
-            [userLocation.lng, userLocation.lat],
-            [loc.geomLongitude, loc.geomLatitude],
-            { units: 'miles' },
-          )
-          : Infinity
+        distanceFromUser:
+          loc.geomLongitude && loc.geomLatitude
+            ? distance(
+                [userLocation.lng, userLocation.lat],
+                [loc.geomLongitude, loc.geomLatitude],
+                { units: 'miles' }
+              )
+            : Infinity,
       }))
       .sort((a, b) => a.distanceFromUser - b.distanceFromUser)
   }

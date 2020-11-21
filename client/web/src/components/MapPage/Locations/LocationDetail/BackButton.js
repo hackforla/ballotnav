@@ -16,13 +16,13 @@ const BackButton = ({ hideSelectedLocation }) => (
       userSelect: 'none',
     }}
   >
-    <KeyboardBackspaceIcon color='primary' />
+    <KeyboardBackspaceIcon color="primary" />
     <Typography
       style={{
         fontWeight: 'bold',
         paddingLeft: 10,
       }}
-      color='primary'
+      color="primary"
     >
       Back to the results
     </Typography>
@@ -30,7 +30,7 @@ const BackButton = ({ hideSelectedLocation }) => (
 )
 
 const mapDispatchToProps = (dispatch) => ({
-  hideSelectedLocation: () => dispatch(hideSelectedLocation())
+  hideSelectedLocation: () => dispatch(hideSelectedLocation()),
 })
 
 export default connect(null, mapDispatchToProps)(BackButton)

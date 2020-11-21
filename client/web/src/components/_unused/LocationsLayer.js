@@ -24,22 +24,25 @@ const LocationsLayer = ({ map, locations, selectLocation }) => {
       data: null,
     })
 
-    map.addLayer({
-      id: 'location-circles',
-      type: 'circle',
-      source: 'locations',
-      paint: {
-        'circle-radius': {
-          base: 0.5,
-          stops: [
-            [10, 2],
-            [15, 4],
-          ],
+    map.addLayer(
+      {
+        id: 'location-circles',
+        type: 'circle',
+        source: 'locations',
+        paint: {
+          'circle-radius': {
+            base: 0.5,
+            stops: [
+              [10, 2],
+              [15, 4],
+            ],
+          },
+          'circle-color': '#FF0029',
+          'circle-opacity': 1,
         },
-        'circle-color': '#FF0029',
-        'circle-opacity': 1,
       },
-    }, 'poi-label')
+      'poi-label'
+    )
 
     map.on('click', 'location-circles', (e) => {
       selectLocation(e.features[0].properties.id)

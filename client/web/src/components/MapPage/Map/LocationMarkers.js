@@ -33,13 +33,13 @@ const LocationMarkers = ({
   useEffect(() => {
     if (!locations) return
 
-    locations.forEach(location => {
+    locations.forEach((location) => {
       const el = document.createElement('div')
       el.className = 'location-marker'
       el.innerHTML = renderToString(
         <LocationIcon facilityTypeId={location.facilityTypeId} />
       )
-      el.addEventListener('click', () => selectLocation(location.id))
+      el.addEventListener('click', selectLocation.bind(null, location.id))
 
       // NOTE: comment the options in Marker to use the default markers.
       // this lets you check that the offset is correct for the custom markers
@@ -56,7 +56,7 @@ const LocationMarkers = ({
     })
 
     return () => {
-      Object.values(markers.current).forEach(marker => marker.remove())
+      Object.values(markers.current).forEach((marker) => marker.remove())
       markers.current = {}
     }
   }, [map, selectLocation, locations])
