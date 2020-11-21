@@ -12,13 +12,17 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: 'transparent',
       boxShadow: 'none',
       '&--input': {
-        border: '1px solid #B3B3B3',
+        border: `1px ${theme.palette.primary.main} solid`,
         borderRadius: 40,
         backgroundColor: '#FFF',
+        color: theme.palette.primary.main,
+        fontSize: 16,
         '&:focus': {
           outline: 'none',
-          border: `1px ${theme.palette.primary.main} solid`,
         }
+      },
+      '&--icon': {
+        fill: theme.palette.primary.main,
       }
     }
   }
