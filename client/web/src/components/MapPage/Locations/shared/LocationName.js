@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import LocationIcon from 'components/shared/LocationIcon'
 import { ReactComponent as WheelchairIcon } from 'assets/icons/wheelchair.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',

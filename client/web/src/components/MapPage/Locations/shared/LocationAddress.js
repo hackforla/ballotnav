@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
 import { ReactComponent as ShareIcon } from 'assets/icons/share.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -88,9 +88,7 @@ const LocationAddress = ({ location, onShare, showDistanceDetails }) => {
           </div>
         )}
       </div>
-      {showDistanceDetails && (
-        <div>distance details (to be implemented)</div>
-      )}
+      {showDistanceDetails && <div>distance details (to be implemented)</div>}
     </>
   )
 }
