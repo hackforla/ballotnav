@@ -2,17 +2,42 @@ import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import mapboxgl from 'services/mapbox'
+import { makeStyles } from '@material-ui/core/styles'
 
-function Geocoder({ center, onResult }) {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .mapboxgl-ctrl-geocoder': {
+      width: '100% !important',
+      maxWidth: 'none',
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      '&--input': {
+        border: `1px ${theme.palette.primary.main} solid`,
+        borderRadius: 40,
+        backgroundColor: '#FFF',
+        color: theme.palette.primary.main,
+        fontSize: 16,
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+      '&--icon': {
+        fill: theme.palette.primary.main,
+      },
+    },
+  },
+}))
+
+function Geocoder({ center, address, onResult }) {
   const container = useRef(null)
   const geocoder = useRef(null)
+  const classes = useStyles()
 
   useEffect(() => {
     geocoder.current = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       countries: 'us',
       types: 'address, neighborhood, locality, place, district, postcode',
-      placeholder: 'Enter an address or ZIP',
     })
 
     geocoder.current.addTo(container.current)
@@ -20,8 +45,13 @@ function Geocoder({ center, onResult }) {
 
   useEffect(() => {
     const handleResult = ({ result }) => {
-      const [lng, lat] = result.center
-      onResult({ lng, lat })
+      const {
+        center: [lng, lat],
+        place_name: address,
+      } = result
+      geocoder.current.setPlaceholder(address)
+      geocoder.current.clear()
+      onResult({ lng, lat, address })
     }
 
     geocoder.current.on('result', handleResult)
@@ -37,7 +67,11 @@ function Geocoder({ center, onResult }) {
     else geocoder.current.setProximity(null)
   }, [center])
 
-  return <div ref={container} className="geocoder" />
+  useEffect(() => {
+    geocoder.current.setPlaceholder(address || 'Enter an address or ZIP')
+  }, [address])
+
+  return <div ref={container} className={classes.root} />
 }
 
 export default Geocoder
@@ -47,10 +81,12 @@ Geocoder.propTypes = {
     lng: PropTypes.number,
     lat: PropTypes.number,
   }),
+  address: PropTypes.string,
   onResult: PropTypes.func,
 }
 
 Geocoder.defaultProps = {
   center: null,
+  address: null,
   onResult: (lngLat) => {},
 }

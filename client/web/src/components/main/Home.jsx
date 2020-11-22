@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
-import SearchBar from 'components/SearchBar'
+import SearchBar from 'components/shared/SearchBar'
 
 const Home = () => {
   return (

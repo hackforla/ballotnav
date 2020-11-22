@@ -1,21 +1,22 @@
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import api from 'services/api'
 import Geocoder from './Geocoder'
 
-function SearchBar({ center }) {
+function SearchBar({ center, address }) {
   const history = useHistory()
 
   const handleLngLat = useCallback(
-    async ({ lng, lat }) => {
+    async ({ lng, lat, address }) => {
       const jurisdictions = await api.getJurisdictions(lng, lat)
 
       if (jurisdictions.length !== 1) return history.push('/error')
 
       const { id: jid } = jurisdictions[0]
-      const query = queryString.stringify({ jid, lng, lat })
+      const query = queryString.stringify({ jid, lng, lat, address })
       history.push(`/map?${query}`)
     },
     [history]
@@ -23,12 +24,17 @@ function SearchBar({ center }) {
 
   return (
     <div className="search-bar">
-      <Geocoder center={center} onResult={handleLngLat} />
+      <Geocoder center={center} address={address} onResult={handleLngLat} />
     </div>
   )
 }
 
-export default SearchBar
+const mapStateToProps = (state) => ({
+  center: state.query.lngLat,
+  address: state.query.address,
+})
+
+export default connect(mapStateToProps)(SearchBar)
 
 SearchBar.propTypes = {
   center: PropTypes.shape({

@@ -19,15 +19,20 @@ async function getState(stateId) {
 
 async function getJurisdiction(jurisdictionId) {
   const url = `${BASE_URL}/jurisdictions/${jurisdictionId}`
-  const { data: jurisdictionData } = await axios.get(url)
-  const stateData = await getState(jurisdictionData.stateId)
+  const {
+    data: { locations, ...jurisdiction },
+  } = await axios.get(url)
+  const state = await getState(jurisdiction.stateId)
   return {
-    jurisdictionData,
-    stateData,
+    state,
+    jurisdiction,
+    locations,
   }
 }
 
-export default {
+const service = {
   getJurisdictions,
   getJurisdiction,
 }
+
+export default service
