@@ -30,7 +30,9 @@ async function getJurisdiction(jurisdictionId) {
   }
 }
 
-export default {
+const service = {
   getJurisdictions,
   getJurisdiction,
 }
+
+export default service
