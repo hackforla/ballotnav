@@ -4,7 +4,7 @@ import Accordion from './Accordion'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '20px 0',
+    margin: '20px 0 30px',
   },
 }))
 

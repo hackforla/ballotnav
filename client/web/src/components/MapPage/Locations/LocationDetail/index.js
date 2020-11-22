@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import BackButton from './BackButton'
 import CheckSteps from './CheckSteps'
+import LocationName from '../shared/LocationName'
 
 const LocationDetail = ({ location }) => {
   if (!location) return null
@@ -11,7 +12,7 @@ const LocationDetail = ({ location }) => {
     <div>
       <BackButton />
       <CheckSteps />
-      <div>{location.name}</div>
+      <LocationName location={location} />
     </div>
   )
 }
