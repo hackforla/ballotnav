@@ -10,14 +10,6 @@ export const userLocation = (state) => state.query.lngLat
 export const selectedLocationId = (state) => state.ui.selectedLocationId
 export const showLocationDetail = (state) => state.ui.showLocationDetail
 
-export const selectedLocation = createSelector(
-  [locations, selectedLocationId],
-  (locations, selectedLocationId) =>
-    selectedLocationId
-      ? locations.find((loc) => loc.id === selectedLocationId)
-      : null
-)
-
 /*
   Adds a 'distanceFromUser' property to each location and sorts
   the locations by distance. If the location is not geocoded
@@ -44,4 +36,12 @@ export const sortedLocations = createSelector(
       }))
       .sort((a, b) => a.distanceFromUser - b.distanceFromUser)
   }
+)
+
+export const selectedLocation = createSelector(
+  [sortedLocations, selectedLocationId],
+  (locations, selectedLocationId) =>
+    selectedLocationId
+      ? locations.find((loc) => loc.id === selectedLocationId)
+      : null
 )

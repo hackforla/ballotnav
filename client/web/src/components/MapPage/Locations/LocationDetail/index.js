@@ -5,6 +5,7 @@ import * as select from 'store/selectors'
 import BackButton from './BackButton'
 import CheckSteps from './CheckSteps'
 import LocationName from '../shared/LocationName'
+import LocationAddress from '../shared/LocationAddress'
 
 const LocationDetail = ({ location }) => {
   if (!location) return null
@@ -13,6 +14,10 @@ const LocationDetail = ({ location }) => {
       <BackButton />
       <CheckSteps />
       <LocationName location={location} />
+      <LocationAddress
+        location={location}
+        onShare={() => console.log('sharing:', location)}
+      />
     </div>
   )
 }

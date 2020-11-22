@@ -39,7 +39,6 @@ const useStyles = makeStyles(theme => ({
 
 const LocationName = ({ location }) => {
   const classes = useStyles()
-
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>
