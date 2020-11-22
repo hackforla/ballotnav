@@ -6,6 +6,7 @@ import BackButton from './BackButton'
 import CheckSteps from './CheckSteps'
 import LocationName from '../shared/LocationName'
 import LocationAddress from '../shared/LocationAddress'
+import LocationHours from '../shared/LocationHours'
 
 const LocationDetail = ({ location }) => {
   if (!location) return null
@@ -18,6 +19,7 @@ const LocationDetail = ({ location }) => {
         location={location}
         onShare={() => console.log('sharing:', location)}
       />
+      <LocationHours location={location} expandable />
     </div>
   )
 }
