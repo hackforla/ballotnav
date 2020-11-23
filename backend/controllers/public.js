@@ -65,7 +65,20 @@ exports.getState = async (req, res) => {
         { association: 'infoTabs' },
         { association: 'news' },
         { association: 'notices' },
-        { association: 'urls' },
+        {
+          association: 'phones',
+          include: {
+            association: 'phoneNumberType',
+            attributes: ['name', 'sortOrder'],
+          },
+        },
+        {
+          association: 'urls',
+          include: {
+            association: 'urlType',
+            attributes: ['name', 'isEmail'],
+          },
+        },
       ],
     })
     if (data === null) {
@@ -105,7 +118,13 @@ exports.getJurisdiction = async (req, res) => {
       { association: 'infoTabs' },
       { association: 'news' },
       { association: 'notices' },
-      { association: 'phones' },
+      {
+        association: 'phones',
+        include: {
+          association: 'phoneNumberType',
+          attributes: ['name', 'sortOrder'],
+        },
+      },
       {
         association: 'urls',
         include: {

@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'restrict',
         onUpdate: 'cascade',
       })
+      models.StatePhone.belongsTo(models.PhoneNumberType, {
+        foreignKey: 'phonenumbertype_id',
+        as: 'phoneNumberType',
+      })
     }
   }
   StatePhone.init(
