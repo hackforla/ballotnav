@@ -88,6 +88,10 @@ const initialState = {
     share: {
       isOpen: false,
       params: {},
+    },
+    voteDotOrg: {
+      isOpen: false,
+      params: {},
     }
   },
 }

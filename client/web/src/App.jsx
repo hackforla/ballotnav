@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/main/Header'
 import Routes from './Routes'
 import ShareModal from './components/modals/ShareModal'
+import VoteDotOrgModal from './components/modals/VoteDotOrgModal'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Header />
       <Routes />
       <ShareModal />
+      <VoteDotOrgModal />
     </Router>
   )
 }
