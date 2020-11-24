@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: '30px 0',
     padding: 25,
@@ -19,9 +19,7 @@ const LocationRules = ({ location }) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.title}>
-        Location Rules
-      </div>
+      <div className={classes.title}>Location Rules</div>
       To do
     </div>
   )

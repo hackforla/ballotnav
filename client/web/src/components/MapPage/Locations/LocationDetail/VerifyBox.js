@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as NewWindowIcon } from 'assets/icons/new-window.svg'
 import { ReactComponent as PhoneIcon } from 'assets/icons/phone.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     border: `1px solid ${theme.palette.secondary.main}`,
     padding: 14,

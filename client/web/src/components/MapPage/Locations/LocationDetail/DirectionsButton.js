@@ -36,8 +36,7 @@ const DirectionsButton = ({ origin, location }) => {
     window.open(`https://www.google.com/maps/dir/?${query}`)
   }, [location, origin])
 
-  if (!origin || !location.geomLatitude || !location.geomLongitude)
-    return null
+  if (!origin || !location.geomLatitude || !location.geomLongitude) return null
 
   return (
     <div className={classes.root} onClick={showDirections}>

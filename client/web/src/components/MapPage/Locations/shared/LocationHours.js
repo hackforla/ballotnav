@@ -77,7 +77,7 @@ const LocationHours = ({ location, expandable }) => {
           <span className={classes.timezone}>(PDT)</span>
           {expandable && (
             <span className={classes.toggle} onClick={toggleDetails}>
-              { expanded ? 'Hide' : 'More hours' }
+              {expanded ? 'Hide' : 'More hours'}
             </span>
           )}
         </div>

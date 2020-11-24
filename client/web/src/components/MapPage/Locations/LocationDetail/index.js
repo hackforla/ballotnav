@@ -29,7 +29,7 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginTop: 30
+          marginTop: 30,
         }}
       >
         <VerifyBox />
