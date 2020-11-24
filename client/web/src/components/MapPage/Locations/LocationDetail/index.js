@@ -10,6 +10,7 @@ import LocationAddress from '../shared/LocationAddress'
 import LocationHours from '../shared/LocationHours'
 import VerifyBox from './VerifyBox'
 import DirectionsButton from './DirectionsButton'
+import LocationRules from './LocationRules'
 
 const LocationDetail = ({ location, origin, openShareModal }) => {
   if (!location) return null
@@ -34,6 +35,7 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
         <VerifyBox />
         <DirectionsButton origin={origin} location={location} />
       </div>
+      <LocationRules location={location} />
     </>
   )
 }

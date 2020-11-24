@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     left: ({ visible }) => (visible ? 0 : '-100%'),
     transition: 'all 0.25s ease-in-out',
     overflow: 'auto',
-    padding: '10px 15px 30px',
+    padding: '10px 20px 10px 15px',
     backgroundColor: '#FFF',
   },
 })
