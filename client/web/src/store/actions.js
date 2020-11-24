@@ -8,6 +8,8 @@ export const types = {
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
   SELECT_LOCATION: 'SELECT_LOCATION',
   HIDE_SELECTED_LOCATION: 'HIDE_SELECTED_LOCATION',
+  OPEN_MODAL: 'OPEN_MODAL',
+  CLOSE_MODAL: 'CLOSE_MODAL',
 }
 
 export const saveQuery = (urlQueryString) => {
@@ -55,6 +57,16 @@ export const hideSelectedLocation = () => ({
   type: types.HIDE_SELECTED_LOCATION,
 })
 
+export const openModal = (modalId, params) => ({
+  type: types.OPEN_MODAL,
+  data: { modalId, params },
+})
+
+export const closeModal = (modalId) => ({
+  type: types.CLOSE_MODAL,
+  data: { modalId },
+})
+
 const initialState = {
   query: {
     jurisdictionId: null,
@@ -71,6 +83,12 @@ const initialState = {
   ui: {
     selectedLocationId: null,
     showLocationDetail: false,
+  },
+  modals: {
+    share: {
+      isOpen: false,
+      params: {},
+    }
   },
 }
 
@@ -139,6 +157,28 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           showLocationDetail: false,
+        },
+      }
+    case types.OPEN_MODAL:
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          [action.data.modalId]: {
+            isOpen: true,
+            params: action.data.params,
+          },
+        },
+      }
+    case types.CLOSE_MODAL:
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          [action.data.modalId]: {
+            isOpen: false,
+            params: {},
+          },
         },
       }
     default:

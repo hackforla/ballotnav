@@ -9,6 +9,7 @@ export const locations = (state) => state.data.locations
 export const userLocation = (state) => state.query.lngLat
 export const selectedLocationId = (state) => state.ui.selectedLocationId
 export const showLocationDetail = (state) => state.ui.showLocationDetail
+export const modals = (state) => state.modals
 
 /*
   Adds a 'distanceFromUser' property to each location and sorts
