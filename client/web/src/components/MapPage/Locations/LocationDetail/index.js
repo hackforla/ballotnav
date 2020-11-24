@@ -8,6 +8,7 @@ import CheckSteps from './CheckSteps'
 import LocationName from '../shared/LocationName'
 import LocationAddress from '../shared/LocationAddress'
 import LocationHours from '../shared/LocationHours'
+import VerifyBox from './VerifyBox'
 import DirectionsButton from './DirectionsButton'
 
 const LocationDetail = ({ location, origin, openShareModal }) => {
@@ -22,7 +23,17 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
         onShare={() => openShareModal({ location })}
       />
       <LocationHours location={location} expandable />
-      <DirectionsButton origin={origin} location={location} />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginTop: 30
+        }}
+      >
+        <VerifyBox />
+        <DirectionsButton origin={origin} location={location} />
+      </div>
     </div>
   )
 }
