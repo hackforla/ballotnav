@@ -14,7 +14,7 @@ import DirectionsButton from './DirectionsButton'
 const LocationDetail = ({ location, origin, openShareModal }) => {
   if (!location) return null
   return (
-    <div>
+    <>
       <BackButton />
       <CheckSteps />
       <LocationName location={location} />
@@ -34,7 +34,7 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
         <VerifyBox />
         <DirectionsButton origin={origin} location={location} />
       </div>
-    </div>
+    </>
   )
 }
 
