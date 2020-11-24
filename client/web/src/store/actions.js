@@ -7,7 +7,6 @@ export const types = {
   GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
   SELECT_LOCATION: 'SELECT_LOCATION',
-  HIDE_SELECTED_LOCATION: 'HIDE_SELECTED_LOCATION',
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL',
 }
@@ -53,10 +52,6 @@ export const selectLocation = (locationId) => ({
   data: { locationId },
 })
 
-export const hideSelectedLocation = () => ({
-  type: types.HIDE_SELECTED_LOCATION,
-})
-
 export const openModal = (modalId, params) => ({
   type: types.OPEN_MODAL,
   data: { modalId, params },
@@ -82,7 +77,6 @@ const initialState = {
   },
   ui: {
     selectedLocationId: null,
-    showLocationDetail: false,
   },
   modals: {
     share: {
@@ -108,7 +102,7 @@ const reducer = (state = initialState, action) => {
         },
         ui: {
           ...state.ui,
-          showLocationDetail: false,
+          selectedLocationId: null,
         },
       }
     case types.GET_JURISDICTION_PENDING:
@@ -129,10 +123,6 @@ const reducer = (state = initialState, action) => {
           jurisdiction: action.data.jurisdiction,
           locations: action.data.locations,
         },
-        ui: {
-          ...state.ui,
-          selectedLocationId: null,
-        },
       }
     case types.GET_JURISDICTION_ERROR:
       return {
@@ -152,15 +142,6 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           selectedLocationId: action.data.locationId,
-          showLocationDetail: true,
-        },
-      }
-    case types.HIDE_SELECTED_LOCATION:
-      return {
-        ...state,
-        ui: {
-          ...state.ui,
-          showLocationDetail: false,
         },
       }
     case types.OPEN_MODAL:

@@ -25,15 +25,11 @@ const LocationDetail = ({ location, openShareModal }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  location: select.selectedLocation(state),
-})
-
 const mapDispatchToProps = (dispatch) => ({
   openShareModal: (params) => dispatch(openModal('share', params)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LocationDetail)
+export default connect(null, mapDispatchToProps)(LocationDetail)
 
 LocationDetail.propTypes = {
   location: PropTypes.shape({}),

@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'right',
     textDecoration: 'underline',
     cursor: 'pointer',
+    userSelect: 'none',
   },
 }))
 

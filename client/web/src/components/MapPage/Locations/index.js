@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
@@ -34,8 +34,16 @@ const useStyles = makeStyles({
   },
 })
 
-const Locations = ({ showLocationDetail }) => {
-  const classes = useStyles({ visible: showLocationDetail })
+// NOTE: we hold the location in state so that it doesn't disappear
+// immediately when selectedLocation is set to null
+const Locations = ({ selectedLocation }) => {
+  const classes = useStyles({ visible: !!selectedLocation })
+  const [location, setLocation] = useState(null)
+
+  useEffect(() => {
+    if (selectedLocation) setLocation(selectedLocation)
+  }, [selectedLocation])
+
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -44,7 +52,7 @@ const Locations = ({ showLocationDetail }) => {
       <div className={classes.main}>
         <LocationsList />
         <div className={classes.slider}>
-          <LocationDetail />
+          <LocationDetail location={location} />
         </div>
       </div>
     </div>
@@ -52,7 +60,7 @@ const Locations = ({ showLocationDetail }) => {
 }
 
 const mapStateToProps = (state) => ({
-  showLocationDetail: select.showLocationDetail(state),
+  selectedLocation: select.selectedLocation(state),
 })
 
 export default connect(mapStateToProps)(Locations)

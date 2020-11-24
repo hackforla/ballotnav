@@ -71,9 +71,7 @@ const Map = ({
 const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
-  selectedLocationId: select.showLocationDetail(state)
-    ? select.selectedLocationId(state)
-    : null,
+  selectedLocationId: select.selectedLocationId(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
