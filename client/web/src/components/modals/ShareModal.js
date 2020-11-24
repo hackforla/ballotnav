@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     padding: 30,
   },
@@ -18,22 +18,20 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ShareModal = ({ isOpen, params, close }) => {
+const ShareModal = ({ isOpen, params: { location }, close }) => {
   const classes = useStyles()
   if (!isOpen) return null
-
-  const { location } = params
   return (
     <Dialog classes={{ paper: classes.paper }} open={isOpen} onClose={close}>
       <IconButton
-        size='small'
+        size="small"
         className={classes.closeButton}
-        aria-label='close'
+        aria-label="close"
         onClick={close}
       >
-        <CloseIcon color='primary' fontSize="small" />
+        <CloseIcon color="primary" fontSize="small" />
       </IconButton>
-      Sharing { location.name }
+      Sharing {location.name}
     </Dialog>
   )
 }

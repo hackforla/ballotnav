@@ -30,7 +30,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  openShareModal: (params) => dispatch(openModal('share', params))
+  openShareModal: (params) => dispatch(openModal('share', params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationDetail)

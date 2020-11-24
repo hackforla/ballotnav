@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '40px 30px',
     width: 700,
@@ -31,12 +31,12 @@ const VoteDotOrg = ({ isOpen, params, close }) => {
       onClose={close}
     >
       <IconButton
-        size='small'
+        size="small"
         className={classes.closeButton}
-        aria-label='close'
+        aria-label="close"
         onClick={close}
       >
-        <CloseIcon color='primary' />
+        <CloseIcon color="primary" />
       </IconButton>
       {['verify', 'register', 'absentee'].map((domain, index) => (
         <iframe
@@ -45,10 +45,10 @@ const VoteDotOrg = ({ isOpen, params, close }) => {
           src={`https://${domain}.vote.org/?partner=111111&campaign=free-tools`}
           width={type === domain ? '100%' : 0}
           height={type === domain ? '100%' : 0}
-          marginHeight='0'
-          frameBorder='0'
+          marginHeight="0"
+          frameBorder="0"
           id={`frame${index}`}
-          scrollable='no'
+          scrollable="no"
         />
       ))}
     </Dialog>

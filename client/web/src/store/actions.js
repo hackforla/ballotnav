@@ -92,7 +92,7 @@ const initialState = {
     voteDotOrg: {
       isOpen: false,
       params: {},
-    }
+    },
   },
 }
 
