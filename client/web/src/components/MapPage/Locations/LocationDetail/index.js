@@ -8,8 +8,9 @@ import CheckSteps from './CheckSteps'
 import LocationName from '../shared/LocationName'
 import LocationAddress from '../shared/LocationAddress'
 import LocationHours from '../shared/LocationHours'
+import DirectionsButton from './DirectionsButton'
 
-const LocationDetail = ({ location, openShareModal }) => {
+const LocationDetail = ({ location, origin, openShareModal }) => {
   if (!location) return null
   return (
     <div>
@@ -21,20 +22,27 @@ const LocationDetail = ({ location, openShareModal }) => {
         onShare={() => openShareModal({ location })}
       />
       <LocationHours location={location} expandable />
+      <DirectionsButton origin={origin} location={location} />
     </div>
   )
 }
+
+const mapStateToProps = (state) => ({
+  origin: select.query(state).lngLat,
+})
 
 const mapDispatchToProps = (dispatch) => ({
   openShareModal: (params) => dispatch(openModal('share', params)),
 })
 
-export default connect(null, mapDispatchToProps)(LocationDetail)
+export default connect(mapStateToProps, mapDispatchToProps)(LocationDetail)
 
 LocationDetail.propTypes = {
   location: PropTypes.shape({}),
+  origin: PropTypes.shape({}),
 }
 
 LocationDetail.defaultProps = {
   location: null,
+  origin: null,
 }
