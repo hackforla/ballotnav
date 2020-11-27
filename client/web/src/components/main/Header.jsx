@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import clx from 'classnames'
 import { Link } from 'react-router-dom'
+import useBreakpoints from 'hooks/useBreakpoints'
 
 import logo from '../../assets/ballotnav-logo.png'
 
@@ -11,6 +12,7 @@ import Footer from 'components/main/Footer'
 
 const Header = ({ location: { pathname } }) => {
   const [activeBurger, setActiveBurger] = useState(false)
+  const { isMobile } = useBreakpoints()
 
   const handleClick = () => {
     setActiveBurger(!activeBurger)
@@ -21,6 +23,8 @@ const Header = ({ location: { pathname } }) => {
       handleClick(e)
     }
   }
+
+  if (isMobile && ['/map'].includes(pathname)) return null
 
   return (
     <nav

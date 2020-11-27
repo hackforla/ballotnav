@@ -6,7 +6,7 @@ import queryString from 'query-string'
 import api from 'services/api'
 import Geocoder from './Geocoder'
 
-function SearchBar({ center, address }) {
+function SearchBar({ center, address, onComplete }) {
   const history = useHistory()
 
   const handleLngLat = useCallback(
@@ -18,8 +18,10 @@ function SearchBar({ center, address }) {
       const { id: jid } = jurisdictions[0]
       const query = queryString.stringify({ jid, lng, lat, address })
       history.push(`/map?${query}`)
+
+      if (onComplete) onComplete()
     },
-    [history]
+    [history, onComplete]
   )
 
   return (
