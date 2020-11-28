@@ -21,11 +21,11 @@
     "healthCheck": {
       "command": [
         "CMD-SHELL",
-        "node -e 'console.log(200);' || exit 1"
+        "curl --fail http://localhost:${container_port}/status || exit 1"
       ],
       "interval": 20,
       "timeout": 30,
-      "retries": 2
+      "retries": 3
     },
     "environment": [
       { "name": "NODE_ENV", "value": "production" },
