@@ -21,12 +21,11 @@ const useStyles = makeStyles(theme => ({
   },
   buttons: {
     padding: 12,
-    //textAlign: 'center',
     backgroundColor: theme.palette.primary.main,
     zIndex: 105,
     color: '#FFF',
     fontWeight: 700,
-    //fontSize: 18,
+    cursor: 'pointer',
   },
   map: {
     position: 'absolute',
