@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 'none',
       backgroundColor: 'transparent',
       boxShadow: 'none',
+      '&--button': {
+        backgroundColor: 'transparent !important',
+      },
       '&--input': {
         border: `1px ${theme.palette.primary.main} solid`,
         borderRadius: 40,

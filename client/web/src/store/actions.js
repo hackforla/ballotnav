@@ -79,6 +79,10 @@ const initialState = {
     selectedLocationId: null,
   },
   modals: {
+    search: {
+      isOpen: false,
+      params: {},
+    },
     share: {
       isOpen: false,
       params: {},

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { openModal } from 'store/actions'
 import * as select from 'store/selectors'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
@@ -11,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottom: '1px grey solid',
+    borderBottom: `1px ${theme.palette.primary.main} solid`,
     paddingLeft: 5,
     paddingRight: 5,
   },
@@ -30,14 +31,14 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Header = ({ onClickSearch, jurisdictionName, stateName }) => {
+const Header = ({ openSearchModal, jurisdictionName, stateName }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <IconButton
         size="small"
         aria-label="search"
-        onClick={onClickSearch}
+        onClick={openSearchModal}
       >
         <SearchIcon color="primary" fontSize="large" />
       </IconButton>
@@ -68,4 +69,8 @@ const mapStateToProps = (state) => ({
   stateName: select.state(state)?.name,
 })
 
-export default connect(mapStateToProps)(Header)
+const mapDispatchToProps = (dispatch) => ({
+  openSearchModal: () => dispatch(openModal('search')),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

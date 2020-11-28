@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import Header from './Header'
 import Map from '../Map'
-import Search from './Search'
 import Card from '../Locations/LocationsList/Card'
 import Cards from '../Locations/LocationsList/Cards'
 import LocationDetail from '../Locations/LocationDetail'
@@ -24,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     padding: 12,
     //textAlign: 'center',
     backgroundColor: theme.palette.primary.main,
-    zIndex: 2000,
+    zIndex: 105,
     color: '#FFF',
     fontWeight: 700,
     //fontSize: 18,
@@ -72,26 +71,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.default,
     overflow: 'auto',
   },
-  search: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 105,
-    transform: ({ searchOpen }) => searchOpen ? 'none' : 'translateY(100%)',
-    transition: 'all 0.25s ease-in-out',
-    backgroundColor: theme.palette.background.default,
-  },
 }))
 
 const Mobile = ({ selectedLocation }) => {
-  const [searchOpen, setSearchOpen] = useState(false)
   const [listOpen, setListOpen] = useState(false)
   const [cardOpen, setCardOpen] = useState(false)
   const [detailOpen, setDetailOpen] = useState(false)
   const [location, setLocation] = useState(null)
-  const classes = useStyles({ searchOpen, listOpen, cardOpen, detailOpen })
+  const classes = useStyles({ listOpen, cardOpen, detailOpen })
 
   useEffect(() => {
     if (selectedLocation) {
@@ -105,7 +92,7 @@ const Mobile = ({ selectedLocation }) => {
 
   return (
     <div className={classes.root}>
-      <Header onClickSearch={() => setSearchOpen(!searchOpen)} />
+      <Header />
       <div className={classes.main}>
         <div className={classes.map}>
           <Map />
@@ -126,23 +113,17 @@ const Mobile = ({ selectedLocation }) => {
             <LocationDetail location={location} />
           )}
         </div>
-        <div className={classes.search}>
-          <Search close={() => setSearchOpen(false)} />
-        </div>
       </div>
       <div
         className={classes.buttons}
         onClick={() => {
-          if (searchOpen)
-            setSearchOpen(false)
-          else if (detailOpen)
+          if (detailOpen)
             setDetailOpen(false)
           else
             setListOpen(!listOpen)
         }}
       >
         {(() => {
-          if (searchOpen) return 'Cancel search'
           if (detailOpen) return 'Back to map'
           return `Show ${listOpen ? 'map' : 'list'}`
         })()}
