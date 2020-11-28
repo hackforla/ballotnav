@@ -31,17 +31,17 @@ variable account_id {}
 
 variable public_subnet_ids {
   default = []
-  type = list(string)
+  type    = list(string)
 }
 variable private_subnet_ids {
   default = []
-  type = list(string)
+  type    = list(string)
 }
 variable db_security_group_id {}
 
 variable desired_count {}
 
-variable acm_certificate_arn  {}
+variable acm_certificate_arn {}
 #
 variable bastion_security_group_id {}
 variable task_memory {}

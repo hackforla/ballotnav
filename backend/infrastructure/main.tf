@@ -21,10 +21,11 @@ data "template_file" "task_definition" {
     cluster_name     = var.cluster_name
     task_name        = var.task_name
     region           = var.region
+    stage            = var.stage
     # secrets injected securely from AWS SSM systems manager param store
     # https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
-    db_hostname = data.aws_ssm_parameter.db_hostname.arn
-    token_secret = data.aws_ssm_parameter.token_secret.arn
+    db_hostname       = data.aws_ssm_parameter.db_hostname.arn
+    token_secret      = data.aws_ssm_parameter.token_secret.arn
     postgres_password = data.aws_ssm_parameter.postgres_password.arn
   }
 }
