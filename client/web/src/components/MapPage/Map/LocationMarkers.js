@@ -72,10 +72,16 @@ const LocationMarkers = ({
 
       if (locationId === selectedLocationId) {
         el.classList.add('selected')
-        el.onclick = selectLocation.bind(null, null)
+        el.onclick = (e) => {
+          e.preventDefault()
+          selectLocation(null)
+        }
       } else {
         el.classList.remove('selected')
-        el.onclick = selectLocation.bind(null, locationId)
+        el.onclick = e => {
+          e.preventDefault()
+          selectLocation(locationId)
+        }
       }
     })
   }, [markers, selectedLocationId, selectLocation])

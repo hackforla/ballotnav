@@ -40,11 +40,17 @@ const Map = ({
 
     map.on('load', () => setMap(map))
 
+    // deselect location on off-marker click
+    map.on('click', (e) => {
+      if (!e.originalEvent.defaultPrevented)
+        selectLocation(null)
+    })
+
     // deal with resizing when alert is closed
     const handleResize = () => setTimeout(() => map.resize())
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [selectLocation])
 
   useEffect(() => {
     if (!map || !userLocation) return
