@@ -7,6 +7,7 @@ import LocationDetail from '../Locations/LocationDetail'
 import HeightMeasurer from './HeightMeasurer'
 import { makeStyles } from '@material-ui/core/styles'
 import MapAndList from './MapAndList'
+import Toggler from './Toggler'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,7 +61,32 @@ const Mobile = ({ selectedLocation }) => {
       <div style={{ flex: 1 }}>
         <MapAndList isLocationSelected={!!selectedLocation} />
       </div>
-      <div className={classes.card}>
+      <div
+        style={{
+          position: 'absolute',
+          top: 52,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 200,
+          pointerEvents: 'none',
+        }}
+      >
+        {location && (
+          <Toggler
+            shortContent={
+              <Card
+                location={location}
+                selectLocation={() => setDetailOpen(true)}
+              />
+            }
+            longContent={
+              <LocationDetail location={location} />
+            }
+          />
+        )}
+      </div>
+      {/*<div className={classes.card}>
         <div onClick={() => setFullCardOpen(!fullCardOpen)}>toggle</div>
         {location && (
           fullCardOpen
@@ -74,7 +100,7 @@ const Mobile = ({ selectedLocation }) => {
               </HeightMeasurer>
             )
         )}
-      </div>
+      </div>*/}
     </div>
   )
 }
