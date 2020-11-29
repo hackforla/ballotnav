@@ -30,10 +30,7 @@ const useStyles = makeStyles(theme => ({
   map: {
     position: 'absolute',
     top: 0,
-    bottom: ({ cardHeight, cardOpen }) => {
-      if (cardOpen) return cardHeight
-      else return 0
-    },
+    bottom: 0,
     left: 0,
     right: 0,
   },
@@ -52,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     position: 'absolute',
     top: ({ fullCardOpen, cardOpen, cardHeight }) => {
-      if (fullCardOpen) return 0
+      if (fullCardOpen) return 52
       if (cardOpen) return `calc(100% - ${cardHeight}px)`
       return '100%'
     },
@@ -60,9 +57,10 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     padding: '0 8px',
-    zIndex: 102,
+    zIndex: 106,
     transition: 'all 0.25s ease-in-out',
     backgroundColor: theme.palette.background.default,
+    overflow: 'auto',
   },
   detail: {
     position: 'absolute',
@@ -129,22 +127,11 @@ const Mobile = ({ selectedLocation }) => {
         <div className={classes.list}>
           <Cards />
         </div>
-        <div className={classes.card}>
-          <div onClick={() => setFullCardOpen(!fullCardOpen)}>toggle</div>
-          {location && (
-            <HeightMeasurer onMeasure={setCardHeight}>
-              <Card
-                location={location}
-                selectLocation={() => setDetailOpen(true)}
-              />
-            </HeightMeasurer>
-          )}
-        </div>
-        <div className={classes.detail}>
+        {/*<div className={classes.detail}>
           {location && (
             <LocationDetail location={location} />
           )}
-        </div>
+        </div>*/}
       </div>
       <div
         className={classes.buttons}
@@ -159,6 +146,21 @@ const Mobile = ({ selectedLocation }) => {
           if (detailOpen) return 'Back to map'
           return `Show ${listOpen ? 'map' : 'list'}`
         })()}
+      </div>
+      <div className={classes.card}>
+        <div onClick={() => setFullCardOpen(!fullCardOpen)}>toggle</div>
+        {location && (
+          fullCardOpen
+            ? <LocationDetail location={location} />
+            : (
+              <HeightMeasurer onMeasure={height => setCardHeight(height + 15)}>  {/* add height for toggle */}
+                <Card
+                  location={location}
+                  selectLocation={() => setDetailOpen(true)}
+                />
+              </HeightMeasurer>
+            )
+        )}
       </div>
     </div>
   )
