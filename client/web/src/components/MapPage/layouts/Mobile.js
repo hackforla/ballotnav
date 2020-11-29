@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import Header from './Header'
@@ -30,7 +30,10 @@ const useStyles = makeStyles(theme => ({
   map: {
     position: 'absolute',
     top: 0,
-    bottom: 0,
+    bottom: ({ cardHeight, cardOpen }) => {
+      if (cardOpen) return cardHeight
+      else return 0
+    },
     left: 0,
     right: 0,
   },
@@ -48,12 +51,16 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     position: 'absolute',
+    top: ({ fullCardOpen, cardOpen, cardHeight }) => {
+      if (fullCardOpen) return 0
+      if (cardOpen) return `calc(100% - ${cardHeight}px)`
+      return '100%'
+    },
     bottom: 0,
     left: 0,
     right: 0,
-    padding: 8,
+    padding: '0 8px',
     zIndex: 102,
-    transform: ({ cardOpen }) => cardOpen ? 'none' : 'translateY(100%)',
     transition: 'all 0.25s ease-in-out',
     backgroundColor: theme.palette.background.default,
   },
@@ -72,12 +79,31 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const HeightMeasurer = ({ children, onMeasure }) => {
+  const container = useRef(null)
+  const oldHeight = useRef(null)
+
+  useEffect(() => {
+    const { offsetHeight: height } = container.current
+    if (oldHeight.current !== height) {
+      oldHeight.current = height
+      onMeasure(height)
+    }
+  }, [onMeasure, children])
+
+  return (
+    <div ref={container}>{children}</div>
+  )
+}
+
 const Mobile = ({ selectedLocation }) => {
   const [listOpen, setListOpen] = useState(false)
   const [cardOpen, setCardOpen] = useState(false)
+  const [fullCardOpen, setFullCardOpen] = useState(false)
   const [detailOpen, setDetailOpen] = useState(false)
   const [location, setLocation] = useState(null)
-  const classes = useStyles({ listOpen, cardOpen, detailOpen })
+  const [cardHeight, setCardHeight] = useState(0)
+  const classes = useStyles({ listOpen, cardOpen, cardHeight, fullCardOpen, detailOpen })
 
   useEffect(() => {
     if (selectedLocation) {
@@ -88,6 +114,10 @@ const Mobile = ({ selectedLocation }) => {
       setCardOpen(false)
     }
   }, [selectedLocation])
+
+  useEffect(() => {
+    window.dispatchEvent(new Event('resize'))
+  }, [cardHeight, cardOpen])
 
   return (
     <div className={classes.root}>
@@ -100,11 +130,14 @@ const Mobile = ({ selectedLocation }) => {
           <Cards />
         </div>
         <div className={classes.card}>
+          <div onClick={() => setFullCardOpen(!fullCardOpen)}>toggle</div>
           {location && (
-            <Card
-              location={location}
-              selectLocation={() => setDetailOpen(true)}
-            />
+            <HeightMeasurer onMeasure={setCardHeight}>
+              <Card
+                location={location}
+                selectLocation={() => setDetailOpen(true)}
+              />
+            </HeightMeasurer>
           )}
         </div>
         <div className={classes.detail}>
