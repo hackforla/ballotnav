@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import Header from './Header'
@@ -6,6 +6,7 @@ import Map from '../Map'
 import Card from '../Locations/LocationsList/Card'
 import Cards from '../Locations/LocationsList/Cards'
 import LocationDetail from '../Locations/LocationDetail'
+import HeightMeasurer from './HeightMeasurer'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -76,23 +77,6 @@ const useStyles = makeStyles(theme => ({
     overflow: 'auto',
   },
 }))
-
-const HeightMeasurer = ({ children, onMeasure }) => {
-  const container = useRef(null)
-  const oldHeight = useRef(null)
-
-  useEffect(() => {
-    const { offsetHeight: height } = container.current
-    if (oldHeight.current !== height) {
-      oldHeight.current = height
-      onMeasure(height)
-    }
-  }, [onMeasure, children])
-
-  return (
-    <div ref={container}>{children}</div>
-  )
-}
 
 const Mobile = ({ selectedLocation }) => {
   const [listOpen, setListOpen] = useState(false)
