@@ -35,45 +35,45 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
   return (
     <div className={classes.root}>
       <Header />
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, position: 'relative' }}>
         <MapAndList isLocationSelected={!!selectedLocation} />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          top: 52,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 200,
-          pointerEvents: 'none',
-        }}
-      >
-        <Toggler
-          position={position}
-          onChange={(position) => {
-            if (position === 'closed') deselectLocation()
-            setPosition(position)
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 200,
+            pointerEvents: 'none',
           }}
         >
-          {(() => {
-            if (position === 'tall')
-              return (
-                <div style={{ paddingTop: 10 }}>
-                  <LocationDetail location={location} />
-                </div>
-              )
-            else if (location)
-              return (
-                <Card
-                  location={location}
-                  selectLocation={() => setPosition('tall')}
-                />
-              )
-            else
-              return null
-          })()}
-        </Toggler>
+          <Toggler
+            position={position}
+            onChange={(position) => {
+              if (position === 'closed') deselectLocation()
+              setPosition(position)
+            }}
+          >
+            {(() => {
+              if (position === 'tall')
+                return (
+                  <div style={{ paddingTop: 10 }}>
+                    <LocationDetail location={location} />
+                  </div>
+                )
+              else if (location)
+                return (
+                  <Card
+                    location={location}
+                    selectLocation={() => setPosition('tall')}
+                  />
+                )
+              else
+                return null
+            })()}
+          </Toggler>
+        </div>
       </div>
     </div>
   )
