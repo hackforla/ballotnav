@@ -1,12 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useCallback, useMemo } from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import useSize from 'hooks/useSize'
 
 const TRANSITION = 'all 0.25s ease-in-out'
+const SLIDE_BUFFER = 20
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%',
+    position: 'relative',
   },
   slider: {
     position: 'absolute',
@@ -32,21 +35,19 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Toggler = ({ position, onChange, children, tallContent, shortContent }) => {
+const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
   const classes = useStyles()
   const container = useRef(null)
   const slider = useRef(null)
-  const content = useRef(null)
   const shortContentRef = useRef(null)
   const shortContentSize = useSize(shortContentRef)
   const [shortContentHeight, setShortContentHeight] = useState(0)
   const [top, setTop] = useState(undefined)
 
-  // adjust top when size of short content changes
+  // save height of short content when it changes
   useEffect(() => {
-    if (shortContentSize && shortContentSize.height > 0) {
+    if (shortContentSize && shortContentSize.height > 0)
       setShortContentHeight(shortContentSize.height)
-    }
   }, [shortContentSize])
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const Toggler = ({ position, onChange, children, tallContent, shortContent }) =>
     })())
   }, [position, shortContentHeight])
 
-  const onDragStart = (type, e) => {
+  const onDragStart = useCallback((type, e) => {
     const config = (() => {
       switch(type) {
         case 'touch':
@@ -95,8 +96,10 @@ const Toggler = ({ position, onChange, children, tallContent, shortContent }) =>
     }
 
     const onDragEnd = (e) => {
+      // restore pull-to-refresh and animated transition
       document.documentElement.style.overflow = ''
       slider.current.style.transition = TRANSITION
+
       slider.current.removeEventListener(config.dragEvent, onDrag)
 
       switch(direction) {
@@ -106,15 +109,19 @@ const Toggler = ({ position, onChange, children, tallContent, shortContent }) =>
       }
     }
 
+    // disable pull-to-refresh and transition while dragging
     document.documentElement.style.overflow = 'hidden'
     slider.current.style.transition = ''
+
     slider.current.addEventListener(config.dragEvent, onDrag)
     slider.current.addEventListener(config.dragEndEvent, onDragEnd, { once: true })
-  }
+  }, [onChange, position])
 
-  const cutoff = container.current
-    ? container.current.offsetHeight - shortContentHeight - 20
-    : 0
+  const cutoff = useMemo(() => {
+    return container.current
+      ? container.current.offsetHeight - shortContentHeight - SLIDE_BUFFER
+      : 0
+  }, [shortContentHeight])
 
   return (
     <div ref={container} className={classes.root}>
@@ -125,21 +132,33 @@ const Toggler = ({ position, onChange, children, tallContent, shortContent }) =>
         className={classes.slider}
         style={{ top, transition: TRANSITION }}
       >
-        <div ref={content}>
-          <div style={{ display: top < cutoff ? 'block' : 'none' }}>
-            <div className={classes.handle}><span /></div>
-            { tallContent }
-          </div>
-          <div
-            ref={shortContentRef}
-            style={{ display: top >= cutoff ? 'block' : 'none' }}>
-            <div className={classes.handle}><span /></div>
-            { shortContent }
-          </div>
+        <div style={{ display: top < cutoff ? 'block' : 'none' }}>
+          <div className={classes.handle}><span /></div>
+          { tallContent }
+        </div>
+        <div
+          ref={shortContentRef}
+          style={{ display: top >= cutoff ? 'block' : 'none' }}>
+          <div className={classes.handle}><span /></div>
+          { shortContent }
         </div>
       </div>
     </div>
   )
 }
 
-export default Toggler
+export default VerticalSlider
+
+VerticalSlider.propTypes = {
+  position: PropTypes.oneOf(['closed', 'short', 'tall']),
+  onChange: PropTypes.func,
+  shortContent: PropTypes.node,
+  tallContent: PropTypes.node,
+}
+
+VerticalSlider.defaultProps = {
+  position: 'closed',
+  onChange: (position) => {},
+  shortContent: null,
+  tallContent: null,
+}
