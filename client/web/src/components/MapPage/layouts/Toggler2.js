@@ -19,13 +19,32 @@ const Toggler = ({ position, onChange, children }) => {
     })())
   }, [position])
 
-  const onTouchStart = (e) => {
+  const onDragStart = (type, e) => {
+    const config = (() => {
+      switch(type) {
+        case 'touch':
+          return {
+            clientY: e => e.touches[0].clientY,
+            dragEvent: 'touchmove',
+            dragEndEvent: 'touchend'
+          }
+        case 'mouse':
+          return {
+            clientY: e => e.clientY,
+            dragEvent: 'mousemove',
+            dragEndEvent: 'mouseup',
+          }
+        default:
+          return null
+      }
+    })()
+
     const origTop = slider.current.offsetTop
-    const offset = e.touches[0].clientY - origTop
+    const offset = config.clientY(e) - origTop
     let direction = null
 
-    const onTouchMove = (e) => {
-      const top = Math.max(0, e.touches[0].clientY - offset)
+    const onDrag = (e) => {
+      const top = Math.max(0, config.clientY(e) - offset)
       if (direction === null) {
         if (top < origTop) direction = 'up'
         else if (top > origTop) direction = 'down'
@@ -33,10 +52,10 @@ const Toggler = ({ position, onChange, children }) => {
       setTop(top)
     }
 
-    const onTouchEnd = (e) => {
+    const onDragEnd = (e) => {
       document.documentElement.style.overflow = ''
       slider.current.style.transition = TRANSITION
-      slider.current.removeEventListener('touchmove', onTouchMove)
+      slider.current.removeEventListener(config.dragEvent, onDrag)
 
       switch(direction) {
         case 'up': return onChange('tall')
@@ -47,15 +66,16 @@ const Toggler = ({ position, onChange, children }) => {
 
     document.documentElement.style.overflow = 'hidden'
     slider.current.style.transition = ''
-    slider.current.addEventListener('touchmove', onTouchMove)
-    slider.current.addEventListener('touchend', onTouchEnd, { once: true })
+    slider.current.addEventListener(config.dragEvent, onDrag)
+    slider.current.addEventListener(config.dragEndEvent, onDragEnd, { once: true })
   }
 
   return (
     <div ref={container} style={{ height: '100%' }}>
       <div
         ref={slider}
-        onTouchStart={onTouchStart}
+        onTouchStart={onDragStart.bind(null, 'touch')}
+        onMouseDown={onDragStart.bind(null, 'mouse')}
         style={{
           position: 'absolute',
           top,
@@ -63,6 +83,7 @@ const Toggler = ({ position, onChange, children }) => {
           left: 0,
           right: 0,
           backgroundColor: '#FFF',
+          cursor: 'grab',
           pointerEvents: 'all',
           transition: TRANSITION,
         }}
