@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
-import { ReactComponent as ShareIcon } from 'assets/icons/share.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {

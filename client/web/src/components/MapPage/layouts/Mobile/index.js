@@ -61,8 +61,23 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
             if (position === 'closed') deselectLocation()
             setPosition(position)
           }}
+          tallContent={
+            <div className={classes.card}>
+              <LocationDetail location={location} />
+            </div>
+          }
+          shortContent={
+            location ? (
+              <div className={classes.card}>
+                <Card location={location} />
+                <div className={classes.instructions}>
+                  Swipe up for details
+                </div>
+              </div>
+            ) : null
+          }
         >
-          {(() => {
+          {/*{(() => {
             if (position === 'tall')
               return (
                 <div className={classes.card}>
@@ -80,7 +95,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
               )
             else
               return null
-          })()}
+          })()}*/}
         </Toggler>
       </div>
     </div>

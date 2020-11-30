@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useSize from 'hooks/useSize'
 
@@ -32,30 +32,34 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Toggler = ({ position, onChange, children }) => {
+const Toggler = ({ position, onChange, children, tallContent, shortContent }) => {
   const classes = useStyles()
   const container = useRef(null)
   const slider = useRef(null)
   const content = useRef(null)
-  const size = useSize(content)
-  const [top, setTop] = useState('100%')
+  const shortContentRef = useRef(null)
+  const shortContentSize = useSize(shortContentRef)
+  const [shortContentHeight, setShortContentHeight] = useState(0)
+  const [top, setTop] = useState(undefined)
+
+  // adjust top when size of short content changes
+  useEffect(() => {
+    if (shortContentSize && shortContentSize.height > 0) {
+      setShortContentHeight(shortContentSize.height)
+    }
+  }, [shortContentSize])
 
   useEffect(() => {
     setTop((() => {
+      const { offsetHeight } = container.current
       switch(position) {
-        case 'closed': return container.current.offsetHeight
-        case 'short': return container.current.offsetHeight - content.current.offsetHeight
+        case 'closed': return offsetHeight
+        case 'short': return offsetHeight - shortContentHeight
         case 'tall': return 0
         default: return 0
       }
     })())
-  }, [position])
-
-  // adjust top when size of short content changes
-  useLayoutEffect(() => {
-    if (size && position === 'short')
-      setTop(container.current.offsetHeight - content.current.offsetHeight)
-  }, [size])
+  }, [position, shortContentHeight])
 
   const onDragStart = (type, e) => {
     const config = (() => {
@@ -108,6 +112,10 @@ const Toggler = ({ position, onChange, children }) => {
     slider.current.addEventListener(config.dragEndEvent, onDragEnd, { once: true })
   }
 
+  const cutoff = container.current
+    ? container.current.offsetHeight - shortContentHeight - 20
+    : 0
+
   return (
     <div ref={container} className={classes.root}>
       <div
@@ -118,8 +126,16 @@ const Toggler = ({ position, onChange, children }) => {
         style={{ top, transition: TRANSITION }}
       >
         <div ref={content}>
-          <div className={classes.handle}><span /></div>
-          { children }
+          <div style={{ display: top < cutoff ? 'block' : 'none' }}>
+            <div className={classes.handle}><span /></div>
+            { tallContent }
+          </div>
+          <div
+            ref={shortContentRef}
+            style={{ display: top >= cutoff ? 'block' : 'none' }}>
+            <div className={classes.handle}><span /></div>
+            { shortContent }
+          </div>
         </div>
       </div>
     </div>
