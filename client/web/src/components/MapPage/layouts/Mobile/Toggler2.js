@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import useSize from 'hooks/useSize'
 
 const TRANSITION = 'all 0.25s ease-in-out'
 
@@ -36,6 +37,7 @@ const Toggler = ({ position, onChange, children }) => {
   const container = useRef(null)
   const slider = useRef(null)
   const content = useRef(null)
+  const size = useSize(content)
   const [top, setTop] = useState('100%')
 
   useEffect(() => {
@@ -48,6 +50,12 @@ const Toggler = ({ position, onChange, children }) => {
       }
     })())
   }, [position])
+
+  // adjust top when size of short content changes
+  useLayoutEffect(() => {
+    if (size && position === 'short')
+      setTop(container.current.offsetHeight - content.current.offsetHeight)
+  }, [size])
 
   const onDragStart = (type, e) => {
     const config = (() => {
