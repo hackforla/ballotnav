@@ -17,6 +17,16 @@
       display:none;
     }
   }
+
+  .navbar-brand {
+    align-items: center;
+    padding-left: 5px;
+    justify-content: space-between;
+    @media only screen and (max-width: 959px) {
+      border-bottom: 1px $dark-blue solid;
+    }
+  }
+
   .navbar-brand.is-active {
     .navbar-item {
       z-index: -1;
@@ -29,7 +39,6 @@
 
   .navbar-burger {
     color: $blue;
-    height: auto;
 
     span {
       width: 30px;
@@ -85,7 +94,7 @@
     -moz-transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
     -o-transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
     transition: all .4s cubic-bezier(0.82, 0.04, 0.19, 0.99);
-    
+
     @media only screen and (min-width: 1024px) {
       display:none;
     }

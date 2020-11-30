@@ -40,10 +40,12 @@ const useStyles = makeStyles(theme => ({
     padding: 5,
     fontWeight: 700,
     color: 'grey',
+    cursor: 'pointer',
   },
   active: {
     borderBottom: `2px ${theme.palette.primary.main} solid`,
     color: theme.palette.primary.main,
+    cursor: 'default',
   },
 }))
 
