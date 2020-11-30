@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     userSelect: 'none',
     cursor: 'pointer',
     display: 'inline-block',
-    marginLeft: 10,
+    marginLeft: 16,
   },
   details: {
     marginLeft: 50,
@@ -75,7 +75,7 @@ const LocationHours = ({ location, expandable }) => {
           <span className={classes.timezone}>(PDT)</span>
           {expandable && (
             <span className={classes.toggle} onClick={toggleDetails}>
-              {expanded ? 'Hide' : 'More hours'}
+              {expanded ? 'Less' : 'More'}
             </span>
           )}
         </div>

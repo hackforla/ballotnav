@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: 'none',
   },
   card: {
-    padding: '5px 5px 15px',
+    padding: '0 5px 15px',
   },
   instructions: {
     fontWeight: 400,
@@ -65,7 +65,9 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
           {(() => {
             if (position === 'tall')
               return (
-                <LocationDetail location={location} />
+                <div className={classes.card}>
+                  <LocationDetail location={location} />
+                </div>
               )
             else if (location)
               return (

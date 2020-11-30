@@ -2,37 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { openModal } from 'store/actions'
-import LocationName from '../shared/LocationName'
-import LocationAddress from '../shared/LocationAddress'
-import LocationHours from '../shared/LocationHours'
 import VerifyBox from './VerifyBox'
 import DirectionsButton from './DirectionsButton'
+import ShareButton from './ShareButton'
 import LocationRules from './LocationRules'
+import Card from '../LocationsList/Card'
 
-const LocationDetail = ({ location, origin, openShareModal }) => {
+const LocationDetail = ({ location, origin }) => {
   if (!location) return null
   return (
-    <div style={{ paddingTop: 10 }}>
-      <LocationName location={location} />
-      <LocationAddress
-        location={location}
-        onShare={() => openShareModal({ location })}
-      />
-      <LocationHours location={location} expandable />
+    <>
+      <Card location={location} hoursExpandable />
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
           alignItems: 'center',
-          marginTop: 30,
+          margin: '20px 0',
         }}
       >
-        <VerifyBox />
+        <ShareButton location={location} />
         <DirectionsButton origin={origin} location={location} />
       </div>
+      <VerifyBox />
       <LocationRules location={location} />
-    </div>
+    </>
   )
 }
 
@@ -40,11 +34,7 @@ const mapStateToProps = (state) => ({
   origin: select.query(state).lngLat,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  openShareModal: (params) => dispatch(openModal('share', params)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LocationDetail)
+export default connect(mapStateToProps)(LocationDetail)
 
 LocationDetail.propTypes = {
   location: PropTypes.shape({}),

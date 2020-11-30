@@ -4,12 +4,12 @@ import LocationName from '../shared/LocationName'
 import LocationAddress from '../shared/LocationAddress'
 import LocationHours from '../shared/LocationHours'
 
-const Card = ({ location }) => {
+const Card = ({ location, hoursExpandable }) => {
   return (
     <>
       <LocationName location={location} />
       <LocationAddress location={location} />
-      <LocationHours location={location} />
+      <LocationHours location={location} expandable={hoursExpandable} />
     </>
   )
 }

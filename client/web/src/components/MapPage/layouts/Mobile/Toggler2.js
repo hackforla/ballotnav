@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 5,
     '& > span': {
       borderRadius: 2,
       width: 30,
