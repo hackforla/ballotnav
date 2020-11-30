@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { openModal } from 'store/actions'
-import BackButton from './BackButton'
-import CheckSteps from './CheckSteps'
 import LocationName from '../shared/LocationName'
 import LocationAddress from '../shared/LocationAddress'
 import LocationHours from '../shared/LocationHours'
@@ -15,9 +13,7 @@ import LocationRules from './LocationRules'
 const LocationDetail = ({ location, origin, openShareModal }) => {
   if (!location) return null
   return (
-    <>
-      {/*<BackButton />
-      <CheckSteps />*/}
+    <div style={{ paddingTop: 10 }}>
       <LocationName location={location} />
       <LocationAddress
         location={location}
@@ -36,7 +32,7 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
         <DirectionsButton origin={origin} location={location} />
       </div>
       <LocationRules location={location} />
-    </>
+    </div>
   )
 }
 

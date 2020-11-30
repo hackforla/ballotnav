@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
-import Card from '../Locations/LocationsList/Card'
-import LocationDetail from '../Locations/LocationDetail'
+import Card from '../../Locations/LocationsList/Card'
+import LocationDetail from '../../Locations/LocationDetail'
 import { makeStyles } from '@material-ui/core/styles'
 import MapAndList from './MapAndList'
 import Toggler from './Toggler2'
@@ -56,9 +56,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
           {(() => {
             if (position === 'tall')
               return (
-                <div style={{ paddingTop: 10 }}>
-                  <LocationDetail location={location} />
-                </div>
+                <LocationDetail location={location} />
               )
             else if (location)
               return (

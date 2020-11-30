@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import JurisdictionSelect from 'components/shared/JurisdictionSelect'
-import VerifyAlert from '../VerifyAlert'
-import Map from '../Map'
-import Locations from '../Locations'
+import VerifyAlert from '../../VerifyAlert'
+import Map from '../../Map'
+import Sidebar from './Sidebar'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,7 +39,7 @@ const Desktop = () => {
       <VerifyAlert />
       <div className={classes.main}>
         <div className={classes.sidebar}>
-          <Locations />
+          <Sidebar />
         </div>
         <div className={classes.map}>
           <Map />

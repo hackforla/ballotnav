@@ -45,7 +45,7 @@ const Step = withStyles((theme) => ({
 
 const CheckSteps = ({ openModal }) => {
   return (
-    <div style={{ margin: '20px 0 30px' }}>
+    <div style={{ margin: '20px 0' }}>
       <Accordion title="Check your steps">
         <Step onClick={openModal.bind(null, 'verify')}>
           Have you checked your registration?
