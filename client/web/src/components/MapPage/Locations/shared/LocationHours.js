@@ -5,9 +5,7 @@ import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
 import Collapse from '@material-ui/core/Collapse'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: 12,
-  },
+  root: {},
   summary: {
     display: 'flex',
     alignItems: 'center',

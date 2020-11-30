@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     bottom: 0,
     left: 0,
     overflow: 'auto',
-    padding: '10px 15px',
+    padding: '5px 15px',
   },
   loader: {
     height: '100%',

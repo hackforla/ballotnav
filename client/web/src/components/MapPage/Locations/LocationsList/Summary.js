@@ -2,16 +2,38 @@ import React from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: 10,
+  },
+  count: {
+    fontWeight: 700,
+    fontSize: 16,
+  },
+  instructions: {
+    fontWeight: 400,
+    fontStyle: 'italic',
+    fontSize: 14,
+  },
+}))
 
 const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
+  const classes = useStyles()
   const word = numLocations === 1 ? 'location' : 'locations'
   return (
-    <div style={{ fontWeight: 700, fontSize: 16, margin: '8px 0' }}>
-      {numLocations} known drop off {word}
-      &nbsp;in{' '}
-      <b>
-        {jurisdictionName}, {stateAbbr}
-      </b>
+    <div className={classes.root}>
+      <div className={classes.count}>
+        {numLocations} known drop off {word}
+        &nbsp;in{' '}
+        <b>
+          {jurisdictionName}, {stateAbbr}
+        </b>
+      </div>
+      <div className={classes.instructions}>
+        Select a location to view rules, hours and directions
+      </div>
     </div>
   )
 }

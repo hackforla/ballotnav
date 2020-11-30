@@ -16,6 +16,25 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     position: 'relative',
   },
+  locationInfo: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 200,
+    pointerEvents: 'none',
+  },
+  card: {
+    padding: '5px 5px 15px',
+  },
+  instructions: {
+    fontWeight: 400,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginTop: 8,
+    color: theme.palette.grey[400],
+  },
 }))
 
 const Mobile = ({ selectedLocation, deselectLocation }) => {
@@ -35,17 +54,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
   return (
     <div className={classes.root}>
       <MapAndList isLocationSelected={!!selectedLocation} />
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 200,
-          pointerEvents: 'none',
-        }}
-      >
+      <div className={classes.locationInfo}>
         <Toggler
           position={position}
           onChange={(position) => {
@@ -60,10 +69,12 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
               )
             else if (location)
               return (
-                <Card
-                  location={location}
-                  selectLocation={() => setPosition('tall')}
-                />
+                <div className={classes.card}>
+                  <Card location={location} />
+                  <div className={classes.instructions}>
+                    Swipe up for details
+                  </div>
+                </div>
               )
             else
               return null

@@ -1,8 +1,37 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 const TRANSITION = 'all 0.25s ease-in-out'
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: '100%',
+  },
+  slider: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#FFF',
+    cursor: 'grab',
+    pointerEvents: 'all',
+  },
+  handle: {
+    height: 16,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '& > span': {
+      borderRadius: 2,
+      width: 30,
+      height: 4,
+      backgroundColor: theme.palette.grey[300],
+    },
+  },
+}))
+
 const Toggler = ({ position, onChange, children }) => {
+  const classes = useStyles()
   const container = useRef(null)
   const slider = useRef(null)
   const content = useRef(null)
@@ -71,24 +100,16 @@ const Toggler = ({ position, onChange, children }) => {
   }
 
   return (
-    <div ref={container} style={{ height: '100%' }}>
+    <div ref={container} className={classes.root}>
       <div
         ref={slider}
         onTouchStart={onDragStart.bind(null, 'touch')}
         onMouseDown={onDragStart.bind(null, 'mouse')}
-        style={{
-          position: 'absolute',
-          top,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: '#FFF',
-          cursor: 'grab',
-          pointerEvents: 'all',
-          transition: TRANSITION,
-        }}
+        className={classes.slider}
+        style={{ top, transition: TRANSITION }}
       >
         <div ref={content}>
+          <div className={classes.handle}><span /></div>
           { children }
         </div>
       </div>
