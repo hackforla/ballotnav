@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
+import { selectLocation } from 'store/actions'
 import Header from './Header'
 import Card from '../Locations/LocationsList/Card'
 import LocationDetail from '../Locations/LocationDetail'
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Mobile = ({ selectedLocation }) => {
+const Mobile = ({ selectedLocation, deselectLocation }) => {
   const [cardOpen, setCardOpen] = useState(false)
   const [fullCardOpen, setFullCardOpen] = useState(false)
   const [detailOpen, setDetailOpen] = useState(false)
@@ -74,6 +75,7 @@ const Mobile = ({ selectedLocation }) => {
       >
         {location && (
           <Toggler
+            onClose={deselectLocation}
             shortContent={
               <Card
                 location={location}
@@ -109,4 +111,8 @@ const mapStateToProps = (state) => ({
   selectedLocation: select.selectedLocation(state),
 })
 
-export default connect(mapStateToProps)(Mobile)
+const mapDispatchToProps = (dispatch) => ({
+  deselectLocation: () => dispatch(selectLocation(null))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Mobile)

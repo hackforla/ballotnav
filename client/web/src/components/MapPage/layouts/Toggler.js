@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react'
+import HeightMeasurer from './HeightMeasurer'
 
-const Toggle = ({ shortContent, longContent }) => {
+const Toggle = ({ shortContent, longContent, onClose }) => {
   const container = useRef(null)
   const content = useRef(null)
   const [contentType, setContentType] = useState('short')
+  const [top, setTop] = useState(Infinity)
+  const [shortContentHeight, setShortContentHeight] = useState(0)
 
   const onTouchStart = (e) => {
     const offset = e.touches[0].clientY - content.current.offsetTop
@@ -22,7 +25,7 @@ const Toggle = ({ shortContent, longContent }) => {
             setContentType('short')
         }
       }
-      content.current.style.top = `${top}px`
+      setTop(top)
     }
 
     const onTouchEnd = (e) => {
@@ -32,15 +35,16 @@ const Toggle = ({ shortContent, longContent }) => {
 
       switch(direction) {
         case 'up':
-          content.current.style.top = '0px'
+          setTop(0)
           content.current.style.transition = 'all 0.25s ease-in-out'
           break
         case 'down':
           content.current.style.transition = 'all 0.25s ease-in-out'
-          if (contentType === 'short')
-            content.current.style.top = '100%'
-          else
-            content.current.style.top = '400px'
+          if (contentType === 'short') {
+            setTop(Infinity)
+            onClose()
+          } else
+            setTop(container.current.offsetHeight - shortContentHeight)
           break
         default:
           break
@@ -53,6 +57,19 @@ const Toggle = ({ shortContent, longContent }) => {
     content.current.addEventListener('touchend', onTouchEnd, { once: true })
   }
 
+  const onMeasure = (height) => {
+    if (top === Infinity) {
+      content.current.style.transition = 'all 0.25s ease-in-out'
+      setTop(container.current.offsetHeight - height)
+    }
+    console.log('shortContentHeight:', height)
+    console.log('container.current.offsetHeight', container.current.offsetHeight)
+    if (height !== 0)
+      setShortContentHeight(height)
+  }
+
+  console.log('top:', top)
+
   return (
     <div ref={container} style={{ height: '100%' }}>
       <div
@@ -60,7 +77,7 @@ const Toggle = ({ shortContent, longContent }) => {
         ref={content}
         style={{
           position: 'absolute',
-          top: 400,
+          top: top === Infinity ? '100%' : top,
           bottom: 0,
           left: 0,
           right: 0,
@@ -68,12 +85,20 @@ const Toggle = ({ shortContent, longContent }) => {
           backgroundColor: '#FFF',
         }}
       >
-        <div style={{ display: contentType === 'short' ? 'block' : 'none' }}>
+        <div style={{ display: top > 375 ? 'block' : 'none' }}>
+          <HeightMeasurer onMeasure={onMeasure}>
+            { shortContent }
+          </HeightMeasurer>
+        </div>
+        <div style={{ display: top <= 375 ? 'block' : 'none', paddingTop: 10 }}>
+          { longContent }
+        </div>
+        {/*<div style={{ display: contentType === 'short' ? 'block' : 'none' }}>
           { shortContent }
         </div>
         <div style={{ display: contentType === 'long' ? 'block' : 'none' }}>
           { longContent }
-        </div>
+        </div>*/}
       </div>
     </div>
   )

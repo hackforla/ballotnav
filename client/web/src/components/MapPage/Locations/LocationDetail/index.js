@@ -16,8 +16,8 @@ const LocationDetail = ({ location, origin, openShareModal }) => {
   if (!location) return null
   return (
     <>
-      <BackButton />
-      <CheckSteps />
+      {/*<BackButton />
+      <CheckSteps />*/}
       <LocationName location={location} />
       <LocationAddress
         location={location}
