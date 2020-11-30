@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    height: 'calc(100vh - 52px)',
+    height: `calc(100vh - ${theme.layout.headerHeight}px)`,
     overflow: 'hidden',
     position: 'relative',
   },

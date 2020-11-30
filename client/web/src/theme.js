@@ -28,4 +28,8 @@ export default createMuiTheme({
       desktop: 960,
     },
   },
+  layout: {
+    headerHeight: 52,
+    sidebarWidth: 500,
+  },
 })
