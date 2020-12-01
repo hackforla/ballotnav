@@ -59,7 +59,10 @@ const Map = ({
     if (!map || !userLocation) return
     map.setCenter(userLocation)
     if (locations.length === 0) return
-    const initialZoom = [locations[0].geomPoint.coordinates, [userLocation.lng, userLocation.lat]]
+    const initialZoom = [
+      locations[0].geomPoint.coordinates,
+      [userLocation.lng, userLocation.lat],
+    ]
     const line = lineString(initialZoom)
     map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
   }, [map, userLocation, locations])
