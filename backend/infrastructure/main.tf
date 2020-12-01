@@ -21,10 +21,11 @@ data "template_file" "task_definition" {
     cluster_name     = var.cluster_name
     task_name        = var.task_name
     region           = var.region
+    stage            = var.stage
     # secrets injected securely from AWS SSM systems manager param store
     # https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
-    db_hostname = data.aws_ssm_parameter.db_hostname.arn
-    token_secret = data.aws_ssm_parameter.token_secret.arn
+    db_hostname       = data.aws_ssm_parameter.db_hostname.arn
+    token_secret      = data.aws_ssm_parameter.token_secret.arn
     postgres_password = data.aws_ssm_parameter.postgres_password.arn
   }
 }
@@ -130,7 +131,7 @@ resource "aws_security_group" "svc_sg" {
 }
 
 resource "aws_ecs_service" "svc" {
-  name            = var.task_name
+  name            = "${var.task_name}-${var.stage}"
   cluster         = aws_ecs_cluster.cluster.id
   task_definition = aws_ecs_task_definition.task.arn
   launch_type     = "FARGATE"
@@ -148,4 +149,5 @@ resource "aws_ecs_service" "svc" {
     assign_public_ip = true
   }
   depends_on = [aws_lb.alb, aws_lb_listener.https]
+  tags       = var.tags
 }
