@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
-import Card from './Card'
+import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Cards = ({ locations, selectLocation }) => {
+const LocationCards = ({ locations, selectLocation }) => {
   const classes = useStyles()
   return locations.map((location, index) => (
     <Fragment key={location.id}>
@@ -30,7 +30,7 @@ const Cards = ({ locations, selectLocation }) => {
         className={classes.card}
         onClick={selectLocation.bind(null, location.id)}
       >
-        <Card location={location} />
+        <LocationCard location={location} />
       </div>
       {index !== locations.length - 1 && (
         <Divider className={classes.divider} />
@@ -47,13 +47,13 @@ const mapDispatchToProps = (dispatch) => ({
   selectLocation: (locationId) => dispatch(selectLocation(locationId)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cards)
+export default connect(mapStateToProps, mapDispatchToProps)(LocationCards)
 
-Cards.propTypes = {
+LocationCards.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   selectLocation: PropTypes.func.isRequired,
 }
 
-Cards.defaultProps = {
+LocationCards.defaultProps = {
   locations: [],
 }

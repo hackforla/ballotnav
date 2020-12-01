@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
 import Summary from './Summary'
-import Cards from './Cards'
+import LocationCards from './LocationCards'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles({
@@ -42,7 +42,7 @@ const LocationsList = ({ isLoading, locations }) => {
       ) : (
         <>
           <Summary />
-          <Cards />
+          <LocationCards />
         </>
       )}
     </div>

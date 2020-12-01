@@ -6,13 +6,13 @@ import VerifyBox from './VerifyBox'
 import DirectionsButton from './DirectionsButton'
 import ShareButton from './ShareButton'
 import LocationRules from './LocationRules'
-import Card from '../LocationsList/Card'
+import LocationCard from '../LocationCard'
 
 const LocationDetail = ({ location, origin }) => {
   if (!location) return null
   return (
     <>
-      <Card location={location} hoursExpandable />
+      <LocationCard location={location} hoursExpandable />
       <div
         style={{
           display: 'flex',

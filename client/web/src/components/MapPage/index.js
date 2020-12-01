@@ -5,8 +5,8 @@ import { useLocation } from 'react-router-dom'
 import * as select from 'store/selectors'
 import { saveQuery, getJurisdiction } from 'store/actions'
 import useBreakpoints from 'hooks/useBreakpoints'
-import Desktop from './layouts/Desktop'
-import Mobile from './layouts/Mobile'
+import Desktop from './Desktop'
+import Mobile from './Mobile'
 
 const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()

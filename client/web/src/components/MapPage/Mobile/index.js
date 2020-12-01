@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
-import Card from '../../Locations/LocationsList/Card'
-import LocationDetail from '../../Locations/LocationDetail'
+import LocationCard from '../shared/LocationCard'
+import LocationDetail from '../shared/LocationDetail'
 import { makeStyles } from '@material-ui/core/styles'
 import MapAndList from './MapAndList'
 import VerticalSlider from './VerticalSlider'
@@ -67,7 +67,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
           shortContent={
             location && (
               <div className={classes.card}>
-                <Card location={location} />
+                <LocationCard location={location} />
                 <div className={classes.instructions}>
                   Swipe up for details, down to close
                 </div>

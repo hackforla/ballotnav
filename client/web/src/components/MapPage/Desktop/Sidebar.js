@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
 import SearchBar from 'components/shared/SearchBar'
-import LocationsList from '../../Locations/LocationsList'
-import LocationDetail from '../../Locations/LocationDetail'
-import BackButton from '../../Locations/LocationDetail/BackButton'
-import CheckSteps from '../../Locations/LocationDetail/CheckSteps'
+import LocationList from '../shared/LocationList'
+import LocationDetail from '../shared/LocationDetail'
+import BackButton from '../shared/BackButton'
+import CheckSteps from '../shared/LocationDetail/CheckSteps'
 
 const useStyles = makeStyles({
   root: {
@@ -52,7 +52,7 @@ const Sidebar = ({ selectedLocation }) => {
         <SearchBar />
       </div>
       <div className={classes.main}>
-        <LocationsList />
+        <LocationList />
         <div className={classes.slider}>
           <BackButton />
           <CheckSteps />
