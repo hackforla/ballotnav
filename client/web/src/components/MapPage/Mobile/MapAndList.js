@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Map from '../shared/Map'
 import LocationList from '../shared/LocationList'
+import VerifyAlert from '../shared/VerifyAlert'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -53,6 +54,7 @@ const MapAndList = ({ isLocationSelected }) => {
   return (
     <div className={classes.root}>
       <div className={classes.main}>
+        <VerifyAlert />
         <div className={classes.map}>
           <Map />
         </div>
