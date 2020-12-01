@@ -1,8 +1,10 @@
 import React from 'react'
 import Footer from './Footer'
 import SearchBar from 'components/shared/SearchBar'
+import useBreakpoints from 'hooks/useBreakpoints'
 
 const Home = () => {
+  const { isMobile } = useBreakpoints()
   return (
     <div className="Home">
       <div className="hero-wrapper" role="banner">
@@ -16,7 +18,7 @@ const Home = () => {
             absentee ballot
           </h3>
         </div>
-        <SearchBar />
+        <SearchBar useModal={isMobile} />
         <img className="hero-image" alt="Hero" />
       </div>
       <Footer />
