@@ -5,6 +5,8 @@ import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
 import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
+import { lineString } from '@turf/helpers'
+import bbox from '@turf/bbox'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
 
@@ -20,6 +22,13 @@ const useStyles = makeStyles({
     },
   },
 })
+
+const FIT_BOUNDS_PADDING = {
+  top: 200,
+  bottom: 200,
+  left: 200,
+  right: 200,
+}
 
 const Map = ({
   locations,
@@ -49,7 +58,11 @@ const Map = ({
   useEffect(() => {
     if (!map || !userLocation) return
     map.setCenter(userLocation)
-  }, [map, userLocation])
+    if (locations.length === 0) return
+    const initialZoom = [locations[0].geomPoint.coordinates, [userLocation.lng, userLocation.lat]]
+    const line = lineString(initialZoom)
+    map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
+  }, [map, userLocation, locations])
 
   return (
     <div ref={mapContainer} className={classes.root}>
