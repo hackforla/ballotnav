@@ -56,7 +56,7 @@
   }
 
   .navbar-burger.is-active {
-    z-index:1;
+    z-index: 10000;
     span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
@@ -76,6 +76,7 @@
     top:0;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    z-index: 1000;
     .navbar-end {
       @media only screen and (max-width: 1023px) {
         display:none;

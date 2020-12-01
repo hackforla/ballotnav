@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     left: 0,
     right: 0,
-    zIndex: 200,
+    zIndex: 25,
     pointerEvents: 'none',
   },
   card: {

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     left: 0,
     right: 0,
-    zIndex: 101,
+    zIndex: 3,
     transform: ({ listOpen }) => listOpen ? 'none' : 'translateY(100%)',
     transition: 'all 0.25s ease-in-out',
     backgroundColor: theme.palette.background.default,
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   buttons: {
     padding: 12,
     backgroundColor: theme.palette.primary.main,
-    zIndex: 102,
+    zIndex: 22,
     color: '#FFF',
     fontWeight: 700,
     cursor: 'pointer',
