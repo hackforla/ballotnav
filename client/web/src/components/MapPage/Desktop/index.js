@@ -5,7 +5,7 @@ import VerifyAlert from '../shared/VerifyAlert'
 import Map from '../shared/Map'
 import Sidebar from './Sidebar'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: `calc(100vh - ${theme.layout.headerHeight}px)`,
     display: 'flex',

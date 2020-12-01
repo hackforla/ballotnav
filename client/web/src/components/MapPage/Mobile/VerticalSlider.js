@@ -6,7 +6,7 @@ import useSize from 'hooks/useSize'
 const TRANSITION = 'all 0.25s ease-in-out'
 const SLIDE_BUFFER = 20
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     position: 'relative',
@@ -51,71 +51,85 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
   }, [shortContentSize])
 
   useEffect(() => {
-    setTop((() => {
-      const { offsetHeight } = container.current
-      switch(position) {
-        case 'closed': return offsetHeight
-        case 'short': return offsetHeight - shortContentHeight
-        case 'tall': return 0
-        default: return 0
-      }
-    })())
+    setTop(
+      (() => {
+        const { offsetHeight } = container.current
+        switch (position) {
+          case 'closed':
+            return offsetHeight
+          case 'short':
+            return offsetHeight - shortContentHeight
+          case 'tall':
+            return 0
+          default:
+            return 0
+        }
+      })()
+    )
   }, [position, shortContentHeight])
 
-  const onDragStart = useCallback((type, e) => {
-    const config = (() => {
-      switch(type) {
-        case 'touch':
-          return {
-            clientY: e => e.touches[0].clientY,
-            dragEvent: 'touchmove',
-            dragEndEvent: 'touchend'
-          }
-        case 'mouse':
-          return {
-            clientY: e => e.clientY,
-            dragEvent: 'mousemove',
-            dragEndEvent: 'mouseup',
-          }
-        default:
-          return null
+  const onDragStart = useCallback(
+    (type, e) => {
+      const config = (() => {
+        switch (type) {
+          case 'touch':
+            return {
+              clientY: (e) => e.touches[0].clientY,
+              dragEvent: 'touchmove',
+              dragEndEvent: 'touchend',
+            }
+          case 'mouse':
+            return {
+              clientY: (e) => e.clientY,
+              dragEvent: 'mousemove',
+              dragEndEvent: 'mouseup',
+            }
+          default:
+            return null
+        }
+      })()
+
+      const origTop = slider.current.offsetTop
+      const offset = config.clientY(e) - origTop
+      let direction = null
+
+      const onDrag = (e) => {
+        const top = Math.max(0, config.clientY(e) - offset)
+        if (direction === null) {
+          if (top < origTop) direction = 'up'
+          else if (top > origTop) direction = 'down'
+        }
+        setTop(top)
       }
-    })()
 
-    const origTop = slider.current.offsetTop
-    const offset = config.clientY(e) - origTop
-    let direction = null
+      const onDragEnd = (e) => {
+        // restore pull-to-refresh and animated transition
+        document.documentElement.style.overflow = ''
+        slider.current.style.transition = TRANSITION
 
-    const onDrag = (e) => {
-      const top = Math.max(0, config.clientY(e) - offset)
-      if (direction === null) {
-        if (top < origTop) direction = 'up'
-        else if (top > origTop) direction = 'down'
+        slider.current.removeEventListener(config.dragEvent, onDrag)
+
+        switch (direction) {
+          case 'up':
+            return onChange('tall')
+          case 'down':
+            return onChange(position === 'short' ? 'closed' : 'short')
+          default:
+            return
+        }
       }
-      setTop(top)
-    }
 
-    const onDragEnd = (e) => {
-      // restore pull-to-refresh and animated transition
-      document.documentElement.style.overflow = ''
-      slider.current.style.transition = TRANSITION
+      // disable pull-to-refresh and transition while dragging
+      document.documentElement.style.overflow = 'hidden'
+      slider.current.style.transition = ''
 
-      slider.current.removeEventListener(config.dragEvent, onDrag)
-
-      switch(direction) {
-        case 'up': return onChange('tall')
-        case 'down': return onChange(position === 'short' ? 'closed' : 'short')
-        default: return
-      }
-    }
-
-    // disable pull-to-refresh and transition while dragging
-    document.documentElement.style.overflow = 'hidden'
-    slider.current.style.transition = ''
-
-    slider.current.addEventListener(config.dragEvent, onDrag)
-    slider.current.addEventListener(config.dragEndEvent, onDragEnd, { once: true })
-  }, [onChange, position])
+      slider.current.addEventListener(config.dragEvent, onDrag)
+      slider.current.addEventListener(config.dragEndEvent, onDragEnd, {
+        once: true,
+      })
+    },
+    [onChange, position]
+  )
 
   const cutoff = useMemo(() => {
     return container.current
@@ -133,14 +147,19 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
         style={{ top, transition: TRANSITION }}
       >
         <div style={{ display: top < cutoff ? 'block' : 'none' }}>
-          <div className={classes.handle}><span /></div>
-          { tallContent }
+          <div className={classes.handle}>
+            <span />
+          </div>
+          {tallContent}
         </div>
         <div
           ref={shortContentRef}
-          style={{ display: top >= cutoff ? 'block' : 'none' }}>
-          <div className={classes.handle}><span /></div>
-          { shortContent }
+          style={{ display: top >= cutoff ? 'block' : 'none' }}
+        >
+          <div className={classes.handle}>
+            <span />
+          </div>
+          {shortContent}
         </div>
       </div>
     </div>

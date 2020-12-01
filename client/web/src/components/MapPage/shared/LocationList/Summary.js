@@ -4,7 +4,7 @@ import * as select from 'store/selectors'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: 10,
   },

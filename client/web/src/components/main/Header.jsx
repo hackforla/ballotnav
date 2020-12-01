@@ -14,7 +14,7 @@ import { openModal } from 'store/actions'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: 'center',
     flex: 1,
@@ -78,11 +78,9 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
             {jurisdictionName && stateName && (
               <>
                 <div className={classes.jurisdictionName}>
-                  { jurisdictionName }
+                  {jurisdictionName}
                 </div>
-                <div className={classes.stateName}>
-                  { stateName }
-                </div>
+                <div className={classes.stateName}>{stateName}</div>
               </>
             )}
           </div>

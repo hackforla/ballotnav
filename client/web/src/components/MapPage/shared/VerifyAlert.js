@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     right: 10,
     borderRadius: 10,
     zIndex: 2,
-  }
+  },
 }))
 
 const VerifyAlert = () => {

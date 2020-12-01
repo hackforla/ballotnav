@@ -78,7 +78,7 @@ const LocationMarkers = ({
         }
       } else {
         el.classList.remove('selected')
-        el.onclick = e => {
+        el.onclick = (e) => {
           e.preventDefault()
           selectLocation(locationId)
         }

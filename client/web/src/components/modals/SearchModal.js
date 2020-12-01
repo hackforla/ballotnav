@@ -10,7 +10,7 @@ import { closeModal } from 'store/actions'
 import SearchBar from 'components/shared/SearchBar'
 import JurisdictionSelect from 'components/shared/JurisdictionSelect'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   main: {},
   address: {
     position: 'relative',
@@ -66,7 +66,7 @@ const SearchModal = ({ isOpen, close }) => {
       <div className={classes.tabs}>
         <div
           className={clsx(classes.tab, {
-            [classes.active]: activeTab === 'address'
+            [classes.active]: activeTab === 'address',
           })}
           onClick={() => setActiveTab('address')}
         >
@@ -74,7 +74,7 @@ const SearchModal = ({ isOpen, close }) => {
         </div>
         <div
           className={clsx(classes.tab, {
-            [classes.active]: activeTab === 'jurisdiction'
+            [classes.active]: activeTab === 'jurisdiction',
           })}
           onClick={() => setActiveTab('jurisdiction')}
         >
@@ -83,7 +83,7 @@ const SearchModal = ({ isOpen, close }) => {
       </div>
       <div className={classes.main}>
         {(() => {
-          switch(activeTab) {
+          switch (activeTab) {
             case 'address':
               // TODO: move back button into SearchBar with 'backButton' prop
               return (

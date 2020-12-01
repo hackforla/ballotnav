@@ -7,7 +7,7 @@ import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     padding: 10,
     borderRadius: 10,

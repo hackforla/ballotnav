@@ -4,7 +4,7 @@ import { ReactComponent as ShareIcon } from 'assets/icons/share.svg'
 import { openModal } from 'store/actions'
 import { connect } from 'react-redux'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   share: {
     display: 'flex',
     alignItems: 'center',
@@ -23,10 +23,7 @@ const useStyles = makeStyles(theme => ({
 const ShareButton = ({ openShareModal, location }) => {
   const classes = useStyles()
   return (
-    <div
-      className={classes.share}
-      onClick={() => openShareModal({ location })}
-    >
+    <div className={classes.share} onClick={() => openShareModal({ location })}>
       <ShareIcon className={classes.shareIcon} />
       <span className={classes.shareText}>Share location</span>
     </div>

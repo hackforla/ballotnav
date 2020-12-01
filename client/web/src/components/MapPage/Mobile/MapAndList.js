@@ -4,7 +4,7 @@ import LocationList from '../shared/LocationList'
 import VerifyAlert from '../shared/VerifyAlert'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     display: 'flex',
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     zIndex: 3,
-    transform: ({ listOpen }) => listOpen ? 'none' : 'translateY(100%)',
+    transform: ({ listOpen }) => (listOpen ? 'none' : 'translateY(100%)'),
     transition: 'all 0.25s ease-in-out',
     backgroundColor: theme.palette.background.default,
     overflow: 'auto',
@@ -63,10 +63,7 @@ const MapAndList = ({ isLocationSelected }) => {
           <LocationList />
         </div>
       </div>
-      <div
-        className={classes.buttons}
-        onClick={() => setListOpen(!listOpen)}
-      >
+      <div className={classes.buttons} onClick={() => setListOpen(!listOpen)}>
         Show {listOpen ? 'map' : 'list'}
       </div>
     </div>

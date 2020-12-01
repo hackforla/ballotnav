@@ -42,8 +42,7 @@ const Map = ({
 
     // deselect location on off-marker click
     map.on('click', (e) => {
-      if (!e.originalEvent.defaultPrevented)
-        selectLocation(null)
+      if (!e.originalEvent.defaultPrevented) selectLocation(null)
     })
 
     // deal with resizing when alert is closed

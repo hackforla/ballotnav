@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import MapAndList from './MapAndList'
 import VerticalSlider from './VerticalSlider'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -52,10 +52,13 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
     }
   }, [selectedLocation])
 
-  const handlePosition = useCallback((position) => {
-    if (position === 'closed') deselectLocation()
-    setPosition(position)
-  }, [deselectLocation])
+  const handlePosition = useCallback(
+    (position) => {
+      if (position === 'closed') deselectLocation()
+      setPosition(position)
+    },
+    [deselectLocation]
+  )
 
   return (
     <div className={classes.root}>
@@ -90,7 +93,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  deselectLocation: () => dispatch(selectLocation(null))
+  deselectLocation: () => dispatch(selectLocation(null)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mobile)
