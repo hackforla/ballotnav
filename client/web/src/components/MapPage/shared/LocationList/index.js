@@ -3,18 +3,12 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
 import Summary from './Summary'
-import Cards from './Cards'
+import LocationCards from './LocationCards'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles({
   root: {
-    position: 'absolute',
-    width: '100%',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    overflow: 'auto',
-    padding: '10px 15px',
+    height: '100%',
   },
   loader: {
     height: '100%',
@@ -42,7 +36,7 @@ const LocationsList = ({ isLoading, locations }) => {
       ) : (
         <>
           <Summary />
-          <Cards />
+          <LocationCards />
         </>
       )}
     </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
-import { ReactComponent as ShareIcon } from 'assets/icons/share.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,19 +31,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     marginLeft: 14,
   },
-  share: {
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-  },
-  shareIcon: {
-    marginRight: 6,
-  },
-  shareText: {
-    color: theme.palette.primary.main,
-    fontSize: 16,
-    fontWeight: 400,
-  },
 }))
 
 function addressString(location) {
@@ -63,7 +49,7 @@ function distanceString(location) {
   return `${location.distanceFromUser.toFixed(2)} miles`
 }
 
-const LocationAddress = ({ location, onShare, showDistanceDetails }) => {
+const LocationAddress = ({ location, showDistanceDetails }) => {
   const classes = useStyles()
   return (
     <>
@@ -81,12 +67,6 @@ const LocationAddress = ({ location, onShare, showDistanceDetails }) => {
             )}
           </span>
         </div>
-        {onShare && (
-          <div className={classes.share} onClick={onShare}>
-            <ShareIcon className={classes.shareIcon} />
-            <span className={classes.shareText}>Share location</span>
-          </div>
-        )}
       </div>
       {showDistanceDetails && <div>distance details (to be implemented)</div>}
     </>
@@ -97,11 +77,9 @@ export default LocationAddress
 
 LocationAddress.propTypes = {
   location: PropTypes.shape({}).isRequired,
-  onShare: PropTypes.func,
   showDistanceDetails: PropTypes.bool,
 }
 
 LocationAddress.defaultProps = {
-  onShare: undefined,
   showDistanceDetails: false,
 }

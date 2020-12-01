@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { renderToString } from 'react-dom/server'
 import mapboxgl from 'services/mapbox'
 import LocationIcon from 'components/shared/LocationIcon'
@@ -27,11 +27,13 @@ const LocationMarkers = ({
   selectedLocationId,
 }) => {
   useStyles()
-  const markers = useRef({})
+  const [markers, setMarkers] = useState({})
 
   // add/remove markers
   useEffect(() => {
     if (!locations) return
+
+    const markers = {}
 
     locations.forEach((location) => {
       const el = document.createElement('div')
@@ -39,11 +41,10 @@ const LocationMarkers = ({
       el.innerHTML = renderToString(
         <LocationIcon facilityTypeId={location.facilityTypeId} />
       )
-      el.addEventListener('click', selectLocation.bind(null, location.id))
 
       // NOTE: comment the options in Marker to use the default markers.
       // this lets you check that the offset is correct for the custom markers
-      markers.current[location.id] = new mapboxgl.Marker({
+      markers[location.id] = new mapboxgl.Marker({
         element: el,
         offset: [0, 12],
         anchor: 'bottom',
@@ -55,21 +56,35 @@ const LocationMarkers = ({
         .addTo(map)
     })
 
+    setMarkers(markers)
+
     return () => {
-      Object.values(markers.current).forEach((marker) => marker.remove())
-      markers.current = {}
+      Object.values(markers).forEach((marker) => marker.remove())
+      setMarkers({})
     }
-  }, [map, selectLocation, locations])
+  }, [map, locations])
 
-  // highlight selected marker
+  // set highlighting and click handlers
   useEffect(() => {
-    if (!selectedLocationId) return
-    const marker = markers.current[selectedLocationId]
-    if (!marker) return
+    Object.keys(markers).forEach((locationId) => {
+      locationId = Number(locationId)
+      const el = markers[locationId].getElement()
 
-    marker.getElement().classList.add('selected')
-    return () => marker.getElement().classList.remove('selected')
-  }, [selectedLocationId])
+      if (locationId === selectedLocationId) {
+        el.classList.add('selected')
+        el.onclick = (e) => {
+          e.preventDefault()
+          selectLocation(null)
+        }
+      } else {
+        el.classList.remove('selected')
+        el.onclick = (e) => {
+          e.preventDefault()
+          selectLocation(locationId)
+        }
+      }
+    })
+  }, [markers, selectedLocationId, selectLocation])
 
   return null
 }

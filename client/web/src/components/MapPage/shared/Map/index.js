@@ -49,16 +49,21 @@ const Map = ({
 
     map.on('load', () => setMap(map))
 
+    // deselect location on off-marker click
+    map.on('click', (e) => {
+      if (!e.originalEvent.defaultPrevented) selectLocation(null)
+    })
+
     // deal with resizing when alert is closed
     const handleResize = () => setTimeout(() => map.resize())
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [selectLocation])
 
   useEffect(() => {
     if (!map || !userLocation) return
     map.setCenter(userLocation)
-    if (locations.length === 0) return
+    if (locations.length === 0 || !locations[0].geomPoint) return
     const initialZoom = [
       locations[0].geomPoint.coordinates,
       [userLocation.lng, userLocation.lat],
@@ -87,9 +92,7 @@ const Map = ({
 const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
-  selectedLocationId: select.showLocationDetail(state)
-    ? select.selectedLocationId(state)
-    : null,
+  selectedLocationId: select.selectedLocationId(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

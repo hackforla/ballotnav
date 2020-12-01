@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
 import Collapse from '@material-ui/core/Collapse'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: 12,
-  },
+  root: {},
   summary: {
     display: 'flex',
     alignItems: 'center',
-    cursor: ({ expandable }) => (expandable ? 'pointer' : 'default'),
-    useSelect: 'none',
   },
   iconCell: {
     width: 50,
@@ -21,9 +17,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textCell: {
-    flex: 1,
-  },
+  textCell: {},
   openStatus: {
     color: '#63A375',
     fontWeight: 600,
@@ -43,6 +37,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: 16,
   },
+  toggle: {
+    color: theme.palette.primary.main,
+    textDecoration: 'underline',
+    userSelect: 'none',
+    cursor: 'pointer',
+    display: 'inline-block',
+    marginLeft: 16,
+  },
   details: {
     marginLeft: 50,
     marginTop: 10,
@@ -50,20 +52,20 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const LocationHours = ({ location, expandable }) => {
-  const classes = useStyles({ expandable })
-  const [expanded, setExpanded] = useState(expandable)
+  const classes = useStyles()
+  const [expanded, setExpanded] = useState(false)
 
-  const toggleDetails = () => {
-    if (expandable) setExpanded(!expanded)
-  }
+  const toggleDetails = useCallback(() => {
+    setExpanded(!expanded)
+  }, [expanded])
 
   useEffect(() => {
-    setExpanded(expandable)
-  }, [location, expandable])
+    setExpanded(false)
+  }, [location])
 
   return (
     <div className={classes.root}>
-      <div className={classes.summary} onClick={toggleDetails}>
+      <div className={classes.summary}>
         <div className={classes.iconCell}>
           <ClockIcon />
         </div>
@@ -71,12 +73,18 @@ const LocationHours = ({ location, expandable }) => {
           <span className={classes.openStatus}>Open now</span>
           <span className={classes.openUntil}>until 9pm</span>
           <span className={classes.timezone}>(PDT)</span>
+          {expandable && (
+            <span className={classes.toggle} onClick={toggleDetails}>
+              {expanded ? 'Less' : 'More'}
+            </span>
+          )}
         </div>
       </div>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <div className={classes.details}>
-          <div>Hours details</div>
-          <div>To do</div>
+          {Array.from({ length: 10 }).map((el, idx) => (
+            <div key={idx.toString()}>time (to do)</div>
+          ))}
         </div>
       </Collapse>
     </div>

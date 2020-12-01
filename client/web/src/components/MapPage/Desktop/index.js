@@ -1,17 +1,13 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import JurisdictionSelect from 'components/shared/JurisdictionSelect'
-import VerifyAlert from '../VerifyAlert'
-import Map from '../Map'
-import Locations from '../Locations'
+import VerifyAlert from '../shared/VerifyAlert'
+import Map from '../shared/Map'
+import Sidebar from './Sidebar'
 
-// TODO: put these values in the theme
-const HEADER_HEIGHT = 52
-const SIDEBAR_WIDTH = 500
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+    height: `calc(100vh - ${theme.layout.headerHeight}px)`,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -24,16 +20,16 @@ const useStyles = makeStyles({
     top: 0,
     bottom: 0,
     left: 0,
-    width: SIDEBAR_WIDTH,
+    width: theme.layout.sidebarWidth,
   },
   map: {
     position: 'absolute',
     top: 0,
     bottom: 0,
-    left: SIDEBAR_WIDTH,
+    left: theme.layout.sidebarWidth,
     right: 0,
   },
-})
+}))
 
 const Desktop = () => {
   const classes = useStyles()
@@ -43,7 +39,7 @@ const Desktop = () => {
       <VerifyAlert />
       <div className={classes.main}>
         <div className={classes.sidebar}>
-          <Locations />
+          <Sidebar />
         </div>
         <div className={classes.map}>
           <Map />
