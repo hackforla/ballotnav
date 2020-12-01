@@ -1,12 +1,14 @@
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { openModal } from 'store/actions'
 import { useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import api from 'services/api'
 import Geocoder from './Geocoder'
+import SearchButton from './SearchButton'
 
-function SearchBar({ center, address, onComplete }) {
+function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
   const history = useHistory()
 
   const handleLngLat = useCallback(
@@ -26,7 +28,17 @@ function SearchBar({ center, address, onComplete }) {
 
   return (
     <div className="search-bar">
-      <Geocoder center={center} address={address} onResult={handleLngLat} />
+      {
+        useModal ? (
+          <SearchButton onClick={openSearchModal} />
+        ) : (
+          <Geocoder
+            center={center}
+            address={address}
+            onResult={handleLngLat}
+          />
+        )
+      }
     </div>
   )
 }
@@ -36,15 +48,24 @@ const mapStateToProps = (state) => ({
   address: state.query.address,
 })
 
-export default connect(mapStateToProps)(SearchBar)
+const mapDispatchToProps = (dispatch) => ({
+  openSearchModal: () => dispatch(openModal('search')),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
 
 SearchBar.propTypes = {
   center: PropTypes.shape({
     lng: PropTypes.number,
     lat: PropTypes.number,
   }),
+  address: PropTypes.string,
+  useModal: PropTypes.bool,
+  openSearchModal: PropTypes.func.isRequired,
 }
 
 SearchBar.defaultProps = {
   center: null,
+  address: null,
+  useModal: false,
 }
