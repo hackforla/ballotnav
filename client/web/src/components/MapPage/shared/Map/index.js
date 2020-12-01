@@ -63,7 +63,7 @@ const Map = ({
   useEffect(() => {
     if (!map || !userLocation) return
     map.setCenter(userLocation)
-    if (locations.length === 0) return
+    if (locations.length === 0 || !locations[0].geomPoint) return
     const initialZoom = [
       locations[0].geomPoint.coordinates,
       [userLocation.lng, userLocation.lat],
