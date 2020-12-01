@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: 'none',
   },
   card: {
-    padding: '0 5px 15px',
+    padding: '0 12px 15px',
     userSelect: 'none',
   },
   instructions: {

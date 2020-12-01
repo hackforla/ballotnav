@@ -22,6 +22,12 @@ const useStyles = makeStyles({
   main: {
     flex: 1,
     position: 'relative',
+    overflow: 'hidden',
+  },
+  list: {
+    padding: 10,
+    height: '100%',
+    overflow: 'auto',
   },
   slider: {
     position: 'absolute',
@@ -52,7 +58,9 @@ const Sidebar = ({ selectedLocation }) => {
         <SearchBar />
       </div>
       <div className={classes.main}>
-        <LocationList />
+        <div className={classes.list}>
+          <LocationList />
+        </div>
         <div className={classes.slider}>
           <BackButton />
           <CheckSteps />

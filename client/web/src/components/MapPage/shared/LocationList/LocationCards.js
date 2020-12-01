@@ -9,13 +9,13 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   card: {
-    padding: '12px 10px 10px 0',
+    padding: 10,
     borderRadius: 10,
     userSelect: 'none',
     '&:hover': {
       cursor: 'pointer',
       backgroundColor: theme.palette.grey[200],
-    }
+    },
   },
   divider: {
     margin: '8px 0',

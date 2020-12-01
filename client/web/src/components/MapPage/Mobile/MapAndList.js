@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 0.25s ease-in-out',
     backgroundColor: theme.palette.background.default,
     overflow: 'auto',
+    padding: 10,
   },
   buttons: {
     padding: 12,

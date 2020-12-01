@@ -31,9 +31,9 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
           {jurisdictionName}, {stateAbbr}
         </b>
       </div>
-      <div className={classes.instructions}>
+      {/*<div className={classes.instructions}>
         Select a location to view rules, hours and directions
-      </div>
+      </div>*/}
     </div>
   )
 }
