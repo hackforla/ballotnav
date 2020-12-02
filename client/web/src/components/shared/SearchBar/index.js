@@ -27,7 +27,7 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
   )
 
   return (
-    <div className="search-bar">
+    <div>
       {
         useModal ? (
           <SearchButton onClick={openSearchModal} />

@@ -17,6 +17,8 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     marginRight: 10,
+    fontSize: 30,
+    color: theme.palette.primary.main,
   },
 }))
 
@@ -24,11 +26,7 @@ const SearchButton = ({ onClick }) => {
   const classes = useStyles()
   return (
     <div className={classes.root} onClick={onClick}>
-      <SearchIcon
-        color="primary"
-        fontSize="large"
-        className={classes.button}
-      />
+      <SearchIcon color="primary" className={classes.button} />
       Enter an address or ZIP
     </div>
   )
