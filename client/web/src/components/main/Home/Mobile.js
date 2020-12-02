@@ -53,28 +53,27 @@ const Mobile = withStyles(theme => ({
   },
   search: {
     padding: 15,
-    // flex: 1,
   },
 }))(({ classes }) => (
   <div className={classes.root}>
     <div className={classes.wrapper}>
-    <div className={classes.mainTextOuter}>
-      <div className={classes.mainTextInner}>
-        <h2 className={classes.h2}>
-          Find your <br /> drop off locations
-        </h2>
-        <h3 className={classes.h3}>
-          Find safe, secure, in-person <br/>
-          locations to drop off <br/>
-          your mail-in <br/>
-          or absentee ballot
-        </h3>
+      <div className={classes.mainTextOuter}>
+        <HeroMobile className={classes.hero} />
+        <div className={classes.mainTextInner}>
+          <h2 className={classes.h2}>
+            Find your <br /> drop off locations
+          </h2>
+          <h3 className={classes.h3}>
+            Find safe, secure, in-person <br/>
+            locations to drop off <br/>
+            your mail-in <br/>
+            or absentee ballot
+          </h3>
+        </div>
       </div>
-      <HeroMobile className={classes.hero} />
-    </div>
-    <div className={classes.search}>
-      <SearchBar useModal />
-    </div>
+      <div className={classes.search}>
+        <SearchBar useModal />
+      </div>
     </div>
     <Footer />
   </div>

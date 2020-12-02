@@ -6,7 +6,7 @@ import { ReactComponent as HeroDesktop } from 'assets/images/home-hero-desktop.s
 
 const Desktop = withStyles(theme => ({
   root: {
-    height: 'calc(100vh - 52px)',
+    minHeight: `calc(100vh - ${theme.layout.headerHeight}px)`,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -15,13 +15,14 @@ const Desktop = withStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    maxWidth: 1000,
+    maxWidth: theme.layout.pageWidth,
     margin: '0 auto',
     width: '100%',
   },
   hero: {
     display: 'block',
-    width: '100%',
+    width: '84%',
+    marginLeft: '12%',
   },
   mainTextOuter: {
     position: 'relative',
@@ -33,7 +34,7 @@ const Desktop = withStyles(theme => ({
     left: 0,
     right: 0,
     paddingLeft: 15,
-    paddingTop: 25,
+    paddingTop: 35,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -49,16 +50,17 @@ const Desktop = withStyles(theme => ({
     color: theme.palette.primary.main,
     fontSize: 24,
     fontWeight: 400,
-    lineHeight: '28px',
+    lineHeight: '32px',
   },
   search: {
-    width: 500,
+    width: 400,
     marginTop: 65,
   },
 }))(({ classes }) => (
   <div className={classes.root}>
     <div className={classes.wrapper}>
       <div className={classes.mainTextOuter}>
+        <HeroDesktop className={classes.hero} />
         <div className={classes.mainTextInner}>
           <h2 className={classes.h2}>
             Find your drop off locations
@@ -71,7 +73,6 @@ const Desktop = withStyles(theme => ({
             <SearchBar />
           </div>
         </div>
-        <HeroDesktop className={classes.hero} />
       </div>
     </div>
     <Footer />
