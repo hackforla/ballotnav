@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         width: 35,
         height: 32,
         fill: theme.palette.primary.main,
-      }
+      },
     },
   },
 }))

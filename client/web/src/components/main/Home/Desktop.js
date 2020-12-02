@@ -4,7 +4,7 @@ import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
 import { ReactComponent as HeroDesktop } from 'assets/images/home-hero-desktop.svg'
 
-const Desktop = withStyles(theme => ({
+const Desktop = withStyles((theme) => ({
   root: {
     minHeight: `calc(100vh - ${theme.layout.headerHeight}px)`,
     display: 'flex',
@@ -38,7 +38,7 @@ const Desktop = withStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   h2: {
     color: theme.palette.secondary.main,
@@ -62,9 +62,7 @@ const Desktop = withStyles(theme => ({
       <div className={classes.mainTextOuter}>
         <HeroDesktop className={classes.hero} />
         <div className={classes.mainTextInner}>
-          <h2 className={classes.h2}>
-            Find your drop off locations
-          </h2>
+          <h2 className={classes.h2}>Find your drop off locations</h2>
           <h3 className={classes.h3}>
             Find safe, secure, in-person locations to <br />
             drop off your mail-in or absentee ballot
