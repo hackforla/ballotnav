@@ -53,7 +53,7 @@ const Desktop = withStyles(theme => ({
     lineHeight: '32px',
   },
   search: {
-    width: 400,
+    width: 450,
     marginTop: 65,
   },
 }))(({ classes }) => (
