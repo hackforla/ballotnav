@@ -4,7 +4,7 @@ import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
 import { ReactComponent as HeroMobile } from 'assets/images/home-hero-mobile.svg'
 
-const Mobile = withStyles(theme => ({
+const Mobile = withStyles((theme) => ({
   root: {
     minHeight: `calc(100vh - ${theme.layout.headerHeight}px)`,
     display: 'flex',
@@ -36,7 +36,7 @@ const Mobile = withStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   h2: {
     color: theme.palette.secondary.main,
@@ -64,9 +64,9 @@ const Mobile = withStyles(theme => ({
             Find your <br /> drop off locations
           </h2>
           <h3 className={classes.h3}>
-            Find safe, secure, in-person <br/>
-            locations to drop off <br/>
-            your mail-in <br/>
+            Find safe, secure, in-person <br />
+            locations to drop off <br />
+            your mail-in <br />
             or absentee ballot
           </h3>
         </div>
