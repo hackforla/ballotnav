@@ -1,6 +1,6 @@
 .navbar {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1134px;
 
   .backgroundBlur {
     position:fixed;
@@ -35,6 +35,15 @@
 
   .navbar-item img {
     max-height: 1.6em;
+  }
+
+  a.navbar-item {
+    font-weight: 600;
+    font-size: 18px;
+    color: $blue;
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   .navbar-burger {

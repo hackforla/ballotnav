@@ -20,11 +20,31 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#FFF',
         color: theme.palette.primary.main,
         fontSize: 16,
+        padding: '6px 45px !important',
+        height: '50px !important',
         '&:focus': {
           outline: 'none',
         },
       },
       '&--icon': {
+        fill: theme.palette.grey[400],
+      },
+      '&--icon-close': {
+        width: 25,
+        height: 25,
+        marginTop: 5,
+        marginRight: 5,
+      },
+      '&--icon-loading': {
+        width: 32,
+        height: 40,
+        marginTop: -2,
+        marginRight: 0,
+      },
+      '&--icon-search': {
+        left: 7,
+        width: 35,
+        height: 32,
         fill: theme.palette.primary.main,
       },
     },
