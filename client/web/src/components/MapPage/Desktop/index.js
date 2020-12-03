@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import JurisdictionSelect from 'components/shared/JurisdictionSelect'
+import JurisdictionSelect from 'components/MapPage/shared/JurisdictionSelect'
 import VerifyAlert from '../shared/VerifyAlert'
 import Map from '../shared/Map'
 import Sidebar from './Sidebar'
