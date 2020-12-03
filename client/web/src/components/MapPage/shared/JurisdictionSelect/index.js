@@ -15,7 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-// TODO: Mobile
+/*
+  TODO:
+    - Mobile: styles, TextField variant, state abbrevs, back button
+    - Jurisdictions: fetch geojson with jdx data
+    - Map: fit to jdx bounds after manual select
+*/
+
 const JurisdictionSelect = ({
   getStatesWithJurisdictions,
   statesWithJurisdictions,
