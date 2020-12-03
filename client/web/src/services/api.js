@@ -30,9 +30,16 @@ async function getJurisdiction(jurisdictionId) {
   }
 }
 
+async function getStatesWithJurisdictions() {
+  const url = `${BASE_URL}/states-and-jurisdictions`
+  const { data } = await axios.get(url)
+  return data
+}
+
 const service = {
   getJurisdictions,
   getJurisdiction,
+  getStatesWithJurisdictions,
 }
 
 export default service
