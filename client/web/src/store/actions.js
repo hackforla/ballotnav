@@ -7,6 +7,9 @@ export const types = {
   GET_JURISDICTION_PENDING: 'GET_JURISDICTION_PENDING',
   GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
+  GET_STATES_WITH_JURISDICTIONS_SUCCESS:
+    'GET_STATES_WITH_JURISDICTIONS_SUCCESS',
+  GET_STATES_WITH_JURISDICTIONS_ERROR: 'GET_STATES_WITH_JURISDICTIONS_ERROR',
   SELECT_LOCATION: 'SELECT_LOCATION',
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL',
@@ -51,6 +54,24 @@ export const getJurisdiction = (jurisdictionId) => {
   }
 }
 
+export const getStatesWithJurisdictions = () => {
+  return (dispatch) =>
+    api
+      .getStatesWithJurisdictions()
+      .then((data) =>
+        dispatch({
+          type: types.GET_STATES_WITH_JURISDICTIONS_SUCCESS,
+          data,
+        })
+      )
+      .catch((error) =>
+        dispatch({
+          type: types.GET_STATES_WITH_JURISDICTIONS_ERROR,
+          data: { error },
+        })
+      )
+}
+
 export const selectLocation = (locationId) => {
   const query = queryString.parse(history.location.search)
   query.lid = locationId || undefined
@@ -85,6 +106,7 @@ const initialState = {
     state: null,
     jurisdiction: null,
     locations: null,
+    statesWithJurisdictions: null,
   },
   modals: {
     search: {
@@ -126,6 +148,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         data: {
+          ...state.data,
           isLoading: false,
           isLoaded: true,
           error: null,
@@ -143,7 +166,23 @@ const reducer = (state = initialState, action) => {
           error: action.data.error,
         },
       }
-    case types.OPEN_MODAL:
+    case types.GET_STATES_WITH_JURISDICTIONS_SUCCESS:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          statesWithJurisdictions: action.data,
+        },
+      }
+    case types.GET_STATES_WITH_JURISDICTIONS_ERROR:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          error: action.data.error,
+        },
+      }
+    case types.SELECT_LOCATION:
       return {
         ...state,
         modals: {
