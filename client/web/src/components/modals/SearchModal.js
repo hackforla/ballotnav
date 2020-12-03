@@ -8,7 +8,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import * as select from 'store/selectors'
 import { closeModal } from 'store/actions'
 import SearchBar from 'components/shared/SearchBar'
-import JurisdictionSelect from 'components/shared/JurisdictionSelect'
+import JurisdictionSelect from 'components/MapPage/shared/JurisdictionSelect'
 
 const useStyles = makeStyles((theme) => ({
   main: {},
