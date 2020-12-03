@@ -6,6 +6,9 @@ export const types = {
   GET_JURISDICTION_PENDING: 'GET_JURISDICTION_PENDING',
   GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
+  GET_STATES_WITH_JURISDICTIONS_SUCCESS:
+    'GET_STATES_WITH_JURISDICTIONS_SUCCESS',
+  GET_STATES_WITH_JURISDICTIONS_ERROR: 'GET_STATES_WITH_JURISDICTIONS_ERROR',
   SELECT_LOCATION: 'SELECT_LOCATION',
   HIDE_SELECTED_LOCATION: 'HIDE_SELECTED_LOCATION',
 }
@@ -46,6 +49,24 @@ export const getJurisdiction = (jurisdictionId) => {
   }
 }
 
+export const getStatesWithJurisdictions = () => {
+  return (dispatch) =>
+    api
+      .getStatesWithJurisdictions()
+      .then((data) =>
+        dispatch({
+          type: types.GET_STATES_WITH_JURISDICTIONS_SUCCESS,
+          data,
+        })
+      )
+      .catch((error) =>
+        dispatch({
+          type: types.GET_STATES_WITH_JURISDICTIONS_ERROR,
+          data: { error },
+        })
+      )
+}
+
 export const selectLocation = (locationId) => ({
   type: types.SELECT_LOCATION,
   data: { locationId },
@@ -67,6 +88,7 @@ const initialState = {
     state: null,
     jurisdiction: null,
     locations: null,
+    statesWithJurisdictions: null,
   },
   ui: {
     selectedLocationId: null,
@@ -101,6 +123,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         data: {
+          ...state.data,
           isLoading: false,
           error: null,
           state: action.data.state,
@@ -122,6 +145,22 @@ const reducer = (state = initialState, action) => {
         ui: {
           ...state.ui,
           selectedLocationId: null,
+        },
+      }
+    case types.GET_STATES_WITH_JURISDICTIONS_SUCCESS:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          statesWithJurisdictions: action.data,
+        },
+      }
+    case types.GET_STATES_WITH_JURISDICTIONS_ERROR:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          error: action.data.error,
         },
       }
     case types.SELECT_LOCATION:
