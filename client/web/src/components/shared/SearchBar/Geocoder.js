@@ -61,6 +61,19 @@ function Geocoder({ center, address, onResult }) {
       accessToken: mapboxgl.accessToken,
       countries: 'us',
       types: 'address, neighborhood, locality, place, district, postcode',
+      bbox: [-85.61, 30.36, -80.84, 35.00],
+      filter: function (item) {
+        return item.context
+          .map(function (i) {
+            return (
+              i.id.split('.').shift() === 'region' &&
+              i.text === 'Georgia'
+            )
+          })
+          .reduce(function (acc, cur) {
+            return acc || cur
+          })
+      },
     })
 
     geocoder.current.addTo(container.current)
