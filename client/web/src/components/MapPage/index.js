@@ -15,7 +15,7 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   // clear query when leaving map page
   useEffect(() => {
     return () => saveQuery(null)
-  }, [])
+  }, [saveQuery])
 
   // save query params whenever url changes
   useEffect(() => {
