@@ -7,7 +7,7 @@ export const state = (state) => state.data.state
 export const jurisdiction = (state) => state.data.jurisdiction
 export const locations = (state) => state.data.locations
 export const userLocation = (state) => state.query.lngLat
-export const selectedLocationId = (state) => state.ui.selectedLocationId
+export const selectedLocationId = (state) => state.query.locationId
 export const modals = (state) => state.modals
 
 /*
