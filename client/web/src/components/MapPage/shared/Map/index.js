@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
@@ -7,49 +7,26 @@ import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
 import Map from './Map'
 
+function bboxFromPoints(points) {
+  return bbox(lineString(points))
+}
+
 const MapContainer = ({
   locations,
   userLocation,
   selectedLocation,
   selectLocation,
 }) => {
-  const firstRun = useState(true)
   const [position, setPosition] = useState(null)
 
-
-  // only run this the first time after the map is loaded
-  // useEffect(() => {
-  //   if (!map || !firstRun.current) return
-  //   firstRun.current = false
-  //
-  //   console.log(selectedLocation)
-  //
-  //   if (selectedLocation) map.setCenter(selectedLocation.geomPoint.coordinates)
-  //
-  //   if (!userLocation || locations.length === 0 || !locations[0].geomPoint) return
-  //
-  //   const initialZoom = [
-  //     locations[0].geomPoint.coordinates,
-  //     [userLocation.lng, userLocation.lat],
-  //   ]
-  //   const line = lineString(initialZoom)
-  //   map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
-  //
-  // }, [map, userLocation, locations, selectedLocation])
-
-
-
   useEffect(() => {
-    if (selectedLocation && userLocation) {
-      const points = [
-        selectedLocation.geomPoint.coordinates,
-        [userLocation.lng, userLocation.lat],
-      ]
-      const line = lineString(points)
+    if (selectedLocation && userLocation)
       return setPosition({
-        bounds: bbox(line)
+        bounds: bboxFromPoints([
+          selectedLocation.geomPoint.coordinates,
+          [userLocation.lng, userLocation.lat],
+        ]),
       })
-    }
 
     if (selectedLocation)
       return setPosition({
@@ -61,31 +38,33 @@ const MapContainer = ({
         center: userLocation
       })
 
-    if (userLocation && locations.length > 0) {
-      const points = [
-        locations[0].geomPoint.coordinates,
-        [userLocation.lng, userLocation.lat],
-      ]
-      const line = lineString(points)
+    if (userLocation && locations.length > 0)
       return setPosition({
-        bounds: bbox(line)
+        bounds: bboxFromPoints([
+          locations[0].geomPoint.coordinates,
+          [userLocation.lng, userLocation.lat],
+        ]),
       })
-    }
 
-    // map.setCenter(userLocation)
-    // if (locations.length === 0 || !locations[0].geomPoint) return
-    // const initialZoom = [
-    //   locations[0].geomPoint.coordinates,
-    //   [userLocation.lng, userLocation.lat],
-    // ]
-    // const line = lineString(initialZoom)
-    // map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
+    if (locations.length > 1)
+      return setPosition({
+        bounds: bboxFromPoints(locations.map((loc) => loc.geomPoint.coordinates))
+      })
+
+    if (locations.length === 1)
+      return setPosition({
+        center: locations[0].geomPoint.coordinates,
+      })
+
+    // default to continental US
+    return setPosition({
+      bounds: [
+        [-124.848974, 24.396308],
+        [-66.885444, 49.384358],
+      ]
+    })
+
   }, [locations, userLocation, selectedLocation])
-
-  console.log('position:', position)
-  console.log(locations, userLocation, selectedLocation)
-
-  // return null
 
   if (!position) return null
   return (

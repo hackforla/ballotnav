@@ -83,7 +83,7 @@ const Map = ({
       updateMap({ map, center, zoom, bounds })
     else
       initMap({ center, zoom, bounds })
-  }, [map, center, zoom, bounds])
+  }, [map, center, zoom, bounds, initMap, updateMap])
 
   return (
     <div ref={mapContainer} className={classes.root}>
