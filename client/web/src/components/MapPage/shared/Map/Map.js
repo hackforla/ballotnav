@@ -41,13 +41,9 @@ const Map = ({
 }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
-  const map = useRef(null)
-  const [isReady, setIsReady] = useState(false)
+  const [map, setMap] = useState(null)
 
   const initMap = useCallback(({ center, zoom, bounds }) => {
-    if (map.current)
-      throw new Error('Map already initialized')
-
     if (!center && !bounds)
       throw new Error('Center or bounds is required')
 
@@ -62,47 +58,44 @@ const Map = ({
     if (zoom) opts.zoom = zoom
     if (bounds) opts.bounds = bounds
 
-    map.current = new mapboxgl.Map(opts)
-    map.current.on('load', () => setIsReady(true))
+    const map = new mapboxgl.Map(opts)
+    map.on('load', () => setMap(map))
 
     // deselect location on off-marker click
-    map.current.on('click', (e) => {
+    map.on('click', (e) => {
       if (!e.originalEvent.defaultPrevented) selectLocation(null)
     })
 
     // deal with resizing when alert is closed
-    const handleResize = () => setTimeout(() => map.current.resize())
+    const handleResize = () => setTimeout(() => map.resize())
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [selectLocation])
 
-  const updateMap = useCallback(({ center, zoom, bounds }) => {
-    if (!map.current)
-      throw new Error('Map not initialized')
-
-    if (center) map.current.setCenter(center)
-    if (zoom) map.current.setZoom(zoom)
-    if (bounds) map.current.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
+  const updateMap = useCallback(({ map, center, zoom, bounds }) => {
+    if (center) map.setCenter(center)
+    if (zoom) map.setZoom(zoom)
+    if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
   }, [])
 
   useEffect(() => {
-    if (map.current)
-      updateMap({ center, zoom, bounds })
+    if (map)
+      updateMap({ map, center, zoom, bounds })
     else
       initMap({ center, zoom, bounds })
-  }, [center, zoom, bounds])
+  }, [map, center, zoom, bounds])
 
   return (
     <div ref={mapContainer} className={classes.root}>
-      {isReady && (
+      {map && (
         <>
           <LocationMarkers
-            map={map.current}
+            map={map}
             locations={locations}
             selectLocation={selectLocation}
             selectedLocationId={selectedLocation?.id}
           />
-          <UserMarker map={map.current} userLocation={userLocation} />
+          <UserMarker map={map} userLocation={userLocation} />
         </>
       )}
     </div>
