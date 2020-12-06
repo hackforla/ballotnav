@@ -3,105 +3,117 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
-import { makeStyles } from '@material-ui/core/styles'
-import mapboxgl, { styleUrl } from 'services/mapbox'
 import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
-import LocationMarkers from './LocationMarkers'
-import UserMarker from './UserMarker'
+import Map from './Map'
 
-const useStyles = makeStyles({
-  root: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    '& canvas.mapboxgl-canvas:focus': {
-      outline: 'none',
-    },
-  },
-})
-
-const FIT_BOUNDS_PADDING = {
-  top: 200,
-  bottom: 200,
-  left: 200,
-  right: 200,
-}
-
-const Map = ({
+const MapContainer = ({
   locations,
   userLocation,
-  selectedLocationId,
+  selectedLocation,
   selectLocation,
 }) => {
-  const classes = useStyles()
-  const mapContainer = useRef(null)
-  const [map, setMap] = useState(null)
+  const firstRun = useState(true)
+  const [position, setPosition] = useState(null)
+
+
+  // only run this the first time after the map is loaded
+  // useEffect(() => {
+  //   if (!map || !firstRun.current) return
+  //   firstRun.current = false
+  //
+  //   console.log(selectedLocation)
+  //
+  //   if (selectedLocation) map.setCenter(selectedLocation.geomPoint.coordinates)
+  //
+  //   if (!userLocation || locations.length === 0 || !locations[0].geomPoint) return
+  //
+  //   const initialZoom = [
+  //     locations[0].geomPoint.coordinates,
+  //     [userLocation.lng, userLocation.lat],
+  //   ]
+  //   const line = lineString(initialZoom)
+  //   map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
+  //
+  // }, [map, userLocation, locations, selectedLocation])
+
+
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: styleUrl,
-      zoom: 13,
-    })
+    if (selectedLocation && userLocation) {
+      const points = [
+        selectedLocation.geomPoint.coordinates,
+        [userLocation.lng, userLocation.lat],
+      ]
+      const line = lineString(points)
+      return setPosition({
+        bounds: bbox(line)
+      })
+    }
 
-    map.on('load', () => setMap(map))
+    if (selectedLocation)
+      return setPosition({
+        center: selectedLocation.geomPoint.coordinates
+      })
 
-    // deselect location on off-marker click
-    map.on('click', (e) => {
-      if (!e.originalEvent.defaultPrevented) selectLocation(null)
-    })
+    if (userLocation && locations.length === 0)
+      return setPosition({
+        center: userLocation
+      })
 
-    // deal with resizing when alert is closed
-    const handleResize = () => setTimeout(() => map.resize())
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [selectLocation])
+    if (userLocation && locations.length > 0) {
+      const points = [
+        locations[0].geomPoint.coordinates,
+        [userLocation.lng, userLocation.lat],
+      ]
+      const line = lineString(points)
+      return setPosition({
+        bounds: bbox(line)
+      })
+    }
 
-  useEffect(() => {
-    if (!map || !userLocation) return
-    map.setCenter(userLocation)
-    if (locations.length === 0 || !locations[0].geomPoint) return
-    const initialZoom = [
-      locations[0].geomPoint.coordinates,
-      [userLocation.lng, userLocation.lat],
-    ]
-    const line = lineString(initialZoom)
-    map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
-  }, [map, userLocation, locations])
+    // map.setCenter(userLocation)
+    // if (locations.length === 0 || !locations[0].geomPoint) return
+    // const initialZoom = [
+    //   locations[0].geomPoint.coordinates,
+    //   [userLocation.lng, userLocation.lat],
+    // ]
+    // const line = lineString(initialZoom)
+    // map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
+  }, [locations, userLocation, selectedLocation])
 
+  console.log('position:', position)
+  console.log(locations, userLocation, selectedLocation)
+
+  // return null
+
+  if (!position) return null
   return (
-    <div ref={mapContainer} className={classes.root}>
-      {map && (
-        <>
-          <LocationMarkers
-            map={map}
-            locations={locations}
-            selectLocation={selectLocation}
-            selectedLocationId={selectedLocationId}
-          />
-          <UserMarker map={map} userLocation={userLocation} />
-        </>
-      )}
-    </div>
+    <Map
+      locations={locations}
+      userLocation={userLocation}
+      selectedLocation={selectedLocation}
+      selectLocation={selectLocation}
+      center={position.center}
+      zoom={position.zoom}
+      bounds={position.bounds}
+    />
   )
 }
 
 const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
-  selectedLocationId: select.selectedLocationId(state),
+  selectedLocation: select.selectedLocation(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
   selectLocation: (locationId) => dispatch(selectLocation(locationId)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+export default connect(mapStateToProps, mapDispatchToProps)(MapContainer)
 
-Map.propTypes = {
+MapContainer.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   userLocation: PropTypes.shape({
     lng: PropTypes.number,
@@ -111,7 +123,7 @@ Map.propTypes = {
   selectedLocationId: PropTypes.number,
 }
 
-Map.defaultProps = {
+MapContainer.defaultProps = {
   locations: [],
   userLocation: null,
   selectedLocationId: null,
