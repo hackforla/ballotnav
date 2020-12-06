@@ -17,6 +17,16 @@ function Jurisdictions() {
         state: juris.state.name,
         status: juris.jurisdictionStatus,
       }))
+
+      // sort by state, then jurisdiction
+      transformed.sort((a, b) => {
+        if (a.state > b.state) return 1
+        if (a.state < b.state) return -1
+        if (a.jurisdiction > b.jurisdiction) return 1
+        if (a.jurisdiction < b.jurisdiction) return -1
+        return 0
+      })
+
       setJurisdictions(transformed)
     })
   }
