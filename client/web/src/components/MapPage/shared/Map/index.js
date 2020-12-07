@@ -73,9 +73,7 @@ const MapContainer = ({
       userLocation={userLocation}
       selectedLocation={selectedLocation}
       selectLocation={selectLocation}
-      center={position.center}
-      zoom={position.zoom}
-      bounds={position.bounds}
+      position={position}
     />
   )
 }

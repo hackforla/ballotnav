@@ -22,12 +22,12 @@ const DEFAULT_ZOOM = 13
 
 const FIT_BOUNDS_OPTIONS = {
   padding: {
-    top: 200,
-    bottom: 200,
-    left: 200,
-    right: 200,
+    top: 100,
+    bottom: 100,
+    left: 100,
+    right: 100,
   },
-  animate: false,
+  linear: true,
 }
 
 const Map = ({
@@ -35,9 +35,7 @@ const Map = ({
   userLocation,
   selectedLocation,
   selectLocation,
-  center,
-  zoom,
-  bounds,
+  position,
 }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
@@ -72,18 +70,18 @@ const Map = ({
     return () => window.removeEventListener('resize', handleResize)
   }, [selectLocation])
 
-  const updateMap = useCallback(({ map, center, zoom, bounds }) => {
-    if (center) map.setCenter(center)
+  const updateMap = useCallback((map, { center, zoom, bounds }) => {
+    if (center) map.panTo(center)
     if (zoom) map.setZoom(zoom)
     if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
   }, [])
 
   useEffect(() => {
     if (map)
-      updateMap({ map, center, zoom, bounds })
+      updateMap(map, position)
     else
-      initMap({ center, zoom, bounds })
-  }, [map, center, zoom, bounds, initMap, updateMap])
+      initMap(position)
+  }, [map, position, initMap, updateMap])
 
   return (
     <div ref={mapContainer} className={classes.root}>
@@ -112,10 +110,16 @@ Map.propTypes = {
   }),
   selectLocation: PropTypes.func.isRequired,
   selectedLocationId: PropTypes.number,
+  position: PropTypes.shape({
+    center: PropTypes.any,
+    zoom: PropTypes.number,
+    bounds: PropTypes.arrayOf(PropTypes.number),
+  })
 }
 
 Map.defaultProps = {
   locations: [],
   userLocation: null,
   selectedLocationId: null,
+  position: {},
 }
