@@ -82,21 +82,29 @@ const ShareModal = ({ isOpen, close }) => {
       </div>
       <List>
         <ListItem button onClick={emailLink}>
-          <ListItemIcon><EmailIcon /></ListItemIcon>
-          <ListItemText primary='Send link with location via email' />
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Send link with location via email" />
         </ListItem>
         <ListItem button onClick={facebookShare}>
-          <ListItemIcon><FacebookIcon /></ListItemIcon>
-          <ListItemText primary='Share location on facebook' />
+          <ListItemIcon>
+            <FacebookIcon />
+          </ListItemIcon>
+          <ListItemText primary="Share location on facebook" />
         </ListItem>
         <ListItem button onClick={twitterShare}>
-          <ListItemIcon><TwitterIcon /></ListItemIcon>
-          <ListItemText primary='Share location on twitter' />
+          <ListItemIcon>
+            <TwitterIcon />
+          </ListItemIcon>
+          <ListItemText primary="Share location on twitter" />
         </ListItem>
         <ListItem button onClick={copyLink}>
-          <ListItemIcon><CopyIcon /></ListItemIcon>
-          <ListItemText primary='Copy link' />
-          <span>{ copyResult }</span>
+          <ListItemIcon>
+            <CopyIcon />
+          </ListItemIcon>
+          <ListItemText primary="Copy link" />
+          <span>{copyResult}</span>
         </ListItem>
       </List>
     </Dialog>

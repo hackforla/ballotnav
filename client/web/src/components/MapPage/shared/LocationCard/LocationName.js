@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LocationName = ({ location, isSelected  }) => {
+const LocationName = ({ location, isSelected }) => {
   const classes = useStyles()
   const theme = useTheme()
   const { default: defaultColor, selected } = theme.palette.locationMarkers

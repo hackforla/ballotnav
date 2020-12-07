@@ -4,7 +4,7 @@ import mapboxgl from 'services/mapbox'
 import LocationIcon from 'components/shared/LocationIcon'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   '@global': {
     '.mapboxgl-canvas-container': {
       '& .location-marker svg': {

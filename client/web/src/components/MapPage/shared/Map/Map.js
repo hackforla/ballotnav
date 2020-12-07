@@ -41,34 +41,36 @@ const Map = ({
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
 
-  const initMap = useCallback(({ center, zoom, bounds }) => {
-    if (!center && !bounds)
-      throw new Error('Center or bounds is required')
+  const initMap = useCallback(
+    ({ center, zoom, bounds }) => {
+      if (!center && !bounds) throw new Error('Center or bounds is required')
 
-    const opts = {
-      container: mapContainer.current,
-      style: styleUrl,
-      zoom: DEFAULT_ZOOM,
-      fitBoundsOptions: FIT_BOUNDS_OPTIONS,
-    }
+      const opts = {
+        container: mapContainer.current,
+        style: styleUrl,
+        zoom: DEFAULT_ZOOM,
+        fitBoundsOptions: FIT_BOUNDS_OPTIONS,
+      }
 
-    if (center) opts.center = center
-    if (zoom) opts.zoom = zoom
-    if (bounds) opts.bounds = bounds
+      if (center) opts.center = center
+      if (zoom) opts.zoom = zoom
+      if (bounds) opts.bounds = bounds
 
-    const map = new mapboxgl.Map(opts)
-    map.on('load', () => setMap(map))
+      const map = new mapboxgl.Map(opts)
+      map.on('load', () => setMap(map))
 
-    // deselect location on off-marker click
-    map.on('click', (e) => {
-      if (!e.originalEvent.defaultPrevented) selectLocation(null)
-    })
+      // deselect location on off-marker click
+      map.on('click', (e) => {
+        if (!e.originalEvent.defaultPrevented) selectLocation(null)
+      })
 
-    // deal with resizing when alert is closed
-    const handleResize = () => setTimeout(() => map.resize())
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [selectLocation])
+      // deal with resizing when alert is closed
+      const handleResize = () => setTimeout(() => map.resize())
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    },
+    [selectLocation]
+  )
 
   const updateMap = useCallback((map, { center, zoom, bounds }) => {
     if (center) map.panTo(center)
@@ -77,10 +79,8 @@ const Map = ({
   }, [])
 
   useEffect(() => {
-    if (map)
-      updateMap(map, position)
-    else
-      initMap(position)
+    if (map) updateMap(map, position)
+    else initMap(position)
   }, [map, position, initMap, updateMap])
 
   return (
@@ -114,7 +114,7 @@ Map.propTypes = {
     center: PropTypes.any,
     zoom: PropTypes.number,
     bounds: PropTypes.arrayOf(PropTypes.number),
-  })
+  }),
 }
 
 Map.defaultProps = {

@@ -26,7 +26,6 @@ const MapContainer = ({
 
   useEffect(() => {
     if (userLocation) {
-
       if (selectedLocation)
         return setPosition({
           bounds: surround([
@@ -47,9 +46,7 @@ const MapContainer = ({
             [userLocation.lng, userLocation.lat],
           ]),
         })
-
     } else {
-
       if (selectedLocation)
         return setPosition({
           center: selectedLocation.geomPoint.coordinates,
@@ -70,7 +67,6 @@ const MapContainer = ({
           bounds: surround(locations.map((loc) => loc.geomPoint.coordinates)),
         })
     }
-
   }, [locations, userLocation, selectedLocation])
 
   if (!position) return null

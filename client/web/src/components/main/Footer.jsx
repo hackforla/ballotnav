@@ -14,7 +14,7 @@ const Footer = () => {
   const { pathname } = useLocation()
 
   return (
-    <footer className={clx("footer", { map: pathname === '/map' })} id="footer">
+    <footer className={clx('footer', { map: pathname === '/map' })} id="footer">
       <div className="content">
         <div className="social-wrapper">
           <a href="https://www.hackforla.org">

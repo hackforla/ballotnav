@@ -13,20 +13,18 @@ export const userLocation = (state) => state.query.lngLat
 export const selectedLocationId = (state) => state.query.locationId
 export const modals = (state) => state.modals
 
-const geocodedLocations = createSelector(
-  [locations],
-  (locations) => {
-    if (!locations) return []
+const geocodedLocations = createSelector([locations], (locations) => {
+  if (!locations) return []
 
-    const filteredLocations = locations.filter((loc) =>
-      loc.geomLongitude && loc.geomLatitude)
+  const filteredLocations = locations.filter(
+    (loc) => loc.geomLongitude && loc.geomLatitude
+  )
 
-    const numMissing = locations.length - filteredLocations.length
-    if (numMissing > 0) console.log(`locations not geocoded: ${numMissing}`)
+  const numMissing = locations.length - filteredLocations.length
+  if (numMissing > 0) console.log(`locations not geocoded: ${numMissing}`)
 
-    return filteredLocations
-  }
-)
+  return filteredLocations
+})
 
 /*
   Adds a 'distanceFromUser' property to each geocoded location and sorts
@@ -44,7 +42,7 @@ export const sortedLocations = createSelector(
           [userLocation.lng, userLocation.lat],
           [loc.geomLongitude, loc.geomLatitude],
           { units: 'miles' }
-        )
+        ),
       }))
       .sort((a, b) => a.distanceFromUser - b.distanceFromUser)
   }
