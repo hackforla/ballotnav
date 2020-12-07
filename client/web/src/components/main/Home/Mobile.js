@@ -1,12 +1,11 @@
 import React from 'react'
-import Footer from '../Footer'
 import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
 import { ReactComponent as HeroMobile } from 'assets/images/home-hero-mobile.svg'
 
 const Mobile = withStyles((theme) => ({
   root: {
-    minHeight: `calc(100vh - ${theme.layout.headerHeight}px)`,
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -75,7 +74,6 @@ const Mobile = withStyles((theme) => ({
         <SearchBar useModal />
       </div>
     </div>
-    <Footer />
   </div>
 ))
 

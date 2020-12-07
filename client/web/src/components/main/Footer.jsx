@@ -3,15 +3,18 @@
 /* eslint-disable react/jsx-no-target-blank */
 
 import React from 'react'
-
-import hackForLALogo from '../../assets/hack-for-LA-logo.svg'
-import twitterLogo from '../../assets/twitter-logo.svg'
-import facebookLogo from '../../assets/facebook-logo.svg'
-import ivoted from '../../assets/ivoted.png'
+import hackForLALogo from 'assets/hack-for-LA-logo.svg'
+import twitterLogo from 'assets/twitter-logo.svg'
+import facebookLogo from 'assets/facebook-logo.svg'
+import ivoted from 'assets/ivoted.png'
+import { useLocation } from 'react-router-dom'
+import clx from 'classnames'
 
 const Footer = () => {
+  const { pathname } = useLocation()
+
   return (
-    <footer className="footer" id="footer">
+    <footer className={clx("footer", { map: pathname === '/map' })} id="footer">
       <div className="content">
         <div className="social-wrapper">
           <a href="https://www.hackforla.org">
@@ -56,11 +59,6 @@ const Footer = () => {
             >
               Tweet
             </a>
-            <script
-              async
-              src="https://platform.twitter.com/widgets.js"
-              charSet="utf-8"
-            ></script>
           </div>
         </div>
         <div className="privacy-policy">

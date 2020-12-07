@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import clx from 'classnames'
@@ -48,6 +48,10 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
   }
 
   const isMobileMap = isMobile && ['/map'].includes(pathname)
+
+  useEffect(() => {
+    setActiveBurger(false)
+  }, [pathname])
 
   return (
     <nav
@@ -102,18 +106,18 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
         <div className="hamburger-menu">
           <div className="hamburger-menu-content">
-            <a href="/">
+            <Link to="/">
               <img src={logo} alt="" />
-            </a>
-            <a className="navbar-item" href="/about">
+            </Link>
+            <Link className="navbar-item" to="/about">
               About
-            </a>
-            <a className="navbar-item" href="/volunteer">
+            </Link>
+            <Link className="navbar-item" to="/volunteer">
               Volunteer
-            </a>
-            <a className="navbar-item" href="/press">
+            </Link>
+            <Link className="navbar-item" to="/press">
               Press
-            </a>
+            </Link>
           </div>
           <Footer />
         </div>

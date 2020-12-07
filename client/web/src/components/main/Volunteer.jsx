@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Footer from './Footer'
 import volunteerHero from 'assets/volunteerHero.svg'
 
 const Volunteer = () => {
@@ -53,7 +52,6 @@ const Volunteer = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
