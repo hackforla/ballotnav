@@ -4,21 +4,21 @@ import mapboxgl from 'services/mapbox'
 import LocationIcon from 'components/shared/LocationIcon'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   '@global': {
     '.mapboxgl-canvas-container': {
       '& .location-marker svg': {
-        fill: '#614799',
+        fill: theme.palette.locationMarkers.default,
       },
       '& .location-marker.selected': {
         zIndex: 1,
         '& svg': {
-          fill: '#FF0029',
+          fill: theme.palette.locationMarkers.selected,
         },
       },
     },
   },
-})
+}))
 
 const LocationMarkers = ({
   map,

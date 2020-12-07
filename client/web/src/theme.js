@@ -18,6 +18,10 @@ export default createMuiTheme({
       default: '#FFF',
     },
     divider: '#CCD3DD',
+    locationMarkers: {
+      default: '#614799',
+      selected: '#FF0029',
+    },
   },
   typography: {
     fontFamily: ['Open Sans', 'sans-serif'],
