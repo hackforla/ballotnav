@@ -7,9 +7,14 @@ import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
 import Map from './Map'
 
-function bboxFromPoints(points) {
+function surround(points) {
   return bbox(lineString(points))
 }
+
+const CONTINENTAL_US = [
+  [-124.848974, 24.396308],
+  [-66.885444, 49.384358],
+]
 
 const MapContainer = ({
   locations,
@@ -20,49 +25,51 @@ const MapContainer = ({
   const [position, setPosition] = useState(null)
 
   useEffect(() => {
-    if (selectedLocation && userLocation)
-      return setPosition({
-        bounds: bboxFromPoints([
-          selectedLocation.geomPoint.coordinates,
-          [userLocation.lng, userLocation.lat],
-        ]),
-      })
+    if (userLocation) {
 
-    if (selectedLocation)
-      return setPosition({
-        center: selectedLocation.geomPoint.coordinates
-      })
+      if (selectedLocation)
+        return setPosition({
+          bounds: surround([
+            selectedLocation.geomPoint.coordinates,
+            [userLocation.lng, userLocation.lat],
+          ]),
+        })
 
-    if (userLocation && locations.length === 0)
-      return setPosition({
-        center: userLocation
-      })
+      if (locations.length === 0)
+        return setPosition({
+          center: userLocation,
+        })
 
-    if (userLocation && locations.length > 0)
-      return setPosition({
-        bounds: bboxFromPoints([
-          locations[0].geomPoint.coordinates,
-          [userLocation.lng, userLocation.lat],
-        ]),
-      })
+      if (locations.length > 0)
+        return setPosition({
+          bounds: surround([
+            locations[0].geomPoint.coordinates,
+            [userLocation.lng, userLocation.lat],
+          ]),
+        })
 
-    if (locations.length > 1)
-      return setPosition({
-        bounds: bboxFromPoints(locations.map((loc) => loc.geomPoint.coordinates))
-      })
+    } else {
 
-    if (locations.length === 1)
-      return setPosition({
-        center: locations[0].geomPoint.coordinates,
-      })
+      if (selectedLocation)
+        return setPosition({
+          center: selectedLocation.geomPoint.coordinates,
+        })
 
-    // default to continental US
-    return setPosition({
-      bounds: [
-        [-124.848974, 24.396308],
-        [-66.885444, 49.384358],
-      ]
-    })
+      if (locations.length === 0)
+        return setPosition({
+          bounds: CONTINENTAL_US,
+        })
+
+      if (locations.length === 1)
+        return setPosition({
+          center: locations[0].geomPoint.coordinates,
+        })
+
+      if (locations.length > 1)
+        return setPosition({
+          bounds: surround(locations.map((loc) => loc.geomPoint.coordinates)),
+        })
+    }
 
   }, [locations, userLocation, selectedLocation])
 

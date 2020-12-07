@@ -49,7 +49,7 @@ const Map = ({
       container: mapContainer.current,
       style: styleUrl,
       zoom: DEFAULT_ZOOM,
-      fitBoundsOptions: FIT_BOUNDS_OPTIONS
+      fitBoundsOptions: FIT_BOUNDS_OPTIONS,
     }
 
     if (center) opts.center = center
