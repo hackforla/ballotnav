@@ -6,10 +6,10 @@ import Routes from './Routes'
 import Modals from './components/modals'
 import history from 'services/history'
 import { makeStyles } from '@material-ui/core/styles'
+import Div100vh from 'react-div-100vh' // for browser bottom bar issue on safari mobile
 
 const useStyles = makeStyles({
   root: {
-    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -22,13 +22,13 @@ const App = () => {
   const classes = useStyles()
   return (
     <Router history={history}>
-      <div className={classes.root}>
+      <Div100vh className={classes.root}>
         <Header />
         <div className={classes.content}>
           <Routes />
         </div>
         <Footer />
-      </div>
+      </Div100vh>
       <Modals />
     </Router>
   )
