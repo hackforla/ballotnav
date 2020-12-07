@@ -45,7 +45,7 @@ const DirectionsButton = ({ location, userLngLat, userAddress }) => {
       destination: addressString(location),
     })
     window.open(`https://www.google.com/maps/dir/?${query}`)
-  }, [location, origin])
+  }, [location, userLngLat, userAddress])
 
   return (
     <div className={classes.root} onClick={showDirections}>
