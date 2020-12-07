@@ -193,6 +193,17 @@ const reducer = (state = initialState, action) => {
           },
         },
       }
+    case types.OPEN_MODAL:
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          [action.data.modalId]: {
+            isOpen: true,
+            params: action.data.params,
+          },
+        },
+      }
     case types.CLOSE_MODAL:
       return {
         ...state,
