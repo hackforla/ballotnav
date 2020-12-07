@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 import LocationIcon from 'components/shared/LocationIcon'
 import { ReactComponent as WheelchairIcon } from 'assets/icons/wheelchair.svg'
 
@@ -37,14 +37,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LocationName = ({ location }) => {
+const LocationName = ({ location, isSelected }) => {
   const classes = useStyles()
+  const theme = useTheme()
+  const { default: defaultColor, selected } = theme.palette.locationMarkers
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>
         <LocationIcon
           size={42}
-          fill="#5B71C0"
+          fill={isSelected ? selected : defaultColor}
           facilityTypeId={location.facilityTypeId}
         />
       </div>
@@ -63,4 +65,9 @@ export default LocationName
 
 LocationName.propTypes = {
   location: PropTypes.shape({}).isRequired,
+  isSelected: PropTypes.bool,
+}
+
+LocationName.defaultProps = {
+  isSelected: false,
 }

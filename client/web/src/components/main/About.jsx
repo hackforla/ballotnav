@@ -2,7 +2,6 @@
 
 import React from 'react'
 
-import Footer from './Footer'
 import aboutHero from 'assets/aboutHero.svg'
 import hackForLALogo from 'assets/hack-for-LA-logo.svg'
 import codeForAmericaLogo from 'assets/codeForAmericaLogo.png'
@@ -89,7 +88,6 @@ const About = () => {
           <span className="underline">Code for San José Open Oakland</span>
         </h3>
       </div>
-      <Footer />
     </div>
   )
 }

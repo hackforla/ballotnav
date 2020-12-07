@@ -7,7 +7,7 @@ import Sidebar from './Sidebar'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: `calc(100vh - ${theme.layout.headerHeight}px)`,
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },

@@ -27,6 +27,7 @@ const JurisdictionSelect = ({
   statesWithJurisdictions,
   state,
   jurisdiction,
+  onComplete,
 }) => {
   const classes = useStyles()
   const history = useHistory()
@@ -54,6 +55,7 @@ const JurisdictionSelect = ({
       const query = queryString.stringify({ jid: id })
       history.push(`/map?${query}`)
     }
+    if (onComplete) onComplete()
   }
 
   return (
@@ -102,10 +104,12 @@ JurisdictionSelect.propTypes = {
   statesWithJurisdictions: PropTypes.arrayOf(PropTypes.shape({})),
   state: PropTypes.shape({}),
   jurisdiction: PropTypes.shape({}),
+  onComplete: PropTypes.func,
 }
 
 JurisdictionSelect.defaultProps = {
   statesWithJurisdictions: [],
   state: null,
   jurisdiction: null,
+  onComplete: undefined,
 }

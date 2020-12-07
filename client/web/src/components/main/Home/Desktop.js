@@ -1,12 +1,11 @@
 import React from 'react'
-import Footer from '../Footer'
 import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
 import { ReactComponent as HeroDesktop } from 'assets/images/home-hero-desktop.svg'
 
 const Desktop = withStyles((theme) => ({
   root: {
-    minHeight: `calc(100vh - ${theme.layout.headerHeight}px)`,
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -73,7 +72,6 @@ const Desktop = withStyles((theme) => ({
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 ))
 

@@ -8,14 +8,18 @@ import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
+const MapPage = ({ isLoaded, jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
   const { isMobile } = useBreakpoints()
 
+  // clear query when leaving map page
+  useEffect(() => {
+    return () => saveQuery(null)
+  }, [saveQuery])
+
   // save query params whenever url changes
   useEffect(() => {
-    saveQuery(location.search)
-    return () => saveQuery(null)
+    saveQuery()
   }, [saveQuery, location.search])
 
   // load the jurisdiction whenever the id changes
@@ -23,10 +27,12 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
     if (jurisdictionId) getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
+  if (!isLoaded) return null
   return isMobile ? <Mobile /> : <Desktop />
 }
 
 const mapStateToProps = (state) => ({
+  isLoaded: select.isLoaded(state),
   jurisdictionId: select.query(state).jurisdictionId,
 })
 
@@ -42,8 +48,10 @@ MapPage.propTypes = {
   jurisdictionId: PropTypes.number,
   saveQuery: PropTypes.func.isRequired,
   getJurisdiction: PropTypes.func.isRequired,
+  isLoaded: PropTypes.bool,
 }
 
 MapPage.defaultProps = {
   jurisdictionId: null,
+  isLoaded: false,
 }

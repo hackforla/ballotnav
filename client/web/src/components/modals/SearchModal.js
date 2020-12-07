@@ -102,7 +102,7 @@ const SearchModal = ({ isOpen, close }) => {
             case 'jurisdiction':
               return (
                 <div className={classes.jurisdiction}>
-                  <JurisdictionSelect />
+                  <JurisdictionSelect onComplete={close} />
                 </div>
               )
             default:

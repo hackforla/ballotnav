@@ -1,3 +1,4 @@
+import history from 'services/history'
 import api from 'services/api'
 import queryString from 'query-string'
 
@@ -14,15 +15,18 @@ export const types = {
   CLOSE_MODAL: 'CLOSE_MODAL',
 }
 
-export const saveQuery = (urlQueryString) => {
-  let { jid, lng, lat, address } = queryString.parse(urlQueryString)
+export const saveQuery = () => {
+  const { search: query } = history.location
+  let { jid, lid, lng, lat, address } = queryString.parse(query)
   jid = parseInt(jid)
+  lid = parseInt(lid)
   lng = parseFloat(lng)
   lat = parseFloat(lat)
   return {
     type: types.SAVE_QUERY,
     data: {
       jurisdictionId: jid || null,
+      locationId: lid || null,
       lngLat: lng && lat ? { lng, lat } : null,
       address: address || null,
     },
@@ -68,10 +72,15 @@ export const getStatesWithJurisdictions = () => {
       )
 }
 
-export const selectLocation = (locationId) => ({
-  type: types.SELECT_LOCATION,
-  data: { locationId },
-})
+export const selectLocation = (locationId) => {
+  const query = queryString.parse(history.location.search)
+  query.lid = locationId || undefined
+  history.push(`/map?${queryString.stringify(query)}`)
+  return {
+    type: types.SELECT_LOCATION,
+    data: { locationId },
+  }
+}
 
 export const openModal = (modalId, params) => ({
   type: types.OPEN_MODAL,
@@ -86,19 +95,18 @@ export const closeModal = (modalId) => ({
 const initialState = {
   query: {
     jurisdictionId: null,
+    locationId: null,
     lngLat: null,
     address: null,
   },
   data: {
-    isLoading: true,
+    isLoaded: false,
+    isLoading: false,
     error: null,
     state: null,
     jurisdiction: null,
     locations: null,
     statesWithJurisdictions: null,
-  },
-  ui: {
-    selectedLocationId: null,
   },
   modals: {
     search: {
@@ -123,12 +131,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         query: {
           jurisdictionId: action.data.jurisdictionId,
+          locationId: action.data.locationId,
           lngLat: action.data.lngLat,
           address: action.data.address,
-        },
-        ui: {
-          ...state.ui,
-          selectedLocationId: null,
         },
       }
     case types.GET_JURISDICTION_PENDING:
@@ -145,6 +150,7 @@ const reducer = (state = initialState, action) => {
         data: {
           ...state.data,
           isLoading: false,
+          isLoaded: true,
           error: null,
           state: action.data.state,
           jurisdiction: action.data.jurisdiction,
@@ -156,11 +162,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         data: {
           isLoading: false,
+          isLoaded: true,
           error: action.data.error,
-        },
-        ui: {
-          ...state.ui,
-          selectedLocationId: null,
         },
       }
     case types.GET_STATES_WITH_JURISDICTIONS_SUCCESS:
@@ -182,9 +185,12 @@ const reducer = (state = initialState, action) => {
     case types.SELECT_LOCATION:
       return {
         ...state,
-        ui: {
-          ...state.ui,
-          selectedLocationId: action.data.locationId,
+        modals: {
+          ...state.modals,
+          [action.data.modalId]: {
+            isOpen: true,
+            params: action.data.params,
+          },
         },
       }
     case types.OPEN_MODAL:
