@@ -27,9 +27,7 @@ const useStyles = makeStyles((theme) => ({
     left: 15,
     zIndex: 20,
   },
-  jurisdiction: {
-    paddingTop: 15,
-  },
+  jurisdiction: {},
   tabs: {
     display: 'flex',
     marginTop: 8,
@@ -102,7 +100,7 @@ const SearchModal = ({ isOpen, close }) => {
             case 'jurisdiction':
               return (
                 <div className={classes.jurisdiction}>
-                  <JurisdictionSelect />
+                  <JurisdictionSelect onChange={close} />
                 </div>
               )
             default:
