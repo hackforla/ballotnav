@@ -14,6 +14,7 @@ import SearchSelect from './SearchSelect'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    alignItems: 'center',
     height: '80px',
     backgroundColor: theme.palette.primary.main,
   },

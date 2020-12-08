@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'inline-block',
-    margin: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(4),
   },
@@ -64,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
 const useStylesMobile = makeStyles((theme) => ({
   root: {
     display: 'inline-block',
-    margin: 'auto',
     marginRight: theme.spacing(2),
     color: theme.palette.primary.main,
   },
