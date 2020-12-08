@@ -42,7 +42,7 @@ const JurisdictionSelect = ({
   statesWithJurisdictions,
   state,
   jurisdiction,
-  onChange,
+  onChange: closeModal,
 }) => {
   const classes = useStyles()
   // const classesLight = useLightStyles()
@@ -67,7 +67,7 @@ const JurisdictionSelect = ({
 
   const handleJurisdictionChange = (jurisdiction) => {
     setSelectedJurisdiction(jurisdiction)
-    onChange()
+    closeModal()
     if (jurisdiction) {
       const { id } = jurisdiction
       const query = queryString.stringify({ jid: id })
@@ -79,7 +79,7 @@ const JurisdictionSelect = ({
     <div className={classes.root}>
       {isMobile ? (
         <>
-          <IconButton size="small" aria-label="close" onClick={onChange}>
+          <IconButton size="small" aria-label="close" onClick={closeModal}>
             <ArrowBackIcon className={classes.backButton} />
           </IconButton>
           <SearchSelect
