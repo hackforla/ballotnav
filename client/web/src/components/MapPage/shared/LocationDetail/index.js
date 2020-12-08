@@ -9,7 +9,7 @@ import LocationRules from './LocationRules'
 import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
 
-const LocationDetail = ({ location, origin }) => {
+const LocationDetail = ({ location, userLngLat, userAddress }) => {
   if (!location) return null
   return (
     <>
@@ -23,7 +23,11 @@ const LocationDetail = ({ location, origin }) => {
         }}
       >
         <ShareButton location={location} />
-        <DirectionsButton origin={origin} location={location} />
+        <DirectionsButton
+          userLngLat={userLngLat}
+          userAddress={userAddress}
+          location={location}
+        />
       </div>
       <Divider style={{ margin: '16px 0' }} />
       <VerifyBox />
@@ -33,17 +37,20 @@ const LocationDetail = ({ location, origin }) => {
 }
 
 const mapStateToProps = (state) => ({
-  origin: select.query(state).lngLat,
+  userLngLat: select.query(state).lngLat,
+  userAddress: select.query(state).address,
 })
 
 export default connect(mapStateToProps)(LocationDetail)
 
 LocationDetail.propTypes = {
   location: PropTypes.shape({}),
-  origin: PropTypes.shape({}),
+  userLngLat: PropTypes.shape({}),
+  userAddress: PropTypes.string,
 }
 
 LocationDetail.defaultProps = {
   location: null,
-  origin: null,
+  userLngLat: undefined,
+  userAddress: undefined,
 }

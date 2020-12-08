@@ -24,19 +24,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const DirectionsButton = ({ origin, location }) => {
+function addressString(location) {
+  return [
+    `${location.address1}, ${location.address2} ${location.city},`,
+    `${location.state} ${location.zip}`,
+  ].join(' ')
+}
+
+const DirectionsButton = ({ location, userLngLat, userAddress }) => {
   const classes = useStyles()
 
   const showDirections = useCallback(() => {
     const query = queryString.stringify({
       api: 1,
-      origin: `${origin.lat},${origin.lng}`,
-      destination: `${location.geomLatitude},${location.geomLongitude}`,
+      origin: (() => {
+        if (userAddress) return userAddress
+        if (userLngLat) return `${userLngLat.lat},${userLngLat.lng}`
+        return undefined
+      })(),
+      destination: addressString(location),
     })
     window.open(`https://www.google.com/maps/dir/?${query}`)
-  }, [location, origin])
-
-  if (!origin || !location.geomLatitude || !location.geomLongitude) return null
+  }, [location, userLngLat, userAddress])
 
   return (
     <div className={classes.root} onClick={showDirections}>
@@ -52,10 +61,12 @@ export default DirectionsButton
 
 DirectionsButton.propTypes = {
   location: PropTypes.shape({}),
-  origin: PropTypes.shape({}),
+  userLngLat: PropTypes.shape({}),
+  userAddress: PropTypes.string,
 }
 
 DirectionsButton.defaultProps = {
   location: null,
-  origin: null,
+  userLngLat: undefined,
+  userAddress: undefined,
 }
