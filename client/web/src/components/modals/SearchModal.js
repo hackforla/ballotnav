@@ -27,9 +27,7 @@ const useStyles = makeStyles((theme) => ({
     left: 15,
     zIndex: 20,
   },
-  jurisdiction: {
-    paddingTop: 15,
-  },
+  jurisdiction: {},
   tabs: {
     display: 'flex',
     marginTop: 8,

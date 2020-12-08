@@ -3,21 +3,37 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import queryString from 'query-string'
-import { makeStyles } from '@material-ui/core/styles'
 import * as select from 'store/selectors'
 import { getStatesWithJurisdictions } from 'store/actions'
+import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
+import IconButton from '@material-ui/core/IconButton'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import SearchSelect from './SearchSelect'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
+    display: 'flex',
+    alignItems: 'center',
     height: '80px',
+    backgroundColor: theme.palette.primary.main,
+  },
+  backButton: {
+    color: '#FFFFFF',
   },
 }))
 
+// const useStylesLight = makeStyles((theme) => ({
+//   root: {
+//     backgroundColor: '#FFFFFF',
+//   },
+//   backButton: {
+//     color: theme.palette.primary.main,
+//   },
+// }))
+
 /*
   TODO:
-    - Mobile: styles, TextField variant, state abbrevs, back button
     - Jurisdictions: fetch geojson with jdx data
     - Map: fit to jdx bounds after manual select
 */
@@ -27,10 +43,12 @@ const JurisdictionSelect = ({
   statesWithJurisdictions,
   state,
   jurisdiction,
-  onComplete,
+  onComplete: closeModal,
 }) => {
   const classes = useStyles()
+  // const classesLight = useLightStyles()
   const history = useHistory()
+  const { isMobile } = useBreakpoints()
   const [selectedState, setSelectedState] = useState(state)
   const [selectedJurisdiction, setSelectedJurisdiction] = useState(jurisdiction)
 
@@ -55,34 +73,79 @@ const JurisdictionSelect = ({
       const query = queryString.stringify({ jid: id })
       history.push(`/map?${query}`)
     }
-    if (onComplete) onComplete()
+    if (closeModal) closeModal()
   }
 
   return (
     <div className={classes.root}>
-      <SearchSelect
-        placeholderText="Choose your state"
-        options={statesWithJurisdictions || []}
-        selected={selectedState}
-        onChange={handleStateChange}
-        disabled={!statesWithJurisdictions}
-        width={280}
-      />
-      <SearchSelect
-        placeholderText="Choose your jurisdiction"
-        options={
-          (selectedState &&
-            statesWithJurisdictions &&
-            statesWithJurisdictions.find(
-              (state) => state.id === selectedState.id
-            ).jurisdictions) ||
-          []
-        }
-        selected={selectedJurisdiction}
-        onChange={handleJurisdictionChange}
-        disabled={!selectedState}
-        width={340}
-      />
+      {isMobile ? (
+        <>
+          <IconButton size="small" aria-label="close" onClick={closeModal}>
+            <ArrowBackIcon className={classes.backButton} />
+          </IconButton>
+          <SearchSelect
+            placeholderText="Choose state"
+            options={statesWithJurisdictions || []}
+            selected={selectedState}
+            onChange={handleStateChange}
+            disabled={!statesWithJurisdictions}
+            width={75}
+            getOptionLabel={(option) => option?.abbreviation}
+            outline="outlined"
+            disableClearable
+            isMobile
+          />
+          <SearchSelect
+            placeholderText="Choose jurisdiction"
+            options={
+              (selectedState &&
+                statesWithJurisdictions &&
+                statesWithJurisdictions.find(
+                  (state) => state.id === selectedState.id
+                ).jurisdictions) ||
+              []
+            }
+            selected={selectedJurisdiction}
+            onChange={handleJurisdictionChange}
+            disabled={!selectedState}
+            width={235}
+            getOptionLabel={(option) => option?.name}
+            outline="outlined"
+            disableClearable
+            isMobile
+          />
+        </>
+      ) : (
+        <>
+          <SearchSelect
+            placeholderText="Choose your state"
+            options={statesWithJurisdictions || []}
+            selected={selectedState}
+            onChange={handleStateChange}
+            disabled={!statesWithJurisdictions}
+            width={280}
+            getOptionLabel={(option) => option?.name}
+            outline="standard"
+          />
+          <SearchSelect
+            placeholderText="Choose your jurisdiction"
+            options={
+              (selectedState &&
+                statesWithJurisdictions &&
+                statesWithJurisdictions.find(
+                  (state) => state.id === selectedState.id
+                ).jurisdictions) ||
+              []
+            }
+            selected={selectedJurisdiction}
+            onChange={handleJurisdictionChange}
+            disabled={!selectedState}
+            width={340}
+            getOptionLabel={(option) => option?.name}
+            outline="standard"
+          />
+        </>
+      )}
     </div>
   )
 }
