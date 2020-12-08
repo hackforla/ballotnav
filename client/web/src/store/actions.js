@@ -1,5 +1,6 @@
 import history from 'services/history'
 import api from 'services/api'
+import mixpanel from 'services/mixpanel'
 import queryString from 'query-string'
 
 export const types = {
@@ -22,35 +23,43 @@ export const saveQuery = () => {
   lid = parseInt(lid)
   lng = parseFloat(lng)
   lat = parseFloat(lat)
+  const data = {
+    jurisdictionId: jid || null,
+    locationId: lid || null,
+    lngLat: lng && lat ? { lng, lat } : null,
+    address: address || null,
+  }
+  mixpanel.track(types.SAVE_QUERY, data)
   return {
     type: types.SAVE_QUERY,
-    data: {
-      jurisdictionId: jid || null,
-      locationId: lid || null,
-      lngLat: lng && lat ? { lng, lat } : null,
-      address: address || null,
-    },
+    data,
   }
 }
 
 export const getJurisdiction = (jurisdictionId) => {
   return (dispatch) => {
+    // start timer
+    mixpanel.time_event(types.GET_JURISDICTION_SUCCESS)
     dispatch({ type: types.GET_JURISDICTION_PENDING })
 
     return api
       .getJurisdiction(jurisdictionId)
-      .then(({ state, jurisdiction, locations }) =>
+      .then(({ state, jurisdiction, locations }) => {
+        const data = { state, jurisdiction, locations }
+        // end timer and log data
+        mixpanel.track(types.GET_JURISDICTION_SUCCESS, data)
         dispatch({
           type: types.GET_JURISDICTION_SUCCESS,
-          data: { state, jurisdiction, locations },
+          data,
         })
-      )
-      .catch((error) =>
+      })
+      .catch((error) => {
+        mixpanel.track(types.GET_JURISDICTION_ERROR, error)
         dispatch({
           type: types.GET_JURISDICTION_ERROR,
           data: { error },
         })
-      )
+      })
   }
 }
 
@@ -76,6 +85,7 @@ export const selectLocation = (locationId) => {
   const query = queryString.parse(history.location.search)
   query.lid = locationId || undefined
   history.push(`/map?${queryString.stringify(query)}`)
+  mixpanel.track(types.SELECT_LOCATION, locationId)
   return {
     type: types.SELECT_LOCATION,
     data: { locationId },
