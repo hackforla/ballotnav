@@ -6,9 +6,9 @@ import queryString from 'query-string'
 import * as select from 'store/selectors'
 import { getStatesWithJurisdictions } from 'store/actions'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 import IconButton from '@material-ui/core/IconButton'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import useBreakpoints from 'hooks/useBreakpoints'
 import SearchSelect from './SearchSelect'
 
 const useStyles = makeStyles((theme) => ({
