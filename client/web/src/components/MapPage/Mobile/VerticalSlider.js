@@ -6,6 +6,10 @@ import useSize from 'hooks/useSize'
 const TRANSITION = 'all 0.25s ease-in-out'
 const SLIDE_BUFFER = 20
 
+function clamp(num, min, max) {
+  return num <= min ? min : num >= max ? max : num
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
@@ -35,7 +39,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const VerticalSlider = ({ position, onChange, tallContent, shortContent, onShortContentHeightChange }) => {
+const VerticalSlider = ({
+  position,
+  onChange,
+  tallContent,
+  shortContent,
+  onShortContentHeightChange,
+}) => {
   const classes = useStyles()
   const container = useRef(null)
   const slider = useRef(null)
@@ -96,21 +106,37 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent, onShort
       let direction = null
 
       const onDrag = (e) => {
-        const top = Math.max(0, config.clientY(e) - offset)
+        const top = clamp(
+          config.clientY(e) - offset,
+          0,
+          container.current.offsetHeight - shortContentHeight,
+        )
+
         if (direction === null) {
           if (top < origTop) direction = 'up'
           else if (top > origTop) direction = 'down'
         }
+
         setTop(top)
       }
 
       const onDragEnd = (e) => {
-        // restore pull-to-refresh and animated transition
-        document.documentElement.style.overflow = ''
-        slider.current.style.transition = TRANSITION
+        // animate transition if appropriate
+        if (
+          (position === 'short' && direction === 'up') ||
+          (position === 'tall' && direction === 'down')
+        ) {
+          slider.current.style.transition = TRANSITION
+          slider.current.addEventListener('transitionend', () => {
+            slider.current.style.transition = ''
+          }, { once: true })
+        }
 
+        // cleanup: restore pull-to-refresh and remove listener
+        document.documentElement.style.overflow = ''
         slider.current.removeEventListener(config.dragEvent, onDrag)
 
+        // inform parent of new positiion
         switch (direction) {
           case 'up':
             return onChange('tall')
@@ -121,16 +147,15 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent, onShort
         }
       }
 
-      // disable pull-to-refresh and transition while dragging
+      // disable pull-to-refresh while dragging
       document.documentElement.style.overflow = 'hidden'
-      slider.current.style.transition = ''
 
       slider.current.addEventListener(config.dragEvent, onDrag)
       slider.current.addEventListener(config.dragEndEvent, onDragEnd, {
         once: true,
       })
     },
-    [onChange, position]
+    [onChange, position, shortContentHeight]
   )
 
   const cutoff = useMemo(() => {
@@ -146,7 +171,7 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent, onShort
         onTouchStart={onDragStart.bind(null, 'touch')}
         onMouseDown={onDragStart.bind(null, 'mouse')}
         className={classes.slider}
-        style={{ top, transition: TRANSITION }}
+        style={{ top }}
       >
         <div style={{ display: top < cutoff ? 'block' : 'none' }}>
           <div className={classes.handle}>

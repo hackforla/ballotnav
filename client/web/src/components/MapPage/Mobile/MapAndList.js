@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Map from '../shared/Map'
 import LocationList from '../shared/LocationList'
 import VerifyAlert from '../shared/VerifyAlert'
 import { makeStyles } from '@material-ui/styles'
+
+const BUTTONS_HEIGHT = 50
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
   map: {
     position: 'absolute',
     top: 0,
-    bottom: ({ locationHeight }) => locationHeight,
+    bottom: ({ locationHeight }) => Math.max(0, locationHeight - BUTTONS_HEIGHT),
     left: 0,
     right: 0,
-    transition: 'all 0.2s ease-in'
+    // transition would be nice but crashes mobile browsers -- work on this
+    // transition: 'all 0.2s ease-in'
   },
   list: {
     position: 'absolute',
@@ -36,7 +39,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   buttons: {
-    padding: 12,
+    paddingLeft: 12,
+    height: BUTTONS_HEIGHT,
+    display: 'flex',
+    alignItems: 'center',
     backgroundColor: theme.palette.primary.main,
     zIndex: 22,
     color: '#FFF',
@@ -47,10 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MapAndList = ({ isLocationSelected, locationHeight }) => {
   const [listOpen, setListOpen] = useState(false)
-  const classes = useStyles({
-    listOpen,
-    locationHeight: Math.max(0, locationHeight - 44),  // TODO: 44 is the height of the bottom button -- make it a constant
-  })
+  const classes = useStyles({ listOpen, locationHeight })
 
   useEffect(() => {
     if (isLocationSelected) setListOpen(false)
