@@ -13,6 +13,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import { openModal } from 'store/actions'
 import * as select from 'store/selectors'
 import { makeStyles } from '@material-ui/core/styles'
+import Div100vh from 'react-div-100vh'
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -104,7 +105,7 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
         </a>
       </div>
       <div className={clx('navbar-menu', { 'is-active': activeBurger })}>
-        <div className="hamburger-menu">
+        <Div100vh className="hamburger-menu">
           <div className="hamburger-menu-content">
             <Link to="/">
               <img src={logo} alt="" />
@@ -120,7 +121,7 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
             </Link>
           </div>
           <Footer />
-        </div>
+        </Div100vh>
         <div className="navbar-end">
           <Link className="navbar-item" to="/about">
             About
