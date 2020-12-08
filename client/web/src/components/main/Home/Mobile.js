@@ -31,7 +31,7 @@ const Mobile = withStyles((theme) => ({
     left: 0,
     right: 0,
     paddingLeft: 15,
-    paddingBottom: 25,
+    paddingBottom: 5,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
@@ -49,6 +49,13 @@ const Mobile = withStyles((theme) => ({
     fontSize: 14,
     fontWeight: 400,
     lineHeight: '18px',
+  },
+  h4: {
+    color: theme.palette.primary.main,
+    fontSize: 12,
+    fontWeight: 1000,
+    lineHeight: '18px',
+    marginTop: 20,
   },
   search: {
     padding: 15,
@@ -68,6 +75,10 @@ const Mobile = withStyles((theme) => ({
             your mail-in <br />
             or absentee ballot
           </h3>
+          <h4 className={classes.h4}>
+            BallotNav is displaying ballot drop-off information <br />
+            for the Georgia special election on Jan. 5
+          </h4>
         </div>
       </div>
       <div className={classes.search}>
