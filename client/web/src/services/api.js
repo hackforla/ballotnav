@@ -1,8 +1,7 @@
 import axios from 'axios'
 import queryString from 'query-string'
 
-const BASE_URL =
-  process.env.REACT_APP_API_URL || 'https://api.dev.ballotnav.org/public'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 async function getJurisdictions(lon, lat) {
   const query = queryString.stringify({ lon, lat })
