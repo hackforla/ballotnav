@@ -28,7 +28,7 @@ const FIT_BOUNDS_OPTIONS = {
     left: 100,
     right: 100,
   },
-  linear: true,
+  animate: false,
 }
 
 const Map = ({
@@ -65,19 +65,16 @@ const Map = ({
       map.on('click', (e) => {
         if (!e.originalEvent.defaultPrevented) selectLocation(null)
       })
-
-      // deal with resizing when alert is closed
-      // const handleResize = () => setTimeout(() => map.resize())
-      // window.addEventListener('resize', handleResize)
-      // return () => window.removeEventListener('resize', handleResize)
     },
     [selectLocation]
   )
 
   const updateMap = useCallback((map, { center, zoom, bounds }) => {
-    if (center) map.setCenter(center) // NOTE: had to change from panTo for transition/resize to work
-    if (zoom) map.setZoom(zoom)
-    if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
+    setTimeout(() => {
+      if (center) map.panTo(center)
+      if (zoom) map.setZoom(zoom)
+      if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
+    })
   }, [])
 
   useEffect(() => {

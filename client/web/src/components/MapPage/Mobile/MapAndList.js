@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Map from '../shared/Map'
 import LocationList from '../shared/LocationList'
 import VerifyAlert from '../shared/VerifyAlert'
