@@ -42,6 +42,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
   const [location, setLocation] = useState(null)
   const [position, setPosition] = useState('closed')
   const classes = useStyles()
+  const [shortContentHeight, setShortContentHeight] = useState(0)
 
   useEffect(() => {
     if (selectedLocation) {
@@ -62,7 +63,10 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
 
   return (
     <div className={classes.root}>
-      <MapAndList isLocationSelected={!!selectedLocation} />
+      <MapAndList
+        isLocationSelected={!!selectedLocation}
+        locationHeight={position === 'closed' ? 0 : shortContentHeight}
+      />
       <div className={classes.slider}>
         <VerticalSlider
           position={position}
@@ -82,6 +86,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
               <LocationDetail location={location} />
             </div>
           }
+          onShortContentHeightChange={setShortContentHeight}
         />
       </div>
     </div>

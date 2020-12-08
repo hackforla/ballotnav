@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
   map: {
     position: 'absolute',
     top: 0,
-    bottom: 0,
+    bottom: ({ locationHeight }) => locationHeight,
     left: 0,
     right: 0,
+    transition: 'all 0.2s ease-in'
   },
   list: {
     position: 'absolute',
@@ -44,9 +45,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const MapAndList = ({ isLocationSelected }) => {
+const MapAndList = ({ isLocationSelected, locationHeight }) => {
   const [listOpen, setListOpen] = useState(false)
-  const classes = useStyles({ listOpen })
+  const classes = useStyles({
+    listOpen,
+    locationHeight: Math.max(0, locationHeight - 44),  // TODO: 44 is the height of the bottom button -- make it a constant
+  })
 
   useEffect(() => {
     if (isLocationSelected) setListOpen(false)

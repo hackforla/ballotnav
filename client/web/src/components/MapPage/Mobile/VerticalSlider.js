@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
+const VerticalSlider = ({ position, onChange, tallContent, shortContent, onShortContentHeightChange }) => {
   const classes = useStyles()
   const container = useRef(null)
   const slider = useRef(null)
@@ -46,9 +46,11 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
 
   // save height of short content when it changes
   useEffect(() => {
-    if (shortContentSize && shortContentSize.height > 0)
+    if (shortContentSize && shortContentSize.height > 0) {
       setShortContentHeight(shortContentSize.height)
-  }, [shortContentSize])
+      onShortContentHeightChange(shortContentSize.height)
+    }
+  }, [shortContentSize, onShortContentHeightChange])
 
   useEffect(() => {
     setTop(
@@ -156,10 +158,14 @@ const VerticalSlider = ({ position, onChange, tallContent, shortContent }) => {
           ref={shortContentRef}
           style={{ display: top >= cutoff ? 'block' : 'none' }}
         >
-          <div className={classes.handle}>
-            <span />
-          </div>
-          {shortContent}
+          {shortContent && (
+            <>
+              <div className={classes.handle}>
+                <span />
+              </div>
+              {shortContent}
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -173,6 +179,7 @@ VerticalSlider.propTypes = {
   onChange: PropTypes.func,
   shortContent: PropTypes.node,
   tallContent: PropTypes.node,
+  onShortContentHeightChange: PropTypes.func,
 }
 
 VerticalSlider.defaultProps = {
@@ -180,4 +187,5 @@ VerticalSlider.defaultProps = {
   onChange: (position) => {},
   shortContent: null,
   tallContent: null,
+  onShortContentHeightChange: (height) => {},
 }

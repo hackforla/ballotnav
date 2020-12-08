@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
+import useSize from 'hooks/useSize'
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +40,7 @@ const Map = ({
 }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
+  const size = useSize(mapContainer)
   const [map, setMap] = useState(null)
 
   const initMap = useCallback(
@@ -65,15 +67,15 @@ const Map = ({
       })
 
       // deal with resizing when alert is closed
-      const handleResize = () => setTimeout(() => map.resize())
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+      // const handleResize = () => setTimeout(() => map.resize())
+      // window.addEventListener('resize', handleResize)
+      // return () => window.removeEventListener('resize', handleResize)
     },
     [selectLocation]
   )
 
   const updateMap = useCallback((map, { center, zoom, bounds }) => {
-    if (center) map.panTo(center)
+    if (center) map.setCenter(center) // NOTE: had to change from panTo for transition/resize to work
     if (zoom) map.setZoom(zoom)
     if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
   }, [])
@@ -82,6 +84,10 @@ const Map = ({
     if (map) updateMap(map, position)
     else initMap(position)
   }, [map, position, initMap, updateMap])
+
+  useEffect(() => {
+    if (map) map.resize()
+  }, [map, size])
 
   return (
     <div ref={mapContainer} className={classes.root}>
