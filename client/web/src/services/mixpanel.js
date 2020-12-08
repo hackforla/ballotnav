@@ -1,6 +1,6 @@
 import * as mxpnl from 'mixpanel-browser'
 
-const PRODUCTION_HOST= 'ballotnav.org'
+const PRODUCTION_HOST = 'ballotnav.org'
 const devToken = process.env.REACT_APP_MIXPANEL_TOKEN_DEV
 const prodToken = process.env.REACT_APP_MIXPANEL_TOKEN_PROD
 

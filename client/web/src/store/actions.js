@@ -50,7 +50,7 @@ export const getJurisdiction = (jurisdictionId) => {
         mixpanel.track(types.GET_JURISDICTION_SUCCESS, data)
         dispatch({
           type: types.GET_JURISDICTION_SUCCESS,
-          data: { state, jurisdiction, locations },
+          data,
         })
 
       })
