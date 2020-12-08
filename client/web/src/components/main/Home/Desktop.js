@@ -51,9 +51,16 @@ const Desktop = withStyles((theme) => ({
     fontWeight: 400,
     lineHeight: '32px',
   },
+  h4: {
+    color: theme.palette.primary.main,
+    fontSize: 18,
+    fontWeight: 1000,
+    lineHeight: '26px',
+    marginTop: 60,
+  },
   search: {
     width: 450,
-    marginTop: 65,
+    marginTop: 10,
   },
 }))(({ classes }) => (
   <div className={classes.root}>
@@ -66,6 +73,10 @@ const Desktop = withStyles((theme) => ({
             Find safe, secure, in-person locations to <br />
             drop off your mail-in or absentee ballot
           </h3>
+          <h4 className={classes.h4}>
+            BallotNav is displaying ballot drop-off information <br />
+            for the Georgia special election on Jan. 5
+          </h4>
           <div className={classes.search}>
             <SearchBar />
           </div>
