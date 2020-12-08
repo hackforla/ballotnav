@@ -5,6 +5,12 @@
   height: 242px;
   color: white;
   //z-index: -10;
+
+  &.map {
+    position: absolute;
+    z-index: -1;
+  }
+
   @include media('tablet') {
     height:156px;
   }

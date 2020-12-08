@@ -1,107 +1,99 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
-import { makeStyles } from '@material-ui/core/styles'
-import mapboxgl, { styleUrl } from 'services/mapbox'
 import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
-import LocationMarkers from './LocationMarkers'
-import UserMarker from './UserMarker'
+import Map from './Map'
 
-const useStyles = makeStyles({
-  root: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    '& canvas.mapboxgl-canvas:focus': {
-      outline: 'none',
-    },
-  },
-})
-
-const FIT_BOUNDS_PADDING = {
-  top: 200,
-  bottom: 200,
-  left: 200,
-  right: 200,
+function surround(points) {
+  return bbox(lineString(points))
 }
 
-const Map = ({
+const CONTINENTAL_US = [
+  [-124.848974, 24.396308],
+  [-66.885444, 49.384358],
+]
+
+const MapContainer = ({
   locations,
   userLocation,
-  selectedLocationId,
+  selectedLocation,
   selectLocation,
 }) => {
-  const classes = useStyles()
-  const mapContainer = useRef(null)
-  const [map, setMap] = useState(null)
+  const [position, setPosition] = useState(null)
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: styleUrl,
-      zoom: 13,
-    })
+    if (userLocation) {
+      if (selectedLocation)
+        return setPosition({
+          bounds: surround([
+            selectedLocation.geomPoint.coordinates,
+            [userLocation.lng, userLocation.lat],
+          ]),
+        })
 
-    map.on('load', () => setMap(map))
+      if (locations.length === 0)
+        return setPosition({
+          center: userLocation,
+        })
 
-    // deselect location on off-marker click
-    map.on('click', (e) => {
-      if (!e.originalEvent.defaultPrevented) selectLocation(null)
-    })
+      if (locations.length > 0)
+        return setPosition({
+          bounds: surround([
+            locations[0].geomPoint.coordinates,
+            [userLocation.lng, userLocation.lat],
+          ]),
+        })
+    } else {
+      if (selectedLocation)
+        return setPosition({
+          center: selectedLocation.geomPoint.coordinates,
+        })
 
-    // deal with resizing when alert is closed
-    const handleResize = () => setTimeout(() => map.resize())
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [selectLocation])
+      if (locations.length === 0)
+        return setPosition({
+          bounds: CONTINENTAL_US,
+        })
 
-  useEffect(() => {
-    if (!map || !userLocation) return
-    map.setCenter(userLocation)
-    if (locations.length === 0 || !locations[0].geomPoint) return
-    const initialZoom = [
-      locations[0].geomPoint.coordinates,
-      [userLocation.lng, userLocation.lat],
-    ]
-    const line = lineString(initialZoom)
-    map.fitBounds(bbox(line), { padding: FIT_BOUNDS_PADDING })
-  }, [map, userLocation, locations])
+      if (locations.length === 1)
+        return setPosition({
+          center: locations[0].geomPoint.coordinates,
+        })
 
+      if (locations.length > 1)
+        return setPosition({
+          bounds: surround(locations.map((loc) => loc.geomPoint.coordinates)),
+        })
+    }
+  }, [locations, userLocation, selectedLocation])
+
+  if (!position) return null
   return (
-    <div ref={mapContainer} className={classes.root}>
-      {map && (
-        <>
-          <LocationMarkers
-            map={map}
-            locations={locations}
-            selectLocation={selectLocation}
-            selectedLocationId={selectedLocationId}
-          />
-          <UserMarker map={map} userLocation={userLocation} />
-        </>
-      )}
-    </div>
+    <Map
+      locations={locations}
+      userLocation={userLocation}
+      selectedLocation={selectedLocation}
+      selectLocation={selectLocation}
+      position={position}
+    />
   )
 }
 
 const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
-  selectedLocationId: select.selectedLocationId(state),
+  selectedLocation: select.selectedLocation(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
   selectLocation: (locationId) => dispatch(selectLocation(locationId)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+export default connect(mapStateToProps, mapDispatchToProps)(MapContainer)
 
-Map.propTypes = {
+MapContainer.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   userLocation: PropTypes.shape({
     lng: PropTypes.number,
@@ -111,7 +103,7 @@ Map.propTypes = {
   selectedLocationId: PropTypes.number,
 }
 
-Map.defaultProps = {
+MapContainer.defaultProps = {
   locations: [],
   userLocation: null,
   selectedLocationId: null,

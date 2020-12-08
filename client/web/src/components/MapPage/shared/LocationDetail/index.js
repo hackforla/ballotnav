@@ -13,7 +13,7 @@ const LocationDetail = ({ location, origin }) => {
   if (!location) return null
   return (
     <>
-      <LocationCard location={location} hoursExpandable />
+      <LocationCard location={location} isSelected hoursExpandable />
       <Divider style={{ margin: '16px 0' }} />
       <div
         style={{

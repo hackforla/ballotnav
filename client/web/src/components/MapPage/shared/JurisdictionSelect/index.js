@@ -43,7 +43,7 @@ const JurisdictionSelect = ({
   statesWithJurisdictions,
   state,
   jurisdiction,
-  onChange: closeModal,
+  onComplete: closeModal,
 }) => {
   const classes = useStyles()
   // const classesLight = useLightStyles()
@@ -68,12 +68,12 @@ const JurisdictionSelect = ({
 
   const handleJurisdictionChange = (jurisdiction) => {
     setSelectedJurisdiction(jurisdiction)
-    closeModal()
     if (jurisdiction) {
       const { id } = jurisdiction
       const query = queryString.stringify({ jid: id })
       history.push(`/map?${query}`)
     }
+    if (closeModal) closeModal()
   }
 
   return (
@@ -167,12 +167,12 @@ JurisdictionSelect.propTypes = {
   statesWithJurisdictions: PropTypes.arrayOf(PropTypes.shape({})),
   state: PropTypes.shape({}),
   jurisdiction: PropTypes.shape({}),
-  onChange: PropTypes.func,
+  onComplete: PropTypes.func,
 }
 
 JurisdictionSelect.defaultProps = {
   statesWithJurisdictions: [],
   state: null,
   jurisdiction: null,
-  onChange: () => {},
+  onComplete: undefined,
 }

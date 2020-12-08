@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ReactComponent as MapMarker } from 'assets/icons/map-marker-library.svg'
+import { ReactComponent as MapMarker } from 'assets/icons/map-marker-box.svg'
 
 // TODO: switch icon based on facilityTypeId
 // need mapping between ids and icons
