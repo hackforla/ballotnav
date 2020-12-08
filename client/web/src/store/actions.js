@@ -52,7 +52,6 @@ export const getJurisdiction = (jurisdictionId) => {
           type: types.GET_JURISDICTION_SUCCESS,
           data,
         })
-
       })
       .catch((error) => {
         mixpanel.track(types.GET_JURISDICTION_ERROR, error)
