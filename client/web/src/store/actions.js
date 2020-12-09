@@ -54,7 +54,7 @@ export const getJurisdiction = (jurisdictionId) => {
         })
       })
       .catch((error) => {
-        mixpanel.track(types.GET_JURISDICTION_ERROR, error)
+        mixpanel.track(types.GET_JURISDICTION_ERROR, { error })
         dispatch({
           type: types.GET_JURISDICTION_ERROR,
           data: { error },
@@ -85,7 +85,7 @@ export const selectLocation = (locationId) => {
   const query = queryString.parse(history.location.search)
   query.lid = locationId || undefined
   history.push(`/map?${queryString.stringify(query)}`)
-  mixpanel.track(types.SELECT_LOCATION, locationId)
+  mixpanel.track(types.SELECT_LOCATION, { locationId })
   return {
     type: types.SELECT_LOCATION,
     data: { locationId },
