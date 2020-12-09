@@ -124,6 +124,7 @@ function LocationForm({ model = locationModel, initialValues, onSubmit, submitTe
               variant="outlined"
               margin="dense"
               fullWidth
+              placeholder={model[field].helperText}
               value={type === 'date' ? getFormattedDate(values[field]) : values[field] || ''}
               onChange={handleChange}
               onBlur={handleBlur}
