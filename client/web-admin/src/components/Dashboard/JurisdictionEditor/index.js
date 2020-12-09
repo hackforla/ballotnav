@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import jurisdictionModel from 'models/jurisdiction'
 import locationModel from 'models/location'
-import noticeModel from 'models/jurisdiction_notice'
+//import noticeModel from 'models/jurisdiction_notice'
 import phoneModel from 'models/jurisdiction_phone'
 import urlModel from 'models/jurisdiction_url'
 
@@ -20,22 +20,23 @@ const SUBMODELS = [{
     tableFields: [
       'name',
       'city',
-      'contactName',
-      'contactPhone',
-      'contactEmail',
+      'state',
+      'zip',
     ],
   },
   listKey: 'name',
-},{
-  id: 'notices',
-  tabLabel: 'Notices',
-  displayName: 'Notice',
-  model: {
-    editFields: noticeModel,
-    tableFields: Object.keys(noticeModel),
-  },
-  listKey: 'message',
-},{
+},
+// {
+//   id: 'notices',
+//   tabLabel: 'Notices',
+//   displayName: 'Notice',
+//   model: {
+//     editFields: noticeModel,
+//     tableFields: Object.keys(noticeModel),
+//   },
+//   listKey: 'message',
+// },
+{
   id: 'phones',
   tabLabel: 'Phones',
   displayName: 'Phone',
