@@ -9,6 +9,10 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
   const [expanded, setExpanded] = useState(false)
 
   const addInstance = (newInstance) => {
+    // new instances don't have an id.
+    // therefore we assign new instances a temporary id so if they are updated
+    // before they're saved we don't overwrite other new instances (see below)
+    newInstance.tempId = Date.now()
     onChange([
       newInstance,
       ...instances,
@@ -17,9 +21,15 @@ function SubmodelTab({ model, instances, displayName, tabLabel, listKey, onChang
 
   const updateInstance = (newInstance) => {
     const newInstances = instances.map(instance => {
-      return instance.id === newInstance.id
-        ? newInstance
-        : instance
+      if (instance.id && newInstance.id)
+        // this comparison returns true if both ids are undefined (see above)
+        return instance.id === newInstance.id
+          ? newInstance
+          : instance
+      else
+        return instance.tempId === newInstance.tempId
+          ? newInstance
+          : instance
     })
     onChange(newInstances)
   }
