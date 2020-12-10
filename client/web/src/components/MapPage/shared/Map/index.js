@@ -7,8 +7,25 @@ import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
 import Map from './Map'
 
+// returns a bounding box that contains all the points.
+// points are all [lng, lat]
 function surround(points) {
   return bbox(lineString(points))
+}
+
+// returns a bounding box centered on center that contains
+// all of the points.
+// center and points are all [lng, lat]
+function surroundWithCenter(center, points) {
+  const diff = [0, 0]
+  points.forEach((point) => {
+    diff[0] = Math.max(diff[0], Math.abs(point[0] - center[0]))
+    diff[1] = Math.max(diff[1], Math.abs(point[1] - center[1]))
+  })
+  return [
+    center[0] - diff[0], center[1] - diff[1], // southwest
+    center[0] + diff[0], center[1] + diff[1], // northeast
+  ]
 }
 
 const CONTINENTAL_US = [
@@ -41,10 +58,10 @@ const MapContainer = ({
 
       if (locations.length > 0)
         return setPosition({
-          bounds: surround([
-            locations[0].geomPoint.coordinates,
+          bounds: surroundWithCenter(
             [userLocation.lng, userLocation.lat],
-          ]),
+            locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates),
+          )
         })
     } else {
       if (selectedLocation)
