@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
@@ -33,39 +33,25 @@ const CONTINENTAL_US = [
   [-66.885444, 49.384358],
 ]
 
+const DEFAULT_ZOOM = 13
+
 const MapContainer = ({
   locations,
   userLocation,
   selectedLocation,
   selectLocation,
+  jurisdictionId,
+  isLoading,
 }) => {
   const [position, setPosition] = useState(null)
+  const [map, setMap] = useState(null)
 
-  useEffect(() => {
-    if (userLocation) {
-      if (selectedLocation)
-        return setPosition({
-          center: selectedLocation.geomPoint.coordinates,
-        })
+  const setMapPosition = useCallback(() => {
+    if (isLoading) return
 
-      if (locations.length === 0)
-        return setPosition({
-          center: userLocation,
-        })
-
-      if (locations.length > 0)
-        return setPosition({
-          bounds: surroundWithCenter(
-            [userLocation.lng, userLocation.lat],
-            locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates),
-          )
-        })
-    } else {
-      if (selectedLocation)
-        return setPosition({
-          center: selectedLocation.geomPoint.coordinates,
-        })
-
+    // jurisdiction select
+    // NOTE: this entire block will be changed to surround the jurisdiction boundaries (when we have them)
+    if (!userLocation && !selectedLocation) {
       if (locations.length === 0)
         return setPosition({
           bounds: CONTINENTAL_US,
@@ -74,6 +60,7 @@ const MapContainer = ({
       if (locations.length === 1)
         return setPosition({
           center: locations[0].geomPoint.coordinates,
+          zoom: DEFAULT_ZOOM,
         })
 
       if (locations.length > 1)
@@ -81,7 +68,56 @@ const MapContainer = ({
           bounds: surround(locations.map((loc) => loc.geomPoint.coordinates)),
         })
     }
-  }, [locations, userLocation, selectedLocation])
+
+    // search box
+    if (userLocation && !selectedLocation) {
+      return setPosition({
+        bounds: surroundWithCenter(
+          [userLocation.lng, userLocation.lat],
+          locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates),
+        )
+      })
+    }
+
+    // share link
+    if (!userLocation && selectedLocation) {
+      return setPosition({
+        center: selectedLocation.geomPoint.coordinates,
+        zoom: DEFAULT_ZOOM,
+      })
+    }
+
+    // only happens when you refresh the page with a location selected
+    if (userLocation && selectedLocation) {
+      return setPosition({
+        bounds: surroundWithCenter(
+          [userLocation.lng, userLocation.lat],
+          [selectedLocation.geomPoint.coordinates],
+        )
+      })
+    }
+  }, [locations, userLocation, selectedLocation, isLoading])
+
+  useEffect(() => {
+    setMapPosition()
+  }, [jurisdictionId])
+
+  useEffect(() => {
+    if (userLocation) setMapPosition()
+  }, [userLocation])
+
+  useEffect(() => {
+    if (!map || !selectedLocation) return
+
+    const bounds = map.getBounds()
+    const { coordinates } = selectedLocation.geomPoint
+
+    if (!bounds.contains(coordinates))
+      setPosition({
+        center: coordinates,
+        animate: true,
+      })
+  }, [map, selectedLocation])
 
   if (!position) return null
   return (
@@ -91,6 +127,7 @@ const MapContainer = ({
       selectedLocation={selectedLocation}
       selectLocation={selectLocation}
       position={position}
+      onMapReady={setMap}
     />
   )
 }
@@ -99,6 +136,8 @@ const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
   selectedLocation: select.selectedLocation(state),
+  jurisdictionId: select.jurisdiction(state)?.id,
+  isLoading: select.isLoading(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -115,10 +154,12 @@ MapContainer.propTypes = {
   }),
   selectLocation: PropTypes.func.isRequired,
   selectedLocationId: PropTypes.number,
+  isLoading: PropTypes.bool,
 }
 
 MapContainer.defaultProps = {
   locations: [],
   userLocation: null,
   selectedLocationId: null,
+  isLoading: false,
 }

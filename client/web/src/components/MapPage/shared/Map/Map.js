@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 })
 
-const DEFAULT_ZOOM = 13
+// const DEFAULT_ZOOM = 13
 
 const FIT_BOUNDS_OPTIONS = {
   padding: {
@@ -37,6 +37,7 @@ const Map = ({
   selectedLocation,
   selectLocation,
   position,
+  onMapReady,
 }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
@@ -50,7 +51,7 @@ const Map = ({
       const opts = {
         container: mapContainer.current,
         style: styleUrl,
-        zoom: DEFAULT_ZOOM,
+        // zoom: DEFAULT_ZOOM,
         fitBoundsOptions: FIT_BOUNDS_OPTIONS,
       }
 
@@ -59,7 +60,10 @@ const Map = ({
       if (bounds) opts.bounds = bounds
 
       const map = new mapboxgl.Map(opts)
-      map.on('load', () => setMap(map))
+      map.on('load', () => {
+        setMap(map)
+        onMapReady(map)
+      })
 
       // deselect location on off-marker click
       map.on('click', (e) => {
@@ -69,9 +73,12 @@ const Map = ({
     [selectLocation]
   )
 
-  const updateMap = useCallback((map, { center, zoom, bounds }) => {
+  const updateMap = useCallback((map, { center, zoom, bounds, animate }) => {
     setTimeout(() => {
-      if (center) map.panTo(center)
+      if (center) {
+        if (animate) map.panTo(center)
+        else map.setCenter(center)
+      }
       if (zoom) map.setZoom(zoom)
       if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
     })
@@ -116,7 +123,8 @@ Map.propTypes = {
   position: PropTypes.shape({
     center: PropTypes.any,
     zoom: PropTypes.number,
-    bounds: PropTypes.arrayOf(PropTypes.number),
+    bounds: PropTypes.any,
+    animate: PropTypes.bool,
   }),
 }
 
