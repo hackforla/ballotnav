@@ -72,7 +72,7 @@ const useStylesMobile = makeStyles((theme) => ({
     color: '#FFFFFF',
   },
   input: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 600,
     padding: 0,
     color: '#FFFFFF',

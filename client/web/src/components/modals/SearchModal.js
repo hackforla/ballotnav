@@ -27,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
     left: 15,
     zIndex: 20,
   },
-  jurisdiction: {},
+  jurisdiction: {
+    paddingTop: 15,
+  },
   tabs: {
     display: 'flex',
     marginTop: 8,
@@ -60,7 +62,7 @@ const SearchModal = ({ isOpen, close }) => {
   }, [isOpen])
 
   return (
-    <Dialog fullScreen keepMounted open={isOpen}>
+    <Dialog fullScreen open={isOpen}>
       <div className={classes.tabs}>
         <div
           className={clsx(classes.tab, {
