@@ -7,11 +7,12 @@ import queryString from 'query-string'
 import api from 'services/api'
 import Geocoder from './Geocoder'
 import SearchButton from './SearchButton'
+import UseMyLocation from './UseMyLocation'
 
 function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
   const history = useHistory()
 
-  const handleLngLat = useCallback(
+  const handleResult = useCallback(
     async ({ lng, lat, address }) => {
       const jurisdictions = await api.getJurisdictions(lng, lat)
 
@@ -31,8 +32,9 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
       {useModal ? (
         <SearchButton onClick={openSearchModal} />
       ) : (
-        <Geocoder center={center} address={address} onResult={handleLngLat} />
+        <Geocoder center={center} address={address} onResult={handleResult} />
       )}
+      <UseMyLocation onResult={handleResult} />
     </div>
   )
 }

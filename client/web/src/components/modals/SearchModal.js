@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
   backButton: {
     position: 'absolute',
-    top: '50%',
+    //top: '50%',
+    top: 40,
     transform: 'translateY(-50%)',
     left: 15,
     zIndex: 20,
