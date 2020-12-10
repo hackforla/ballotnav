@@ -45,10 +45,7 @@ const MapContainer = ({
     if (userLocation) {
       if (selectedLocation)
         return setPosition({
-          bounds: surround([
-            selectedLocation.geomPoint.coordinates,
-            [userLocation.lng, userLocation.lat],
-          ]),
+          center: selectedLocation.geomPoint.coordinates,
         })
 
       if (locations.length === 0)
