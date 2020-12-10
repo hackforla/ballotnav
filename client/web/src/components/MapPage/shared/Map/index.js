@@ -23,8 +23,10 @@ function surroundWithCenter(center, points) {
     diff[1] = Math.max(diff[1], Math.abs(point[1] - center[1]))
   })
   return [
-    center[0] - diff[0], center[1] - diff[1], // southwest
-    center[0] + diff[0], center[1] + diff[1], // northeast
+    center[0] - diff[0],
+    center[1] - diff[1], // southwest
+    center[0] + diff[0],
+    center[1] + diff[1], // northeast
   ]
 }
 
@@ -74,8 +76,8 @@ const MapContainer = ({
       return setPosition({
         bounds: surroundWithCenter(
           [userLocation.lng, userLocation.lat],
-          locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates),
-        )
+          locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates)
+        ),
       })
     }
 
@@ -92,8 +94,8 @@ const MapContainer = ({
       return setPosition({
         bounds: surroundWithCenter(
           [userLocation.lng, userLocation.lat],
-          [selectedLocation.geomPoint.coordinates],
-        )
+          [selectedLocation.geomPoint.coordinates]
+        ),
       })
     }
   }, [locations, userLocation, selectedLocation, isLoading])

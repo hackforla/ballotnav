@@ -14,9 +14,8 @@ export const modals = (state) => state.modals
 
 const userLng = (state) => state.query.lngLat?.lng
 const userLat = (state) => state.query.lngLat?.lat
-export const userLocation = createSelector(
-  [userLng, userLat],
-  (lng, lat) => lng && lat ? { lng, lat } : null,
+export const userLocation = createSelector([userLng, userLat], (lng, lat) =>
+  lng && lat ? { lng, lat } : null
 )
 
 const geocodedLocations = createSelector([locations], (locations) => {

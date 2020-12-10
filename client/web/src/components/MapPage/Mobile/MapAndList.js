@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
   map: {
     position: 'absolute',
     top: 0,
-    bottom: ({ locationHeight }) => Math.max(0, locationHeight - BUTTONS_HEIGHT),
+    bottom: ({ locationHeight }) =>
+      Math.max(0, locationHeight - BUTTONS_HEIGHT),
     left: 0,
     right: 0,
     // transition would be nice but crashes mobile browsers -- work on this

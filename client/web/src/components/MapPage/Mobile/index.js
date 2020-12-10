@@ -75,9 +75,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
             location && (
               <div className={classes.card}>
                 <LocationCard location={location} />
-                <div className={classes.instructions}>
-                  Swipe up for details
-                </div>
+                <div className={classes.instructions}>Swipe up for details</div>
               </div>
             )
           }

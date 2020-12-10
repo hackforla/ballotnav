@@ -109,7 +109,7 @@ const VerticalSlider = ({
         const top = clamp(
           config.clientY(e) - offset,
           0,
-          container.current.offsetHeight - shortContentHeight,
+          container.current.offsetHeight - shortContentHeight
         )
 
         if (direction === null) {
@@ -127,9 +127,13 @@ const VerticalSlider = ({
           (position === 'tall' && direction === 'down')
         ) {
           slider.current.style.transition = TRANSITION
-          slider.current.addEventListener('transitionend', () => {
-            slider.current.style.transition = ''
-          }, { once: true })
+          slider.current.addEventListener(
+            'transitionend',
+            () => {
+              slider.current.style.transition = ''
+            },
+            { once: true }
+          )
         }
 
         // cleanup: restore pull-to-refresh and remove listener
