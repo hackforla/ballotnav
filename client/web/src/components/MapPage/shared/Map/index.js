@@ -6,6 +6,7 @@ import { selectLocation } from 'store/actions'
 import { lineString } from '@turf/helpers'
 import bbox from '@turf/bbox'
 import Map from './Map'
+import { useDeltaObject } from 'react-delta'
 
 // returns a bounding box that contains all the points.
 // points are all [lng, lat]
@@ -23,10 +24,10 @@ function surroundWithCenter(center, points) {
     diff[1] = Math.max(diff[1], Math.abs(point[1] - center[1]))
   })
   return [
-    center[0] - diff[0],
-    center[1] - diff[1], // southwest
-    center[0] + diff[0],
-    center[1] + diff[1], // northeast
+    center[0] - diff[0], // west
+    center[1] - diff[1], // south
+    center[0] + diff[0], // east
+    center[1] + diff[1], // north
   ]
 }
 
@@ -47,12 +48,26 @@ const MapContainer = ({
 }) => {
   const [position, setPosition] = useState(null)
   const [map, setMap] = useState(null)
+  const delta = useDeltaObject({
+    jurisdictionId,
+    userLocation,
+    selectedLocation,
+  })
 
   const setMapPosition = useCallback(() => {
-    if (isLoading) return
+    // search box
+    if (userLocation && !selectedLocation) {
+      return setPosition({
+        bounds: surroundWithCenter(
+          [userLocation.lng, userLocation.lat],
+          locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates)
+        ),
+      })
+    }
 
     // jurisdiction select
-    // NOTE: this entire block will be changed to surround the jurisdiction boundaries (when we have them)
+    // NOTE: this entire block will be changed to surround
+    // the jurisdiction boundaries (when we have them)
     if (!userLocation && !selectedLocation) {
       if (locations.length === 0)
         return setPosition({
@@ -69,16 +84,6 @@ const MapContainer = ({
         return setPosition({
           bounds: surround(locations.map((loc) => loc.geomPoint.coordinates)),
         })
-    }
-
-    // search box
-    if (userLocation && !selectedLocation) {
-      return setPosition({
-        bounds: surroundWithCenter(
-          [userLocation.lng, userLocation.lat],
-          locations.slice(0, 5).map((loc) => loc.geomPoint.coordinates)
-        ),
-      })
     }
 
     // share link
@@ -98,15 +103,15 @@ const MapContainer = ({
         ),
       })
     }
-  }, [locations, userLocation, selectedLocation, isLoading])
+  }, [locations, userLocation, selectedLocation])
 
   useEffect(() => {
-    setMapPosition()
-  }, [jurisdictionId])
-
-  useEffect(() => {
-    if (userLocation) setMapPosition()
-  }, [userLocation])
+    if (
+      delta.jurisdictionId ||
+      (delta.userLocation && delta.userLocation.curr && !isLoading)
+    )
+      setMapPosition()
+  })
 
   useEffect(() => {
     if (!map || !selectedLocation) return

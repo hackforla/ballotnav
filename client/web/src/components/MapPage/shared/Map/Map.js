@@ -19,8 +19,6 @@ const useStyles = makeStyles({
   },
 })
 
-// const DEFAULT_ZOOM = 13
-
 const FIT_BOUNDS_OPTIONS = {
   padding: {
     top: 100,
@@ -51,7 +49,6 @@ const Map = ({
       const opts = {
         container: mapContainer.current,
         style: styleUrl,
-        // zoom: DEFAULT_ZOOM,
         fitBoundsOptions: FIT_BOUNDS_OPTIONS,
       }
 
@@ -70,10 +67,12 @@ const Map = ({
         if (!e.originalEvent.defaultPrevented) selectLocation(null)
       })
     },
-    [selectLocation]
+    [selectLocation, onMapReady]
   )
 
   const updateMap = useCallback((map, { center, zoom, bounds, animate }) => {
+    // setTimeout corrects an issue in mobile where map resizing was
+    // interfering with setting the center/bounds
     setTimeout(() => {
       if (center) {
         if (animate) map.panTo(center)
