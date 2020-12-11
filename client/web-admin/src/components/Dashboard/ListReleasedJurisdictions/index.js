@@ -17,6 +17,16 @@ function Jurisdictions() {
         volunteerName: juris.editorName,
         volunteerSlackName: juris.editorSlackName,
       }))
+
+      // sort by state, then jurisdiction
+      transformed.sort((a, b) => {
+        if (a.stateName > b.stateName) return 1
+        if (a.stateName < b.stateName) return -1
+        if (a.jurisdictionName > b.jurisdictionName) return 1
+        if (a.jurisdictionName < b.jurisdictionName) return -1
+        return 0
+      })
+
       setJurisdictions(transformed)
     })
   }
