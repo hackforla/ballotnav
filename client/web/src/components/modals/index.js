@@ -2,7 +2,7 @@ import React from 'react'
 import useBreakpoints from 'hooks/useBreakpoints'
 import SearchModal from './SearchModal'
 import ShareModal from './ShareModal'
-import VoteDotOrgModal from './VoteDotOrgModal'
+// import VoteDotOrgModal from './VoteDotOrgModal'
 
 const Modals = () => {
   const { isMobile } = useBreakpoints()
@@ -10,7 +10,7 @@ const Modals = () => {
     <>
       {isMobile && <SearchModal />}
       <ShareModal />
-      <VoteDotOrgModal />
+      {/*<VoteDotOrgModal />*/}
     </>
   )
 }

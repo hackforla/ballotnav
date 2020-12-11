@@ -9,9 +9,14 @@ export const jurisdiction = (state) => state.data.jurisdiction
 export const locations = (state) => state.data.locations
 export const statesWithJurisdictions = (state) =>
   state.data.statesWithJurisdictions
-export const userLocation = (state) => state.query.lngLat
 export const selectedLocationId = (state) => state.query.locationId
 export const modals = (state) => state.modals
+
+const userLng = (state) => state.query.lngLat?.lng
+const userLat = (state) => state.query.lngLat?.lat
+export const userLocation = createSelector([userLng, userLat], (lng, lat) =>
+  lng && lat ? { lng, lat } : null
+)
 
 const geocodedLocations = createSelector([locations], (locations) => {
   if (!locations) return []

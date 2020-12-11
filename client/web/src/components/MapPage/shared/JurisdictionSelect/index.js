@@ -53,8 +53,8 @@ const JurisdictionSelect = ({
   const [selectedJurisdiction, setSelectedJurisdiction] = useState(jurisdiction)
 
   useEffect(() => {
-    getStatesWithJurisdictions()
-  }, [getStatesWithJurisdictions])
+    if (!statesWithJurisdictions) getStatesWithJurisdictions()
+  }, [statesWithJurisdictions, getStatesWithJurisdictions])
 
   useEffect(() => {
     if (state) setSelectedState(state)

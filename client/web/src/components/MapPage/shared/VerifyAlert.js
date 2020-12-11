@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     left: 10,
     right: 10,
     borderRadius: 10,
-    zIndex: 2,
+    zIndex: 3,
   },
 }))
 

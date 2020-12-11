@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
+import useSize from 'hooks/useSize'
 
 const useStyles = makeStyles({
   root: {
@@ -18,8 +19,6 @@ const useStyles = makeStyles({
   },
 })
 
-const DEFAULT_ZOOM = 13
-
 const FIT_BOUNDS_OPTIONS = {
   padding: {
     top: 100,
@@ -27,7 +26,7 @@ const FIT_BOUNDS_OPTIONS = {
     left: 100,
     right: 100,
   },
-  linear: true,
+  animate: false,
 }
 
 const Map = ({
@@ -36,9 +35,11 @@ const Map = ({
   selectedLocation,
   selectLocation,
   position,
+  onMapReady,
 }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
+  const size = useSize(mapContainer)
   const [map, setMap] = useState(null)
 
   const initMap = useCallback(
@@ -48,7 +49,6 @@ const Map = ({
       const opts = {
         container: mapContainer.current,
         style: styleUrl,
-        zoom: DEFAULT_ZOOM,
         fitBoundsOptions: FIT_BOUNDS_OPTIONS,
       }
 
@@ -57,31 +57,40 @@ const Map = ({
       if (bounds) opts.bounds = bounds
 
       const map = new mapboxgl.Map(opts)
-      map.on('load', () => setMap(map))
+      map.on('load', () => {
+        setMap(map)
+        onMapReady(map)
+      })
 
       // deselect location on off-marker click
       map.on('click', (e) => {
         if (!e.originalEvent.defaultPrevented) selectLocation(null)
       })
-
-      // deal with resizing when alert is closed
-      const handleResize = () => setTimeout(() => map.resize())
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
     },
-    [selectLocation]
+    [selectLocation, onMapReady]
   )
 
-  const updateMap = useCallback((map, { center, zoom, bounds }) => {
-    if (center) map.panTo(center)
-    if (zoom) map.setZoom(zoom)
-    if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
+  const updateMap = useCallback((map, { center, zoom, bounds, animate }) => {
+    // setTimeout corrects an issue in mobile where map resizing was
+    // interfering with setting the center/bounds
+    setTimeout(() => {
+      if (center) {
+        if (animate) map.panTo(center)
+        else map.setCenter(center)
+      }
+      if (zoom) map.setZoom(zoom)
+      if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
+    })
   }, [])
 
   useEffect(() => {
     if (map) updateMap(map, position)
     else initMap(position)
   }, [map, position, initMap, updateMap])
+
+  useEffect(() => {
+    if (map) map.resize()
+  }, [map, size])
 
   return (
     <div ref={mapContainer} className={classes.root}>
@@ -113,7 +122,8 @@ Map.propTypes = {
   position: PropTypes.shape({
     center: PropTypes.any,
     zoom: PropTypes.number,
-    bounds: PropTypes.arrayOf(PropTypes.number),
+    bounds: PropTypes.any,
+    animate: PropTypes.bool,
   }),
 }
 
