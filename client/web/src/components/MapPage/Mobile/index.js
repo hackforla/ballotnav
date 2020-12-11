@@ -74,7 +74,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
           shortContent={
             location && (
               <div className={classes.card}>
-                <LocationCard location={location} />
+                <LocationCard location={location} isSelected />
                 <div className={classes.instructions}>Swipe up for details</div>
               </div>
             )

@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { getUserLocation } from 'services/geolocation'
 import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -48,7 +48,7 @@ const UseMyLocation = ({ onResult }) => {
         setError(false)
         onResult(lngLat)
       })
-      .catch(error => {
+      .catch((error) => {
         setLoading(false)
         setError(true)
       })
@@ -58,13 +58,14 @@ const UseMyLocation = ({ onResult }) => {
     <div className={classes.root}>
       <span className={classes.inner} onClick={handleClick}>
         <div className={classes.icon}>
-          { loading
-              ? <CircularProgress size={10} />
-              : <PinIcon width={20} height={20} />
-          }
+          {loading ? (
+            <CircularProgress size={10} />
+          ) : (
+            <PinIcon width={20} height={20} />
+          )}
         </div>
         <span className={classes.text}>
-          { error ? 'could not locate. retry?' : 'use my location' }
+          {error ? 'could not locate. retry?' : 'use my location'}
         </span>
       </span>
     </div>
