@@ -130,13 +130,14 @@ const VerticalSlider = ({
         )
 
         if (direction === null) {
-          if (top < origTop) direction = 'up'
-          else if (top > origTop) direction = 'down'
+          if (top < origTop) {
+            direction = 'up'
+          } else if (top > origTop) {
+            direction = 'down'
+            // prevent tall content from scrolling while dragging down
+            tallContentRef.current.style.overflow = 'hidden'
+          }
         }
-
-        // prevent tall content from scrolling while dragging down
-        if (direction === 'down')
-          tallContentRef.current.style.overflow = 'hidden'
 
         setTop(top)
       }
