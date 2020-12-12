@@ -12,7 +12,7 @@
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group" : "/${cluster_name}/${task_name}",
+        "awslogs-group" : "/${cluster_name}/${stage}/${task_name}",
         "awslogs-region": "${region}",
         "awslogs-stream-prefix": "${stage}",
         "awslogs-create-group": "true"
@@ -32,7 +32,7 @@
       { "name": "DISABLE_DB_MIGRATION_AUTO_RUN", "value": "1" },
       { "name": "TOKEN_EXPIRY", "value": "86400" },
       { "name": "POSTGRES_USER", "value": "ballotnav" },
-      { "name": "POSTGRES_DB", "value": "${stage}_main" }
+      { "name": "POSTGRES_DB", "value": "main" }
     ],
     "secrets": [
       { "name": "DB_HOSTNAME", "valueFrom": "${db_hostname}" },
