@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       width: 30,
       height: 4,
       backgroundColor: theme.palette.grey[300],
-    }
+    },
   },
 }))
 
@@ -63,7 +63,7 @@ const VerticalSlider = ({
   // disable pull-to-refresh
   useEffect(() => {
     document.documentElement.style.overflow = 'hidden'
-    return () => document.documentElement.style.overflow = ''
+    return () => (document.documentElement.style.overflow = '')
   }, [])
 
   // save height of short content when it changes

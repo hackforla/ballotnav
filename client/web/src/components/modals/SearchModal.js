@@ -55,7 +55,7 @@ const SearchModal = ({ isOpen, close }) => {
   const [activeTab, setActiveTab] = useState('address')
 
   useEffect(() => {
-    switch(activeTab) {
+    switch (activeTab) {
       case 'address':
         const input = document.querySelector('.mapboxgl-ctrl-geocoder--input')
         if (!input) return
@@ -68,7 +68,7 @@ const SearchModal = ({ isOpen, close }) => {
       case 'jurisdiction':
         if (!isOpen) setActiveTab('address')
         break
-        
+
       default:
         throw new Error('invalid tab')
     }
