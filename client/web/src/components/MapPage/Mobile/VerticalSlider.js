@@ -24,18 +24,23 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'grab',
     pointerEvents: 'all',
   },
+  tallContent: {
+    height: '100%',
+  },
+  shortContent: {},
   handle: {
     height: 16,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 5,
-    '& > span': {
+    '&:after': {
+      content: '""',
       borderRadius: 2,
       width: 30,
       height: 4,
       backgroundColor: theme.palette.grey[300],
-    },
+    }
   },
 }))
 
@@ -50,9 +55,16 @@ const VerticalSlider = ({
   const container = useRef(null)
   const slider = useRef(null)
   const shortContentRef = useRef(null)
+  const tallContentRef = useRef(null)
   const shortContentSize = useSize(shortContentRef)
   const [shortContentHeight, setShortContentHeight] = useState(0)
   const [top, setTop] = useState(undefined)
+
+  // disable pull-to-refresh
+  useEffect(() => {
+    document.documentElement.style.overflow = 'hidden'
+    return () => document.documentElement.style.overflow = ''
+  }, [])
 
   // save height of short content when it changes
   useEffect(() => {
@@ -62,6 +74,7 @@ const VerticalSlider = ({
     }
   }, [shortContentSize, onShortContentHeightChange])
 
+  // set top based on position
   useEffect(() => {
     setTop(
       (() => {
@@ -74,12 +87,13 @@ const VerticalSlider = ({
           case 'tall':
             return 0
           default:
-            return 0
+            throw new Error('invalid position')
         }
       })()
     )
   }, [position, shortContentHeight])
 
+  // handle dragging
   const onDragStart = useCallback(
     (type, e) => {
       const config = (() => {
@@ -97,7 +111,7 @@ const VerticalSlider = ({
               dragEndEvent: 'mouseup',
             }
           default:
-            return null
+            throw new Error('invalid type')
         }
       })()
 
@@ -106,6 +120,9 @@ const VerticalSlider = ({
       let direction = null
 
       const onDrag = (e) => {
+        // don't do anything if tall content is scrolling
+        if (tallContentRef.current.scrollTop > 0) return
+
         const top = clamp(
           config.clientY(e) - offset,
           0,
@@ -116,6 +133,10 @@ const VerticalSlider = ({
           if (top < origTop) direction = 'up'
           else if (top > origTop) direction = 'down'
         }
+
+        // prevent tall content from scrolling while dragging down
+        if (direction === 'down')
+          tallContentRef.current.style.overflow = 'hidden'
 
         setTop(top)
       }
@@ -131,16 +152,17 @@ const VerticalSlider = ({
             'transitionend',
             () => {
               slider.current.style.transition = ''
+              // restore tall content scrolling
+              if (position === 'short' && direction === 'up')
+                tallContentRef.current.style.overflow = 'scroll'
             },
             { once: true }
           )
         }
 
-        // cleanup: restore pull-to-refresh and remove listener
-        document.documentElement.style.overflow = ''
         slider.current.removeEventListener(config.dragEvent, onDrag)
 
-        // inform parent of new positiion
+        // inform parent of new position
         switch (direction) {
           case 'up':
             return onChange('tall')
@@ -151,9 +173,6 @@ const VerticalSlider = ({
         }
       }
 
-      // disable pull-to-refresh while dragging
-      document.documentElement.style.overflow = 'hidden'
-
       slider.current.addEventListener(config.dragEvent, onDrag)
       slider.current.addEventListener(config.dragEndEvent, onDragEnd, {
         once: true,
@@ -162,36 +181,41 @@ const VerticalSlider = ({
     [onChange, position, shortContentHeight]
   )
 
-  const cutoff = useMemo(() => {
-    return container.current
+  // decide which content to show
+  const showTallContent = useMemo(() => {
+    const cutoff = container.current
       ? container.current.offsetHeight - shortContentHeight - SLIDE_BUFFER
       : 0
-  }, [shortContentHeight])
+    return top < cutoff
+  }, [top, shortContentHeight])
 
   return (
     <div ref={container} className={classes.root}>
-      <div
-        ref={slider}
-        onTouchStart={onDragStart.bind(null, 'touch')}
-        onMouseDown={onDragStart.bind(null, 'mouse')}
-        className={classes.slider}
-        style={{ top }}
-      >
-        <div style={{ display: top < cutoff ? 'block' : 'none' }}>
-          <div className={classes.handle}>
-            <span />
-          </div>
-          {tallContent}
+      <div ref={slider} className={classes.slider} style={{ top }}>
+        <div
+          ref={tallContentRef}
+          className={classes.tallContent}
+          onTouchStart={onDragStart.bind(null, 'touch')}
+          onMouseDown={onDragStart.bind(null, 'mouse')}
+          style={{ display: showTallContent ? 'block' : 'none' }}
+        >
+          {tallContent && (
+            <>
+              <div className={classes.handle} />
+              {tallContent}
+            </>
+          )}
         </div>
         <div
           ref={shortContentRef}
-          style={{ display: top >= cutoff ? 'block' : 'none' }}
+          className={classes.shortContent}
+          onTouchStart={onDragStart.bind(null, 'touch')}
+          onMouseDown={onDragStart.bind(null, 'mouse')}
+          style={{ display: showTallContent ? 'none' : 'block' }}
         >
           {shortContent && (
             <>
-              <div className={classes.handle}>
-                <span />
-              </div>
+              <div className={classes.handle} />
               {shortContent}
             </>
           )}
