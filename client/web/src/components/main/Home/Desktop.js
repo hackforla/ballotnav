@@ -75,7 +75,7 @@ const Desktop = withStyles((theme) => ({
           </h3>
           <h4 className={classes.h4}>
             BallotNav is displaying ballot drop-off information <br />
-            for the Georgia special election on Jan. 5
+            for the Georgia special election on Jan. 5, 2021
           </h4>
           <div className={classes.search}>
             <SearchBar />
