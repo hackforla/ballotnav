@@ -85,7 +85,11 @@ const About = () => {
         </div>
         <h3 className="content-footer">
           Other Participating Brigades:{' '}
-          <span className="underline">Code for San José Open Oakland</span>
+          <span className="brigade-links">
+            <a href="https://www.codeforsanjose.com/">Code for San José</a>
+            <a href="https://openoakland.org/">Open Oakland</a>
+            <a href="https://www.codeforatlanta.org/">Code for Atlanta</a>
+          </span>
         </h3>
       </div>
     </div>
