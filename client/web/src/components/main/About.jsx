@@ -26,7 +26,7 @@ const About = () => {
               one or more elements of crucial information, such as available
               ballot drop-off times. The BallotNav project will collect this
               data through a network of brigade partnerships and update it
-              accordingly leading up to November’s election.
+              accordingly. 
             </p>
             <p className="bold">
               BallotNav’s overall goal is to provide information that helps
