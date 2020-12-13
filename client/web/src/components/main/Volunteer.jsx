@@ -6,7 +6,7 @@ const Volunteer = () => {
   return (
     <div className="Volunteer">
       <div className="Volunteer-wrapper">
-        <h1>Get involved</h1>
+        <h1>Get Involved</h1>
         <p>BallotNav is looking for the following types of volunteers:</p>
         <div className="header-wrapper">
           <div className="header-content">
@@ -49,7 +49,7 @@ const Volunteer = () => {
         </div>
         <div className="apply-wrapper">
           <div>
-            <button>Apply</button>
+            <a className="button" target="_blank" href="mailto: ballotnav@hackforla.org">Contact Us</a>
           </div>
         </div>
       </div>
