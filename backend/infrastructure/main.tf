@@ -28,6 +28,7 @@ data "template_file" "task_definition" {
     db_hostname       = data.aws_ssm_parameter.db_hostname.arn
     token_secret      = data.aws_ssm_parameter.token_secret.arn
     postgres_password = data.aws_ssm_parameter.postgres_password.arn
+    postgres_db       = "main"
   }
 }
 
@@ -60,6 +61,7 @@ data "template_file" "task_definition_prd" {
     db_hostname       = data.aws_ssm_parameter.prd_db_hostname.arn
     token_secret      = data.aws_ssm_parameter.prd_token_secret.arn
     postgres_password = data.aws_ssm_parameter.prd_postgres_password.arn
+    postgres_db       = "prd_main"
   }
 }
 data "aws_iam_policy_document" "assume_role_policy" {
