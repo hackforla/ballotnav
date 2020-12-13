@@ -4,6 +4,7 @@ import * as select from 'store/selectors'
 import { selectLocation } from 'store/actions'
 import LocationCard from '../shared/LocationCard'
 import LocationDetail from '../shared/LocationDetail'
+import CheckSteps from '../shared/LocationDetail/CheckSteps'
 import { makeStyles } from '@material-ui/core/styles'
 import MapAndList from './MapAndList'
 import VerticalSlider from './VerticalSlider'
@@ -82,6 +83,7 @@ const Mobile = ({ selectedLocation, deselectLocation }) => {
           tallContent={
             <div className={classes.card}>
               <LocationDetail location={location} />
+              <CheckSteps />
             </div>
           }
           onShortContentHeightChange={setLocationHeight}

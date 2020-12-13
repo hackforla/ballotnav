@@ -6,12 +6,16 @@ import Dialog from '@material-ui/core/Dialog'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '40px 30px',
     width: 700,
     height: 'calc(100vh - 64px)',
+  },
+  paperMobile: {
+    paddingTop: 40,
   },
   closeButton: {
     position: 'absolute',
@@ -21,12 +25,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const VoteDotOrg = ({ isOpen, params, close }) => {
-  const classes = useStyles()
+  const { isMobile } = useBreakpoints()
+  const classes = useStyles({ isMobile })
   const { type } = params
   return (
     <Dialog
       keepMounted // because vote.org takes a while to load in the iframe
-      classes={{ paper: classes.paper }}
+      classes={{ paper: isMobile ? classes.paperMobile : classes.paper }}
+      fullScreen={isMobile}
       open={isOpen}
       onClose={close}
     >
