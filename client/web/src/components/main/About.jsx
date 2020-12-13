@@ -26,7 +26,7 @@ const About = () => {
               one or more elements of crucial information, such as available
               ballot drop-off times. The BallotNav project will collect this
               data through a network of brigade partnerships and update it
-              accordingly leading up to November’s election.
+              accordingly.
             </p>
             <p className="bold">
               BallotNav’s overall goal is to provide information that helps
@@ -85,7 +85,11 @@ const About = () => {
         </div>
         <h3 className="content-footer">
           Other Participating Brigades:{' '}
-          <span className="underline">Code for San José Open Oakland</span>
+          <span className="brigade-links">
+            <a href="https://www.codeforsanjose.com/">Code for San José</a>
+            <a href="https://openoakland.org/">Open Oakland</a>
+            <a href="https://www.codeforatlanta.org/">Code for Atlanta</a>
+          </span>
         </h3>
       </div>
     </div>

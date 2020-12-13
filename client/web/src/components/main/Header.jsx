@@ -116,9 +116,6 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
             <Link className="navbar-item" to="/volunteer">
               Volunteer
             </Link>
-            <Link className="navbar-item" to="/press">
-              Press
-            </Link>
           </div>
           <Footer />
         </Div100vh>
@@ -128,9 +125,6 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
           </Link>
           <Link className="navbar-item" to="/volunteer">
             Volunteer
-          </Link>
-          <Link className="navbar-item" to="/press">
-            Press
           </Link>
         </div>
       </div>

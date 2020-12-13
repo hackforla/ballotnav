@@ -1,4 +1,15 @@
 .About-wrapper {
+  p {
+    font-size: 1.1em;
+    line-height: 1.4;
+  }
+  p.bold {
+    margin-top: 20px;
+  }
+  h2 {
+    color: $red;
+    margin-top: 10px;
+  }
   .header {
     display: flex;
     flex-direction:column;
@@ -71,5 +82,8 @@
   }
   .content-footer {
     margin-bottom: 30px;
+  }
+  span.brigade-links a {
+    margin-right: 10px;
   }
 }
