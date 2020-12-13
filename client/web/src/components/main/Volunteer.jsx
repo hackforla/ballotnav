@@ -49,7 +49,7 @@ const Volunteer = () => {
         </div>
         <div className="apply-wrapper">
           <div>
-            <a className="button" target="_blank" href="mailto: ballotnav@hackforla.org">Contact Us</a>
+            <a className="button" target="_blank" rel="noreferrer" href="mailto: ballotnav@hackforla.org">Contact Us</a>
           </div>
         </div>
       </div>
