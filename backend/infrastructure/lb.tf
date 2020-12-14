@@ -74,6 +74,33 @@ resource "aws_lb_listener" "https" {
   }
 }
 
+data "aws_acm_certificate" "prd_cert" {
+  domain      = "ballotnav.org"
+  types       = ["AMAZON_ISSUED"]
+  most_recent = true
+}
+# add additional cert for prd 
+resource "aws_lb_listener_certificate" "prd_cert" {
+  listener_arn    = aws_lb_listener.https.arn
+  certificate_arn = data.aws_acm_certificate.prd_cert.arn
+}
+
+resource "aws_lb_listener_rule" "host_based_weighted_routing" {
+  listener_arn = aws_lb_listener.https.arn
+  priority     = 99
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.prd_target_group.arn
+  }
+
+  condition {
+    host_header {
+      values = var.prd_host_header_values
+    }
+  }
+}
+
 resource "aws_lb_target_group" "default" {
   name_prefix          = substr(local.name, 0, 6)
   port                 = var.container_port
@@ -92,4 +119,26 @@ resource "aws_lb_target_group" "default" {
     timeout             = 10
     unhealthy_threshold = 3
   }
+}
+
+# add a target group for production app running on shared cluster
+resource "aws_lb_target_group" "prd_target_group" {
+  name_prefix          = "prd-bn"
+  port                 = var.container_port
+  protocol             = "HTTP"
+  deregistration_delay = 100
+  target_type          = "ip"
+  vpc_id               = var.vpc_id
+
+  health_check {
+    enabled             = true
+    healthy_threshold   = 5
+    interval            = 30
+    path                = "/status"
+    port                = "traffic-port"
+    protocol            = "HTTP"
+    timeout             = 10
+    unhealthy_threshold = 3
+  }
+  tags = merge({ Stage = "prd", Name = "prd-target-group" }, var.tags)
 }

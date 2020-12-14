@@ -22,14 +22,48 @@ data "template_file" "task_definition" {
     task_name        = var.task_name
     region           = var.region
     stage            = var.stage
+    project_name     = var.project_name
     # secrets injected securely from AWS SSM systems manager param store
     # https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
     db_hostname       = data.aws_ssm_parameter.db_hostname.arn
     token_secret      = data.aws_ssm_parameter.token_secret.arn
     postgres_password = data.aws_ssm_parameter.postgres_password.arn
+    postgres_db       = "main"
   }
 }
 
+data "aws_ssm_parameter" "prd_db_hostname" {
+  name = "/prd/${var.region}/DB_HOSTNAME"
+}
+
+data "aws_ssm_parameter" "prd_token_secret" {
+  name = "/prd/${var.region}/TOKEN_SECRET"
+}
+
+data "aws_ssm_parameter" "prd_postgres_password" {
+  name = "/prd/${var.region}/POSTGRES_PASSWORD"
+}
+
+data "template_file" "task_definition_prd" {
+  template = file("templates/task-definition.json")
+  vars = {
+    container_memory = var.container_memory
+    container_cpu    = var.container_cpu
+    container_port   = var.container_port
+    container_name   = var.container_name
+    image_tag        = var.image_tag
+    cluster_name     = var.cluster_name
+    task_name        = var.task_name
+    region           = var.region
+    stage            = "prd"
+    project_name     = var.project_name
+    # secrets
+    db_hostname       = data.aws_ssm_parameter.prd_db_hostname.arn
+    token_secret      = data.aws_ssm_parameter.prd_token_secret.arn
+    postgres_password = data.aws_ssm_parameter.prd_postgres_password.arn
+    postgres_db       = "prd_main"
+  }
+}
 data "aws_iam_policy_document" "assume_role_policy" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -95,7 +129,21 @@ resource "aws_ecs_task_definition" "task" {
   memory                   = var.container_memory
   cpu                      = var.container_cpu
   execution_role_arn       = aws_iam_role.task_exec_role.arn
+  tags                     = merge({ Name = "dev-task" }, var.tags)
 }
+
+resource "aws_ecs_task_definition" "task_prd" {
+  family = "prd-${var.task_name}"
+
+  container_definitions    = data.template_file.task_definition_prd.rendered
+  requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
+  memory                   = var.container_memory
+  cpu                      = var.container_cpu
+  execution_role_arn       = aws_iam_role.task_exec_role.arn
+  tags                     = merge({ Name = "prd-task" }, var.tags)
+}
+
 
 resource "aws_security_group" "svc_sg" {
   name_prefix = "bn-loadbalancer"
@@ -124,14 +172,13 @@ resource "aws_security_group" "svc_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    # security_groups = [aws_security_group.alb.id]
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = merge({ Name = "ecs-service-sg" }, var.tags)
 }
 
 resource "aws_ecs_service" "svc" {
-  name            = "${var.task_name}-${var.stage}"
+  name            = "${var.task_name}-dev"
   cluster         = aws_ecs_cluster.cluster.id
   task_definition = aws_ecs_task_definition.task.arn
   launch_type     = "FARGATE"
@@ -149,5 +196,33 @@ resource "aws_ecs_service" "svc" {
     assign_public_ip = true
   }
   depends_on = [aws_lb.alb, aws_lb_listener.https]
-  tags       = var.tags
+  lifecycle {
+    ignore_changes = [desired_count]
+  }
+  tags = merge({ Stage = "dev" }, var.tags)
+}
+
+resource "aws_ecs_service" "svc_prd" {
+  name            = "${var.task_name}-prd"
+  cluster         = aws_ecs_cluster.cluster.id
+  task_definition = aws_ecs_task_definition.task_prd.arn
+  launch_type     = "FARGATE"
+  desired_count   = var.desired_count
+
+  load_balancer {
+    container_name   = var.container_name
+    container_port   = var.container_port
+    target_group_arn = aws_lb_target_group.prd_target_group.arn
+  }
+
+  network_configuration {
+    subnets          = var.public_subnet_ids
+    security_groups  = [aws_security_group.svc_sg.id, var.db_security_group_id, var.bastion_security_group_id]
+    assign_public_ip = true
+  }
+  depends_on = [aws_lb.alb, aws_lb_listener.https, ]
+  lifecycle {
+    ignore_changes = [desired_count]
+  }
+  tags = merge({ Stage = "prd" }, var.tags)
 }

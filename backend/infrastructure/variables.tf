@@ -53,3 +53,9 @@ variable attributes {
 variable delimiter {
   default = "-"
 }
+
+variable prd_host_header_values {
+  type        = list(string)
+  description = "List of one or more hostnames of the production API to be used for ALB host header routing"
+  default     = ["api.ballotnav.org"]
+}
