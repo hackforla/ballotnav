@@ -13,7 +13,7 @@ const LocationDetail = ({
   location,
   jurisdiction,
   userLngLat,
-  userAddress
+  userAddress,
 }) => {
   if (!location) return null
   return (

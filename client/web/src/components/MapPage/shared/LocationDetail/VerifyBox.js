@@ -43,8 +43,8 @@ const VerifyBox = ({ location, jurisdiction }) => {
   const { phones, urls } = jurisdiction
 
   // TODO: use type names instead of type ids
-  const phone = phones.find(ph => ph.phoneNumberTypeId === 1)?.phoneNumber
-  const url = urls.find(url => url.urlTypeId === 10)?.url
+  const phone = phones.find((ph) => ph.phoneNumberTypeId === 1)?.phoneNumber
+  const url = urls.find((url) => url.urlTypeId === 10)?.url
 
   if (!phone && !url) return null
   return (
