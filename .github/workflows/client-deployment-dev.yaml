@@ -1,11 +1,11 @@
-name: Client Deployment
+name: Client Deployment Dev
 on:
   push:
     branches:
       - main
       - master
-  #  paths:
-  #    - "client/web/**"
+   paths:
+     - 'client/web/**'
 
 defaults:
   run:
@@ -32,10 +32,8 @@ jobs:
         env:
           REACT_APP_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
           REACT_APP_API_URL: https://api.dev.ballotnav.org/public
-          REACT_APP_MIXPANEL_TOKEN_DEV: ${{ secrets.MIXPANEL_TOKEN_DEV }}
-          REACT_APP_MIXPANEL_TOKEN_PROD: ${{ secrets.MIXPANEL_TOKEN_PROD }}
-          REACT_APP_HOTJAR_ID_DEV: ${{ secrets.HOTJAR_ID_DEV }}
-          REACT_APP_HOTJAR_ID_PROD: ${{ secrets.HOTJAR_ID_PROD }}
+          REACT_APP_MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN_DEV }}
+          REACT_APP_HOTJAR_ID: ${{ secrets.HOTJAR_ID_DEV }}
         run: npm run build
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -46,4 +44,6 @@ jobs:
       - name: print current directory
         run: ls -la
       - name: Push to s3
-        run: aws s3 sync build/ s3://dev.ballotnav.org
+        run: |
+          aws s3 sync build/ s3://dev.ballotnav.org
+          aws s3 cp build/index.html s3://dev.ballotnav.org --cache-control no-cache
