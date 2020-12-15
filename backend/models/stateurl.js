@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'restrict',
         onUpdate: 'cascade',
       })
+      models.StateUrl.belongsTo(models.UrlType, {
+        foreignKey: 'urltype_id',
+        as: 'urlType',
+      })
     }
   }
   StateUrl.init(
