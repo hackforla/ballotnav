@@ -9,7 +9,12 @@ import LocationRules from './LocationRules'
 import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
 
-const LocationDetail = ({ location, userLngLat, userAddress }) => {
+const LocationDetail = ({
+  location,
+  jurisdiction,
+  userLngLat,
+  userAddress,
+}) => {
   if (!location) return null
   return (
     <>
@@ -30,13 +35,14 @@ const LocationDetail = ({ location, userLngLat, userAddress }) => {
         />
       </div>
       <Divider style={{ margin: '16px 0' }} />
-      <VerifyBox />
+      <VerifyBox location={location} jurisdiction={jurisdiction} />
       <LocationRules location={location} />
     </>
   )
 }
 
 const mapStateToProps = (state) => ({
+  jurisdiction: select.jurisdiction(state),
   userLngLat: select.query(state).lngLat,
   userAddress: select.query(state).address,
 })

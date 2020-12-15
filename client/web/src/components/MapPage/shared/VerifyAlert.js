@@ -45,8 +45,8 @@ const VerifyAlert = () => {
   return (
     <div className={clsx(classes.root, { [classes.mobile]: isMobile })}>
       <Typography variant="body2">
-        Remember to verify the information through the official website and
-        phone number before you leave.
+        Remember to verify the information through the official phone number or
+        website before you leave.
       </Typography>
       <IconButton aria-label="close" onClick={handleClose}>
         <CloseIcon />

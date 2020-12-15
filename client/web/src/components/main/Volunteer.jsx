@@ -36,7 +36,7 @@ const Volunteer = () => {
           <div className="volunteer-card">
             <h3>Software Developers & Data Scientists</h3>
             <p>
-              We always need devs who can reinvision who we are and propel us
+              We always need devs who can reenvision who we are and propel us
               into the future.
             </p>
           </div>
