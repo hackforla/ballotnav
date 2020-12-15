@@ -40,6 +40,6 @@ jobs:
       - name: print current directory
         run: ls -la
       - name: Push to s3
-        run: | 
-          aws s3 sync build/ s3://ballotnav.org
+        run: |
+          aws s3 sync build/ s3://ballotnav.org --delete
           aws s3 cp build/index.html s3://ballotnav.org --cache-control no-cache
