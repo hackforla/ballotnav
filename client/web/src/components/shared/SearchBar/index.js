@@ -9,6 +9,11 @@ import Geocoder from './Geocoder'
 import SearchButton from './SearchButton'
 import UseMyLocation from './UseMyLocation'
 
+const GEORGIA_CENTER = {
+  lng: -83.26179,
+  lat: 32.39436,
+}
+
 function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
   const history = useHistory()
 
@@ -32,7 +37,11 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
       {useModal ? (
         <SearchButton onClick={openSearchModal} />
       ) : (
-        <Geocoder center={center} address={address} onResult={handleResult} />
+        <Geocoder
+          center={center || GEORGIA_CENTER}
+          address={address}
+          onResult={handleResult}
+        />
       )}
       <UseMyLocation onResult={handleResult} />
     </div>
