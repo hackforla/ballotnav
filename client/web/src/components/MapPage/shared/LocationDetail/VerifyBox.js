@@ -42,11 +42,10 @@ const VerifyBox = ({ location, jurisdiction }) => {
   if (!jurisdiction) return null
   const { phones, urls } = jurisdiction
 
-  // TODO: use type names instead of type ids
   const phone = phones.find((ph) => ph.phoneNumberTypeId === 1)?.phoneNumber
-  const url = urls.find((url) => url.urlTypeId === 10)?.url
+  const nonEmailUrls = urls.filter((url) => !url.urlType.isEmail)
 
-  if (!phone && !url) return null
+  if (!phone && nonEmailUrls.length === 0) return null
   return (
     <div className={classes.root}>
       <div className={classes.title}>To Verify</div>
@@ -57,12 +56,14 @@ const VerifyBox = ({ location, jurisdiction }) => {
             <a href={`tel:${phone}`}>{phone}</a>
           </div>
         )}
-        {url && (
+        {nonEmailUrls.map(({ url, name }) => (
           <div className={classes.infoItem}>
             <NewWindowIcon />
-            <a href={url}>{url}</a>
+            <a target="_blank" href={url}>
+              {name}
+            </a>
           </div>
-        )}
+        ))}
       </div>
     </div>
   )
