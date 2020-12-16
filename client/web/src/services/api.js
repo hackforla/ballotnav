@@ -22,6 +22,16 @@ async function getJurisdiction(jurisdictionId) {
     data: { locations, ...jurisdiction },
   } = await axios.get(url)
   const state = await getState(jurisdiction.stateId)
+
+  if (jurisdiction.geojson)
+    jurisdiction.geojson = {
+      type: 'FeatureCollection',
+      features: [{
+        type: 'Feature',
+        geometry: JSON.parse(jurisdiction.geojson),
+      }],
+    }
+
   return {
     state,
     jurisdiction,

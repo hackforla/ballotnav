@@ -39,17 +39,17 @@ const CONTINENTAL_US = [
 const DEFAULT_ZOOM = 13
 
 const MapContainer = ({
+  jurisdiction,
   locations,
   userLocation,
   selectedLocation,
   selectLocation,
-  jurisdictionId,
   isLoading,
 }) => {
   const [position, setPosition] = useState(null)
   const [map, setMap] = useState(null)
   const delta = useDeltaObject({
-    jurisdictionId,
+    jurisdiction,
     userLocation,
     selectedLocation,
   })
@@ -66,9 +66,12 @@ const MapContainer = ({
     }
 
     // jurisdiction select
-    // NOTE: this entire block will be changed to surround
-    // the jurisdiction boundaries (when we have them)
     if (!userLocation && !selectedLocation) {
+      if (jurisdiction.geojson)
+        return setPosition({
+          bounds: bbox(jurisdiction.geojson)
+        })
+
       if (locations.length === 0)
         return setPosition({
           bounds: CONTINENTAL_US,
@@ -103,11 +106,11 @@ const MapContainer = ({
         ),
       })
     }
-  }, [locations, userLocation, selectedLocation])
+  }, [jurisdiction, locations, userLocation, selectedLocation])
 
   useEffect(() => {
     if (
-      delta.jurisdictionId ||
+      delta.jurisdiction ||
       (delta.userLocation && delta.userLocation.curr && !isLoading)
     )
       setMapPosition()
@@ -129,6 +132,7 @@ const MapContainer = ({
   if (!position) return null
   return (
     <Map
+      jurisdiction={jurisdiction}
       locations={locations}
       userLocation={userLocation}
       selectedLocation={selectedLocation}
@@ -140,10 +144,10 @@ const MapContainer = ({
 }
 
 const mapStateToProps = (state) => ({
+  jurisdiction: select.jurisdiction(state),
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
   selectedLocation: select.selectedLocation(state),
-  jurisdictionId: select.jurisdiction(state)?.id,
   isLoading: select.isLoading(state),
 })
 
@@ -154,6 +158,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(MapContainer)
 
 MapContainer.propTypes = {
+  jurisdiction: PropTypes.shape({}),
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   userLocation: PropTypes.shape({
     lng: PropTypes.number,
@@ -165,6 +170,7 @@ MapContainer.propTypes = {
 }
 
 MapContainer.defaultProps = {
+  jurisdiction: null,
   locations: [],
   userLocation: null,
   selectedLocationId: null,
