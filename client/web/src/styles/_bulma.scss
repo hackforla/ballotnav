@@ -25,6 +25,9 @@ $link-blue: #0819A5;
 $family-primary: 'Open Sans', sans-serif;
 $link: $link-blue;
 
+// remove persistent vertical scrollbar
+$body-overflow-y: auto;
+
 // $breakpoints: (
 //   "mobile": 360px,
 //   "tablet": 768px,
