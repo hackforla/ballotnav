@@ -2,6 +2,7 @@ import React from 'react'
 import { Router } from 'react-router-dom'
 import Header from './components/main/Header'
 import Footer from './components/main/Footer'
+import CookieConsentBanner from './components/main/CookieConsentBanner'
 import Routes from './Routes'
 import Modals from './components/modals'
 import history from 'services/history'
@@ -28,6 +29,7 @@ const App = () => {
           <Routes />
         </div>
         <Footer />
+        <CookieConsentBanner />
       </Div100vh>
       <Modals />
     </Router>
