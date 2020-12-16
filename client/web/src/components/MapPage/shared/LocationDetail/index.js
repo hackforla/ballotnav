@@ -5,7 +5,7 @@ import * as select from 'store/selectors'
 import VerifyBox from './VerifyBox'
 import DirectionsButton from './DirectionsButton'
 import ShareButton from './ShareButton'
-import LocationRules from './LocationRules'
+// import LocationRules from './LocationRules'
 import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
 
@@ -36,7 +36,7 @@ const LocationDetail = ({
       </div>
       <Divider style={{ margin: '16px 0' }} />
       <VerifyBox location={location} jurisdiction={jurisdiction} />
-      <LocationRules location={location} />
+      {/*<LocationRules location={location} />*/}
     </>
   )
 }
