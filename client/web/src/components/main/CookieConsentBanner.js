@@ -29,15 +29,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.background.default,
     '&:hover': {
       background: theme.palette.primary.main,
-    }
-  }
+    },
+  },
 }))
 
-const CookieConsentBanner = ({
-  cookieName,
-  cookieValue,
-  expires,
-}) => {
+const CookieConsentBanner = ({ cookieName, cookieValue, expires }) => {
   const [open, setOpen] = useState(false)
   const classes = useStyles()
 
