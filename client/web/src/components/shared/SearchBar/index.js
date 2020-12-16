@@ -21,11 +21,13 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
     async ({ lng, lat, address }) => {
       const jurisdictions = await api.getJurisdictions(lng, lat)
 
-      if (jurisdictions.length !== 1) return history.push('/error')
-
-      const { id: jid } = jurisdictions[0]
-      const query = queryString.stringify({ jid, lng, lat, address })
-      history.push(`/map?${query}`)
+      if (jurisdictions.length === 1) {
+        const { id: jid } = jurisdictions[0]
+        const query = queryString.stringify({ jid, lng, lat, address })
+        history.push(`/map?${query}`)
+      } else {
+        history.push('/map')
+      }
 
       if (onComplete) onComplete()
     },

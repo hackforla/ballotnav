@@ -61,7 +61,7 @@ const JurisdictionSelect = ({
 
   useEffect(() => {
     if (state) setSelectedState(state)
-    if (jurisdiction) setSelectedJurisdiction(jurisdiction)
+    setSelectedJurisdiction(jurisdiction)
   }, [state, jurisdiction])
 
   const handleStateChange = (state) => {

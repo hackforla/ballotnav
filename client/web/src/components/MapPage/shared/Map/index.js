@@ -36,6 +36,11 @@ const CONTINENTAL_US = [
   [-66.885444, 49.384358],
 ]
 
+const GEORGIA = [
+  [-85.61, 30.36],
+  [-80.84, 35.0],
+]
+
 const DEFAULT_ZOOM = 13
 
 const MapContainer = ({
@@ -55,6 +60,11 @@ const MapContainer = ({
   })
 
   const setMapPosition = useCallback(() => {
+    if (!jurisdiction)
+      return setPosition({
+        bounds: GEORGIA,
+      })
+
     // search box
     if (userLocation && !selectedLocation) {
       return setPosition({

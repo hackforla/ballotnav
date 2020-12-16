@@ -38,6 +38,16 @@ export const saveQuery = () => {
 
 export const getJurisdiction = (jurisdictionId) => {
   return (dispatch) => {
+    if (!jurisdictionId)
+      return dispatch({
+        type: types.GET_JURISDICTION_SUCCESS,
+        data: {
+          state: null,
+          jurisdiction: null,
+          locations: null,
+        },
+      })
+
     // start timer
     mixpanel.time_event(types.GET_JURISDICTION_SUCCESS)
     dispatch({ type: types.GET_JURISDICTION_PENDING })

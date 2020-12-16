@@ -10,8 +10,6 @@ import './styles/styles.scss'
 import store from './store'
 import App from './App'
 
-console.log(theme)
-
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
