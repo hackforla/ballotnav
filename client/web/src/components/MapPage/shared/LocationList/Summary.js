@@ -33,8 +33,8 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
           </div>
         ) : (
           <div className={classes.text}>
-            We could not identify your jurisdiction. Please enter your
-            address or use the dropdown above.
+            We could not identify your jurisdiction. Please enter your address
+            or use the dropdown above.
           </div>
         )}
       </div>

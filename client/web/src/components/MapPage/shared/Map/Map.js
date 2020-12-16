@@ -77,18 +77,21 @@ const Map = ({
     [selectLocation, onMapReady, fitBoundsOptions]
   )
 
-  const updateMap = useCallback((map, { center, zoom, bounds, animate }) => {
-    // setTimeout corrects an issue in mobile where map resizing was
-    // interfering with setting the center/bounds
-    setTimeout(() => {
-      if (center) {
-        if (animate) map.panTo(center)
-        else map.setCenter(center)
-      }
-      if (zoom) map.setZoom(zoom)
-      if (bounds) map.fitBounds(bounds, fitBoundsOptions)
-    })
-  }, [fitBoundsOptions])
+  const updateMap = useCallback(
+    (map, { center, zoom, bounds, animate }) => {
+      // setTimeout corrects an issue in mobile where map resizing was
+      // interfering with setting the center/bounds
+      setTimeout(() => {
+        if (center) {
+          if (animate) map.panTo(center)
+          else map.setCenter(center)
+        }
+        if (zoom) map.setZoom(zoom)
+        if (bounds) map.fitBounds(bounds, fitBoundsOptions)
+      })
+    },
+    [fitBoundsOptions]
+  )
 
   useEffect(() => {
     if (map) updateMap(map, position)

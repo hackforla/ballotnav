@@ -79,7 +79,7 @@ const MapContainer = ({
     if (!userLocation && !selectedLocation) {
       if (jurisdiction.geojson)
         return setPosition({
-          bounds: bbox(jurisdiction.geojson)
+          bounds: bbox(jurisdiction.geojson),
         })
 
       if (locations.length === 0)

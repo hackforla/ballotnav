@@ -26,10 +26,12 @@ async function getJurisdiction(jurisdictionId) {
   if (jurisdiction.geojson)
     jurisdiction.geojson = {
       type: 'FeatureCollection',
-      features: [{
-        type: 'Feature',
-        geometry: JSON.parse(jurisdiction.geojson),
-      }],
+      features: [
+        {
+          type: 'Feature',
+          geometry: JSON.parse(jurisdiction.geojson),
+        },
+      ],
     }
 
   return {
