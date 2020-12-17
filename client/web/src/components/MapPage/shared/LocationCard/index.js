@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LocationName from './LocationName'
 import LocationAddress from './LocationAddress'
-import LocationHours from './LocationHours'
+import LocationSchedule from './LocationSchedule'
 import DisplayNote from './DisplayNote'
 
 const LocationCard = ({ location, isSelected, hoursExpandable }) => {
@@ -10,7 +10,7 @@ const LocationCard = ({ location, isSelected, hoursExpandable }) => {
     <div style={{ marginLeft: -10 }}>
       <LocationName location={location} isSelected={isSelected} />
       <LocationAddress location={location} />
-      <LocationHours location={location} expandable={hoursExpandable} />
+      <LocationSchedule location={location} expandable={hoursExpandable} />
       <DisplayNote location={location} />
     </div>
   )
