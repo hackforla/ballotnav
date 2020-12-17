@@ -8,8 +8,6 @@ import moment from 'moment'
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: 8,
-  },
-  summary: {
     display: 'flex',
     alignItems: 'flex-start',
   },
@@ -21,42 +19,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   textCell: {
+    flex: 1,
     paddingTop: 1,
     fontSize: 16,
     fontWeight: 400,
   },
-  openStatus: {
-    color: '#63A375',
-    fontWeight: 600,
-    fontSize: 16,
-    display: 'inline-block',
-    marginRight: 10,
-  },
-  openUntil: {
-    color: '#1C1C1C',
-    fontWeight: 400,
-    fontSize: 16,
-    display: 'inline-block',
-    marginRight: 10,
-  },
-  timezone: {
-    color: '#808080',
-    fontWeight: 400,
-    fontSize: 16,
-  },
-  toggle: {
-    color: theme.palette.primary.main,
-    textDecoration: 'underline',
-    userSelect: 'none',
-    cursor: 'pointer',
-    display: 'inline-block',
-    marginLeft: 16,
-  },
-  details: {
-    marginLeft: 50,
-    marginTop: 10,
-  },
-  info: {},
 }))
 
 const Continuous = ({ location }) => {
@@ -78,24 +45,22 @@ const LocationSchedule = ({ location, expandable }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <div className={classes.summary}>
-        <div className={classes.iconCell}>
-          <ClockIcon />
-        </div>
-        <div className={classes.textCell}>
-          {(() => {
-            switch (location.scheduleType) {
-              case 'continuous':
-                return <Continuous location={location} />
-              case 'description':
-                return <Description location={location} />
-              case 'hours':
-                return <Hours location={location} expandable={expandable} />
-              default:
-                return <span>Unknown</span>
-            }
-          })()}
-        </div>
+      <div className={classes.iconCell}>
+        <ClockIcon />
+      </div>
+      <div className={classes.textCell}>
+        {(() => {
+          switch (location.scheduleType) {
+            case 'continuous':
+              return <Continuous location={location} />
+            case 'description':
+              return <Description location={location} />
+            case 'hours':
+              return <Hours location={location} expandable={expandable} />
+            default:
+              return <span>Unknown</span>
+          }
+        })()}
       </div>
     </div>
   )
