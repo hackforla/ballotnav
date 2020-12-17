@@ -6,6 +6,7 @@ import About from './components/main/About'
 import Volunteer from './components/main/Volunteer'
 import Press from './components/main/Press'
 import MapPage from 'components/MapPage'
+import PrivacyPolicy from './components/main/PrivacyPolicy'
 
 const Routes = () => {
   return (
@@ -24,6 +25,9 @@ const Routes = () => {
       </Route>
       <Route path="/press">
         <Press />
+      </Route>
+      <Route path="/privacy-policy">
+        <PrivacyPolicy />
       </Route>
       <Redirect to="/" />
     </Switch>
