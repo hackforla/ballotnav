@@ -1,10 +1,12 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react'
+import React, { useRef, useState, useEffect, useCallback, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import LocationMarkers from './LocationMarkers'
 import UserMarker from './UserMarker'
+import JurisdictionBoundary from './JurisdictionBoundary'
 import useSize from 'hooks/useSize'
+import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles({
   root: {
@@ -19,17 +21,8 @@ const useStyles = makeStyles({
   },
 })
 
-const FIT_BOUNDS_OPTIONS = {
-  padding: {
-    top: 100,
-    bottom: 100,
-    left: 100,
-    right: 100,
-  },
-  animate: false,
-}
-
 const Map = ({
+  jurisdiction,
   locations,
   userLocation,
   selectedLocation,
@@ -41,6 +34,20 @@ const Map = ({
   const mapContainer = useRef(null)
   const size = useSize(mapContainer)
   const [map, setMap] = useState(null)
+  const { isMobile } = useBreakpoints()
+
+  const fitBoundsOptions = useMemo(() => {
+    const padding = isMobile ? 25 : 50
+    return {
+      padding: {
+        top: padding,
+        bottom: padding,
+        left: padding,
+        right: padding,
+      },
+      animate: false,
+    }
+  }, [isMobile])
 
   const initMap = useCallback(
     ({ center, zoom, bounds }) => {
@@ -49,7 +56,7 @@ const Map = ({
       const opts = {
         container: mapContainer.current,
         style: styleUrl,
-        fitBoundsOptions: FIT_BOUNDS_OPTIONS,
+        fitBoundsOptions,
       }
 
       if (center) opts.center = center
@@ -67,21 +74,24 @@ const Map = ({
         if (!e.originalEvent.defaultPrevented) selectLocation(null)
       })
     },
-    [selectLocation, onMapReady]
+    [selectLocation, onMapReady, fitBoundsOptions]
   )
 
-  const updateMap = useCallback((map, { center, zoom, bounds, animate }) => {
-    // setTimeout corrects an issue in mobile where map resizing was
-    // interfering with setting the center/bounds
-    setTimeout(() => {
-      if (center) {
-        if (animate) map.panTo(center)
-        else map.setCenter(center)
-      }
-      if (zoom) map.setZoom(zoom)
-      if (bounds) map.fitBounds(bounds, FIT_BOUNDS_OPTIONS)
-    })
-  }, [])
+  const updateMap = useCallback(
+    (map, { center, zoom, bounds, animate }) => {
+      // setTimeout corrects an issue in mobile where map resizing was
+      // interfering with setting the center/bounds
+      setTimeout(() => {
+        if (center) {
+          if (animate) map.panTo(center)
+          else map.setCenter(center)
+        }
+        if (zoom) map.setZoom(zoom)
+        if (bounds) map.fitBounds(bounds, fitBoundsOptions)
+      })
+    },
+    [fitBoundsOptions]
+  )
 
   useEffect(() => {
     if (map) updateMap(map, position)
@@ -103,6 +113,7 @@ const Map = ({
             selectedLocationId={selectedLocation?.id}
           />
           <UserMarker map={map} userLocation={userLocation} />
+          <JurisdictionBoundary map={map} jurisdiction={jurisdiction} />
         </>
       )}
     </div>
@@ -112,6 +123,7 @@ const Map = ({
 export default Map
 
 Map.propTypes = {
+  jurisdiction: PropTypes.shape({}),
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   userLocation: PropTypes.shape({
     lng: PropTypes.number,
@@ -128,6 +140,7 @@ Map.propTypes = {
 }
 
 Map.defaultProps = {
+  jurisdiction: null,
   locations: [],
   userLocation: null,
   selectedLocationId: null,

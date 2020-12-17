@@ -12,10 +12,13 @@ const MapPage = ({ isLoaded, jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
   const { isMobile } = useBreakpoints()
 
-  // clear query when leaving map page
+  // clear query/data when leaving map page
   useEffect(() => {
-    return () => saveQuery(null)
-  }, [saveQuery])
+    return () => {
+      saveQuery(null)
+      getJurisdiction(null)
+    }
+  }, [saveQuery, getJurisdiction])
 
   // save query params whenever url changes
   useEffect(() => {
@@ -24,7 +27,7 @@ const MapPage = ({ isLoaded, jurisdictionId, saveQuery, getJurisdiction }) => {
 
   // load the jurisdiction whenever the id changes
   useEffect(() => {
-    if (jurisdictionId) getJurisdiction(jurisdictionId)
+    getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
   if (!isLoaded) return null

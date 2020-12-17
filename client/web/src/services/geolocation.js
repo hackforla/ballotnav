@@ -4,7 +4,6 @@ export const getUserLocation = () => {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log('position:', position)
         resolve({
           lng: position.coords.longitude,
           lat: position.coords.latitude,
@@ -15,7 +14,7 @@ export const getUserLocation = () => {
       },
       {
         enableHighAccuracy: true,
-        timeout: 5000,
+        timeout: 7000,
         maximumAge: 0,
       }
     )
