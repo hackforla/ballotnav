@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import LocationIcon from 'components/shared/LocationIcon'
-import { ReactComponent as WheelchairIcon } from 'assets/icons/wheelchair.svg'
+// import { ReactComponent as WheelchairIcon } from 'assets/icons/wheelchair.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {

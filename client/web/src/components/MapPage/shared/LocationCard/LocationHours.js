@@ -56,9 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 50,
     marginTop: 10,
   },
-  info: {
-
-  }
+  info: {},
 }))
 
 const Continuous = ({ location }) => {
@@ -69,15 +67,11 @@ const Continuous = ({ location }) => {
     ? ` starting ${startDate.format('MM/D/YY')}`
     : ''
 
-  return (
-    <span>Open 24/7{startText}</span>
-  )
+  return <span>Open 24/7{startText}</span>
 }
 
 const Description = ({ location }) => {
-  return (
-    <span>{location.scheduleDescription}</span>
-  )
+  return <span>{location.scheduleDescription}</span>
 }
 
 const useHoursStyles = makeStyles((theme) => ({
@@ -86,13 +80,13 @@ const useHoursStyles = makeStyles((theme) => ({
     '& b': {
       display: 'inline-block',
       marginRight: 8,
-    }
+    },
   },
   table: {
     marginTop: 10,
     '& td, th': {
       padding: '2px 0',
-    }
+    },
   },
   toggle: {
     color: theme.palette.primary.main,
@@ -124,7 +118,7 @@ const Hours = ({ location, expandable }) => {
     closeTime: formatTime(hour.closeTime),
   }))
 
-  hours.sort((a, b) => b.beginDate.isBefore(a.beginDate) ? 1 : -1)
+  hours.sort((a, b) => (b.beginDate.isBefore(a.beginDate) ? 1 : -1))
 
   const now = moment()
   const today = hours.find((hour) => {
@@ -134,20 +128,21 @@ const Hours = ({ location, expandable }) => {
   return (
     <>
       <div className={classes.today}>
-        {
-          today ? (
-            <span>
-              <b>Open Today</b>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              {today.openTime} - {today.closeTime}
-            </span>
-          ) : (
-            <span>Closed Today</span>
-          )
-        }
+        {today ? (
+          <span>
+            <b>Open Today</b>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {today.openTime} - {today.closeTime}
+          </span>
+        ) : (
+          <span>Closed Today</span>
+        )}
         {expandable && (
-          <span className={classes.toggle} onClick={() => setShowDetails(!showDetails)}>
-            { showDetails ? 'less' : 'more' }
+          <span
+            className={classes.toggle}
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            {showDetails ? 'less' : 'more'}
           </span>
         )}
       </div>
@@ -163,10 +158,9 @@ const Hours = ({ location, expandable }) => {
             {hours.map((hour) => (
               <tr>
                 <td>
-                  {hour.beginDate.format('M/DD')} -
-                  {hour.endDate.format('M/DD')}
+                  {hour.beginDate.format('M/DD')} -{hour.endDate.format('M/DD')}
                 </td>
-                <td style={{ paddingLeft: 30}}>
+                <td style={{ paddingLeft: 30 }}>
                   {hour.openTime} - {hour.closeTime}
                 </td>
               </tr>
@@ -186,10 +180,9 @@ const Hours = ({ location, expandable }) => {
             {hours.map((hour) => (
               <tr>
                 <td>
-                  {hour.beginDate.format('M/DD')} -
-                  {hour.endDate.format('M/DD')}
+                  {hour.beginDate.format('M/DD')} -{hour.endDate.format('M/DD')}
                 </td>
-                <td style={{ paddingLeft: 30}}>
+                <td style={{ paddingLeft: 30 }}>
                   {hour.openTime} - {hour.closeTime}
                 </td>
               </tr>
@@ -221,10 +214,13 @@ const LocationHours = ({ location, expandable }) => {
         </div>
         <div className={classes.textCell}>
           {(() => {
-            switch(location.scheduleType) {
-              case 'continuous': return <Continuous location={location} />
-              case 'description': return <Description location={location} />
-              case 'hours': return <Hours location={location} expandable={expandable} />
+            switch (location.scheduleType) {
+              case 'continuous':
+                return <Continuous location={location} />
+              case 'description':
+                return <Description location={location} />
+              case 'hours':
+                return <Hours location={location} expandable={expandable} />
             }
           })()}
         </div>

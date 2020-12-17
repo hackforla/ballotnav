@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import { ReactComponent as PinIcon } from 'assets/icons/pin.svg'
 import InfoIcon from '@material-ui/icons/Info'
 
 const useStyles = makeStyles((theme) => ({
@@ -32,11 +31,9 @@ const DisplayNote = ({ location }) => {
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>
-        <InfoIcon color='primary' />
+        <InfoIcon color="primary" />
       </div>
-      <div className={classes.textCell}>
-        { location.displayNote }
-      </div>
+      <div className={classes.textCell}>{location.displayNote}</div>
     </div>
   )
 }

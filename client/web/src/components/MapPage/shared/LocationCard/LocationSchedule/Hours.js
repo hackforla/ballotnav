@@ -10,13 +10,13 @@ const useStyles = makeStyles((theme) => ({
       display: 'inline-block',
       marginRight: 14,
       fontWeight: 400,
-    }
+    },
   },
   table: {
     marginTop: 10,
     '& td, th': {
       padding: '2px 0',
-    }
+    },
   },
   toggle: {
     color: theme.palette.primary.main,
@@ -57,33 +57,31 @@ const Hours = ({ location, expandable }) => {
         openTime: formatTime(hour.openTime),
         closeTime: formatTime(hour.closeTime),
       }))
-      .sort((a, b) => b.beginDate.isBefore(a.beginDate) ? 1 : -1)
+      .sort((a, b) => (b.beginDate.isBefore(a.beginDate) ? 1 : -1))
   }, [location])
 
   const today = useMemo(() => {
     const now = moment()
-    return hours.find((hour) => (
-      hour.beginDate.isSameOrBefore(now) &&
-      hour.endDate.isSameOrAfter(now)
-    ))
+    return hours.find(
+      (hour) =>
+        hour.beginDate.isSameOrBefore(now) && hour.endDate.isSameOrAfter(now)
+    )
   }, [hours])
 
   return (
     <>
       <div className={classes.today}>
-        {
-          today ? (
-            <span>
-              <b>Open Today</b>
-              {today.openTime} - {today.closeTime}
-            </span>
-          ) : (
-            <span>Closed Today</span>
-          )
-        }
+        {today ? (
+          <span>
+            <b>Open Today</b>
+            {today.openTime} - {today.closeTime}
+          </span>
+        ) : (
+          <span>Closed Today</span>
+        )}
         {expandable && (
           <span className={classes.toggle} onClick={toggle}>
-            { showDetails ? 'less' : 'more' }
+            {showDetails ? 'less' : 'more'}
           </span>
         )}
       </div>
@@ -99,10 +97,9 @@ const Hours = ({ location, expandable }) => {
             {hours.map((hour) => (
               <tr>
                 <td>
-                  {hour.beginDate.format('M/DD')} -
-                  {hour.endDate.format('M/DD')}
+                  {hour.beginDate.format('M/DD')} -{hour.endDate.format('M/DD')}
                 </td>
-                <td style={{ paddingLeft: 30}}>
+                <td style={{ paddingLeft: 30 }}>
                   {hour.openTime} - {hour.closeTime}
                 </td>
               </tr>

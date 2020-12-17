@@ -56,9 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 50,
     marginTop: 10,
   },
-  info: {
-
-  }
+  info: {},
 }))
 
 const Continuous = ({ location }) => {
@@ -69,15 +67,11 @@ const Continuous = ({ location }) => {
     ? ` starting ${startDate.format('MM/D/YY')}`
     : ''
 
-  return (
-    <span>Open 24/7{startText}</span>
-  )
+  return <span>Open 24/7{startText}</span>
 }
 
 const Description = ({ location }) => {
-  return (
-    <span>{location.scheduleDescription}</span>
-  )
+  return <span>{location.scheduleDescription}</span>
 }
 
 const LocationSchedule = ({ location, expandable }) => {
@@ -90,10 +84,15 @@ const LocationSchedule = ({ location, expandable }) => {
         </div>
         <div className={classes.textCell}>
           {(() => {
-            switch(location.scheduleType) {
-              case 'continuous': return <Continuous location={location} />
-              case 'description': return <Description location={location} />
-              case 'hours': return <Hours location={location} expandable={expandable} />
+            switch (location.scheduleType) {
+              case 'continuous':
+                return <Continuous location={location} />
+              case 'description':
+                return <Description location={location} />
+              case 'hours':
+                return <Hours location={location} expandable={expandable} />
+              default:
+                return <span>Unknown</span>
             }
           })()}
         </div>
