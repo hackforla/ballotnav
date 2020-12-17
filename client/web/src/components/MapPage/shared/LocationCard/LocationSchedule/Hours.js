@@ -89,21 +89,26 @@ const Hours = ({ location, expandable }) => {
         <table className={classes.table}>
           <thead>
             <tr>
-              <th>Date Range</th>
+              <th>Date(s)</th>
               <th style={{ paddingLeft: 30 }}>Hours</th>
             </tr>
           </thead>
           <tbody>
-            {hours.map((hour) => (
-              <tr>
-                <td>
-                  {hour.beginDate.format('M/DD')} -{hour.endDate.format('M/DD')}
-                </td>
-                <td style={{ paddingLeft: 30 }}>
-                  {hour.openTime} - {hour.closeTime}
-                </td>
-              </tr>
-            ))}
+            {hours.map((hour) => {
+              const dateString = hour.beginDate.isSame(hour.endDate)
+                ? hour.beginDate.format('M/DD')
+                : `${hour.beginDate.format('M/DD')} - ${hour.endDate.format(
+                    'M/DD'
+                  )}`
+              return (
+                <tr>
+                  <td>{dateString}</td>
+                  <td style={{ paddingLeft: 30 }}>
+                    {hour.openTime} - {hour.closeTime}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </Collapse>
