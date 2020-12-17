@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   iconCell: {
     width: 50,

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 4,
   },
   iconCell: {
     width: 50,
@@ -52,11 +52,11 @@ const LocationName = ({ location, isSelected }) => {
       </div>
       <div className={classes.textCell}>
         <div className={classes.locationName}>{location.name}</div>
-        <div className={classes.dropOff}>Drop off (outside)</div>
+        {/*<div className={classes.dropOff}>Drop off (outside)</div>*/}
       </div>
-      {location.isHandicapAccessible === 'Y' && (
+      {/*{location.isHandicapAccessible === 'Y' && (
         <WheelchairIcon className={classes.wheelchair} />
-      )}
+      )}*/}
     </div>
   )
 }

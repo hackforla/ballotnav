@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import LocationName from './LocationName'
 import LocationAddress from './LocationAddress'
 import LocationHours from './LocationHours'
+import DisplayNote from './DisplayNote'
 
 const LocationCard = ({ location, isSelected, hoursExpandable }) => {
   return (
@@ -10,6 +11,7 @@ const LocationCard = ({ location, isSelected, hoursExpandable }) => {
       <LocationName location={location} isSelected={isSelected} />
       <LocationAddress location={location} />
       <LocationHours location={location} expandable={hoursExpandable} />
+      <DisplayNote location={location} />
     </div>
   )
 }
