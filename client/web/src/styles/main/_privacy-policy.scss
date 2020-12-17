@@ -1,0 +1,25 @@
+.privacy-policy {
+  padding: 0 10px;
+  margin: 0 auto;
+
+  ul {
+    list-style-type: disc;
+    padding-inline-start: 40px;
+  }
+
+  li {
+    display: list-item;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    max-width: 1134px;
+  }
+}

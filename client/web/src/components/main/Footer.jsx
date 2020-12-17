@@ -8,6 +8,7 @@ import twitterLogo from 'assets/twitter-logo.svg'
 import facebookLogo from 'assets/facebook-logo.svg'
 import ivoted from 'assets/ivoted.png'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import clx from 'classnames'
 
 const Footer = () => {
@@ -64,9 +65,7 @@ const Footer = () => {
         <div className="privacy-policy">
           <p>
             &#169; COPYRIGHT 2020 BallotNav |{' '}
-            <a href="https://docs.google.com/document/u/1/d/1hizUrt5hBhltZfo0_OhkzcbkZMkN8_-DdV-a2Uidiw0/edit">
-              PRIVACY POLICY
-            </a>
+            <Link to="/privacy-policy">PRIVACY POLICY</Link>
           </p>
         </div>
       </div>
