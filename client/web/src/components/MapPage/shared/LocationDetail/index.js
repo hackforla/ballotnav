@@ -8,6 +8,7 @@ import ShareButton from './ShareButton'
 // import LocationRules from './LocationRules'
 import LocationCard from '../LocationCard'
 import Divider from '@material-ui/core/Divider'
+import DisplayNote from './DisplayNote'
 
 const LocationDetail = ({
   location,
@@ -19,7 +20,8 @@ const LocationDetail = ({
   return (
     <>
       <LocationCard location={location} isSelected hoursExpandable />
-      <Divider style={{ margin: '16px 0' }} />
+      <DisplayNote location={location} />
+      <Divider style={{ margin: '20px 0 10px' }} />
       <div
         style={{
           display: 'flex',
@@ -34,7 +36,7 @@ const LocationDetail = ({
           location={location}
         />
       </div>
-      <Divider style={{ margin: '16px 0' }} />
+      <Divider style={{ margin: '10px 0 20px' }} />
       <VerifyBox location={location} jurisdiction={jurisdiction} />
       {/*<LocationRules location={location} />*/}
     </>

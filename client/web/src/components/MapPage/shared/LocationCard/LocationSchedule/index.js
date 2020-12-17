@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
-import Collapse from '@material-ui/core/Collapse'
+import Hours from './Hours'
+import moment from 'moment'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    marginBottom: 8,
+  },
   summary: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   iconCell: {
     width: 50,
@@ -17,7 +20,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textCell: {},
+  textCell: {
+    paddingTop: 1,
+    fontSize: 16,
+    fontWeight: 400,
+  },
   openStatus: {
     color: '#63A375',
     fontWeight: 600,
@@ -49,20 +56,26 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 50,
     marginTop: 10,
   },
+  info: {},
 }))
 
-const LocationHours = ({ location, expandable }) => {
+const Continuous = ({ location }) => {
+  const startDate = moment(location.continuousOpenDate)
+  const now = moment()
+
+  const startText = startDate.isSameOrAfter(now)
+    ? ` starting ${startDate.format('MM/D/YY')}`
+    : ''
+
+  return <span>Open 24/7{startText}</span>
+}
+
+const Description = ({ location }) => {
+  return <span>{location.scheduleDescription}</span>
+}
+
+const LocationSchedule = ({ location, expandable }) => {
   const classes = useStyles()
-  const [expanded, setExpanded] = useState(false)
-
-  const toggleDetails = useCallback(() => {
-    setExpanded(!expanded)
-  }, [expanded])
-
-  useEffect(() => {
-    setExpanded(false)
-  }, [location])
-
   return (
     <div className={classes.root}>
       <div className={classes.summary}>
@@ -70,34 +83,31 @@ const LocationHours = ({ location, expandable }) => {
           <ClockIcon />
         </div>
         <div className={classes.textCell}>
-          <span className={classes.openStatus}>Open now</span>
-          <span className={classes.openUntil}>until 9pm</span>
-          <span className={classes.timezone}>(PDT)</span>
-          {expandable && (
-            <span className={classes.toggle} onClick={toggleDetails}>
-              {expanded ? 'Less' : 'More'}
-            </span>
-          )}
+          {(() => {
+            switch (location.scheduleType) {
+              case 'continuous':
+                return <Continuous location={location} />
+              case 'description':
+                return <Description location={location} />
+              case 'hours':
+                return <Hours location={location} expandable={expandable} />
+              default:
+                return <span>Unknown</span>
+            }
+          })()}
         </div>
       </div>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <div className={classes.details}>
-          {Array.from({ length: 10 }).map((el, idx) => (
-            <div key={idx.toString()}>time (to do)</div>
-          ))}
-        </div>
-      </Collapse>
     </div>
   )
 }
 
-export default LocationHours
+export default LocationSchedule
 
-LocationHours.propTypes = {
+LocationSchedule.propTypes = {
   location: PropTypes.shape({}).isRequired,
   expandable: PropTypes.bool,
 }
 
-LocationHours.defaultProps = {
+LocationSchedule.defaultProps = {
   expandable: false,
 }
