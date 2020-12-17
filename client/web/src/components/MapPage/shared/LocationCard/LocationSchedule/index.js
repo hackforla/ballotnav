@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   textCell: {
+    paddingTop: 1,
     fontSize: 16,
     fontWeight: 400,
   },

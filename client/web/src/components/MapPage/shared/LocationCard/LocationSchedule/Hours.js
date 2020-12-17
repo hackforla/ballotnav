@@ -6,10 +6,10 @@ import moment from 'moment'
 
 const useStyles = makeStyles((theme) => ({
   today: {
-    marginTop: 1,
     '& b': {
       display: 'inline-block',
       marginRight: 14,
+      fontWeight: 400,
     }
   },
   table: {

@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: 12,
+    marginLeft: -10,
   },
   iconCell: {
     width: 50,
