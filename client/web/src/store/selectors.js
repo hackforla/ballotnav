@@ -33,12 +33,14 @@ const geocodedLocations = createSelector([locations], (locations) => {
 
 /*
   Adds a 'distanceFromUser' property to each geocoded location and sorts
-  the locations by distance.
+  the locations by distance. If userLocation not given, sorts by location
+  name.
 */
 export const sortedLocations = createSelector(
   [geocodedLocations, userLocation],
   (locations, userLocation) => {
-    if (!userLocation) return locations
+    if (!userLocation)
+      return locations.slice().sort((a, b) => (a.name > b.name ? 1 : -1))
 
     return locations
       .map((loc) => ({
