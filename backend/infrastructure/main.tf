@@ -90,7 +90,10 @@ data "aws_iam_policy_document" "logs" {
     actions = [
       "ssm:Get*"
     ]
-    resources = ["arn:aws:ssm:${var.region}:${var.account_id}:parameter/${var.stage}/*"]
+    resources = [
+      "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${var.stage}/*",
+      "arn:aws:ssm:${var.region}:${var.account_id}:parameter/prd/*"
+    ]
   }
 }
 
