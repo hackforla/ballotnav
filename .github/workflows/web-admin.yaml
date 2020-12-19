@@ -5,7 +5,6 @@ on:
       - main
       - master
       - develop
-      - ci-adminprd
 
   pull_request:
     types: [opened, synchronize]
@@ -25,8 +24,7 @@ jobs:
       apiurl: ${{ steps.contextvals.outputs.apiurl }}
       targetbucket: ${{ steps.contextvals.outputs.targetbucket }}
       artifactbucket: ${{ 'ballotnav-dev-adminui-dev-logs'}}
-      # is_github_release: ${{ github.event_name == 'release' }}
-      is_github_release: ${{ github.ref == 'refs/heads/ci-adminprd' }}
+      is_github_release: ${{ github.event_name == 'release' }}
       app_environment: ${{ steps.contextvals.outputs.app_environment }}
     steps:
       - name: Export values
@@ -34,8 +32,7 @@ jobs:
         run: |
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
-          # if [ ${{ github.event_name }} == 'release' || ${{ github.ref }} == 'refs/heads/ci-adminprd' ]; then
-          if [ ${{ github.ref == 'refs/heads/ci-adminprd' }}  ]; then
+          if [ ${{ github.event_name }} == 'release' ]; then
             API_URL=https://api.ballotnav.org
             TARGET_BUCKET=admin.ballotnav.org
             WEB_APP_ENVIRONMENT=prd
@@ -65,7 +62,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-    name: build & deploy adminui to dev
+    name: build & deploy adminui to ${{ steps.contextvals.whatisthecontext.app_environment }}
 
     steps:
       - uses: actions/checkout@v2
@@ -115,6 +112,6 @@ jobs:
           aws s3 sync build s3://${{ needs.whatisthecontext.outputs.targetbucket }}
           aws s3 cp build/index.html s3://${{ needs.whatisthecontext.outputs.targetbucket }}/ --cache-control no-cache
           aws s3 cp build/version.json s3://${{ needs.whatisthecontext.outputs.targetbucket }}/ --cache-control no-cache
-          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*="
-          printf "%s\n" "==C=O=M=P=L=E=T=E=D==T=H=E===B=U=I=L=D="
-          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*=*
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*=="
+          printf "%s\n" "🚀💥🚀💥 Completed the Deploy!! 🚀💥🚀💥"
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*=*"
