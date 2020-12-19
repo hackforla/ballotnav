@@ -5,6 +5,7 @@ on:
       - main
       - master
       - develop
+      - ci-adminprd
 
   pull_request:
     types: [opened, synchronize]
@@ -24,19 +25,24 @@ jobs:
       apiurl: ${{ steps.contextvals.outputs.apiurl }}
       targetbucket: ${{ steps.contextvals.outputs.targetbucket }}
       artifactbucket: ${{ 'ballotnav-dev-adminui-dev-logs'}}
-      is_github_release: ${{ github.event_name == 'release' }}
+      # is_github_release: ${{ github.event_name == 'release' }}
+      is_github_release: ${{ github.ref == 'refs/heads/ci-adminprd' }}
+      app_environment: ${{ steps.contextvals.outputs.app_environment }}
     steps:
       - name: Export values
         id: contextvals
         run: |
           SHA=${{ github.sha }}
           BUILT_AT=$(date "+%Y-%m-%d %H:%M:%S%z")
-          if [ ${{ github.event_name }} == 'release' ]; then
+          # if [ ${{ github.event_name }} == 'release' || ${{ github.ref }} == 'refs/heads/ci-adminprd' ]; then
+          if [ ${{ github.ref == 'refs/heads/ci-adminprd' }}  ]; then
             API_URL=https://api.ballotnav.org
             TARGET_BUCKET=admin.ballotnav.org
+            WEB_APP_ENVIRONMENT=prd
           else
             API_URL=https://api.dev.ballotnav.org
             TARGET_BUCKET=admin.dev.ballotnav.org
+            WEB_APP_ENVIRONMENT=dev
           fi
 
           # print these to the console for sanity checking
@@ -44,17 +50,18 @@ jobs:
           printf "%s\n" "Target bucket ${TARGET_BUCKET}"
           printf "%s\n" "API url ${API_URL}"
           printf "%s\n" "Built at ${BUILT_AT}"
+          printf "%s\n" "This web app is being built for this environment: ${WEB_APP_ENVIRONMENT}"
 
           # export them to github action outputs
           echo ::set-output name=sha::${SHA:0:8}
           echo ::set-output name=targetbucket::${TARGET_BUCKET}
           echo ::set-output name=apiurl::${API_URL}
           echo ::set-output name=built_at::${BUILT_AT}
+          echo ::set-output name=app_environment::${WEB_APP_ENVIRONMENT}
 
   adminui:
     runs-on: ubuntu-latest
     needs: [whatisthecontext]
-    if: needs.whatisthecontext.outputs.is_github_release != true
     strategy:
       matrix:
         node-version: [12.x]
@@ -80,7 +87,6 @@ jobs:
       - name: Create artifact
         uses: docker://busybox
       - name: tarball
-        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           tar -czf adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz build
@@ -93,42 +99,22 @@ jobs:
           aws-region: us-west-2
 
       - name: Save artifact
-        if: ${{ github.ref == 'refs/heads/master' }}
         working-directory: ./client/web-admin
         run: |
           aws s3 cp adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz s3://${{ needs.whatisthecontext.outputs.artifactbucket }}/artifacts/
 
-      - name: Deploy to the web admin app to dev
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Deploy to the web admin app to its environment
         working-directory: ./client/web-admin
         run: |
+          printf "Start deploy for this environment: %s\n" ${{ needs.whatisthecontext.outputs.app_environment }}
+          printf "%s\n" "======================================="
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*="
+          printf "Deploying to bucket: %s\n" ${{ needs.whatisthecontext.outputs.targetbucket }}
+          printf "%s\n" "======================================="
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*="
           aws s3 sync build s3://${{ needs.whatisthecontext.outputs.targetbucket }}
           aws s3 cp build/index.html s3://${{ needs.whatisthecontext.outputs.targetbucket }}/ --cache-control no-cache
           aws s3 cp build/version.json s3://${{ needs.whatisthecontext.outputs.targetbucket }}/ --cache-control no-cache
-
-  deploy_prd:
-    name: deploy to the production environment
-    runs-on: ubuntu-latest
-    needs: [whatisthecontext]
-    if: ${{ needs.whatisthecontext.outputs.is_github_release == true }}
-    steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-
-      - name: Pull down the built artifact
-        run: |
-          aws s3 cp s3://${{ needs.whatisthecontext.outputs.artifactbucket }}/artifacts/adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz .
-
-      - name: unpack the tarball
-        run: |
-          tar -xzf adminui-${{ needs.whatisthecontext.outputs.sha }}.tar.gz
-
-      - name: Deploy to the web admin app to prod
-        run: |
-          aws s3 sync build s3://${{ needs.whatisthecontext.outputs.targetbucket }}
-          aws s3 cp build/index.html s3://${{ steps.contextvals.outputs.targetbucket }}/ --cache-control no-cache
-          aws s3 cp build/version.json s3://${{ steps.contextvals.outputs.targetbucket }}/ --cache-control no-cache
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*="
+          printf "%s\n" "==C=O=M=P=L=E=T=E=D==T=H=E===B=U=I=L=D="
+          printf "%s\n" "==*=*==*=*==*=*==*=*==*=*==*=*==*=*==*=*
