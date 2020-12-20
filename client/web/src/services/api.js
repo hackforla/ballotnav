@@ -34,6 +34,14 @@ async function getJurisdiction(jurisdictionId) {
       ],
     }
 
+  locations.forEach((location) => {
+    if (typeof location.geomPoint === 'string')
+      location.geomPoint = {
+        type: 'Point',
+        coordinates: [+location.geomLongitude, +location.geomLatitude],
+      }
+  })
+
   return {
     state,
     jurisdiction,
