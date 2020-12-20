@@ -64,7 +64,8 @@ const Hours = ({ location, expandable }) => {
     const now = moment()
     return hours.find(
       (hour) =>
-        hour.beginDate.isSameOrBefore(now) && hour.endDate.isSameOrAfter(now)
+        hour.beginDate.isSameOrBefore(now) &&
+        hour.endDate.clone().endOf('day').isSameOrAfter(now)
     )
   }, [hours])
 
@@ -101,7 +102,7 @@ const Hours = ({ location, expandable }) => {
                     'M/DD'
                   )}`
               return (
-                <tr>
+                <tr key={hour.beginDate.format('M/DD')}>
                   <td>{dateString}</td>
                   <td style={{ paddingLeft: 30 }}>
                     {hour.openTime} - {hour.closeTime}
