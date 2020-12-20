@@ -34,6 +34,8 @@ async function getJurisdiction(jurisdictionId) {
       ],
     }
 
+  // fixes issue on prod where geomPoint was returned as a hash instead
+  // of an object
   locations.forEach((location) => {
     if (typeof location.geomPoint === 'string')
       location.geomPoint = {
