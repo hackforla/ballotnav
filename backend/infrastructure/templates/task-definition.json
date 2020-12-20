@@ -29,7 +29,6 @@
     },
     "environment": [
       { "name": "NODE_ENV", "value": "production" },
-      { "name": "DISABLE_DB_MIGRATION_AUTO_RUN", "value": "1" },
       { "name": "TOKEN_EXPIRY", "value": "86400" },
       { "name": "POSTGRES_USER", "value": "ballotnav" },
       { "name": "POSTGRES_DB", "value": "${postgres_db}" }
