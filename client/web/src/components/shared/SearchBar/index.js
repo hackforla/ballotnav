@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { openModal } from 'store/actions'
+import { openModal } from 'store/actions/modals'
 import { useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import api from 'services/api'

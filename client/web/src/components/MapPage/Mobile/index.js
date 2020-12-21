@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { selectLocation } from 'store/actions'
+import { selectLocation } from 'store/actions/query'
 import LocationCard from '../shared/LocationCard'
 import LocationDetail from '../shared/LocationDetail'
 import CheckSteps from '../shared/LocationDetail/CheckSteps'

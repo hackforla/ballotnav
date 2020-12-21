@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { ReactComponent as ShareIcon } from 'assets/icons/share.svg'
-import { openModal } from 'store/actions'
+import { openModal } from 'store/actions/modals'
 import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
