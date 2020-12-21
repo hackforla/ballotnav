@@ -10,7 +10,6 @@
 
 @charset "utf-8";
 
-@import '~rsuite/dist/styles/rsuite-default.css';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import '~mapbox-gl/dist/mapbox-gl.css';
 @import '~@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
@@ -36,7 +35,7 @@ $body-overflow-y: auto;
 
 @mixin media($breakpoint) {
   @if $breakpoint == mobile {
-    @media (min-width: 22.5em) {@content} 
+    @media (min-width: 22.5em) {@content}
   }
   @if $breakpoint == tablet {
     @media (min-width: 48em) {@content}
