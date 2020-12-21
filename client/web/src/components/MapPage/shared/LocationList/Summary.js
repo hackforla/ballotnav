@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontWeight: 700,
     fontSize: 16,
+    '& p': {
+      marginBottom: 20,
+    }
   },
   instructions: {
     fontWeight: 400,
@@ -26,17 +29,22 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
   if (!jurisdictionName) {
     return (
       <div className={classes.root}>
-        {isMobile ? (
-          <div className={classes.text}>
-            We could not identify your jurisdiction. Please use the search
-            button above to enter your address or jurisdiction.
-          </div>
-        ) : (
-          <div className={classes.text}>
-            We could not identify your jurisdiction. Please enter your address
-            or use the dropdown above.
-          </div>
-        )}
+        <div className={classes.text}>
+          <p>
+            We could not identify any drop-off locations in your area.
+          </p>
+          <p>
+            Please note that&nbsp;
+            <u>results are currently limited to Georgia</u>
+            &nbsp;for the special election on January 5, 2021.
+          </p>
+          <p>
+            If you'd like to search for drop-off locations in Georgia,
+            please use the
+            {isMobile ? ' search button ' : ' address bar or dropdown '}
+            above.
+          </p>
+        </div>
       </div>
     )
   }
