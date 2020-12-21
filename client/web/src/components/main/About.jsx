@@ -14,19 +14,15 @@ const About = () => {
         <div className="header">
           <div>
             <p>
-              BallotNav is a web app that will help voters quickly find the
-              location, times of operation, and due date for dropping off
-              mail-in ballots in person. Due to COVID-19 and cuts to the United
-              States Postal Service, some voters may feel insecure not only
-              about going out to the polls, but also about utilizing the mail to
-              cast their vote. While it is possible to drop off your mail-in
-              ballot in person, the rules for doing so are not clearly outlined
-              in one single location. Information is scattered across state and
-              county websites, each of which may individually fail to provide
-              one or more elements of crucial information, such as available
-              ballot drop-off times. The BallotNav project will collect this
-              data through a network of brigade partnerships and update it
-              accordingly.
+              BallotNav is a tool that aims to help prevent disenfranchisement
+              by providing reliable and up to date information on ballot drop
+              off locations across the US. By partnering with organizations
+              across the country, we hope to become the trusted resource for
+              voters in upcoming elections. Due to distrust in the postal
+              service, misguided information from the media, an inconsistent
+              pool of resources provided by the government, and societal shifts
+              from COVID-19, it is now more important than ever to have useful
+              resources for those hoping to have their voices heard.
             </p>
             <p className="bold">
               BallotNav’s overall goal is to provide information that helps
