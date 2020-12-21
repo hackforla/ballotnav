@@ -25,7 +25,8 @@ const Volunteer = () => {
             <h3>Community Data Monitors & Data Scientists</h3>
             <p>
               We need an army of volunteers who can validate information about
-              drop-off sites by scraping government websites and calling local election officials.
+              drop-off sites by scraping government websites and calling local
+              election officials.
             </p>
           </div>
           <div className="volunteer-card">

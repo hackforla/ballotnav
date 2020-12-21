@@ -14,7 +14,15 @@ const About = () => {
         <div className="header">
           <div>
             <p>
-              BallotNav is a tool that aims to help prevent disenfranchisement by providing reliable and up to date information on ballot drop off locations across the US. By partnering with organizations across the country, we hope to become the trusted resource for voters in upcoming elections. Due to distrust in the postal service, misguided information from the media, an inconsistent pool of resources provided by the government, and societal shifts from COVID-19, it is now more important than ever to have useful resources for those hoping to have their voices heard.
+              BallotNav is a tool that aims to help prevent disenfranchisement
+              by providing reliable and up to date information on ballot drop
+              off locations across the US. By partnering with organizations
+              across the country, we hope to become the trusted resource for
+              voters in upcoming elections. Due to distrust in the postal
+              service, misguided information from the media, an inconsistent
+              pool of resources provided by the government, and societal shifts
+              from COVID-19, it is now more important than ever to have useful
+              resources for those hoping to have their voices heard.
             </p>
             <p className="bold">
               BallotNav’s overall goal is to provide information that helps
