@@ -9,11 +9,6 @@ import Geocoder from './Geocoder'
 import SearchButton from './SearchButton'
 import UseMyLocation from './UseMyLocation'
 
-const GEORGIA_CENTER = {
-  lng: -83.26179,
-  lat: 32.39436,
-}
-
 function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
   const history = useHistory()
 
@@ -21,13 +16,11 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
     async ({ lng, lat, address }) => {
       const jurisdictions = await api.getJurisdictions(lng, lat)
 
-      if (jurisdictions.length === 1) {
-        const { id: jid } = jurisdictions[0]
-        const query = queryString.stringify({ jid, lng, lat, address })
-        history.push(`/map?${query}`)
-      } else {
-        history.push('/map')
-      }
+      const jid = jurisdictions[0]?.id
+      history.push({
+        pathname: '/map',
+        search: queryString.stringify({ jid, lng, lat, address }),
+      })
 
       if (onComplete) onComplete()
     },
@@ -39,11 +32,7 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
       {useModal ? (
         <SearchButton onClick={openSearchModal} />
       ) : (
-        <Geocoder
-          center={center || GEORGIA_CENTER}
-          address={address}
-          onResult={handleResult}
-        />
+        <Geocoder center={center} address={address} onResult={handleResult} />
       )}
       <UseMyLocation onResult={handleResult} />
     </div>

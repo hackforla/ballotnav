@@ -60,13 +60,14 @@ const MapContainer = ({
   })
 
   const setMapPosition = useCallback(() => {
-    if (!jurisdiction)
-      return setPosition({
-        bounds: GEORGIA,
-      })
-
     // search box
     if (userLocation && !selectedLocation) {
+      if (locations.length === 0)
+        return setPosition({
+          center: userLocation,
+          zoom: DEFAULT_ZOOM,
+        })
+
       return setPosition({
         bounds: surroundWithCenter(
           [userLocation.lng, userLocation.lat],
@@ -77,6 +78,11 @@ const MapContainer = ({
 
     // jurisdiction select
     if (!userLocation && !selectedLocation) {
+      if (!jurisdiction || !jurisdiction.geojson)
+        return setPosition({
+          bounds: GEORGIA,
+        })
+
       if (jurisdiction.geojson)
         return setPosition({
           bounds: bbox(jurisdiction.geojson),
