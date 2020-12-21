@@ -198,7 +198,7 @@ const reducer = (state = initialState, action) => {
           state: null,
           jurisdiction: null,
           locations: null,
-        }
+        },
       }
     case types.GET_STATES_WITH_JURISDICTIONS_SUCCESS:
       return {

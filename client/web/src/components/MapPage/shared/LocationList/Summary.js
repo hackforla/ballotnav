@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
     '& p': {
       marginBottom: 20,
-    }
+    },
   },
   instructions: {
     fontWeight: 400,
@@ -30,17 +30,15 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
     return (
       <div className={classes.root}>
         <div className={classes.text}>
-          <p>
-            We could not identify any drop-off locations in your area.
-          </p>
+          <p>We could not identify any drop-off locations in your area.</p>
           <p>
             Please note that&nbsp;
             <u>results are currently limited to Georgia</u>
             &nbsp;for the special election on January 5, 2021.
           </p>
           <p>
-            If you'd like to search for drop-off locations in Georgia,
-            please use the
+            If you'd like to search for drop-off locations in Georgia, please
+            use the
             {isMobile ? ' search button ' : ' address bar or dropdown '}
             above.
           </p>

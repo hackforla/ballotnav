@@ -8,7 +8,12 @@ import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction, clearJurisdiction }) => {
+const MapPage = ({
+  jurisdictionId,
+  saveQuery,
+  getJurisdiction,
+  clearJurisdiction,
+}) => {
   const location = useLocation()
   const { isMobile } = useBreakpoints()
 
@@ -27,10 +32,8 @@ const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction, clearJurisdiction
 
   // load the jurisdiction whenever the id changes
   useEffect(() => {
-    if (jurisdictionId)
-      getJurisdiction(jurisdictionId)
-    else
-      clearJurisdiction()
+    if (jurisdictionId) getJurisdiction(jurisdictionId)
+    else clearJurisdiction()
   }, [getJurisdiction, clearJurisdiction, jurisdictionId])
 
   return isMobile ? <Mobile /> : <Desktop />

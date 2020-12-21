@@ -32,11 +32,7 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
       {useModal ? (
         <SearchButton onClick={openSearchModal} />
       ) : (
-        <Geocoder
-          center={center}
-          address={address}
-          onResult={handleResult}
-        />
+        <Geocoder center={center} address={address} onResult={handleResult} />
       )}
       <UseMyLocation onResult={handleResult} />
     </div>
