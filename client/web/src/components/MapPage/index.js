@@ -8,7 +8,7 @@ import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const MapPage = ({ isLoaded, jurisdictionId, saveQuery, getJurisdiction }) => {
+const MapPage = ({ jurisdictionId, saveQuery, getJurisdiction }) => {
   const location = useLocation()
   const { isMobile } = useBreakpoints()
 
@@ -30,12 +30,10 @@ const MapPage = ({ isLoaded, jurisdictionId, saveQuery, getJurisdiction }) => {
     getJurisdiction(jurisdictionId)
   }, [getJurisdiction, jurisdictionId])
 
-  if (!isLoaded) return null
   return isMobile ? <Mobile /> : <Desktop />
 }
 
 const mapStateToProps = (state) => ({
-  isLoaded: select.isLoaded(state),
   jurisdictionId: select.query(state).jurisdictionId,
 })
 
@@ -51,10 +49,8 @@ MapPage.propTypes = {
   jurisdictionId: PropTypes.number,
   saveQuery: PropTypes.func.isRequired,
   getJurisdiction: PropTypes.func.isRequired,
-  isLoaded: PropTypes.bool,
 }
 
 MapPage.defaultProps = {
   jurisdictionId: null,
-  isLoaded: false,
 }

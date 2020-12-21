@@ -120,7 +120,6 @@ const initialState = {
     address: null,
   },
   data: {
-    isLoaded: false,
     isLoading: false,
     error: null,
     state: null,
@@ -170,7 +169,6 @@ const reducer = (state = initialState, action) => {
         data: {
           ...state.data,
           isLoading: false,
-          isLoaded: true,
           error: null,
           state: action.data.state,
           jurisdiction: action.data.jurisdiction,
@@ -182,7 +180,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         data: {
           isLoading: false,
-          isLoaded: true,
           error: action.data.error,
         },
       }
