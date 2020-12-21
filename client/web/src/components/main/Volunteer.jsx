@@ -11,11 +11,6 @@ const Volunteer = () => {
         <div className="header-wrapper">
           <div className="header-content">
             <h2 className="red">Urgent: </h2>
-            <h2>Community Data Monitors</h2>
-            <p>
-              We need an army of volunteers who can validate information about
-              drop-off sites by calling local election officials.
-            </p>
             <h2>Marketing & PR</h2>
             <p>
               We need marketing and PR gurus who can help us spread the word
@@ -27,6 +22,13 @@ const Volunteer = () => {
         </div>
         <div className="cards-wrapper">
           <div className="volunteer-card">
+            <h3>Community Data Monitors & Data Scientists</h3>
+            <p>
+              We need an army of volunteers who can validate information about
+              drop-off sites by scraping government websites and calling local election officials.
+            </p>
+          </div>
+          <div className="volunteer-card">
             <h3>Fundraising</h3>
             <p>
               As we grow, we will need funds to enhance our app infrastructure
@@ -34,7 +36,7 @@ const Volunteer = () => {
             </p>
           </div>
           <div className="volunteer-card">
-            <h3>Software Developers & Data Scientists</h3>
+            <h3>Software Developers & UX Researchers</h3>
             <p>
               We always need devs who can reenvision who we are and propel us
               into the future.

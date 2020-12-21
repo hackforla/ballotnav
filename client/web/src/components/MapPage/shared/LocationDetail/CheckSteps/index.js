@@ -54,7 +54,7 @@ const CheckSteps = ({ openModal }) => {
           Do you need to register?
         </Step>
         <Step onClick={openModal.bind(null, 'absentee')}>
-          Do you need to request a mail-in/absentee ballot?
+          Do you need to request a mail-in/absentee ballot? (Deadline to receive: Jan. 1, 2021)
         </Step>
         <Step>
           Before you go, have you checked for last-minute changes to voting
