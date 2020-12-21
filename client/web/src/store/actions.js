@@ -8,6 +8,7 @@ export const types = {
   GET_JURISDICTION_PENDING: 'GET_JURISDICTION_PENDING',
   GET_JURISDICTION_ERROR: 'GET_JURISDICTION_ERROR',
   GET_JURISDICTION_SUCCESS: 'GET_JURISDICTION_SUCCESS',
+  CLEAR_JURISDICTION: 'CLEAR_JURISDICTION',
   GET_STATES_WITH_JURISDICTIONS_SUCCESS:
     'GET_STATES_WITH_JURISDICTIONS_SUCCESS',
   GET_STATES_WITH_JURISDICTIONS_ERROR: 'GET_STATES_WITH_JURISDICTIONS_ERROR',
@@ -72,6 +73,10 @@ export const getJurisdiction = (jurisdictionId) => {
       })
   }
 }
+
+export const clearJurisdiction = () => ({
+  type: types.CLEAR_JURISDICTION,
+})
 
 export const getStatesWithJurisdictions = () => {
   return (dispatch) =>
@@ -182,6 +187,18 @@ const reducer = (state = initialState, action) => {
           isLoading: false,
           error: action.data.error,
         },
+      }
+    case types.CLEAR_JURISDICTION:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          isLoading: false,
+          error: null,
+          state: null,
+          jurisdiction: null,
+          locations: null,
+        }
       }
     case types.GET_STATES_WITH_JURISDICTIONS_SUCCESS:
       return {
