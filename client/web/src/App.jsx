@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
 import Header from './components/main/Header'
 import Footer from './components/main/Footer'
 import CookieConsentBanner from './components/main/CookieConsentBanner'
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const App = () => {
   const classes = useStyles()
   return (
-    <Router history={history}>
+    <ConnectedRouter history={history}>
       <Div100vh className={classes.root}>
         <Header />
         <div className={classes.content}>
@@ -32,7 +32,7 @@ const App = () => {
         <CookieConsentBanner />
       </Div100vh>
       <Modals />
-    </Router>
+    </ConnectedRouter>
   )
 }
 

@@ -13,7 +13,7 @@ import DisplayNote from './DisplayNote'
 const LocationDetail = ({
   location,
   jurisdiction,
-  userLngLat,
+  userLocation,
   userAddress,
 }) => {
   if (!location) return null
@@ -31,7 +31,7 @@ const LocationDetail = ({
       >
         <ShareButton location={location} />
         <DirectionsButton
-          userLngLat={userLngLat}
+          userLocation={userLocation}
           userAddress={userAddress}
           location={location}
         />
@@ -45,20 +45,20 @@ const LocationDetail = ({
 
 const mapStateToProps = (state) => ({
   jurisdiction: select.jurisdiction(state),
-  userLngLat: select.query(state).lngLat,
-  userAddress: select.query(state).address,
+  userLocation: select.userLocation(state),
+  userAddress: select.userAddress(state),
 })
 
 export default connect(mapStateToProps)(LocationDetail)
 
 LocationDetail.propTypes = {
   location: PropTypes.shape({}),
-  userLngLat: PropTypes.shape({}),
+  userLocation: PropTypes.shape({}),
   userAddress: PropTypes.string,
 }
 
 LocationDetail.defaultProps = {
   location: null,
-  userLngLat: undefined,
+  userLocation: undefined,
   userAddress: undefined,
 }

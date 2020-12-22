@@ -31,7 +31,7 @@ function addressString(location) {
   ].join(' ')
 }
 
-const DirectionsButton = ({ location, userLngLat, userAddress }) => {
+const DirectionsButton = ({ location, userLocation, userAddress }) => {
   const classes = useStyles()
 
   const showDirections = useCallback(() => {
@@ -39,13 +39,13 @@ const DirectionsButton = ({ location, userLngLat, userAddress }) => {
       api: 1,
       origin: (() => {
         if (userAddress) return userAddress
-        if (userLngLat) return `${userLngLat.lat},${userLngLat.lng}`
+        if (userLocation) return `${userLocation.lat},${userLocation.lng}`
         return undefined
       })(),
       destination: addressString(location),
     })
     window.open(`https://www.google.com/maps/dir/?${query}`)
-  }, [location, userLngLat, userAddress])
+  }, [location, userLocation, userAddress])
 
   return (
     <div className={classes.root} onClick={showDirections}>
@@ -61,12 +61,12 @@ export default DirectionsButton
 
 DirectionsButton.propTypes = {
   location: PropTypes.shape({}),
-  userLngLat: PropTypes.shape({}),
+  userLocation: PropTypes.shape({}),
   userAddress: PropTypes.string,
 }
 
 DirectionsButton.defaultProps = {
   location: null,
-  userLngLat: undefined,
+  userLocation: undefined,
   userAddress: undefined,
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { selectLocation } from 'store/actions/query'
+import { selectLocation } from 'store/actions/router'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import Typography from '@material-ui/core/Typography'
 

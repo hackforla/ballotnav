@@ -1,18 +1,23 @@
 import { createSelector } from 'reselect'
 import distance from '@turf/distance'
 
-export const query = (state) => state.query
 export const isLoading = (state) => state.data.isLoading
 export const state = (state) => state.data.state
 export const jurisdiction = (state) => state.data.jurisdiction
 export const locations = (state) => state.data.locations
 export const statesWithJurisdictions = (state) =>
   state.data.statesWithJurisdictions
-export const selectedLocationId = (state) => state.query.locationId
 export const modals = (state) => state.modals
 
-const userLng = (state) => state.query.lngLat?.lng
-const userLat = (state) => state.query.lngLat?.lat
+export const selectedJurisdictionId = (state) => +state.router.location.query.jid
+export const selectedLocationId = (state) => +state.router.location.query.lid
+export const userLng = (state) => +state.router.location.query.lng
+export const userLat = (state) => +state.router.location.query.lat
+export const userAddress = (state) => {
+  const { address } = state.router.location.query
+  return address ? decodeURIComponent(address) : undefined
+}
+
 export const userLocation = createSelector([userLng, userLat], (lng, lat) =>
   lng && lat ? { lng, lat } : null
 )

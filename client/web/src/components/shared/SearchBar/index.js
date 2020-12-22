@@ -5,6 +5,7 @@ import { openModal } from 'store/actions/modals'
 import { useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import api from 'services/api'
+import * as select from 'store/selectors'
 import Geocoder from './Geocoder'
 import SearchButton from './SearchButton'
 import UseMyLocation from './UseMyLocation'
@@ -40,8 +41,8 @@ function SearchBar({ center, address, onComplete, useModal, openSearchModal }) {
 }
 
 const mapStateToProps = (state) => ({
-  center: state.query.lngLat,
-  address: state.query.address,
+  center: select.userLocation(state),
+  address: select.userAddress(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
