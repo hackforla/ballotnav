@@ -57,7 +57,7 @@ const VerifyBox = ({ location, jurisdiction }) => {
           </div>
         )}
         {nonEmailUrls.map(({ url, name }) => (
-          <div className={classes.infoItem}>
+          <div key={url} className={classes.infoItem}>
             <NewWindowIcon />
             <a target="_blank" rel="noreferrer" href={url}>
               {name}

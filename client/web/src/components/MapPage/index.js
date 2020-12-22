@@ -1,63 +1,43 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 import * as select from 'store/selectors'
-import { saveQuery, getJurisdiction, clearJurisdiction } from 'store/actions'
+import { getJurisdiction } from 'store/actions/data'
 import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const MapPage = ({
-  jurisdictionId,
-  saveQuery,
-  getJurisdiction,
-  clearJurisdiction,
-}) => {
-  const location = useLocation()
+const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
   const { isMobile } = useBreakpoints()
 
-  // clear query/data when leaving map page
+  // clear jurisdiction when leaving map
   useEffect(() => {
-    return () => {
-      saveQuery(null)
-      clearJurisdiction()
-    }
-  }, [saveQuery, clearJurisdiction])
+    return () => getJurisdiction(null)
+  }, [getJurisdiction])
 
-  // save query params whenever url changes
+  // get jurisdiction whenever selection changes
   useEffect(() => {
-    saveQuery()
-  }, [saveQuery, location.search])
-
-  // load the jurisdiction whenever the id changes
-  useEffect(() => {
-    if (jurisdictionId) getJurisdiction(jurisdictionId)
-    else clearJurisdiction()
-  }, [getJurisdiction, clearJurisdiction, jurisdictionId])
+    getJurisdiction(selectedJurisdictionId)
+  }, [selectedJurisdictionId, getJurisdiction])
 
   return isMobile ? <Mobile /> : <Desktop />
 }
 
 const mapStateToProps = (state) => ({
-  jurisdictionId: select.query(state).jurisdictionId,
+  selectedJurisdictionId: select.selectedJurisdictionId(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  saveQuery: (urlQueryString) => dispatch(saveQuery(urlQueryString)),
-  getJurisdiction: (jurisdictionId) =>
-    dispatch(getJurisdiction(jurisdictionId)),
-  clearJurisdiction: () => dispatch(clearJurisdiction()),
+  getJurisdiction: (jid) => dispatch(getJurisdiction(jid)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapPage)
 
 MapPage.propTypes = {
-  jurisdictionId: PropTypes.number,
-  saveQuery: PropTypes.func.isRequired,
+  selectedJurisdictionId: PropTypes.number,
   getJurisdiction: PropTypes.func.isRequired,
 }
 
 MapPage.defaultProps = {
-  jurisdictionId: null,
+  selectedJurisdictionId: null,
 }

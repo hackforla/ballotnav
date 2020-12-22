@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 function addressString(location) {
   return [
-    `${location.address1}, ${location.address2} ${location.city},`,
+    `${location.address1.trim()}, ${location.address2} ${location.city},`,
     `${location.state} ${location.zip}`,
   ].join(' ')
 }
