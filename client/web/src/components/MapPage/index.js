@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
-import { getJurisdiction, clearJurisdiction } from 'store/actions/data'
+import { getJurisdiction } from 'store/actions/data'
 import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
@@ -10,20 +10,18 @@ import Mobile from './Mobile'
 const MapPage = ({
   selectedJurisdictionId,
   getJurisdiction,
-  clearJurisdiction,
 }) => {
   const { isMobile } = useBreakpoints()
 
-  // clear jurisdiction data when leaving map page
+  // clear jurisdiction when leaving map
   useEffect(() => {
-    return () => clearJurisdiction()
-  }, [clearJurisdiction])
+    return () => getJurisdiction(null)
+  }, [getJurisdiction])
 
-  // load the jurisdiction whenever the id changes
+  // get jurisdiction whenever selection changes
   useEffect(() => {
-    if (selectedJurisdictionId) getJurisdiction(selectedJurisdictionId)
-    else clearJurisdiction()
-  }, [selectedJurisdictionId, getJurisdiction, clearJurisdiction])
+    getJurisdiction(selectedJurisdictionId)
+  }, [selectedJurisdictionId, getJurisdiction])
 
   return isMobile ? <Mobile /> : <Desktop />
 }
@@ -33,9 +31,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getJurisdiction: (jurisdictionId) =>
-    dispatch(getJurisdiction(jurisdictionId)),
-  clearJurisdiction: () => dispatch(clearJurisdiction()),
+  getJurisdiction: (jid) => dispatch(getJurisdiction(jid)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapPage)

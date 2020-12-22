@@ -36,11 +36,6 @@ const CONTINENTAL_US = [
   [-66.885444, 49.384358],
 ]
 
-const GEORGIA = [
-  [-85.61, 30.36],
-  [-80.84, 35.0],
-]
-
 const DEFAULT_ZOOM = 13
 
 const MapContainer = ({
@@ -49,7 +44,7 @@ const MapContainer = ({
   userLocation,
   selectedLocation,
   selectLocation,
-  isLoading,
+  selectedJurisdictionId,
 }) => {
   const [position, setPosition] = useState(null)
   const [map, setMap] = useState(null)
@@ -57,6 +52,7 @@ const MapContainer = ({
     jurisdiction,
     userLocation,
     selectedLocation,
+    selectedJurisdictionId,
   })
 
   const setMapPosition = useCallback(() => {
@@ -78,11 +74,6 @@ const MapContainer = ({
 
     // jurisdiction select
     if (!userLocation && !selectedLocation) {
-      if (!jurisdiction || !jurisdiction.geojson)
-        return setPosition({
-          bounds: GEORGIA,
-        })
-
       if (jurisdiction.geojson)
         return setPosition({
           bounds: bbox(jurisdiction.geojson),
@@ -125,11 +116,19 @@ const MapContainer = ({
   }, [jurisdiction, locations, userLocation, selectedLocation])
 
   useEffect(() => {
+    // move map whenever jurisdiction exists and is changed
+    if (jurisdiction && delta.jurisdiction) return setMapPosition()
+
+    // also move the map when the userLocation exists and is changed, if:
+    // (1) there's no selectedJurisdictionId. This happens when the user moves
+    // to or between locations where we don't have jurisdictional coverage.
+    // (2) the selectedJurisdictionId hasn't changed. This happens when
+    // the user moves between locations in the same jurisdiction.
     if (
-      delta.jurisdiction ||
-      (delta.userLocation && delta.userLocation.curr && !isLoading)
+      (userLocation && delta.userLocation) &&
+      (!selectedJurisdictionId || !delta.selectedJurisdictionId)
     )
-      setMapPosition()
+      return setMapPosition()
   })
 
   useEffect(() => {
@@ -164,7 +163,7 @@ const mapStateToProps = (state) => ({
   locations: select.sortedLocations(state),
   userLocation: select.userLocation(state),
   selectedLocation: select.selectedLocation(state),
-  isLoading: select.isLoading(state),
+  selectedJurisdictionId: select.selectedJurisdictionId(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -181,14 +180,14 @@ MapContainer.propTypes = {
     lat: PropTypes.number,
   }),
   selectLocation: PropTypes.func.isRequired,
-  selectedLocationId: PropTypes.number,
-  isLoading: PropTypes.bool,
+  selectedLocation: PropTypes.shape({}),
+  selectedJurisdictionId: PropTypes.number,
 }
 
 MapContainer.defaultProps = {
   jurisdiction: null,
   locations: [],
   userLocation: null,
-  selectedLocationId: null,
-  isLoading: false,
+  selectedLocation: null,
+  selectedJurisdictionId: null,
 }
