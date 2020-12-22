@@ -125,7 +125,8 @@ const MapContainer = ({
     // (2) the selectedJurisdictionId hasn't changed. This happens when
     // the user moves between locations in the same jurisdiction.
     if (
-      (userLocation && delta.userLocation) &&
+      userLocation &&
+      delta.userLocation &&
       (!selectedJurisdictionId || !delta.selectedJurisdictionId)
     )
       return setMapPosition()

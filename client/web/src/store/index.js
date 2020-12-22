@@ -16,12 +16,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(
-      routerMiddleware(history),
-      thunk,
-    )
-  )
+  composeWithDevTools(applyMiddleware(routerMiddleware(history), thunk))
 )
 
 export default store

@@ -5,19 +5,16 @@ import queryString from 'query-string'
 /////////////////// ROUTER ///////////////////
 
 const search = (state) => state.router.location.search
-const query = createSelector(
-  [search],
-  (search) => {
-    const parsed = queryString.parse(search)
-    return {
-      jid: +parsed.jid || null,
-      lid: +parsed.lid || null,
-      lng: +parsed.lng || null,
-      lat: +parsed.lat || null,
-      address: parsed.address || null,
-    }
-  },
-)
+const query = createSelector([search], (search) => {
+  const parsed = queryString.parse(search)
+  return {
+    jid: +parsed.jid || null,
+    lid: +parsed.lid || null,
+    lng: +parsed.lng || null,
+    lat: +parsed.lat || null,
+    address: parsed.address || null,
+  }
+})
 
 export const selectedJurisdictionId = createSelector([query], (q) => q.jid)
 export const selectedLocationId = createSelector([query], (q) => q.lid)
@@ -25,9 +22,8 @@ export const userAddress = createSelector([query], (q) => q.address)
 
 const userLng = createSelector([query], (q) => q.lng)
 const userLat = createSelector([query], (q) => q.lat)
-export const userLocation = createSelector(
-  [userLng, userLat],
-  (lng, lat) => lng && lat ? { lng, lat } : null
+export const userLocation = createSelector([userLng, userLat], (lng, lat) =>
+  lng && lat ? { lng, lat } : null
 )
 
 /////////////////// DATA ///////////////////

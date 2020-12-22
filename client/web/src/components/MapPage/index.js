@@ -7,10 +7,7 @@ import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const MapPage = ({
-  selectedJurisdictionId,
-  getJurisdiction,
-}) => {
+const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
   const { isMobile } = useBreakpoints()
 
   // clear jurisdiction when leaving map
