@@ -1,38 +1,29 @@
-import * as router from 'connected-react-router'
+import { connectRouter, push } from 'connected-react-router'
 import history from 'services/history'
 import queryString from 'query-string'
 import mixpanel from 'services/mixpanel'
 
-export const types = {
-  LOCATION_CHANGE: router.LOCATION_CHANGE,
-}
-
-export const push = router.push
-
-export const updateQuery = (newQuery={}) => {
+const mergeQueryParams = (newParams={}) => {
   return (dispatch, getState) => {
-    const { pathname, location: { query } } = getState().router
+    const { pathname, location: { search } } = getState().router
+    const oldParams = queryString.parse(search)
     return dispatch(push({
       pathname,
       search: queryString.stringify({
-        ...query,
-        ...newQuery,
+        ...oldParams,
+        ...newParams,
       })
     }))
   }
 }
 
 export const selectLocation = (locationId) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     mixpanel.track('SELECT_LOCATION', { locationId })
-    return dispatch(push({
-      pathname: '/map',
-      search: queryString.stringify({
-        ...queryString.parse(getState().router.location.search),
-        lid: locationId || undefined,
-      })
+    return dispatch(mergeQueryParams({
+      lid: locationId || undefined,
     }))
   }
 }
 
-export default router.connectRouter(history)
+export default connectRouter(history)
