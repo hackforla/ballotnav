@@ -62,7 +62,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-    name: build & deploy adminui to ${{ steps.contextvals.whatisthecontext.app_environment }}
+    name: build & deploy adminui to ${{ needs.whatisthecontext.outputs.app_environment }}
 
     steps:
       - uses: actions/checkout@v2
