@@ -29,13 +29,12 @@ const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
       <div className={classes.root}>
         <div className={classes.text}>
           <p>
-            There are currently no ballot drop-off locations being displayed
-            as BallotNav is working on validating information for future
-            elections.
+            There are currently no ballot drop-off locations being displayed as
+            BallotNav is working on validating information for future elections.
           </p>
           <p>
-            Please check back in with us later, or see how you
-            can help on our Volunteer Page.
+            Please check back in with us later, or see how you can help on our
+            Volunteer Page.
           </p>
         </div>
       </div>
