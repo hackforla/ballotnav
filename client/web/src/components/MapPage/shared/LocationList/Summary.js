@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import * as select from 'store/selectors'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,22 +24,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Summary = ({ numLocations, stateAbbr, jurisdictionName }) => {
   const classes = useStyles()
-  const { isMobile } = useBreakpoints()
   if (!jurisdictionName) {
     return (
       <div className={classes.root}>
         <div className={classes.text}>
-          <p>We could not identify any drop-off locations in your area.</p>
           <p>
-            Please note that&nbsp;
-            <u>results are currently limited to Georgia</u>
-            &nbsp;for the special election on January 5, 2021.
+            There are currently no ballot drop-off locations being displayed as
+            BallotNav is working on validating information for future elections.
           </p>
           <p>
-            If you'd like to search for drop-off locations in Georgia, please
-            use the
-            {isMobile ? ' search button ' : ' address bar or dropdown '}
-            above.
+            Please check back in with us later, or see how you can help on our
+            Volunteer Page.
           </p>
         </div>
       </div>

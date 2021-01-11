@@ -55,7 +55,6 @@ const JurisdictionSelect = ({
   useEffect(() => {
     if (!statesWithJurisdictions) getStatesWithJurisdictions()
     else if (statesWithJurisdictions.length === 1)
-      // select GA automatically
       setSelectedState(statesWithJurisdictions[0])
   }, [statesWithJurisdictions, getStatesWithJurisdictions])
 

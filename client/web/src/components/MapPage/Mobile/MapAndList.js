@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const MapAndList = ({ isLocationSelected, locationHeight }) => {
-  const [listOpen, setListOpen] = useState(false)
+  const [listOpen, setListOpen] = useState(true)
   const classes = useStyles({ listOpen, locationHeight })
 
   useEffect(() => {
