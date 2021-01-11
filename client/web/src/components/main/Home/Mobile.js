@@ -76,8 +76,9 @@ const Mobile = withStyles((theme) => ({
             or absentee ballot
           </h3>
           <h4 className={classes.h4}>
-            BallotNav is displaying ballot drop-off information <br />
-            for the Georgia special election on Jan. 5, 2021
+            BallotNav is currently working on validating information <br />
+            for future elections. Please check back in with us later, <br />
+            or see how you can help on our Volunteer Page.
           </h4>
         </div>
       </div>
