@@ -84,8 +84,8 @@
     right: 0;
     padding: 0;
     top:0;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    // border-top-left-radius: 25px;
+    // border-bottom-left-radius: 25px;
     z-index: 1000;
     .navbar-end {
       @media only screen and (max-width: 1023px) {
@@ -95,7 +95,8 @@
   }
 
   .navbar-menu.is-active .hamburger-menu {
-    width:300px;
+    // width:300px;
+    width: 100vw;
   }
 
   .hamburger-menu {
@@ -127,7 +128,7 @@
       position: absolute;
       bottom: 0;
       height: 240px;
-      border-bottom-left-radius:25px;
+      // border-bottom-left-radius:25px;
       .content {
         flex-direction:column;
         align-items:flex-start;

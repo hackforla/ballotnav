@@ -25,7 +25,7 @@ This guide will help get you up to speed on what you need to know to get started
 4. Accept your Google Drive invite to access the shared folder.
 5. Add yourself to the [Team Roster](https://airtable.com/shriSRTvwjuNqf1TV). Then, Slack our PM with "Added to Roster".
 6. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
-7. Read project details and review our [Project Management Board](https://github.com/hackforla/ballotnav/projects/1)
+7. Read project details and review our [Project Management Board](https://airtable.com/shriSRTvwjuNqf1TV)
 8. Weekly team meetings will be Tuesdays 5PM - 6PM (times listed in PT)
 
 If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
@@ -33,4 +33,6 @@ If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
 ### Graphic Design, Videomaking, or Marketing Volunteer?
 
 Please contact us at (ballotnav@hackforla.org) for more information
+
+
 
