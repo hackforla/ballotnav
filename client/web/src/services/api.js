@@ -12,9 +12,7 @@ async function getJurisdictions(lon, lat) {
     return pointInPolygon([lon, lat], geojson.features[0])
   })
 
-  return jurisdiction
-    ? [{ id: jurisdiction.jurisdiction.id }]
-    : []
+  return jurisdiction ? [{ id: jurisdiction.jurisdiction.id }] : []
 }
 
 async function getJurisdiction(jurisdictionId) {

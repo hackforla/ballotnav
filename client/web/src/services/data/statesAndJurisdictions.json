@@ -1,645 +1,645 @@
 [
-    {
-        "id": 20,
-        "name": "Georgia",
-        "abbreviation": "GA",
-        "jurisdictions": [
-            {
-                "id": 397,
-                "name": "Appling County"
-            },
-            {
-                "id": 398,
-                "name": "Atkinson County"
-            },
-            {
-                "id": 399,
-                "name": "Bacon County"
-            },
-            {
-                "id": 400,
-                "name": "Baker County"
-            },
-            {
-                "id": 401,
-                "name": "Baldwin County"
-            },
-            {
-                "id": 402,
-                "name": "Banks County"
-            },
-            {
-                "id": 403,
-                "name": "Barrow County"
-            },
-            {
-                "id": 404,
-                "name": "Bartow County"
-            },
-            {
-                "id": 405,
-                "name": "Ben Hill County"
-            },
-            {
-                "id": 406,
-                "name": "Berrien County"
-            },
-            {
-                "id": 407,
-                "name": "Bibb County"
-            },
-            {
-                "id": 408,
-                "name": "Bleckley County"
-            },
-            {
-                "id": 409,
-                "name": "Brantley County"
-            },
-            {
-                "id": 410,
-                "name": "Brooks County"
-            },
-            {
-                "id": 411,
-                "name": "Bryan County"
-            },
-            {
-                "id": 412,
-                "name": "Bulloch County"
-            },
-            {
-                "id": 413,
-                "name": "Burke County"
-            },
-            {
-                "id": 414,
-                "name": "Butts County"
-            },
-            {
-                "id": 415,
-                "name": "Calhoun County"
-            },
-            {
-                "id": 416,
-                "name": "Camden County"
-            },
-            {
-                "id": 417,
-                "name": "Candler County"
-            },
-            {
-                "id": 418,
-                "name": "Carroll County"
-            },
-            {
-                "id": 419,
-                "name": "Catoosa County"
-            },
-            {
-                "id": 420,
-                "name": "Charlton County"
-            },
-            {
-                "id": 421,
-                "name": "Chatham County"
-            },
-            {
-                "id": 422,
-                "name": "Chattahoochee County"
-            },
-            {
-                "id": 423,
-                "name": "Chattooga County"
-            },
-            {
-                "id": 424,
-                "name": "Cherokee County"
-            },
-            {
-                "id": 425,
-                "name": "Clarke County"
-            },
-            {
-                "id": 426,
-                "name": "Clay County"
-            },
-            {
-                "id": 427,
-                "name": "Clayton County"
-            },
-            {
-                "id": 428,
-                "name": "Clinch County"
-            },
-            {
-                "id": 429,
-                "name": "Cobb County"
-            },
-            {
-                "id": 430,
-                "name": "Coffee County"
-            },
-            {
-                "id": 431,
-                "name": "Colquitt County"
-            },
-            {
-                "id": 432,
-                "name": "Columbia County"
-            },
-            {
-                "id": 433,
-                "name": "Cook County"
-            },
-            {
-                "id": 434,
-                "name": "Coweta County"
-            },
-            {
-                "id": 435,
-                "name": "Crawford County"
-            },
-            {
-                "id": 436,
-                "name": "Crisp County"
-            },
-            {
-                "id": 437,
-                "name": "Dade County"
-            },
-            {
-                "id": 438,
-                "name": "Dawson County"
-            },
-            {
-                "id": 439,
-                "name": "Decatur County"
-            },
-            {
-                "id": 440,
-                "name": "DeKalb County"
-            },
-            {
-                "id": 441,
-                "name": "Dodge County"
-            },
-            {
-                "id": 442,
-                "name": "Dooly County"
-            },
-            {
-                "id": 443,
-                "name": "Dougherty County"
-            },
-            {
-                "id": 444,
-                "name": "Douglas County"
-            },
-            {
-                "id": 445,
-                "name": "Early County"
-            },
-            {
-                "id": 446,
-                "name": "Echols County"
-            },
-            {
-                "id": 447,
-                "name": "Effingham County"
-            },
-            {
-                "id": 448,
-                "name": "Elbert County"
-            },
-            {
-                "id": 449,
-                "name": "Emanuel County"
-            },
-            {
-                "id": 450,
-                "name": "Evans County"
-            },
-            {
-                "id": 451,
-                "name": "Fannin County"
-            },
-            {
-                "id": 452,
-                "name": "Fayette County"
-            },
-            {
-                "id": 453,
-                "name": "Floyd County"
-            },
-            {
-                "id": 454,
-                "name": "Forsyth County"
-            },
-            {
-                "id": 455,
-                "name": "Franklin County"
-            },
-            {
-                "id": 456,
-                "name": "Fulton County"
-            },
-            {
-                "id": 457,
-                "name": "Gilmer County"
-            },
-            {
-                "id": 458,
-                "name": "Glascock County"
-            },
-            {
-                "id": 459,
-                "name": "Glynn County"
-            },
-            {
-                "id": 460,
-                "name": "Gordon County"
-            },
-            {
-                "id": 461,
-                "name": "Grady County"
-            },
-            {
-                "id": 462,
-                "name": "Greene County"
-            },
-            {
-                "id": 463,
-                "name": "Gwinnett County"
-            },
-            {
-                "id": 464,
-                "name": "Habersham County"
-            },
-            {
-                "id": 465,
-                "name": "Hall County"
-            },
-            {
-                "id": 466,
-                "name": "Hancock County"
-            },
-            {
-                "id": 467,
-                "name": "Haralson County"
-            },
-            {
-                "id": 468,
-                "name": "Harris County"
-            },
-            {
-                "id": 469,
-                "name": "Hart County"
-            },
-            {
-                "id": 470,
-                "name": "Heard County"
-            },
-            {
-                "id": 471,
-                "name": "Henry County"
-            },
-            {
-                "id": 472,
-                "name": "Houston County"
-            },
-            {
-                "id": 473,
-                "name": "Irwin County"
-            },
-            {
-                "id": 474,
-                "name": "Jackson County"
-            },
-            {
-                "id": 475,
-                "name": "Jasper County"
-            },
-            {
-                "id": 476,
-                "name": "Jeff Davis County"
-            },
-            {
-                "id": 477,
-                "name": "Jefferson County"
-            },
-            {
-                "id": 478,
-                "name": "Jenkins County"
-            },
-            {
-                "id": 479,
-                "name": "Johnson County"
-            },
-            {
-                "id": 480,
-                "name": "Jones County"
-            },
-            {
-                "id": 481,
-                "name": "Lamar County"
-            },
-            {
-                "id": 482,
-                "name": "Lanier County"
-            },
-            {
-                "id": 483,
-                "name": "Laurens County"
-            },
-            {
-                "id": 484,
-                "name": "Lee County"
-            },
-            {
-                "id": 485,
-                "name": "Liberty County"
-            },
-            {
-                "id": 486,
-                "name": "Lincoln County"
-            },
-            {
-                "id": 487,
-                "name": "Long County"
-            },
-            {
-                "id": 488,
-                "name": "Lowndes County"
-            },
-            {
-                "id": 489,
-                "name": "Lumpkin County"
-            },
-            {
-                "id": 490,
-                "name": "Macon County"
-            },
-            {
-                "id": 491,
-                "name": "Madison County"
-            },
-            {
-                "id": 492,
-                "name": "Marion County"
-            },
-            {
-                "id": 493,
-                "name": "McDuffie County"
-            },
-            {
-                "id": 494,
-                "name": "McIntosh County"
-            },
-            {
-                "id": 495,
-                "name": "Meriwether County"
-            },
-            {
-                "id": 496,
-                "name": "Miller County"
-            },
-            {
-                "id": 497,
-                "name": "Mitchell County"
-            },
-            {
-                "id": 498,
-                "name": "Monroe County"
-            },
-            {
-                "id": 499,
-                "name": "Montgomery County"
-            },
-            {
-                "id": 500,
-                "name": "Morgan County"
-            },
-            {
-                "id": 501,
-                "name": "Murray County"
-            },
-            {
-                "id": 502,
-                "name": "Muscogee County"
-            },
-            {
-                "id": 503,
-                "name": "Newton County"
-            },
-            {
-                "id": 504,
-                "name": "Oconee County"
-            },
-            {
-                "id": 505,
-                "name": "Oglethorpe County"
-            },
-            {
-                "id": 506,
-                "name": "Paulding County"
-            },
-            {
-                "id": 507,
-                "name": "Peach County"
-            },
-            {
-                "id": 508,
-                "name": "Pickens County"
-            },
-            {
-                "id": 509,
-                "name": "Pierce County"
-            },
-            {
-                "id": 510,
-                "name": "Pike County"
-            },
-            {
-                "id": 511,
-                "name": "Polk County"
-            },
-            {
-                "id": 512,
-                "name": "Pulaski County"
-            },
-            {
-                "id": 513,
-                "name": "Putnam County"
-            },
-            {
-                "id": 514,
-                "name": "Quitman County"
-            },
-            {
-                "id": 515,
-                "name": "Rabun County"
-            },
-            {
-                "id": 516,
-                "name": "Randolph County"
-            },
-            {
-                "id": 517,
-                "name": "Richmond County"
-            },
-            {
-                "id": 518,
-                "name": "Rockdale County"
-            },
-            {
-                "id": 519,
-                "name": "Schley County"
-            },
-            {
-                "id": 520,
-                "name": "Screven County"
-            },
-            {
-                "id": 521,
-                "name": "Seminole County"
-            },
-            {
-                "id": 522,
-                "name": "Spalding County"
-            },
-            {
-                "id": 523,
-                "name": "Stephens County"
-            },
-            {
-                "id": 524,
-                "name": "Stewart County"
-            },
-            {
-                "id": 525,
-                "name": "Sumter County"
-            },
-            {
-                "id": 526,
-                "name": "Talbot County"
-            },
-            {
-                "id": 527,
-                "name": "Taliaferro County"
-            },
-            {
-                "id": 528,
-                "name": "Tattnall County"
-            },
-            {
-                "id": 529,
-                "name": "Taylor County"
-            },
-            {
-                "id": 530,
-                "name": "Telfair County"
-            },
-            {
-                "id": 531,
-                "name": "Terrell County"
-            },
-            {
-                "id": 532,
-                "name": "Thomas County"
-            },
-            {
-                "id": 533,
-                "name": "Tift County"
-            },
-            {
-                "id": 534,
-                "name": "Toombs County"
-            },
-            {
-                "id": 535,
-                "name": "Towns County"
-            },
-            {
-                "id": 536,
-                "name": "Treutlen County"
-            },
-            {
-                "id": 537,
-                "name": "Troup County"
-            },
-            {
-                "id": 538,
-                "name": "Turner County"
-            },
-            {
-                "id": 539,
-                "name": "Twiggs County"
-            },
-            {
-                "id": 540,
-                "name": "Union County"
-            },
-            {
-                "id": 541,
-                "name": "Upson County"
-            },
-            {
-                "id": 542,
-                "name": "Walker County"
-            },
-            {
-                "id": 543,
-                "name": "Walton County"
-            },
-            {
-                "id": 544,
-                "name": "Ware County"
-            },
-            {
-                "id": 545,
-                "name": "Warren County"
-            },
-            {
-                "id": 546,
-                "name": "Washington County"
-            },
-            {
-                "id": 547,
-                "name": "Wayne County"
-            },
-            {
-                "id": 548,
-                "name": "Webster County"
-            },
-            {
-                "id": 549,
-                "name": "Wheeler County"
-            },
-            {
-                "id": 550,
-                "name": "White County"
-            },
-            {
-                "id": 551,
-                "name": "Whitfield County"
-            },
-            {
-                "id": 552,
-                "name": "Wilcox County"
-            },
-            {
-                "id": 553,
-                "name": "Wilkes County"
-            },
-            {
-                "id": 554,
-                "name": "Wilkinson County"
-            },
-            {
-                "id": 555,
-                "name": "Worth County"
-            }
-        ]
-    }
+  {
+    "id": 20,
+    "name": "Georgia",
+    "abbreviation": "GA",
+    "jurisdictions": [
+      {
+        "id": 397,
+        "name": "Appling County"
+      },
+      {
+        "id": 398,
+        "name": "Atkinson County"
+      },
+      {
+        "id": 399,
+        "name": "Bacon County"
+      },
+      {
+        "id": 400,
+        "name": "Baker County"
+      },
+      {
+        "id": 401,
+        "name": "Baldwin County"
+      },
+      {
+        "id": 402,
+        "name": "Banks County"
+      },
+      {
+        "id": 403,
+        "name": "Barrow County"
+      },
+      {
+        "id": 404,
+        "name": "Bartow County"
+      },
+      {
+        "id": 405,
+        "name": "Ben Hill County"
+      },
+      {
+        "id": 406,
+        "name": "Berrien County"
+      },
+      {
+        "id": 407,
+        "name": "Bibb County"
+      },
+      {
+        "id": 408,
+        "name": "Bleckley County"
+      },
+      {
+        "id": 409,
+        "name": "Brantley County"
+      },
+      {
+        "id": 410,
+        "name": "Brooks County"
+      },
+      {
+        "id": 411,
+        "name": "Bryan County"
+      },
+      {
+        "id": 412,
+        "name": "Bulloch County"
+      },
+      {
+        "id": 413,
+        "name": "Burke County"
+      },
+      {
+        "id": 414,
+        "name": "Butts County"
+      },
+      {
+        "id": 415,
+        "name": "Calhoun County"
+      },
+      {
+        "id": 416,
+        "name": "Camden County"
+      },
+      {
+        "id": 417,
+        "name": "Candler County"
+      },
+      {
+        "id": 418,
+        "name": "Carroll County"
+      },
+      {
+        "id": 419,
+        "name": "Catoosa County"
+      },
+      {
+        "id": 420,
+        "name": "Charlton County"
+      },
+      {
+        "id": 421,
+        "name": "Chatham County"
+      },
+      {
+        "id": 422,
+        "name": "Chattahoochee County"
+      },
+      {
+        "id": 423,
+        "name": "Chattooga County"
+      },
+      {
+        "id": 424,
+        "name": "Cherokee County"
+      },
+      {
+        "id": 425,
+        "name": "Clarke County"
+      },
+      {
+        "id": 426,
+        "name": "Clay County"
+      },
+      {
+        "id": 427,
+        "name": "Clayton County"
+      },
+      {
+        "id": 428,
+        "name": "Clinch County"
+      },
+      {
+        "id": 429,
+        "name": "Cobb County"
+      },
+      {
+        "id": 430,
+        "name": "Coffee County"
+      },
+      {
+        "id": 431,
+        "name": "Colquitt County"
+      },
+      {
+        "id": 432,
+        "name": "Columbia County"
+      },
+      {
+        "id": 433,
+        "name": "Cook County"
+      },
+      {
+        "id": 434,
+        "name": "Coweta County"
+      },
+      {
+        "id": 435,
+        "name": "Crawford County"
+      },
+      {
+        "id": 436,
+        "name": "Crisp County"
+      },
+      {
+        "id": 437,
+        "name": "Dade County"
+      },
+      {
+        "id": 438,
+        "name": "Dawson County"
+      },
+      {
+        "id": 439,
+        "name": "Decatur County"
+      },
+      {
+        "id": 440,
+        "name": "DeKalb County"
+      },
+      {
+        "id": 441,
+        "name": "Dodge County"
+      },
+      {
+        "id": 442,
+        "name": "Dooly County"
+      },
+      {
+        "id": 443,
+        "name": "Dougherty County"
+      },
+      {
+        "id": 444,
+        "name": "Douglas County"
+      },
+      {
+        "id": 445,
+        "name": "Early County"
+      },
+      {
+        "id": 446,
+        "name": "Echols County"
+      },
+      {
+        "id": 447,
+        "name": "Effingham County"
+      },
+      {
+        "id": 448,
+        "name": "Elbert County"
+      },
+      {
+        "id": 449,
+        "name": "Emanuel County"
+      },
+      {
+        "id": 450,
+        "name": "Evans County"
+      },
+      {
+        "id": 451,
+        "name": "Fannin County"
+      },
+      {
+        "id": 452,
+        "name": "Fayette County"
+      },
+      {
+        "id": 453,
+        "name": "Floyd County"
+      },
+      {
+        "id": 454,
+        "name": "Forsyth County"
+      },
+      {
+        "id": 455,
+        "name": "Franklin County"
+      },
+      {
+        "id": 456,
+        "name": "Fulton County"
+      },
+      {
+        "id": 457,
+        "name": "Gilmer County"
+      },
+      {
+        "id": 458,
+        "name": "Glascock County"
+      },
+      {
+        "id": 459,
+        "name": "Glynn County"
+      },
+      {
+        "id": 460,
+        "name": "Gordon County"
+      },
+      {
+        "id": 461,
+        "name": "Grady County"
+      },
+      {
+        "id": 462,
+        "name": "Greene County"
+      },
+      {
+        "id": 463,
+        "name": "Gwinnett County"
+      },
+      {
+        "id": 464,
+        "name": "Habersham County"
+      },
+      {
+        "id": 465,
+        "name": "Hall County"
+      },
+      {
+        "id": 466,
+        "name": "Hancock County"
+      },
+      {
+        "id": 467,
+        "name": "Haralson County"
+      },
+      {
+        "id": 468,
+        "name": "Harris County"
+      },
+      {
+        "id": 469,
+        "name": "Hart County"
+      },
+      {
+        "id": 470,
+        "name": "Heard County"
+      },
+      {
+        "id": 471,
+        "name": "Henry County"
+      },
+      {
+        "id": 472,
+        "name": "Houston County"
+      },
+      {
+        "id": 473,
+        "name": "Irwin County"
+      },
+      {
+        "id": 474,
+        "name": "Jackson County"
+      },
+      {
+        "id": 475,
+        "name": "Jasper County"
+      },
+      {
+        "id": 476,
+        "name": "Jeff Davis County"
+      },
+      {
+        "id": 477,
+        "name": "Jefferson County"
+      },
+      {
+        "id": 478,
+        "name": "Jenkins County"
+      },
+      {
+        "id": 479,
+        "name": "Johnson County"
+      },
+      {
+        "id": 480,
+        "name": "Jones County"
+      },
+      {
+        "id": 481,
+        "name": "Lamar County"
+      },
+      {
+        "id": 482,
+        "name": "Lanier County"
+      },
+      {
+        "id": 483,
+        "name": "Laurens County"
+      },
+      {
+        "id": 484,
+        "name": "Lee County"
+      },
+      {
+        "id": 485,
+        "name": "Liberty County"
+      },
+      {
+        "id": 486,
+        "name": "Lincoln County"
+      },
+      {
+        "id": 487,
+        "name": "Long County"
+      },
+      {
+        "id": 488,
+        "name": "Lowndes County"
+      },
+      {
+        "id": 489,
+        "name": "Lumpkin County"
+      },
+      {
+        "id": 490,
+        "name": "Macon County"
+      },
+      {
+        "id": 491,
+        "name": "Madison County"
+      },
+      {
+        "id": 492,
+        "name": "Marion County"
+      },
+      {
+        "id": 493,
+        "name": "McDuffie County"
+      },
+      {
+        "id": 494,
+        "name": "McIntosh County"
+      },
+      {
+        "id": 495,
+        "name": "Meriwether County"
+      },
+      {
+        "id": 496,
+        "name": "Miller County"
+      },
+      {
+        "id": 497,
+        "name": "Mitchell County"
+      },
+      {
+        "id": 498,
+        "name": "Monroe County"
+      },
+      {
+        "id": 499,
+        "name": "Montgomery County"
+      },
+      {
+        "id": 500,
+        "name": "Morgan County"
+      },
+      {
+        "id": 501,
+        "name": "Murray County"
+      },
+      {
+        "id": 502,
+        "name": "Muscogee County"
+      },
+      {
+        "id": 503,
+        "name": "Newton County"
+      },
+      {
+        "id": 504,
+        "name": "Oconee County"
+      },
+      {
+        "id": 505,
+        "name": "Oglethorpe County"
+      },
+      {
+        "id": 506,
+        "name": "Paulding County"
+      },
+      {
+        "id": 507,
+        "name": "Peach County"
+      },
+      {
+        "id": 508,
+        "name": "Pickens County"
+      },
+      {
+        "id": 509,
+        "name": "Pierce County"
+      },
+      {
+        "id": 510,
+        "name": "Pike County"
+      },
+      {
+        "id": 511,
+        "name": "Polk County"
+      },
+      {
+        "id": 512,
+        "name": "Pulaski County"
+      },
+      {
+        "id": 513,
+        "name": "Putnam County"
+      },
+      {
+        "id": 514,
+        "name": "Quitman County"
+      },
+      {
+        "id": 515,
+        "name": "Rabun County"
+      },
+      {
+        "id": 516,
+        "name": "Randolph County"
+      },
+      {
+        "id": 517,
+        "name": "Richmond County"
+      },
+      {
+        "id": 518,
+        "name": "Rockdale County"
+      },
+      {
+        "id": 519,
+        "name": "Schley County"
+      },
+      {
+        "id": 520,
+        "name": "Screven County"
+      },
+      {
+        "id": 521,
+        "name": "Seminole County"
+      },
+      {
+        "id": 522,
+        "name": "Spalding County"
+      },
+      {
+        "id": 523,
+        "name": "Stephens County"
+      },
+      {
+        "id": 524,
+        "name": "Stewart County"
+      },
+      {
+        "id": 525,
+        "name": "Sumter County"
+      },
+      {
+        "id": 526,
+        "name": "Talbot County"
+      },
+      {
+        "id": 527,
+        "name": "Taliaferro County"
+      },
+      {
+        "id": 528,
+        "name": "Tattnall County"
+      },
+      {
+        "id": 529,
+        "name": "Taylor County"
+      },
+      {
+        "id": 530,
+        "name": "Telfair County"
+      },
+      {
+        "id": 531,
+        "name": "Terrell County"
+      },
+      {
+        "id": 532,
+        "name": "Thomas County"
+      },
+      {
+        "id": 533,
+        "name": "Tift County"
+      },
+      {
+        "id": 534,
+        "name": "Toombs County"
+      },
+      {
+        "id": 535,
+        "name": "Towns County"
+      },
+      {
+        "id": 536,
+        "name": "Treutlen County"
+      },
+      {
+        "id": 537,
+        "name": "Troup County"
+      },
+      {
+        "id": 538,
+        "name": "Turner County"
+      },
+      {
+        "id": 539,
+        "name": "Twiggs County"
+      },
+      {
+        "id": 540,
+        "name": "Union County"
+      },
+      {
+        "id": 541,
+        "name": "Upson County"
+      },
+      {
+        "id": 542,
+        "name": "Walker County"
+      },
+      {
+        "id": 543,
+        "name": "Walton County"
+      },
+      {
+        "id": 544,
+        "name": "Ware County"
+      },
+      {
+        "id": 545,
+        "name": "Warren County"
+      },
+      {
+        "id": 546,
+        "name": "Washington County"
+      },
+      {
+        "id": 547,
+        "name": "Wayne County"
+      },
+      {
+        "id": 548,
+        "name": "Webster County"
+      },
+      {
+        "id": 549,
+        "name": "Wheeler County"
+      },
+      {
+        "id": 550,
+        "name": "White County"
+      },
+      {
+        "id": 551,
+        "name": "Whitfield County"
+      },
+      {
+        "id": 552,
+        "name": "Wilcox County"
+      },
+      {
+        "id": 553,
+        "name": "Wilkes County"
+      },
+      {
+        "id": 554,
+        "name": "Wilkinson County"
+      },
+      {
+        "id": 555,
+        "name": "Worth County"
+      }
+    ]
+  }
 ]
