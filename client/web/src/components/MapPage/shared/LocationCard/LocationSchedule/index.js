@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import Hours from './Hours'
 import moment from 'moment'
 
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    color: '#FF0029'
   },
   textCell: {
     flex: 1,
@@ -46,7 +47,7 @@ const LocationSchedule = ({ location, expandable }) => {
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>
-        <ClockIcon />
+        <ScheduleIcon/> 
       </div>
       <div className={classes.textCell}>
         {(() => {
