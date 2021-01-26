@@ -15,6 +15,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@turf/bbox": "^6.0.1",
+    "@turf/boolean-point-in-polygon": "^6.3.0",
     "@turf/distance": "^6.0.1",
     "@turf/helpers": "^6.1.4",
     "axios": "^0.21.0",
