@@ -7,6 +7,8 @@ import Volunteer from './components/main/Volunteer'
 import Press from './components/main/Press'
 import MapPage from 'components/MapPage'
 import PrivacyPolicy from './components/main/PrivacyPolicy'
+import Landing from './components/main/Landing'
+
 
 const Routes = () => {
   return (
@@ -28,6 +30,9 @@ const Routes = () => {
       </Route>
       <Route path="/privacy-policy">
         <PrivacyPolicy />
+      </Route>
+      <Route path="/landing">
+        <Landing />
       </Route>
       <Redirect to="/" />
     </Switch>
