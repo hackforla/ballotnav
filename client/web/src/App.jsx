@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const App = () => {
   const classes = useStyles()
   return (
-    <ConnectedRouter history={history}>
+    <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}>
       <Div100vh className={classes.root}>
         <Header />
         <div className={classes.content}>
