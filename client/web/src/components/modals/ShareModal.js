@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState } from 'react'
+import React, { useMemo, useCallback, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import * as select from 'store/selectors'
@@ -71,6 +71,10 @@ const ShareModal = ({ isOpen, close }) => {
         setCopyResult('Could not copy')
       }
   }, [shareLink])
+
+  useEffect(() => {
+    if (!isOpen) setCopyResult(undefined)
+  }, [isOpen])
 
   return (
     <Dialog classes={{ paper: classes.paper }} open={isOpen} onClose={close}>
