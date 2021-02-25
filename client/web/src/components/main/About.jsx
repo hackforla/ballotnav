@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import React from 'react'
-
+import DemoBanner from 'components/main/DemoBanner'
 import aboutHero from 'assets/aboutHero.svg'
 import hackForLALogo from 'assets/hack-for-LA-logo.svg'
 import codeForAmericaLogo from 'assets/codeForAmericaLogo.png'
@@ -9,6 +9,7 @@ import codeForAmericaLogo from 'assets/codeForAmericaLogo.png'
 const About = () => {
   return (
     <div className="About">
+      <DemoBanner />
       <div className="About-wrapper">
         <h1>What is BallotNav?</h1>
         <div className="header">

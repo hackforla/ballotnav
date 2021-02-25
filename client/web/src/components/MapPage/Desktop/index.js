@@ -4,6 +4,7 @@ import JurisdictionSelect from 'components/MapPage/shared/JurisdictionSelect'
 import VerifyAlert from '../shared/VerifyAlert'
 import Map from '../shared/Map'
 import Sidebar from './Sidebar'
+import DemoBanner from 'components/main/DemoBanner'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ const Desktop = () => {
   return (
     <div className={classes.root}>
       <JurisdictionSelect />
+      <DemoBanner />
       <VerifyAlert />
       <div className={classes.main}>
         <div className={classes.sidebar}>

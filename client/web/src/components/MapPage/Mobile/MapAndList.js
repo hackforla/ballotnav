@@ -3,6 +3,7 @@ import Map from '../shared/Map'
 import LocationList from '../shared/LocationList'
 import VerifyAlert from '../shared/VerifyAlert'
 import { makeStyles } from '@material-ui/styles'
+import DemoBanner from 'components/main/DemoBanner'
 
 const BUTTONS_HEIGHT = 50
 
@@ -62,7 +63,9 @@ const MapAndList = ({ isLocationSelected, locationHeight }) => {
 
   return (
     <div className={classes.root}>
+      <DemoBanner />
       <div className={classes.main}>
+
         <VerifyAlert />
         <div className={classes.map}>
           <Map />

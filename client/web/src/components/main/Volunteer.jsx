@@ -1,10 +1,11 @@
 import React from 'react'
-
+import DemoBanner from 'components/main/DemoBanner'
 import volunteerHero from 'assets/volunteerHero.svg'
 
 const Volunteer = () => {
   return (
     <div className="Volunteer">
+      <DemoBanner />
       <div className="Volunteer-wrapper">
         <h1>Get Involved</h1>
         <p>BallotNav is looking for the following types of volunteers:</p>
