@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":"2EAEI,kC","file":"static/js/main.ce253699.chunk.js","sourcesContent":["switch(process.env.REACT_APP_TYPE) {\n  case 'redirect':\n    import('./apps/redirect')\n    break\n\n  case 'about':\n    import('./apps/about')\n    break\n\n  default:\n    import('./apps/main')\n    break\n}\n"],"sourceRoot":""}
