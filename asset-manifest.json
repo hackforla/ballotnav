@@ -1,48 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5c26889.chunk.css",
-    "main.js": "/static/js/main.cdba1f4c.chunk.js",
-    "main.js.map": "/static/js/main.cdba1f4c.chunk.js.map",
+    "main.js": "/static/js/main.8aa0aa17.chunk.js",
+    "main.js.map": "/static/js/main.8aa0aa17.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c8b406ee.js",
     "runtime-main.js.map": "/static/js/runtime-main.c8b406ee.js.map",
-    "static/css/2.1699d006.chunk.css": "/static/css/2.1699d006.chunk.css",
-    "static/js/2.62c0d9a0.chunk.js": "/static/js/2.62c0d9a0.chunk.js",
-    "static/js/2.62c0d9a0.chunk.js.map": "/static/js/2.62c0d9a0.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.1699d006.chunk.css.map": "/static/css/2.1699d006.chunk.css.map",
-    "static/css/main.a5c26889.chunk.css.map": "/static/css/main.a5c26889.chunk.css.map",
-    "static/js/2.62c0d9a0.chunk.js.LICENSE.txt": "/static/js/2.62c0d9a0.chunk.js.LICENSE.txt",
-    "static/media/aboutHero.becb0acf.svg": "/static/media/aboutHero.becb0acf.svg",
-    "static/media/arrow-forward.1865ea18.svg": "/static/media/arrow-forward.1865ea18.svg",
-    "static/media/ballotnav.0d44fe85.svg": "/static/media/ballotnav.0d44fe85.svg",
-    "static/media/check-circle.5abe0396.svg": "/static/media/check-circle.5abe0396.svg",
-    "static/media/clock.2cf47442.svg": "/static/media/clock.2cf47442.svg",
-    "static/media/styles.scss": "/static/media/hero.8f0b9853.svg",
-    "static/media/codeForAmericaLogo.a82c352d.png": "/static/media/codeForAmericaLogo.a82c352d.png",
-    "static/media/copy.e5d2dfe7.svg": "/static/media/copy.e5d2dfe7.svg",
-    "static/media/directions.0054347e.svg": "/static/media/directions.0054347e.svg",
-    "static/media/email.0b8d57aa.svg": "/static/media/email.0b8d57aa.svg",
-    "static/media/facebook-logo.5c4140e3.svg": "/static/media/facebook-logo.5c4140e3.svg",
-    "static/media/facebook.ca711df8.svg": "/static/media/facebook.ca711df8.svg",
-    "static/media/hack-for-LA-logo.58c25565.svg": "/static/media/hack-for-LA-logo.58c25565.svg",
-    "static/media/home-hero-desktop.6a500b73.svg": "/static/media/home-hero-desktop.6a500b73.svg",
-    "static/media/home-hero-mobile.d6eb1652.svg": "/static/media/home-hero-mobile.d6eb1652.svg",
-    "static/media/ivoted.c928f1f9.png": "/static/media/ivoted.c928f1f9.png",
-    "static/media/map-marker-box.5dd04270.svg": "/static/media/map-marker-box.5dd04270.svg",
-    "static/media/new-window.10e777d0.svg": "/static/media/new-window.10e777d0.svg",
-    "static/media/phone.8ad0a364.svg": "/static/media/phone.8ad0a364.svg",
-    "static/media/pin.0d41f2b6.svg": "/static/media/pin.0d41f2b6.svg",
-    "static/media/share.1282bee0.svg": "/static/media/share.1282bee0.svg",
-    "static/media/twitter-logo.4efe72c2.svg": "/static/media/twitter-logo.4efe72c2.svg",
-    "static/media/twitter.4a6b64b0.svg": "/static/media/twitter.4a6b64b0.svg",
-    "static/media/user-marker.67c1a15f.svg": "/static/media/user-marker.67c1a15f.svg",
-    "static/media/volunteerHero.374a073d.svg": "/static/media/volunteerHero.374a073d.svg"
+    "index.html": "/index.html"
   },
   "entrypoints": [
     "static/js/runtime-main.c8b406ee.js",
-    "static/css/2.1699d006.chunk.css",
-    "static/js/2.62c0d9a0.chunk.js",
-    "static/css/main.a5c26889.chunk.css",
-    "static/js/main.cdba1f4c.chunk.js"
+    "static/js/main.8aa0aa17.chunk.js"
   ]
 }
