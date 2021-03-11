@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FA925B',
   },
   inner: {
-    maxWidth: ({ isMap }) => isMap ? undefined : theme.layout.pageWidth,
+    maxWidth: ({ isMap }) => (isMap ? undefined : theme.layout.pageWidth),
     display: 'flex',
     alignItems: 'center',
     padding: '12px 20px',
@@ -23,16 +23,15 @@ const useStyles = makeStyles((theme) => ({
 const DemoBanner = () => {
   const { pathname } = useLocation()
   const classes = useStyles({
-    isMap: pathname === '/map'
+    isMap: pathname === '/map',
   })
-
 
   if (!IS_DEMO) return null
   return (
     <div className={classes.root}>
       <div className={classes.inner}>
-          Please be aware that you are navigating a Demo with
-          limited functions, since no current elections are going on.
+        Please be aware that you are navigating a Demo with limited functions,
+        since no current elections are going on.
       </div>
     </div>
   )

@@ -65,7 +65,6 @@ const MapAndList = ({ isLocationSelected, locationHeight }) => {
     <div className={classes.root}>
       <DemoBanner />
       <div className={classes.main}>
-
         <VerifyAlert />
         <div className={classes.map}>
           <Map />

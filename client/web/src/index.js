@@ -1,4 +1,4 @@
-switch(process.env.REACT_APP_TYPE) {
+switch (process.env.REACT_APP_TYPE) {
   case 'redirect':
     import('./apps/redirect')
     break
