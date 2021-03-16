@@ -23,10 +23,10 @@ This guide will help get you up to speed on what you need to know to get started
 2. Join the [#BallotNav](https://hackforla.slack.com/archives/C0191KE1XB7) slack channel and introduce yourself.
 3. Slack our PMs [Randall Ellis](https://hackforla.slack.com/team/U018TL37XJ6) or [Karen Coronel](https://hackforla.slack.com/team/U010KUGJATC) with your email address.
 4. Accept your Google Drive invite to access the shared folder.
-5. Add yourself to the [Team Roster](https://airtable.com/shriSRTvwjuNqf1TV). Then, Slack our PM with "Added to Roster".
+5. Add yourself to the [Team Roster](https://drive.google.com/file/d/1Zxth_WIp3j_QmCbUsIHEijRWoO-x-fsA/view?usp=sharing). Then, Slack our PM with "Added to Roster".
 6. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
 7. Read project details and review our [Project Management Board](https://airtable.com/shriSRTvwjuNqf1TV)
-8. Weekly team meetings will be Tuesdays 5PM - 6PM (times listed in PT)
+8. Weekly team meetings will be Tuesdays 5PM - 6PM (times listed in PT), join our Slack for Zoom link
 
 If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
 
