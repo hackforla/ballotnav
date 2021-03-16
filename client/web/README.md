@@ -1,70 +1,65 @@
-To run the app first create a file named '.env' in this directory. Then copy the format from '.example.env' into '.env' except change 'REDACTED' to the BallotNav project's Mapbox token. 
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This directory houses four clients, all built from the same create-react-app codebase:
 
-## Available Scripts
+#### 1. main
 
-In the project directory, you can run:
+What it is: the app the voters use to find their drop-off locations
+URL: `ballotnav.org`
+Hosting: gh-pages in this repo
+Dev command: `npm start`
+Deploy command: `npm run deploy`
+JS Entrypoint: `src/apps/main/index.js`
 
-### `npm start`
+#### 2. about
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+What it is: a landing page that describes the app. Voters are redirected here when no elections are happening.
+URL: `about.ballotnav.org`
+Hosting: gh-pages in the [ballotnav-about](https://github.com/hackforla/ballotnav-about) repo
+Dev command: `npm run start-about`
+Deploy command: `npm run deploy-about`
+JS Entrypoint: `src/apps/about/index.js`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### 3. demo
 
-### `npm test`
+What it is: identical to the main app, except that it has a "This is a demo" banner, and the data comes from a file instead of the api.
+URL: `demo.ballotnav.org`
+Hosting: gh-pages in the [ballotnav-demo](https://github.com/hackforla/ballotnav-demo) repo
+Dev command: `npm run start-demo`
+Deploy command: `npm run deploy-demo`
+JS Entrypoint: `src/apps/main/index.js` (note: this is the same entrypoint as the main app -- differences between the two apps are controlled by the `IS_DEMO` constant in `constants.js`)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 4. redirect
 
-### `npm build`
+What it is: a one-liner that redirects the user from `ballotnav.org` to `about.ballotnav.org`. Deployed in place of the main app when no elections are happening.
+URL: `ballotnav.org`
+Hosting: gh-pages in this repo
+Dev command: `npm run start-redirect`
+Deploy command: `npm run deploy-redirect`
+JS Entrypoint: `src/apps/redirect/index.js`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploying the demo and about apps
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The `demo` and `about` apps are hosted on gh-pages in separate repos. Because of that, gh-pages doesn't work out of the box. To set up deployment for the apps, add remotes for the repos by running these two commands in this repo:
+```
+git remote add about https://github.com/hackforla/ballotnav-about.git
+git remote add demo https://github.com/hackforla/ballotnav-demo.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then run `git remote -v` and you should see this:
+```
+about	https://github.com/hackforla/ballotnav-about.git (fetch)
+about	https://github.com/hackforla/ballotnav-about.git (push)
+demo	https://github.com/hackforla/ballotnav-demo.git (fetch)
+demo	https://github.com/hackforla/ballotnav-demo.git (push)
+origin	https://github.com/hackforla/ballotnav.git (fetch)
+origin	https://github.com/hackforla/ballotnav.git (push)
+```
 
-### `npm eject`
+Then you can deploy the two apps by running `npm run deploy-about` or `npm run deploy-demo`. The build files will be pushed to the gh-pages branch of the appropriate repo.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Also, to get the gh-pages deployment working (for all the apps) it was necessary to add a 404.html and modify the index.html to get the single-page routing to work with the BrowserRouter. The code snippets are from the "basic instructions" section here: https://github.com/rafgraph/spa-github-pages
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the App for the first time
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To run the app first create a file named '.env' in this directory. Then copy the format from '.example.env' into '.env' except change 'REDACTED' to the BallotNav project's Mapbox token.

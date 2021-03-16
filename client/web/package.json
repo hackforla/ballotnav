@@ -1,7 +1,6 @@
 {
   "name": "web",
   "version": "0.1.0",
-  "homepage": "https://hackforla.github.io/ballotnav/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -50,12 +49,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build -v '!CNAME'",
+    "start-about": "REACT_APP_TYPE=about npm start",
+    "build-about": "REACT_APP_TYPE=about npm run build",
+    "deploy-about": "npm run build-about && gh-pages -d build -o about -v '!CNAME'",
+    "start-demo": "REACT_APP_TYPE=demo npm start",
+    "build-demo": "REACT_APP_TYPE=demo npm run build",
+    "deploy-demo": "npm run build-demo && gh-pages -d build -o demo -v '!CNAME'",
+    "start-redirect": "REACT_APP_TYPE=redirect npm start",
+    "build-redirect": "REACT_APP_TYPE=redirect npm run build",
+    "deploy-redirect": "npm run build-redirect && gh-pages -d build -v '!CNAME'",
     "lint": "npx prettier --write 'src/**/*.{js,jsx,json}'",
-    "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'"
   },
   "eslintConfig": {
     "extends": "react-app"

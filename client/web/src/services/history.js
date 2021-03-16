@@ -1,7 +1,4 @@
-import {
-  // createBrowserHistory as createHistory, // for regular deploy
-  createHashHistory as createHistory, // for gh-pages deploy
-} from 'history'
+import { createBrowserHistory as createHistory } from 'history'
 
 const history = createHistory()
 

@@ -2,6 +2,7 @@ import React from 'react'
 import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
 import { ReactComponent as HeroMobile } from 'assets/images/home-hero-mobile.svg'
+import DemoBanner from 'components/main/DemoBanner'
 
 const Mobile = withStyles((theme) => ({
   root: {
@@ -62,6 +63,7 @@ const Mobile = withStyles((theme) => ({
   },
 }))(({ classes }) => (
   <div className={classes.root}>
+    <DemoBanner />
     <div className={classes.wrapper}>
       <div className={classes.mainTextOuter}>
         <HeroMobile className={classes.hero} />
