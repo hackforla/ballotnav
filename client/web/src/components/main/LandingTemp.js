@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 20,
       fontWeight: 'bold',
     },
+    '& a': {
+      display: 'block',
+      textDecoration: 'underline',
+      marginTop: 10,
+    },
   },
 }))
 
@@ -19,6 +24,16 @@ const Landing = () => {
     <div className={classes.root}>
       <h1>About Ballotnav</h1>
       <p>coming soon...</p>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.hackforla.org/projects/ballot-nav.html"
+      >
+        Project Overview
+      </a>
+      <a target="_blank" rel="noreferrer" href="https://demo.ballotnav.org">
+        View the Demo
+      </a>
     </div>
   )
 }
