@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
       textDecoration: 'underline',
       marginTop: 10,
-    }
+    },
   },
 }))
 
@@ -31,11 +31,7 @@ const Landing = () => {
       >
         Project Overview
       </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://demo.ballotnav.org"
-      >
+      <a target="_blank" rel="noreferrer" href="https://demo.ballotnav.org">
         View the Demo
       </a>
     </div>
