@@ -27,7 +27,7 @@ const Landing = () => {
       <a
         target="_blank"
         rel="noreferrer"
-        href="https://www.hackforla.org/projects/ballot-nav.html"
+        href="https://www.hackforla.org/projects/ballot-nav"
       >
         Project Overview
       </a>
