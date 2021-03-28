@@ -3,10 +3,10 @@
 /* eslint-disable react/jsx-no-target-blank */
 
 import React from 'react'
-import hackForLALogo from 'assets/hack-for-LA-logo.svg'
-import twitterLogo from 'assets/twitter-logo.svg'
-import facebookLogo from 'assets/facebook-logo.svg'
-import ivoted from 'assets/ivoted.png'
+import hackForLALogo from 'assets/logos/hack-for-la.svg'
+import twitterLogo from 'assets/logos/twitter.svg'
+import facebookLogo from 'assets/logos/facebook.svg'
+import ivoted from 'assets/logos/ivoted.png'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import clx from 'classnames'

@@ -2,9 +2,9 @@
 
 import React from 'react'
 import DemoBanner from 'components/main/DemoBanner'
-import aboutHero from 'assets/aboutHero.svg'
-import hackForLALogo from 'assets/hack-for-LA-logo.svg'
-import codeForAmericaLogo from 'assets/codeForAmericaLogo.png'
+import aboutHero from 'assets/images/about-hero.svg'
+import hackForLALogo from 'assets/logos/hack-for-la.svg'
+import codeForAmericaLogo from 'assets/logos/code-for-america.png'
 
 const About = () => {
   return (
