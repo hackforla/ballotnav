@@ -25,7 +25,7 @@ const About = () => {
               from COVID-19, it is now more important than ever to have useful
               resources for those hoping to have their voices heard.
             </p>
-            <p className="bold">
+            <p style={{ fontWeight: 700, marginTop: 20 }}>
               BallotNav’s overall goal is to provide information that helps
               voters cast their ballots safely and correctly, and avoid
               accidental disenfranchisement.
