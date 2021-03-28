@@ -1,6 +1,40 @@
+import React from 'react'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: '0 10px',
+    margin: '0 auto',
+    maxWidth: theme.layout.pageWidth,
+    '& ul': {
+      listStyleType: 'disc',
+      paddingInlineStart: 40,
+    },
+    '& li': {
+      display: 'list-item',
+    },
+    '& h1': {
+      fontSize: '1.8em',
+      lineHeight: 1.6,
+      marginTop: 10,
+    },
+    '& h2': {
+      fontSize: '1.4em',
+      lineHeight: 1.4,
+      margin: '10px 0',
+    },
+    '& h3': {
+      fontSize: '1.1em',
+      lineHeight: 1.6,
+      marginTop: 10,
+    },
+  },
+}))
+
 const PrivacyPolicy = () => {
+  const classes = useStyles()
   return (
-    <div className="privacy-policy">
+    <div className={classes.root}>
       <h1>Privacy Policy</h1>
 
       <br />
