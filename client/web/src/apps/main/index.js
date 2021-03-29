@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import history from 'services/history'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from 'theme'
@@ -15,7 +17,9 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}>
+        <App />
+      </ConnectedRouter>
     </ThemeProvider>
   </Provider>,
   document.getElementById('root')

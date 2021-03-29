@@ -1,7 +1,6 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { ConnectedRouter } from 'connected-react-router'
-import history from 'services/history'
 import Routes from './Routes'
 import Div100vh from 'react-div-100vh'
 import Header from 'components/main/Header'
@@ -21,18 +20,19 @@ const useStyles = makeStyles({
 
 const App = () => {
   const classes = useStyles()
+  const { pathname } = useLocation()
   return (
-    <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}>
+    <>
       <Div100vh className={classes.root}>
         <Header />
         <div className={classes.content}>
           <Routes />
         </div>
-        <Footer />
+        {pathname !== '/map' && <Footer />}
         <CookieConsentBanner />
       </Div100vh>
       <Modals />
-    </ConnectedRouter>
+    </>
   )
 }
 

@@ -4,13 +4,11 @@ import hackForLALogo from 'assets/logos/hack-for-la.svg'
 import twitterLogo from 'assets/logos/twitter.svg'
 import facebookLogo from 'assets/logos/facebook.svg'
 import ivoted from 'assets/logos/ivoted.png'
-import { useLocation } from 'react-router-dom'
 import useBreakpoints from 'hooks/useBreakpoints'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: ({ isMap }) => isMap ? 'none' : 'block',
     height: ({ isMobile }) => isMobile ? 'auto' : 156,
     padding: 25,
     backgroundColor: theme.palette.primary.dark,
@@ -74,12 +72,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Footer = () => {
-  const { pathname } = useLocation()
   const { isMobile } = useBreakpoints()
-  const classes = useStyles({
-    isMap: pathname === '/map',
-    isMobile,
-  })
+  const classes = useStyles({ isMobile })
 
   return (
     <div className={classes.root}>
