@@ -47,38 +47,6 @@
     }
   }
 
-  .navbar-burger {
-    color: $blue;
-
-    span {
-      width: 30px;
-      height: 2px;
-      left: 0;
-    }
-
-    span:nth-child(1) {
-      top: calc(50% - 8px);
-    }
-
-    span:nth-child(3) {
-      top: calc(50% + 6px);
-    }
-  }
-
-  .navbar-burger.is-active {
-    z-index: 10000;
-    span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-  }
-
-  .navbar-burger:hover {
-    background: none;
-  }
-
   .navbar-menu.is-active {
     position: absolute;
     right: 0;

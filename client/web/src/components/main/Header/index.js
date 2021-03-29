@@ -10,15 +10,16 @@ import { openModal } from 'store/actions/modals'
 import logo from 'assets/logos/ballotnav.svg'
 import Footer from 'components/main/Footer'
 import CurrentJurisdiction from './CurrentJurisdiction'
+import MenuButton from './MenuButton'
 
 const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
   const { pathname } = useLocation()
-  const [activeBurger, setActiveBurger] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const { isMobile } = useBreakpoints()
   const isMobileMap = isMobile && pathname === '/map'
 
   const handleClick = useCallback(() => {
-    setActiveBurger((activeBurger) => !activeBurger)
+    setMenuOpen((menuOpen) => !menuOpen)
   }, [])
 
   const handleKeyDown = useCallback((e) => {
@@ -28,16 +29,16 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
   }, [handleClick])
 
   useEffect(() => {
-    setActiveBurger(false)
+    setMenuOpen(false)
   }, [pathname])
 
   return (
     <nav role="navigation" aria-label="main navigation" className="navbar">
       <div
-        className={clsx('backgroundBlur', { 'is-active': activeBurger })}
+        className={clsx('backgroundBlur', { 'is-active': menuOpen })}
         onClick={handleClick}
       ></div>
-      <div className={clsx('navbar-brand', { 'is-active': activeBurger })}>
+      <div className={clsx('navbar-brand', { 'is-active': menuOpen })}>
         {isMobileMap ? (
           <>
             <IconButton
@@ -54,21 +55,13 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
             <img src={logo} alt="BallotNav logo" />
           </Link>
         )}
-        <a // eslint-disable-line
-          role="button"
-          tabIndex={0}
-          className={clsx('navbar-burger', { 'is-active': activeBurger })}
-          aria-label="menu"
-          aria-expanded={activeBurger}
+        <MenuButton
+          menuOpen={menuOpen}
           onClick={handleClick}
           onKeyDown={handleKeyDown}
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </a>
+        />
       </div>
-      <div className={clsx('navbar-menu', { 'is-active': activeBurger })}>
+      <div className={clsx('navbar-menu', { 'is-active': menuOpen })}>
         <Div100vh className="hamburger-menu">
           <div className="hamburger-menu-content">
             <Link to="/">
