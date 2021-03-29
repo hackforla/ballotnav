@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import clsx from 'clsx'
@@ -12,11 +13,49 @@ import Footer from 'components/main/Footer'
 import CurrentJurisdiction from './CurrentJurisdiction'
 import MenuButton from './MenuButton'
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: '0 auto',
+    width: theme.layout.pageWidth,
+    maxWidth: '100%',
+  },
+  links: {
+    display: 'flex',
+    alginItems: 'stretch',
+    justifyContent: 'flex-end',
+    marginLeft: 'auto',
+  },
+  link: {
+    fontWeight: 600,
+    fontSize: 18,
+    color: theme.palette.primary.main,
+  },
+  menu: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: ({ menuOpen }) => menuOpen ? '100vw' : 0,
+  },
+  menuContent: {
+    flex: 1,
+    '& img': {
+      margin: '20px 20px 90px',
+      height: '23px',
+    },
+    '& a': {
+      marginLeft: 15,
+      fontWeight: 600,
+      fontSize: '1.31em',
+      marginBottom: 15,
+    }
+  }
+}))
+
 const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
   const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const { isMobile } = useBreakpoints()
   const isMobileMap = isMobile && pathname === '/map'
+  const classes = useStyles({ menuOpen })
 
   const handleClick = useCallback(() => {
     setMenuOpen((menuOpen) => !menuOpen)
@@ -33,11 +72,10 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
   }, [pathname])
 
   return (
-    <nav role="navigation" aria-label="main navigation" className="navbar">
-      <div
-        className={clsx('backgroundBlur', { 'is-active': menuOpen })}
-        onClick={handleClick}
-      ></div>
+    <nav
+      role="navigation"
+      aria-label="main navigation"
+      className={clsx(classes.root, 'navbar')}>
       <div className={clsx('navbar-brand', { 'is-active': menuOpen })}>
         {isMobileMap ? (
           <>
@@ -55,18 +93,33 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
             <img src={logo} alt="BallotNav logo" />
           </Link>
         )}
-        <MenuButton
-          menuOpen={menuOpen}
-          onClick={handleClick}
-          onKeyDown={handleKeyDown}
-        />
+        {isMobile && (
+          <MenuButton
+            menuOpen={menuOpen}
+            onClick={handleClick}
+            onKeyDown={handleKeyDown}
+          />
+        )}
       </div>
       <div className={clsx('navbar-menu', { 'is-active': menuOpen })}>
-        <Div100vh className="hamburger-menu">
-          <div className="hamburger-menu-content">
-            <Link to="/">
-              <img src={logo} alt="" />
-            </Link>
+        {isMobile && (
+          <Div100vh className={classes.menu}>
+            <div className={classes.menuContent}>
+              <Link to="/">
+                <img src={logo} alt="" />
+              </Link>
+              <Link className="navbar-item" to="/about">
+                About
+              </Link>
+              <Link className="navbar-item" to="/volunteer">
+                Volunteer
+              </Link>
+            </div>
+            <Footer />
+          </Div100vh>
+        )}
+        {!isMobile && (
+          <div className={classes.links}>
             <Link className="navbar-item" to="/about">
               About
             </Link>
@@ -74,16 +127,7 @@ const Header = ({ openSearchModal, stateName, jurisdictionName }) => {
               Volunteer
             </Link>
           </div>
-          <Footer />
-        </Div100vh>
-        <div className="navbar-end">
-          <Link className="navbar-item" to="/about">
-            About
-          </Link>
-          <Link className="navbar-item" to="/volunteer">
-            Volunteer
-          </Link>
-        </div>
+        )}
       </div>
     </nav>
   )
