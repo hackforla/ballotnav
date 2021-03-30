@@ -1,10 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import JurisdictionSelect from 'components/MapPage/shared/JurisdictionSelect'
+import JurisdictionSelect from 'components/core/JurisdictionSelect'
 import VerifyAlert from '../shared/VerifyAlert'
 import Map from '../shared/Map'
 import Sidebar from './Sidebar'
-import DemoBanner from 'components/main/DemoBanner'
+import DemoBanner from 'components/core/DemoBanner'
 
 const useStyles = makeStyles((theme) => ({
   root: {

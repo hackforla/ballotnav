@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Home from 'components/main/Home'
-import About from 'components/main/About'
-import Volunteer from 'components/main/Volunteer'
-import MapPage from 'components/MapPage'
-import PrivacyPolicy from 'components/main/PrivacyPolicy'
+import Home from 'components/pages/Home'
+import Map from 'components/pages/Map'
+import About from 'components/pages/About'
+import Volunteer from 'components/pages/Volunteer'
+import Privacy from 'components/pages/Privacy'
 
 const Routes = () => {
   return (
@@ -14,7 +14,7 @@ const Routes = () => {
         <Home />
       </Route>
       <Route path="/map">
-        <MapPage />
+        <Map />
       </Route>
       <Route path="/about">
         <About />
@@ -23,7 +23,7 @@ const Routes = () => {
         <Volunteer />
       </Route>
       <Route path="/privacy-policy">
-        <PrivacyPolicy />
+        <Privacy />
       </Route>
       <Redirect to="/" />
     </Switch>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { renderToString } from 'react-dom/server'
 import mapboxgl from 'services/mapbox'
-import LocationIcon from 'components/shared/LocationIcon'
+import LocationIcon from '../LocationIcon'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({

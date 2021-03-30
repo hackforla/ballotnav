@@ -2,9 +2,9 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Routes from './Routes'
-import Header from 'components/layout/Header'
-import Footer from 'components/layout/Footer'
-import CookieConsentBanner from 'components/main/CookieConsentBanner'
+import Header from 'components/core/Header'
+import Footer from 'components/core/Footer'
+import CookieConsentBanner from 'components/core/CookieConsentBanner'
 import Modals from 'components/modals'
 
 const useStyles = makeStyles({

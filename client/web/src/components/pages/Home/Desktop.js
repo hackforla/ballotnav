@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchBar from 'components/shared/SearchBar'
 import { withStyles } from '@material-ui/core/styles'
-import { ReactComponent as HeroMobile } from 'assets/images/home-hero-mobile.svg'
-import DemoBanner from 'components/main/DemoBanner'
+import { ReactComponent as HeroDesktop } from 'assets/images/home-hero-desktop.svg'
+import SearchBar from 'components/core/SearchBar'
+import DemoBanner from 'components/core/DemoBanner'
 
-const Mobile = withStyles((theme) => ({
+const Desktop = withStyles((theme) => ({
   root: {
     height: '100%',
     display: 'flex',
@@ -15,12 +15,14 @@ const Mobile = withStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    maxWidth: theme.layout.pageWidth,
+    margin: '100px auto',
     width: '100%',
-    margin: '10% auto',
   },
   hero: {
     display: 'block',
-    width: '100%',
+    width: '84%',
+    marginLeft: '12%',
   },
   mainTextOuter: {
     position: 'relative',
@@ -32,63 +34,59 @@ const Mobile = withStyles((theme) => ({
     left: 0,
     right: 0,
     paddingLeft: 15,
-    paddingBottom: 5,
+    paddingTop: 35,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start',
   },
   h2: {
     color: theme.palette.secondary.main,
-    fontSize: 22,
+    fontSize: 46,
     fontWeight: 700,
-    lineHeight: '30px',
-    marginBottom: 10,
+    marginBottom: 30,
   },
   h3: {
     color: theme.palette.primary.main,
-    fontSize: 14,
+    fontSize: 24,
     fontWeight: 400,
-    lineHeight: '18px',
+    lineHeight: '32px',
   },
   h4: {
     color: theme.palette.primary.main,
-    fontSize: 12,
+    fontSize: 18,
     fontWeight: 1000,
-    lineHeight: '18px',
-    marginTop: 20,
+    lineHeight: '26px',
+    marginTop: 60,
   },
   search: {
-    padding: 15,
+    width: 450,
+    marginTop: 10,
   },
 }))(({ classes }) => (
   <div className={classes.root}>
     <DemoBanner />
     <div className={classes.wrapper}>
       <div className={classes.mainTextOuter}>
-        <HeroMobile className={classes.hero} />
+        <HeroDesktop className={classes.hero} />
         <div className={classes.mainTextInner}>
-          <h2 className={classes.h2}>
-            Find your <br /> drop off locations
-          </h2>
+          <h2 className={classes.h2}>Find your drop off locations</h2>
           <h3 className={classes.h3}>
-            Find safe, secure, in-person <br />
-            locations to drop off <br />
-            your mail-in <br />
-            or absentee ballot
+            Find safe, secure, in-person locations to <br />
+            drop off your mail-in or absentee ballot
           </h3>
           <h4 className={classes.h4}>
             BallotNav is currently working on validating information <br />
             for future elections. Please check back in with us later, <br />
             or see how you can help on our Volunteer Page.
           </h4>
+          <div className={classes.search}>
+            <SearchBar />
+          </div>
         </div>
-      </div>
-      <div className={classes.search}>
-        <SearchBar useModal />
       </div>
     </div>
   </div>
 ))
 
-export default Mobile
+export default Desktop

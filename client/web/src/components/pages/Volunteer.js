@@ -1,5 +1,5 @@
 import React from 'react'
-import DemoBanner from 'components/main/DemoBanner'
+import DemoBanner from 'components/core/DemoBanner'
 import volunteerHero from 'assets/images/volunteer-hero.svg'
 
 const Volunteer = () => {
