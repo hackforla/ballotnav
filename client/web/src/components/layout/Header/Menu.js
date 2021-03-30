@@ -5,7 +5,7 @@ import useBreakpoints from 'hooks/useBreakpoints'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import { HomeButton } from './Buttons'
-import Footer from 'components/main/Footer'
+import Footer from 'components/layout/Footer'
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
