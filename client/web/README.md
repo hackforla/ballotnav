@@ -1,3 +1,11 @@
+## Development quick start
+
+1. copy `.env` to `.env.local`, get a mapbox token from someone on the team, and add the token to the `.env.local` file.
+
+2. run `npm install`
+
+3. run `npm start`
+
 ## Overview
 
 This directory houses four clients, all built from the same create-react-app codebase:
@@ -59,7 +67,3 @@ origin	https://github.com/hackforla/ballotnav.git (push)
 Then you can deploy the two apps by running `npm run deploy-about` or `npm run deploy-demo`. The build files will be pushed to the gh-pages branch of the appropriate repo.
 
 Also, to get the gh-pages deployment working (for all the apps) it was necessary to add a 404.html and modify the index.html to get the single-page routing to work with the BrowserRouter. The code snippets are from the "basic instructions" section here: https://github.com/rafgraph/spa-github-pages
-
-## Running the App for the first time
-
-To run the app first create a file named '.env' in this directory. Then copy the format from '.example.env' into '.env' except change 'REDACTED' to the BallotNav project's Mapbox token.
