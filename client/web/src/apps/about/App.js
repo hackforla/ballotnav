@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Routes from './Routes'
 import Div100vh from 'react-div-100vh'
-import Footer from 'components/main/Footer'
+import Footer from 'components/layout/Footer'
 import CookieConsentBanner from 'components/main/CookieConsentBanner'
 
 const useStyles = makeStyles({
