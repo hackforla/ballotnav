@@ -1,6 +1,9 @@
 ## Development quick start
 
-1. copy `.env` to `.env.local`, get a mapbox token from someone on the team, and add the token to the `.env.local` file.
+1. set up your environment variables by:
+  - copying `.env` to `.env.local`
+  - getting a mapbox token from someone on the team
+  - adding the token to the `.env.local` file.
 
 2. run `npm install`
 

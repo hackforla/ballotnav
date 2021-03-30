@@ -7,10 +7,12 @@ import { getJurisdiction } from 'store/actions/data'
 import useBreakpoints from 'hooks/useBreakpoints'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
+import { use100vh } from 'react-div-100vh' // fix for safari mobile
 
 const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
   const { isMobile } = useBreakpoints()
   const theme = useTheme()
+  const pageHeight = use100vh()
 
   // clear jurisdiction when leaving map
   useEffect(() => {
@@ -22,10 +24,11 @@ const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
     getJurisdiction(selectedJurisdictionId)
   }, [selectedJurisdictionId, getJurisdiction])
 
+  if (!pageHeight) return null
   return (
     <div
       style={{
-        height: `calc(100vh - ${theme.layout.headerHeight}px)`,
+        height: pageHeight - theme.layout.headerHeight,
         overflow: 'hidden',
       }}
     >
