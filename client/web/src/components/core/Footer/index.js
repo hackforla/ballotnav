@@ -51,11 +51,7 @@ const Mobile = withStyles((theme) => ({
 
 const Footer = ({ hidden = false }) => {
   const { isMobile } = useBreakpoints()
-  return (
-    <div style={{ display: hidden ? 'none' : 'block' }}>
-      {isMobile ? <Mobile /> : <Desktop />}
-    </div>
-  )
+  return isMobile ? <Mobile /> : <Desktop />
 }
 
 export default Footer

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import ivoted from 'assets/logos/ivoted.png'
 
@@ -27,13 +27,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Share = () => {
   const classes = useStyles()
+  const share = useRef(null)
+
+  useEffect(() => {
+    // parse page for twitter tags when ready
+    if (window.twttr?.widgets) window.twttr.widgets.load(share.current)
+    else window.twttr.ready(() => window.twttr.widgets.load(share.current))
+  }, [])
+
+  useEffect(() => {
+    // parse page for facebook tags when ready
+    if (window.FB?.XFBML) window.FB.XFBML.parse(share.current)
+    else window.fbAsyncInit = () => window.FB.XFBML.parse(share.current)
+  }, [])
 
   return (
     <div className={classes.root}>
       <img className={classes.ivoted} src={ivoted} alt="I voted" />
       <div>
         <div className={classes.shareText}>Share with your friends</div>
-        <div className={classes.shareButtons}>
+        <div className={classes.shareButtons} ref={share}>
           <div
             className="fb-share-button"
             data-href="https://www.ballotnav.org/"
