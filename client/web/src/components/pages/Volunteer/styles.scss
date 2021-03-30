@@ -1,4 +1,27 @@
+$red: #FF0029;
+$blue: #1B2152;
+$dark-blue: #040822;
+$light-blue: #EBF3FA;
+$primary: $blue;
+$link-blue: #0819A5;
+$link: $link-blue;
+
 .Volunteer-wrapper {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 35px 20px 0;
+
+  h1 {
+    color: $red;
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size:1.125em;
+    font-weight:700;
+  }
+  h3 {
+    line-height: 1.18em;
+  }
   p {
     font-size: 1.1em;
     line-height: 1.4;
@@ -6,11 +29,11 @@
   .header-wrapper {
     display:flex;
     flex-direction:column;
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 960px) {
       flex-direction:row;
     }
     .header-content {
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 960px) {
         width:60%;
         }
     }
@@ -30,7 +53,7 @@
       overflow:hidden;
       height:144px;
       margin: 0 0 -17px -12px;
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 960px) {
         height:211px;
         position: relative;
         bottom: -45px;
@@ -42,7 +65,7 @@
     display:flex;
     flex-direction:column;
     justify-content: center;
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 960px) {
       flex-direction:row
     }
     .volunteer-card {
@@ -51,7 +74,7 @@
       background:$light-blue;
       min-height: 70px;
       padding: 15px;
-      @media only screen and (min-width: 1024px) {
+      @media only screen and (min-width: 960px) {
         border-radius:20px;
         height:auto;
         width:269px;
@@ -71,7 +94,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 960px) {
       display:block;
     }
     p {

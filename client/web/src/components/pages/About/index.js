@@ -5,6 +5,7 @@ import DemoBanner from 'components/core/DemoBanner'
 import aboutHero from 'assets/images/about-hero.svg'
 import hackForLALogo from 'assets/logos/hack-for-la.svg'
 import codeForAmericaLogo from 'assets/logos/code-for-america.png'
+import './styles.scss'
 
 const About = () => {
   return (

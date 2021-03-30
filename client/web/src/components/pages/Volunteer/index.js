@@ -1,6 +1,7 @@
 import React from 'react'
 import DemoBanner from 'components/core/DemoBanner'
 import volunteerHero from 'assets/images/volunteer-hero.svg'
+import './styles.scss'
 
 const Volunteer = () => {
   return (

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PrivacyPolicy = () => {
+const Privacy = () => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -423,4 +423,4 @@ const PrivacyPolicy = () => {
   )
 }
 
-export default PrivacyPolicy
+export default Privacy

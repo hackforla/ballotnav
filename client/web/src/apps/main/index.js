@@ -9,7 +9,6 @@ import hotjar from 'services/hotjar'
 import history from 'services/history'
 import store from 'store'
 import App from './App'
-import 'styles/styles.scss'
 
 ReactDOM.render(
   <Provider store={store}>
