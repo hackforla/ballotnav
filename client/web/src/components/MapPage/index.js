@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useTheme } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as select from 'store/selectors'
@@ -9,6 +10,7 @@ import Mobile from './Mobile'
 
 const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
   const { isMobile } = useBreakpoints()
+  const theme = useTheme()
 
   // clear jurisdiction when leaving map
   useEffect(() => {
@@ -20,7 +22,11 @@ const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
     getJurisdiction(selectedJurisdictionId)
   }, [selectedJurisdictionId, getJurisdiction])
 
-  return isMobile ? <Mobile /> : <Desktop />
+  return (
+    <div style={{ height: `calc(100vh - ${theme.layout.headerHeight}px)` }}>
+     {isMobile ? <Mobile /> : <Desktop />}
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => ({

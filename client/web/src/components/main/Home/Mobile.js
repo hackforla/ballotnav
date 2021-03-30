@@ -16,7 +16,7 @@ const Mobile = withStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     width: '100%',
-    paddingTop: 20,
+    margin: '10% auto',
   },
   hero: {
     display: 'block',

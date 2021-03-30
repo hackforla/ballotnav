@@ -2,7 +2,6 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Routes from './Routes'
-//import Div100vh from 'react-div-100vh'
 import Header from 'components/layout/Header'
 import Footer from 'components/main/Footer'
 import CookieConsentBanner from 'components/main/CookieConsentBanner'
@@ -16,7 +15,7 @@ const useStyles = makeStyles({
   },
   content: {
     flex: 1,
-    // backgroundColor: 'red',
+    position: 'relative',
   },
 })
 

@@ -16,7 +16,7 @@ const Desktop = withStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     maxWidth: theme.layout.pageWidth,
-    margin: '0 auto',
+    margin: '100px auto',
     width: '100%',
   },
   hero: {
