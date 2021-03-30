@@ -75,13 +75,11 @@ const Layout = ({ Left, Right, Center }) => {
           </div>
         )}
       </div>
-      {isMenuOpen && (
-        <Menu
-          isMenuOpen={isMenuOpen}
-          openMenu={openMenu}
-          closeMenu={closeMenu}
-        />
-      )}
+      <Menu
+        isMenuOpen={isMenuOpen}
+        openMenu={openMenu}
+        closeMenu={closeMenu}
+      />
     </>
   )
 }

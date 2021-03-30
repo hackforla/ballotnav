@@ -1,20 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-// import Footer from 'components/main/Footer'
 import useBreakpoints from 'hooks/useBreakpoints'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-// import ballotnavLogo from 'assets/logos/ballotnav.svg'
+import { HomeButton } from './Buttons'
+import Footer from 'components/main/Footer'
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
-    body: {
-      overflow: 'hidden',
+    'html,body': {
+      overflow: ({ open }) => open ? 'hidden' : 'auto',
     },
-    html: {
-      overflow: 'hidden',
-    }
   },
   root: {
     position: 'absolute',
@@ -24,43 +21,74 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     backdropFilter: 'blur(50px)',
     background: 'rgba(4, 8, 34, 0.7)',
-    padding: 25,
+    zIndex: 100,
+    opacity: ({ open }) => open ? 1 : 0,
+    pointerEvents: ({ open }) => open ? 'all' : 'none',
+    transition: 'all 0.25s ease-out',
+  },
+  wrap: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    width: 300,
+    backgroundColor: theme.palette.common.white,
+    display: 'flex',
+    flexDirection: 'column',
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    transform: ({ open }) => `translateX(${open ? 0 : '100%'})`,
+    transition: 'all 0.25s ease-out',
+  },
+  header: {
+    height: theme.layout.headerHeight,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '0 10px',
+  },
+  content: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
-    zIndex: 1,
-  },
-  links: {
-    flex: 1,
-    color: theme.palette.common.white,
-    fontWeight: 600,
-    fontSize: 21,
+    padding: 30,
+    color: theme.palette.primary.main,
     '& a': {
       color: 'inherit',
       display: 'block',
-      marginBottom: 12,
+      marginBottom: 30,
+      fontWeight: 600,
+      fontSize: 21,
     },
   },
 }))
 
-const Menu = ({ closeMenu }) => {
-  const classes = useStyles()
+const Menu = ({ isMenuOpen, closeMenu }) => {
+  const classes = useStyles({ open: isMenuOpen })
   const { isDesktop } = useBreakpoints()
 
   if (isDesktop) return null
   return (
     <div className={classes.root}>
-      <IconButton
-        size="small"
-        aria-label="close"
-        onClick={closeMenu}
-        style={{ marginBottom: 25 }}
-      >
-        <CloseIcon color='primary' style={{ fontSize: 32, color: 'white' }} />
-      </IconButton>
-      <div className={classes.links}>
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/volunteer" onClick={closeMenu}>Volunteer</Link>
+      <div className={classes.wrap}>
+        <div className={classes.header}>
+          <IconButton
+            size="small"
+            aria-label="close"
+            onClick={closeMenu}
+          >
+            <CloseIcon color='primary' style={{ fontSize: 32 }} />
+          </IconButton>
+        </div>
+        <div className={classes.content}>
+          <div style={{ marginBottom: 30 }}>
+            <HomeButton closeMenu={closeMenu} />
+          </div>
+          <Link to="/about" onClick={closeMenu}>About</Link>
+          <Link to="/volunteer" onClick={closeMenu}>Volunteer</Link>
+        </div>
+        <Footer />
       </div>
     </div>
   )
