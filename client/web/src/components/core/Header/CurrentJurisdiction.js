@@ -26,9 +26,7 @@ const CurrentJurisdiction = ({ jurisdictionName, stateName }) => {
   if (!jurisdictionName || !stateName) return null
   return (
     <div className={classes.title}>
-      <div className={classes.jurisdictionName}>
-        {jurisdictionName}
-      </div>
+      <div className={classes.jurisdictionName}>{jurisdictionName}</div>
       <div className={classes.stateName}>{stateName}</div>
     </div>
   )

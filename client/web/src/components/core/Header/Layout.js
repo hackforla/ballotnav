@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     margin: '0 auto',
     zIndex: 10,
-    boxShadow: ({ isMobile }) => isMobile ? '0 3px 2px -2px #d8d8d8' : 'none',
+    boxShadow: ({ isMobile }) => (isMobile ? '0 3px 2px -2px #d8d8d8' : 'none'),
   },
   left: {
     position: 'absolute',
     top: '50%',
     left: PADDING,
-    transform: 'translateY(-50%)'
+    transform: 'translateY(-50%)',
   },
   right: {
     position: 'absolute',
@@ -79,11 +79,7 @@ const Layout = ({ Left, Right, Center }) => {
           </div>
         )}
       </div>
-      <Menu
-        isMenuOpen={isMenuOpen}
-        openMenu={openMenu}
-        closeMenu={closeMenu}
-      />
+      <Menu isMenuOpen={isMenuOpen} openMenu={openMenu} closeMenu={closeMenu} />
     </>
   )
 }

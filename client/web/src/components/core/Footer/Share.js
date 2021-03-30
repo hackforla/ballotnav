@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     '& > :first-child': {
       marginRight: '0.75em',
-    }
+    },
   },
   ivoted: {
     width: '4em',

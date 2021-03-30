@@ -29,7 +29,7 @@ const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
         overflow: 'hidden',
       }}
     >
-     {isMobile ? <Mobile /> : <Desktop />}
+      {isMobile ? <Mobile /> : <Desktop />}
     </div>
   )
 }

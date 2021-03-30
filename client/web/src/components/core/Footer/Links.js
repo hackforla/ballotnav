@@ -27,11 +27,7 @@ const Links = () => {
 
   return (
     <div className={classes.root}>
-      <a
-        href="https://www.hackforla.org"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://www.hackforla.org" target="_blank" rel="noreferrer">
         <img
           className={classes.hackForLA}
           id="hack-for-LA-logo"
@@ -39,16 +35,8 @@ const Links = () => {
           alt="Hack for LA logo"
         />
       </a>
-      <a
-        href="https://twitter.com/BallotNav"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img
-          className={classes.twitter}
-          src={twitterLogo}
-          alt="Twitter logo"
-        />
+      <a href="https://twitter.com/BallotNav" target="_blank" rel="noreferrer">
+        <img className={classes.twitter} src={twitterLogo} alt="Twitter logo" />
       </a>
       <a
         href="https://www.facebook.com/BallotNav/"

@@ -39,7 +39,7 @@ const Mobile = withStyles((theme) => ({
     fontSize: '0.8em',
     '& > *:not(:last-child)': {
       marginBottom: '2em',
-    }
+    },
   },
 }))(({ classes }) => (
   <div className={classes.root}>

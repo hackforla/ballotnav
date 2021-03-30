@@ -15,7 +15,7 @@ export const HomeButton = ({ closeMenu }) => (
       alt="Ballotnav logo"
       style={{
         height: 30,
-        display: 'block'
+        display: 'block',
       }}
       onClick={closeMenu}
     />
@@ -29,9 +29,9 @@ export const MenuButton = ({ isMenuOpen, openMenu, closeMenu }) => (
     onClick={isMenuOpen ? closeMenu : openMenu}
   >
     {isMenuOpen ? (
-      <CloseIcon color='primary' style={{ fontSize: 32 }} />
+      <CloseIcon color="primary" style={{ fontSize: 32 }} />
     ) : (
-      <MenuIcon color='primary' style={{ fontSize: 32 }} />
+      <MenuIcon color="primary" style={{ fontSize: 32 }} />
     )}
   </IconButton>
 )
@@ -39,11 +39,7 @@ export const MenuButton = ({ isMenuOpen, openMenu, closeMenu }) => (
 export const SearchButton = connect(null, (dispatch) => ({
   openSearchModal: () => dispatch(openModal('search')),
 }))(({ isMenuOpen, openMenu, closeMenu, openSearchModal }) => (
-  <IconButton
-    size="small"
-    aria-label="search"
-    onClick={openSearchModal}
-  >
-    <SearchIcon color='primary' style={{ fontSize: 32 }} />
+  <IconButton size="small" aria-label="search" onClick={openSearchModal}>
+    <SearchIcon color="primary" style={{ fontSize: 32 }} />
   </IconButton>
 ))

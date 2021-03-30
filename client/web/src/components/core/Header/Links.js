@@ -12,19 +12,22 @@ const useStyles = makeStyles((theme) => ({
       '&:not(:first-child)': {
         marginLeft: 30,
       },
-    }
-  }
+    },
+  },
 }))
 
 const DesktopLinks = ({ closeMenu }) => {
   const classes = useStyles()
   return (
     <div className={classes.links}>
-      <Link to="/about" onClick={closeMenu}>About</Link>
-      <Link to="/volunteer" onClick={closeMenu}>Volunteer</Link>
+      <Link to="/about" onClick={closeMenu}>
+        About
+      </Link>
+      <Link to="/volunteer" onClick={closeMenu}>
+        Volunteer
+      </Link>
     </div>
   )
 }
-
 
 export default DesktopLinks

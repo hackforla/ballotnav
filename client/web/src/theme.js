@@ -47,7 +47,7 @@ export default createMuiTheme({
           margin: 0,
           padding: 0,
         },
-      }
-    }
-  }
+      },
+    },
+  },
 })

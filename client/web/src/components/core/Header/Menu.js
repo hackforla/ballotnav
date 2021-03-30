@@ -10,11 +10,12 @@ import Footer from 'components/core/Footer'
 const useStyles = makeStyles((theme) => ({
   '@global': {
     'html,body': {
-      overflow: ({ open, isDesktop }) => open && !isDesktop ? 'hidden' : 'auto',
+      overflow: ({ open, isDesktop }) =>
+        open && !isDesktop ? 'hidden' : 'auto',
     },
   },
   root: {
-    display: ({ isDesktop }) => isDesktop ? 'none' : 'block',
+    display: ({ isDesktop }) => (isDesktop ? 'none' : 'block'),
     position: 'absolute',
     top: 0,
     bottom: 0,
@@ -23,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     backdropFilter: 'blur(50px)',
     background: 'rgba(4, 8, 34, 0.7)',
     zIndex: 100,
-    opacity: ({ open }) => open ? 1 : 0,
-    pointerEvents: ({ open }) => open ? 'all' : 'none',
+    opacity: ({ open }) => (open ? 1 : 0),
+    pointerEvents: ({ open }) => (open ? 'all' : 'none'),
     transition: 'all 0.25s ease-out',
     overflowX: 'hidden',
   },
@@ -77,20 +78,20 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
     <div className={classes.root}>
       <div className={classes.wrap}>
         <div className={classes.header}>
-          <IconButton
-            size="small"
-            aria-label="close"
-            onClick={closeMenu}
-          >
-            <CloseIcon color='primary' style={{ fontSize: 32 }} />
+          <IconButton size="small" aria-label="close" onClick={closeMenu}>
+            <CloseIcon color="primary" style={{ fontSize: 32 }} />
           </IconButton>
         </div>
         <div className={classes.content}>
           <div style={{ marginBottom: 30 }}>
             <HomeButton closeMenu={closeMenu} />
           </div>
-          <Link to="/about" onClick={closeMenu}>About</Link>
-          <Link to="/volunteer" onClick={closeMenu}>Volunteer</Link>
+          <Link to="/about" onClick={closeMenu}>
+            About
+          </Link>
+          <Link to="/volunteer" onClick={closeMenu}>
+            Volunteer
+          </Link>
         </div>
         <Footer />
       </div>
