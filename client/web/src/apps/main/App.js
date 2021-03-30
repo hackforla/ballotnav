@@ -29,7 +29,7 @@ const App = () => {
         <div className={classes.content}>
           <Routes />
         </div>
-        {pathname !== '/map' && <Footer />}
+        <Footer hidden={pathname === '/map'} />
         <CookieConsentBanner />
       </div>
       <Modals />

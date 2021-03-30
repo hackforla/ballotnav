@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: ({ hidden }) => hidden ? 'none' : 'block',
     height: ({ isMobile }) => isMobile ? 'auto' : 156,
     padding: 25,
     backgroundColor: theme.palette.primary.dark,
@@ -71,9 +72,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Footer = () => {
+const Footer = ({ hidden = false }) => {
   const { isMobile } = useBreakpoints()
-  const classes = useStyles({ isMobile })
+  const classes = useStyles({ isMobile, hidden })
 
   return (
     <div className={classes.root}>

@@ -8,18 +8,6 @@ $primary: $blue;
 $link-blue: #0819A5;
 $link: $link-blue;
 
-// remove persistent vertical scrollbar
-$body-overflow-y: auto;
-
-a {
-  text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
-}
-
 @import './main/pages';
 @import './main/about';
 @import './main/volunteer';

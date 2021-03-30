@@ -23,7 +23,12 @@ const MapPage = ({ selectedJurisdictionId, getJurisdiction }) => {
   }, [selectedJurisdictionId, getJurisdiction])
 
   return (
-    <div style={{ height: `calc(100vh - ${theme.layout.headerHeight}px)` }}>
+    <div
+      style={{
+        height: `calc(100vh - ${theme.layout.headerHeight}px)`,
+        overflow: 'hidden',
+      }}
+    >
      {isMobile ? <Mobile /> : <Desktop />}
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 import Menu from './Menu'
 
 const PADDING = 10
@@ -11,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     position: 'relative',
     margin: '0 auto',
+    zIndex: 10,
+    boxShadow: ({ isMobile }) => isMobile ? '0 3px 2px -2px #d8d8d8' : 'none',
   },
   left: {
     position: 'absolute',
@@ -33,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Layout = ({ Left, Right, Center }) => {
-  const classes = useStyles()
+  const { isMobile } = useBreakpoints()
+  const classes = useStyles({ isMobile })
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const closeMenu = useCallback(() => {

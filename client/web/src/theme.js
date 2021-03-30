@@ -37,4 +37,17 @@ export default createMuiTheme({
     sidebarWidth: 500,
     pageWidth: 1134,
   },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        a: {
+          textDecoration: 'none',
+        },
+        'h1, h2, h3, h4, h5, h6, p': {
+          margin: 0,
+          padding: 0,
+        },
+      }
+    }
+  }
 })

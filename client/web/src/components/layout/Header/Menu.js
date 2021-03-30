@@ -10,10 +10,11 @@ import Footer from 'components/main/Footer'
 const useStyles = makeStyles((theme) => ({
   '@global': {
     'html,body': {
-      overflow: ({ open }) => open ? 'hidden' : 'auto',
+      overflow: ({ open, isDesktop }) => open && !isDesktop ? 'hidden' : 'auto',
     },
   },
   root: {
+    display: ({ isDesktop }) => isDesktop ? 'none' : 'block',
     position: 'absolute',
     top: 0,
     bottom: 0,
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: ({ open }) => open ? 1 : 0,
     pointerEvents: ({ open }) => open ? 'all' : 'none',
     transition: 'all 0.25s ease-out',
+    overflowX: 'hidden',
   },
   wrap: {
     position: 'absolute',
@@ -65,10 +67,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Menu = ({ isMenuOpen, closeMenu }) => {
-  const classes = useStyles({ open: isMenuOpen })
   const { isDesktop } = useBreakpoints()
+  const classes = useStyles({
+    open: isMenuOpen,
+    isDesktop,
+  })
 
-  if (isDesktop) return null
   return (
     <div className={classes.root}>
       <div className={classes.wrap}>
