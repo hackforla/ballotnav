@@ -13,7 +13,11 @@ const App = () => {
   useEffect(() => dispatch(getUser()), [dispatch])
 
   if (typeof user === 'undefined') return null
-  return <Router>{user ? <Dashboard /> : <Auth />}</Router>
+  return (
+    <Router>
+      {user ? <Dashboard /> : <Auth />}
+    </Router>
+  )
 }
 
 export default App

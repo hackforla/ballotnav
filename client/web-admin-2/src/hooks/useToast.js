@@ -1,6 +1,33 @@
-import React, { useState, useContext, createContext, useCallback } from 'react'
+/*
+NOTE: the toast function can be invoked in two ways:
+
+  1. in an action creator
+    import { toast } from 'store/actions/toaster'
+    ...
+    dispatch(toast(config))
+
+  2. in a component
+    import { useToast } from 'hooks/useToast'
+    ...
+    const toast = useToast()
+    toast(config)
+
+  Either way, an action is dispatched and the config ends up in the store.
+*/
+
+import React, {
+  useState,
+  useContext,
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo
+} from 'react'
 import { Snackbar } from '@material-ui/core'
 import { Alert } from '@material-ui/lab'
+import { useDispatch } from 'react-redux'
+import { useToaster } from 'store/selectors'
+import { toast } from 'store/actions/toaster'
 
 const toastContext = createContext()
 
@@ -12,18 +39,27 @@ const defaultConfig = {
 }
 
 export function ToastProvider({ children }) {
+  const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
-  const [config, setConfig] = useState(defaultConfig)
+  const selectedConfig = useToaster()
 
-  const toast = useCallback(config => {
-    setOpen(true)
-    setConfig({ ...defaultConfig, ...config })
-  }, [])
+  useEffect(() => {
+    if (selectedConfig) setOpen(true)
+  }, [selectedConfig])
 
-  const handleClose = (event, reason) => {
+  const doToast = useCallback((config) => {
+    dispatch(toast(config))
+  }, [dispatch])
+
+  const handleClose = useCallback((event, reason) => {
    if (reason === 'clickaway') return
    setOpen(false)
- }
+ }, [])
+
+ const config = useMemo(() => ({
+   ...defaultConfig,
+   ...selectedConfig
+ }), [selectedConfig])
 
   return (
     <>
@@ -42,7 +78,7 @@ export function ToastProvider({ children }) {
           { config.message }
         </Alert>
       </Snackbar>
-      <toastContext.Provider value={toast}>
+      <toastContext.Provider value={doToast}>
         {children}
       </toastContext.Provider>
     </>

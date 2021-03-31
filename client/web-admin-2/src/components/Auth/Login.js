@@ -9,7 +9,7 @@ import { Button, TextField, Grid } from '@material-ui/core'
 
 const validationSchema = Yup.object({
   email: Yup.string().email().required('Required'),
-  password: Yup.string().required('Required'),
+  password: Yup.string().min(8).required('Required'),
 });
 
 function Login() {
@@ -17,7 +17,6 @@ function Login() {
   const { isSubmitting } = useAuth()
 
   const onSubmit = useCallback((values) => {
-    console.log('submitting')
     dispatch(login(values))
   }, [dispatch])
 
@@ -34,20 +33,6 @@ function Login() {
     },
     validationSchema,
     onSubmit,
-    // onSubmit(values, { setSubmitting }) {
-    //   login(values).catch((error) => {
-    //     toast({
-    //       severity: 'error',
-    //       autoHideDuration: 3000,
-    //       message: (() => {
-    //         if (error.emailNotFound) return 'email not found'
-    //         if (error.passwordInvalid) return 'password invalid'
-    //         return 'server error'
-    //       })()
-    //     })
-    //     setSubmitting(false)
-    //   })
-    // },
   })
 
   return (
