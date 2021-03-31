@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import Landing from 'components/main/LandingTemp'
-import PrivacyPolicy from 'components/main/PrivacyPolicy'
+import Landing from 'components/pages/Landing'
+import Privacy from 'components/pages/Privacy'
 
 const Routes = () => {
   return (
@@ -10,7 +10,7 @@ const Routes = () => {
         <Landing />
       </Route>
       <Route path="/privacy-policy">
-        <PrivacyPolicy />
+        <Privacy />
       </Route>
       <Redirect to="/" />
     </Switch>

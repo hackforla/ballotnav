@@ -1,38 +1,39 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { ConnectedRouter } from 'connected-react-router'
-import history from 'services/history'
 import Routes from './Routes'
-import Div100vh from 'react-div-100vh'
-import Header from 'components/main/Header'
-import Footer from 'components/main/Footer'
-import CookieConsentBanner from 'components/main/CookieConsentBanner'
+import Header from 'components/core/Header'
+import Footer from 'components/core/Footer'
+import CookieConsentBanner from 'components/core/CookieConsentBanner'
 import Modals from 'components/modals'
 
 const useStyles = makeStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    minHeight: '100vh',
   },
   content: {
     flex: 1,
+    position: 'relative',
   },
 })
 
 const App = () => {
   const classes = useStyles()
+  const { pathname } = useLocation()
   return (
-    <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}>
-      <Div100vh className={classes.root}>
+    <>
+      <div className={classes.root}>
         <Header />
         <div className={classes.content}>
           <Routes />
         </div>
-        <Footer />
+        {pathname !== '/map' && <Footer />}
         <CookieConsentBanner />
-      </Div100vh>
+      </div>
       <Modals />
-    </ConnectedRouter>
+    </>
   )
 }
 
