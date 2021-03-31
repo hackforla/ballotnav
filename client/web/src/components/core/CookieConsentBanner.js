@@ -47,29 +47,28 @@ const CookieConsentBanner = ({ cookieName, cookieValue, expires }) => {
   }
 
   return (
-    <>
-      <Snackbar
-        className={classes.snackbar}
-        anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
-        open={open}
-        message="We use cookies and other tracking technologies to improve your browsing experience and to
-        better understand our website traffic. By browsing our website, you consent to our use of
-        cookies and other tracking technologies."
-        action={
-          <Button
-            className={classes.button}
-            variant="contained"
-            onClick={handleAcceptCookies}
-            aria-label="accept"
-          >
-            OK
-          </Button>
-        }
-        ContentProps={{
-          className: classes.content,
-        }}
-      />
-    </>
+    <Snackbar
+      className={classes.snackbar}
+      anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+      open={open}
+      message="We use cookies and other tracking technologies to improve your
+      browsing experience and to better understand our website traffic. By
+      browsing our website, you consent to our use of cookies and other
+      tracking technologies."
+      action={
+        <Button
+          className={classes.button}
+          variant="contained"
+          onClick={handleAcceptCookies}
+          aria-label="accept"
+        >
+          OK
+        </Button>
+      }
+      ContentProps={{
+        className: classes.content,
+      }}
+    />
   )
 }
 

@@ -29,6 +29,9 @@ const Share = () => {
   const classes = useStyles()
   const share = useRef(null)
 
+  // NOTE: these two functions may be responsible for an intermittent
+  // but where the "Share with your friends" text gets bigger than it
+  // should be
   useEffect(() => {
     // parse page for twitter tags when ready
     if (window.twttr?.widgets) window.twttr.widgets.load(share.current)
