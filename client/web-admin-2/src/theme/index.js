@@ -33,7 +33,7 @@ export default createMuiTheme({
     },
   },
   layout: {
-    headerHeight: 180,
+    headerHeight: 150,
     sidebarWidth: 500,
     pageWidth: 1134,
   },

@@ -1,19 +1,40 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useAuth } from 'store/selectors'
-import Layout from './Layout'
+import Layout from './core/Layout'
+import MyJurisdictions from './MyJurisdictions'
+import JurisdictionDetails from './JurisdictionDetails'
 
 const Dashboard = () => {
   const { user } = useAuth()
-  const isAdmin = user.role === 'admin'
-  return (
-    <Layout>
-      <Switch>
-        {!isAdmin && <Route exact path="/" component={() => <div>main</div>} />}
-        {!isAdmin && <Redirect to="/" />}
-      </Switch>
-    </Layout>
-  )
+
+  switch (user.role) {
+
+    case 'volunteer':
+      return (
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={MyJurisdictions} />
+            <Route path="/jurisdiction/:jid" component={JurisdictionDetails} />
+            <Redirect to="/" />
+          </Switch>
+        </Layout>
+      )
+
+    case 'admin':
+      return (
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={() => <div>admin home</div>} />
+            <Redirect to="/" />
+          </Switch>
+        </Layout>
+      )
+
+    default:
+      throw new Error('invalid user role')
+
+  }
 }
 
 export default Dashboard

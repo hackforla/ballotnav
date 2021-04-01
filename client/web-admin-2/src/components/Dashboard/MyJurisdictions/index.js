@@ -3,16 +3,19 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  heading: {
+    color: theme.palette.secondary.main,
+    fontWeight: 600,
+  },
 }))
 
-const ComponentName = () => {
+const MyJurisdictions = () => {
   const classes = useStyles()
-
   return (
     <div className={classes.root}>
-      ComponentName
+      <h1 className={classes.heading}>My Jurisdictions</h1>
     </div>
   )
 }
 
-export default ComponentName
+export default MyJurisdictions

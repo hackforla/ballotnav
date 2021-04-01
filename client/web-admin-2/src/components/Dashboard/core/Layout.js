@@ -10,10 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: 1,
-    backgroundColor: 'orange',
     margin: '0 auto',
     width: 1134,
     maxWidth: '100%',
+    padding: '1.5em 0.5em',
   },
 }))
 
