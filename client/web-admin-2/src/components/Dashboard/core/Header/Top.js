@@ -8,7 +8,7 @@ import bnLogo from 'assets/logos/ballotnav.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontWeight: 600,
+
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -21,11 +21,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  name: {},
+  name: {
+    fontWeight: 700,
+  },
   divider: {
     margin: '0 1em',
   },
   logout: {
+    fontWeight: 600,
     cursor: 'pointer',
     '&:hover': {
       textDecoration: 'underline',

@@ -15,11 +15,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-start',
     userSelect: 'none',
+    minWidth: 0,
   },
   tab: {
     color: theme.palette.primary.main,
     fontSize: '1em',
-    fontWeight: 600,
+    fontWeight: 700,
     backgroundColor: theme.palette.common.white,
     borderTopLeftRadius: '0.75em',
     borderTopRightRadius: '0.75em',
@@ -28,9 +29,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginRight: 2,
-    whiteSpace: 'nowrap',
+    minWidth: 0,
     '& > a': {
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
       color: 'inherit',
+      minWidth: 0,
     }
   },
   closeButton: {
@@ -74,8 +79,8 @@ const JurisdictionTabs = () => {
       const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
       if (!jurisdiction) return null
       return {
-        jurisdictionId: jurisdiction.id,
-        jurisdictionName: jurisdiction.name,
+        jid: jurisdiction.id,
+        title: jurisdiction.name,
       }
     }).filter((juris) => !!juris)
   }, [jurisdictionTabs, jurisdictions])
@@ -85,23 +90,22 @@ const JurisdictionTabs = () => {
     if (isSelected) history.push('/')
   }, [dispatch, history])
 
-  return tabs.map((tab, index) => {
-    const isSelected = tab.jurisdictionId === selectedJid
-    return (
-      <div
-        key={tab.jurisdictionId}
-        className={clsx(classes.tab, { [classes.selected]: isSelected })}
-      >
-        <Link to={`/jurisdiction/${tab.jurisdictionId}`}>
-          { tab.jurisdictionName }
-        </Link>
-        <CloseIcon
-          className={classes.closeButton}
-          onClick={closeTab.bind(null, tab.jurisdictionId, isSelected)}
-        />
-      </div>
-    )
-  })
+  return (
+    <div className={classes.root}>
+      {tabs.map((tab) => {
+        const isSelected = tab.jid === selectedJid
+        const clx = clsx(classes.tab, { [classes.selected]: isSelected })
+        const close = closeTab.bind(null, tab.jid, isSelected)
+
+        return (
+          <div key={tab.jid} className={clx}>
+            <Link to={`/jurisdiction/${tab.jid}`}>{ tab.title }</Link>
+            <CloseIcon className={classes.closeButton} onClick={close} />
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
 export default JurisdictionTabs

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   heading: {
     color: theme.palette.secondary.main,
-    fontWeight: 600,
+    fontWeight: 700,
   },
   jurisdictions: {
     marginTop: '3em',

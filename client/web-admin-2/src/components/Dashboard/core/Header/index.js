@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     backgroundColor: '#041B54',
     height: theme.layout.headerHeight,
+    userSelect: 'none',
   },
   inner: {
     margin: '0 auto',

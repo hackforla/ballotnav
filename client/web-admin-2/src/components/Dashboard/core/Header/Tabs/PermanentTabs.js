@@ -6,12 +6,13 @@ import clsx from 'clsx'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'flex-start',
     userSelect: 'none',
   },
   tab: {
     fontSize: 20,
-    fontWeight: 600,
+    fontWeight: 700,
     marginRight: '2em',
     color: theme.palette.common.white,
     position: 'relative',
@@ -35,17 +36,21 @@ const PermanentTabs = ({ tabs }) => {
   const classes = useStyles()
   const location = useLocation()
 
-  return tabs.map((tab, index) => (
-    <Link
-      key={tab.pathname}
-      to={tab.pathname}
-      className={clsx(classes.tab, {
-        [classes.selected]: tab.pathname === location.pathname
-      })}
-    >
-      { tab.title }
-    </Link>
-  ))
+  return (
+    <div className={classes.root}>
+      {tabs.map((tab) => (
+        <Link
+          key={tab.pathname}
+          to={tab.pathname}
+          className={clsx(classes.tab, {
+            [classes.selected]: tab.pathname === location.pathname
+          })}
+        >
+          { tab.title }
+        </Link>
+      ))}
+    </div>
+  )
 }
 
 export default PermanentTabs
