@@ -14,6 +14,16 @@ export const listAllVolunteers = async () => {
 
 export const listMyJurisdictions = async () => {
   const { data } = await axios.get(`${BASE_URL}/jurisdictions/me`)
+
+  // sort by state, then jurisdiction
+  data.sort((a, b) => {
+    if (a.state.name > b.state.name) return 1
+    if (a.state.name < b.state.name) return -1
+    if (a.name > b.name) return 1
+    if (a.name < b.name) return -1
+    return 0
+  })
+
   return data
 }
 
