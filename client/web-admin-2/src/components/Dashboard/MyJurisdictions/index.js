@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getMyJurisdictions } from 'store/actions/volunteer'
 import { useMyJurisdictions } from 'store/selectors'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,19 +25,13 @@ const useStyles = makeStyles((theme) => ({
 
 const MyJurisdictions = () => {
   const classes = useStyles()
-  const dispatch = useDispatch()
   const jurisdictions = useMyJurisdictions()
 
-  useEffect(() => {
-    if (!jurisdictions) dispatch(getMyJurisdictions())
-  }, [dispatch, jurisdictions])
-
-  if (!jurisdictions) return null
   return (
     <div className={classes.root}>
       <h1 className={classes.heading}>My Jurisdictions</h1>
       <div className={classes.jurisdictions}>
-        {jurisdictions.map((juris, index) => (
+        {jurisdictions && jurisdictions.map((juris, index) => (
           <div key={juris.id} className={classes.jurisdiction}>
             <span>{ juris.name }</span>
             <span>{ juris.state.name }</span>

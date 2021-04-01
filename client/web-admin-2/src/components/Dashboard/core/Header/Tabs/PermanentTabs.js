@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '2em',
     color: theme.palette.common.white,
     position: 'relative',
+    whiteSpace: 'nowrap',
   },
   selected: {
     cursor: 'default',

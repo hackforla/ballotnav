@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import clsx from 'clsx'
+import { useJurisdictionTabs, useMyJurisdictions } from 'store/selectors'
+import {
+  openJurisdictionTab,
+  closeJurisdictionTab,
+} from 'store/actions/volunteer'
+import CloseIcon from '@material-ui/icons/Close'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,48 +21,82 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1em',
     fontWeight: 600,
     backgroundColor: theme.palette.common.white,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    padding: '0.125em 0.75em',
+    borderTopLeftRadius: '0.75em',
+    borderTopRightRadius: '0.75em',
+    padding: '0.125em 0.5em',
     opacity: 0.5,
     display: 'flex',
     alignItems: 'center',
     marginRight: 2,
+    whiteSpace: 'nowrap',
+    '& > a': {
+      color: 'inherit',
+    }
   },
   closeButton: {
     marginLeft: '1em',
-    fontWeight: 600,
+    cursor: 'pointer',
+    fontSize: '1.25em',
   },
   selected: {
     opacity: 1,
-    cursor: 'default',
+    '& > a': {
+      cursor: 'default',
+    },
   },
 }))
 
 const JurisdictionTabs = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   const location = useLocation()
+  const history = useHistory()
+  const jurisdictions = useMyJurisdictions()
+  const jurisdictionTabs = useJurisdictionTabs()
 
-  const tabs = [{
-    jurisdictionId: 1,
-    jurisdictionName: 'Washington County',
-  },{
-    jurisdictionId: 2,
-    jurisdictionName: 'Union County',
-  }]
+  const tabs = useMemo(() => {
+    if (!jurisdictions) return []
 
-  return tabs.map((tab, index) => (
-    <Link
-      key={tab.jurisdictionId}
-      to={`/jurisdiction/${tab.jurisdictionId}`}
-      className={clsx(classes.tab, {
-        [classes.selected]: location.pathname === `/jurisdiction/${tab.jurisdictionId}`,
-      })}
-    >
-      { tab.jurisdictionName }
-      <div className={classes.closeButton}>x</div>
-    </Link>
-  ))
+    return jurisdictionTabs.map((jid) => {
+      const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
+      return {
+        jurisdictionId: jurisdiction.id,
+        jurisdictionName: jurisdiction.name,
+      }
+    })
+  }, [jurisdictionTabs, jurisdictions])
+
+  useEffect(() => {
+    const match = location.pathname.match(/^\/jurisdiction\/(.*?)$/)
+    if (match) {
+      const jid = +match[1]
+      if (!jurisdictionTabs.includes(jid)) dispatch(openJurisdictionTab(jid))
+    }
+  }, [dispatch, location, jurisdictionTabs])
+
+  const closeTab = useCallback((jid, isSelected) => {
+    dispatch(closeJurisdictionTab(jid))
+    if (isSelected) history.push('/')
+  }, [dispatch, history])
+
+  return tabs.map((tab, index) => {
+    const { pathname } = location
+    const isSelected = pathname === `/jurisdiction/${tab.jurisdictionId}`
+    return (
+      <div
+        key={tab.jurisdictionId}
+        className={clsx(classes.tab, { [classes.selected]: isSelected })}
+      >
+        <Link to={`/jurisdiction/${tab.jurisdictionId}`}>
+          { tab.jurisdictionName }
+        </Link>
+        <CloseIcon
+          className={classes.closeButton}
+          onClick={closeTab.bind(null, tab.jurisdictionId, isSelected)}
+        />
+      </div>
+    )
+  })
 }
 
 export default JurisdictionTabs
