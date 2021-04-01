@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useDispatch } from 'react-redux'
-import { Link, useLocation, useHistory } from 'react-router-dom'
+import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import clsx from 'clsx'
 import { useJurisdictionTabs, useMyJurisdictions } from 'store/selectors'
 import {
@@ -49,30 +49,36 @@ const useStyles = makeStyles((theme) => ({
 const JurisdictionTabs = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const location = useLocation()
   const history = useHistory()
   const jurisdictions = useMyJurisdictions()
   const jurisdictionTabs = useJurisdictionTabs()
+  const match = useRouteMatch('/jurisdiction/:jid')
+  const selectedJid = +match?.params.jid
+
+  useEffect(() => {
+    if (!jurisdictions) return
+
+    // handle case where jurisdiction is not assigned to user
+    if (!jurisdictions.find((j) => j.id === selectedJid))
+      return history.push('/')
+
+    // open the tab if it's not open already
+    if (!jurisdictionTabs.includes(selectedJid))
+      dispatch(openJurisdictionTab(selectedJid))
+  }, [dispatch, history, selectedJid, jurisdictions, jurisdictionTabs])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []
 
     return jurisdictionTabs.map((jid) => {
       const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
+      if (!jurisdiction) return null
       return {
         jurisdictionId: jurisdiction.id,
         jurisdictionName: jurisdiction.name,
       }
-    })
+    }).filter((juris) => !!juris)
   }, [jurisdictionTabs, jurisdictions])
-
-  useEffect(() => {
-    const match = location.pathname.match(/^\/jurisdiction\/(.*?)$/)
-    if (match) {
-      const jid = +match[1]
-      if (!jurisdictionTabs.includes(jid)) dispatch(openJurisdictionTab(jid))
-    }
-  }, [dispatch, location, jurisdictionTabs])
 
   const closeTab = useCallback((jid, isSelected) => {
     dispatch(closeJurisdictionTab(jid))
@@ -80,8 +86,7 @@ const JurisdictionTabs = () => {
   }, [dispatch, history])
 
   return tabs.map((tab, index) => {
-    const { pathname } = location
-    const isSelected = pathname === `/jurisdiction/${tab.jurisdictionId}`
+    const isSelected = tab.jurisdictionId === selectedJid
     return (
       <div
         key={tab.jurisdictionId}
