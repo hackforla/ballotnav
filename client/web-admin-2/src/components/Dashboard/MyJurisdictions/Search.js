@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 
@@ -22,12 +22,16 @@ const useStyles = makeStyles((theme) => ({
 const Search = ({ value, onChange }) => {
   const classes = useStyles()
 
+  const handleChange = useCallback((e) => {
+    onChange(e.target.value)
+  }, [onChange])
+
   return (
     <div className={classes.root}>
       <input
         className={classes.input}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleChange}
         placeholder="Filter by jurisdiction or state name"
       />
       <SearchIcon color='primary' style={{ fontSize: 28 }} />
