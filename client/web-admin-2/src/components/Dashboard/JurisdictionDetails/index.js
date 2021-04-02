@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions, useWipJurisdictions } from 'store/selectors'
 import { getWipJurisdiction } from 'store/actions/volunteer'
-import LastUpdated from 'components/core/LastUpdated'
+import LastUpdated from 'components/Dashboard/core/LastUpdated'
 import EditJurisdiction from './EditJurisdiction'
 import EditSubmodels from './EditSubmodels'
 

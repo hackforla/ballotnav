@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import RefreshIcon from '@material-ui/icons/Autorenew'
 import IconButton from '@material-ui/core/IconButton'
+import moment from 'moment'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const LastUpdated = ({ updatedAt, onUpdate }) => {
     <div className={classes.root}>
       <span>Last update:</span>
       <span className={classes.lastUpdated}>
-        { updatedAt }
+        { moment(updatedAt).format('ddd MMM Do, YYYY') }
       </span>
       <IconButton size='small' onClick={onUpdate}>
         <RefreshIcon color='primary' style={{ fontSize: 28 }} />
