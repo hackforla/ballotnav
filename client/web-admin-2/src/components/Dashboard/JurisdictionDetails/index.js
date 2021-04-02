@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react'
-import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions, useWipJurisdictions } from 'store/selectors'
-import { getWipJurisdiction } from 'store/actions/volunteer'
+import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
 import EditJurisdiction from './EditJurisdiction'
@@ -41,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 const JurisdictionDetails = ({ match }) => {
   const classes = useStyles()
-  const dispatch = useDispatch()
   const [showDetails, setShowDetails] = useState(true)
   const jurisdictions = useMyJurisdictions()
   const wipJurisdictions = useWipJurisdictions()
+  const { getWipJurisdiction } = useVolunteerActions()
   const { jid } = match.params
   const wipJurisdiction = wipJurisdictions[jid]
 
@@ -54,8 +53,8 @@ const JurisdictionDetails = ({ match }) => {
   }, [jurisdictions, jid])
 
   const updateWipJurisdiction = useCallback(() => {
-    dispatch(getWipJurisdiction(jid))
-  }, [dispatch, jid])
+    getWipJurisdiction(jid)
+  }, [getWipJurisdiction, jid])
 
   useEffect(() => {
     if (!wipJurisdiction) updateWipJurisdiction()

@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { useAuth } from 'store/selectors'
-import { getUser } from 'store/actions/auth'
+import useAuthActions from 'store/actions/auth'
 import Auth from './Auth'
 import Dashboard from './Dashboard'
 
 const App = () => {
   const { user } = useAuth()
-  const dispatch = useDispatch()
+  const { getUser } = useAuthActions()
 
-  useEffect(() => dispatch(getUser()), [dispatch])
+  useEffect(getUser, [getUser])
 
   if (typeof user === 'undefined') return null
   return (

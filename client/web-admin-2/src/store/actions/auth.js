@@ -1,5 +1,6 @@
 import api from 'services/api'
 import { toast } from 'store/actions/toaster'
+import useActions from 'hooks/useActions'
 
 export const types = {
   SUBMIT: 'auth/SUBMIT',
@@ -100,12 +101,19 @@ export const logout = () => {
   }
 }
 
+export default useActions.bind(null, {
+  getUser,
+  register,
+  login,
+  logout,
+})
+
 const initialState = {
   isSubmitting: false,
   user: undefined
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SUBMIT:
       return {
@@ -133,10 +141,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: null,
       }
-      
+
     default:
       return state
   }
 }
-
-export default reducer

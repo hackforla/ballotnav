@@ -1,4 +1,5 @@
 import api from 'services/api'
+import useActions from 'hooks/useActions'
 
 export const types = {
   GET_MY_JURISDICTIONS_SUCCESS: 'volunteer/GET_MY_JURISDICTIONS_SUCCESS',
@@ -39,13 +40,20 @@ export const getWipJurisdiction = (jid) => {
   }
 }
 
+export default useActions.bind(null, {
+  getMyJurisdictions,
+  openJurisdictionTab,
+  closeJurisdictionTab,
+  getWipJurisdiction,
+})
+
 const initialState = {
   myJurisdictions: null,
   jurisdictionTabs: [],
   wipJurisdictions: {},
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_MY_JURISDICTIONS_SUCCESS:
       return {
@@ -83,5 +91,3 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default reducer

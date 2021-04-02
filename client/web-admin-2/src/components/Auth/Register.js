@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useAuth } from 'store/selectors'
-import { register } from 'store/actions/auth'
+import useAuthActions from 'store/actions/auth'
 import { useFormik } from 'formik'
-import * as Yup from 'yup';
+import * as Yup from 'yup'
 import { Grid, TextField, Button } from '@material-ui/core'
 
 const validationSchema = Yup.object({
@@ -21,12 +20,10 @@ const validationSchema = Yup.object({
 });
 
 function Register() {
-  const dispatch = useDispatch()
+  const { register } = useAuthActions()
   const { isSubmitting } = useAuth()
 
-  const onSubmit = useCallback((values) => {
-    dispatch(register(values))
-  }, [dispatch])
+  const onSubmit = useCallback((values) => register(values), [register])
 
   const {
     values,

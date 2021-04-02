@@ -1,3 +1,5 @@
+import useActions from 'hooks/useActions'
+
 export const types = {
   TOAST: 'toaster/TOAST'
 }
@@ -7,9 +9,13 @@ export const toast = (config) => ({
   data: config,
 })
 
+export default useActions.bind(null, {
+  toast,
+})
+
 const initialState = null
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.TOAST:
       return action.data
@@ -17,5 +23,3 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default reducer

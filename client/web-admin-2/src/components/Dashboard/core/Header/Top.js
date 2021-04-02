@@ -1,14 +1,12 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { logout } from 'store/actions/auth'
+import useAuthActions from 'store/actions/auth'
 import { useAuth } from 'store/selectors'
 import bnLogo from 'assets/logos/ballotnav.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -39,11 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const HeaderTop = () => {
   const classes = useStyles()
   const { user } = useAuth()
-  const dispatch = useDispatch()
-
-  const doLogout = useCallback(() => {
-    dispatch(logout())
-  }, [dispatch])
+  const { logout } = useAuthActions()
 
   return (
     <div className={classes.root}>
@@ -55,7 +49,7 @@ const HeaderTop = () => {
           { user.firstName } { user.lastName }
         </div>
         <div className={classes.divider}>|</div>
-        <div className={classes.logout} onClick={doLogout}>Logout</div>
+        <div className={classes.logout} onClick={logout}>Logout</div>
       </div>
     </div>
   )

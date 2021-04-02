@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useMyJurisdictions } from 'store/selectors'
-import { getMyJurisdictions } from 'store/actions/volunteer'
+import useVolunteerActions from 'store/actions/volunteer'
 import Layout from './core/Layout'
 import MyJurisdictions from './MyJurisdictions'
 import JurisdictionDetails from './JurisdictionDetails'
 
 const Volunteer = () => {
-  const dispatch = useDispatch()
   const jurisdictions = useMyJurisdictions()
+  const { getMyJurisdictions } = useVolunteerActions()
 
   useEffect(() => {
-    if (!jurisdictions) dispatch(getMyJurisdictions())
-  }, [dispatch, jurisdictions])
+    if (!jurisdictions) getMyJurisdictions()
+  }, [jurisdictions, getMyJurisdictions])
 
   return (
     <Layout>

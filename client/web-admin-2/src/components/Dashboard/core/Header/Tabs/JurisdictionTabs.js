@@ -1,13 +1,9 @@
 import React, { useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useDispatch } from 'react-redux'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import clsx from 'clsx'
 import { useJurisdictionTabs, useMyJurisdictions } from 'store/selectors'
-import {
-  openJurisdictionTab,
-  closeJurisdictionTab,
-} from 'store/actions/volunteer'
+import useVolunteerActions from 'store/actions/volunteer'
 import CloseIcon from '@material-ui/icons/Close'
 
 const useStyles = makeStyles((theme) => ({
@@ -53,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
 
 const JurisdictionTabs = () => {
   const classes = useStyles()
-  const dispatch = useDispatch()
   const history = useHistory()
   const jurisdictions = useMyJurisdictions()
   const jurisdictionTabs = useJurisdictionTabs()
+  const { openJurisdictionTab, closeJurisdictionTab } = useVolunteerActions()
   const match = useRouteMatch('/jurisdiction/:jid')
   const selectedJid = +match?.params.jid
 
@@ -69,8 +65,8 @@ const JurisdictionTabs = () => {
 
     // open the tab if it's not open already
     if (!jurisdictionTabs.includes(selectedJid))
-      dispatch(openJurisdictionTab(selectedJid))
-  }, [dispatch, history, selectedJid, jurisdictions, jurisdictionTabs])
+      openJurisdictionTab(selectedJid)
+  }, [openJurisdictionTab, history, selectedJid, jurisdictions, jurisdictionTabs])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []
@@ -86,9 +82,9 @@ const JurisdictionTabs = () => {
   }, [jurisdictionTabs, jurisdictions])
 
   const closeTab = useCallback((jid, isSelected) => {
-    dispatch(closeJurisdictionTab(jid))
+    closeJurisdictionTab(jid)
     if (isSelected) history.push('/')
-  }, [dispatch, history])
+  }, [closeJurisdictionTab, history])
 
   return (
     <div className={classes.root}>
