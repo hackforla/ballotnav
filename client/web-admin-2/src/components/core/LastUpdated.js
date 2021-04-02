@@ -18,20 +18,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Update = () => {
+const LastUpdated = ({ updatedAt, onUpdate }) => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <span>Last update:</span>
       <span className={classes.lastUpdated}>
-        Thu, Oct 8, 2020
+        { updatedAt }
       </span>
-      <IconButton size='small'>
+      <IconButton size='small' onClick={onUpdate}>
         <RefreshIcon color='primary' style={{ fontSize: 28 }} />
       </IconButton>
     </div>
   )
 }
 
-export default Update
+export default LastUpdated

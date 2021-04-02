@@ -4,6 +4,7 @@ export const types = {
   GET_MY_JURISDICTIONS_SUCCESS: 'volunteer/GET_MY_JURISDICTIONS_SUCCESS',
   OPEN_JURISDICTION_TAB: 'volunteer/OPEN_JURISDICTION_TAB',
   CLOSE_JURISDICTION_TAB: 'volunteer/CLOSE_JURISDICTION_TAB',
+  GET_WIP_JURISDICTION_SUCCESS: 'volunteer/GET_WIP_JURISDICTION_SUCCESS',
 }
 
 export const getMyJurisdictions = () => {
@@ -27,9 +28,21 @@ export const closeJurisdictionTab = (jid) => ({
   data: jid,
 })
 
+export const getWipJurisdiction = (jid) => {
+  return async (dispatch) => {
+    const data = await api.wip.getJurisdiction(jid)
+
+    dispatch({
+      type: types.GET_WIP_JURISDICTION_SUCCESS,
+      data,
+    })
+  }
+}
+
 const initialState = {
   myJurisdictions: null,
   jurisdictionTabs: [],
+  wipJurisdictions: {},
 }
 
 const reducer = (state = initialState, action) => {
@@ -55,6 +68,15 @@ const reducer = (state = initialState, action) => {
         jurisdictionTabs: state.jurisdictionTabs.filter((jid) =>
           jid !== action.data
         ),
+      }
+
+    case types.GET_WIP_JURISDICTION_SUCCESS:
+      return {
+        ...state,
+        wipJurisdictions: {
+          ...state.wipJurisdictions,
+          [action.data.jurisdictionId]: action.data,
+        },
       }
 
     default:

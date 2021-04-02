@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions } from 'store/selectors'
-import Update from './Update'
+import LastUpdated from 'components/core/LastUpdated'
 import Search from './Search'
 import Table from './Table'
 
@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '2.5em',
+    height: '3em',
   },
   title: {
     color: theme.palette.secondary.main,
@@ -38,7 +39,7 @@ const MyJurisdictions = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>My Jurisdictions</h1>
-        <Update />
+        <LastUpdated updatedAt={Date.now()} />
       </div>
       <Search value={filter} onChange={setFilter} />
       <Table jurisdictions={filteredJurisdictions} />
