@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
+import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions } from 'store/selectors'
+import { getMyJurisdictions } from 'store/actions/volunteer'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
 import Search from './Search'
 import Table from './Table'
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MyJurisdictions = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   const [filter, setFilter] = useState('')
   const jurisdictions = useMyJurisdictions()
 
@@ -35,11 +38,18 @@ const MyJurisdictions = () => {
     })
   }, [filter, jurisdictions])
 
+  const updateJurisdictions = useCallback(() => {
+    dispatch(getMyJurisdictions())
+  }, [dispatch])
+
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>My Jurisdictions</h1>
-        <LastUpdated updatedAt={Date.now()} />
+        <LastUpdated
+          updatedAt={Date.now()}
+          onUpdate={updateJurisdictions}
+        />
       </div>
       <Search value={filter} onChange={setFilter} />
       <Table jurisdictions={filteredJurisdictions} />

@@ -53,9 +53,13 @@ const JurisdictionDetails = ({ match }) => {
     return jurisdictions.find((j) => j.id === +jid)?.jurisdictionStatus
   }, [jurisdictions, jid])
 
+  const updateWipJurisdiction = useCallback(() => {
+    dispatch(getWipJurisdiction(jid))
+  }, [dispatch, jid])
+
   useEffect(() => {
-    if (!wipJurisdiction) dispatch(getWipJurisdiction(jid))
-  }, [dispatch, wipJurisdiction, jid])
+    if (!wipJurisdiction) updateWipJurisdiction()
+  }, [wipJurisdiction, updateWipJurisdiction])
 
   const toggleDetails = useCallback(() => {
     setShowDetails((showDetails) => !showDetails)
@@ -69,7 +73,10 @@ const JurisdictionDetails = ({ match }) => {
           <h2 className={classes.title}>Jurisdiction details</h2>
           <JurisdictionStatus status={jurisdictionStatus} />
         </div>
-        <LastUpdated updatedAt={Date.now()} />
+        <LastUpdated
+          updatedAt={Date.now()}
+          onUpdate={updateWipJurisdiction}
+        />
       </div>
       <div className={classes.details}>
         <div className={classes.detailsToggle} onClick={toggleDetails}>
