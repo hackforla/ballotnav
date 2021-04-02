@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions, useWipJurisdictions } from 'store/selectors'
 import { getWipJurisdiction } from 'store/actions/volunteer'
+import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
 import EditJurisdiction from './EditJurisdiction'
 import EditSubmodels from './EditSubmodels'
@@ -15,9 +16,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     height: '3em',
   },
+  headerLeft: {
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+  },
   title: {
     color: theme.palette.secondary.main,
     fontWeight: 700,
+    marginRight: '1.5em',
   },
   details: {
     marginBottom: '4em',
@@ -58,8 +65,10 @@ const JurisdictionDetails = ({ match }) => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h2 className={classes.title}>Jurisdiction details</h2>
-        <div style={{ flex: 1, marginLeft: '2em' }}>{ jurisdictionStatus }</div>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', }}>
+          <h2 className={classes.title}>Jurisdiction details</h2>
+          <JurisdictionStatus status={jurisdictionStatus} />
+        </div>
         <LastUpdated updatedAt={Date.now()} />
       </div>
       <div className={classes.details}>

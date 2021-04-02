@@ -22,6 +22,20 @@ export default createMuiTheme({
       default: '#614799',
       selected: '#FF0029',
     },
+    jurisdictionStatuses: {
+      'Published': {
+        text: '#FFFFFF',
+        background: '#FF7144',
+      },
+      'Edit in Progress': {
+        text: '#041B54',
+        background: '#FFD644',
+      },
+      'Released for Review': {
+        text: '#FFFFFF',
+        background: '#53A8E2',
+      },
+    },
   },
   typography: {
     fontFamily: ['Open Sans', 'sans-serif'],

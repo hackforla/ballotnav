@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -24,7 +25,7 @@ const Table = ({ jurisdictions }) => {
         <div key={juris.id} className={classes.row}>
           <span>{ juris.name }</span>
           <span>{ juris.state.name }</span>
-          <span>{ juris.jurisdictionStatus }</span>
+          <JurisdictionStatus status={juris.jurisdictionStatus} />
           <Link to={`/jurisdiction/${juris.id}`}>
             Select
           </Link>
