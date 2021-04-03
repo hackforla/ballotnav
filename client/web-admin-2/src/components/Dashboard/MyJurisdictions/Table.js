@@ -22,12 +22,12 @@ const COLUMNS = [
   {
     title: 'Jurisdiction',
     field: 'jurisdictionName',
-    sort: (a, b) => b.jurisdictionName > a.jurisdictionName ? 1 : -1,
+    sort: true,
   },
   {
     title: 'State',
     field: 'stateName',
-    sort: (a, b) => b.stateName > a.stateName ? 1 : -1,
+    sort: true,
   },
   {
     title: 'Status',

@@ -5,7 +5,7 @@ import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
 import EditJurisdiction from './EditJurisdiction'
-import EditSubmodels from './EditSubmodels'
+import Submodels from './Submodels'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -85,7 +85,7 @@ const JurisdictionDetails = ({ match }) => {
       <div className={classes.details}>
         <EditJurisdiction wipJurisdiction={wipJurisdiction} />
       </div>
-      <EditSubmodels />
+      <Submodels wipJurisdiction={wipJurisdiction} />
     </div>
   )
 }

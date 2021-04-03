@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import SortIndicator from './SortIndicator'
 
@@ -30,14 +30,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Table = ({ data, columns, keyExtractor = (row) => row.id }) => {
   const classes = useStyles()
-  const [sortCol, setSortCol] = useState(columns.findIndex((col) => col.sort))
+  const [sortCol, setSortCol] = useState(-1)
   const [sortDirection, setSortDirection] = useState('desc')
+
+  useEffect(() => {
+    setSortCol(columns.findIndex((col) => col.sort))
+    setSortDirection('desc')
+  }, [columns])
 
   const sortedData = useMemo(() => {
     if (!data) return null
-    if (sortCol === -1) return data
+    if (!columns[sortCol]) return data
 
-    const sorted = [...data].sort(columns[sortCol].sort)
+    const { sort, field } = columns[sortCol]
+
+    // use default sort algo where sort === true and field is provided
+    const sortFunc = sort === true && field
+      ? (a, b) => b[field] > a[field] ? 1 : -1
+      : sort
+
+    const sorted = [...data].sort(sortFunc)
     if (sortDirection === 'desc') sorted.reverse()
     return sorted
   }, [data, columns, sortCol, sortDirection])
