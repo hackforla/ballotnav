@@ -5,6 +5,7 @@ import useVolunteerActions from 'store/actions/volunteer'
 import Layout from './core/Layout'
 import MyJurisdictions from './MyJurisdictions'
 import JurisdictionDetails from './JurisdictionDetails'
+import EditLocation from './EditLocation'
 
 const Volunteer = () => {
   const jurisdictions = useMyJurisdictions()
@@ -18,6 +19,7 @@ const Volunteer = () => {
     <Layout>
       <Switch>
         <Route exact path="/" component={MyJurisdictions} />
+        <Route path="/jurisdiction/:jid/location/:lid" component={EditLocation} />
         <Route path="/jurisdiction/:jid" component={JurisdictionDetails} />
         <Redirect to="/" />
       </Switch>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from './Tabs'
 import Table from 'components/Dashboard/core/Table'
+import EditButton from './EditButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -10,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: '1px #D6D6D6 solid',
   }
 }))
+
+const renderEditButton = ({ id }) => <EditButton id={id} />
 
 const SUBMODELS = [
   {
@@ -35,6 +38,10 @@ const SUBMODELS = [
         title: 'Contact email',
         field: 'contactEmail',
         sort: true,
+      },
+      {
+        title: '',
+        renderValue: renderEditButton,
       },
     ],
   },
