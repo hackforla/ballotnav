@@ -9,6 +9,7 @@ const useStyles = makeStyles(({ palette: { jurisdictionStatuses }}) => ({
     borderRadius: '1em',
     textTransform: 'uppercase',
     fontSize: 12,
+    display: 'inline-block',
   },
 }))
 

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
+import Table from 'components/Dashboard/core/Table'
+import Button from '@material-ui/core/button'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -16,23 +18,63 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Table = ({ jurisdictions }) => {
+const COLUMNS = [
+  {
+    title: 'Jurisdiction',
+    field: 'jurisdictionName',
+    sort: (a, b) => a.jurisdictionName > b.jurisdictionName ? 1 : -1,
+  },
+  {
+    title: 'State',
+    field: 'stateName',
+  },
+  {
+    title: 'Status',
+    renderValue: (record) => (
+      <JurisdictionStatus status={record.jurisdictionStatus} />
+    ),
+  },
+  {
+    title: '',
+    renderValue: (record) => (
+      <Link to={`/jurisdiction/${record.id}`}>
+        <Button
+          color='primary'
+          variant='contained'
+          style={{
+            textTransform: 'none',
+            fontWeight: 700,
+            fontSize: 12,
+            borderRadius: '1.5em',
+            padding: '0.25em 3em'
+          }}
+        >
+          Select
+        </Button>
+      </Link>
+    )
+  },
+]
+
+const JurisdictionsTable = ({ jurisdictions }) => {
   const classes = useStyles()
+
+  const tableData = useMemo(() => {
+    if (!jurisdictions) return []
+
+    return jurisdictions.map((j) => ({
+      id: j.id,
+      jurisdictionName: j.name,
+      stateName: j.state.name,
+      jurisdictionStatus: j.jurisdictionStatus,
+    }))
+  }, [jurisdictions])
 
   return (
     <div className={classes.root}>
-      {jurisdictions && jurisdictions.map((juris, index) => (
-        <div key={juris.id} className={classes.row}>
-          <span>{ juris.name }</span>
-          <span>{ juris.state.name }</span>
-          <JurisdictionStatus status={juris.jurisdictionStatus} />
-          <Link to={`/jurisdiction/${juris.id}`}>
-            Select
-          </Link>
-        </div>
-      ))}
+      <Table data={tableData} columns={COLUMNS} />
     </div>
   )
 }
 
-export default Table
+export default JurisdictionsTable
