@@ -1,11 +1,13 @@
 import api from 'services/api'
 import useActions from 'hooks/useActions'
+import { toast } from 'store/actions/toaster'
 
 export const types = {
   GET_MY_JURISDICTIONS_SUCCESS: 'volunteer/GET_MY_JURISDICTIONS_SUCCESS',
   OPEN_JURISDICTION_TAB: 'volunteer/OPEN_JURISDICTION_TAB',
   CLOSE_JURISDICTION_TAB: 'volunteer/CLOSE_JURISDICTION_TAB',
   GET_WIP_JURISDICTION_SUCCESS: 'volunteer/GET_WIP_JURISDICTION_SUCCESS',
+  UPDATE_WIP_JURISDICTION_SUCCESS: 'volunteer/UPDATE_WIP_JURISDICTION_SUCCESS',
 }
 
 export const getMyJurisdictions = () => {
@@ -40,11 +42,25 @@ export const getWipJurisdiction = (jid) => {
   }
 }
 
+export const updateWipJurisdiction = (wip) => {
+  return async (dispatch) => {
+    const data = await api.wip.updateJurisdiction(wip.id, wip)
+
+    dispatch({
+      type: types.UPDATE_WIP_JURISDICTION_SUCCESS,
+      data,
+    })
+
+    dispatch(toast({ message: `Updated ${wip.name}.` }))
+  }
+}
+
 export default useActions.bind(null, {
   getMyJurisdictions,
   openJurisdictionTab,
   closeJurisdictionTab,
   getWipJurisdiction,
+  updateWipJurisdiction,
 })
 
 const initialState = {
@@ -79,6 +95,7 @@ export const reducer = (state = initialState, action) => {
       }
 
     case types.GET_WIP_JURISDICTION_SUCCESS:
+    case types.UPDATE_WIP_JURISDICTION_SUCCESS:
       return {
         ...state,
         wipJurisdictions: {

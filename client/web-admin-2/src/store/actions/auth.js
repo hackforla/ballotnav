@@ -54,7 +54,6 @@ export const register = ({
 
       dispatch(toast({
         severity: 'error',
-        autoHideDuration: 3000,
         message: (() => {
           if (error.duplicateEmail) return 'email already registered'
           return 'unknown error creating account'
@@ -81,7 +80,6 @@ export const login = ({ email, password }) => {
 
       dispatch(toast({
         severity: 'error',
-        autoHideDuration: 3000,
         message: (() => {
           if (error.emailNotFound) return 'email not found'
           if (error.passwordInvalid) return 'password invalid'

@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useFormik } from 'formik'
+import useVolunteerActions from 'store/actions/volunteer'
 import * as Yup from 'yup'
 import clsx from 'clsx'
 import { Button, TextField, Grid } from '@material-ui/core'
@@ -12,13 +13,6 @@ const validationSchema = Yup.object({
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  clearButton: {
-    color: theme.palette.link.main,
-    fontSize: 12,
-    textDecoration: 'underline',
-    cursor: 'pointer',
-    visibility: ({ dirty }) => dirty ? 'visible' : 'hidden',
-  },
   changed: {
     '&:after': {
       content: '"*"',
@@ -27,7 +21,20 @@ const useStyles = makeStyles((theme) => ({
       right: -10,
       color: theme.palette.primary.main,
     },
-  }
+  },
+  buttons: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  clearButton: {
+    color: theme.palette.link.main,
+    fontSize: 12,
+    textDecoration: 'underline',
+    cursor: 'pointer',
+    visibility: ({ dirty }) => dirty ? 'visible' : 'hidden',
+    marginRight: '2em',
+  },
 }))
 
 function getInitialValues(values) {
@@ -67,9 +74,15 @@ const FIELDS = [
 ]
 
 const EditJurisdiction = ({ wipJurisdiction: wip }) => {
+  const { updateWipJurisdiction } = useVolunteerActions()
+  const isSubmitting = false // TODO: add to store
 
-  const onSubmit = useCallback((values) => console.log('values:', getSubmittableValues(values)), [])
-  const isSubmitting = false
+  const onSubmit = useCallback((values) => {
+    updateWipJurisdiction({
+      ...wip,
+      ...getSubmittableValues(values),
+    })
+  }, [wip, updateWipJurisdiction])
 
   const initialValues = useMemo(() => {
     return getInitialValues(pick(wip, FIELDS))
@@ -84,6 +97,7 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
     values,
     dirty,
   } = useFormik({
+    enableReinitialize: true,
     initialValues,
     validationSchema,
     onSubmit,
@@ -189,7 +203,7 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
             />
           </Grid>
           <Grid item xs={6} />
-          <Grid item xs={6} style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+          <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <div className={classes.clearButton} onClick={handleReset}>Clear changes</div>
             <Button
               type="submit"

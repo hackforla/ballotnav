@@ -34,7 +34,7 @@ const toastContext = createContext()
 const defaultConfig = {
   message: null,
   severity: 'success', // success, warning, info, error
-  autoHideDuration: null,
+  autoHideDuration: 5000,
   anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
 }
 
