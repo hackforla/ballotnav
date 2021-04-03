@@ -35,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
     visibility: ({ dirty }) => dirty ? 'visible' : 'hidden',
     marginRight: '2em',
   },
+  submitButton: {
+    textTransform: 'none',
+    borderRadius: '2em',
+    padding: '0.375em 3em',
+    fontWeight: 700,
+    fontSize: 12,
+  },
 }))
 
 function getInitialValues(values) {
@@ -203,14 +210,20 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
             />
           </Grid>
           <Grid item xs={6} />
-          <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <div className={classes.clearButton} onClick={handleReset}>Clear changes</div>
+          <Grid item xs={6} className={classes.buttons}>
+            <div
+              className={classes.clearButton}
+              onClick={handleReset}
+            >
+              Clear changes
+            </div>
             <Button
               type="submit"
               variant="contained"
               color="primary"
               margin="normal"
               disabled={!dirty || isSubmitting}
+              className={classes.submitButton}
             >
               Update Jurisdiction
             </Button>

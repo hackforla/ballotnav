@@ -22,22 +22,24 @@ const COLUMNS = [
   {
     title: 'Jurisdiction',
     field: 'jurisdictionName',
-    sort: (a, b) => a.jurisdictionName > b.jurisdictionName ? 1 : -1,
+    sort: (a, b) => b.jurisdictionName > a.jurisdictionName ? 1 : -1,
   },
   {
     title: 'State',
     field: 'stateName',
+    sort: (a, b) => b.stateName > a.stateName ? 1 : -1,
   },
   {
     title: 'Status',
-    renderValue: (record) => (
-      <JurisdictionStatus status={record.jurisdictionStatus} />
+    renderValue: ({ jurisdictionStatus }) => (
+      <JurisdictionStatus status={jurisdictionStatus} />
     ),
+    sort: (a, b) => b.jurisdictionStatus > a.jurisdictionStatus ? 1 : -1,
   },
   {
     title: '',
-    renderValue: (record) => (
-      <Link to={`/jurisdiction/${record.id}`}>
+    renderValue: ({ id }) => (
+      <Link to={`/jurisdiction/${id}`}>
         <Button
           color='primary'
           variant='contained'
@@ -60,7 +62,7 @@ const JurisdictionsTable = ({ jurisdictions }) => {
   const classes = useStyles()
 
   const tableData = useMemo(() => {
-    if (!jurisdictions) return []
+    if (!jurisdictions) return null
 
     return jurisdictions.map((j) => ({
       id: j.id,
