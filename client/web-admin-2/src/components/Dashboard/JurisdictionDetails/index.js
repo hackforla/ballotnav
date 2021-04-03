@@ -25,22 +25,24 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     marginRight: '1.5em',
   },
-  details: {
-    marginBottom: '4em',
-  },
   detailsToggle: {
+    display: 'inline-block',
     color: theme.palette.link.main,
     textDecoration: 'underline',
     fontSize: '0.875em',
-    marginBottom: '0.25em',
+    marginBottom: '1.5em',
     cursor: 'pointer',
     userSelect: 'none',
+  },
+  details: {
+    display: ({ showDetails }) => showDetails ? 'block' : 'none',
+    marginBottom: '1.5em',
   },
 }))
 
 const JurisdictionDetails = ({ match }) => {
-  const classes = useStyles()
   const [showDetails, setShowDetails] = useState(true)
+  const classes = useStyles({ showDetails })
   const jurisdictions = useMyJurisdictions()
   const wipJurisdictions = useWipJurisdictions()
   const { getWipJurisdiction } = useVolunteerActions()
@@ -68,7 +70,7 @@ const JurisdictionDetails = ({ match }) => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', }}>
+        <div className={classes.headerLeft}>
           <h2 className={classes.title}>Jurisdiction details</h2>
           <JurisdictionStatus status={jurisdictionStatus} />
         </div>
@@ -77,11 +79,11 @@ const JurisdictionDetails = ({ match }) => {
           onUpdate={updateWipJurisdiction}
         />
       </div>
+      <div className={classes.detailsToggle} onClick={toggleDetails}>
+        { showDetails ? 'Hide details' : 'Show details' }
+      </div>
       <div className={classes.details}>
-        <div className={classes.detailsToggle} onClick={toggleDetails}>
-          { showDetails ? 'Hide details' : 'Show details' }
-        </div>
-        {showDetails && <EditJurisdiction wipJurisdiction={wipJurisdiction} />}
+        <EditJurisdiction wipJurisdiction={wipJurisdiction} />
       </div>
       <EditSubmodels />
     </div>
