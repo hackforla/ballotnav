@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react'
+import React, { useMemo, useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useMyJurisdictions, useWipJurisdictions } from 'store/selectors'
+import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
@@ -40,14 +40,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const JurisdictionDetails = ({ match }) => {
+const JurisdictionDetails = ({ match: { params: { jid } } }) => {
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
   const jurisdictions = useMyJurisdictions()
-  const wipJurisdictions = useWipJurisdictions()
   const { getWipJurisdiction } = useVolunteerActions()
-  const { jid } = match.params
-  const wipJurisdiction = wipJurisdictions[jid]
+  const wipJurisdiction = useWipJurisdiction(jid)
 
   const jurisdictionStatus = useMemo(() => {
     if (!jurisdictions) return null
@@ -58,15 +56,10 @@ const JurisdictionDetails = ({ match }) => {
     getWipJurisdiction(jid)
   }, [getWipJurisdiction, jid])
 
-  useEffect(() => {
-    if (!wipJurisdiction) updateWipJurisdiction()
-  }, [wipJurisdiction, updateWipJurisdiction])
-
   const toggleDetails = useCallback(() => {
     setShowDetails((showDetails) => !showDetails)
   }, [])
 
-  if (!wipJurisdiction ) return null
   return (
     <div className={classes.root}>
       <div className={classes.header}>

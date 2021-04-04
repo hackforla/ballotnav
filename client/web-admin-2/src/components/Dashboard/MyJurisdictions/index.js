@@ -18,24 +18,25 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary.main,
     fontWeight: 700,
+    fontSize: 24,
   },
 }))
 
 const MyJurisdictions = () => {
   const classes = useStyles()
   const [filter, setFilter] = useState('')
-  const jurisdictions = useMyJurisdictions()
+  const myJurisdictions = useMyJurisdictions()
   const { getMyJurisdictions } = useVolunteerActions()
 
   const filteredJurisdictions = useMemo(() => {
     const cleanFilter = filter.trim()
 
-    if (cleanFilter.length < 2) return jurisdictions
-    return jurisdictions.filter((j) => {
+    if (cleanFilter.length < 2) return myJurisdictions
+    return myJurisdictions.filter((j) => {
       const regex = new RegExp(cleanFilter, 'i')
       return regex.test(j.name) || regex.test(j.state.name)
     })
-  }, [filter, jurisdictions])
+  }, [filter, myJurisdictions])
 
   return (
     <div className={classes.root}>

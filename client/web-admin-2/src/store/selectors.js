@@ -12,3 +12,13 @@ export const useToaster = () => useSelector(toaster)
 export const useMyJurisdictions = () => useSelector(myJurisdictions)
 export const useJurisdictionTabs = () => useSelector(jurisdictionTabs)
 export const useWipJurisdictions = () => useSelector(wipJurisdictions)
+
+export const useMyJurisdiction = (jid) => {
+  const myJurisdictions = useMyJurisdictions()
+  return myJurisdictions.find((j) => j.id === +jid)
+}
+
+export const useWipJurisdiction = (jid) => {
+  const wipJurisdictions = useWipJurisdictions()
+  return wipJurisdictions[jid]
+}
