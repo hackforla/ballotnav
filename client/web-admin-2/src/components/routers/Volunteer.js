@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
-import Layout from './core/Layout'
-import MyJurisdictions from './MyJurisdictions'
-import JurisdictionDetails from './JurisdictionDetails'
-import EditLocation from './EditLocation'
+import Layout from 'components/core/Layout'
+import MyJurisdictions from 'components/MyJurisdictions'
+import JurisdictionDetails from 'components/JurisdictionDetails'
+import EditLocation from 'components/EditLocation'
 
 // ensure that the wipJurisdiction is loaded before any subroutes are rendered
 const WipJurisdictionLoader = ({ match: { params: { jid }, path } }) => {

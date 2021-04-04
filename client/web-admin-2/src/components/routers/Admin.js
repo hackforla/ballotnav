@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import Layout from './core/Layout'
+import Layout from 'components/core/Layout'
 
 const Admin = () => {
   return (

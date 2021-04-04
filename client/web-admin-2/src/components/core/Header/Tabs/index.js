@@ -5,7 +5,7 @@ import PermanentTabs from './PermanentTabs'
 import JurisdictionTabs from './JurisdictionTabs'
 
 const VOLUNTEER_TABS = [{
-  pathname: '/',
+  pathname: '/jurisdictions',
   title: 'My Jurisdictions',
 }]
 

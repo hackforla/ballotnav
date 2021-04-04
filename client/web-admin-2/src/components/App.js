@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { useAuth } from 'store/selectors'
 import useAuthActions from 'store/actions/auth'
-import Auth from './Auth'
-import Dashboard from './Dashboard'
+import Auth from 'components/routers/Auth'
+import Volunteer from 'components/routers/Volunteer'
+import Admin from 'components/routers/Admin'
 
 const App = () => {
   const { user } = useAuth()
@@ -12,11 +12,10 @@ const App = () => {
   useEffect(getUser, [getUser])
 
   if (typeof user === 'undefined') return null
-  return (
-    <Router>
-      {user ? <Dashboard /> : <Auth />}
-    </Router>
-  )
+  if (user === null) return <Auth />
+  if (user.role === 'admin') return <Admin />
+  if (user.role === 'volunteer') return <Volunteer />
+  return null
 }
 
 export default App

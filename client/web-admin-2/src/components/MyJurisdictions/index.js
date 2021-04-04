@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
-import LastUpdated from 'components/Dashboard/core/LastUpdated'
+import LastUpdated from 'components/core/LastUpdated'
 import Search from './Search'
 import Table from './Table'
 

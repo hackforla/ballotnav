@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
-import Table from 'components/Dashboard/core/Table'
-import SelectButton from 'components/Dashboard/core/SelectButton'
+import JurisdictionStatus from 'components/core/JurisdictionStatus'
+import Table from 'components/core/Table'
+import SelectButton from 'components/core/SelectButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {},

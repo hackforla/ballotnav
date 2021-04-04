@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Redirect, Route } from 'react-router-dom'
-import Login from './Login'
-import Register from './Register'
+import Login from 'components/Auth/Login'
+import Register from 'components/Auth/Register'
 
-function Auth() {
+const Auth = () => {
   return (
     <Switch>
       <Route exact path="/login" component={Login} />
