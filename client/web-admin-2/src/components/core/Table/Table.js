@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import SortIndicator from './SortIndicator'
+import HeaderRow from './HeaderRow'
+import Rows from './Rows'
+import CollapsibleRows from './CollapsibleRows'
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -18,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
     '& th, & td': {
       textAlign: 'left',
       padding: '1.25em',
-      '&:last-child': {
-        textAlign: 'center',
-      },
     },
     '& tbody tr': {
       borderBottom: '1px #C3C8E4 solid',
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Table = ({ data, columns, keyExtractor = (row) => row.id }) => {
+const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
   const classes = useStyles()
   const [sortCol, setSortCol] = useState(-1)
   const [sortDirection, setSortDirection] = useState('desc')
@@ -73,46 +72,28 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id }) => {
   return (
     <table className={classes.table}>
       <thead>
-        <tr>
-          {columns.map((column, index) => {
-            const { sort, title } = column
-            const isSortCol = sortCol === index
-            const onClick = sort && handleColumnClick.bind(null, index)
-            return (
-              <th
-                key={index.toString()}
-                onClick={onClick}
-                style={{
-                  cursor: sort ? 'pointer' : 'default',
-                  backgroundColor: isSortCol ? '#CDE4F7' : undefined,
-                }}
-              >
-                <div>
-                  <div>{ title }</div>
-                  {sort && (
-                    <SortIndicator
-                      direction={isSortCol ? sortDirection : undefined }
-                    />
-                  )}
-                </div>
-              </th>
-            )
-          })}
-        </tr>
+        <HeaderRow
+          columns={columns}
+          onClick={handleColumnClick}
+          sortCol={sortCol}
+          sortDirection={sortDirection}
+        />
       </thead>
       <tbody>
-        {sortedData.map((row) => (
-          <tr key={keyExtractor(row)}>
-            {columns.map((column, index) => {
-              const { field, render } = column
-              return (
-                <td key={index.toString()}>
-                  { render ? render(row[field], row) : row[field] }
-                </td>
-              )
-            })}
-          </tr>
-        ))}
+        {collapse ? (
+          <CollapsibleRows
+            data={sortedData}
+            columns={columns}
+            keyExtractor={keyExtractor}
+            collapse={collapse}
+          />
+        ) : (
+          <Rows
+            data={sortedData}
+            columns={columns}
+            keyExtractor={keyExtractor}
+          />
+        )}
       </tbody>
     </table>
   )

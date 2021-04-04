@@ -42,8 +42,10 @@ const SUBMODELS = [
       },
       {
         render: (_, { id }) => <EditButton to={`locations/${id}`} />,
+        textAlign: 'center',
       },
     ],
+    collapse: (record) => record.name,
   },
   {
     title: 'Important Dates',
@@ -68,6 +70,7 @@ const Submodels = ({ wipJurisdiction: wip }) => {
       <Table
         data={wip[activeModel.field]}
         columns={activeModel.columns}
+        collapse={activeModel.collapse}
       />
     </div>
   )

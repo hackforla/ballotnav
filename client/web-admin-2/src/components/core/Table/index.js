@@ -15,6 +15,7 @@
       field,
       render,
       sort,
+      textAlign,
     }
 
     a. title (optional)
@@ -38,6 +39,9 @@
           The column is sorted via a default comparator:
             (a, b) => b[field] > a[field] ? 1 : -1
         3. a comparator function
+
+    e. textAlign (optional)
+      Text alignment of cell, defaults to 'left'.
 
   3. keyExtractor
     This determines the key for the row. Defaults to: (row) => row.id

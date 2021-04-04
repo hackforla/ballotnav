@@ -37,7 +37,8 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { id }) => <SelectButton to={id} />
+    render: (_, { id }) => <SelectButton to={id} />,
+    textAlign: 'center',
   },
 ]
 
