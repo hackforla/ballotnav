@@ -4,7 +4,7 @@ import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
-import EditJurisdiction from './EditJurisdiction'
+import JurisdictionForm from './JurisdictionForm'
 import Submodels from './Submodels'
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
   const jurisdictions = useMyJurisdictions()
-  const { getWipJurisdiction } = useVolunteerActions()
+  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
   const wipJurisdiction = useWipJurisdiction(jid)
 
   const jurisdictionStatus = useMemo(() => {
@@ -52,13 +52,20 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
     return jurisdictions.find((j) => j.id === +jid)?.jurisdictionStatus
   }, [jurisdictions, jid])
 
-  const updateWipJurisdiction = useCallback(() => {
+  const refreshWipJurisdiction = useCallback(() => {
     getWipJurisdiction(jid)
   }, [getWipJurisdiction, jid])
 
   const toggleDetails = useCallback(() => {
     setShowDetails((showDetails) => !showDetails)
   }, [])
+
+  const onSubmitJurisdiction = useCallback((values) => {
+    return updateWipJurisdiction({
+      ...wipJurisdiction,
+      ...values,
+    })
+  }, [wipJurisdiction, updateWipJurisdiction])
 
   return (
     <div className={classes.root}>
@@ -69,14 +76,17 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
         </div>
         <LastUpdated
           updatedAt={Date.now()}
-          onUpdate={updateWipJurisdiction}
+          onUpdate={refreshWipJurisdiction}
         />
       </div>
       <div className={classes.detailsToggle} onClick={toggleDetails}>
         { showDetails ? 'Hide details' : 'Show details' }
       </div>
       <div className={classes.details}>
-        <EditJurisdiction wipJurisdiction={wipJurisdiction} />
+        <JurisdictionForm
+          wipJurisdiction={wipJurisdiction}
+          onSubmit={onSubmitJurisdiction}
+        />
       </div>
       <Submodels wipJurisdiction={wipJurisdiction} />
     </div>

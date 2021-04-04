@@ -25,7 +25,7 @@ function getChanged(initialValues, currentValues) {
 export default function useForm({
   initialValues: rawInitialValues,
   onSubmit: rawOnSubmit,
-  ...rest
+  ...restIn
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues)
@@ -35,19 +35,10 @@ export default function useForm({
     rawOnSubmit(getSubmittableValues(values))
   }, [rawOnSubmit])
 
-  const {
-    handleSubmit,
-    handleChange,
-    handleReset,
-    errors,
-    touched,
-    values,
-    dirty,
-    isSubmitting
-  } = useFormik({
+  const { values, ...restOut } = useFormik({
     initialValues: getInitialValues(rawInitialValues),
     onSubmit: (values) => onSubmit(getSubmittableValues(values)),
-    ...rest,
+    ...restIn
   })
 
   const changed = useMemo(() => {
@@ -55,14 +46,8 @@ export default function useForm({
   }, [initialValues, values])
 
   return {
-    handleSubmit,
-    handleChange,
-    handleReset,
-    errors,
-    touched,
     values,
-    dirty,
     changed,
-    isSubmitting,
+    ...restOut,
   }
 }

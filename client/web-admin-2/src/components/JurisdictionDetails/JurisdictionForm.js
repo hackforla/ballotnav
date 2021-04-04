@@ -1,15 +1,9 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useForm from './useForm'
-import useVolunteerActions from 'store/actions/volunteer'
 import * as Yup from 'yup'
 import { Button, TextField, Grid } from '@material-ui/core'
 import { pick } from 'services/utils'
-
-const validationSchema = Yup.object({
-  name: Yup.string(),
-  authorityName: Yup.string(),
-});
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -53,29 +47,31 @@ const FIELDS = [
   'internalNotes'
 ]
 
-const EditJurisdiction = ({ wipJurisdiction: wip }) => {
-  const { updateWipJurisdiction } = useVolunteerActions()
+const validationSchema = Yup.object({
+  name: Yup.string().required(),
+  authorityName: Yup.string(),
+  mailAddress1: Yup.string(),
+  mailAddress2: Yup.string(),
+  mailAddress3: Yup.string(),
+  internalNotes: Yup.string(),
+})
 
-  const onSubmit = useCallback((values) => {
-    return updateWipJurisdiction({
-      ...wip,
-      ...values,
-    })
-  }, [wip, updateWipJurisdiction])
-
+const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
   const {
     handleSubmit,
     handleReset,
     handleChange,
+    handleBlur,
     errors,
     touched,
     values,
     dirty,
     changed,
     isSubmitting,
+    isValid,
   } = useForm({
     enableReinitialize: true,
-    initialValues: pick(wip, FIELDS),
+    initialValues: pick(wipJurisdiction, FIELDS),
     validationSchema,
     onSubmit,
   })
@@ -93,9 +89,10 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
       helperText={touched[field] ? errors[field] : ''}
       error={touched[field] && Boolean(errors[field])}
       className={changed[field] ? classes.changed : undefined}
+      onBlur={handleBlur}
       { ...config }
     />
-  ), [values, handleChange, touched, errors, changed, classes])
+  ), [values, handleChange, handleBlur, touched, errors, changed, classes])
 
   return (
     <div className={classes.root}>
@@ -131,7 +128,7 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
             <div
               className={classes.clearButton}
               onClick={handleReset}
-              disabled={isSubmitting}
+              disabled={!isValid || isSubmitting}
             >
               Clear changes
             </div>
@@ -140,7 +137,7 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
               variant="contained"
               color="primary"
               margin="normal"
-              disabled={!dirty || isSubmitting}
+              disabled={!isValid || !dirty || isSubmitting}
               className={classes.submitButton}
             >
               Update Jurisdiction
@@ -152,4 +149,4 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
   )
 }
 
-export default EditJurisdiction
+export default JurisdictionForm
