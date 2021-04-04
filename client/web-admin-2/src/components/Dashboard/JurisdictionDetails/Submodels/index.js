@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from './Tabs'
 import Table from 'components/Dashboard/core/Table'
-import EditButton from './EditButton'
+import EditButton from 'components/Dashboard/core/EditButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -38,7 +38,7 @@ const SUBMODELS = [
         sort: true,
       },
       {
-        render: (_, { id }) => <EditButton id={id} />,
+        render: (_, { id }) => <EditButton to={`locations/${id}`} />,
       },
     ],
   },

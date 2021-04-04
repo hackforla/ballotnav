@@ -2,13 +2,13 @@ import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 
-const EditButton = ({ id }) => {
+const SelectButton = ({ to }) => {
   const { url } = useRouteMatch()
   return (
-    <Link to={`${url}/locations/${id}`}>
+    <Link to={`${url}/${to}`}>
       <Button
         color='primary'
-        variant='outlined'
+        variant='contained'
         style={{
           textTransform: 'none',
           fontWeight: 700,
@@ -17,10 +17,10 @@ const EditButton = ({ id }) => {
           padding: '0.25em 3em'
         }}
       >
-        Edit
+        Select
       </Button>
     </Link>
   )
 }
 
-export default EditButton
+export default SelectButton

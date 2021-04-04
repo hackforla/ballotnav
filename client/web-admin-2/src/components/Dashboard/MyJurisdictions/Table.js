@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react'
-import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import JurisdictionStatus from 'components/Dashboard/core/JurisdictionStatus'
 import Table from 'components/Dashboard/core/Table'
-import Button from '@material-ui/core/button'
+import SelectButton from 'components/Dashboard/core/SelectButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -38,23 +37,7 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { id }) => (
-      <Link to={`/jurisdictions/${id}`}>
-        <Button
-          color='primary'
-          variant='contained'
-          style={{
-            textTransform: 'none',
-            fontWeight: 700,
-            fontSize: 12,
-            borderRadius: '1.5em',
-            padding: '0.25em 3em'
-          }}
-        >
-          Select
-        </Button>
-      </Link>
-    )
+    render: (_, { id }) => <SelectButton to={id} />
   },
 ]
 
