@@ -4,7 +4,7 @@ import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
-import JurisdictionForm from './JurisdictionForm'
+import JurisdictionForm from 'components/forms/JurisdictionForm'
 import Submodels from './Submodels'
 
 const useStyles = makeStyles((theme) => ({
