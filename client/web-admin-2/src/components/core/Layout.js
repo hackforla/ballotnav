@@ -7,13 +7,19 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    alignItems: 'center',
   },
   content: {
     flex: 1,
-    margin: '0 auto',
-    width: 1134,
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  inner: {
+    margin: '0 3em',
+    width: theme.layout.pageWidth,
     maxWidth: '100%',
-    padding: '1.5em 0.5em',
+    padding: '1.5em 0',
   },
 }))
 
@@ -24,7 +30,9 @@ const Layout = ({ children }) => {
     <div className={classes.root}>
       <Header />
       <div className={classes.content}>
-        { children }
+        <div className={classes.inner}>
+          { children }
+        </div>
       </div>
     </div>
   )

@@ -12,8 +12,17 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
   },
   activeTab: {
-    borderBottom: `1px ${theme.palette.primary.main} solid`,
+    position: 'relative',
     cursor: 'default',
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      bottom: -1,
+      left: 0,
+      right: 0,
+      height: 1,
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   title: {
     fontSize: 20,
