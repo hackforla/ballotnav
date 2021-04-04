@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     '&:after': {
       content: '""',
       position: 'absolute',
-      bottom: -1,
-      height: 2,
+      bottom: -2,
+      height: 4,
       left: 0,
       right: 0,
       backgroundColor: theme.palette.secondary.main,

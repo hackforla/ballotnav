@@ -42,7 +42,11 @@ const CollapsibleRows = ({ data, columns, keyExtractor, collapse }) => {
         </tr>
         {isUncollapsed && (
           <tr>
-            <td colSpan={columns.length}>{ collapse(row) }</td>
+            <td
+              colSpan={columns.length}
+              style={{ maxWidth: 0, padding: 0, overflowY: 'auto' }}>
+              { collapse(row) }
+            </td>
           </tr>
         )}
       </Fragment>

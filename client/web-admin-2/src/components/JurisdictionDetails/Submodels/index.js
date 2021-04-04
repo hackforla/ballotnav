@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Tabs from './Tabs'
 import Table from 'components/core/Table'
 import EditButton from 'components/core/EditButton'
+import LocationCheckboxes from './LocationCheckboxes'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -45,7 +46,7 @@ const SUBMODELS = [
         textAlign: 'center',
       },
     ],
-    collapse: (record) => record.name,
+    collapse: (location) => <LocationCheckboxes location={location} />,
   },
   {
     title: 'Important Dates',
