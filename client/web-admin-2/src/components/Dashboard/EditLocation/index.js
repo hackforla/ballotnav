@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom'
 import { useWipJurisdiction, useMyJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import LastUpdated from 'components/Dashboard/core/LastUpdated'
+import Editor from './Editor'
+import Interview from './Interview'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -22,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     cursor: 'pointer',
     textDecoration: 'underline',
+    display: 'inline-block',
+    marginBottom: '1em',
   },
   locationHeader: {
-    marginTop: '3em',
+    margin: '2.5em 0',
     color: theme.palette.primary.dark,
     fontSize: 14,
   },
@@ -61,10 +66,18 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
       >
         Back to the jurisdiction
       </div>
-      <div className={classes.locationHeader}>
-        <div className={classes.locationName}>{ wipLocation.name }</div>
-        <div>{ wipJurisdiction.name }, { jurisdiction.state.name }</div>
-      </div>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <div className={classes.locationHeader}>
+            <div className={classes.locationName}>{ wipLocation.name }</div>
+            <div>{ wipJurisdiction.name }, { jurisdiction.state.name }</div>
+          </div>
+          <Editor />
+        </Grid>
+        <Grid item xs={6}>
+          <Interview />
+        </Grid>
+      </Grid>
     </div>
   )
 }
