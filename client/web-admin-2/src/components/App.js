@@ -13,8 +13,8 @@ const App = () => {
 
   if (typeof user === 'undefined') return null
   if (user === null) return <Auth />
-  if (user.role === 'admin') return <Admin />
   if (user.role === 'volunteer') return <Volunteer />
+  if (user.role === 'admin') return <Admin />
   return null
 }
 
