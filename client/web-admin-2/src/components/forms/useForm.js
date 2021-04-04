@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 
+// the forms can't handle null, so convert null to empty string
 function getInitialValues(values) {
   return Object.keys(values).reduce((out, key) => {
     out[key] = values[key] || ''
@@ -8,6 +9,7 @@ function getInitialValues(values) {
   }, {})
 }
 
+// the database prefers null, so convert empty strings back to null
 function getSubmittableValues(values) {
   return Object.keys(values).reduce((out, key) => {
     out[key] = values[key] || null
@@ -15,7 +17,7 @@ function getSubmittableValues(values) {
   }, {})
 }
 
-function getChanged(initialValues, currentValues) {
+function getChangedValues(initialValues, currentValues) {
   return Object.keys(initialValues).reduce((out, key) => {
     out[key] = initialValues[key] !== currentValues[key]
     return out
@@ -42,7 +44,7 @@ export default function useForm({
   })
 
   const changed = useMemo(() => {
-    return getChanged(initialValues, values)
+    return getChangedValues(initialValues, values)
   }, [initialValues, values])
 
   return {

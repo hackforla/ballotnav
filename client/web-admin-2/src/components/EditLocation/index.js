@@ -4,12 +4,14 @@ import { useHistory } from 'react-router-dom'
 import { useWipJurisdiction, useMyJurisdiction } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import LastUpdated from 'components/core/LastUpdated'
-import Editor from './Editor'
+import LocationForm from 'components/forms/LocationForm'
 import Interview from './Interview'
 import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingBottom: '6em',
+  },
   header: {
     display: 'flex',
     alignItems: 'center',
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     textDecoration: 'underline',
     display: 'inline-block',
-    marginBottom: '1em',
+    marginBottom: '3em',
   },
   locationHeader: {
     margin: '2.5em 0',
@@ -45,11 +47,26 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
   const wipJurisdiction = useWipJurisdiction(jid)
   const wipLocation = wipJurisdiction.locations.find((loc) => loc.id === +lid)
   const jurisdiction = useMyJurisdiction(jid)
-  const { getWipJurisdiction } = useVolunteerActions()
+  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
 
   const updateJurisdiction = useCallback(() => {
     getWipJurisdiction(jid)
   }, [jid, getWipJurisdiction])
+
+  const onSubmitLocation = useCallback((values) => {
+    return updateWipJurisdiction({
+      ...wipJurisdiction,
+      locations: wipJurisdiction.locations.map((wipLocation) => {
+        if (wipLocation.id === +lid)
+          return {
+            ...wipLocation,
+            ...values,
+          }
+        else
+          return wipLocation
+      }),
+    })
+  }, [wipJurisdiction, lid, updateWipJurisdiction])
 
   return (
     <div className={classes.root}>
@@ -66,13 +83,16 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
       >
         Back to the jurisdiction
       </div>
-      <Grid container spacing={2}>
+      <Grid container spacing={6}>
         <Grid item xs={6}>
           <div className={classes.locationHeader}>
             <div className={classes.locationName}>{ wipLocation.name }</div>
             <div>{ wipJurisdiction.name }, { jurisdiction.state.name }</div>
           </div>
-          <Editor />
+          <LocationForm
+            wipLocation={wipLocation}
+            onSubmit={onSubmitLocation}
+          />
         </Grid>
         <Grid item xs={6}>
           <Interview />

@@ -8,7 +8,9 @@ import JurisdictionForm from 'components/forms/JurisdictionForm'
 import Submodels from './Submodels'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingBottom: '6em',
+  },
   header: {
     display: 'flex',
     alignItems: 'center',

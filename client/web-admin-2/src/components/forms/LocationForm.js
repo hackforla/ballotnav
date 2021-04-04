@@ -20,11 +20,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
+    margin: '2em 0',
   },
   button: {
     textTransform: 'none',
     borderRadius: '2em',
-    padding: '0.375em 3em',
+    padding: '1em 3em',
     fontWeight: 700,
     fontSize: 12,
   },
@@ -32,23 +33,31 @@ const useStyles = makeStyles((theme) => ({
 
 const FIELDS = [
   'name',
-  'authorityName',
-  'mailAddress1',
-  'mailAddress2',
-  'mailAddress3',
-  'internalNotes'
+  'address1',
+  'address2',
+  'address3',
+  'city',
+  'zip',
+  'contactName',
+  'contactPhone',
+  'contactEmail',
 ]
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
-  authorityName: Yup.string(),
-  mailAddress1: Yup.string(),
-  mailAddress2: Yup.string(),
-  mailAddress3: Yup.string(),
-  internalNotes: Yup.string(),
+  address1: Yup.string(),
+  address2: Yup.string(),
+  address3: Yup.string(),
+  city: Yup.string(),
+  zip: Yup.string(),
+  contactName: Yup.string(),
+  contactPhone: Yup.string(),
+  contactEmail: Yup.string().email(),
 })
 
-const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
+const LocationForm = ({ wipLocation, onSubmit }) => {
+  console.log(wipLocation)
+
   const {
     handleSubmit,
     handleReset,
@@ -63,7 +72,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     isValid,
   } = useForm({
     enableReinitialize: true,
-    initialValues: pick(wipJurisdiction, FIELDS),
+    initialValues: pick(wipLocation, FIELDS),
     validationSchema,
     onSubmit,
   })
@@ -72,7 +81,6 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
 
   const makeInput = useCallback((field, config) => (
     <TextField
-      variant="outlined"
       margin="dense"
       fullWidth
       name={field}
@@ -89,41 +97,41 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
   return (
     <div className={classes.root}>
       <form>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
             { makeInput('name', { label: 'Name' }) }
           </Grid>
-          <Grid item xs={6}>
-            { makeInput('authorityName', { label: 'Authority Name' }) }
+          <Grid item xs={12}>
+            { makeInput('address1', { label: 'Address Line 1' }) }
           </Grid>
-          <Grid container item xs={6} spacing={0}>
-            <Grid item xs={12}>
-              { makeInput('mailAddress1', { label: 'Address Line 1' }) }
-            </Grid>
-            <Grid item xs={12}>
-              { makeInput('mailAddress2', { label: 'Address Line 2' }) }
-            </Grid>
-            <Grid item xs={12}>
-              { makeInput('mailAddress3', { label: 'Address Line 3' }) }
-            </Grid>
+          <Grid item xs={12}>
+            { makeInput('address2', { label: 'Address Line 2' }) }
           </Grid>
-          <Grid item xs={6}>
-            {makeInput('internalNotes', {
-              label: 'Internal Notes',
-              type: 'textarea',
-              multiline: true,
-              rows: 7,
-            })}
+          <Grid item xs={12}>
+            { makeInput('address3', { label: 'Address Line 3' }) }
           </Grid>
-          <Grid item xs={6} />
-          <Grid item xs={6} className={classes.buttons}>
+          <Grid item xs={12}>
+            { makeInput('city', { label: 'City' }) }
+          </Grid>
+          <Grid item xs={12}>
+            { makeInput('zip', { label: 'ZIP' }) }
+          </Grid>
+          <Grid item xs={12}>
+            { makeInput('contactName', { label: 'Contact Name' }) }
+          </Grid>
+          <Grid item xs={12}>
+            { makeInput('contactPhone', { label: 'Contact Phone' }) }
+          </Grid>
+          <Grid item xs={12}>
+            { makeInput('contactEmail', { label: 'Contact Email' }) }
+          </Grid>
+          <Grid item xs={12} className={classes.buttons}>
             <Button
               className={classes.button}
               variant="outlined"
               color="primary"
-              margin="normal"
+              disabled={!dirty || !isValid || isSubmitting}
               onClick={handleReset}
-              disabled={!isValid || !dirty || isSubmitting}
             >
               Clear changes
             </Button>
@@ -131,11 +139,10 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
               className={classes.button}
               variant="contained"
               color="primary"
-              margin="normal"
               disabled={!isValid || !dirty || isSubmitting}
               onClick={handleSubmit}
             >
-              Update Jurisdiction
+              Update Location
             </Button>
           </Grid>
         </Grid>
@@ -144,4 +151,4 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
   )
 }
 
-export default JurisdictionForm
+export default LocationForm

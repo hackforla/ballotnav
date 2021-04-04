@@ -36,12 +36,16 @@ const BOXES = [
     field: 'rules',
   },
   {
-    title: 'Email',
-    field: 'contactEmail',
+    title: 'Name',
+    field: 'contactName',
   },
   {
     title: 'Phone',
     field: 'contactPhone',
+  },
+  {
+    title: 'Email',
+    field: 'contactEmail',
   },
 ]
 
@@ -95,7 +99,7 @@ const LocationCheckboxes = ({ location }) => {
         <div key={index.toString()} className={classes.column}>
           <div className={classes.title}>{ title }</div>
           <div className={classes.check}>
-            <div className={location[field] 
+            <div className={location[field]
               ? classes.isChecked
               : classes.notChecked
             }>
