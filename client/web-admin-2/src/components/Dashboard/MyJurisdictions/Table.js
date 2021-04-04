@@ -39,7 +39,7 @@ const COLUMNS = [
   {
     title: '',
     renderValue: ({ id }) => (
-      <Link to={`/jurisdiction/${id}`}>
+      <Link to={`/jurisdictions/${id}`}>
         <Button
           color='primary'
           variant='contained'

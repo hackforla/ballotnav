@@ -53,7 +53,7 @@ const JurisdictionTabs = () => {
   const jurisdictions = useMyJurisdictions()
   const jurisdictionTabs = useJurisdictionTabs()
   const { openJurisdictionTab, closeJurisdictionTab } = useVolunteerActions()
-  const match = useRouteMatch('/jurisdiction/:jid')
+  const match = useRouteMatch('/jurisdictions/:jid')
   const selectedJid = +match?.params.jid
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const JurisdictionTabs = () => {
 
     // handle case where jurisdiction is not assigned to user
     if (!jurisdictions.find((j) => j.id === selectedJid))
-      return history.push('/')
+      return history.push('/jurisdictions')
 
     // open the tab if it's not open already
     if (!jurisdictionTabs.includes(selectedJid))
@@ -83,7 +83,7 @@ const JurisdictionTabs = () => {
 
   const closeTab = useCallback((jid, isSelected) => {
     closeJurisdictionTab(jid)
-    if (isSelected) history.push('/')
+    if (isSelected) history.push('/jurisdictions')
   }, [closeJurisdictionTab, history])
 
   return (
@@ -95,7 +95,7 @@ const JurisdictionTabs = () => {
 
         return (
           <div key={tab.jid} className={clx}>
-            <Link to={`/jurisdiction/${tab.jid}`}>{ tab.title }</Link>
+            <Link to={`/jurisdictions/${tab.jid}`}>{ tab.title }</Link>
             <CloseIcon className={classes.closeButton} onClick={close} />
           </div>
         )

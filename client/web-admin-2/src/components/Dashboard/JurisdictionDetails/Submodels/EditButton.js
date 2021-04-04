@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 
 const EditButton = ({ id }) => {
-  const { pathname } = useLocation()
+  const { url } = useRouteMatch()
   return (
-    <Link to={`${pathname}/location/${id}`}>
+    <Link to={`${url}/locations/${id}`}>
       <Button
         color='primary'
         variant='outlined'

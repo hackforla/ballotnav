@@ -18,10 +18,10 @@ const Volunteer = () => {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/" component={MyJurisdictions} />
-        <Route path="/jurisdiction/:jid/location/:lid" component={EditLocation} />
-        <Route path="/jurisdiction/:jid" component={JurisdictionDetails} />
-        <Redirect to="/" />
+        <Route exact path="/jurisdictions" component={MyJurisdictions} />
+        <Route path="/jurisdictions/:jid/locations/:lid" component={EditLocation} />
+        <Route path="/jurisdictions/:jid" component={JurisdictionDetails} />
+        <Redirect to="/jurisdictions" />
       </Switch>
     </Layout>
   )
