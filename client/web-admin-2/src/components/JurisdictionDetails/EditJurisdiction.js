@@ -1,10 +1,11 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useFormik } from 'formik'
+import useForm from './useForm'
 import useVolunteerActions from 'store/actions/volunteer'
 import * as Yup from 'yup'
 import clsx from 'clsx'
 import { Button, TextField, Grid } from '@material-ui/core'
+import { pick } from 'services/utils'
 
 const validationSchema = Yup.object({
   name: Yup.string(),
@@ -44,33 +45,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function getInitialValues(values) {
-  return Object.keys(values).reduce((out, key) => {
-    out[key] = values[key] || ''
-    return out
-  }, {})
-}
-
-function getSubmittableValues(values) {
-  return Object.keys(values).reduce((out, key) => {
-    out[key] = values[key] || null
-    return out
-  }, {})
-}
-
-function getChanged(initialValues, currentValues) {
-  return Object.keys(initialValues).reduce((out, key) => {
-    out[key] = initialValues[key] !== currentValues[key]
-    return out
-  }, {})
-}
-
-function pick(obj, keys) {
-  const out = {}
-  keys.forEach((key) => out[key] = obj[key])
-  return out
-}
-
 const FIELDS = [
   'name',
   'authorityName',
@@ -87,32 +61,25 @@ const EditJurisdiction = ({ wipJurisdiction: wip }) => {
   const onSubmit = useCallback((values) => {
     updateWipJurisdiction({
       ...wip,
-      ...getSubmittableValues(values),
+      ...values,
     })
   }, [wip, updateWipJurisdiction])
 
-  const initialValues = useMemo(() => {
-    return getInitialValues(pick(wip, FIELDS))
-  }, [wip])
-
   const {
     handleSubmit,
-    handleChange,
     handleReset,
+    handleChange,
     errors,
     touched,
     values,
     dirty,
-  } = useFormik({
+    changed,
+  } = useForm({
     enableReinitialize: true,
-    initialValues,
+    initialValues: pick(wip, FIELDS),
     validationSchema,
     onSubmit,
   })
-
-  const changed = useMemo(() => {
-    return getChanged(initialValues, values)
-  }, [initialValues, values])
 
   const classes = useStyles({ dirty })
 
