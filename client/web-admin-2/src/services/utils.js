@@ -4,3 +4,9 @@ export const pick = (obj, keys) => {
   keys.forEach((key) => out[key] = obj[key])
   return out
 }
+
+export const delay = async (time) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time)
+  })
+}

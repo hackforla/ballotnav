@@ -43,6 +43,7 @@ export default function useForm({
     touched,
     values,
     dirty,
+    isSubmitting
   } = useFormik({
     initialValues: getInitialValues(rawInitialValues),
     onSubmit: (values) => onSubmit(getSubmittableValues(values)),
@@ -62,5 +63,6 @@ export default function useForm({
     values,
     dirty,
     changed,
+    isSubmitting,
   }
 }
