@@ -33,9 +33,12 @@ const SUBMODELS = [
         sort: true,
       },
       {
+        title: 'Contact phone',
+        field: 'contactPhone',
+      },
+      {
         title: 'Contact email',
         field: 'contactEmail',
-        sort: true,
       },
       {
         render: (_, { id }) => <EditButton to={`locations/${id}`} />,
