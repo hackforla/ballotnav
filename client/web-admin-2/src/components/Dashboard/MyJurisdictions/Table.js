@@ -31,14 +31,14 @@ const COLUMNS = [
   },
   {
     title: 'Status',
-    renderValue: ({ jurisdictionStatus }) => (
-      <JurisdictionStatus status={jurisdictionStatus} />
+    field: 'jurisdictionStatus',
+    render: (status) => (
+      <JurisdictionStatus status={status} />
     ),
-    sort: (a, b) => b.jurisdictionStatus > a.jurisdictionStatus ? 1 : -1,
+    sort: true,
   },
   {
-    title: '',
-    renderValue: ({ id }) => (
+    render: (_, { id }) => (
       <Link to={`/jurisdictions/${id}`}>
         <Button
           color='primary'

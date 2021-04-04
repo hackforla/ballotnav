@@ -12,8 +12,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const renderEditButton = ({ id }) => <EditButton id={id} />
-
 const SUBMODELS = [
   {
     title: 'Locations',
@@ -40,8 +38,7 @@ const SUBMODELS = [
         sort: true,
       },
       {
-        title: '',
-        renderValue: renderEditButton,
+        render: (_, { id }) => <EditButton id={id} />,
       },
     ],
   },

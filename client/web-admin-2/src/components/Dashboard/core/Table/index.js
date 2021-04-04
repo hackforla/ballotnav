@@ -1,115 +1,47 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import SortIndicator from './SortIndicator'
+/*
+  A sortable table. Props are:
 
-const useStyles = makeStyles((theme) => ({
-  table: {
-    borderCollapse: 'collapse',
-    width: '100%',
-    color: theme.palette.primary.main,
-    userSelect: 'none',
-    '& th': {
-      backgroundColor: '#EBF3FA',
-      '& > div': {
-        display: 'flex',
-        alignItems: 'center'
-      },
-    },
-    '& th, & td': {
-      textAlign: 'left',
-      padding: '1.25em',
-      '&:last-child': {
-        textAlign: 'center',
-      },
-    },
-    '& tbody tr': {
-      borderBottom: '1px #C3C8E4 solid',
-    },
-  },
-}))
+  1. data
+    An array of objects. Each object is a row in the table.
 
-const Table = ({ data, columns, keyExtractor = (row) => row.id }) => {
-  const classes = useStyles()
-  const [sortCol, setSortCol] = useState(-1)
-  const [sortDirection, setSortDirection] = useState('desc')
+  2. columns
+    An array of objects. Each object corresponds to, and configures, a column
+    in the table. Table columns are in the same order as the columns prop.
 
-  useEffect(() => {
-    setSortCol(columns.findIndex((col) => col.sort))
-    setSortDirection('desc')
-  }, [columns])
+    These are the fields in the object.
 
-  const sortedData = useMemo(() => {
-    if (!data) return null
-    if (!columns[sortCol]) return data
-
-    const { sort, field } = columns[sortCol]
-
-    // use default sort algo where sort === true and field is provided
-    const sortFunc = sort === true && field
-      ? (a, b) => b[field] > a[field] ? 1 : -1
-      : sort
-
-    const sorted = [...data].sort(sortFunc)
-    if (sortDirection === 'desc') sorted.reverse()
-    return sorted
-  }, [data, columns, sortCol, sortDirection])
-
-  const handleColumnClick = useCallback((colIndex) => {
-    if (colIndex !== sortCol) {
-      setSortCol(colIndex)
-      setSortDirection('desc')
-    } else {
-      setSortDirection((dir) => dir === 'asc' ? 'desc' : 'asc')
+    {
+      title,
+      field,
+      render,
+      sort,
     }
-  }, [sortCol])
 
-  if (!sortedData) return null
-  return (
-    <table className={classes.table}>
-      <thead>
-        <tr>
-          {columns.map((column, index) => {
-            const { sort, title } = column
-            const isSortCol = sortCol === index
-            const onClick = sort && handleColumnClick.bind(null, index)
-            return (
-              <th
-                key={index.toString()}
-                onClick={onClick}
-                style={{
-                  cursor: sort ? 'pointer' : 'default',
-                  backgroundColor: isSortCol ? '#CDE4F7' : undefined,
-                }}
-              >
-                <div>
-                  <div>{ title }</div>
-                  {sort && (
-                    <SortIndicator
-                      direction={isSortCol ? sortDirection : undefined }
-                    />
-                  )}
-                </div>
-              </th>
-            )
-          })}
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.map((row) => (
-          <tr key={keyExtractor(row)}>
-            {columns.map((column) => {
-              const { field, renderValue } = column
-              return (
-                <td key={field || renderValue}>
-                  { renderValue ? renderValue(row) : row[field] }
-                </td>
-              )
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )
-}
+    a. title (optional)
+      The string in the th element.
 
+    b. field (optional)
+      The name of the property in each object.
+
+    c. render (optional)
+      A function that renders an individual table cell. It takes two arguments:
+        1. fieldValue = data[rowIndex][field]
+        2. record = data[rowIndex]
+
+      If a render function not provided, the fieldValue is rendered as is.
+
+    d. sort (optional)
+      Whether the column is sortable. Sort can take three values:
+        1. false (the default)
+          No sorting on the column.
+        2. true
+          The column is sorted via a default comparator:
+            (a, b) => b[field] > a[field] ? 1 : -1
+        3. a comparator function
+
+  3. keyExtractor
+    This determines the key for the row. Defaults to: (row) => row.id
+*/
+
+import Table from './Table'
 export default Table
