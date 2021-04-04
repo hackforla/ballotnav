@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useForm from './useForm'
 import * as Yup from 'yup'
-import { Button, TextField, Grid } from '@material-ui/core'
+import { Button, TextField, Grid, MenuItem } from '@material-ui/core'
 import { pick } from 'services/utils'
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +31,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const YNU_OPTIONS = [
+  { value: 'Y', display: 'Yes' },
+  { value: 'N', display: 'No' },
+  { value: 'U', display: 'Unknown' },
+]
+
 const FIELDS = [
   'name',
   'address1',
@@ -41,6 +47,15 @@ const FIELDS = [
   'contactName',
   'contactPhone',
   'contactEmail',
+  'isDriveup',
+  'isDropBox',
+  'isEarlyDropoffLocation',
+  'isEarlyVotingLocation',
+  'isElectionsOffice',
+  'isHandicapAccessible',
+  'isOutdoors',
+  'isPollingLocation',
+  'isStaffedLocation',
 ]
 
 const validationSchema = Yup.object({
@@ -53,6 +68,15 @@ const validationSchema = Yup.object({
   contactName: Yup.string(),
   contactPhone: Yup.string(),
   contactEmail: Yup.string().email(),
+  isDriveup: Yup.string(),
+  isDropBox: Yup.string(),
+  isEarlyDropoffLocation: Yup.string(),
+  isEarlyVotingLocation: Yup.string(),
+  isElectionsOffice: Yup.string(),
+  isHandicapAccessible: Yup.string(),
+  isOutdoors: Yup.string(),
+  isPollingLocation: Yup.string(),
+  isStaffedLocation: Yup.string(),
 })
 
 const LocationForm = ({ wipLocation, onSubmit }) => {
@@ -84,6 +108,7 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
       margin="dense"
       fullWidth
       name={field}
+      label={field}
       value={values[field]}
       onChange={handleChange}
       helperText={touched[field] ? errors[field] : ''}
@@ -91,13 +116,19 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
       className={changed[field] ? classes.changed : undefined}
       onBlur={handleBlur}
       { ...config }
-    />
+    >
+      {config.select && config.options.map(opt => (
+        <MenuItem key={opt.value} value={opt.value}>
+          { opt.display }
+        </MenuItem>
+      ))}
+    </TextField>
   ), [values, handleChange, handleBlur, touched, errors, changed, classes])
 
   return (
     <div className={classes.root}>
       <form>
-        <Grid container spacing={1}>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             { makeInput('name', { label: 'Name' }) }
           </Grid>
@@ -124,6 +155,60 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
           </Grid>
           <Grid item xs={12}>
             { makeInput('contactEmail', { label: 'Contact Email' }) }
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isDriveup', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isDropBox', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isEarlyDropoffLocation', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isEarlyVotingLocation', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isElectionsOffice', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isHandicapAccessible', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isOutdoors', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isPollingLocation', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
+          </Grid>
+          <Grid item xs={6}>
+            { makeInput('isStaffedLocation', {
+              select: true,
+              options: YNU_OPTIONS
+            })}
           </Grid>
           <Grid item xs={12} className={classes.buttons}>
             <Button
