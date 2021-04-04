@@ -107,8 +107,9 @@ export default useActions.bind(null, {
 })
 
 const initialState = {
+  isChecked: false,
   isSubmitting: false,
-  user: undefined
+  user: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -126,6 +127,13 @@ export const reducer = (state = initialState, action) => {
       }
 
     case types.GET_USER:
+      return {
+        ...state,
+        isChecked: true,
+        isSubmitting: false,
+        user: action.data,
+      }
+
     case types.LOGIN:
     case types.REGISTER:
       return {
