@@ -1,22 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem'
-import clsx from 'clsx'
+import Input from './Input'
 import * as Yup from 'yup'
-
-const useStyles = makeStyles((theme) => ({
-  input: {
-    '&.changed:after': {
-      content: '"*"',
-      position: 'absolute',
-      top: 0,
-      right: -10,
-      color: theme.palette.primary.main,
-    },
-  },
-}))
 
 // the forms can't handle null, so convert null to empty string.
 // also limit initialValues to the fields in the schema
@@ -58,8 +43,6 @@ export default function useForm({
   initialValues: rawInitialValues,
   onSubmit: rawOnSubmit,
 }) {
-  const classes = useStyles()
-
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
   }, [rawInitialValues, schema])
@@ -93,7 +76,7 @@ export default function useForm({
   const makeInput = useCallback((field) => {
     const { input: config } = schema[field]
     return (
-      <TextField
+      <Input
         variant="outlined"
         margin="dense"
         fullWidth
@@ -103,18 +86,12 @@ export default function useForm({
         onChange={handleChange}
         helperText={touched[field] ? errors[field] : ''}
         error={touched[field] && Boolean(errors[field])}
-        className={clsx(classes.input, { changed: changed[field] })}
+        className={changed[field] ? 'changed' : undefined}
         onBlur={handleBlur}
         { ...config }
-      >
-        {config.select && config.options.map(opt => (
-          <MenuItem dense key={opt.value} value={opt.value}>
-            { opt.display }
-          </MenuItem>
-        ))}
-      </TextField>
+      />
     )
-  }, [schema, values, handleChange, handleBlur, touched, errors, changed, classes])
+  }, [schema, values, handleChange, handleBlur, touched, errors, changed])
 
   return {
     values,
