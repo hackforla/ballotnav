@@ -70,6 +70,9 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
         <Grid item xs={6}>
           { makeInput('isStaffedLocation') }
         </Grid>
+        <Grid item xs={12}>
+          { makeInput('scheduleType') }
+        </Grid>
         <Grid item xs={12} style={{ padding: '2em' }}>
           { makeButtons() }
         </Grid>

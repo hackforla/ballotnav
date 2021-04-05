@@ -9,7 +9,11 @@ import FormButtons from './FormButtons'
 function getInitialValues(rawInitialValues, schema) {
   const initialValues = {}
   Object.keys(schema).forEach((field) => {
-    initialValues[field] = rawInitialValues[field] || ''
+    initialValues[field] = (
+      rawInitialValues[field] ||
+      schema[field].defaultValue ||
+      ''
+    )
   })
   return initialValues
 }

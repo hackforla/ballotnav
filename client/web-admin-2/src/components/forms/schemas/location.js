@@ -44,6 +44,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isDropBox: {
     validate: Yup.string(),
@@ -51,6 +52,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isEarlyDropoffLocation: {
     validate: Yup.string(),
@@ -58,6 +60,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isEarlyVotingLocation: {
     validate: Yup.string(),
@@ -65,6 +68,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isElectionsOffice: {
     validate: Yup.string(),
@@ -72,6 +76,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isHandicapAccessible: {
     validate: Yup.string(),
@@ -79,6 +84,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isOutdoors: {
     validate: Yup.string(),
@@ -86,6 +92,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isPollingLocation: {
     validate: Yup.string(),
@@ -93,6 +100,7 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
   },
   isStaffedLocation: {
     validate: Yup.string(),
@@ -100,6 +108,19 @@ const schema = {
       select: true,
       options: YNU_OPTIONS,
     },
+    defaultValue: 'U',
+  },
+  scheduleType: {
+    validate: Yup.string(),
+    input: {
+      select: true,
+      options: [
+        { value: 'description', label: 'Description' },
+        { value: 'hours', label: 'Hours' },
+        { value: 'continuous', label: 'Continuous' },
+      ]
+    },
+    defaultValue: 'description',
   },
 }
 
