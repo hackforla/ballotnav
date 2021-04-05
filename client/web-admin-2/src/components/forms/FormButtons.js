@@ -17,7 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const FormButtons = ({ onReset, onSubmit, disabled, submitTitle, padding }) => {
+const FormButtons = ({
+  onReset,
+  onSubmit,
+  resetDisabled,
+  submitDisabled,
+  submitTitle,
+  padding }) => {
   const classes = useStyles({ padding })
 
   return (
@@ -26,7 +32,7 @@ const FormButtons = ({ onReset, onSubmit, disabled, submitTitle, padding }) => {
         className={classes.button}
         variant="outlined"
         color="primary"
-        disabled={disabled}
+        disabled={resetDisabled}
         onClick={onReset}
       >
         Clear changes
@@ -35,7 +41,7 @@ const FormButtons = ({ onReset, onSubmit, disabled, submitTitle, padding }) => {
         className={classes.button}
         variant="contained"
         color="primary"
-        disabled={disabled}
+        disabled={submitDisabled}
         onClick={onSubmit}
       >
         { submitTitle }
