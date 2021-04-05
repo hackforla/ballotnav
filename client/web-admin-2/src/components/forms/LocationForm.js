@@ -2,13 +2,13 @@ import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useForm from './useForm'
 import * as Yup from 'yup'
+import clsx from 'clsx'
 import { Button, TextField, Grid, MenuItem } from '@material-ui/core'
 import { pick } from 'services/utils'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  changed: {
-    '&:after': {
+  root: {
+    '& .input.changed:after': {
       content: '"*"',
       position: 'absolute',
       top: 0,
@@ -80,6 +80,7 @@ const validationSchema = Yup.object({
 })
 
 const LocationForm = ({ wipLocation, onSubmit }) => {
+  const classes = useStyles()
   console.log(wipLocation)
 
   const {
@@ -101,8 +102,6 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
     onSubmit,
   })
 
-  const classes = useStyles({ dirty })
-
   const makeInput = useCallback((field, config) => (
     <TextField
       margin="dense"
@@ -113,17 +112,17 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
       onChange={handleChange}
       helperText={touched[field] ? errors[field] : ''}
       error={touched[field] && Boolean(errors[field])}
-      className={changed[field] ? classes.changed : undefined}
+      className={clsx('input', { changed: changed[field] })}
       onBlur={handleBlur}
       { ...config }
     >
       {config.select && config.options.map(opt => (
-        <MenuItem key={opt.value} value={opt.value}>
+        <MenuItem dense key={opt.value} value={opt.value}>
           { opt.display }
         </MenuItem>
       ))}
     </TextField>
-  ), [values, handleChange, handleBlur, touched, errors, changed, classes])
+  ), [values, handleChange, handleBlur, touched, errors, changed])
 
   return (
     <div className={classes.root}>

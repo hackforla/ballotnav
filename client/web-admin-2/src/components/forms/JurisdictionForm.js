@@ -1,14 +1,14 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import clsx from 'clsx'
 import useForm from './useForm'
 import * as Yup from 'yup'
-import { Button, TextField, Grid } from '@material-ui/core'
+import { Button, TextField, Grid, MenuItem } from '@material-ui/core'
 import { pick } from 'services/utils'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  changed: {
-    '&:after': {
+  root: {
+    '& .input.changed:after': {
       content: '"*"',
       position: 'absolute',
       top: 0,
@@ -49,6 +49,8 @@ const validationSchema = Yup.object({
 })
 
 const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
+  const classes = useStyles()
+
   const {
     handleSubmit,
     handleReset,
@@ -68,23 +70,28 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     onSubmit,
   })
 
-  const classes = useStyles({ dirty })
-
   const makeInput = useCallback((field, config) => (
     <TextField
       variant="outlined"
       margin="dense"
       fullWidth
       name={field}
+      label={field}
       value={values[field]}
       onChange={handleChange}
       helperText={touched[field] ? errors[field] : ''}
       error={touched[field] && Boolean(errors[field])}
-      className={changed[field] ? classes.changed : undefined}
+      className={clsx('input', { changed: changed[field] })}
       onBlur={handleBlur}
       { ...config }
-    />
-  ), [values, handleChange, handleBlur, touched, errors, changed, classes])
+    >
+      {config.select && config.options.map(opt => (
+        <MenuItem dense key={opt.value} value={opt.value}>
+          { opt.display }
+        </MenuItem>
+      ))}
+    </TextField>
+  ), [values, handleChange, handleBlur, touched, errors, changed])
 
   return (
     <div className={classes.root}>
