@@ -1,3 +1,5 @@
+import useActions from 'hooks/useActions'
+
 export const types = {
   ACTION_1: 'filename/ACTION_1',
   ACTION_2: 'filename/ACTION_2',
@@ -19,9 +21,13 @@ export const thunkActionCreator = (args) => {
   }
 }
 
+export default useActions.bind(null, {
+  // list actions
+})
+
 const initialState = null
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     // types here
 
@@ -29,5 +35,3 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default reducer
