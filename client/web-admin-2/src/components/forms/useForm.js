@@ -77,7 +77,6 @@ export default function useForm({
     const { input: config } = schema[field]
     return (
       <Input
-        variant="outlined"
         margin="dense"
         fullWidth
         name={field}
