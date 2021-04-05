@@ -4,12 +4,23 @@ import { useAuth } from 'store/selectors'
 import PermanentTabs from './PermanentTabs'
 import JurisdictionTabs from './JurisdictionTabs'
 
-const VOLUNTEER_TABS = [{
-  pathname: '/jurisdictions',
-  title: 'My Jurisdictions',
-}]
+const VOLUNTEER_TABS = [
+  {
+    pathname: '/jurisdictions',
+    title: 'My Jurisdictions',
+  }
+]
 
-const ADMIN_TABS = []
+const ADMIN_TABS = [
+  {
+    pathname: '/jurisdictions',
+    title: 'My Jurisdictions',
+  },
+  {
+    pathname: '/assign',
+    title: 'Assign Jurisdictions',
+  },
+]
 
 const useStyles = makeStyles((theme) => ({
   root: {
