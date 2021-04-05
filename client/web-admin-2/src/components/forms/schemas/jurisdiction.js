@@ -3,23 +3,23 @@ import * as Yup from 'yup'
 const schema = {
   name: {
     validate: Yup.string().required(),
-    input: { label: 'Name', variant: 'outlined' },
+    input: { label: 'Name' },
   },
   authorityName: {
     validate: Yup.string(),
-    input: { label: 'Authority Name', variant: 'outlined' },
+    input: { label: 'Authority Name' },
   },
   mailAddress1: {
     validate: Yup.string(),
-    input: { label: 'Address 1', variant: 'outlined' },
+    input: { label: 'Address 1' },
   },
   mailAddress2: {
     validate: Yup.string(),
-    input: { label: 'Address 2', variant: 'outlined' },
+    input: { label: 'Address 2' },
   },
   mailAddress3: {
     validate: Yup.string(),
-    input: { label: 'Address 3', variant: 'outlined' },
+    input: { label: 'Address 3' },
   },
   internalNotes: {
     validate: Yup.string(),
@@ -28,7 +28,6 @@ const schema = {
       type: 'textarea',
       multiline: true,
       rows: 7,
-      variant: 'outlined',
     },
   },
 }

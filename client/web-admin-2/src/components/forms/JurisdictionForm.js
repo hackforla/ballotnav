@@ -16,6 +16,9 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     schema,
     initialValues: wipJurisdiction,
     onSubmit,
+    inputDefaults: {
+      variant: 'outlined',
+    },
   })
 
   return (

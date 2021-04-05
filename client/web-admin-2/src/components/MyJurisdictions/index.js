@@ -7,7 +7,9 @@ import Search from './Search'
 import Table from './Table'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingBottom: '6em',
+  },
   header: {
     display: 'flex',
     alignItems: 'center',

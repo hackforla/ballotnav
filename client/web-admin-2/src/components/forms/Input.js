@@ -5,12 +5,16 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& .changed:after': {
+    '& > .changed:after': {
       content: '"*"',
       position: 'absolute',
       top: 0,
       right: -10,
       color: theme.palette.primary.main,
+    },
+    '& .MuiInputLabel-shrink': {
+      fontWeight: 600,
+      color: '#808080',
     },
   },
 }))
@@ -22,7 +26,7 @@ const Input = ({ select, options, ...rest }) => {
       <TextField select={select} { ...rest }>
         {select && options.map((opt) => (
           <MenuItem dense key={opt.value} value={opt.value}>
-            { opt.display }
+            { opt.label }
           </MenuItem>
         ))}
       </TextField>

@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
-import Input from './Input'
 import * as Yup from 'yup'
+import Input from './Input'
 
-// the forms can't handle null, so convert null to empty string.
+// the forms can't handle null, so convert nulls to empty strings.
 // also limit initialValues to the fields in the schema
 function getInitialValues(rawInitialValues, schema) {
   const initialValues = {}
@@ -13,7 +13,7 @@ function getInitialValues(rawInitialValues, schema) {
   return initialValues
 }
 
-// the database prefers null, so convert empty strings back to null
+// null is better in the database, so convert empty strings back to null
 function getSubmittableValues(values) {
   const submittableValues = {}
   Object.keys(values).forEach((field) => {
@@ -42,6 +42,7 @@ export default function useForm({
   schema,
   initialValues: rawInitialValues,
   onSubmit: rawOnSubmit,
+  inputDefaults = {},
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
@@ -61,7 +62,7 @@ export default function useForm({
     handleBlur,
     touched,
     errors,
-    ...restOut
+    ...rest
   } = useFormik({
     initialValues,
     onSubmit,
@@ -73,24 +74,22 @@ export default function useForm({
     return getChangedValues(initialValues, values)
   }, [initialValues, values])
 
-  const makeInput = useCallback((field) => {
-    const { input: config } = schema[field]
-    return (
-      <Input
-        margin="dense"
-        fullWidth
-        name={field}
-        label={field}
-        value={values[field]}
-        onChange={handleChange}
-        helperText={touched[field] ? errors[field] : ''}
-        error={touched[field] && Boolean(errors[field])}
-        className={changed[field] ? 'changed' : undefined}
-        onBlur={handleBlur}
-        { ...config }
-      />
-    )
-  }, [schema, values, handleChange, handleBlur, touched, errors, changed])
+  const makeInput = useCallback((field) => (
+    <Input
+      margin="dense"
+      fullWidth
+      name={field}
+      label={field}
+      value={values[field]}
+      onChange={handleChange}
+      onBlur={handleBlur}
+      helperText={touched[field] ? errors[field] : ''}
+      error={touched[field] && Boolean(errors[field])}
+      className={changed[field] ? 'changed' : undefined}
+      { ...inputDefaults }
+      { ...schema[field].input }
+    />
+  ), [schema, values, handleChange, handleBlur, touched, errors, changed, inputDefaults])
 
   return {
     values,
@@ -100,6 +99,6 @@ export default function useForm({
     errors,
     changed,
     makeInput,
-    ...restOut,
+    ...rest,
   }
 }
