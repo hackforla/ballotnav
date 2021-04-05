@@ -22,22 +22,50 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const FIELDS = [
-  'name',
-  'authorityName',
-  'mailAddress1',
-  'mailAddress2',
-  'mailAddress3',
-  'internalNotes'
+  {
+    field: 'name',
+    validate: Yup.string().required(),
+    input: { label: 'Name' },
+  },
+  {
+    field: 'authorityName',
+    validate: Yup.string(),
+    input: { label: 'Authority Name' },
+  },
+  {
+    field: 'mailAddress1',
+    validate: Yup.string(),
+    input: { label: 'Address 1' },
+  },
+  {
+    field: 'mailAddress2',
+    validate: Yup.string(),
+    input: { label: 'Address 2' },
+  },
+  {
+    field: 'mailAddress3',
+    validate: Yup.string(),
+    input: { label: 'Address 3' },
+  },
+  {
+    field: 'internalNotes',
+    validate: Yup.string(),
+    input: {
+      label: 'Internal Notes',
+      type: 'textarea',
+      multiline: true,
+      rows: 7,
+    },
+  },
 ]
 
-const validationSchema = Yup.object({
-  name: Yup.string().required(),
-  authorityName: Yup.string(),
-  mailAddress1: Yup.string(),
-  mailAddress2: Yup.string(),
-  mailAddress3: Yup.string(),
-  internalNotes: Yup.string(),
-})
+function makeValidationSchema(fields) {
+  const schema = fields.reduce((schema, field) => {
+    schema[field.field] = field.validate
+    return schema
+  }, {})
+  return Yup.object(schema)
+}
 
 const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
   const classes = useStyles()
@@ -56,62 +84,60 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     isValid,
   } = useForm({
     enableReinitialize: true,
-    initialValues: pick(wipJurisdiction, FIELDS),
-    validationSchema,
+    initialValues: pick(wipJurisdiction, FIELDS.map((field) => field.field)),
+    validationSchema: makeValidationSchema(FIELDS),
     onSubmit,
   })
 
-  const makeInput = useCallback((field, config) => (
-    <TextField
-      variant="outlined"
-      margin="dense"
-      fullWidth
-      name={field}
-      label={field}
-      value={values[field]}
-      onChange={handleChange}
-      helperText={touched[field] ? errors[field] : ''}
-      error={touched[field] && Boolean(errors[field])}
-      className={clsx('input', { changed: changed[field] })}
-      onBlur={handleBlur}
-      { ...config }
-    >
-      {config.select && config.options.map(opt => (
-        <MenuItem dense key={opt.value} value={opt.value}>
-          { opt.display }
-        </MenuItem>
-      ))}
-    </TextField>
-  ), [values, handleChange, handleBlur, touched, errors, changed])
+  const makeInput = useCallback((field) => {
+    const { input: config } = FIELDS.find((f) => f.field === field)
+    return (
+      <TextField
+        variant="outlined"
+        margin="dense"
+        fullWidth
+        name={field}
+        label={field}
+        value={values[field]}
+        onChange={handleChange}
+        helperText={touched[field] ? errors[field] : ''}
+        error={touched[field] && Boolean(errors[field])}
+        className={clsx('input', { changed: changed[field] })}
+        onBlur={handleBlur}
+        { ...config }
+      >
+        {config.select && config.options.map(opt => (
+          <MenuItem dense key={opt.value} value={opt.value}>
+            { opt.display }
+          </MenuItem>
+        ))}
+      </TextField>
+    )
+  }, [values, handleChange, handleBlur, touched, errors, changed])
 
   return (
     <div className={classes.root}>
       <form>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            { makeInput('name', { label: 'Name' }) }
+            { makeInput('name') }
           </Grid>
           <Grid item xs={6}>
-            { makeInput('authorityName', { label: 'Authority Name' }) }
+            { makeInput('authorityName') }
           </Grid>
           <Grid container item xs={6} spacing={0}>
             <Grid item xs={12}>
-              { makeInput('mailAddress1', { label: 'Address Line 1' }) }
+              { makeInput('mailAddress1') }
             </Grid>
             <Grid item xs={12}>
-              { makeInput('mailAddress2', { label: 'Address Line 2' }) }
+              { makeInput('mailAddress2') }
             </Grid>
             <Grid item xs={12}>
-              { makeInput('mailAddress3', { label: 'Address Line 3' }) }
+              { makeInput('mailAddress3') }
             </Grid>
           </Grid>
           <Grid item xs={6}>
-            {makeInput('internalNotes', {
-              label: 'Internal Notes',
-              type: 'textarea',
-              multiline: true,
-              rows: 7,
-            })}
+            {makeInput('internalNotes')}
           </Grid>
           <Grid item xs={6} />
           <Grid item xs={6}>
