@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   details: {
     display: ({ showDetails }) => showDetails ? 'block' : 'none',
-    marginBottom: '1.5em',
+    marginBottom: '3em',
   },
 }))
 

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '0.5em',
     borderBottom: '1px #D6D6D6 solid',
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-end',
   }
 }))
 
