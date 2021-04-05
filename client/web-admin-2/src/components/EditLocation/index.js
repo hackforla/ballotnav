@@ -45,8 +45,13 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
   const classes = useStyles()
   const history = useHistory()
   const wipJurisdiction = useWipJurisdiction(jid)
-  const wipLocation = wipJurisdiction.locations.find((loc) => loc.id === +lid)
   const jurisdiction = useMyJurisdiction(jid)
+
+  const isNew = lid === 'new'
+  const wipLocation = isNew
+    ? undefined
+    : wipJurisdiction.locations.find((loc) => loc.id === +lid)
+
   const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
 
   const updateJurisdiction = useCallback(() => {
@@ -56,22 +61,22 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
   const onSubmitLocation = useCallback((values) => {
     return updateWipJurisdiction({
       ...wipJurisdiction,
-      locations: wipJurisdiction.locations.map((wipLocation) => {
-        if (wipLocation.id === +lid)
-          return {
-            ...wipLocation,
-            ...values,
-          }
-        else
-          return wipLocation
-      }),
+      locations: (() => {
+        if (isNew) return [ values, ...wipJurisdiction.locations ]
+
+        return wipJurisdiction.locations.map((wipLocation) => {
+          return wipLocation.id === +lid
+            ? { ...wipLocation, ...values }
+            : wipLocation
+        })
+      })(),
     })
-  }, [wipJurisdiction, lid, updateWipJurisdiction])
+  }, [wipJurisdiction, isNew, lid, updateWipJurisdiction])
 
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h2 className={classes.title}>Edit location</h2>
+        <h2 className={classes.title}>{ isNew ? 'Add' : 'Edit' } location</h2>
         <LastUpdated
           updatedAt={Date.now()}
           onUpdate={updateJurisdiction}
@@ -86,7 +91,9 @@ const EditLocation = ({ match: { params: { jid, lid } }}) => {
       <Grid container spacing={6}>
         <Grid item xs={6}>
           <div className={classes.locationHeader}>
-            <div className={classes.locationName}>{ wipLocation.name }</div>
+            <div className={classes.locationName}>
+              { isNew ? 'New Location' : wipLocation.name }
+            </div>
             <div>{ wipJurisdiction.name }, { jurisdiction.state.name }</div>
           </div>
           <LocationForm

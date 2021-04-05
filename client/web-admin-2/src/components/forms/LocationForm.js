@@ -9,7 +9,7 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
     initialValues: wipLocation,
     onSubmit,
     buttons: {
-      submitLabel: 'Update location',
+      submitLabel: wipLocation ? 'Update location' : 'Add location',
     },
   })
 

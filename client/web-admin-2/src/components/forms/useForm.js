@@ -45,7 +45,7 @@ function getValidationSchema(schema) {
 
 export default function useForm({
   schema,
-  initialValues: rawInitialValues,
+  initialValues: rawInitialValues = {},
   onSubmit: rawOnSubmit,
   inputDefaults = {},
   buttons = {},
@@ -66,6 +66,7 @@ export default function useForm({
     initialValues,
     onSubmit,
     validationSchema,
+    validateOnMount: true,
     enableReinitialize: true,
   })
 
@@ -81,9 +82,8 @@ export default function useForm({
       label={field}
       value={form.values[field]}
       onChange={form.handleChange}
-      onBlur={form.handleBlur}
-      helperText={form.touched[field] ? form.errors[field] : ''}
-      error={form.touched[field] && Boolean(form.errors[field])}
+      helperText={form.errors[field]}
+      error={!!form.errors[field]}
       className={form.changed[field] ? 'changed' : undefined}
       { ...inputDefaults }
       { ...schema[field].input }
