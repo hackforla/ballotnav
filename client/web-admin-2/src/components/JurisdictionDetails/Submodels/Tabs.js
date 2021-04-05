@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     userSelect: 'none',
+    flex: 1,
   },
   tab: {
     paddingRight: '2em',
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 20,
     color: theme.palette.primary.main,
     opacity: 0.3,
+    whiteSpace: 'nowrap',
   },
   activeTitle: {
     opacity: 1,

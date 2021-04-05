@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from './Tabs'
 import Table from 'components/core/Table'
+import AddButton from 'components/core/AddButton'
 import EditButton from 'components/core/EditButton'
 import LocationCheckboxes from './LocationCheckboxes'
 
@@ -10,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
   header: {
     marginBottom: '0.5em',
     borderBottom: '1px #D6D6D6 solid',
+    display: 'flex',
+    alignItems: 'center',
   }
 }))
 
@@ -67,6 +70,7 @@ const Submodels = ({ wipJurisdiction: wip }) => {
           activeTab={activeModel}
           onChange={setActiveModel}
         />
+        <AddButton to={`${activeModel.field}/new`} />
       </div>
       <Table
         data={wip[activeModel.field]}
