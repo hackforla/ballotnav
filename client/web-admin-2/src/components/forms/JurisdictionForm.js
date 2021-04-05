@@ -1,46 +1,8 @@
 import React from 'react'
 import useForm from './useForm'
-import * as Yup from 'yup'
 import Grid from '@material-ui/core/Grid'
 import FormButtons from './FormButtons'
-
-const FIELDS = [
-  {
-    field: 'name',
-    validate: Yup.string().required(),
-    input: { label: 'Name' },
-  },
-  {
-    field: 'authorityName',
-    validate: Yup.string(),
-    input: { label: 'Authority Name' },
-  },
-  {
-    field: 'mailAddress1',
-    validate: Yup.string(),
-    input: { label: 'Address 1' },
-  },
-  {
-    field: 'mailAddress2',
-    validate: Yup.string(),
-    input: { label: 'Address 2' },
-  },
-  {
-    field: 'mailAddress3',
-    validate: Yup.string(),
-    input: { label: 'Address 3' },
-  },
-  {
-    field: 'internalNotes',
-    validate: Yup.string(),
-    input: {
-      label: 'Internal Notes',
-      type: 'textarea',
-      multiline: true,
-      rows: 7,
-    },
-  },
-]
+import schema from './schemas/jurisdiction'
 
 const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
   const {
@@ -51,7 +13,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     isValid,
     makeInput,
   } = useForm({
-    fields: FIELDS,
+    schema,
     initialValues: wipJurisdiction,
     onSubmit,
   })

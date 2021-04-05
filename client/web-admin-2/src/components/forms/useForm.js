@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 // the forms can't handle null, so convert null to empty string
-function getInitialValues(rawInitialValues, fields) {
-  const values = pick(rawInitialValues, fields.map((field) => field.field))
+function getInitialValues(rawInitialValues, schema) {
+  const values = pick(rawInitialValues, schema.map((field) => field.field))
   return Object.keys(values).reduce((out, key) => {
     out[key] = values[key] || ''
     return out
@@ -43,24 +43,24 @@ function getChangedValues(initialValues, currentValues) {
   }, {})
 }
 
-function makeValidationSchema(fields) {
-  const schema = fields.reduce((schema, field) => {
+function makeValidationSchema(schema) {
+  const validators = schema.reduce((schema, field) => {
     schema[field.field] = field.validate
     return schema
   }, {})
-  return Yup.object(schema)
+  return Yup.object(validators)
 }
 
 export default function useForm({
-  fields,
+  schema,
   initialValues: rawInitialValues,
   onSubmit: rawOnSubmit,
 }) {
   const classes = useStyles()
 
   const initialValues = useMemo(() => {
-    return getInitialValues(rawInitialValues, fields)
-  }, [rawInitialValues, fields])
+    return getInitialValues(rawInitialValues, schema)
+  }, [rawInitialValues, schema])
 
   const onSubmit = useCallback((values) => {
     rawOnSubmit(getSubmittableValues(values))
@@ -76,7 +76,7 @@ export default function useForm({
   } = useFormik({
     initialValues,
     onSubmit: (values) => onSubmit(getSubmittableValues(values)),
-    validationSchema: makeValidationSchema(fields),
+    validationSchema: makeValidationSchema(schema),
     enableReinitialize: true,
   })
 
@@ -85,7 +85,7 @@ export default function useForm({
   }, [initialValues, values])
 
   const makeInput = useCallback((field) => {
-    const { input: config } = fields.find((f) => f.field === field)
+    const { input: config } = schema.find((f) => f.field === field)
     return (
       <TextField
         variant="outlined"
@@ -108,7 +108,7 @@ export default function useForm({
         ))}
       </TextField>
     )
-  }, [fields, values, handleChange, handleBlur, touched, errors, changed, classes])
+  }, [schema, values, handleChange, handleBlur, touched, errors, changed, classes])
 
   return {
     values,
