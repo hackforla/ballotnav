@@ -1,21 +1,7 @@
 import React, { useMemo } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import Table from 'components/core/Table'
 import SelectButton from 'components/core/SelectButton'
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  row: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    padding: '0.5em 0',
-    '& > *:not(:last-child)': {
-      marginRight: '2em',
-    }
-  },
-}))
 
 const COLUMNS = [
   {
@@ -43,9 +29,7 @@ const COLUMNS = [
 ]
 
 const JurisdictionsTable = ({ jurisdictions }) => {
-  const classes = useStyles()
-
-  const tableData = useMemo(() => {
+  const data = useMemo(() => {
     if (!jurisdictions) return null
 
     return jurisdictions.map((j) => ({
@@ -56,11 +40,7 @@ const JurisdictionsTable = ({ jurisdictions }) => {
     }))
   }, [jurisdictions])
 
-  return (
-    <div className={classes.root}>
-      <Table data={tableData} columns={COLUMNS} />
-    </div>
-  )
+  return <Table data={data} columns={COLUMNS} />
 }
 
 export default JurisdictionsTable
