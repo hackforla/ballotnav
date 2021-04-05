@@ -3,8 +3,11 @@ import { makeStyles } from '@material-ui/core/styles'
 import useForm from './useForm'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import { Button, TextField, Grid, MenuItem } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import MenuItem from '@material-ui/core/MenuItem'
 import { pick } from 'services/utils'
+import FormButtons from './FormButtons'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,19 +18,6 @@ const useStyles = makeStyles((theme) => ({
       right: -10,
       color: theme.palette.primary.main,
     },
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    margin: '2em 0',
-  },
-  button: {
-    textTransform: 'none',
-    borderRadius: '2em',
-    padding: '1em 3em',
-    fontWeight: 700,
-    fontSize: 12,
   },
 }))
 
@@ -209,25 +199,14 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
               options: YNU_OPTIONS
             })}
           </Grid>
-          <Grid item xs={12} className={classes.buttons}>
-            <Button
-              className={classes.button}
-              variant="outlined"
-              color="primary"
+          <Grid item xs={12} style={{ padding: '2em' }}>
+            <FormButtons
+              onReset={handleReset}
+              onSubmit={handleSubmit}
               disabled={!dirty || !isValid || isSubmitting}
-              onClick={handleReset}
-            >
-              Clear changes
-            </Button>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-              disabled={!isValid || !dirty || isSubmitting}
-              onClick={handleSubmit}
-            >
-              Update Location
-            </Button>
+              submitTitle="Update location"
+              padding="1em 3em"
+            />
           </Grid>
         </Grid>
       </form>
