@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { useAuth } from 'store/selectors'
 import Top from './Top'
 import Tabs from './Tabs'
 
@@ -7,15 +8,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.common.white,
     backgroundColor: '#041B54',
-    height: theme.layout.headerHeight,
     userSelect: 'none',
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
+    height: ({ isAuth }) => isAuth ? 'auto' : 150,
   },
   inner: {
     margin: '0 3em',
-    paddingTop: '1em',
     width: theme.layout.pageWidth,
     maxWidth: '100%',
     display: 'flex',
@@ -26,12 +26,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Header = () => {
-  const classes = useStyles()
+  const { user } = useAuth()
+  const isAuth = !user
+  const classes = useStyles({ isAuth })
   return (
     <div className={classes.root}>
       <div className={classes.inner}>
-        <Top />
-        <Tabs />
+        <Top isAuth={isAuth} />
+        {!isAuth && <Tabs />}
       </div>
     </div>
   )

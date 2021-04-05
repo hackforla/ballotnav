@@ -47,8 +47,6 @@ export default createMuiTheme({
     },
   },
   layout: {
-    headerHeight: 150,
-    sidebarWidth: 500,
     pageWidth: 1134,
   },
   overrides: {

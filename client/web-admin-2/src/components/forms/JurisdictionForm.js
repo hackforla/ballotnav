@@ -38,7 +38,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          {makeInput('internalNotes')}
+          { makeInput('internalNotes') }
         </Grid>
         <Grid item xs={6} />
         <Grid item xs={6}>
