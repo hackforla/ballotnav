@@ -22,8 +22,9 @@ const FormButtons = ({
   onSubmit,
   resetDisabled,
   submitDisabled,
-  submitTitle,
-  padding }) => {
+  submitLabel = 'Update',
+  padding = '1em 3em',
+}) => {
   const classes = useStyles({ padding })
 
   return (
@@ -44,7 +45,7 @@ const FormButtons = ({
         disabled={submitDisabled}
         onClick={onSubmit}
       >
-        { submitTitle }
+        { submitLabel }
       </Button>
     </div>
   )

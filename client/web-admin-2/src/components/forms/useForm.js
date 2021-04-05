@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Input from './Input'
+import FormButtons from './FormButtons'
 
 // the forms can't handle null, so convert nulls to empty strings.
 // also limit initialValues to the fields in the schema
@@ -43,6 +44,7 @@ export default function useForm({
   initialValues: rawInitialValues,
   onSubmit: rawOnSubmit,
   inputDefaults = {},
+  buttons = {},
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
@@ -56,49 +58,43 @@ export default function useForm({
     return getValidationSchema(schema)
   }, [schema])
 
-  const {
-    values,
-    handleChange,
-    handleBlur,
-    touched,
-    errors,
-    ...rest
-  } = useFormik({
+  const form = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     enableReinitialize: true,
   })
 
-  const changed = useMemo(() => {
-    return getChangedValues(initialValues, values)
-  }, [initialValues, values])
+  form.changed = useMemo(() => {
+    return getChangedValues(initialValues, form.values)
+  }, [initialValues, form.values])
 
-  const makeInput = useCallback((field) => (
+  form.makeInput = useCallback((field) => (
     <Input
       margin="dense"
       fullWidth
       name={field}
       label={field}
-      value={values[field]}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      helperText={touched[field] ? errors[field] : ''}
-      error={touched[field] && Boolean(errors[field])}
-      className={changed[field] ? 'changed' : undefined}
+      value={form.values[field]}
+      onChange={form.handleChange}
+      onBlur={form.handleBlur}
+      helperText={form.touched[field] ? form.errors[field] : ''}
+      error={form.touched[field] && Boolean(form.errors[field])}
+      className={form.changed[field] ? 'changed' : undefined}
       { ...inputDefaults }
       { ...schema[field].input }
     />
-  ), [schema, values, handleChange, handleBlur, touched, errors, changed, inputDefaults])
+  ), [schema, form, inputDefaults])
 
-  return {
-    values,
-    handleChange,
-    handleBlur,
-    touched,
-    errors,
-    changed,
-    makeInput,
-    ...rest,
-  }
+  form.makeButtons = useCallback(() => (
+    <FormButtons
+      onReset={form.handleReset}
+      onSubmit={form.handleSubmit}
+      resetDisabled={!form.dirty}
+      submitDisabled={!form.dirty || !form.isValid || form.isSubmitting}
+      { ...buttons }
+    />
+  ), [form, buttons])
+
+  return form
 }

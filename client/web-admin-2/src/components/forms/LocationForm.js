@@ -1,21 +1,16 @@
 import React from 'react'
-import useForm from './useForm'
 import Grid from '@material-ui/core/Grid'
-import FormButtons from './FormButtons'
+import useForm from './useForm'
 import schema from './schemas/location'
 
 const LocationForm = ({ wipLocation, onSubmit }) => {
-  const {
-    handleSubmit,
-    handleReset,
-    dirty,
-    isSubmitting,
-    isValid,
-    makeInput,
-  } = useForm({
+  const { makeInput, makeButtons } = useForm({
     schema,
     initialValues: wipLocation,
     onSubmit,
+    buttons: {
+      submitLabel: 'Update location',
+    },
   })
 
   return (
@@ -76,14 +71,7 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
           { makeInput('isStaffedLocation') }
         </Grid>
         <Grid item xs={12} style={{ padding: '2em' }}>
-          <FormButtons
-            onReset={handleReset}
-            onSubmit={handleSubmit}
-            resetDisabled={!dirty}
-            submitDisabled={!dirty || !isValid || isSubmitting}
-            submitTitle="Update location"
-            padding="1em 3em"
-          />
+          { makeButtons() }
         </Grid>
       </Grid>
     </form>

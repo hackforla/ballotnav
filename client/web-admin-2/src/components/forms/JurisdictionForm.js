@@ -1,23 +1,19 @@
 import React from 'react'
-import useForm from './useForm'
 import Grid from '@material-ui/core/Grid'
-import FormButtons from './FormButtons'
+import useForm from './useForm'
 import schema from './schemas/jurisdiction'
 
 const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
-  const {
-    handleSubmit,
-    handleReset,
-    dirty,
-    isSubmitting,
-    isValid,
-    makeInput,
-  } = useForm({
+  const { makeInput, makeButtons } = useForm({
     schema,
     initialValues: wipJurisdiction,
     onSubmit,
     inputDefaults: {
       variant: 'outlined',
+    },
+    buttons: {
+      submitLabel: 'Update jurisdictions',
+      padding: '0.375em 3em',
     },
   })
 
@@ -46,14 +42,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
         </Grid>
         <Grid item xs={6} />
         <Grid item xs={6}>
-          <FormButtons
-            onReset={handleReset}
-            onSubmit={handleSubmit}
-            resetDisabled={!dirty}
-            submitDisabled={!dirty || !isValid || isSubmitting}
-            submitTitle="Update jurisdiction"
-            padding="0.375em 3em"
-          />
+          { makeButtons() }
         </Grid>
       </Grid>
     </form>
