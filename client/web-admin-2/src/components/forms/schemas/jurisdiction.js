@@ -1,33 +1,27 @@
 import * as Yup from 'yup'
 
-const schema = [
-  {
-    field: 'name',
+const schema = {
+  name: {
     validate: Yup.string().required(),
     input: { label: 'Name' },
   },
-  {
-    field: 'authorityName',
+  authorityName: {
     validate: Yup.string(),
     input: { label: 'Authority Name' },
   },
-  {
-    field: 'mailAddress1',
+  mailAddress1: {
     validate: Yup.string(),
     input: { label: 'Address 1' },
   },
-  {
-    field: 'mailAddress2',
+  mailAddress2: {
     validate: Yup.string(),
     input: { label: 'Address 2' },
   },
-  {
-    field: 'mailAddress3',
+  mailAddress3: {
     validate: Yup.string(),
     input: { label: 'Address 3' },
   },
-  {
-    field: 'internalNotes',
+  internalNotes: {
     validate: Yup.string(),
     input: {
       label: 'Internal Notes',
@@ -36,6 +30,6 @@ const schema = [
       rows: 7,
     },
   },
-]
+}
 
 export default schema

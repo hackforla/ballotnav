@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import clsx from 'clsx'
 import * as Yup from 'yup'
-import { pick } from 'services/utils'
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -19,35 +18,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-// the forms can't handle null, so convert null to empty string
+// the forms can't handle null, so convert null to empty string.
+// also limit initialValues to the fields in the schema
 function getInitialValues(rawInitialValues, schema) {
-  const values = pick(rawInitialValues, schema.map((field) => field.field))
-  return Object.keys(values).reduce((out, key) => {
-    out[key] = values[key] || ''
-    return out
-  }, {})
+  const initialValues = {}
+  Object.keys(schema).forEach((field) => {
+    initialValues[field] = rawInitialValues[field] || ''
+  })
+  return initialValues
 }
 
 // the database prefers null, so convert empty strings back to null
 function getSubmittableValues(values) {
-  return Object.keys(values).reduce((out, key) => {
-    out[key] = values[key] || null
-    return out
-  }, {})
+  const submittableValues = {}
+  Object.keys(values).forEach((field) => {
+    submittableValues[field] = values[field] || null
+  })
+  return submittableValues
 }
 
 function getChangedValues(initialValues, currentValues) {
-  return Object.keys(initialValues).reduce((out, key) => {
-    out[key] = initialValues[key] !== currentValues[key]
-    return out
-  }, {})
+  const changedValues = {}
+  Object.keys(initialValues).forEach((field) => {
+    changedValues[field] = initialValues[field] !== currentValues[field]
+  })
+  return changedValues
 }
 
-function makeValidationSchema(schema) {
-  const validators = schema.reduce((schema, field) => {
-    schema[field.field] = field.validate
-    return schema
-  }, {})
+function getValidationSchema(schema) {
+  const validators = {}
+  Object.keys(schema).forEach((field) => {
+    validators[field] = schema[field].validate
+  })
   return Yup.object(validators)
 }
 
@@ -66,6 +68,10 @@ export default function useForm({
     rawOnSubmit(getSubmittableValues(values))
   }, [rawOnSubmit])
 
+  const validationSchema = useMemo(() => {
+    return getValidationSchema(schema)
+  }, [schema])
+
   const {
     values,
     handleChange,
@@ -75,8 +81,8 @@ export default function useForm({
     ...restOut
   } = useFormik({
     initialValues,
-    onSubmit: (values) => onSubmit(getSubmittableValues(values)),
-    validationSchema: makeValidationSchema(schema),
+    onSubmit,
+    validationSchema,
     enableReinitialize: true,
   })
 
@@ -85,7 +91,7 @@ export default function useForm({
   }, [initialValues, values])
 
   const makeInput = useCallback((field) => {
-    const { input: config } = schema.find((f) => f.field === field)
+    const { input: config } = schema[field]
     return (
       <TextField
         variant="outlined"
