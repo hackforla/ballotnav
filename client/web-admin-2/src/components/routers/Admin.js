@@ -1,13 +1,14 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Layout from 'components/core/Layout'
+import AdminJurisdictions from 'components/AdminJurisdictions'
 import AssignJurisdictions from 'components/AssignJurisdictions'
 
 const Admin = () => {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/jurisdictions" component={() => <div>admin jurisdictions</div>} />
+        <Route exact path="/jurisdictions" component={AdminJurisdictions} />
         <Route exact path="/assign" component={AssignJurisdictions} />
         <Redirect to="/jurisdictions" />
       </Switch>
