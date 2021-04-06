@@ -1,6 +1,17 @@
 import React from 'react'
+import CollapsibleRows from './CollapsibleRows'
 
-const Rows = ({ data, columns, keyExtractor }) => {
+const Rows = ({ data, columns, keyExtractor, collapse }) => {
+  if (collapse)
+    return (
+      <CollapsibleRows
+        data={data}
+        columns={columns}
+        keyExtractor={keyExtractor}
+        collapse={collapse}
+      />
+    )
+
   return data.map((row) => (
     <tr key={keyExtractor(row)}>
       {columns.map((column, index) => {

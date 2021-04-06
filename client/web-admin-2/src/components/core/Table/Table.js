@@ -2,8 +2,10 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import HeaderRow from './HeaderRow'
 import Rows from './Rows'
-import CollapsibleRows from './CollapsibleRows'
 import Controls from './Controls'
+
+const TD_HEIGHT = 60
+const TD_HEIGHT_DENSE = 40
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -11,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.primary.main,
     userSelect: 'none',
+    tableLayout: 'fixed',
     '& th': {
       backgroundColor: '#EBF3FA',
       '& > div': {
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     '& th, & td': {
       textAlign: 'left',
       padding: ({ dense }) => dense ? '0 0.75em' : '0 1.25em',
-      height: ({ dense }) => dense ? 40 : 60,
+      height: ({ dense }) => dense ? TD_HEIGHT_DENSE : TD_HEIGHT,
     },
     '& tbody tr:not(:last-child)': {
       borderBottom: '1px #C3C8E4 solid',
@@ -35,27 +38,25 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
   const [sortCol, setSortCol] = useState(-1)
   const [sortDirection, setSortDirection] = useState('desc')
   const [pageIndex, setPageIndex] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(data.length < 5 ? -1 : 5)
 
+  // reset sorting when columns change
+  // default to first sortable column
   useEffect(() => {
-    // default to first sortable column
     setSortCol(columns.findIndex((col) => col.sort))
     setSortDirection('desc')
   }, [columns])
 
-  // reset page index when data changes
-  useEffect(() => setPageIndex(0), [data])
+  // reset paging when data changes
+  useEffect(() => {
+    setPageIndex(0)
+  }, [data])
 
   const sortedData = useMemo(() => {
     if (!data) return null
     if (!columns[sortCol]) return data
 
     const { sort, field } = columns[sortCol]
-
-    if (sort === true && !field) {
-      console.warn('Field not provided, skipping sort.', columns[sortCol])
-      return data
-    }
 
     // use default sort algo where sort === true and field is provided
     const sortFunc = sort === true && field
@@ -69,6 +70,7 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
 
   const pagedData = useMemo(() => {
     if (!sortedData) return null
+    if (rowsPerPage === -1) return sortedData
 
     const start = pageIndex * rowsPerPage
     const end = start + rowsPerPage
@@ -85,7 +87,9 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
   }, [sortCol])
 
   if (!pagedData) return null
-  const emptyRows = rowsPerPage - pagedData.length
+  
+  let emptyRows = rowsPerPage - pagedData.length
+  if (pagedData.length === 0) emptyRows -= 1
   return (
     <div>
       <table className={classes.table}>
@@ -98,23 +102,23 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
           />
         </thead>
         <tbody>
-          {collapse ? (
-            <CollapsibleRows
-              data={pagedData}
-              columns={columns}
-              keyExtractor={keyExtractor}
-              collapse={collapse}
-            />
-          ) : (
-            <Rows
-              data={pagedData}
-              columns={columns}
-              keyExtractor={keyExtractor}
-              numEmptyRows={rowsPerPage - pagedData.length}
-            />
+          <Rows
+            data={pagedData}
+            columns={columns}
+            keyExtractor={keyExtractor}
+            collapse={collapse}
+          />
+          {pagedData.length === 0 && (
+            <tr>
+              <td colSpan={columns.length}><i>No data.</i></td>
+            </tr>
           )}
           {emptyRows > 0 && (
-            <tr style={{ height: (dense ? 40 : 60) * emptyRows }}>
+            <tr
+              style={{
+                height: (dense ? TD_HEIGHT_DENSE : TD_HEIGHT) * emptyRows
+              }}
+            >
               <td colSpan={columns.length} />
             </tr>
           )}
