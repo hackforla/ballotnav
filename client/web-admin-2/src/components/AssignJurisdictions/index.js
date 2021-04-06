@@ -27,9 +27,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: 24,
   },
-  gridContainer: {
-    height: '575px',
-  },
+  gridContainer: {},
   gridItem: {},
   card: {
     marginTop: '50px',
@@ -200,6 +198,7 @@ function AssignJurisdictions() {
     // eslint-disable-next-line
   }, [volunteers, states])
 
+  if (!loaded) return null
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -215,19 +214,21 @@ function AssignJurisdictions() {
         spacing={6}
       >
         {/****************  SELECT VOLUNTEER, STATE  ****************/}
-        <Grid item xs={4} className={classes.gridItem} style={{ height: '30%' }} >
-          <SimpleSelect
-            className={classes.select}
-            disabled={!loaded}
-            label="Volunteer"
-            items={loaded && volunteers && Object.values(volunteers).sort(sortByPropertyAsc('email'))}
-            schema={{
-              id: 'id',
-              value: 'id',
-              labelText: 'email',
-            }}
-            onChange={selectVolunteer}
-          />
+        <Grid item xs={4} className={classes.gridItem}>
+          <div style={{ marginBottom: 20 }}>
+            <SimpleSelect
+              className={classes.select}
+              disabled={!loaded}
+              label="Volunteer"
+              items={loaded && volunteers && Object.values(volunteers).sort(sortByPropertyAsc('email'))}
+              schema={{
+                id: 'id',
+                value: 'id',
+                labelText: 'email',
+              }}
+              onChange={selectVolunteer}
+            />
+          </div>
           <SimpleSelect
             className={classes.select}
             disabled={!loaded}
