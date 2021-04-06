@@ -5,7 +5,7 @@ const useStyles = makeStyles(({ palette: { jurisdictionStatuses }}) => ({
   root: {
     color: ({ status }) => jurisdictionStatuses[status]?.text,
     backgroundColor: ({ status }) => jurisdictionStatuses[status]?.background,
-    padding: '0.125em 1em',
+    padding: '2px 1em 1px',
     borderRadius: '1em',
     textTransform: 'uppercase',
     fontSize: 12,

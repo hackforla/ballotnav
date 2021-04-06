@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import LastUpdated from 'components/core/LastUpdated'
-import Search from './Search'
+import SearchBox from 'components/core/SearchBox'
 import Table from './Table'
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: 24,
   },
+  searchBox: {
+    borderBottom: '1px #d6d6d6 solid',
+    marginBottom: '0.5em',
+  }
 }))
 
 const MyJurisdictions = () => {
@@ -49,7 +53,13 @@ const MyJurisdictions = () => {
           onUpdate={getMyJurisdictions}
         />
       </div>
-      <Search value={filter} onChange={setFilter} />
+      <div className={classes.searchBox}>
+        <SearchBox
+          value={filter}
+          onChange={setFilter}
+          placeholder="Filter by jurisdiction or state name"
+        />
+      </div>
       <Table jurisdictions={filteredJurisdictions} />
     </div>
   )

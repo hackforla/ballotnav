@@ -3,7 +3,11 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 100,
+    height: 150,
+    border: `1px ${theme.palette.primary.main} solid`,
+    borderRadius: 10,
+    padding: '1em',
+    marginBottom: '3em',
   },
 }))
 
@@ -12,7 +16,7 @@ const JurisdictionStats = ({ jurisdictions }) => {
 
   return (
     <div className={classes.root}>
-      JurisdictionStats
+      Stats
     </div>
   )
 }

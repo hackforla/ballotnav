@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useAssignmentActions from 'store/actions/assignment'
 import { useAssignment } from 'store/selectors'
@@ -7,7 +7,9 @@ import Stats from './Stats'
 import Jurisdictions from './Jurisdictions'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingBottom: '6em',
+  },
   header: {
     display: 'flex',
     alignItems: 'center',
@@ -31,7 +33,19 @@ const AdminJurisdictions = () => {
     if (!jurisdictions) getJurisdictions()
   }, [jurisdictions, getJurisdictions])
 
-  if (!jurisdictions) return null
+  const transformed = useMemo(() => {
+    if (!jurisdictions) return null
+
+    return jurisdictions.map((j) => ({
+      id: j.id,
+      jurisdictionName: j.name,
+      stateName: j.state.name,
+      jurisdictionStatus: j.jurisdictionStatus,
+      userJurisdictions: j.userJurisdictions,
+    }))
+  }, [jurisdictions])
+
+  if (!transformed) return null
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -41,8 +55,8 @@ const AdminJurisdictions = () => {
           onUpdate={getJurisdictions}
         />
       </div>
-      <Stats jurisdictions={jurisdictions} />
-      <Jurisdictions jurisdictions={jurisdictions} />
+      <Stats jurisdictions={transformed} />
+      <Jurisdictions jurisdictions={transformed} />
     </div>
   )
 }

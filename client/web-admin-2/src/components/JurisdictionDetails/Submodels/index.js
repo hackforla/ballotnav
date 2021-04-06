@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'flex-end',
   },
+  tabs: {
+    flex: 1,
+  },
 }))
 
 const SUBMODELS = [
@@ -65,7 +68,7 @@ const Submodels = ({ wipJurisdiction: wip }) => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <div style={{ flex: 1 }}>
+        <div className={classes.tabs}>
           <Tabs
             tabs={SUBMODELS}
             activeTab={activeModel}

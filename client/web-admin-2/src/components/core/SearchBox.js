@@ -5,10 +5,6 @@ import SearchIcon from '@material-ui/icons/Search'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    padding: '0.25em 0',
-    borderBottom: '1px #d6d6d6 solid',
-    marginBottom: '0.5em',
   },
   input: {
     flex: 1,
@@ -16,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1em',
     border: 'none',
     outline: 'none',
-  }
+  },
 }))
 
-const Search = ({ value, onChange }) => {
+const Search = ({ value, onChange, placeholder }) => {
   const classes = useStyles()
 
   const handleChange = useCallback((e) => {
@@ -32,7 +28,7 @@ const Search = ({ value, onChange }) => {
         className={classes.input}
         value={value}
         onChange={handleChange}
-        placeholder="Filter by jurisdiction or state name"
+        placeholder={placeholder}
       />
       <SearchIcon color='primary' style={{ fontSize: 28 }} />
     </div>
