@@ -1,12 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
+import { identity } from 'services/utils'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     userSelect: 'none',
-    flex: 1,
   },
   tab: {
     paddingRight: '2em',
@@ -36,24 +36,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Tabs = ({ tabs, activeTab, onChange, }) => {
+const Tabs = ({ tabs, activeTab, onChange, renderTitle = identity }) => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      {tabs.map((tab) => {
-        const { field, title } = tab
+      {tabs.map((tab, index) => {
         const isActive = tab === activeTab
         return (
           <div
-            key={field}
+            key={index}
             className={clsx(classes.tab, { [classes.activeTab]: isActive })}
             onClick={isActive ? undefined : onChange.bind(null, tab)}
           >
             <div className={clsx(classes.title, {
               [classes.activeTitle]: isActive
             })}>
-              { title }
+              { renderTitle(tab) }
             </div>
           </div>
         )

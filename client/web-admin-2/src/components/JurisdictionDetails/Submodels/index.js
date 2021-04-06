@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Tabs from './Tabs'
+import Tabs from 'components/core/Tabs'
 import Table from 'components/core/Table'
 import AddButton from 'components/core/AddButton'
 import EditButton from 'components/core/EditButton'
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: '1px #D6D6D6 solid',
     display: 'flex',
     alignItems: 'flex-end',
-  }
+  },
 }))
 
 const SUBMODELS = [
@@ -65,11 +65,14 @@ const Submodels = ({ wipJurisdiction: wip }) => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <Tabs
-          tabs={SUBMODELS}
-          activeTab={activeModel}
-          onChange={setActiveModel}
-        />
+        <div style={{ flex: 1 }}>
+          <Tabs
+            tabs={SUBMODELS}
+            activeTab={activeModel}
+            onChange={setActiveModel}
+            renderTitle={(model) => model.title}
+          />
+        </div>
         <AddButton to={`${activeModel.field}/new`} />
       </div>
       <Table
