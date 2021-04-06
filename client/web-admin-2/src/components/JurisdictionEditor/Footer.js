@@ -2,15 +2,24 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import useVolunteerActions from 'store/actions/volunteer'
+import PageWidth from 'components/core/PageWidth'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'fixed',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#EBF3FA',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  inner: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    padding: '1em',
-    backgroundColor: '#EBF3FA',
-  },
+    padding: '1em 0',
+  }
 }))
 
 const Footer = ({ wipJurisdiction }) => {
@@ -19,20 +28,22 @@ const Footer = ({ wipJurisdiction }) => {
 
   return (
     <div className={classes.root}>
-      <Button
-        color='primary'
-        variant='contained'
-        onClick={releaseWipJurisdiction.bind(null, wipJurisdiction)}
-        disabled={wipJurisdiction.isReleased}
-        style={{
-          fontWeight: 700,
-          fontSize: 12,
-          borderRadius: '2em',
-          padding: '1em 3em'
-        }}
-      >
-        Submit For Review
-      </Button>
+      <PageWidth className={classes.inner}>
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={releaseWipJurisdiction.bind(null, wipJurisdiction)}
+          disabled={wipJurisdiction.isReleased}
+          style={{
+            fontWeight: 700,
+            fontSize: 14,
+            borderRadius: '2em',
+            padding: '1em 3em'
+          }}
+        >
+          Submit For Review
+        </Button>
+      </PageWidth>
     </div>
   )
 }

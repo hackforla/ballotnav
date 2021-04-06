@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Header from './Header'
+import PageWidth from './PageWidth'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,16 +10,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     alignItems: 'center',
   },
-  content: {
-    flex: 1,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-  },
   inner: {
-    margin: '0 3em',
-    width: theme.layout.pageWidth,
-    maxWidth: '100%',
     padding: '1.5em 0',
   },
 }))
@@ -29,11 +21,9 @@ const Layout = ({ children }) => {
   return (
     <div className={classes.root}>
       <Header />
-      <div className={classes.content}>
-        <div className={classes.inner}>
-          { children }
-        </div>
-      </div>
+      <PageWidth className={classes.inner}>
+        { children }
+      </PageWidth>
     </div>
   )
 }

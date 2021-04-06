@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useAuth } from 'store/selectors'
+import PageWidth from 'components/core/PageWidth'
 import Top from './Top'
 import Tabs from './Tabs'
 
@@ -15,9 +16,6 @@ const useStyles = makeStyles((theme) => ({
     height: ({ isAuth }) => isAuth ? 'auto' : 150,
   },
   inner: {
-    margin: '0 3em',
-    width: theme.layout.pageWidth,
-    maxWidth: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -31,10 +29,10 @@ const Header = () => {
   const classes = useStyles({ isAuth })
   return (
     <div className={classes.root}>
-      <div className={classes.inner}>
+      <PageWidth className={classes.inner}>
         <Top isAuth={isAuth} />
         {!isAuth && <Tabs />}
-      </div>
+      </PageWidth>
     </div>
   )
 }
