@@ -25,6 +25,7 @@ import React, {
 } from 'react'
 import { Snackbar } from '@material-ui/core'
 import { Alert } from '@material-ui/lab'
+import { makeStyles } from '@material-ui/core/styles'
 import { useDispatch } from 'react-redux'
 import { useToaster } from 'store/selectors'
 import { toast } from 'store/actions/toaster'
@@ -38,7 +39,18 @@ const defaultConfig = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
 }
 
+// without this, container blocks clicks on other elements
+const useStyles = makeStyles((theme) => ({
+  root: {
+    pointerEvents: 'none',
+    '& .MuiPaper-root': {
+      pointerEvents: 'all',
+    },
+  },
+}))
+
 export function ToastProvider({ children }) {
+  const classes = useStyles()
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
   const selectedConfig = useToaster()
@@ -58,12 +70,13 @@ export function ToastProvider({ children }) {
 
  const config = useMemo(() => ({
    ...defaultConfig,
-   ...selectedConfig
+   ...selectedConfig,
  }), [selectedConfig])
 
   return (
     <>
       <Snackbar
+        classes={classes}
         open={open}
         onClose={handleClose}
         anchorOrigin={config.anchorOrigin}
