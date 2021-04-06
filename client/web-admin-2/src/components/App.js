@@ -9,7 +9,9 @@ const App = () => {
   const { isChecked, user } = useAuth()
   const { getUser } = useAuthActions()
 
-  useEffect(getUser, [getUser])
+  useEffect(() => {
+    if (!isChecked) getUser()
+  }, [isChecked, getUser])
 
   if (!isChecked) return null
   if (!user) return <Auth />
