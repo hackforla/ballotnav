@@ -12,7 +12,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
       variant: 'outlined',
     },
     buttons: {
-      submitLabel: 'Update jurisdictions',
+      submitLabel: 'Update jurisdiction',
       padding: '0.375em 3em',
     },
   })
