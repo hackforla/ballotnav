@@ -22,15 +22,12 @@ const useStyles = makeStyles((theme) => ({
 const CollapseToggle = ({ onClick, isUncollapsed }) => {
   const classes = useStyles()
   return (
-    <IconButton
-      onClick={onClick}
-      size='small'
-      className={classes.button}
-    >
-      {isUncollapsed
-        ? <UpIcon color='primary' className={classes.icon} />
-        : <DownIcon color='primary' className={classes.icon} />
-      }
+    <IconButton onClick={onClick} size="small" className={classes.button}>
+      {isUncollapsed ? (
+        <UpIcon color="primary" className={classes.icon} />
+      ) : (
+        <DownIcon color="primary" className={classes.icon} />
+      )}
     </IconButton>
   )
 }

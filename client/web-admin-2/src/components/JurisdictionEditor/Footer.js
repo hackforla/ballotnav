@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding: '1em 0',
-  }
+  },
 }))
 
 const Footer = ({ wipJurisdiction }) => {
@@ -30,15 +30,15 @@ const Footer = ({ wipJurisdiction }) => {
     <div className={classes.root}>
       <PageWidth className={classes.inner}>
         <Button
-          color='primary'
-          variant='contained'
+          color="primary"
+          variant="contained"
           onClick={releaseWipJurisdiction.bind(null, wipJurisdiction)}
           disabled={wipJurisdiction.isReleased}
           style={{
             fontWeight: 700,
             fontSize: 14,
             borderRadius: '2em',
-            padding: '1em 3em'
+            padding: '1em 3em',
           }}
         >
           Submit For Review

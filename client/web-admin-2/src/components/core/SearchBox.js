@@ -18,9 +18,12 @@ const useStyles = makeStyles((theme) => ({
 const Search = ({ value, onChange, placeholder }) => {
   const classes = useStyles()
 
-  const handleChange = useCallback((e) => {
-    onChange(e.target.value)
-  }, [onChange])
+  const handleChange = useCallback(
+    (e) => {
+      onChange(e.target.value)
+    },
+    [onChange]
+  )
 
   return (
     <div className={classes.root}>
@@ -30,7 +33,7 @@ const Search = ({ value, onChange, placeholder }) => {
         onChange={handleChange}
         placeholder={placeholder}
       />
-      <SearchIcon color='primary' style={{ fontSize: 28 }} />
+      <SearchIcon color="primary" style={{ fontSize: 28 }} />
     </div>
   )
 }

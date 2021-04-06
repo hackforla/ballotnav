@@ -5,11 +5,11 @@ const CollapsibleRows = ({ data, columns, keyExtractor, collapse }) => {
   const [uncollapsed, setUncollapsed] = useState([])
 
   const toggleCollapsed = useCallback((key) => {
-    setUncollapsed((uncollapsed) => (
+    setUncollapsed((uncollapsed) =>
       uncollapsed.includes(key)
         ? uncollapsed.filter((el) => el !== key)
         : [...uncollapsed, key]
-    ))
+    )
   }, [])
 
   return data.map((row) => {
@@ -29,7 +29,7 @@ const CollapsibleRows = ({ data, columns, keyExtractor, collapse }) => {
                   position: isLastCol ? 'relative' : undefined,
                 }}
               >
-                { render ? render(row[field], row) : row[field] }
+                {render ? render(row[field], row) : row[field]}
                 {isLastCol && (
                   <CollapseToggle
                     isUncollapsed={isUncollapsed}
@@ -44,8 +44,9 @@ const CollapsibleRows = ({ data, columns, keyExtractor, collapse }) => {
           <tr>
             <td
               colSpan={columns.length}
-              style={{ maxWidth: 0, padding: 0, overflowY: 'auto' }}>
-              { collapse(row) }
+              style={{ maxWidth: 0, padding: 0, overflowY: 'auto' }}
+            >
+              {collapse(row)}
             </td>
           </tr>
         )}

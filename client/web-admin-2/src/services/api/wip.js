@@ -20,14 +20,14 @@ export const updateJurisdiction = async (wipJurisdictionId, wip) => {
   // weird cuz the backend models don't identify any contraints on these fields.
   // Talk to Drew about this. Wonder if the constraints are left over from
   // previous migrations.
-  wip.importantDates.forEach(importantDate => {
+  wip.importantDates.forEach((importantDate) => {
     if (importantDate.beginDate === '') importantDate.beginDate = null
     if (importantDate.beginTime === '') importantDate.beginTime = null
     if (importantDate.endDate === '') importantDate.endDate = null
     if (importantDate.endTime === '') importantDate.endTime = null
   })
 
-  wip.locations.forEach(location => {
+  wip.locations.forEach((location) => {
     if (location.scheduleType !== 'description') {
       location.scheduleDescription = null
     }

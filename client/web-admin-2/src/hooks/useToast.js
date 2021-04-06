@@ -21,7 +21,7 @@ import React, {
   createContext,
   useCallback,
   useEffect,
-  useMemo
+  useMemo,
 } from 'react'
 import { Snackbar } from '@material-ui/core'
 import { Alert } from '@material-ui/lab'
@@ -59,19 +59,25 @@ export function ToastProvider({ children }) {
     if (selectedConfig) setOpen(true)
   }, [selectedConfig])
 
-  const doToast = useCallback((config) => {
-    dispatch(toast(config))
-  }, [dispatch])
+  const doToast = useCallback(
+    (config) => {
+      dispatch(toast(config))
+    },
+    [dispatch]
+  )
 
   const handleClose = useCallback((event, reason) => {
-   if (reason === 'clickaway') return
-   setOpen(false)
- }, [])
+    if (reason === 'clickaway') return
+    setOpen(false)
+  }, [])
 
- const config = useMemo(() => ({
-   ...defaultConfig,
-   ...selectedConfig,
- }), [selectedConfig])
+  const config = useMemo(
+    () => ({
+      ...defaultConfig,
+      ...selectedConfig,
+    }),
+    [selectedConfig]
+  )
 
   return (
     <>
@@ -85,15 +91,13 @@ export function ToastProvider({ children }) {
         <Alert
           severity={config.severity}
           elevation={6}
-          variant='filled'
+          variant="filled"
           onClose={handleClose}
         >
-          { config.message }
+          {config.message}
         </Alert>
       </Snackbar>
-      <toastContext.Provider value={doToast}>
-        {children}
-      </toastContext.Provider>
+      <toastContext.Provider value={doToast}>{children}</toastContext.Provider>
     </>
   )
 }

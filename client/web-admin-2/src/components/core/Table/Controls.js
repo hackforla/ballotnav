@@ -35,22 +35,29 @@ const TableControls = ({
 }) => {
   const classes = useStyles()
 
-  const handleChangeDense = useCallback((e, val) => {
-    onChangeDense(val)
-  }, [onChangeDense])
+  const handleChangeDense = useCallback(
+    (e, val) => {
+      onChangeDense(val)
+    },
+    [onChangeDense]
+  )
 
-  const handleChangePage = useCallback((e, val) => {
-    onChangePageIndex(val)
-  }, [onChangePageIndex])
+  const handleChangePage = useCallback(
+    (e, val) => {
+      onChangePageIndex(val)
+    },
+    [onChangePageIndex]
+  )
 
-  const handleChangeRowsPerPage = useCallback((e) => {
-    onChangeRowsPerPage(+e.target.value)
-  }, [onChangeRowsPerPage])
+  const handleChangeRowsPerPage = useCallback(
+    (e) => {
+      onChangeRowsPerPage(+e.target.value)
+    },
+    [onChangeRowsPerPage]
+  )
 
   const labelDisplayedRows = useCallback(({ from, to, count }) => {
-    return to === -1
-      ? `${count} of ${count}`
-      : `${from}-${to} of ${count}`
+    return to === -1 ? `${count} of ${count}` : `${from}-${to} of ${count}`
   }, [])
 
   const page = pageIndex > Math.floor(rowCount / rowsPerPage) ? 0 : pageIndex
@@ -58,11 +65,7 @@ const TableControls = ({
   return (
     <div className={classes.root}>
       <div className={classes.density}>
-        <Switch
-          checked={dense}
-          onChange={handleChangeDense}
-          color="primary"
-        />
+        <Switch checked={dense} onChange={handleChangeDense} color="primary" />
         <div>Dense</div>
       </div>
       <div className={classes.pager}>

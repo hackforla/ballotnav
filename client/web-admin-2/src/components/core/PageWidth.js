@@ -14,7 +14,7 @@ const PageWidth = ({ className, style, children }) => {
 
   return (
     <div style={style} className={clsx(classes.pageWidth, className)}>
-      { children }
+      {children}
     </div>
   )
 }

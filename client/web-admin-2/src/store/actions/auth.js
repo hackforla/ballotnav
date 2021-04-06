@@ -31,7 +31,7 @@ export const register = ({
   email,
   password,
   notes,
-  slackName
+  slackName,
 }) => {
   return async (dispatch) => {
     dispatch(submit())
@@ -50,15 +50,16 @@ export const register = ({
         type: types.REGISTER,
         data: user,
       })
-    } catch(error) {
-
-      dispatch(toast({
-        severity: 'error',
-        message: (() => {
-          if (error.duplicateEmail) return 'email already registered'
-          return 'unknown error creating account'
-        })()
-      }))
+    } catch (error) {
+      dispatch(
+        toast({
+          severity: 'error',
+          message: (() => {
+            if (error.duplicateEmail) return 'email already registered'
+            return 'unknown error creating account'
+          })(),
+        })
+      )
 
       dispatch(clearSubmit())
     }
@@ -76,16 +77,17 @@ export const login = ({ email, password }) => {
         type: types.LOGIN,
         data: user,
       })
-    } catch(error) {
-
-      dispatch(toast({
-        severity: 'error',
-        message: (() => {
-          if (error.emailNotFound) return 'email not found'
-          if (error.passwordInvalid) return 'password invalid'
-          return 'server error'
-        })()
-      }))
+    } catch (error) {
+      dispatch(
+        toast({
+          severity: 'error',
+          message: (() => {
+            if (error.emailNotFound) return 'email not found'
+            if (error.passwordInvalid) return 'password invalid'
+            return 'server error'
+          })(),
+        })
+      )
 
       dispatch(clearSubmit())
     }

@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     borderRight: '1px #C3C8E4 solid',
     '&:first-child': {
       borderLeft: '1px #C3C8E4 solid',
-    }
+    },
   },
   title: {
     padding: '1em 0.5em',
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     display: 'block',
     color: theme.palette.common.white,
-  }
+  },
 }))
 
 const LocationCheckboxes = ({ location }) => {
@@ -97,12 +97,13 @@ const LocationCheckboxes = ({ location }) => {
     <div className={classes.root}>
       {BOXES.map(({ title, field }, index) => (
         <div key={index.toString()} className={classes.column}>
-          <div className={classes.title}>{ title }</div>
+          <div className={classes.title}>{title}</div>
           <div className={classes.check}>
-            <div className={location[field]
-              ? classes.isChecked
-              : classes.notChecked
-            }>
+            <div
+              className={
+                location[field] ? classes.isChecked : classes.notChecked
+              }
+            >
               <CheckIcon className={classes.icon} />
             </div>
           </div>

@@ -1,7 +1,7 @@
 import useActions from 'hooks/useActions'
 
 export const types = {
-  TOAST: 'toaster/TOAST'
+  TOAST: 'toaster/TOAST',
 }
 
 export const toast = (config) => ({

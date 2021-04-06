@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
@@ -9,16 +9,10 @@ const useStyles = makeStyles((theme) => ({
   },
   menuItem: {
     fontSize: '11px',
-  }
+  },
 }))
 
-function SimpleSelect({
-  label,
-  items,
-  schema,
-  onChange,
-  disabled,
-}) {
+function SimpleSelect({ label, items, schema, onChange, disabled }) {
   const classes = useStyles()
   const [selected, setSelected] = React.useState('')
   const { value, labelText } = schema
@@ -40,15 +34,19 @@ function SimpleSelect({
       label={label}
       fullWidth
     >
-      {
-        items && items.map((item, idx) => (
-          <MenuItem dense key={item[labelText] + idx} className={classes.menuItem} value={item[value]}>
+      {items &&
+        items.map((item, idx) => (
+          <MenuItem
+            dense
+            key={item[labelText] + idx}
+            className={classes.menuItem}
+            value={item[value]}
+          >
             {item[labelText]}
           </MenuItem>
-        ))
-      }
+        ))}
     </TextField>
   )
 }
 
-export default SimpleSelect;
+export default SimpleSelect

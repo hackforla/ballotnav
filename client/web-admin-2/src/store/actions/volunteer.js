@@ -8,7 +8,8 @@ export const types = {
   CLOSE_JURISDICTION_TAB: 'volunteer/CLOSE_JURISDICTION_TAB',
   GET_WIP_JURISDICTION_SUCCESS: 'volunteer/GET_WIP_JURISDICTION_SUCCESS',
   UPDATE_WIP_JURISDICTION_SUCCESS: 'volunteer/UPDATE_WIP_JURISDICTION_SUCCESS',
-  RELEASE_WIP_JURISDICTION_SUCCESS: 'volunteer/RELEASE_WIP_JURISDICTION_SUCCESS',
+  RELEASE_WIP_JURISDICTION_SUCCESS:
+    'volunteer/RELEASE_WIP_JURISDICTION_SUCCESS',
 }
 
 export const getMyJurisdictions = () => {
@@ -94,17 +95,14 @@ export const reducer = (state = initialState, action) => {
     case types.OPEN_JURISDICTION_TAB:
       return {
         ...state,
-        jurisdictionTabs: [
-          ...state.jurisdictionTabs,
-          action.data,
-        ],
+        jurisdictionTabs: [...state.jurisdictionTabs, action.data],
       }
 
     case types.CLOSE_JURISDICTION_TAB:
       return {
         ...state,
-        jurisdictionTabs: state.jurisdictionTabs.filter((jid) =>
-          jid !== action.data
+        jurisdictionTabs: state.jurisdictionTabs.filter(
+          (jid) => jid !== action.data
         ),
       }
 

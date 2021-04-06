@@ -6,7 +6,7 @@ const AddButton = ({ to }) => {
   const { url } = useRouteMatch()
   return (
     <Link to={`${url}/${to}`}>
-      <AddIcon color='primary' style={{ fontSize: 32, display: 'block' }} />
+      <AddIcon color="primary" style={{ fontSize: 32, display: 'block' }} />
     </Link>
   )
 }

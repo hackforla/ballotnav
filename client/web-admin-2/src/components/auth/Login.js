@@ -9,7 +9,7 @@ import { Button, TextField, Grid } from '@material-ui/core'
 const validationSchema = Yup.object({
   email: Yup.string().email().required('Required'),
   password: Yup.string().min(8).required('Required'),
-});
+})
 
 function Login() {
   const { login } = useAuthActions()
@@ -17,13 +17,7 @@ function Login() {
 
   const onSubmit = useCallback((values) => login(values), [login])
 
-  const {
-    handleSubmit,
-    handleChange,
-    errors,
-    touched,
-    values,
-  } = useFormik({
+  const { handleSubmit, handleChange, errors, touched, values } = useFormik({
     initialValues: {
       email: '',
       password: '',

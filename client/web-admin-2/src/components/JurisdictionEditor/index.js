@@ -5,7 +5,12 @@ import useVolunteerActions from 'store/actions/volunteer'
 import JurisdictionDetails from './JurisdictionDetails'
 import EditLocation from './EditLocation'
 
-const JurisdictionEditor = ({ match: { params: { jid }, path } }) => {
+const JurisdictionEditor = ({
+  match: {
+    params: { jid },
+    path,
+  },
+}) => {
   const { getWipJurisdiction } = useVolunteerActions()
   const wipJurisdiction = useWipJurisdiction(jid)
 

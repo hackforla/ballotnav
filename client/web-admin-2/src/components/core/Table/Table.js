@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#EBF3FA',
       '& > div': {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
       },
     },
     '& th, & td': {
       textAlign: 'left',
-      padding: ({ dense }) => dense ? '0 0.75em' : '0 1.25em',
-      height: ({ dense }) => dense ? TD_HEIGHT_DENSE : TD_HEIGHT,
+      padding: ({ dense }) => (dense ? '0 0.75em' : '0 1.25em'),
+      height: ({ dense }) => (dense ? TD_HEIGHT_DENSE : TD_HEIGHT),
     },
     '& tbody tr:not(:last-child)': {
       borderBottom: '1px #C3C8E4 solid',
@@ -59,9 +59,8 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
     const { sort, field } = columns[sortCol]
 
     // use default sort algo where sort === true and field is provided
-    const sortFunc = sort === true && field
-      ? (a, b) => b[field] > a[field] ? 1 : -1
-      : sort
+    const sortFunc =
+      sort === true && field ? (a, b) => (b[field] > a[field] ? 1 : -1) : sort
 
     const sorted = [...data].sort(sortFunc)
     if (sortDirection === 'desc') sorted.reverse()
@@ -77,17 +76,20 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
     return sortedData.slice(start, end)
   }, [sortedData, pageIndex, rowsPerPage])
 
-  const handleColumnClick = useCallback((colIndex) => {
-    if (colIndex !== sortCol) {
-      setSortCol(colIndex)
-      setSortDirection('desc')
-    } else {
-      setSortDirection((dir) => dir === 'asc' ? 'desc' : 'asc')
-    }
-  }, [sortCol])
+  const handleColumnClick = useCallback(
+    (colIndex) => {
+      if (colIndex !== sortCol) {
+        setSortCol(colIndex)
+        setSortDirection('desc')
+      } else {
+        setSortDirection((dir) => (dir === 'asc' ? 'desc' : 'asc'))
+      }
+    },
+    [sortCol]
+  )
 
   if (!pagedData) return null
-  
+
   let emptyRows = rowsPerPage - pagedData.length
   if (pagedData.length === 0) emptyRows -= 1
   return (
@@ -110,13 +112,15 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
           />
           {pagedData.length === 0 && (
             <tr>
-              <td colSpan={columns.length}><i>No data.</i></td>
+              <td colSpan={columns.length}>
+                <i>No data.</i>
+              </td>
             </tr>
           )}
           {emptyRows > 0 && (
             <tr
               style={{
-                height: (dense ? TD_HEIGHT_DENSE : TD_HEIGHT) * emptyRows
+                height: (dense ? TD_HEIGHT_DENSE : TD_HEIGHT) * emptyRows,
               }}
             >
               <td colSpan={columns.length} />

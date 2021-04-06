@@ -27,13 +27,13 @@ const COLUMNS = [
   {
     title: 'Status',
     field: 'jurisdictionStatus',
-    render: (status) => (
-      <JurisdictionStatus status={status} />
-    ),
+    render: (status) => <JurisdictionStatus status={status} />,
     sort: true,
   },
   {
-    render: (_, { wipJurisdictionId }) => <SelectButton to={wipJurisdictionId} />,
+    render: (_, { wipJurisdictionId }) => (
+      <SelectButton to={wipJurisdictionId} />
+    ),
     textAlign: 'center',
   },
 ]

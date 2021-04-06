@@ -14,11 +14,7 @@ const useStyles = makeStyles((theme) => ({
 const JurisdictionStats = ({ jurisdictions }) => {
   const classes = useStyles()
 
-  return (
-    <div className={classes.root}>
-      Stats
-    </div>
-  )
+  return <div className={classes.root}>Stats</div>
 }
 
 export default JurisdictionStats

@@ -8,8 +8,8 @@ export const listAllJurisdictions = async () => {
 }
 
 export const listAllVolunteers = async () => {
-  const { data } = await axios.get(`${BASE_URL}/volunteers`);
-  return data;
+  const { data } = await axios.get(`${BASE_URL}/volunteers`)
+  return data
 }
 
 export const listMyJurisdictions = async () => {
@@ -37,5 +37,5 @@ export const assignJurisdictions = async ({
     jurisdictionIds,
     removedJurisdictionIds,
   })
-  return data;
+  return data
 }

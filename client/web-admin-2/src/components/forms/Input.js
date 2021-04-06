@@ -23,12 +23,13 @@ const Input = ({ select, options, ...rest }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <TextField select={select} { ...rest }>
-        {select && options.map((opt) => (
-          <MenuItem dense key={opt.value} value={opt.value}>
-            { opt.label }
-          </MenuItem>
-        ))}
+      <TextField select={select} {...rest}>
+        {select &&
+          options.map((opt) => (
+            <MenuItem dense key={opt.value} value={opt.value}>
+              {opt.label}
+            </MenuItem>
+          ))}
       </TextField>
     </div>
   )

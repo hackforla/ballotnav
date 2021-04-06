@@ -24,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
 const ASSIGN_FILTERS = [
   {
     title: 'Not Assigned',
-    filter: (jdxs) => jdxs.filter((j) => j.userJurisdictions.length === 0)
+    filter: (jdxs) => jdxs.filter((j) => j.userJurisdictions.length === 0),
   },
   {
     title: 'Assigned',
-    filter: (jdxs) => jdxs.filter((j) => j.userJurisdictions.length > 0)
+    filter: (jdxs) => jdxs.filter((j) => j.userJurisdictions.length > 0),
   },
 ]
 

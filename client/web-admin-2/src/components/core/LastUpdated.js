@@ -26,10 +26,10 @@ const LastUpdated = ({ updatedAt, onUpdate }) => {
     <div className={classes.root}>
       <span>Last update:</span>
       <span className={classes.lastUpdated}>
-        { moment(updatedAt).format('ddd MMM Do, YYYY') }
+        {moment(updatedAt).format('ddd MMM Do, YYYY')}
       </span>
-      <IconButton size='small' onClick={onUpdate}>
-        <RefreshIcon color='primary' style={{ fontSize: 28 }} />
+      <IconButton size="small" onClick={onUpdate}>
+        <RefreshIcon color="primary" style={{ fontSize: 28 }} />
       </IconButton>
     </div>
   )

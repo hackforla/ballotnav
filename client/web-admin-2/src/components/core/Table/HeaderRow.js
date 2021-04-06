@@ -18,10 +18,10 @@ const HeaderRow = ({ columns, onClick, sortCol, sortDirection }) => (
           }}
         >
           <div>
-            <div>{ title }</div>
+            <div>{title}</div>
             {sort && (
               <SortIndicator
-                direction={isSortCol ? sortDirection : undefined }
+                direction={isSortCol ? sortDirection : undefined}
               />
             )}
           </div>

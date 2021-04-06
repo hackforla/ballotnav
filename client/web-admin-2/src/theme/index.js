@@ -23,7 +23,7 @@ export default createMuiTheme({
       selected: '#FF0029',
     },
     jurisdictionStatuses: {
-      'Published': {
+      Published: {
         text: '#FFFFFF',
         background: '#FF7144',
       },

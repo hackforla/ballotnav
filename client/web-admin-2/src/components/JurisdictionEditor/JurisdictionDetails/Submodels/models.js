@@ -72,7 +72,8 @@ const models = [
       {
         title: 'Important Date Type',
         field: 'importantDateTypeId',
-        render: (importantDateTypeId) => importantDateTypes[importantDateTypeId],
+        render: (importantDateTypeId) =>
+          importantDateTypes[importantDateTypeId],
         sort: true,
       },
       {

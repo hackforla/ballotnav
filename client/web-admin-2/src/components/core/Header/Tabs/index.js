@@ -8,7 +8,7 @@ const VOLUNTEER_TABS = [
   {
     title: 'My Jurisdictions',
     pathname: '/jurisdictions',
-  }
+  },
 ]
 
 const ADMIN_TABS = [

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       right: 0,
       backgroundColor: theme.palette.secondary.main,
-    }
+    },
   },
 }))
 
@@ -43,10 +43,10 @@ const PermanentTabs = ({ tabs }) => {
           key={tab.pathname}
           to={tab.pathname}
           className={clsx(classes.tab, {
-            [classes.selected]: tab.pathname === location.pathname
+            [classes.selected]: tab.pathname === location.pathname,
           })}
         >
-          { tab.title }
+          {tab.title}
         </Link>
       ))}
     </div>

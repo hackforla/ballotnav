@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles(({ palette: { jurisdictionStatuses }}) => ({
+const useStyles = makeStyles(({ palette: { jurisdictionStatuses } }) => ({
   root: {
     color: ({ status }) => jurisdictionStatuses[status]?.text,
     backgroundColor: ({ status }) => jurisdictionStatuses[status]?.background,
@@ -16,11 +16,7 @@ const useStyles = makeStyles(({ palette: { jurisdictionStatuses }}) => ({
 const JurisdictionStatus = ({ status }) => {
   const classes = useStyles({ status })
 
-  return (
-    <div className={classes.root}>
-      { status }
-    </div>
-  )
+  return <div className={classes.root}>{status}</div>
 }
 
 export default JurisdictionStatus

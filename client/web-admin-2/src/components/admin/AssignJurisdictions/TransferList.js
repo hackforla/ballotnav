@@ -28,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function not(a, b, value) {
-  return a.filter(itemA => !b.some(itemB => itemA[value] === itemB[value]))
+  return a.filter((itemA) => !b.some((itemB) => itemA[value] === itemB[value]))
 }
 
 function intersection(a, b, value) {
-  return a.filter(itemA => b.some(itemB => itemA[value] === itemB[value]))
+  return a.filter((itemA) => b.some((itemB) => itemA[value] === itemB[value]))
 }
 
 function union(a, b) {
@@ -52,7 +52,9 @@ function TransferList({
   const [checked, setChecked] = useState([])
 
   const handleToggle = (item) => () => {
-    const currentIndex = checked.findIndex(i => i[schema.value] === item[schema.value])
+    const currentIndex = checked.findIndex(
+      (i) => i[schema.value] === item[schema.value]
+    )
     const newChecked = [...checked]
 
     if (currentIndex === -1) {
@@ -63,7 +65,8 @@ function TransferList({
     setChecked(newChecked)
   }
 
-  const numberOfChecked = (items) => intersection(items, checked, schema.value).length
+  const numberOfChecked = (items) =>
+    intersection(items, checked, schema.value).length
 
   // const handleToggleFirst15 = items => () => {}
 
@@ -98,7 +101,9 @@ function TransferList({
         avatar={
           <Checkbox
             onClick={handleToggleAll(items)}
-            checked={numberOfChecked(items) === items.length && items.length !== 0}
+            checked={
+              numberOfChecked(items) === items.length && items.length !== 0
+            }
             // indeterminate={numberOfChecked(items) !== items.length && numberOfChecked(items) !== 0}
             disabled={items.length === 0}
             inputProps={{ 'aria-label': 'all items selected' }}
@@ -110,29 +115,52 @@ function TransferList({
       <Divider />
       <List className={classes.list} dense component="div" role="list">
         {items.map((item) => {
-          const labelId = `transfer-list-all-item-${item[schema.primaryText]}-label`;
+          const labelId = `transfer-list-all-item-${
+            item[schema.primaryText]
+          }-label`
           return (
-            <ListItem key={item[schema.value] + item[schema.primaryText]} role="listitem" button onClick={handleToggle(item)}>
+            <ListItem
+              key={item[schema.value] + item[schema.primaryText]}
+              role="listitem"
+              button
+              onClick={handleToggle(item)}
+            >
               <ListItemIcon>
                 <Checkbox
-                  checked={checked.findIndex(i => i[schema.value] === item[schema.value]) !== -1}
+                  checked={
+                    checked.findIndex(
+                      (i) => i[schema.value] === item[schema.value]
+                    ) !== -1
+                  }
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={item[schema.primaryText]} secondary={item[schema.secondaryText]}/>
+              <ListItemText
+                id={labelId}
+                primary={item[schema.primaryText]}
+                secondary={item[schema.secondaryText]}
+              />
             </ListItem>
           )
         })}
         <ListItem />
       </List>
     </Card>
-  );
+  )
 
   return (
-    <Grid container spacing={2} justify="flex-start" alignItems="center" className={classes.root}>
-      <Grid item xs={5}>{customList(leftTitle, 'Select all', leftItems)}</Grid>
+    <Grid
+      container
+      spacing={2}
+      justify="flex-start"
+      alignItems="center"
+      className={classes.root}
+    >
+      <Grid item xs={5}>
+        {customList(leftTitle, 'Select all', leftItems)}
+      </Grid>
       <Grid item xs={2}>
         <Grid container direction="column" alignItems="center">
           <Button
@@ -140,7 +168,9 @@ function TransferList({
             size="small"
             className={classes.button}
             onClick={handleCheckedRight}
-            disabled={intersection(leftItems, checked, schema.value).length === 0}
+            disabled={
+              intersection(leftItems, checked, schema.value).length === 0
+            }
             aria-label="move selected right"
           >
             &gt;
@@ -150,14 +180,18 @@ function TransferList({
             size="small"
             className={classes.button}
             onClick={handleCheckedLeft}
-            disabled={intersection(rightItems, checked, schema.value).length === 0}
+            disabled={
+              intersection(rightItems, checked, schema.value).length === 0
+            }
             aria-label="move selected left"
           >
             &lt;
           </Button>
         </Grid>
       </Grid>
-      <Grid item xs={5}>{customList(rightTitle, 'Select all', rightItems)}</Grid>
+      <Grid item xs={5}>
+        {customList(rightTitle, 'Select all', rightItems)}
+      </Grid>
     </Grid>
   )
 }

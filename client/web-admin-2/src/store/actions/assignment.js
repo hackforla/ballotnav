@@ -29,7 +29,7 @@ export const getAssignment = () => {
       data: {
         ...jurisdictions,
         volunteers,
-      }
+      },
     })
   }
 }
@@ -49,7 +49,7 @@ export const reducer = (state = initialState, action) => {
     case types.GET_JURISDICTIONS_SUCCESS:
       return {
         ...state,
-        jurisdictions: action.data
+        jurisdictions: action.data,
       }
 
     case types.GET_ASSIGNMENT_SUCCESS:

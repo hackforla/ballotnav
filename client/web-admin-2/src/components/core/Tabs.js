@@ -49,10 +49,12 @@ const Tabs = ({ tabs, activeTab, onChange, renderTitle = identity }) => {
             className={clsx(classes.tab, { [classes.activeTab]: isActive })}
             onClick={isActive ? undefined : onChange.bind(null, tab)}
           >
-            <div className={clsx(classes.title, {
-              [classes.activeTitle]: isActive
-            })}>
-              { renderTitle(tab) }
+            <div
+              className={clsx(classes.title, {
+                [classes.activeTitle]: isActive,
+              })}
+            >
+              {renderTitle(tab)}
             </div>
           </div>
         )

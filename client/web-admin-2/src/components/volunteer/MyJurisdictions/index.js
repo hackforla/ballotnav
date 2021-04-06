@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   searchBox: {
     borderBottom: '1px #d6d6d6 solid',
     marginBottom: '0.5em',
-  }
+  },
 }))
 
 const MyJurisdictions = () => {
@@ -48,10 +48,7 @@ const MyJurisdictions = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>My Jurisdictions</h1>
-        <LastUpdated
-          updatedAt={Date.now()}
-          onUpdate={getMyJurisdictions}
-        />
+        <LastUpdated updatedAt={Date.now()} onUpdate={getMyJurisdictions} />
       </div>
       <div className={classes.searchBox}>
         <SearchBox

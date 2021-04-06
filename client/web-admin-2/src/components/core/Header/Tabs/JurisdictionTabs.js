@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       overflow: 'hidden',
       color: 'inherit',
       minWidth: 0,
-    }
+    },
   },
   closeButton: {
     marginLeft: '1em',
@@ -66,25 +66,36 @@ const JurisdictionTabs = () => {
     // open the tab if it's not open already
     if (!jurisdictionTabs.includes(selectedJid))
       openJurisdictionTab(selectedJid)
-  }, [openJurisdictionTab, history, selectedJid, jurisdictions, jurisdictionTabs])
+  }, [
+    openJurisdictionTab,
+    history,
+    selectedJid,
+    jurisdictions,
+    jurisdictionTabs,
+  ])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []
 
-    return jurisdictionTabs.map((jid) => {
-      const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
-      if (!jurisdiction) return null
-      return {
-        jid: jurisdiction.id,
-        title: jurisdiction.name,
-      }
-    }).filter((juris) => !!juris)
+    return jurisdictionTabs
+      .map((jid) => {
+        const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
+        if (!jurisdiction) return null
+        return {
+          jid: jurisdiction.id,
+          title: jurisdiction.name,
+        }
+      })
+      .filter((juris) => !!juris)
   }, [jurisdictionTabs, jurisdictions])
 
-  const closeTab = useCallback((jid, isSelected) => {
-    closeJurisdictionTab(jid)
-    if (isSelected) history.push('/jurisdictions')
-  }, [closeJurisdictionTab, history])
+  const closeTab = useCallback(
+    (jid, isSelected) => {
+      closeJurisdictionTab(jid)
+      if (isSelected) history.push('/jurisdictions')
+    },
+    [closeJurisdictionTab, history]
+  )
 
   return (
     <div className={classes.root}>
@@ -95,7 +106,7 @@ const JurisdictionTabs = () => {
 
         return (
           <div key={tab.jid} className={clx}>
-            <Link to={`/jurisdictions/${tab.jid}`}>{ tab.title }</Link>
+            <Link to={`/jurisdictions/${tab.jid}`}>{tab.title}</Link>
             <CloseIcon className={classes.closeButton} onClick={close} />
           </div>
         )

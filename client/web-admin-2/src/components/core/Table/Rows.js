@@ -18,7 +18,7 @@ const Rows = ({ data, columns, keyExtractor, collapse }) => {
         const { field, render, textAlign } = column
         return (
           <td key={index.toString()} style={{ textAlign }}>
-            { render ? render(row[field], row) : row[field] }
+            {render ? render(row[field], row) : row[field]}
           </td>
         )
       })}

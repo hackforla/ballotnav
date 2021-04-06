@@ -9,11 +9,8 @@ import FormButtons from './FormButtons'
 function getInitialValues(rawInitialValues, schema) {
   const initialValues = {}
   Object.keys(schema).forEach((field) => {
-    initialValues[field] = (
-      rawInitialValues[field] ||
-      schema[field].defaultValue ||
-      ''
-    )
+    initialValues[field] =
+      rawInitialValues[field] || schema[field].defaultValue || ''
   })
   return initialValues
 }
@@ -54,9 +51,12 @@ export default function useForm({
     return getInitialValues(rawInitialValues, schema)
   }, [rawInitialValues, schema])
 
-  const onSubmit = useCallback((values) => {
-    rawOnSubmit(getSubmittableValues(values))
-  }, [rawOnSubmit])
+  const onSubmit = useCallback(
+    (values) => {
+      rawOnSubmit(getSubmittableValues(values))
+    },
+    [rawOnSubmit]
+  )
 
   const validationSchema = useMemo(() => {
     return getValidationSchema(schema)
@@ -74,31 +74,37 @@ export default function useForm({
     return getChangedValues(initialValues, form.values)
   }, [initialValues, form.values])
 
-  form.makeInput = useCallback((field) => (
-    <Input
-      margin="dense"
-      fullWidth
-      name={field}
-      label={field}
-      value={form.values[field]}
-      onChange={form.handleChange}
-      helperText={form.errors[field]}
-      error={!!form.errors[field]}
-      className={form.changed[field] ? 'changed' : undefined}
-      { ...inputDefaults }
-      { ...schema[field].input }
-    />
-  ), [schema, form, inputDefaults])
+  form.makeInput = useCallback(
+    (field) => (
+      <Input
+        margin="dense"
+        fullWidth
+        name={field}
+        label={field}
+        value={form.values[field]}
+        onChange={form.handleChange}
+        helperText={form.errors[field]}
+        error={!!form.errors[field]}
+        className={form.changed[field] ? 'changed' : undefined}
+        {...inputDefaults}
+        {...schema[field].input}
+      />
+    ),
+    [schema, form, inputDefaults]
+  )
 
-  form.makeButtons = useCallback(() => (
-    <FormButtons
-      onReset={form.handleReset}
-      onSubmit={form.handleSubmit}
-      resetDisabled={!form.dirty}
-      submitDisabled={!form.dirty || !form.isValid || form.isSubmitting}
-      { ...buttons }
-    />
-  ), [form, buttons])
+  form.makeButtons = useCallback(
+    () => (
+      <FormButtons
+        onReset={form.handleReset}
+        onSubmit={form.handleSubmit}
+        resetDisabled={!form.dirty}
+        submitDisabled={!form.dirty || !form.isValid || form.isSubmitting}
+        {...buttons}
+      />
+    ),
+    [form, buttons]
+  )
 
   return form
 }

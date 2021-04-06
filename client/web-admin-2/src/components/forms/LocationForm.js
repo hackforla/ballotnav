@@ -17,64 +17,64 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
     <form>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          { makeInput('name') }
+          {makeInput('name')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('address1') }
+          {makeInput('address1')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('address2') }
+          {makeInput('address2')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('address3') }
+          {makeInput('address3')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('city') }
+          {makeInput('city')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('zip') }
+          {makeInput('zip')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('contactName') }
+          {makeInput('contactName')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('contactPhone') }
+          {makeInput('contactPhone')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('contactEmail') }
+          {makeInput('contactEmail')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isDriveup') }
+          {makeInput('isDriveup')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isDropBox') }
+          {makeInput('isDropBox')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isEarlyDropoffLocation') }
+          {makeInput('isEarlyDropoffLocation')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isEarlyVotingLocation') }
+          {makeInput('isEarlyVotingLocation')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isElectionsOffice') }
+          {makeInput('isElectionsOffice')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isHandicapAccessible') }
+          {makeInput('isHandicapAccessible')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isOutdoors') }
+          {makeInput('isOutdoors')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isPollingLocation') }
+          {makeInput('isPollingLocation')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('isStaffedLocation') }
+          {makeInput('isStaffedLocation')}
         </Grid>
         <Grid item xs={12}>
-          { makeInput('scheduleType') }
+          {makeInput('scheduleType')}
         </Grid>
         <Grid item xs={12} style={{ padding: '2em' }}>
-          { makeButtons() }
+          {makeButtons()}
         </Grid>
       </Grid>
     </form>

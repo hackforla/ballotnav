@@ -17,9 +17,7 @@ const COLUMNS = [
   {
     title: 'Status',
     field: 'jurisdictionStatus',
-    render: (status) => (
-      <JurisdictionStatus status={status} />
-    ),
+    render: (status) => <JurisdictionStatus status={status} />,
     sort: true,
   },
   {

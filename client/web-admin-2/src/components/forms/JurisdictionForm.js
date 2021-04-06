@@ -21,28 +21,28 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
     <form>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          { makeInput('name') }
+          {makeInput('name')}
         </Grid>
         <Grid item xs={6}>
-          { makeInput('authorityName') }
+          {makeInput('authorityName')}
         </Grid>
         <Grid container item xs={6} spacing={0}>
           <Grid item xs={12}>
-            { makeInput('mailAddress1') }
+            {makeInput('mailAddress1')}
           </Grid>
           <Grid item xs={12}>
-            { makeInput('mailAddress2') }
+            {makeInput('mailAddress2')}
           </Grid>
           <Grid item xs={12}>
-            { makeInput('mailAddress3') }
+            {makeInput('mailAddress3')}
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          { makeInput('internalNotes') }
+          {makeInput('internalNotes')}
         </Grid>
         <Grid item xs={6} />
         <Grid item xs={6}>
-          { makeButtons() }
+          {makeButtons()}
         </Grid>
       </Grid>
     </form>

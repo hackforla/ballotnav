@@ -18,8 +18,7 @@ const appReducer = combineReducers({
 
 // wipe store on logout
 const rootReducer = (state, action) => {
-  if (action.type === authTypes.LOGOUT)
-    state = undefined
+  if (action.type === authTypes.LOGOUT) state = undefined
 
   return appReducer(state, action)
 }

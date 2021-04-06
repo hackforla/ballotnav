@@ -34,10 +34,7 @@ const AssignJurisdictions = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>Assign Jurisdictions</h1>
-        <LastUpdated
-          updatedAt={Date.now()}
-          onUpdate={getAssignment}
-        />
+        <LastUpdated updatedAt={Date.now()} onUpdate={getAssignment} />
       </div>
     </div>
   )

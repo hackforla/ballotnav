@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    height: ({ isAuth }) => isAuth ? 'auto' : 150,
+    height: ({ isAuth }) => (isAuth ? 'auto' : 150),
   },
   inner: {
     display: 'flex',

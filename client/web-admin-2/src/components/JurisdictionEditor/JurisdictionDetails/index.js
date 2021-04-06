@@ -38,12 +38,16 @@ const useStyles = makeStyles((theme) => ({
     userSelect: 'none',
   },
   details: {
-    display: ({ showDetails }) => showDetails ? 'block' : 'none',
+    display: ({ showDetails }) => (showDetails ? 'block' : 'none'),
     marginBottom: '3em',
   },
 }))
 
-const JurisdictionDetails = ({ match: { params: { jid } } }) => {
+const JurisdictionDetails = ({
+  match: {
+    params: { jid },
+  },
+}) => {
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
   const jurisdictions = useMyJurisdictions()
@@ -63,12 +67,15 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
     setShowDetails((showDetails) => !showDetails)
   }, [])
 
-  const onSubmitJurisdiction = useCallback((values) => {
-    return updateWipJurisdiction({
-      ...wipJurisdiction,
-      ...values,
-    })
-  }, [wipJurisdiction, updateWipJurisdiction])
+  const onSubmitJurisdiction = useCallback(
+    (values) => {
+      return updateWipJurisdiction({
+        ...wipJurisdiction,
+        ...values,
+      })
+    },
+    [wipJurisdiction, updateWipJurisdiction]
+  )
 
   return (
     <div className={classes.root}>
@@ -77,13 +84,10 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
           <h2 className={classes.title}>Jurisdiction details</h2>
           <JurisdictionStatus status={jurisdictionStatus} />
         </div>
-        <LastUpdated
-          updatedAt={Date.now()}
-          onUpdate={refreshWipJurisdiction}
-        />
+        <LastUpdated updatedAt={Date.now()} onUpdate={refreshWipJurisdiction} />
       </div>
       <div className={classes.detailsToggle} onClick={toggleDetails}>
-        { showDetails ? 'Hide details' : 'Show details' }
+        {showDetails ? 'Hide details' : 'Show details'}
       </div>
       <div className={classes.details}>
         <JurisdictionForm

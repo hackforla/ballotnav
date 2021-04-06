@@ -21,9 +21,7 @@ const Layout = ({ children }) => {
   return (
     <div className={classes.root}>
       <Header />
-      <PageWidth className={classes.inner}>
-        { children }
-      </PageWidth>
+      <PageWidth className={classes.inner}>{children}</PageWidth>
     </div>
   )
 }

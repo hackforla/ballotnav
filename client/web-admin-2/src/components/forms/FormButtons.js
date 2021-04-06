@@ -45,7 +45,7 @@ const FormButtons = ({
         disabled={submitDisabled}
         onClick={onSubmit}
       >
-        { submitLabel }
+        {submitLabel}
       </Button>
     </div>
   )

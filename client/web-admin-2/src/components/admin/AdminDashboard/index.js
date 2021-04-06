@@ -50,10 +50,7 @@ const AdminDashboard = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>Dashboard</h1>
-        <LastUpdated
-          updatedAt={Date.now()}
-          onUpdate={getJurisdictions}
-        />
+        <LastUpdated updatedAt={Date.now()} onUpdate={getJurisdictions} />
       </div>
       <Stats jurisdictions={transformed} />
       <Jurisdictions jurisdictions={transformed} />

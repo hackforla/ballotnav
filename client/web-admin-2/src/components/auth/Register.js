@@ -11,13 +11,12 @@ const validationSchema = Yup.object({
   lastName: Yup.string().required('Required'),
   email: Yup.string().email().required('Required'),
   password: Yup.string().min(8).required('Required'),
-  passwordConfirm: Yup.string().required('Required').oneOf(
-    [Yup.ref('password'), null],
-    'Passwords must match',
-  ),
+  passwordConfirm: Yup.string()
+    .required('Required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   notes: Yup.string(),
   slackName: Yup.string(),
-});
+})
 
 function Register() {
   const { register } = useAuthActions()
@@ -25,13 +24,7 @@ function Register() {
 
   const onSubmit = useCallback((values) => register(values), [register])
 
-  const {
-    values,
-    handleSubmit,
-    handleChange,
-    touched,
-    errors,
-  } = useFormik({
+  const { values, handleSubmit, handleChange, touched, errors } = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',

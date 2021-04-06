@@ -7,14 +7,14 @@ const SelectButton = ({ to }) => {
   return (
     <Link to={`${url}/${to}`}>
       <Button
-        color='primary'
-        variant='contained'
+        color="primary"
+        variant="contained"
         style={{
           textTransform: 'none',
           fontWeight: 700,
           fontSize: 12,
           borderRadius: '1.5em',
-          padding: '0.25em 3em'
+          padding: '0.25em 3em',
         }}
       >
         Select

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     '&:hover': {
       textDecoration: 'underline',
-    }
+    },
   },
 }))
 
@@ -31,10 +31,12 @@ const UserRight = () => {
   return (
     <div className={classes.root}>
       <div className={classes.name}>
-        { user.firstName } { user.lastName }
+        {user.firstName} {user.lastName}
       </div>
       <div className={classes.divider}>|</div>
-      <div className={classes.logout} onClick={logout}>Logout</div>
+      <div className={classes.logout} onClick={logout}>
+        Logout
+      </div>
     </div>
   )
 }

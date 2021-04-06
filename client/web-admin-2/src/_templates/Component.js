@@ -8,11 +8,7 @@ const useStyles = makeStyles((theme) => ({
 const ComponentName = () => {
   const classes = useStyles()
 
-  return (
-    <div className={classes.root}>
-      ComponentName
-    </div>
-  )
+  return <div className={classes.root}>ComponentName</div>
 }
 
 export default ComponentName

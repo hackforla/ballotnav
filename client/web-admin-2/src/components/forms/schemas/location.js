@@ -118,7 +118,7 @@ const schema = {
         { value: 'description', label: 'Description' },
         { value: 'hours', label: 'Hours' },
         { value: 'continuous', label: 'Continuous' },
-      ]
+      ],
     },
     defaultValue: 'description',
   },
