@@ -6,14 +6,14 @@ import Volunteer from 'components/routers/Volunteer'
 import Admin from 'components/routers/Admin'
 
 const App = () => {
-  const { isChecked, user } = useAuth()
+  const { authChecked, user } = useAuth()
   const { getUser } = useAuthActions()
 
   useEffect(() => {
-    if (!isChecked) getUser()
-  }, [isChecked, getUser])
+    if (!authChecked) getUser()
+  }, [authChecked, getUser])
 
-  if (!isChecked) return null
+  if (!authChecked) return null
   if (!user) return <Auth />
   if (user.role === 'volunteer') return <Volunteer />
   if (user.role === 'admin') return <Admin />
