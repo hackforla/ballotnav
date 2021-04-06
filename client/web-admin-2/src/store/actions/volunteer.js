@@ -8,6 +8,7 @@ export const types = {
   CLOSE_JURISDICTION_TAB: 'volunteer/CLOSE_JURISDICTION_TAB',
   GET_WIP_JURISDICTION_SUCCESS: 'volunteer/GET_WIP_JURISDICTION_SUCCESS',
   UPDATE_WIP_JURISDICTION_SUCCESS: 'volunteer/UPDATE_WIP_JURISDICTION_SUCCESS',
+  RELEASE_WIP_JURISDICTION_SUCCESS: 'volunteer/RELEASE_WIP_JURISDICTION_SUCCESS',
 }
 
 export const getMyJurisdictions = () => {
@@ -60,6 +61,7 @@ export const releaseWipJurisdiction = (wip) => {
   return async (dispatch) => {
     await api.wip.releaseJurisdiction(wip.id)
 
+    dispatch({ type: types.RELEASE_WIP_JURISDICTION_SUCCESS })
     dispatch(toast({ message: `Released ${wip.name}` }))
     dispatch(getWipJurisdiction(wip.jurisdictionId))
     dispatch(getMyJurisdictions()) // necessary to get status update

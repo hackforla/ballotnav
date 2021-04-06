@@ -5,12 +5,14 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { reducer as auth, types as authTypes } from './actions/auth'
 import { reducer as toaster } from './actions/toaster'
 import { reducer as volunteer } from './actions/volunteer'
+import { reducer as admin } from './actions/admin'
 import { reducer as assignment } from './actions/assignment'
 
 const appReducer = combineReducers({
   auth,
   toaster,
   volunteer,
+  admin,
   assignment,
 })
 
