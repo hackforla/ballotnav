@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import HeaderRow from './HeaderRow'
 import Rows from './Rows'
 import CollapsibleRows from './CollapsibleRows'
+import Controls from './Controls'
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -10,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.primary.main,
     userSelect: 'none',
+    tableLayout: 'fixed',
     '& th': {
       backgroundColor: '#EBF3FA',
       '& > div': {
@@ -19,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& th, & td': {
       textAlign: 'left',
-      padding: '1.25em',
+      padding: ({ dense }) => dense ? '0.75em' : '1.25em',
     },
     '& tbody tr': {
       borderBottom: '1px #C3C8E4 solid',
@@ -28,15 +30,21 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
-  const classes = useStyles()
+  const [dense, setDense] = useState(true)
+  const classes = useStyles({ dense })
   const [sortCol, setSortCol] = useState(-1)
   const [sortDirection, setSortDirection] = useState('desc')
+  const [pageIndex, setPageIndex] = useState(0)
+  const [pageLength, setPageLength] = useState(10)
 
   useEffect(() => {
     // default to first sortable column
     setSortCol(columns.findIndex((col) => col.sort))
     setSortDirection('desc')
   }, [columns])
+
+  // reset page index when data changes
+  useEffect(() => setPageIndex(0), [data])
 
   const sortedData = useMemo(() => {
     if (!data) return null
@@ -59,6 +67,12 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
     return sorted
   }, [data, columns, sortCol, sortDirection])
 
+  const pagedData = useMemo(() => {
+    const start = pageIndex * pageLength
+    const end = start + pageLength
+    return sortedData.slice(start, end)
+  }, [sortedData, pageIndex, pageLength])
+
   const handleColumnClick = useCallback((colIndex) => {
     if (colIndex !== sortCol) {
       setSortCol(colIndex)
@@ -70,32 +84,43 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
 
   if (!sortedData) return null
   return (
-    <table className={classes.table}>
-      <thead>
-        <HeaderRow
-          columns={columns}
-          onClick={handleColumnClick}
-          sortCol={sortCol}
-          sortDirection={sortDirection}
-        />
-      </thead>
-      <tbody>
-        {collapse ? (
-          <CollapsibleRows
-            data={sortedData}
+    <div>
+      <table className={classes.table}>
+        <thead>
+          <HeaderRow
             columns={columns}
-            keyExtractor={keyExtractor}
-            collapse={collapse}
+            onClick={handleColumnClick}
+            sortCol={sortCol}
+            sortDirection={sortDirection}
           />
-        ) : (
-          <Rows
-            data={sortedData}
-            columns={columns}
-            keyExtractor={keyExtractor}
-          />
-        )}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {collapse ? (
+            <CollapsibleRows
+              data={pagedData}
+              columns={columns}
+              keyExtractor={keyExtractor}
+              collapse={collapse}
+            />
+          ) : (
+            <Rows
+              data={pagedData}
+              columns={columns}
+              keyExtractor={keyExtractor}
+            />
+          )}
+        </tbody>
+      </table>
+      <Controls
+        rowCount={data.length}
+        pageIndex={pageIndex}
+        onChangePageIndex={setPageIndex}
+        pageLength={pageLength}
+        onChangePageLength={setPageLength}
+        dense={dense}
+        onChangeDense={setDense}
+      />
+    </div>
   )
 }
 
