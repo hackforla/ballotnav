@@ -132,8 +132,8 @@ function TransferList({
 
   return (
     <Grid container spacing={2} justify="flex-start" alignItems="center" className={classes.root}>
-      <Grid item>{customList(leftTitle, 'Select all', leftItems)}</Grid>
-      <Grid item>
+      <Grid item xs={5}>{customList(leftTitle, 'Select all', leftItems)}</Grid>
+      <Grid item xs={2}>
         <Grid container direction="column" alignItems="center">
           <Button
             variant="outlined"
@@ -157,7 +157,7 @@ function TransferList({
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList(rightTitle, 'Select all', rightItems)}</Grid>
+      <Grid item xs={5}>{customList(rightTitle, 'Select all', rightItems)}</Grid>
     </Grid>
   )
 }

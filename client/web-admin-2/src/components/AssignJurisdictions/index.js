@@ -30,11 +30,7 @@ const useStyles = makeStyles((theme) => ({
   gridContainer: {
     height: '575px',
   },
-  gridItem: {
-    minWidth: '250px',
-    maxWidth: '300px',
-    marginRight: '35px',
-  },
+  gridItem: {},
   card: {
     marginTop: '50px',
     position: 'relative',
@@ -216,9 +212,10 @@ function AssignJurisdictions() {
       <Grid
         container
         className={classes.gridContainer}
+        spacing={6}
       >
         {/****************  SELECT VOLUNTEER, STATE  ****************/}
-        <Grid item className={classes.gridItem} style={{ height: '30%' }} >
+        <Grid item xs={4} className={classes.gridItem} style={{ height: '30%' }} >
           <SimpleSelect
             className={classes.select}
             disabled={!loaded}
@@ -283,7 +280,7 @@ function AssignJurisdictions() {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item>
+        <Grid item xs={8}>
         {/****************  JURISDICTION ASSIGNMENT  ****************/}
           <TransferList
             leftTitle="Unassigned Jurisdictions"
