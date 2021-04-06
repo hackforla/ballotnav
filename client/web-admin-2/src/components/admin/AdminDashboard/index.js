@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const AdminJurisdictions = () => {
+const AdminDashboard = () => {
   const classes = useStyles()
   const { getJurisdictions } = useAssignmentActions()
   const { jurisdictions } = useAssignment()
@@ -49,7 +49,7 @@ const AdminJurisdictions = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h1 className={classes.title}>My Jurisdictions</h1>
+        <h1 className={classes.title}>Dashboard</h1>
         <LastUpdated
           updatedAt={Date.now()}
           onUpdate={getJurisdictions}
@@ -61,4 +61,4 @@ const AdminJurisdictions = () => {
   )
 }
 
-export default AdminJurisdictions
+export default AdminDashboard

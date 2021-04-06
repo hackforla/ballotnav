@@ -6,19 +6,23 @@ import JurisdictionTabs from './JurisdictionTabs'
 
 const VOLUNTEER_TABS = [
   {
-    pathname: '/jurisdictions',
     title: 'My Jurisdictions',
+    pathname: '/jurisdictions',
   }
 ]
 
 const ADMIN_TABS = [
   {
-    pathname: '/jurisdictions',
-    title: 'My Jurisdictions',
+    title: 'Dashboard',
+    pathname: '/dashboard',
   },
   {
+    title: 'Assign',
     pathname: '/assign',
-    title: 'Assign Jurisdictions',
+  },
+  {
+    title: 'Review',
+    pathname: '/jurisdictions',
   },
 ]
 

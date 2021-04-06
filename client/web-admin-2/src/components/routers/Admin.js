@@ -1,26 +1,21 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Layout from 'components/core/Layout'
-import AdminJurisdictions from 'components/AdminJurisdictions'
-import AssignJurisdictions from 'components/AssignJurisdictions'
+import AdminDashboard from 'components/admin/AdminDashboard'
+import AssignJurisdictions from 'components/admin/AssignJurisdictions'
+import ReviewJurisdictions from 'components/admin/ReviewJurisdictions'
 
 const Admin = () => {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/jurisdictions" component={AdminJurisdictions} />
-        <Route exact path="/assign" component={AssignJurisdictions} />
-        <Redirect to="/jurisdictions" />
+        <Route exact path="/dashboard" component={AdminDashboard} />
+        <Route path="/assign" component={AssignJurisdictions} />
+        <Route path="/jurisdictions" component={ReviewJurisdictions} />
+        <Redirect to="/dashboard" />
       </Switch>
     </Layout>
   )
 }
 
 export default Admin
-
-// {isAdmin && <Route exact path="/states" component={ListStates} />}
-// {isAdmin && <Route exact path="/states/:id" component={EditState} />}
-// {isAdmin && <Route exact path="/review/:wipJurisdictionId" component={EditJurisAdmin} />}
-// {isAdmin && <Route exact path="/review" component={ListReleasedJurisdictions} />}
-// {isAdmin && <Route exact path="/assign" component={AssignJurisdictions} />}
-// {isAdmin && <Redirect to="/review" />}

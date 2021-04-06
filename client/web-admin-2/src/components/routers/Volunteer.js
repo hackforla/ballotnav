@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { useMyJurisdictions } from 'store/selectors'
 import useVolunteerActions from 'store/actions/volunteer'
 import Layout from 'components/core/Layout'
-import MyJurisdictions from 'components/MyJurisdictions'
+import MyJurisdictions from 'components/volunteer/MyJurisdictions'
 import JurisdictionEditor from 'components/JurisdictionEditor'
 
 const Volunteer = () => {
