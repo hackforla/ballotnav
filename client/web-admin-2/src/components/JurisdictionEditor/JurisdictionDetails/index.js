@@ -6,6 +6,7 @@ import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
 import JurisdictionForm from 'components/forms/JurisdictionForm'
 import Submodels from './Submodels'
+import Footer from '../Footer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -91,6 +92,9 @@ const JurisdictionDetails = ({ match: { params: { jid } } }) => {
         />
       </div>
       <Submodels wipJurisdiction={wipJurisdiction} />
+      <div style={{ marginTop: '3em' }}>
+        <Footer wipJurisdiction={wipJurisdiction} />
+      </div>
     </div>
   )
 }

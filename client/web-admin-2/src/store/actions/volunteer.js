@@ -52,6 +52,17 @@ export const updateWipJurisdiction = (wip) => {
     })
 
     dispatch(toast({ message: `Updated ${wip.name}.` }))
+    dispatch(getMyJurisdictions()) // necessary to get status update
+  }
+}
+
+export const releaseWipJurisdiction = (wip) => {
+  return async (dispatch) => {
+    await api.wip.releaseJurisdiction(wip.id)
+
+    dispatch(toast({ message: `Released ${wip.name}` }))
+    dispatch(getWipJurisdiction(wip.jurisdictionId))
+    dispatch(getMyJurisdictions()) // necessary to get status update
   }
 }
 
@@ -61,6 +72,7 @@ export default useActions.bind(null, {
   closeJurisdictionTab,
   getWipJurisdiction,
   updateWipJurisdiction,
+  releaseWipJurisdiction,
 })
 
 const initialState = {
