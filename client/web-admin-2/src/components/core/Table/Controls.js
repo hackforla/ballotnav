@@ -5,11 +5,12 @@ import Switch from '@material-ui/core/Switch'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: '0.5em',
+    padding: '0 0.5em',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     userSelect: 'none',
+    backgroundColor: '#EBF3FA',
   },
   density: {
     display: 'flex',
@@ -25,8 +26,8 @@ const TableControls = ({
   rowCount,
   pageIndex,
   onChangePageIndex,
-  pageLength,
-  onChangePageLength,
+  rowsPerPage,
+  onChangeRowsPerPage,
   dense,
   onChangeDense,
 }) => {
@@ -47,10 +48,10 @@ const TableControls = ({
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rowCount}
-          rowsPerPage={pageLength}
-          page={pageIndex > Math.floor(rowCount / pageLength) ? 0 : pageIndex}
+          rowsPerPage={rowsPerPage}
+          page={pageIndex > Math.floor(rowCount / rowsPerPage) ? 0 : pageIndex}
           onChangePage={(e, val) => onChangePageIndex(val)}
-          onChangeRowsPerPage={(e, val) => onChangePageLength(val)}
+          onChangeRowsPerPage={(e, val) => onChangeRowsPerPage(e.target.value)}
         />
       </div>
     </div>

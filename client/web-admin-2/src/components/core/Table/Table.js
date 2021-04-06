@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.primary.main,
     userSelect: 'none',
-    tableLayout: 'fixed',
     '& th': {
       backgroundColor: '#EBF3FA',
       '& > div': {
@@ -21,21 +20,22 @@ const useStyles = makeStyles((theme) => ({
     },
     '& th, & td': {
       textAlign: 'left',
-      padding: ({ dense }) => dense ? '0.75em' : '1.25em',
+      padding: ({ dense }) => dense ? '0 0.75em' : '0 1.25em',
+      height: ({ dense }) => dense ? 40 : 60,
     },
-    '& tbody tr': {
+    '& tbody tr:not(:last-child)': {
       borderBottom: '1px #C3C8E4 solid',
     },
   },
 }))
 
 const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
-  const [dense, setDense] = useState(true)
+  const [dense, setDense] = useState(false)
   const classes = useStyles({ dense })
   const [sortCol, setSortCol] = useState(-1)
   const [sortDirection, setSortDirection] = useState('desc')
   const [pageIndex, setPageIndex] = useState(0)
-  const [pageLength, setPageLength] = useState(10)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
 
   useEffect(() => {
     // default to first sortable column
@@ -68,10 +68,12 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
   }, [data, columns, sortCol, sortDirection])
 
   const pagedData = useMemo(() => {
-    const start = pageIndex * pageLength
-    const end = start + pageLength
+    if (!sortedData) return null
+
+    const start = pageIndex * rowsPerPage
+    const end = start + rowsPerPage
     return sortedData.slice(start, end)
-  }, [sortedData, pageIndex, pageLength])
+  }, [sortedData, pageIndex, rowsPerPage])
 
   const handleColumnClick = useCallback((colIndex) => {
     if (colIndex !== sortCol) {
@@ -82,7 +84,8 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
     }
   }, [sortCol])
 
-  if (!sortedData) return null
+  if (!pagedData) return null
+  const emptyRows = rowsPerPage - pagedData.length
   return (
     <div>
       <table className={classes.table}>
@@ -107,7 +110,13 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
               data={pagedData}
               columns={columns}
               keyExtractor={keyExtractor}
+              numEmptyRows={rowsPerPage - pagedData.length}
             />
+          )}
+          {emptyRows > 0 && (
+            <tr style={{ height: (dense ? 40 : 60) * emptyRows }}>
+              <td colSpan={columns.length} />
+            </tr>
           )}
         </tbody>
       </table>
@@ -115,8 +124,8 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
         rowCount={data.length}
         pageIndex={pageIndex}
         onChangePageIndex={setPageIndex}
-        pageLength={pageLength}
-        onChangePageLength={setPageLength}
+        rowsPerPage={rowsPerPage}
+        onChangeRowsPerPage={setRowsPerPage}
         dense={dense}
         onChangeDense={setDense}
       />
