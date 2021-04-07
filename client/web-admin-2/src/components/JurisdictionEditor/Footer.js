@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
 import PageWidth from 'components/core/PageWidth'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = ({ wipJurisdiction }) => {
   const classes = useStyles()
-  const { releaseWipJurisdiction } = useVolunteerActions()
+  const { releaseWipJurisdiction } = useWipActions()
 
   return (
     <div className={classes.root}>

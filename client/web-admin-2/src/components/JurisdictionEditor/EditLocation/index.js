@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-import { useWipJurisdiction, useMyJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useWipJurisdiction } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import LocationForm from 'components/forms/LocationForm'
 import Interview from './Interview'
@@ -49,14 +49,13 @@ const EditLocation = ({
   const classes = useStyles()
   const history = useHistory()
   const wipJurisdiction = useWipJurisdiction(jid)
-  const jurisdiction = useMyJurisdiction(jid)
 
   const isNew = lid === 'new'
   const wipLocation = isNew
     ? undefined
     : wipJurisdiction.locations.find((loc) => loc.id === +lid)
 
-  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
+  const { getWipJurisdiction, updateWipJurisdiction } = useWipActions()
 
   const updateJurisdiction = useCallback(() => {
     getWipJurisdiction(jid)
@@ -96,7 +95,7 @@ const EditLocation = ({
               {isNew ? 'New Location' : wipLocation.name}
             </div>
             <div>
-              {wipJurisdiction.name}, {jurisdiction.state.name}
+              {wipJurisdiction.name}, {wipJurisdiction.jurisdiction.state.name}
             </div>
           </div>
           <LocationForm wipLocation={wipLocation} onSubmit={onSubmitLocation} />

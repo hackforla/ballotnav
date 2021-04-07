@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { useWipJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
 import JurisdictionDetails from './JurisdictionDetails'
 import EditLocation from './EditLocation'
 
@@ -11,7 +11,7 @@ const JurisdictionEditor = ({
     path,
   },
 }) => {
-  const { getWipJurisdiction } = useVolunteerActions()
+  const { getWipJurisdiction } = useWipActions()
   const wipJurisdiction = useWipJurisdiction(jid)
 
   useEffect(() => {

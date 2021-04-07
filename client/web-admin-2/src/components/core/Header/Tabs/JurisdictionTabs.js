@@ -2,8 +2,8 @@ import React, { useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import clsx from 'clsx'
-import { useJurisdictionTabs, useMyJurisdictions } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useJurisdictionTabs, useWipJurisdictions } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import CloseIcon from '@material-ui/icons/Close'
 
 const useStyles = makeStyles((theme) => ({
@@ -50,39 +50,26 @@ const useStyles = makeStyles((theme) => ({
 const JurisdictionTabs = () => {
   const classes = useStyles()
   const history = useHistory()
-  const jurisdictions = useMyJurisdictions()
+  const jurisdictions = useWipJurisdictions()
   const jurisdictionTabs = useJurisdictionTabs()
-  const { openJurisdictionTab, closeJurisdictionTab } = useVolunteerActions()
+  const { openJurisdictionTab, closeJurisdictionTab } = useWipActions()
   const match = useRouteMatch('/jurisdictions/:jid')
   const selectedJid = +match?.params.jid
 
   useEffect(() => {
-    if (!jurisdictions) return
-
-    // handle case where jurisdiction is not assigned to user
-    if (!jurisdictions.find((j) => j.id === selectedJid))
-      return history.push('/jurisdictions')
-
-    // open the tab if it's not open already
-    if (!jurisdictionTabs.includes(selectedJid))
+    if (selectedJid && !jurisdictionTabs.includes(selectedJid))
       openJurisdictionTab(selectedJid)
-  }, [
-    openJurisdictionTab,
-    history,
-    selectedJid,
-    jurisdictions,
-    jurisdictionTabs,
-  ])
+  }, [ openJurisdictionTab, selectedJid, jurisdictionTabs ])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []
 
     return jurisdictionTabs
       .map((jid) => {
-        const jurisdiction = jurisdictions.find((juris) => juris.id === jid)
+        const jurisdiction = jurisdictions[jid]
         if (!jurisdiction) return null
         return {
-          jid: jurisdiction.id,
+          jid,
           title: jurisdiction.name,
         }
       })

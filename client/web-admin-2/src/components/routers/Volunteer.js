@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { useMyJurisdictions } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
 import Layout from 'components/core/Layout'
 import MyJurisdictions from 'components/volunteer/MyJurisdictions'
 import JurisdictionEditor from 'components/JurisdictionEditor'
 
 const Volunteer = () => {
   const myJurisdictions = useMyJurisdictions()
-  const { getMyJurisdictions } = useVolunteerActions()
+  const { getMyJurisdictions } = useWipActions()
 
   useEffect(() => {
     if (!myJurisdictions) getMyJurisdictions()

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import Table from 'components/core/Table'
 import SelectButton from 'components/core/SelectButton'
@@ -21,24 +21,19 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { id }) => <SelectButton to={id} />,
+    render: (_, { jurisdictionId: id }) => <SelectButton to={id} />,
     textAlign: 'center',
   },
 ]
 
 const JurisdictionsTable = ({ jurisdictions }) => {
-  const data = useMemo(() => {
-    if (!jurisdictions) return null
-
-    return jurisdictions.map((j) => ({
-      id: j.id,
-      jurisdictionName: j.name,
-      stateName: j.state.name,
-      jurisdictionStatus: j.jurisdictionStatus,
-    }))
-  }, [jurisdictions])
-
-  return <Table data={data} columns={COLUMNS} />
+  return (
+    <Table
+      data={jurisdictions}
+      columns={COLUMNS}
+      keyExtractor={(jurisdiction) => jurisdiction.jurisdictionId}
+    />
+  )
 }
 
 export default JurisdictionsTable

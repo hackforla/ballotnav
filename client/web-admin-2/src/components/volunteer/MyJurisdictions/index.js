@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import SearchBox from 'components/core/SearchBox'
 import Table from './Table'
@@ -32,7 +32,7 @@ const MyJurisdictions = () => {
   const classes = useStyles()
   const [filter, setFilter] = useState('')
   const myJurisdictions = useMyJurisdictions()
-  const { getMyJurisdictions } = useVolunteerActions()
+  const { getMyJurisdictions } = useWipActions()
 
   const filteredJurisdictions = useMemo(() => {
     const cleanFilter = filter.trim()

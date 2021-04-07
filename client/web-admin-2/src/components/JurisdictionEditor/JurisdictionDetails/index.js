@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
 import JurisdictionForm from 'components/forms/JurisdictionForm'
@@ -51,7 +51,7 @@ const JurisdictionDetails = ({
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
   const jurisdictions = useMyJurisdictions()
-  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
+  const { getWipJurisdiction, updateWipJurisdiction } = useWipActions()
   const wipJurisdiction = useWipJurisdiction(jid)
 
   const jurisdictionStatus = useMemo(() => {
