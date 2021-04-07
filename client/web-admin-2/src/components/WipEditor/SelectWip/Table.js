@@ -43,7 +43,7 @@ const EXTRA_ADMIN_COLUMNS = [
 const WipTable = ({ wips }) => {
   const { isAdmin } = useRole()
 
-  const columns = [ ...COLUMNS ]
+  const columns = [...COLUMNS]
   if (isAdmin) columns.splice(2, 0, ...EXTRA_ADMIN_COLUMNS)
 
   return (

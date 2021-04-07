@@ -5,7 +5,7 @@ import useWipActions from 'store/actions/wip'
 import SelectWip from './SelectWip'
 import EditWip from './EditWip'
 
-const WipEditor = ({ match: { path }}) => {
+const WipEditor = ({ match: { path } }) => {
   const wipList = useWipList()
   const { listWips } = useWipActions()
 

@@ -31,8 +31,7 @@ const Footer = ({ wipJurisdiction }) => {
   const history = useHistory()
 
   const onClick = useCallback(async () => {
-    if (isVolunteer)
-      return releaseWip(wipJurisdiction)
+    if (isVolunteer) return releaseWip(wipJurisdiction)
 
     await publishWip(wipJurisdiction)
     history.push('/jurisdictions')
@@ -54,7 +53,7 @@ const Footer = ({ wipJurisdiction }) => {
             padding: '1em 3em',
           }}
         >
-          { isVolunteer ? 'Submit For Review' : 'Publish' }
+          {isVolunteer ? 'Submit For Review' : 'Publish'}
         </Button>
       </PageWidth>
     </div>

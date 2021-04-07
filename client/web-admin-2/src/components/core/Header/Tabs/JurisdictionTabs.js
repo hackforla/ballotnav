@@ -59,7 +59,7 @@ const JurisdictionTabs = () => {
   useEffect(() => {
     if (selectedJid && !jurisdictionTabs.includes(selectedJid))
       openTab(selectedJid)
-  }, [ openTab, selectedJid, jurisdictionTabs ])
+  }, [openTab, selectedJid, jurisdictionTabs])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []

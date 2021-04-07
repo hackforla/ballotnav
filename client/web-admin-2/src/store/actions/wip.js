@@ -36,8 +36,7 @@ export const listWips = () => {
 export const getWip = (jid) => {
   return async (dispatch, getState) => {
     const data = await (async () => {
-      if (!isAdmin(getState))
-        return await api.wip.getJurisdiction(jid)
+      if (!isAdmin(getState)) return await api.wip.getJurisdiction(jid)
 
       const list = wipList(getState())
       const wipListItem = list.find((wip) => wip.jurisdictionId === +jid)

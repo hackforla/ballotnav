@@ -49,7 +49,7 @@ const WipList = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <h1 className={classes.title}>
-          { isVolunteer ? 'My Jurisdictions' : 'Review Jurisdictions' }
+          {isVolunteer ? 'My Jurisdictions' : 'Review Jurisdictions'}
         </h1>
         <LastUpdated updatedAt={Date.now()} onUpdate={listWips} />
       </div>

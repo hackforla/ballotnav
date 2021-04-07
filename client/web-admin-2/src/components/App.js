@@ -15,10 +15,13 @@ const App = () => {
 
   if (!authChecked) return null
 
-  switch(user?.role) {
-    case 'volunteer': return <Volunteer />
-    case 'admin': return <Admin  />
-    default: return <Auth />
+  switch (user?.role) {
+    case 'volunteer':
+      return <Volunteer />
+    case 'admin':
+      return <Admin />
+    default:
+      return <Auth />
   }
 }
 
