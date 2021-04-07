@@ -1,8 +1,35 @@
 const { Op } = require('sequelize')
 const logger = require('@log')
 
+exports.listMyJurisdictions = async (req, res, next) => {
+  const userId = req.user.id
+
+  const jurisdictions = await req.db.sequelize.query(
+    `
+      SELECT *
+        FROM user_jurisdiction_with_currwip
+        WHERE user_id = ':userId'
+    `,
+    {
+      replacements: { userId },
+      type: req.db.Sequelize.QueryTypes.SELECT,
+    }
+  )
+
+  const transformed = jurisdictions.map((j) => ({
+    stateName: j.state_name,
+    jurisdictionId: j.jurisdiction_id,
+    jurisdictionName: j.jurisdiction_name,
+    jurisdictionStatus: j.jurisdiction_status,
+    wipJurisdictionId: j.wip_jurisdiction_id,
+    wipJurisdictionIsReleased: j.wip_jurisdiction_is_released,
+  }))
+
+  res.json(transformed)
+}
+
 exports.listReleasedJurisdictions = async (req, res, next) => {
-  const rows = await req.db.sequelize.query(
+  const jurisdictions = await req.db.sequelize.query(
     `
     SELECT u.last_name, u.first_name, u.slack_name, uj.*
     FROM user_jurisdiction_with_currwip uj
@@ -15,22 +42,23 @@ exports.listReleasedJurisdictions = async (req, res, next) => {
     }
   )
 
-  const data = rows.map((row) => ({
-    wipJurisdictionId: row.wip_jurisdiction_id,
-    editorUserId: row.user_id,
-    editorName: `${row.first_name} ${row.last_name}`,
-    editorSlackName: row.slack_name,
-    jurisdictionName: row.jurisdiction_name,
-    jurisdictionStatus: row.jurisdiction_status,
-    stateName: row.state_name,
+  const transformed = jurisdictions.map((j) => ({
+    stateName: j.state_name,
+    jurisdictionId: j.jurisdiction_id,
+    jurisdictionName: j.jurisdiction_name,
+    jurisdictionStatus: j.jurisdiction_status,
+    wipJurisdictionId: j.wip_jurisdiction_id,
+    wipJurisdictionIsReleased: true,
+    editorUserId: j.user_id,
+    editorName: `${j.first_name} ${j.last_name}`,
+    editorSlackName: j.slack_name,
   }))
 
-  return res.json(data)
+  return res.json(transformed)
 }
 
-exports.getReleasedJurisdiction = async (req, res, next) => {
-  const { wipJurisdictionId } = req.params
-  const data = await req.db.WipJurisdiction.findByPk(wipJurisdictionId, {
+async function getWipJurisdiction(wipJurisdictionId, db) {
+  return await db.WipJurisdiction.findByPk(wipJurisdictionId, {
     include: [
       { all: true },
       {
@@ -39,10 +67,15 @@ exports.getReleasedJurisdiction = async (req, res, next) => {
       },
     ],
   })
+}
+
+exports.getReleasedJurisdiction = async (req, res, next) => {
+  const { wipJurisdictionId } = req.params
+  const data = await getWipJurisdiction(wipJurisdictionId, req.db)
   return res.json(data)
 }
 
-exports.getWipJurisdiction = async (req, res, next) => {
+exports.getOrCreateWipJurisdiction = async (req, res, next) => {
   const { jurisdictionId } = req.params
   const userId = req.user.id
 
@@ -66,20 +99,8 @@ exports.getWipJurisdiction = async (req, res, next) => {
     })
   }
 
-  const wipJurisdiction = await req.db.WipJurisdiction.findByPk(
-    wipJurisdictionId,
-    {
-      include: [
-        { all: true },
-        {
-          association: 'locations',
-          include: { association: 'hours' },
-        },
-      ],
-    }
-  )
-
-  return res.json(wipJurisdiction)
+  const data = await getWipJurisdiction(wipJurisdictionId, req.db)
+  return res.json(data)
 }
 
 exports.releaseWipJurisdiction = async (req, res, next) => {
@@ -232,25 +253,16 @@ exports.updateWipJurisdiction = async (req, res, next) => {
         where: { id: wipJurisdictionId },
       }
     )
-    const wj = await req.db.WipJurisdiction.findOne({
-      where: { id: wipJurisdictionId },
-    })
 
     logger.info({
       message: 'Success: updated wip jurisdiction',
       count: locations.length,
-      wipJurisdictionId: wj.id,
+      wipJurisdictionId,
     })
-    return res.status(200).json({
-      ...wj.dataValues,
-      locations,
-      importantDates,
-      infoTabs,
-      news,
-      notices,
-      phones,
-      urls,
-    })
+
+    const data = await getWipJurisdiction(wipJurisdictionId, req.db)
+    return res.json(data)
+
   } catch (err) {
     next(err)
   }

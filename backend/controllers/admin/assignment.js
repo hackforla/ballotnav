@@ -87,42 +87,6 @@ exports.listVolunteers = async (req, res) => {
   }
 }
 
-exports.listMyJurisdictions = async (req, res, next) => {
-  const userId = req.user.id
-
-  const userJurisdictions = await req.db.UserJurisdiction.findAll({
-    where: { userId },
-    include: {
-      association: 'jurisdiction',
-      include: { association: 'state' },
-    },
-  })
-
-  const statuses = await req.db.sequelize.query(
-    `
-      SELECT jurisdiction_id, jurisdiction_status
-        FROM user_jurisdiction_with_currwip
-        WHERE user_id = ':userId'
-    `,
-    {
-      replacements: { userId },
-      type: req.db.Sequelize.QueryTypes.SELECT,
-    }
-  )
-
-  const data = userJurisdictions.map((uJ) => ({
-    ...uJ.dataValues.jurisdiction.dataValues,
-    jurisdictionStatus: (() => {
-      const status = statuses.find(
-        (status) => status.jurisdiction_id === uJ.jurisdictionId
-      )
-      return status ? status.jurisdiction_status : 'Unknown'
-    })(),
-  }))
-
-  res.json(data)
-}
-
 // TODO: not sure if this will be needed
 
 // exports.listUnassignedJurisdictions = async (req, res) => {
