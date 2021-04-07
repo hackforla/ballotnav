@@ -117,12 +117,14 @@ exports.releaseWipJurisdiction = async (req, res, next) => {
     }
   )
 
-  if (data[0] === 1) return res.json({ success: true })
-  else
+  if (data[0] !== 1)
     return res.status(500).json({
       success: false,
       message: 'Release failed.',
     })
+
+  const out = await getWipJurisdiction(wipJurisdictionId, req.db)
+  return res.json(out)
 }
 
 exports.publishWipJurisdiction = async (req, res, next) => {
@@ -146,7 +148,8 @@ exports.publishWipJurisdiction = async (req, res, next) => {
     })
   }
 
-  return res.json({ success: true })
+  const out = await getWipJurisdiction(wipJurisdictionId, req.db)
+  return res.json(out)
 }
 
 /**
