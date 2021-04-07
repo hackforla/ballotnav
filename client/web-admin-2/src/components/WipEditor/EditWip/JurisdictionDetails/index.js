@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useWipList, useWip } from 'store/selectors'
+import { useWip, useWipListItem } from 'store/selectors'
 import useWipActions from 'store/actions/wip'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
@@ -50,14 +50,9 @@ const JurisdictionDetails = ({
 }) => {
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
-  const jurisdictions = useWipList()
+  const jurisdictionStatus = useWipListItem(jid)?.jurisdictionStatus
   const { getWip, updateWip } = useWipActions()
   const wipJurisdiction = useWip(jid)
-
-  const jurisdictionStatus = useMemo(() => {
-    if (!jurisdictions) return null
-    return jurisdictions.find((j) => j.id === +jid)?.jurisdictionStatus
-  }, [jurisdictions, jid])
 
   const refreshWip = useCallback(() => getWip(jid), [getWip, jid])
 

@@ -35,4 +35,8 @@ export const jurisdictionTabs = (state) => state.wip.tabs
 export const useWipList = () => useSelector(wipList)
 export const useWips = () => useSelector(wips)
 export const useWip = (jid) => useWips()[jid]
+export const useWipListItem = (jid) => {
+  const wipList = useWipList()
+  return wipList.find((wip) => wip.jurisdictionId === +jid)
+}
 export const useJurisdictionTabs = () => useSelector(jurisdictionTabs)

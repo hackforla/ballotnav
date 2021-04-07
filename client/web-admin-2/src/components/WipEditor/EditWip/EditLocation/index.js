@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-import { useWip } from 'store/selectors'
+import { useWip, useWipListItem } from 'store/selectors'
 import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import LocationForm from 'components/forms/LocationForm'
@@ -48,12 +48,13 @@ const EditLocation = ({
 }) => {
   const classes = useStyles()
   const history = useHistory()
-  const wipJurisdiction = useWip(jid)
+  const wip = useWip(jid)
+  const stateName = useWipListItem(jid).stateName
 
   const isNew = lid === 'new'
   const wipLocation = isNew
     ? undefined
-    : wipJurisdiction.locations.find((loc) => loc.id === +lid)
+    : wip.locations.find((loc) => loc.id === +lid)
 
   const { getWip, updateWip } = useWipActions()
 
@@ -64,11 +65,11 @@ const EditLocation = ({
   const onSubmitLocation = useCallback(
     (values) => {
       return updateWip({
-        ...wipJurisdiction,
+        ...wip,
         locations: (() => {
-          if (isNew) return [values, ...wipJurisdiction.locations]
+          if (isNew) return [values, ...wip.locations]
 
-          return wipJurisdiction.locations.map((wipLocation) => {
+          return wip.locations.map((wipLocation) => {
             return wipLocation.id === +lid
               ? { ...wipLocation, ...values }
               : wipLocation
@@ -76,7 +77,7 @@ const EditLocation = ({
         })(),
       })
     },
-    [wipJurisdiction, isNew, lid, updateWip]
+    [wip, isNew, lid, updateWip]
   )
 
   return (
@@ -95,7 +96,7 @@ const EditLocation = ({
               {isNew ? 'New Location' : wipLocation.name}
             </div>
             <div>
-              {wipJurisdiction.name}, {wipJurisdiction.jurisdiction.state.name}
+              {wip.name}, {stateName}
             </div>
           </div>
           <LocationForm wipLocation={wipLocation} onSubmit={onSubmitLocation} />

@@ -2,6 +2,7 @@ import api from 'services/api'
 import useActions from 'hooks/useActions'
 import { auth } from 'store/selectors'
 import { toast } from 'store/actions/toaster'
+import { wipList } from 'store/selectors'
 
 export const types = {
   LIST_WIPS_SUCCESS: 'wip/LIST_WIPS_SUCCESS',
@@ -34,9 +35,15 @@ export const listWips = () => {
 
 export const getWip = (jid) => {
   return async (dispatch, getState) => {
-    const data = isAdmin(getState)
-      ? await api.wip.getReleasedJurisdiction(jid)
-      : await api.wip.getJurisdiction(jid)
+    const data = await (async () => {
+      if (!isAdmin(getState))
+        return await api.wip.getJurisdiction(jid)
+
+      const list = wipList(getState())
+      const wipListItem = list.find((wip) => wip.jurisdictionId === +jid)
+      const wipJurisdictionId = wipListItem?.wipJurisdictionId
+      return await api.wip.getReleasedJurisdiction(wipJurisdictionId)
+    })()
 
     dispatch({
       type: types.GET_WIP_SUCCESS,
