@@ -8,7 +8,6 @@ export default function useSize(target) {
     setSize(target.current.getBoundingClientRect())
   }, [target])
 
-  // Where the magic happens
   useResizeObserver(target, (entry) => setSize(entry.contentRect))
   return size
 }

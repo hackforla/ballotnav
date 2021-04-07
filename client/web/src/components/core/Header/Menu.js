@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import useBreakpoints from 'hooks/useBreakpoints'
@@ -74,9 +74,11 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
     isDesktop,
   })
 
+  const ignoreClick = useCallback((e) => e.stopPropagation(), [])
+
   return (
-    <div className={classes.root}>
-      <div className={classes.wrap}>
+    <div className={classes.root} onClick={closeMenu}>
+      <div className={classes.wrap} onClick={ignoreClick}>
         <div className={classes.header}>
           <IconButton size="small" aria-label="close" onClick={closeMenu}>
             <CloseIcon color="primary" style={{ fontSize: 32 }} />

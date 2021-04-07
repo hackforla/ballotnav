@@ -8,12 +8,22 @@ export const listAllJurisdictions = async () => {
 }
 
 export const listAllVolunteers = async () => {
-  const { data } = await axios.get(`${BASE_URL}/volunteers`);
-  return data;
+  const { data } = await axios.get(`${BASE_URL}/volunteers`)
+  return data
 }
 
 export const listMyJurisdictions = async () => {
   const { data } = await axios.get(`${BASE_URL}/jurisdictions/me`)
+
+  // sort by state, then jurisdiction
+  data.sort((a, b) => {
+    if (a.state.name > b.state.name) return 1
+    if (a.state.name < b.state.name) return -1
+    if (a.name > b.name) return 1
+    if (a.name < b.name) return -1
+    return 0
+  })
+
   return data
 }
 
@@ -27,5 +37,5 @@ export const assignJurisdictions = async ({
     jurisdictionIds,
     removedJurisdictionIds,
   })
-  return data;
+  return data
 }
