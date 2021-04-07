@@ -2,7 +2,7 @@ import React, { useMemo, useCallback, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import clsx from 'clsx'
-import { useJurisdictionTabs, useWipJurisdictions } from 'store/selectors'
+import { useJurisdictionTabs, useWips } from 'store/selectors'
 import useWipActions from 'store/actions/wip'
 import CloseIcon from '@material-ui/icons/Close'
 
@@ -50,16 +50,16 @@ const useStyles = makeStyles((theme) => ({
 const JurisdictionTabs = () => {
   const classes = useStyles()
   const history = useHistory()
-  const jurisdictions = useWipJurisdictions()
+  const jurisdictions = useWips()
   const jurisdictionTabs = useJurisdictionTabs()
-  const { openJurisdictionTab, closeJurisdictionTab } = useWipActions()
+  const { openTab, closeTab } = useWipActions()
   const match = useRouteMatch('/jurisdictions/:jid')
   const selectedJid = +match?.params.jid
 
   useEffect(() => {
     if (selectedJid && !jurisdictionTabs.includes(selectedJid))
-      openJurisdictionTab(selectedJid)
-  }, [ openJurisdictionTab, selectedJid, jurisdictionTabs ])
+      openTab(selectedJid)
+  }, [ openTab, selectedJid, jurisdictionTabs ])
 
   const tabs = useMemo(() => {
     if (!jurisdictions) return []
@@ -76,12 +76,12 @@ const JurisdictionTabs = () => {
       .filter((juris) => !!juris)
   }, [jurisdictionTabs, jurisdictions])
 
-  const closeTab = useCallback(
+  const onCloseTab = useCallback(
     (jid, isSelected) => {
-      closeJurisdictionTab(jid)
+      closeTab(jid)
       if (isSelected) history.push('/jurisdictions')
     },
-    [closeJurisdictionTab, history]
+    [closeTab, history]
   )
 
   return (
@@ -89,7 +89,7 @@ const JurisdictionTabs = () => {
       {tabs.map((tab) => {
         const isSelected = tab.jid === selectedJid
         const clx = clsx(classes.tab, { [classes.selected]: isSelected })
-        const close = closeTab.bind(null, tab.jid, isSelected)
+        const close = onCloseTab.bind(null, tab.jid, isSelected)
 
         return (
           <div key={tab.jid} className={clx}>

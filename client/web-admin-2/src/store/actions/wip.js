@@ -1,117 +1,128 @@
 import api from 'services/api'
 import useActions from 'hooks/useActions'
+import { auth } from 'store/selectors'
 import { toast } from 'store/actions/toaster'
 
 export const types = {
-  GET_MY_JURISDICTIONS_SUCCESS: 'wip/GET_MY_JURISDICTIONS_SUCCESS',
-  OPEN_JURISDICTION_TAB: 'wip/OPEN_JURISDICTION_TAB',
-  CLOSE_JURISDICTION_TAB: 'wip/CLOSE_JURISDICTION_TAB',
-  GET_WIP_JURISDICTION_SUCCESS: 'wip/GET_WIP_JURISDICTION_SUCCESS',
-  UPDATE_WIP_JURISDICTION_SUCCESS: 'wip/UPDATE_WIP_JURISDICTION_SUCCESS',
-  RELEASE_WIP_JURISDICTION_SUCCESS: 'wip/RELEASE_WIP_JURISDICTION_SUCCESS',
+  LIST_WIPS_SUCCESS: 'wip/LIST_WIPS_SUCCESS',
+  GET_WIP_SUCCESS: 'wip/GET_WIP_SUCCESS',
+  UPDATE_WIP_SUCCESS: 'wip/UPDATE_WIP_SUCCESS',
+  RELEASE_WIP_SUCCESS: 'wip/RELEASE_WIP_SUCCESS',
+  PUBLISH_WIP_SUCCESS: 'wip/PUBLISH_WIP_SUCCESS',
+  OPEN_TAB: 'wip/OPEN_TAB',
+  CLOSE_TAB: 'wip/CLOSE_TAB',
 }
 
-export const getMyJurisdictions = () => {
+function isAdmin(getState) {
+  const { user } = auth(getState())
+  if (!user) throw new Error('User not authenticated.')
+  return user.role === 'admin'
+}
+
+export const listWips = () => {
   return async (dispatch, getState) => {
-    const data = await api.wip.listMyJurisdictions()
+    const data = isAdmin(getState)
+      ? await api.wip.listReleasedJurisdictions()
+      : await api.wip.listMyJurisdictions()
 
     dispatch({
-      type: types.GET_MY_JURISDICTIONS_SUCCESS,
+      type: types.LIST_WIPS_SUCCESS,
       data,
     })
   }
 }
 
-export const openJurisdictionTab = (jid) => ({
-  type: types.OPEN_JURISDICTION_TAB,
-  data: jid,
-})
-
-export const closeJurisdictionTab = (jid) => ({
-  type: types.CLOSE_JURISDICTION_TAB,
-  data: jid,
-})
-
-export const getWipJurisdiction = (jid) => {
-  return async (dispatch) => {
-    const data = await api.wip.getJurisdiction(jid)
+export const getWip = (jid) => {
+  return async (dispatch, getState) => {
+    const data = isAdmin(getState)
+      ? await api.wip.getReleasedJurisdiction(jid)
+      : await api.wip.getJurisdiction(jid)
 
     dispatch({
-      type: types.GET_WIP_JURISDICTION_SUCCESS,
+      type: types.GET_WIP_SUCCESS,
       data,
     })
   }
 }
 
-export const updateWipJurisdiction = (wip) => {
+export const updateWip = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.updateJurisdiction(wip.id, wip)
 
-    dispatch({ type: types.UPDATE_WIP_JURISDICTION_SUCCESS, data })
+    dispatch({ type: types.UPDATE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Updated ${wip.name}.` }))
 
-    dispatch(getMyJurisdictions()) // necessary to get status update
+    dispatch(listWips()) // necessary to get status update
   }
 }
 
-export const releaseWipJurisdiction = (wip) => {
+export const releaseWip = (wip) => {
   return async (dispatch) => {
     await api.wip.releaseJurisdiction(wip.id)
 
-    dispatch({ type: types.RELEASE_WIP_JURISDICTION_SUCCESS })
+    dispatch({ type: types.RELEASE_WIP_SUCCESS })
     dispatch(toast({ message: `Released ${wip.name}` }))
 
     // TODO: find way to remove this
-    dispatch(getWipJurisdiction(wip.jurisdictionId))
-    dispatch(getMyJurisdictions()) // necessary to get status update
+    dispatch(getWip(wip.jurisdictionId))
+    dispatch(listWips()) // necessary to get status update
   }
 }
 
+export const openTab = (jid) => ({
+  type: types.OPEN_TAB,
+  data: jid,
+})
+
+export const closeTab = (jid) => ({
+  type: types.CLOSE_TAB,
+  data: jid,
+})
+
 export default useActions.bind(null, {
-  getMyJurisdictions,
-  openJurisdictionTab,
-  closeJurisdictionTab,
-  getWipJurisdiction,
-  updateWipJurisdiction,
-  releaseWipJurisdiction,
+  listWips,
+  getWip,
+  updateWip,
+  releaseWip,
+  // publishWip,
+  openTab,
+  closeTab,
 })
 
 const initialState = {
-  myJurisdictions: null,
-  jurisdictionTabs: [],
-  wipJurisdictions: {},
+  wipList: null,
+  wips: {},
+  tabs: [],
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_MY_JURISDICTIONS_SUCCESS:
+    case types.LIST_WIPS_SUCCESS:
       return {
         ...state,
-        myJurisdictions: action.data,
+        wipList: action.data,
       }
 
-    case types.OPEN_JURISDICTION_TAB:
+    case types.GET_WIP_SUCCESS:
+    case types.UPDATE_WIP_SUCCESS:
       return {
         ...state,
-        jurisdictionTabs: [...state.jurisdictionTabs, action.data],
-      }
-
-    case types.CLOSE_JURISDICTION_TAB:
-      return {
-        ...state,
-        jurisdictionTabs: state.jurisdictionTabs.filter(
-          (jid) => jid !== action.data
-        ),
-      }
-
-    case types.GET_WIP_JURISDICTION_SUCCESS:
-    case types.UPDATE_WIP_JURISDICTION_SUCCESS:
-      return {
-        ...state,
-        wipJurisdictions: {
-          ...state.wipJurisdictions,
+        wips: {
+          ...state.wips,
           [action.data.jurisdictionId]: action.data,
         },
+      }
+
+    case types.OPEN_TAB:
+      return {
+        ...state,
+        tabs: [...state.tabs, action.data],
+      }
+
+    case types.CLOSE_TAB:
+      return {
+        ...state,
+        tabs: state.tabs.filter((jid) => jid !== action.data),
       }
 
     default:
