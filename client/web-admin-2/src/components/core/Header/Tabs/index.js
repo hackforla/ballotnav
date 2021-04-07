@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useAuth } from 'store/selectors'
+import { useRole } from 'store/selectors'
 import PermanentTabs from './PermanentTabs'
 import JurisdictionTabs from './JurisdictionTabs'
 
@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Tabs = () => {
   const classes = useStyles()
-  const { user } = useAuth()
-  const tabs = user.role === 'admin' ? ADMIN_TABS : VOLUNTEER_TABS
+  const { isAdmin } = useRole()
+  const tabs = isAdmin ? ADMIN_TABS : VOLUNTEER_TABS
 
   return (
     <div className={classes.root}>

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import useWipActions from 'store/actions/wip'
-import { useAuth } from 'store/selectors'
+import { useRole } from 'store/selectors'
 import PageWidth from 'components/core/PageWidth'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,8 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = ({ wipJurisdiction }) => {
   const classes = useStyles()
   const { releaseWip, publishWip, closeTab } = useWipActions()
-  const { user } = useAuth()
-  const isVolunteer = user.role === 'volunteer'
+  const { isVolunteer } = useRole()
   const history = useHistory()
 
   const onClick = useCallback(async () => {

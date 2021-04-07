@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useWipList } from 'store/selectors'
+import { useWipList, useRole } from 'store/selectors'
 import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import SearchBox from 'components/core/SearchBox'
@@ -33,6 +33,7 @@ const WipList = () => {
   const [filter, setFilter] = useState('')
   const wips = useWipList()
   const { listWips } = useWipActions()
+  const { isVolunteer } = useRole()
 
   const filteredWips = useMemo(() => {
     const cleanFilter = filter.trim()
@@ -47,7 +48,9 @@ const WipList = () => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h1 className={classes.title}>My Jurisdictions</h1>
+        <h1 className={classes.title}>
+          { isVolunteer ? 'My Jurisdictions' : 'Review Jurisdictions' }
+        </h1>
         <LastUpdated updatedAt={Date.now()} onUpdate={listWips} />
       </div>
       <div className={classes.searchBox}>
