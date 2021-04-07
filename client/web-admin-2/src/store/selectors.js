@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 
 export const auth = (state) => state.auth
 export const toaster = (state) => state.toaster
-export const myJurisdictions = (state) => state.volunteer.myJurisdictions
-export const jurisdictionTabs = (state) => state.volunteer.jurisdictionTabs
-export const wipJurisdictions = (state) => state.volunteer.wipJurisdictions
+export const myJurisdictions = (state) => state.wip.myJurisdictions
+export const jurisdictionTabs = (state) => state.wip.jurisdictionTabs
+export const wipJurisdictions = (state) => state.wip.wipJurisdictions
 export const assignment = (state) => state.assignment
 export const releasedJurisdictions = (state) =>
   state.admin.releasedJurisdictions

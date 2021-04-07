@@ -3,18 +3,17 @@ import useActions from 'hooks/useActions'
 import { toast } from 'store/actions/toaster'
 
 export const types = {
-  GET_MY_JURISDICTIONS_SUCCESS: 'volunteer/GET_MY_JURISDICTIONS_SUCCESS',
-  OPEN_JURISDICTION_TAB: 'volunteer/OPEN_JURISDICTION_TAB',
-  CLOSE_JURISDICTION_TAB: 'volunteer/CLOSE_JURISDICTION_TAB',
-  GET_WIP_JURISDICTION_SUCCESS: 'volunteer/GET_WIP_JURISDICTION_SUCCESS',
-  UPDATE_WIP_JURISDICTION_SUCCESS: 'volunteer/UPDATE_WIP_JURISDICTION_SUCCESS',
-  RELEASE_WIP_JURISDICTION_SUCCESS:
-    'volunteer/RELEASE_WIP_JURISDICTION_SUCCESS',
+  GET_MY_JURISDICTIONS_SUCCESS: 'wip/GET_MY_JURISDICTIONS_SUCCESS',
+  OPEN_JURISDICTION_TAB: 'wip/OPEN_JURISDICTION_TAB',
+  CLOSE_JURISDICTION_TAB: 'wip/CLOSE_JURISDICTION_TAB',
+  GET_WIP_JURISDICTION_SUCCESS: 'wip/GET_WIP_JURISDICTION_SUCCESS',
+  UPDATE_WIP_JURISDICTION_SUCCESS: 'wip/UPDATE_WIP_JURISDICTION_SUCCESS',
+  RELEASE_WIP_JURISDICTION_SUCCESS: 'wip/RELEASE_WIP_JURISDICTION_SUCCESS',
 }
 
 export const getMyJurisdictions = () => {
   return async (dispatch, getState) => {
-    const data = await api.assignment.listMyJurisdictions()
+    const data = await api.wip.listMyJurisdictions()
 
     dispatch({
       type: types.GET_MY_JURISDICTIONS_SUCCESS,
@@ -48,12 +47,9 @@ export const updateWipJurisdiction = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.updateJurisdiction(wip.id, wip)
 
-    dispatch({
-      type: types.UPDATE_WIP_JURISDICTION_SUCCESS,
-      data,
-    })
-
+    dispatch({ type: types.UPDATE_WIP_JURISDICTION_SUCCESS, data })
     dispatch(toast({ message: `Updated ${wip.name}.` }))
+
     dispatch(getMyJurisdictions()) // necessary to get status update
   }
 }
@@ -64,6 +60,8 @@ export const releaseWipJurisdiction = (wip) => {
 
     dispatch({ type: types.RELEASE_WIP_JURISDICTION_SUCCESS })
     dispatch(toast({ message: `Released ${wip.name}` }))
+
+    // TODO: find way to remove this
     dispatch(getWipJurisdiction(wip.jurisdictionId))
     dispatch(getMyJurisdictions()) // necessary to get status update
   }
