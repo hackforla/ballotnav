@@ -26,7 +26,7 @@ export const listWips = () => {
       ? await api.wip.listReleasedJurisdictions()
       : await api.wip.listMyJurisdictions()
 
-    dispatch({
+    return dispatch({
       type: types.LIST_WIPS_SUCCESS,
       data,
     })
@@ -45,7 +45,7 @@ export const getWip = (jid) => {
       return await api.wip.getReleasedJurisdiction(wipJurisdictionId)
     })()
 
-    dispatch({
+    return dispatch({
       type: types.GET_WIP_SUCCESS,
       data,
     })
@@ -55,24 +55,27 @@ export const getWip = (jid) => {
 export const updateWip = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.updateJurisdiction(wip.id, wip)
-
     dispatch({ type: types.UPDATE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Updated ${wip.name}.` }))
-
     dispatch(listWips()) // necessary to get status update
   }
 }
 
 export const releaseWip = (wip) => {
   return async (dispatch) => {
-    await api.wip.releaseJurisdiction(wip.id)
-
-    dispatch({ type: types.RELEASE_WIP_SUCCESS })
+    const data = await api.wip.releaseJurisdiction(wip.id)
+    dispatch({ type: types.RELEASE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Released ${wip.name}` }))
-
-    // TODO: find way to remove this
-    dispatch(getWip(wip.jurisdictionId))
     dispatch(listWips()) // necessary to get status update
+  }
+}
+
+export const publishWip = (wip) => {
+  return async (dispatch) => {
+    const data = await api.wip.publishJurisdiction(wip.id)
+    dispatch({ type: types.PUBLISH_WIP_SUCCESS, data })
+    dispatch(toast({ message: `Released ${wip.name}` }))
+    await dispatch(listWips()) // necessary to remove from wipList
   }
 }
 
@@ -91,7 +94,7 @@ export default useActions.bind(null, {
   getWip,
   updateWip,
   releaseWip,
-  // publishWip,
+  publishWip,
   openTab,
   closeTab,
 })
@@ -112,6 +115,8 @@ export const reducer = (state = initialState, action) => {
 
     case types.GET_WIP_SUCCESS:
     case types.UPDATE_WIP_SUCCESS:
+    case types.RELEASE_WIP_SUCCESS:
+    case types.PUBLISH_WIP_SUCCESS:
       return {
         ...state,
         wips: {

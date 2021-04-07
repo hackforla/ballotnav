@@ -15,10 +15,6 @@ const COLUMNS = [
     sort: true,
   },
   {
-    title: 'JurisdictionId',
-    field: 'jurisdictionId',
-  },
-  {
     title: 'Status',
     field: 'jurisdictionStatus',
     render: (status) => <JurisdictionStatus status={status} />,
