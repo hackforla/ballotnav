@@ -22,7 +22,7 @@ const MapContainer = () => {
 
   return (
     <div className={classes.root}>
-      <Map />
+      <Map jurisdictions={jurisdictions} />
     </div>
   )
 }
