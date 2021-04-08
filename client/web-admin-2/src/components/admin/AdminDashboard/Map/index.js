@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import Map from './Map'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,10 +9,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Map = () => {
+const MapContainer = () => {
   const classes = useStyles()
 
-  return <div className={classes.root}>Map</div>
+  return (
+    <div className={classes.root}>
+      <Map />
+    </div>
+  )
 }
 
-export default Map
+export default MapContainer
