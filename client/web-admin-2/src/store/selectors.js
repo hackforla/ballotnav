@@ -16,6 +16,7 @@ export const jurisdictionTabs = (state) => state.wip.tabs
 
 export const toaster = (state) => state.toaster
 export const assignment = (state) => state.assignment
+export const modals = (state) => state.modals
 
 //////////// USE SELECTOR /////////
 
@@ -28,6 +29,7 @@ export const useJurisdictionTabs = () => useSelector(jurisdictionTabs)
 
 export const useToaster = () => useSelector(toaster)
 export const useAssignment = () => useSelector(assignment)
+export const useModals = () => useSelector(modals)
 
 ///// PARAMATERIZED USE SELECTOR ///
 
@@ -35,3 +37,4 @@ export const useWip = (jid) => useWips()[jid]
 export const useWipListItem = (jid) => {
   return useWipList().find((wip) => wip.jurisdictionId === +jid)
 }
+export const useModal = (modalId) => useModals()[modalId]

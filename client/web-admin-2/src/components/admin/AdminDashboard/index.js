@@ -5,6 +5,7 @@ import { useAssignment } from 'store/selectors'
 import LastUpdated from 'components/core/LastUpdated'
 import Stats from './Stats'
 import Jurisdictions from './Jurisdictions'
+import MapModal from 'components/modals/MapModal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +55,7 @@ const AdminDashboard = () => {
       </div>
       <Stats jurisdictions={transformed} />
       <Jurisdictions jurisdictions={transformed} />
+      <MapModal />
     </div>
   )
 }
