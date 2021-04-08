@@ -17,7 +17,7 @@ export const closeModal = (modalId) => ({
 
 const initialState = {
   map: {
-    isOpen: false,
+    isOpen: true,
     params: {},
   },
 }

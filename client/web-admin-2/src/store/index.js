@@ -7,6 +7,7 @@ import { reducer as wip } from './actions/wip'
 import { reducer as assignment } from './actions/assignment'
 import { reducer as toaster } from './actions/toaster'
 import { reducer as modals } from './actions/modals'
+import { reducer as dashboard } from './actions/dashboard'
 
 const appReducer = combineReducers({
   auth,
@@ -14,6 +15,7 @@ const appReducer = combineReducers({
   assignment,
   toaster,
   modals,
+  dashboard,
 })
 
 // wipe store on logout
