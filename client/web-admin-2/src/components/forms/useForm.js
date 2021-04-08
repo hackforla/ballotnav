@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import Input from './Input'
+import FormInput from './FormInput'
 import FormButtons from './FormButtons'
 
 // the forms can't handle null, so convert nulls to empty strings.
@@ -76,7 +76,7 @@ export default function useForm({
 
   form.makeInput = useCallback(
     (field) => (
-      <Input
+      <FormInput
         margin="dense"
         fullWidth
         name={field}
