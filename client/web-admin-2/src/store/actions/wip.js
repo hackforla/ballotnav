@@ -35,8 +35,10 @@ export const listWips = () => {
 
 export const getWip = (jid) => {
   return async (dispatch, getState) => {
+    const admin = isAdmin(getState)
+
     const data = await (async () => {
-      if (!isAdmin(getState)) return await api.wip.getJurisdiction(jid)
+      if (!admin) return await api.wip.getJurisdiction(jid)
 
       const list = wipList(getState())
       const wipListItem = list.find((wip) => wip.jurisdictionId === +jid)
@@ -44,10 +46,8 @@ export const getWip = (jid) => {
       return await api.wip.getReleasedJurisdiction(wipJurisdictionId)
     })()
 
-    return dispatch({
-      type: types.GET_WIP_SUCCESS,
-      data,
-    })
+    dispatch({ type: types.GET_WIP_SUCCESS, data })
+    if (!admin) dispatch(listWips()) // get status update after wip converts from 'published' to 'edit in progress'
   }
 }
 
