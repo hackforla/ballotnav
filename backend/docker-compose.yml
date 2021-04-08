@@ -25,7 +25,7 @@ services:
     command: ["/usr/local/bin/wait-for-it.sh", "db:5432", "--", "npm", "run", "dev"]
 
   db:
-    image: jred/postgres:11-postgis
+    image: postgis/postgis:13-master
     restart: always
     environment:
       POSTGRES_USER: ballotnav
