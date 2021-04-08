@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-import { useWipJurisdiction, useMyJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useWip, useWipListItem } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import LocationForm from 'components/forms/LocationForm'
 import Interview from './Interview'
@@ -48,28 +48,28 @@ const EditLocation = ({
 }) => {
   const classes = useStyles()
   const history = useHistory()
-  const wipJurisdiction = useWipJurisdiction(jid)
-  const jurisdiction = useMyJurisdiction(jid)
+  const wip = useWip(jid)
+  const stateName = useWipListItem(jid).stateName
 
   const isNew = lid === 'new'
   const wipLocation = isNew
     ? undefined
-    : wipJurisdiction.locations.find((loc) => loc.id === +lid)
+    : wip.locations.find((loc) => loc.id === +lid)
 
-  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
+  const { getWip, updateWip } = useWipActions()
 
   const updateJurisdiction = useCallback(() => {
-    getWipJurisdiction(jid)
-  }, [jid, getWipJurisdiction])
+    getWip(jid)
+  }, [jid, getWip])
 
   const onSubmitLocation = useCallback(
     (values) => {
-      return updateWipJurisdiction({
-        ...wipJurisdiction,
+      return updateWip({
+        ...wip,
         locations: (() => {
-          if (isNew) return [values, ...wipJurisdiction.locations]
+          if (isNew) return [values, ...wip.locations]
 
-          return wipJurisdiction.locations.map((wipLocation) => {
+          return wip.locations.map((wipLocation) => {
             return wipLocation.id === +lid
               ? { ...wipLocation, ...values }
               : wipLocation
@@ -77,7 +77,7 @@ const EditLocation = ({
         })(),
       })
     },
-    [wipJurisdiction, isNew, lid, updateWipJurisdiction]
+    [wip, isNew, lid, updateWip]
   )
 
   return (
@@ -96,7 +96,7 @@ const EditLocation = ({
               {isNew ? 'New Location' : wipLocation.name}
             </div>
             <div>
-              {wipJurisdiction.name}, {jurisdiction.state.name}
+              {wip.name}, {stateName}
             </div>
           </div>
           <LocationForm wipLocation={wipLocation} onSubmit={onSubmitLocation} />

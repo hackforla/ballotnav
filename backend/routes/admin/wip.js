@@ -3,6 +3,11 @@ const control = require('@controllers/admin/wip')
 const auth = require('@middleware/auth')
 
 router.get(
+  '/jurisdictions/me',
+  auth(['volunteer']),
+  control.listMyJurisdictions
+)
+router.get(
   '/jurisdictions/released',
   auth(['admin']),
   control.listReleasedJurisdictions
@@ -15,7 +20,7 @@ router.get(
 router.get(
   '/jurisdictions/:jurisdictionId',
   auth(['volunteer']),
-  control.getWipJurisdiction
+  control.getOrCreateWipJurisdiction
 )
 router.put(
   '/jurisdictions/:wipJurisdictionId',

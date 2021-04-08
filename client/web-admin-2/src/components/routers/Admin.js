@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Layout from 'components/core/Layout'
 import AdminDashboard from 'components/admin/AdminDashboard'
 import AssignJurisdictions from 'components/admin/AssignJurisdictions'
-import ReviewJurisdictions from 'components/admin/ReviewJurisdictions'
+import WipEditor from 'components/WipEditor'
 
 const Admin = () => {
   return (
@@ -11,7 +11,7 @@ const Admin = () => {
       <Switch>
         <Route exact path="/dashboard" component={AdminDashboard} />
         <Route path="/assign" component={AssignJurisdictions} />
-        <Route path="/jurisdictions" component={ReviewJurisdictions} />
+        <Route path="/jurisdictions" component={WipEditor} />
         <Redirect to="/dashboard" />
       </Switch>
     </Layout>

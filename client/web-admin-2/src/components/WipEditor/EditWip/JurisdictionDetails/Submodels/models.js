@@ -81,7 +81,7 @@ const models = [
         field: 'note',
       },
       {
-        render: (_, { id }) => <EditButton to={`phones/${id}`} />,
+        render: (_, { id }) => <EditButton to={`importantDates/${id}`} />,
         textAlign: 'center',
       },
     ],

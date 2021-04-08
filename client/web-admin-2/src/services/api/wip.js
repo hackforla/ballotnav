@@ -60,6 +60,11 @@ export const listReleasedJurisdictions = async () => {
   return data
 }
 
+export const listMyJurisdictions = async () => {
+  const { data } = await axios.get(`${BASE_URL}/me`)
+  return data
+}
+
 export const getReleasedJurisdiction = async (wipJurisdictionId) => {
   const url = `${BASE_URL}/released/${wipJurisdictionId}`
   const { data } = await axios.get(url)

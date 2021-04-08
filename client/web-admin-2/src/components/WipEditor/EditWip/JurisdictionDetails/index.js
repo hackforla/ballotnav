@@ -1,7 +1,7 @@
-import React, { useMemo, useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useMyJurisdictions, useWipJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useWip, useWipListItem } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import LastUpdated from 'components/core/LastUpdated'
 import JurisdictionForm from 'components/forms/JurisdictionForm'
@@ -50,18 +50,11 @@ const JurisdictionDetails = ({
 }) => {
   const [showDetails, setShowDetails] = useState(true)
   const classes = useStyles({ showDetails })
-  const jurisdictions = useMyJurisdictions()
-  const { getWipJurisdiction, updateWipJurisdiction } = useVolunteerActions()
-  const wipJurisdiction = useWipJurisdiction(jid)
+  const jurisdictionStatus = useWipListItem(jid)?.jurisdictionStatus
+  const { getWip, updateWip } = useWipActions()
+  const wipJurisdiction = useWip(jid)
 
-  const jurisdictionStatus = useMemo(() => {
-    if (!jurisdictions) return null
-    return jurisdictions.find((j) => j.id === +jid)?.jurisdictionStatus
-  }, [jurisdictions, jid])
-
-  const refreshWipJurisdiction = useCallback(() => {
-    getWipJurisdiction(jid)
-  }, [getWipJurisdiction, jid])
+  const refreshWip = useCallback(() => getWip(jid), [getWip, jid])
 
   const toggleDetails = useCallback(() => {
     setShowDetails((showDetails) => !showDetails)
@@ -69,12 +62,12 @@ const JurisdictionDetails = ({
 
   const onSubmitJurisdiction = useCallback(
     (values) => {
-      return updateWipJurisdiction({
+      return updateWip({
         ...wipJurisdiction,
         ...values,
       })
     },
-    [wipJurisdiction, updateWipJurisdiction]
+    [wipJurisdiction, updateWip]
   )
 
   return (
@@ -84,7 +77,7 @@ const JurisdictionDetails = ({
           <h2 className={classes.title}>Jurisdiction details</h2>
           <JurisdictionStatus status={jurisdictionStatus} />
         </div>
-        <LastUpdated updatedAt={Date.now()} onUpdate={refreshWipJurisdiction} />
+        <LastUpdated updatedAt={Date.now()} onUpdate={refreshWip} />
       </div>
       <div className={classes.detailsToggle} onClick={toggleDetails}>
         {showDetails ? 'Hide details' : 'Show details'}

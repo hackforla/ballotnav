@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { useMyJurisdictions } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useWipList, useRole } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import LastUpdated from 'components/core/LastUpdated'
 import SearchBox from 'components/core/SearchBox'
 import Table from './Table'
@@ -28,27 +28,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const MyJurisdictions = () => {
+const WipList = () => {
   const classes = useStyles()
   const [filter, setFilter] = useState('')
-  const myJurisdictions = useMyJurisdictions()
-  const { getMyJurisdictions } = useVolunteerActions()
+  const wips = useWipList()
+  const { listWips } = useWipActions()
+  const { isVolunteer } = useRole()
 
-  const filteredJurisdictions = useMemo(() => {
+  const filteredWips = useMemo(() => {
     const cleanFilter = filter.trim()
 
-    if (cleanFilter.length < 2) return myJurisdictions
-    return myJurisdictions.filter((j) => {
+    if (cleanFilter.length < 2) return wips
+    return wips.filter((j) => {
       const regex = new RegExp(cleanFilter, 'i')
-      return regex.test(j.name) || regex.test(j.state.name)
+      return regex.test(j.jurisdictionName) || regex.test(j.stateName)
     })
-  }, [filter, myJurisdictions])
+  }, [filter, wips])
 
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <h1 className={classes.title}>My Jurisdictions</h1>
-        <LastUpdated updatedAt={Date.now()} onUpdate={getMyJurisdictions} />
+        <h1 className={classes.title}>
+          {isVolunteer ? 'My Jurisdictions' : 'Review Jurisdictions'}
+        </h1>
+        <LastUpdated updatedAt={Date.now()} onUpdate={listWips} />
       </div>
       <div className={classes.searchBox}>
         <SearchBox
@@ -57,9 +60,9 @@ const MyJurisdictions = () => {
           placeholder="Filter by jurisdiction or state name"
         />
       </div>
-      <Table jurisdictions={filteredJurisdictions} />
+      <Table wips={filteredWips} />
     </div>
   )
 }
 
-export default MyJurisdictions
+export default WipList

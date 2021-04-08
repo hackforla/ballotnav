@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import useVolunteerActions from 'store/actions/volunteer'
+import useWipActions from 'store/actions/wip'
+import { useRole } from 'store/selectors'
 import PageWidth from 'components/core/PageWidth'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +26,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = ({ wipJurisdiction }) => {
   const classes = useStyles()
-  const { releaseWipJurisdiction } = useVolunteerActions()
+  const { releaseWip, publishWip, closeTab } = useWipActions()
+  const { isVolunteer } = useRole()
+  const history = useHistory()
+
+  const onClick = useCallback(async () => {
+    if (isVolunteer) return releaseWip(wipJurisdiction)
+
+    await publishWip(wipJurisdiction)
+    history.push('/jurisdictions')
+    closeTab(wipJurisdiction.jurisdictionId)
+  }, [isVolunteer, publishWip, releaseWip, wipJurisdiction, history, closeTab])
 
   return (
     <div className={classes.root}>
@@ -32,8 +44,8 @@ const Footer = ({ wipJurisdiction }) => {
         <Button
           color="primary"
           variant="contained"
-          onClick={releaseWipJurisdiction.bind(null, wipJurisdiction)}
-          disabled={wipJurisdiction.isReleased}
+          onClick={onClick}
+          disabled={isVolunteer && wipJurisdiction.isReleased}
           style={{
             fontWeight: 700,
             fontSize: 14,
@@ -41,7 +53,7 @@ const Footer = ({ wipJurisdiction }) => {
             padding: '1em 3em',
           }}
         >
-          Submit For Review
+          {isVolunteer ? 'Submit For Review' : 'Publish'}
         </Button>
       </PageWidth>
     </div>

@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { useWipJurisdiction } from 'store/selectors'
-import useVolunteerActions from 'store/actions/volunteer'
+import { useWip } from 'store/selectors'
+import useWipActions from 'store/actions/wip'
 import JurisdictionDetails from './JurisdictionDetails'
 import EditLocation from './EditLocation'
 
-const JurisdictionEditor = ({
+const EditWip = ({
   match: {
     params: { jid },
     path,
   },
 }) => {
-  const { getWipJurisdiction } = useVolunteerActions()
-  const wipJurisdiction = useWipJurisdiction(jid)
+  const { getWip } = useWipActions()
+  const wip = useWip(jid)
 
   useEffect(() => {
-    if (!wipJurisdiction) getWipJurisdiction(jid)
-  }, [jid, wipJurisdiction, getWipJurisdiction])
+    if (!wip) getWip(jid)
+  }, [jid, wip, getWip])
 
-  if (!wipJurisdiction) return null
+  if (!wip) return null
   return (
     <Switch>
       <Route exact path={path} component={JurisdictionDetails} />
@@ -27,4 +27,4 @@ const JurisdictionEditor = ({
   )
 }
 
-export default JurisdictionEditor
+export default EditWip
