@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import Jurisdictions from './Jurisdictions'
+import Sidebar from './Sidebar'
 
 const useStyles = makeStyles({
   root: {
@@ -13,6 +14,11 @@ const useStyles = makeStyles({
     '& canvas.mapboxgl-canvas:focus': {
       outline: 'none',
     },
+  },
+  sidebar: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
   },
 })
 
@@ -30,6 +36,8 @@ const Map = ({ jurisdictions }) => {
   const classes = useStyles()
   const mapContainer = useRef(null)
   const [map, setMap] = useState(null)
+  const [hoveredRegionId, setHoveredRegionId] = useState(null)
+  const [selectedRegionId, setSelectedRegionId] = useState(null)
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -50,7 +58,19 @@ const Map = ({ jurisdictions }) => {
     <div ref={mapContainer} className={classes.root}>
       {map && (
         <>
-          <Jurisdictions map={map} jurisdictions={jurisdictions} />
+          <Jurisdictions
+            map={map}
+            jurisdictions={jurisdictions}
+            onChangeHoveredRegion={setHoveredRegionId}
+            onChangeSelectedRegion={setSelectedRegionId}
+          />
+          <div className={classes.sidebar}>
+            <Sidebar
+              jurisdictions={jurisdictions}
+              hoveredRegionId={hoveredRegionId}
+              selectedRegionId={selectedRegionId}
+            />
+          </div>
         </>
       )}
     </div>

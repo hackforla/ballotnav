@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
-import { useTheme } from '@material-ui/core/styles'
-import population from './population'
 
-const Jurisidictions = ({ map, jurisdictions }) => {
-  const theme = useTheme()
+const noop = () => null
 
+const Jurisidictions = ({
+  map,
+  jurisdictions,
+  onChangeHoveredRegion = noop,
+  onChangeSelectedRegion = noop,
+}) => {
   useEffect(() => {
     if (!map || !jurisdictions) return
 
@@ -65,9 +68,6 @@ const Jurisidictions = ({ map, jurisdictions }) => {
         )
       }
 
-      const { name } = region.properties
-      console.log(name, population[name])
-
       hoveredRegionId = region.id
 
       map.setFeatureState(
@@ -93,30 +93,25 @@ const Jurisidictions = ({ map, jurisdictions }) => {
           return
 
         setHoveredRegion(region)
-        // this.onHoverRegion(region);
+        onChangeHoveredRegion(region.id)
 
         map.getCanvas().style.cursor = 'pointer'
       })
 
       map.on('mouseleave', `boundary-fill`, () => {
         clearHoveredRegion()
-        // this.onHoverRegion(null);
+        onChangeHoveredRegion(null)
       })
     }
 
     addListeners()
-    //
-    // map.on('mousemove', 'boundary-fill', (e) => {
-    //   console.log(e.features[0].properties.name)
-    //
-    // })
 
     return () => {
       map.removeLayer('boundary-line')
       map.removeLayer('boundary-fill')
       map.removeSource('boundary')
     }
-  }, [map, jurisdictions, theme])
+  }, [map, jurisdictions, onChangeHoveredRegion, onChangeSelectedRegion])
 
   return null
 }
