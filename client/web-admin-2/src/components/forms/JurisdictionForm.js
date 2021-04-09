@@ -39,7 +39,10 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
         <Grid item xs={6} />
         <Grid container item xs={6} justify='space-around'>
           {makeResetButton()}
-          {makeSubmitButton({ label: 'Update jurisdiction' })}
+          {makeSubmitButton({
+            label: 'Update jurisdiction',
+            requireDirty: true,
+          })}
         </Grid>
       </Grid>
     </form>

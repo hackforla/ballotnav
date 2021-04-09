@@ -10,7 +10,7 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
     onSubmit,
     buttonDefaults: {
       size: 'large',
-    }
+    },
   })
 
   return (
@@ -82,6 +82,7 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
           {makeResetButton()}
           {makeSubmitButton({
             label: wipLocation ? 'Update location' : 'Add location',
+            requireDirty: !!wipLocation,
           })}
         </Grid>
       </Grid>

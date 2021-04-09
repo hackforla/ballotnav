@@ -46,6 +46,7 @@ export default function useForm({
   onSubmit: rawOnSubmit,
   inputDefaults = {},
   buttonDefaults = {},
+  trackChanges = false, // show asterisk when field changes
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
@@ -66,8 +67,8 @@ export default function useForm({
     initialValues,
     onSubmit,
     validationSchema,
-    validateOnMount: true,
     enableReinitialize: true,
+    validateOnChange: false,
   })
 
   form.changed = useMemo(() => {
@@ -83,19 +84,19 @@ export default function useForm({
         label={field}
         value={form.values[field]}
         onChange={form.handleChange}
-        helperText={form.errors[field]}
-        error={!!form.errors[field]}
-        className={form.changed[field] ? 'changed' : undefined}
+        helperText={form.touched[field] ? form.errors[field] : null}
+        error={!!form.errors[field] && form.touched[field]}
+        className={trackChanges && form.changed[field] ? 'changed' : undefined}
         {...inputDefaults}
         {...schema[field].input}
       />
     ),
-    [schema, form, inputDefaults]
+    [schema, form, inputDefaults, trackChanges]
   )
 
-  form.makeSubmitButton = useCallback((buttonProps) => (
+  form.makeSubmitButton = useCallback(({ requireDirty, ...buttonProps }) => (
     <TextButton
-      disabled={!form.dirty || !form.isValid || form.isSubmitting}
+      disabled={form.isSubmitting || (requireDirty && !form.dirty)}
       onClick={form.handleSubmit}
       label='Submit'
       {...buttonDefaults}
@@ -105,7 +106,7 @@ export default function useForm({
 
   form.makeResetButton = useCallback((buttonProps) => (
     <TextButton
-      disabled={!form.dirty || !form.isValid || form.isSubmitting}
+      disabled={!form.dirty || form.isSubmitting}
       onClick={form.handleReset}
       label='Clear changes'
       variant='outlined'

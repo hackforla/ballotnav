@@ -89,9 +89,7 @@ const JurisdictionDetails = ({
         />
       </div>
       <Submodels wipJurisdiction={wipJurisdiction} />
-      <div style={{ marginTop: '3em' }}>
-        <Footer wipJurisdiction={wipJurisdiction} />
-      </div>
+      <Footer wipJurisdiction={wipJurisdiction} />
     </div>
   )
 }
