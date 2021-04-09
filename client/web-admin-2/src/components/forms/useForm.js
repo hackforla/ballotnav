@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import FormInput from './FormInput'
 import FormButtons from './FormButtons'
+import TextButton from 'components/core/TextButton'
 
 // the forms can't handle null, so convert nulls to empty strings.
 // also limit initialValues to the fields in the schema
@@ -105,6 +106,15 @@ export default function useForm({
     ),
     [form, buttons]
   )
+
+  form.makeSubmitButton = useCallback((props) => (
+    <TextButton
+      disabled={!form.dirty || !form.isValid || form.isSubmitting}
+      onClick={form.handleSubmit}
+      label='Submit'
+      {...props}
+    />
+  ), [form])
 
   return form
 }
