@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
+import TextButton from 'components/core/TextButton'
 import useWipActions from 'store/actions/wip'
 import { useRole } from 'store/selectors'
 import PageWidth from 'components/core/PageWidth'
@@ -41,20 +41,12 @@ const Footer = ({ wipJurisdiction }) => {
   return (
     <div className={classes.root}>
       <PageWidth className={classes.inner}>
-        <Button
-          color="primary"
-          variant="contained"
+        <TextButton
+          label={isVolunteer ? 'Submit For Review' : 'Publish'}
+          size='xLarge'
           onClick={onClick}
           disabled={isVolunteer && wipJurisdiction.isReleased}
-          style={{
-            fontWeight: 700,
-            fontSize: 14,
-            borderRadius: '2em',
-            padding: '1em 3em',
-          }}
-        >
-          {isVolunteer ? 'Submit For Review' : 'Publish'}
-        </Button>
+        />
       </PageWidth>
     </div>
   )

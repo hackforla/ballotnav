@@ -1,6 +1,10 @@
-import EditButton from 'components/core/EditButton'
+import LinkButton from 'components/core/LinkButton'
 import LocationCheckboxes from './LocationCheckboxes'
 import { phoneNumberTypes, importantDateTypes } from 'const'
+
+const EditButton = ({ to }) => (
+  <LinkButton to={to} label='Edit' variant='outlined' />
+)
 
 const models = [
   {

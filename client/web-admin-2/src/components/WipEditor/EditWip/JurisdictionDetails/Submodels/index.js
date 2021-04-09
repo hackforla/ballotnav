@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from 'components/core/Tabs'
 import Table from 'components/core/Table'
-import AddButton from 'components/core/AddButton'
+import AddButton from './AddButton'
 import models from './models'
 
 const useStyles = makeStyles((theme) => ({
