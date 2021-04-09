@@ -4,7 +4,6 @@ exports.getJurisdictions = async (req, res) => {
     include: [
       {
         association: 'locations',
-        attributes: ['geomLongitude', 'geomLatitude'],
       },
     ],
   })

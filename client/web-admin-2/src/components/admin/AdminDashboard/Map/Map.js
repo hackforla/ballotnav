@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import mapboxgl, { styleUrl } from 'services/mapbox'
 import Jurisdictions from './Jurisdictions'
+import Locations from './Locations'
 import Sidebar from './Sidebar'
 
 const useStyles = makeStyles({
@@ -63,6 +64,10 @@ const Map = ({ jurisdictions }) => {
             jurisdictions={jurisdictions}
             onChangeHoveredRegion={setHoveredRegionId}
             onChangeSelectedRegion={setSelectedRegionId}
+          />
+          <Locations
+            map={map}
+            jurisdictions={jurisdictions}
           />
           <div className={classes.sidebar}>
             <Sidebar
