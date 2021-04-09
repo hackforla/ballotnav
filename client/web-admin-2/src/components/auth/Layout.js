@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     textAlign: 'center',
     '& button': {
-      margin: '1em 0',
+      margin: '1.25em 0',
     },
     '& a': {
       color: theme.palette.primary.main,
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginBottom: 20,
     color: theme.palette.primary.main,
+    fontWeight: 600,
   },
 }))
 

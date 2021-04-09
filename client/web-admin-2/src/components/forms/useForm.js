@@ -2,7 +2,6 @@ import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import FormInput from './FormInput'
-import FormButtons from './FormButtons'
 import TextButton from 'components/core/TextButton'
 
 // the forms can't handle null, so convert nulls to empty strings.
@@ -46,7 +45,7 @@ export default function useForm({
   initialValues: rawInitialValues = {},
   onSubmit: rawOnSubmit,
   inputDefaults = {},
-  buttons = {},
+  buttonDefaults = {},
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
@@ -94,27 +93,26 @@ export default function useForm({
     [schema, form, inputDefaults]
   )
 
-  form.makeButtons = useCallback(
-    () => (
-      <FormButtons
-        onReset={form.handleReset}
-        onSubmit={form.handleSubmit}
-        resetDisabled={!form.dirty}
-        submitDisabled={!form.dirty || !form.isValid || form.isSubmitting}
-        {...buttons}
-      />
-    ),
-    [form, buttons]
-  )
-
-  form.makeSubmitButton = useCallback((props) => (
+  form.makeSubmitButton = useCallback((buttonProps) => (
     <TextButton
       disabled={!form.dirty || !form.isValid || form.isSubmitting}
       onClick={form.handleSubmit}
       label='Submit'
-      {...props}
+      {...buttonDefaults}
+      {...buttonProps}
     />
-  ), [form])
+  ), [form, buttonDefaults])
+
+  form.makeResetButton = useCallback((buttonProps) => (
+    <TextButton
+      disabled={!form.dirty || !form.isValid || form.isSubmitting}
+      onClick={form.handleReset}
+      label='Clear changes'
+      variant='outlined'
+      {...buttonDefaults}
+      {...buttonProps}
+    />
+  ), [form, buttonDefaults])
 
   return form
 }

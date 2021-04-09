@@ -8,7 +8,7 @@ import Layout from './Layout'
 const schema = {
   email: {
     validate: Yup.string().email().required('Required'),
-    input: { label: 'Email' },
+    input: { label: 'Email', autoFocus: true },
   },
   password: {
     validate: Yup.string().min(8).required('Required'),
@@ -34,7 +34,7 @@ const Login = () => {
         {makeInput('email')}
         {makeInput('password')}
         {makeSubmitButton({
-          label: 'Sign In',
+          label: 'Log In',
           type: 'submit',
           fullWidth: true,
           size: 'large',

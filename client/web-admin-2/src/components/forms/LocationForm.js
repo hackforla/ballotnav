@@ -4,13 +4,13 @@ import useForm from './useForm'
 import schema from './schemas/location'
 
 const LocationForm = ({ wipLocation, onSubmit }) => {
-  const { makeInput, makeButtons } = useForm({
+  const { makeInput, makeSubmitButton, makeResetButton } = useForm({
     schema,
     initialValues: wipLocation,
     onSubmit,
-    buttons: {
-      submitLabel: wipLocation ? 'Update location' : 'Add location',
-    },
+    buttonDefaults: {
+      size: 'large',
+    }
   })
 
   return (
@@ -73,8 +73,16 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
         <Grid item xs={12}>
           {makeInput('scheduleType')}
         </Grid>
-        <Grid item xs={12} style={{ padding: '2em' }}>
-          {makeButtons()}
+        <Grid
+          container
+          item xs={12}
+          justify='space-around'
+          style={{ paddingTop: '2em' }}
+        >
+          {makeResetButton()}
+          {makeSubmitButton({
+            label: wipLocation ? 'Update location' : 'Add location',
+          })}
         </Grid>
       </Grid>
     </form>
