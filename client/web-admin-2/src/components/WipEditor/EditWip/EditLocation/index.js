@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '3em',
   },
   locationHeader: {
-    margin: '2.5em 0',
+    margin: '1em 0',
     color: theme.palette.primary.dark,
     fontSize: 14,
   },

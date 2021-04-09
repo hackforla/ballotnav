@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import Input from './Input'
-import FormButtons from './FormButtons'
+import FormInput from './FormInput'
+import TextButton from 'components/core/TextButton'
 
 // the forms can't handle null, so convert nulls to empty strings.
 // also limit initialValues to the fields in the schema
@@ -45,7 +45,8 @@ export default function useForm({
   initialValues: rawInitialValues = {},
   onSubmit: rawOnSubmit,
   inputDefaults = {},
-  buttons = {},
+  buttonDefaults = {},
+  trackChanges = false, // show asterisk when field changes
 }) {
   const initialValues = useMemo(() => {
     return getInitialValues(rawInitialValues, schema)
@@ -66,8 +67,8 @@ export default function useForm({
     initialValues,
     onSubmit,
     validationSchema,
-    validateOnMount: true,
     enableReinitialize: true,
+    validateOnChange: false,
   })
 
   form.changed = useMemo(() => {
@@ -76,34 +77,48 @@ export default function useForm({
 
   form.makeInput = useCallback(
     (field) => (
-      <Input
+      <FormInput
         margin="dense"
         fullWidth
         name={field}
         label={field}
         value={form.values[field]}
         onChange={form.handleChange}
-        helperText={form.errors[field]}
-        error={!!form.errors[field]}
-        className={form.changed[field] ? 'changed' : undefined}
+        helperText={form.touched[field] ? form.errors[field] : null}
+        error={!!form.errors[field] && form.touched[field]}
+        className={trackChanges && form.changed[field] ? 'changed' : undefined}
         {...inputDefaults}
         {...schema[field].input}
       />
     ),
-    [schema, form, inputDefaults]
+    [schema, form, inputDefaults, trackChanges]
   )
 
-  form.makeButtons = useCallback(
-    () => (
-      <FormButtons
-        onReset={form.handleReset}
-        onSubmit={form.handleSubmit}
-        resetDisabled={!form.dirty}
-        submitDisabled={!form.dirty || !form.isValid || form.isSubmitting}
-        {...buttons}
+  form.makeSubmitButton = useCallback(
+    ({ requireDirty, ...buttonProps }) => (
+      <TextButton
+        disabled={form.isSubmitting || (requireDirty && !form.dirty)}
+        onClick={form.handleSubmit}
+        label="Submit"
+        {...buttonDefaults}
+        {...buttonProps}
       />
     ),
-    [form, buttons]
+    [form, buttonDefaults]
+  )
+
+  form.makeResetButton = useCallback(
+    (buttonProps) => (
+      <TextButton
+        disabled={!form.dirty || form.isSubmitting}
+        onClick={form.handleReset}
+        label="Clear changes"
+        variant="outlined"
+        {...buttonDefaults}
+        {...buttonProps}
+      />
+    ),
+    [form, buttonDefaults]
   )
 
   return form

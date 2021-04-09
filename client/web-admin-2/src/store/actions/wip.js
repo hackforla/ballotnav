@@ -1,8 +1,7 @@
 import api from 'services/api'
 import useActions from 'hooks/useActions'
-import { auth } from 'store/selectors'
+import { wipList, role } from 'store/selectors'
 import { toast } from 'store/actions/toaster'
-import { wipList } from 'store/selectors'
 
 export const types = {
   LIST_WIPS_SUCCESS: 'wip/LIST_WIPS_SUCCESS',
@@ -14,40 +13,32 @@ export const types = {
   CLOSE_TAB: 'wip/CLOSE_TAB',
 }
 
-function isAdmin(getState) {
-  const { user } = auth(getState())
-  if (!user) throw new Error('User not authenticated.')
-  return user.role === 'admin'
-}
-
 export const listWips = () => {
   return async (dispatch, getState) => {
-    const data = isAdmin(getState)
-      ? await api.wip.listReleasedJurisdictions()
-      : await api.wip.listMyJurisdictions()
+    const data = role(getState()).isVolunteer
+      ? await api.wip.listMyJurisdictions()
+      : await api.wip.listReleasedJurisdictions()
 
-    return dispatch({
-      type: types.LIST_WIPS_SUCCESS,
-      data,
-    })
+    return dispatch({ type: types.LIST_WIPS_SUCCESS, data })
   }
 }
 
 export const getWip = (jid) => {
   return async (dispatch, getState) => {
-    const data = await (async () => {
-      if (!isAdmin(getState)) return await api.wip.getJurisdiction(jid)
+    const state = getState()
+    const { isVolunteer } = role(state)
 
-      const list = wipList(getState())
+    const data = await (async () => {
+      if (isVolunteer) return await api.wip.getJurisdiction(jid)
+
+      const list = wipList(state)
       const wipListItem = list.find((wip) => wip.jurisdictionId === +jid)
       const wipJurisdictionId = wipListItem?.wipJurisdictionId
       return await api.wip.getReleasedJurisdiction(wipJurisdictionId)
     })()
 
-    return dispatch({
-      type: types.GET_WIP_SUCCESS,
-      data,
-    })
+    dispatch({ type: types.GET_WIP_SUCCESS, data })
+    if (isVolunteer) dispatch(listWips()) // get status update after wip converts from 'published' to 'edit in progress'
   }
 }
 

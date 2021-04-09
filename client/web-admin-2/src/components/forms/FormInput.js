@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Input = ({ select, options, ...rest }) => {
+const FormInput = ({ select, options, ...rest }) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -35,4 +35,4 @@ const Input = ({ select, options, ...rest }) => {
   )
 }
 
-export default Input
+export default FormInput

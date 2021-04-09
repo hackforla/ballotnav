@@ -1,7 +1,7 @@
 import React from 'react'
 import JurisdictionStatus from 'components/core/JurisdictionStatus'
 import Table from 'components/core/Table'
-import SelectButton from 'components/core/SelectButton'
+import LinkButton from 'components/core/LinkButton'
 import { useRole } from 'store/selectors'
 
 const COLUMNS = [
@@ -22,7 +22,9 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { jurisdictionId: id }) => <SelectButton to={id} />,
+    render: (_, { jurisdictionId: id }) => (
+      <LinkButton to={id} label="Select" />
+    ),
     textAlign: 'center',
   },
 ]

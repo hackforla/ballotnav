@@ -8,6 +8,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
+    "mapbox-gl": "^2.2.0",
     "moment": "^2.29.1",
     "prettier": "^2.2.1",
     "react": "^17.0.2",

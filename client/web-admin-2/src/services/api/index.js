@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as user from './user'
 import * as assignment from './assignment'
 import * as wip from './wip'
+import * as dashboard from './dashboard'
 
 axios.interceptors.request.use(
   (config) => {
@@ -33,6 +34,7 @@ const api = {
   user,
   assignment,
   wip,
+  dashboard,
 }
 
 export default api

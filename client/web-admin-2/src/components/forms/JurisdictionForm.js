@@ -4,16 +4,12 @@ import useForm from './useForm'
 import schema from './schemas/jurisdiction'
 
 const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
-  const { makeInput, makeButtons } = useForm({
+  const { makeInput, makeSubmitButton, makeResetButton } = useForm({
     schema,
     initialValues: wipJurisdiction,
     onSubmit,
     inputDefaults: {
       variant: 'outlined',
-    },
-    buttons: {
-      submitLabel: 'Update jurisdiction',
-      padding: '0.375em 3em',
     },
   })
 
@@ -41,8 +37,12 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
           {makeInput('internalNotes')}
         </Grid>
         <Grid item xs={6} />
-        <Grid item xs={6}>
-          {makeButtons()}
+        <Grid container item xs={6} justify="space-around">
+          {makeResetButton()}
+          {makeSubmitButton({
+            label: 'Update jurisdiction',
+            requireDirty: true,
+          })}
         </Grid>
       </Grid>
     </form>

@@ -4,16 +4,18 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 
 import { reducer as auth, types as authTypes } from './actions/auth'
 import { reducer as wip } from './actions/wip'
-import { reducer as admin } from './actions/admin'
 import { reducer as assignment } from './actions/assignment'
 import { reducer as toaster } from './actions/toaster'
+import { reducer as modals } from './actions/modals'
+import { reducer as dashboard } from './actions/dashboard'
 
 const appReducer = combineReducers({
   auth,
   wip,
-  admin,
   assignment,
   toaster,
+  modals,
+  dashboard,
 })
 
 // wipe store on logout

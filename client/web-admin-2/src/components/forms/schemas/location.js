@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-import { YNU_OPTIONS } from './_common'
+import { ynuSelect } from './_common'
 
 const schema = {
   name: {
@@ -38,78 +38,15 @@ const schema = {
     validate: Yup.string().email(),
     input: { label: 'Contact Email' },
   },
-  isDriveup: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isDropBox: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isEarlyDropoffLocation: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isEarlyVotingLocation: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isElectionsOffice: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isHandicapAccessible: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isOutdoors: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isPollingLocation: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
-  isStaffedLocation: {
-    validate: Yup.string(),
-    input: {
-      select: true,
-      options: YNU_OPTIONS,
-    },
-    defaultValue: 'U',
-  },
+  isDriveup: ynuSelect(),
+  isDropBox: ynuSelect(),
+  isEarlyDropoffLocation: ynuSelect(),
+  isEarlyVotingLocation: ynuSelect(),
+  isElectionsOffice: ynuSelect(),
+  isHandicapAccessible: ynuSelect(),
+  isOutdoors: ynuSelect(),
+  isPollingLocation: ynuSelect(),
+  isStaffedLocation: ynuSelect(),
   scheduleType: {
     validate: Yup.string(),
     input: {

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Tabs from 'components/core/Tabs'
 import SearchBox from 'components/core/SearchBox'
 import Table from 'components/core/Table'
-import SelectButton from 'components/core/SelectButton'
+import LinkButton from 'components/core/LinkButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -44,7 +44,7 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { id }) => <SelectButton to={id} />,
+    render: (_, { id }) => <LinkButton label="Select" disabled to={id} />,
     textAlign: 'center',
   },
 ]
