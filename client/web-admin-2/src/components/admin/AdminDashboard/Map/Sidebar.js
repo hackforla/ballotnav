@@ -28,24 +28,30 @@ const Sidebar = ({ jurisdictions, hoveredRegionId, selectedRegionId }) => {
       return {
         name: jur.name,
         numLocations: jur.locations.length,
-        population: populationByCounty[jur.name]
+        population: populationByCounty[jur.name],
       }
     }
 
     return {
       name: 'Georgia',
-      numLocations: jurisdictions.reduce((total, jur) => total + jur.locations.length, 0),
-      population: Object.values(populationByCounty).reduce((total, next) => total + next, 0)
+      numLocations: jurisdictions.reduce(
+        (total, jur) => total + jur.locations.length,
+        0
+      ),
+      population: Object.values(populationByCounty).reduce(
+        (total, next) => total + next,
+        0
+      ),
     }
   })()
 
   return (
     <div className={classes.root}>
-      <h1>{ name }</h1>
+      <h1>{name}</h1>
       <div className={classes.title}>Drop-off Locations</div>
-      <div style={{ fontSize: 28 }}>{ numLocations }</div>
+      <div style={{ fontSize: 28 }}>{numLocations}</div>
       <div className={classes.title}>Population</div>
-      <div style={{ fontSize: 22 }}>{ population }</div>
+      <div style={{ fontSize: 22 }}>{population}</div>
     </div>
   )
 }

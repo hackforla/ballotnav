@@ -43,7 +43,7 @@ const Footer = ({ wipJurisdiction }) => {
       <PageWidth className={classes.inner}>
         <TextButton
           label={isVolunteer ? 'Submit For Review' : 'Publish'}
-          size='xLarge'
+          size="xLarge"
           onClick={onClick}
           disabled={isVolunteer && wipJurisdiction.isReleased}
         />

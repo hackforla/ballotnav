@@ -23,7 +23,7 @@ const Jurisidictions = ({
           name: j.name,
         },
         geometry: JSON.parse(j.geojson),
-      }))
+      })),
     }
 
     map.addSource('boundary', {
@@ -50,21 +50,22 @@ const Jurisidictions = ({
         'fill-color': '#fff',
         'fill-opacity': [
           'case',
-          ['all',
+          [
+            'all',
             ['boolean', ['feature-state', 'hover'], false],
-            ['!', ['boolean', ['feature-state', 'selected'], false]]
+            ['!', ['boolean', ['feature-state', 'selected'], false]],
           ],
           0.5,
-          0
+          0,
         ],
       },
     })
 
-    const setHoveredRegion = region => {
+    const setHoveredRegion = (region) => {
       if (hoveredRegionId) {
         map.setFeatureState(
           { source: 'boundary', id: hoveredRegionId },
-          { hover: false },
+          { hover: false }
         )
       }
 
@@ -72,7 +73,7 @@ const Jurisidictions = ({
 
       map.setFeatureState(
         { source: 'boundary', id: hoveredRegionId },
-        { hover: true },
+        { hover: true }
       )
     }
 
@@ -80,17 +81,16 @@ const Jurisidictions = ({
       if (hoveredRegionId) {
         map.setFeatureState(
           { source: 'boundary', id: hoveredRegionId },
-          { hover: false },
+          { hover: false }
         )
         hoveredRegionId = null
       }
     }
 
     const addListeners = () => {
-      map.on('mousemove', `boundary-fill`, e => {
+      map.on('mousemove', `boundary-fill`, (e) => {
         const region = e.features[0]
-        if (!region || region.id === hoveredRegionId)
-          return
+        if (!region || region.id === hoveredRegionId) return
 
         setHoveredRegion(region)
         onChangeHoveredRegion(region.id)

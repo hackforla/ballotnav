@@ -22,7 +22,9 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { jurisdictionId: id }) => <LinkButton to={id} label='Select' />,
+    render: (_, { jurisdictionId: id }) => (
+      <LinkButton to={id} label="Select" />
+    ),
     textAlign: 'center',
   },
 ]

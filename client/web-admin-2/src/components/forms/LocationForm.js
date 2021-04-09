@@ -75,8 +75,9 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
         </Grid>
         <Grid
           container
-          item xs={12}
-          justify='space-around'
+          item
+          xs={12}
+          justify="space-around"
           style={{ paddingTop: '2em' }}
         >
           {makeResetButton()}

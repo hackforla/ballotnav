@@ -7,7 +7,7 @@ const LinkButton = ({ to, disabled, ...rest }) => {
   return (
     <Link
       to={`${url}/${to}`}
-      style={{ cursor: disabled ? 'default' : 'pointer'}}
+      style={{ cursor: disabled ? 'default' : 'pointer' }}
     >
       <TextButton disabled={disabled} {...rest} />
     </Link>

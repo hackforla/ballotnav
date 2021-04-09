@@ -94,26 +94,32 @@ export default function useForm({
     [schema, form, inputDefaults, trackChanges]
   )
 
-  form.makeSubmitButton = useCallback(({ requireDirty, ...buttonProps }) => (
-    <TextButton
-      disabled={form.isSubmitting || (requireDirty && !form.dirty)}
-      onClick={form.handleSubmit}
-      label='Submit'
-      {...buttonDefaults}
-      {...buttonProps}
-    />
-  ), [form, buttonDefaults])
+  form.makeSubmitButton = useCallback(
+    ({ requireDirty, ...buttonProps }) => (
+      <TextButton
+        disabled={form.isSubmitting || (requireDirty && !form.dirty)}
+        onClick={form.handleSubmit}
+        label="Submit"
+        {...buttonDefaults}
+        {...buttonProps}
+      />
+    ),
+    [form, buttonDefaults]
+  )
 
-  form.makeResetButton = useCallback((buttonProps) => (
-    <TextButton
-      disabled={!form.dirty || form.isSubmitting}
-      onClick={form.handleReset}
-      label='Clear changes'
-      variant='outlined'
-      {...buttonDefaults}
-      {...buttonProps}
-    />
-  ), [form, buttonDefaults])
+  form.makeResetButton = useCallback(
+    (buttonProps) => (
+      <TextButton
+        disabled={!form.dirty || form.isSubmitting}
+        onClick={form.handleReset}
+        label="Clear changes"
+        variant="outlined"
+        {...buttonDefaults}
+        {...buttonProps}
+      />
+    ),
+    [form, buttonDefaults]
+  )
 
   return form
 }

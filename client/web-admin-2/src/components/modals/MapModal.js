@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     top: 10,
     right: 10,
     zIndex: 100000,
-  }
+  },
 }))
 
 const MapModal = () => {
@@ -28,7 +28,7 @@ const MapModal = () => {
     <Dialog fullScreen keepMounted open={isOpen}>
       <div className={classes.close}>
         <IconButton onClick={close}>
-          <CloseIcon style={{ color: '#FFF', fontSize: 32 }}/>
+          <CloseIcon style={{ color: '#FFF', fontSize: 32 }} />
         </IconButton>
       </div>
       <Map />

@@ -47,7 +47,7 @@ const Map = ({ jurisdictions }) => {
       bounds: GEORGIA,
       fitBoundsOptions: {
         padding: 50,
-      }
+      },
     })
 
     map.on('load', () => {
@@ -65,10 +65,7 @@ const Map = ({ jurisdictions }) => {
             onChangeHoveredRegion={setHoveredRegionId}
             onChangeSelectedRegion={setSelectedRegionId}
           />
-          <Locations
-            map={map}
-            jurisdictions={jurisdictions}
-          />
+          <Locations map={map} jurisdictions={jurisdictions} />
           <div className={classes.sidebar}>
             <Sidebar
               jurisdictions={jurisdictions}

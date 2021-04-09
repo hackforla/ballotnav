@@ -1,9 +1,6 @@
 import { useEffect } from 'react'
 
-const Locations = ({
-  map,
-  jurisdictions,
-}) => {
+const Locations = ({ map, jurisdictions }) => {
   useEffect(() => {
     if (!map || !jurisdictions) return
 
@@ -22,12 +19,9 @@ const Locations = ({
         },
         geometry: {
           type: 'Point',
-          coordinates: [
-            loc.geomLongitude,
-            loc.geomLatitude
-          ],
-        }
-      }))
+          coordinates: [loc.geomLongitude, loc.geomLatitude],
+        },
+      })),
     }
 
     map.addSource('locations', {

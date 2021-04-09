@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     padding: '1em',
     marginBottom: '3em',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
 }))
 
@@ -18,6 +21,7 @@ const JurisdictionStats = ({ jurisdictions }) => {
 
   return (
     <div className={classes.root}>
+      <div>Stats</div>
       <button onClick={() => openModal('map')}>map</button>
     </div>
   )

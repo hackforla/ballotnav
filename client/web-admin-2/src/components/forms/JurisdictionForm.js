@@ -37,7 +37,7 @@ const JurisdictionForm = ({ wipJurisdiction, onSubmit }) => {
           {makeInput('internalNotes')}
         </Grid>
         <Grid item xs={6} />
-        <Grid container item xs={6} justify='space-around'>
+        <Grid container item xs={6} justify="space-around">
           {makeResetButton()}
           {makeSubmitButton({
             label: 'Update jurisdiction',

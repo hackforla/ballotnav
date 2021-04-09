@@ -26,9 +26,7 @@ const Layout = ({ title, children }) => {
 
   return (
     <div className={classes.root}>
-      <h1 className={classes.title}>
-        { title }
-      </h1>
+      <h1 className={classes.title}>{title}</h1>
       {children}
     </div>
   )

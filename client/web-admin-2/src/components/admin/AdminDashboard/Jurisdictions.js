@@ -44,7 +44,7 @@ const COLUMNS = [
     sort: true,
   },
   {
-    render: (_, { id }) => <LinkButton label='Select' disabled to={id} />,
+    render: (_, { id }) => <LinkButton label="Select" disabled to={id} />,
     textAlign: 'center',
   },
 ]
