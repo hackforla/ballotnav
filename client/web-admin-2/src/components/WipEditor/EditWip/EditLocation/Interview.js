@@ -21,7 +21,7 @@ const Interview = () => {
   return (
     <div className={classes.root}>
       <h3 className={classes.title}>Interview</h3>
-      <div>Read the questions as you complete the county information.</div>
+      <div>Read the questions as you complete the location information.</div>
     </div>
   )
 }
