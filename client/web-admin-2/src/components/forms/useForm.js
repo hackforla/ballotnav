@@ -53,9 +53,7 @@ export default function useForm({
   }, [rawInitialValues, schema])
 
   const onSubmit = useCallback(
-    (values) => {
-      rawOnSubmit(getSubmittableValues(values))
-    },
+    (values) => rawOnSubmit(getSubmittableValues(values)),
     [rawOnSubmit]
   )
 
