@@ -3,20 +3,14 @@ import { toast } from 'store/actions/toaster'
 import useActions from 'hooks/useActions'
 
 export const types = {
-  SUBMIT: 'auth/SUBMIT',
-  CLEAR_SUBMIT: 'auth/CLEAR_SUBMIT',
   GET_USER: 'auth/GET_USER',
   LOGIN: 'auth/LOGIN',
   REGISTER: 'auth/REGISTER',
   LOGOUT: 'auth/LOGOUT',
 }
 
-const submit = () => ({ type: types.SUBMIT })
-const clearSubmit = () => ({ type: types.CLEAR_SUBMIT })
-
 export const getUser = () => {
   return async (dispatch) => {
-    dispatch(submit())
     const user = await api.user.getUser()
     dispatch({
       type: types.GET_USER,
@@ -34,8 +28,6 @@ export const register = ({
   slackName,
 }) => {
   return async (dispatch) => {
-    dispatch(submit())
-
     try {
       const { user } = await api.user.register({
         firstName,
@@ -60,16 +52,12 @@ export const register = ({
           })(),
         })
       )
-
-      dispatch(clearSubmit())
     }
   }
 }
 
 export const login = ({ email, password }) => {
   return async (dispatch) => {
-    dispatch(submit())
-
     try {
       const { user } = await api.user.login({ email, password })
 
@@ -88,8 +76,6 @@ export const login = ({ email, password }) => {
           })(),
         })
       )
-
-      dispatch(clearSubmit())
     }
   }
 }
@@ -110,7 +96,6 @@ export default useActions.bind(null, {
 
 const initialState = {
   authChecked: false,
-  isSubmitting: false,
   user: null,
 }
 

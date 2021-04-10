@@ -95,8 +95,9 @@ export default function useForm({
   form.makeSubmitButton = useCallback(
     ({ requireDirty, ...buttonProps }) => (
       <TextButton
-        disabled={form.isSubmitting || (requireDirty && !form.dirty)}
         onClick={form.handleSubmit}
+        isLoading={form.isSubmitting}
+        disabled={requireDirty && !form.dirty}
         label="Submit"
         {...buttonDefaults}
         {...buttonProps}
