@@ -1,30 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Map from './Map'
-import useDashboardActions from 'store/actions/dashboard'
-import { useDashboard } from 'store/selectors'
+import mapboxgl, { styleUrl } from 'services/mapbox'
+import * as config from './config'
+import Enhancers from './Enhancers'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    height: '100%',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    '& canvas.mapboxgl-canvas:focus': {
+      outline: 'none',
+    },
   },
 }))
 
-const MapContainer = () => {
+const Map = () => {
   const classes = useStyles()
-  const { getJurisdictions } = useDashboardActions()
-  const { jurisdictions } = useDashboard()
+  const mapContainer = useRef(null)
+  const [map, setMap] = useState(null)
 
   useEffect(() => {
-    if (!jurisdictions) getJurisdictions()
-  }, [jurisdictions, getJurisdictions])
+    const map = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: styleUrl,
+      bounds: config.CONTINENTAL_US,
+      fitBoundsOptions: config.FIT_BOUNDS_OPTIONS,
+    })
+
+    map.on('load', () => setMap(map))
+  }, [])
 
   return (
-    <div className={classes.root}>
-      <Map jurisdictions={jurisdictions} />
+    <div ref={mapContainer} className={classes.root}>
+      {map && <Enhancers map={map} />}
     </div>
   )
 }
 
-export default MapContainer
+export default Map
