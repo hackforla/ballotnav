@@ -1,43 +1,54 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState, useEffect } from 'react'
 import { useDashboard } from 'store/selectors'
 import {
   useAddBoundary,
   useAddLocation,
   useAddBoundaryHover,
   useAddBoundaryZoom,
+  useAddBoundaryClick,
   useAddLocations,
   useAddLocationHover,
 } from './hooks'
 import Sidebar from './Sidebar'
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    pointerEvents: 'none',
-  },
-}))
+import Layers from './Layers'
+import * as config from './config'
 
 const Enhancers = ({ map }) => {
-  const classes = useStyles()
   const { jurisdictions } = useDashboard()
   const [hoveredRegionId, setHoveredRegionId] = useState(null)
+  const [layers, setLayers] = useState({
+    timeSinceUpdate: true,
+    status: false,
+    locations: true,
+  })
 
   useAddBoundary(map)
   useAddLocation(map)
   useAddBoundaryHover(map, setHoveredRegionId)
   useAddBoundaryZoom(map, jurisdictions)
+  useAddBoundaryClick(map, jurisdictions)
   useAddLocations(map, jurisdictions)
   useAddLocationHover(map)
 
+  useEffect(() => {
+    const layer = config.BOUNDARY_LAYER_FILL_ID
+    const value = layers.timeSinceUpdate
+      ? ['get', 'timeSinceUpdate']
+      : 'transparent'
+    map.setPaintProperty(layer, 'fill-color', value)
+  }, [map, layers.timeSinceUpdate])
+
+  useEffect(() => {
+    const layer = config.LOCATION_LAYER_ID
+    const value = layers.locations ? 'visible' : 'none'
+    map.setLayoutProperty(layer, 'visibility', value)
+  }, [map, layers.locations])
+
   return (
-    <div className={classes.root}>
+    <>
       <Sidebar hoveredRegionId={hoveredRegionId} />
-    </div>
+      <Layers layers={layers} setLayers={setLayers} />
+    </>
   )
 }
 

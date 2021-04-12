@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import * as config from './config'
 import { boundingBox } from './geoUtils'
+import moment from 'moment'
 
 export function useAddBoundary(map) {
   useEffect(() => {
@@ -10,32 +11,43 @@ export function useAddBoundary(map) {
     })
 
     map.addLayer({
+      id: config.BOUNDARY_LAYER_FILL_ID,
+      source: config.BOUNDARY_SOURCE_ID,
+      type: 'fill',
+      paint: {
+        //'fill-color': ['get', 'timeSinceUpdate'],
+        // 'fill-opacity': 0.5,
+        // 'fill-opacity': [
+        //   'case',
+        //   [
+        //     'all',
+        //     ['boolean', ['feature-state', 'hover'], false],
+        //     ['!', ['boolean', ['feature-state', 'selected'], false]],
+        //   ],
+        //   0.5,
+        //   0,
+        // ],
+      },
+    })
+
+    map.addLayer({
       id: config.BOUNDARY_LAYER_LINE_ID,
       source: config.BOUNDARY_SOURCE_ID,
       type: 'line',
       paint: {
         'line-color': '#fff',
-        'line-width': 1,
+        // 'line-width': 1,
         'line-blur': 1,
-      },
-    })
-
-    map.addLayer({
-      id: config.BOUNDARY_LAYER_FILL_ID,
-      source: config.BOUNDARY_SOURCE_ID,
-      type: 'fill',
-      paint: {
-        'fill-color': '#fff',
-        'fill-opacity': [
+        'line-width': [
           'case',
           [
             'all',
             ['boolean', ['feature-state', 'hover'], false],
             ['!', ['boolean', ['feature-state', 'selected'], false]],
           ],
-          0.5,
-          0,
-        ],
+          5,
+          1,
+        ]
       },
     })
 
@@ -134,6 +146,22 @@ export function useAddBoundaryHover(map, onChangeHoveredRegion) {
   }, [map, onChangeHoveredRegion])
 }
 
+export function useAddBoundaryClick(map, jurisdictions) {
+  useEffect(() => {
+    const onClick = (e) => {
+      const jurisdiction = jurisdictions.find((j) => j.id === e.features[0].id)
+      const bbox = boundingBox(jurisdiction.geojson)
+      map.fitBounds(bbox, config.FIT_BOUNDS_OPTIONS)
+    }
+
+    map.on('click', config.BOUNDARY_LAYER_FILL_ID, onClick)
+
+    return () => {
+      map.off('click', config.BOUNDARY_LAYER_FILL_ID, onClick)
+    }
+  }, [map, jurisdictions])
+}
+
 export function useAddBoundaryZoom(map, jurisdictions) {
   const boundaries = useMemo(() => {
     if (!jurisdictions) return null
@@ -145,8 +173,13 @@ export function useAddBoundaryZoom(map, jurisdictions) {
         type: 'Feature',
         properties: {
           name: j.name,
+          timeSinceUpdate: (() => {
+            const time = moment.duration(moment().diff(moment(j.updatedAt))).asDays()
+            if (time > 50) return 'red'
+            else return 'blue'
+          })()
         },
-        geometry: JSON.parse(j.geojson),
+        geometry: j.geojson,
       })),
     }
   }, [jurisdictions])
