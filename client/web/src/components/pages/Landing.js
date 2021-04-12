@@ -27,10 +27,6 @@ const Landing = () => {
         <div className={classes.root}>
             <LandingHeader />
             <img src={aboutHero} alt="computer-phone-logo" />
-            
-
-
-
         </div>
     )
 }
