@@ -18,38 +18,49 @@ const UPDATE_LAYER = [
   {
     id: 0,
     stop: 1,
-    label: '< 1 day',
+    label: 'less than 1 day',
     color: 'green',
     visible: true,
   },
   {
     id: 1,
     stop: 3,
-    label: '> 1 day',
+    label: '1 to 3 days',
     color: 'yellow',
     visible: true,
   },
   {
     id: 2,
     stop: 7,
-    label: '> 3 days',
+    label: '3 to 7 days',
     color: 'blue',
     visible: true,
   },
   {
     id: 3,
     stop: 14,
-    label: '> 7 days',
+    label: '7 to 14 days',
     color: 'orange',
     visible: true,
   },
   {
     id: 4,
-    label: '> 14 days',
+    label: 'more than 14 days',
     color: 'red',
     visible: true,
   },
 ]
+
+const LAYERS = {
+  timeSinceUpdate: {
+    label: 'time since update',
+    visible: true,
+  },
+  locations: {
+    label: 'locations',
+    visible: true,
+  },
+}
 
 function getStepExpression(updateLayer) {
   const steps = []
@@ -68,11 +79,7 @@ function getStepExpression(updateLayer) {
 const Enhancers = ({ map }) => {
   const { jurisdictions } = useDashboard()
   const [hoveredRegionId, setHoveredRegionId] = useState(null)
-  const [layers, setLayers] = useState({
-    timeSinceUpdate: true,
-    status: false,
-    locations: true,
-  })
+  const [layers, setLayers] = useState(LAYERS)
 
   const [updateLayer, setUpdateLayer] = useState(UPDATE_LAYER)
 
@@ -85,16 +92,17 @@ const Enhancers = ({ map }) => {
   useAddLocationHover(map)
 
   useEffect(() => {
-    const layer = config.BOUNDARY_LAYER_FILL_ID
-    const value = layers.timeSinceUpdate ? 'visible' : 'none'
-    map.setLayoutProperty(layer, 'visibility', value)
-  }, [map, layers.timeSinceUpdate])
-
-  useEffect(() => {
     const layer = config.LOCATION_LAYER_ID
-    const value = layers.locations ? 'visible' : 'none'
+    const value = layers.locations.visible ? 'visible' : 'none'
     map.setLayoutProperty(layer, 'visibility', value)
   }, [map, layers.locations])
+
+  useEffect(() => {
+    setUpdateLayer((updateLayer) => updateLayer.map((period) => ({
+      ...period,
+      visible: layers.timeSinceUpdate.visible,
+    })))
+  }, [map, layers.timeSinceUpdate])
 
   useEffect(() => {
     const layer = config.BOUNDARY_LAYER_FILL_ID
@@ -106,7 +114,7 @@ const Enhancers = ({ map }) => {
     <>
       <Sidebar hoveredRegionId={hoveredRegionId} />
       <Layers layers={layers} setLayers={setLayers} />
-      {layers.timeSinceUpdate && (
+      {layers.timeSinceUpdate.visible && (
         <TimeSinceUpdate
           updateLayer={updateLayer}
           setUpdateLayer={setUpdateLayer}

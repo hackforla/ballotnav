@@ -7,13 +7,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: 25,
     right: 10,
+    width: 220,
     pointerEvents: 'all',
     userSelect: 'none',
     backgroundColor: '#27272b',
     color: theme.palette.common.white,
     padding: '0.5em 0.75em',
     borderRadius: '0.5em',
-    fontSize: '1.5em',
+    fontSize: '1.25em',
+    fontWeight: 700,
   },
   checkbox: {
     padding: '0.25em 0'
@@ -28,14 +30,17 @@ const Layers = ({ layers, setLayers }) => {
       {Object.keys(layers).map((layer) => (
         <div key={layer} className={classes.checkbox}>
           <Checkbox
-            checked={layers[layer]}
+            checked={layers[layer].visible}
             onChange={() => {
               setLayers({
                 ...layers,
-                [layer]: !layers[layer],
+                [layer]: {
+                  ...layers[layer],
+                  visible: !layers[layer].visible,
+                },
               })
             }}
-            label={layer}
+            label={layers[layer].label}
           />
         </div>
       ))}
