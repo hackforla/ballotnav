@@ -23,9 +23,9 @@ export default createMuiTheme({
       selected: '#FF0029',
     },
     jurisdictionStatuses: {
-      Published: {
+      'Awaiting Edit': {
         text: '#FFFFFF',
-        background: '#FF7144',
+        background: 'green',
       },
       'Edit in Progress': {
         text: '#041B54',
@@ -34,6 +34,10 @@ export default createMuiTheme({
       'Released for Review': {
         text: '#FFFFFF',
         background: '#53A8E2',
+      },
+      'Published': {
+        text: '#FFFFFF',
+        background: '#FF7144',
       },
     },
   },
