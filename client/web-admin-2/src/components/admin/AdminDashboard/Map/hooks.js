@@ -173,11 +173,9 @@ export function useAddBoundaryZoom(map, jurisdictions) {
         type: 'Feature',
         properties: {
           name: j.name,
-          timeSinceUpdate: (() => {
-            const time = moment.duration(moment().diff(moment(j.updatedAt))).asDays()
-            if (time > 50) return 'red'
-            else return 'blue'
-          })()
+          timeSinceUpdate: moment
+            .duration(moment().diff(moment(j.updatedAt)))
+            .asDays(),
         },
         geometry: j.geojson,
       })),
