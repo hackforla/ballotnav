@@ -47,7 +47,7 @@ const LocationSchedule = ({ location, expandable }) => {
   const classes = useStyles()
 
   const isClosed = true // TODO: calculate this
-  
+
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>

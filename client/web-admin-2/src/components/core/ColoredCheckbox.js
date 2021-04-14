@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   outer: {
     stroke: theme.palette.common.white,
     strokeWidth: 2,
-    fill: ({ checked, color }) => checked ? color : 'transparent',
+    fill: ({ checked, color }) => (checked ? color : 'transparent'),
   },
   // inner: {
   //   fill: theme.palette.common.white,

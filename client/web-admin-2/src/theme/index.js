@@ -35,7 +35,7 @@ export default createMuiTheme({
         text: '#FFFFFF',
         background: '#53A8E2',
       },
-      'Published': {
+      Published: {
         text: '#FFFFFF',
         background: '#FF7144',
       },

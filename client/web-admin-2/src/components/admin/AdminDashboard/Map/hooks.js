@@ -47,7 +47,7 @@ export function useAddBoundary(map) {
           ],
           5,
           1,
-        ]
+        ],
       },
     })
 

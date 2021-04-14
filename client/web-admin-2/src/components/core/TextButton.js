@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   label: {
-    visibility: ({ isLoading }) => isLoading ? 'hidden' : 'visible',
+    visibility: ({ isLoading }) => (isLoading ? 'hidden' : 'visible'),
     cursor: 'pointer',
   },
   loader: {
@@ -66,12 +66,10 @@ const TextButton = ({
       disabled={disabled || isLoading}
       {...rest}
     >
-      <label className={classes.label}>
-        {label}
-      </label>
+      <label className={classes.label}>{label}</label>
       {isLoading && (
         <div className={classes.loader}>
-          <CircularProgress color='primary' size='1.5em' />
+          <CircularProgress color="primary" size="1.5em" />
         </div>
       )}
     </Button>

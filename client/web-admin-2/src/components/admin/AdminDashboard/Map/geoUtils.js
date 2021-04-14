@@ -4,11 +4,11 @@ import {
   bbox,
   pointsWithinPolygon,
   booleanPointInPolygon,
-} from '@turf/turf';
+} from '@turf/turf'
 
 export function emptyGeo() {
   return {
-    type: "FeatureCollection",
+    type: 'FeatureCollection',
     features: [],
   }
 }
@@ -20,29 +20,28 @@ export function removeGeoHoles(feature) {
       ...feature,
       geometry: {
         ...feature.geometry,
-        coordinates: feature.geometry.coordinates.map(poly => [poly[0]])
-      }
-    };
-  else
-    return feature;
+        coordinates: feature.geometry.coordinates.map((poly) => [poly[0]]),
+      },
+    }
+  else return feature
 }
 
-export function makeGeoCircle(center, radius=1, opts={ units: 'miles' }) {
-  return circle([center.lng, center.lat], radius, opts);
+export function makeGeoCircle(center, radius = 1, opts = { units: 'miles' }) {
+  return circle([center.lng, center.lat], radius, opts)
 }
 
 export function makeGeoMask(poly) {
-  return mask(poly);
+  return mask(poly)
 }
 
 export function boundingBox(geo) {
-  return bbox(geo);
+  return bbox(geo)
 }
 
 export function pointsWithinGeo(points, geo) {
-  return pointsWithinPolygon(points, geo);
+  return pointsWithinPolygon(points, geo)
 }
 
 export function isPointWithinGeo(point, geo) {
-  return booleanPointInPolygon(point, geo);
+  return booleanPointInPolygon(point, geo)
 }

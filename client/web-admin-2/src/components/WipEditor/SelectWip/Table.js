@@ -5,12 +5,13 @@ import LinkButton from 'components/core/LinkButton'
 import { useRole } from 'store/selectors'
 
 function sortByJurisdictionStatus(a, b) {
-  const index = (status) => [
-    'Awaiting Edit',
-    'Edit in Progress',
-    'Released for Review',
-    'Published'
-  ].indexOf(status)
+  const index = (status) =>
+    [
+      'Awaiting Edit',
+      'Edit in Progress',
+      'Released for Review',
+      'Published',
+    ].indexOf(status)
   return index(b) - index(a)
 }
 

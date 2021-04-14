@@ -8,14 +8,13 @@ export const GEORGIA = [
   [-82, 35],
 ]
 
-
 export const FIT_BOUNDS_OPTIONS = {
   padding: {
     top: 50,
     bottom: 50,
     left: 300,
     right: 300,
-  }
+  },
 }
 
 export const BOUNDARY_SOURCE_ID = 'boundary'

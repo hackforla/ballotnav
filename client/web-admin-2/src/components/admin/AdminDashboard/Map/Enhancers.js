@@ -69,11 +69,7 @@ function getStepExpression(updateLayer) {
     if (period.stop) steps.push(period.stop)
   })
 
-  return [
-    'step',
-    ['get', 'timeSinceUpdate'],
-    ...steps,
-  ]
+  return ['step', ['get', 'timeSinceUpdate'], ...steps]
 }
 
 const Enhancers = ({ map }) => {
@@ -98,10 +94,12 @@ const Enhancers = ({ map }) => {
   }, [map, layers.locations])
 
   useEffect(() => {
-    setUpdateLayer((updateLayer) => updateLayer.map((period) => ({
-      ...period,
-      visible: layers.timeSinceUpdate.visible,
-    })))
+    setUpdateLayer((updateLayer) =>
+      updateLayer.map((period) => ({
+        ...period,
+        visible: layers.timeSinceUpdate.visible,
+      }))
+    )
   }, [map, layers.timeSinceUpdate])
 
   useEffect(() => {

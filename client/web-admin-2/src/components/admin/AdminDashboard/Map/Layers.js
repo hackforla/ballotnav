@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
   },
   checkbox: {
-    padding: '0.25em 0'
+    padding: '0.25em 0',
   },
 }))
 

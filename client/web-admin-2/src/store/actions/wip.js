@@ -51,7 +51,6 @@ export const updateWip = (wip) => {
 
     dispatch({ type: types.UPDATE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Updated ${wip.name}.` }))
-
   }
 }
 

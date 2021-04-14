@@ -8,7 +8,7 @@ export const types = {
 export const getJurisdictions = () => {
   return async (dispatch) => {
     const data = await api.dashboard.getJurisdictions()
-    data.forEach((jur) => jur.geojson = JSON.parse(jur.geojson))
+    data.forEach((jur) => (jur.geojson = JSON.parse(jur.geojson)))
 
     dispatch({
       type: types.GET_JURISDICTIONS_SUCCESS,

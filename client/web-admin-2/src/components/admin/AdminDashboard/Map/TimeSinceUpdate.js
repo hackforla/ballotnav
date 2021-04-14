@@ -27,13 +27,16 @@ const useStyles = makeStyles((theme) => ({
 const TimeSinceUpdate = ({ updateLayer, setUpdateLayer }) => {
   const classes = useStyles()
 
-  const togglePeriod = useCallback((period) => {
-    setUpdateLayer((updateLayer) => updateLayer.map((p) => (
-      p.id === period.id
-        ? { ...p, visible: !p.visible }
-        : p
-    )))
-  }, [setUpdateLayer])
+  const togglePeriod = useCallback(
+    (period) => {
+      setUpdateLayer((updateLayer) =>
+        updateLayer.map((p) =>
+          p.id === period.id ? { ...p, visible: !p.visible } : p
+        )
+      )
+    },
+    [setUpdateLayer]
+  )
 
   return (
     <div className={classes.root}>
