@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg'
+import ClockIcon from '@material-ui/icons/AccessTime'
 import Hours from './Hours'
 import moment from 'moment'
 
@@ -41,12 +41,17 @@ const Description = ({ location }) => {
   return <span>{location.scheduleDescription}</span>
 }
 
+//fill="#63A275"
+
 const LocationSchedule = ({ location, expandable }) => {
   const classes = useStyles()
+
+  const isClosed = true // TODO: calculate this
+
   return (
     <div className={classes.root}>
       <div className={classes.iconCell}>
-        <ClockIcon />
+        <ClockIcon style={{ color: isClosed ? '#FF0029' : '#63A275' }} />
       </div>
       <div className={classes.textCell}>
         {(() => {

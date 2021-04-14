@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import TextButton from 'components/core/TextButton'
@@ -29,11 +29,14 @@ const Footer = ({ wipJurisdiction }) => {
   const { releaseWip, publishWip, closeTab } = useWipActions()
   const { isVolunteer } = useRole()
   const history = useHistory()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onClick = useCallback(async () => {
-    if (isVolunteer) return releaseWip(wipJurisdiction)
+    setIsSubmitting(true)
+    const submit = isVolunteer ? releaseWip : publishWip
+    await submit(wipJurisdiction)
+    setIsSubmitting(false)
 
-    await publishWip(wipJurisdiction)
     history.push('/jurisdictions')
     closeTab(wipJurisdiction.jurisdictionId)
   }, [isVolunteer, publishWip, releaseWip, wipJurisdiction, history, closeTab])
@@ -46,6 +49,7 @@ const Footer = ({ wipJurisdiction }) => {
           size="xLarge"
           onClick={onClick}
           disabled={isVolunteer && wipJurisdiction.isReleased}
+          isLoading={isSubmitting}
         />
       </PageWidth>
     </div>

@@ -4,6 +4,17 @@ import Table from 'components/core/Table'
 import LinkButton from 'components/core/LinkButton'
 import { useRole } from 'store/selectors'
 
+function sortByJurisdictionStatus(a, b) {
+  const index = (status) =>
+    [
+      'Awaiting Edit',
+      'Edit in Progress',
+      'Released for Review',
+      'Published',
+    ].indexOf(status)
+  return index(b) - index(a)
+}
+
 const COLUMNS = [
   {
     title: 'Jurisdiction',
@@ -19,7 +30,7 @@ const COLUMNS = [
     title: 'Status',
     field: 'jurisdictionStatus',
     render: (status) => <JurisdictionStatus status={status} />,
-    sort: true,
+    sort: sortByJurisdictionStatus,
   },
   {
     render: (_, { jurisdictionId: id }) => (

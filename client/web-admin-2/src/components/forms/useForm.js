@@ -53,9 +53,7 @@ export default function useForm({
   }, [rawInitialValues, schema])
 
   const onSubmit = useCallback(
-    (values) => {
-      rawOnSubmit(getSubmittableValues(values))
-    },
+    (values) => rawOnSubmit(getSubmittableValues(values)),
     [rawOnSubmit]
   )
 
@@ -97,8 +95,9 @@ export default function useForm({
   form.makeSubmitButton = useCallback(
     ({ requireDirty, ...buttonProps }) => (
       <TextButton
-        disabled={form.isSubmitting || (requireDirty && !form.dirty)}
         onClick={form.handleSubmit}
+        isLoading={form.isSubmitting}
+        disabled={requireDirty && !form.dirty}
         label="Submit"
         {...buttonDefaults}
         {...buttonProps}

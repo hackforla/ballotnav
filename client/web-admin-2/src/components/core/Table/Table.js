@@ -60,7 +60,9 @@ const Table = ({ data, columns, keyExtractor = (row) => row.id, collapse }) => {
 
     // use default sort algo where sort === true and field is provided
     const sortFunc =
-      sort === true && field ? (a, b) => (b[field] > a[field] ? 1 : -1) : sort
+      sort === true && field
+        ? (a, b) => (b[field] > a[field] ? 1 : -1)
+        : (a, b) => sort(a[field], b[field])
 
     const sorted = [...data].sort(sortFunc)
     if (sortDirection === 'desc') sorted.reverse()

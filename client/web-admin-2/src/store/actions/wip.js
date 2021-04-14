@@ -37,35 +37,40 @@ export const getWip = (jid) => {
       return await api.wip.getReleasedJurisdiction(wipJurisdictionId)
     })()
 
+    // get status update after wip converts from 'published' to 'in progress'
+    if (isVolunteer) await dispatch(listWips())
+
     dispatch({ type: types.GET_WIP_SUCCESS, data })
-    if (isVolunteer) dispatch(listWips()) // get status update after wip converts from 'published' to 'edit in progress'
   }
 }
 
 export const updateWip = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.updateJurisdiction(wip.id, wip)
+    await dispatch(listWips()) // necessary to get status update
+
     dispatch({ type: types.UPDATE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Updated ${wip.name}.` }))
-    dispatch(listWips()) // necessary to get status update
   }
 }
 
 export const releaseWip = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.releaseJurisdiction(wip.id)
+    await dispatch(listWips()) // necessary to get status update
+
     dispatch({ type: types.RELEASE_WIP_SUCCESS, data })
     dispatch(toast({ message: `Released ${wip.name}` }))
-    dispatch(listWips()) // necessary to get status update
   }
 }
 
 export const publishWip = (wip) => {
   return async (dispatch) => {
     const data = await api.wip.publishJurisdiction(wip.id)
-    dispatch({ type: types.PUBLISH_WIP_SUCCESS, data })
-    dispatch(toast({ message: `Released ${wip.name}` }))
     await dispatch(listWips()) // necessary to remove from wipList
+
+    dispatch({ type: types.PUBLISH_WIP_SUCCESS, data })
+    dispatch(toast({ message: `Published ${wip.name}` }))
   }
 }
 

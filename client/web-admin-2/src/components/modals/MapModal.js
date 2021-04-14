@@ -25,7 +25,7 @@ const MapModal = () => {
   const close = () => closeModal('map')
 
   return (
-    <Dialog fullScreen keepMounted open={isOpen}>
+    <Dialog fullScreen open={isOpen}>
       <div className={classes.close}>
         <IconButton onClick={close}>
           <CloseIcon style={{ color: '#FFF', fontSize: 32 }} />

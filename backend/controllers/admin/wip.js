@@ -1,14 +1,60 @@
 const { Op } = require('sequelize')
 const logger = require('@log')
 
+// Version 1: takes directly from user_jurisdiction_with_currwip view
+// exports.listMyJurisdictions = async (req, res, next) => {
+//   const userId = req.user.id
+//
+//   const jurisdictions = await req.db.sequelize.query(
+//     `
+//       SELECT *
+//         FROM user_jurisdiction_with_currwip
+//         WHERE user_id = ':userId'
+//     `,
+//     {
+//       replacements: { userId },
+//       type: req.db.Sequelize.QueryTypes.SELECT,
+//     }
+//   )
+//
+//   const transformed = jurisdictions.map((j) => ({
+//     stateName: j.state_name,
+//     jurisdictionId: j.jurisdiction_id,
+//     jurisdictionName: j.jurisdiction_name,
+//     jurisdictionStatus: j.jurisdiction_status,
+//     wipJurisdictionId: j.wip_jurisdiction_id,
+//     wipJurisdictionIsReleased: j.wip_jurisdiction_is_released,
+//   }))
+//
+//   res.json(transformed)
+// }
+
+// Version 2: this one changes the 'Published' status to 'Awaiting Edit'
+// if the volunteer hasn't started editing yet
 exports.listMyJurisdictions = async (req, res, next) => {
   const userId = req.user.id
 
   const jurisdictions = await req.db.sequelize.query(
     `
-      SELECT *
-        FROM user_jurisdiction_with_currwip
-        WHERE user_id = ':userId'
+    SELECT
+    	ujwc.user_id,
+    	ujwc.jurisdiction_id,
+    	ujwc.state_name,
+    	ujwc.jurisdiction_name,
+    	ujwc.wip_jurisdiction_id,
+    	CASE WHEN ujwc.jurisdiction_status = 'Published'
+    		AND j.updated_at < uj.created_at THEN
+    		'Awaiting Edit'::text
+    	ELSE
+    		ujwc.jurisdiction_status
+    	END AS jurisdiction_status
+    FROM
+    	user_jurisdiction_with_currwip AS ujwc
+    	JOIN jurisdiction AS j ON j.id = ujwc.jurisdiction_id
+    	JOIN user_jurisdiction AS uj ON uj.jurisdiction_id = ujwc.jurisdiction_id
+    		AND uj.user_id = ujwc.user_id
+    WHERE
+    	ujwc.user_id = ':userId'
     `,
     {
       replacements: { userId },
@@ -22,7 +68,6 @@ exports.listMyJurisdictions = async (req, res, next) => {
     jurisdictionName: j.jurisdiction_name,
     jurisdictionStatus: j.jurisdiction_status,
     wipJurisdictionId: j.wip_jurisdiction_id,
-    wipJurisdictionIsReleased: j.wip_jurisdiction_is_released,
   }))
 
   res.json(transformed)
