@@ -38,7 +38,7 @@ exports.getGisStates = async (req, res) => {
 exports.getGisCounties = async (req, res) => {
   const { statefp } = req.params
 
-  const data = await req.db.sequelize.query(
+  const counties = await req.db.sequelize.query(
     `
       SELECT name, countyfp, geo
         FROM gis_shapes
@@ -50,7 +50,17 @@ exports.getGisCounties = async (req, res) => {
     }
   )
 
-  return res.json(data)
+  return res.json({
+    type: 'FeatureCollection',
+    features: counties.map((c) => ({
+      type: 'Feature',
+      properties: {
+        countyfp: c.countyfp,
+        name: c.name,
+      },
+      geometry: c.geo,
+    })),
+  })
 }
 
 exports.getCountyByLonLat = async (req, res) => {

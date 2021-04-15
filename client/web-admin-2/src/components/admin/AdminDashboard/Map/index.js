@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import useInitMap from './useInitMap'
 import useAddStates from './useAddStates'
+import useAddCounties from './useAddCounties'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,10 +18,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Map = () => {
+  const [statefp, setStatefp] = useState(null)
+  // eslint-disable-next-line
+  const [countyfp, setCountyfp] = useState(null)
   const classes = useStyles()
   const mapContainer = useRef(null)
   const map = useInitMap(mapContainer)
-  useAddStates(map)
+  useAddStates(map, setStatefp)
+  useAddCounties(map, statefp, setCountyfp)
 
   return (
     <div ref={mapContainer} className={classes.root} />
