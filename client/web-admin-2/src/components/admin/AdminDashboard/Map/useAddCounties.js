@@ -1,21 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { boundingBox } from './geoUtils'
 import * as config from './config'
+import axios from 'axios'
+
+const SOURCE_ID = 'county'
 
 export default function useAddStates(map, statefp, setCountyfp) {
+  const counties = useRef(null)
+
   useEffect(() => {
     if (!map) return
 
-    map.addSource('counties', {
+    map.addSource(SOURCE_ID, {
       type: 'geojson',
       data: null,
-      // data: 'http://localhost:8080/admin/dashboard/gis/states',
-      //data: states,
     })
 
     map.addLayer({
-      id: 'county-borders',
-      source: 'counties',
+      id: `${SOURCE_ID}-borders`,
+      source: SOURCE_ID,
       type: 'line',
       paint: {
         'line-color': '#fff',
@@ -34,8 +37,8 @@ export default function useAddStates(map, statefp, setCountyfp) {
     })
 
     map.addLayer({
-      id: 'county-fills',
-      source: 'counties',
+      id: `${SOURCE_ID}-fills`,
+      source: SOURCE_ID,
       type: 'fill',
       paint: {
         'fill-color': 'transparent',
@@ -43,27 +46,34 @@ export default function useAddStates(map, statefp, setCountyfp) {
     })
 
     const onClick = (e) => {
-      // NOTE: it appears that e.features[0] includes only the **rendered**
-      // geometry of the state. To get the full geometry we might need to
-      // go back to the source data
-      // const { countyfp } = e.features[0].properties
-      const bbox = boundingBox(e.features[0].geometry)
+      const { countyfp } = e.features[0].properties
+      const county = counties.current.features.find((s) =>
+        s.properties.countyfp === countyfp
+      )
+      const bbox = boundingBox(county)
       map.fitBounds(bbox, config.FIT_BOUNDS_OPTIONS)
     }
 
-    map.on('click', 'county-fills', onClick)
+    map.on('click', `${SOURCE_ID}-fills`, onClick)
 
     return () => {
-      map.off('click', 'county-fills', onClick)
-      map.removeLayer('county-boundaries')
-      map.removeSource('counties')
+      map.off('click', `${SOURCE_ID}-fills`, onClick)
+      map.removeLayer(`${SOURCE_ID}-borders`)
+      map.removeLayer(`${SOURCE_ID}-fills`)
+      map.removeSource(SOURCE_ID)
     }
   }, [map])
 
   useEffect(() => {
     if (!map || !statefp) return
 
-    const url = `http://localhost:8080/admin/dashboard/gis/states/${statefp}/counties`
-    map.getSource('counties').setData(url)
+    async function loadCounties(map, statefp) {
+      const url = `http://localhost:8080/admin/dashboard/gis/states/${statefp}/counties`
+      const { data } = await axios.get(url)
+      map.getSource(SOURCE_ID).setData(data)
+      counties.current = data
+    }
+
+    loadCounties(map, statefp)
   }, [map, statefp])
 }

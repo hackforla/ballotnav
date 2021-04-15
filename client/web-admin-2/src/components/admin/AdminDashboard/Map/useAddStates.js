@@ -1,21 +1,25 @@
-import { useEffect } from 'react'
-import states from './states.json'
+import { useEffect, useRef } from 'react'
+import statesData from './states.json'
 import { boundingBox } from './geoUtils'
 import * as config from './config'
 
+const SOURCE_ID = 'state'
+
 export default function useAddStates(map, setStatefp) {
+  const states = useRef(statesData)
+
   useEffect(() => {
     if (!map) return
 
-    map.addSource('states', {
+    map.addSource(SOURCE_ID, {
       type: 'geojson',
       // data: 'http://localhost:8080/admin/dashboard/gis/states',
-      data: states,
+      data: states.current,
     })
 
     map.addLayer({
-      id: 'state-borders',
-      source: 'states',
+      id: `${SOURCE_ID}-borders`,
+      source: SOURCE_ID,
       type: 'line',
       paint: {
         'line-color': '#fff',
@@ -34,8 +38,8 @@ export default function useAddStates(map, setStatefp) {
     })
 
     map.addLayer({
-      id: 'state-fills',
-      source: 'states',
+      id: `${SOURCE_ID}-fills`,
+      source: SOURCE_ID,
       type: 'fill',
       paint: {
         'fill-color': 'transparent',
@@ -43,21 +47,22 @@ export default function useAddStates(map, setStatefp) {
     })
 
     const onClick = (e) => {
-      // NOTE: it appears that e.features[0] includes only the **rendered**
-      // geometry of the state. To get the full geometry we might need to
-      // go back to the source data
       const { statefp } = e.features[0].properties
-      const bbox = boundingBox(e.features[0].geometry)
+      const state = states.current.features.find((s) =>
+        s.properties.statefp === statefp
+      )
+      const bbox = boundingBox(state)
       map.fitBounds(bbox, config.FIT_BOUNDS_OPTIONS)
       map.once('zoomend', () => setStatefp(statefp))
     }
 
-    map.on('click', 'state-fills', onClick)
+    map.on('click', `${SOURCE_ID}-fills`, onClick)
 
     return () => {
-      map.off('click', 'state-fills', onClick)
-      map.removeLayer('state-boundaries')
-      map.removeSource('states')
+      map.off('click', `${SOURCE_ID}-fills`, onClick)
+      map.removeLayer(`${SOURCE_ID}-borders`)
+      map.removeLayer(`${SOURCE_ID}-fills`)
+      map.removeSource(SOURCE_ID)
     }
   }, [map, setStatefp])
 }
