@@ -22,7 +22,8 @@ const JurisdictionStats = ({ jurisdictions }) => {
   return (
     <div className={classes.root}>
       <div>Stats</div>
-      <button onClick={() => openModal('map')}>map</button>
+      <button onClick={() => openModal('map')}>map 1</button>
+      <button onClick={() => openModal('map2')}>map 2</button>
     </div>
   )
 }

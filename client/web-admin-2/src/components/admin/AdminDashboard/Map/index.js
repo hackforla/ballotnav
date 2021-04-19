@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import useInitMap from './useInitMap'
-import useAddStates from './useAddStates'
-import useAddCounties from './useAddCounties'
-import RegionName from './RegionName'
+import mapboxgl, { styleUrl } from 'services/mapbox'
+import * as config from './config'
+import Enhancers from './Enhancers'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,24 +17,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const noop = () => null
-
 const Map = () => {
-  const [statefp, setStatefp] = useState(null)
-  // eslint-disable-next-line
-  const [countyfp, setCountyfp] = useState(null)
-  const [regionName, setRegionName] = useState(null)
   const classes = useStyles()
   const mapContainer = useRef(null)
-  const map = useInitMap(mapContainer)
-  useAddStates(map, setStatefp, setRegionName)
-  useAddCounties(map, statefp, setCountyfp, statefp ? setRegionName : noop)
+  const [map, setMap] = useState(null)
 
-  console.log(regionName)
+  useEffect(() => {
+    const map = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: styleUrl,
+      bounds: config.CONTINENTAL_US,
+      fitBoundsOptions: config.FIT_BOUNDS_OPTIONS,
+    })
+
+    map.on('load', () => setMap(map))
+  }, [])
 
   return (
     <div ref={mapContainer} className={classes.root}>
-      <RegionName regionName={regionName} />
+      {map && <Enhancers map={map} />}
     </div>
   )
 }

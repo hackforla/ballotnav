@@ -12,8 +12,8 @@ export const FIT_BOUNDS_OPTIONS = {
   padding: {
     top: 50,
     bottom: 50,
-    left: 300,
-    right: 300,
+    left: 50,
+    right: 50,
   },
 }
 
