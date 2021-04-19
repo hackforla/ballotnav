@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const SOURCE_ID = 'county'
 
-export default function useAddStates(map, statefp, setCountyfp) {
+export default function useAddStates(map, statefp, setCountyfp, setRegionName) {
   const counties = useRef(null)
 
   useEffect(() => {
@@ -54,15 +54,21 @@ export default function useAddStates(map, statefp, setCountyfp) {
       map.fitBounds(bbox, config.FIT_BOUNDS_OPTIONS)
     }
 
+    const onMouseMove = (e) => {
+      setRegionName(e.features[0].properties.name)
+    }
+
     map.on('click', `${SOURCE_ID}-fills`, onClick)
+    map.on('mousemove', `${SOURCE_ID}-fills`, onMouseMove)
 
     return () => {
       map.off('click', `${SOURCE_ID}-fills`, onClick)
+      map.off('mousemove', `${SOURCE_ID}-fills`, onMouseMove)
       map.removeLayer(`${SOURCE_ID}-borders`)
       map.removeLayer(`${SOURCE_ID}-fills`)
       map.removeSource(SOURCE_ID)
     }
-  }, [map])
+  }, [map, setRegionName])
 
   useEffect(() => {
     if (!map || !statefp) return

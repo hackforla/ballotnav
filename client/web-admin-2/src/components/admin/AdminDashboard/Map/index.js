@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import useInitMap from './useInitMap'
 import useAddStates from './useAddStates'
 import useAddCounties from './useAddCounties'
+import RegionName from './RegionName'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,18 +18,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const noop = () => null
+
 const Map = () => {
   const [statefp, setStatefp] = useState(null)
   // eslint-disable-next-line
   const [countyfp, setCountyfp] = useState(null)
+  const [regionName, setRegionName] = useState(null)
   const classes = useStyles()
   const mapContainer = useRef(null)
   const map = useInitMap(mapContainer)
-  useAddStates(map, setStatefp)
-  useAddCounties(map, statefp, setCountyfp)
+  useAddStates(map, setStatefp, setRegionName)
+  useAddCounties(map, statefp, setCountyfp, statefp ? setRegionName : noop)
+
+  console.log(regionName)
 
   return (
-    <div ref={mapContainer} className={classes.root} />
+    <div ref={mapContainer} className={classes.root}>
+      <RegionName regionName={regionName} />
+    </div>
   )
 }
 

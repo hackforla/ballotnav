@@ -5,7 +5,7 @@ import * as config from './config'
 
 const SOURCE_ID = 'state'
 
-export default function useAddStates(map, setStatefp) {
+export default function useAddStates(map, setStatefp, setRegionName) {
   const states = useRef(statesData)
 
   useEffect(() => {
@@ -56,13 +56,19 @@ export default function useAddStates(map, setStatefp) {
       map.once('zoomend', () => setStatefp(statefp))
     }
 
+    const onMouseMove = (e) => {
+      setRegionName(e.features[0].properties.name)
+    }
+
     map.on('click', `${SOURCE_ID}-fills`, onClick)
+    map.on('mousemove', `${SOURCE_ID}-fills`, onMouseMove)
 
     return () => {
       map.off('click', `${SOURCE_ID}-fills`, onClick)
+      map.off('mousemove', `${SOURCE_ID}-fills`, onMouseMove)
       map.removeLayer(`${SOURCE_ID}-borders`)
       map.removeLayer(`${SOURCE_ID}-fills`)
       map.removeSource(SOURCE_ID)
     }
-  }, [map, setStatefp])
+  }, [map, setStatefp, setRegionName])
 }
