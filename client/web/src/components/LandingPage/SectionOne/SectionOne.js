@@ -1,6 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import SectionOne from 'components/LandingPage/SectionOne/SectionOne'
+import LandingHeader from './LandHeadSecOne'
+import SectionHeader from './HeaderSecOne'
+import LaptopHero from './HeroImgSecOne'
+import SectionParagraph from './ParaSecOne'
+import LaunchDemoButton from './ButtonSecOne'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,13 +25,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const Landing = () => {
+const SectionOne = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <SectionOne />
+            <LandingHeader />
+            <SectionHeader />
+            <LaptopHero />
+            <SectionParagraph />
+            <LaunchDemoButton />
         </div>
     )
 }
 
-export default Landing
+export default SectionOne
