@@ -14,13 +14,13 @@ const useStyles = makeStyles({
     },
 });
 
-const ParaSecOne = () => {
+const HeaderSecThree = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <h2>BallotNav helps voters find safe, secure, in-person locations to drop off your mail-in or absentee ballot. Launch our demo to navigate BallotNav.</h2>
+            <h1>Who is making BallotNav?</h1>
         </div>
     )
 };
 
-export default ParaSecOne;
+export default HeaderSecThree;

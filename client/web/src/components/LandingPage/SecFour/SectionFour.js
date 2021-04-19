@@ -1,9 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import SectionOne from 'components/LandingPage/SecOne/SectionOne'
-import SectionTwo from 'components/LandingPage/SecTwo/SectionTwo'
-import SectionThree from 'components/LandingPage/SecThree/SectionThree'
-import SectionFour from 'components/LandingPage/SecFour/SectionFour'
+import BallotNavThumbnail from 'components/LandingPage/SecFour/ballotNavThumbnail'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,16 +21,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const Landing = () => {
+const SectionFour = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
-            <SectionFour />
+            <BallotNavThumbnail/>
         </div>
     )
 }
 
-export default Landing
+export default SectionFour

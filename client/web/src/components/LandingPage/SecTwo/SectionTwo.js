@@ -1,10 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import LandingHeader from './LandHeadSecOne'
-import SectionHeader from './HeaderSecOne'
-import LaptopHero from './HeroImgSecOne'
-import SectionParagraph from './ParaSecOne'
-import LaunchDemoButton from './ButtonSecOne'
+import SectionHeader from './HeadSecTwo'
+import SubHeadSecTwo from './SubHeadSecTwo'
+import HeroImgSecTwo from './HeroImgSecTwo'
+import ParaSecTwo from './ParaSecTwo'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,17 +24,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const SectionOne = () => {
+const SectionTwo = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <LandingHeader />
             <SectionHeader />
-            <LaptopHero />
-            <SectionParagraph />
-            <LaunchDemoButton />
+            <SubHeadSecTwo />
+            <HeroImgSecTwo />
+            <ParaSecTwo />
         </div>
     )
 }
 
-export default SectionOne
+export default SectionTwo
