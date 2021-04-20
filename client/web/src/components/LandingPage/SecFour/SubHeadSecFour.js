@@ -1,24 +1,26 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import BallotNavThumbnail from 'assets/images/ballotNavThumbnail.svg'
+
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         justifyContent: 'flex-start',
-        marginTop: 35,
+        color: '#1B2152',
+        fontSize: 30,
         // backgroundColor: 'green',
         // color: props => props.color,
-    }
+    },
 });
 
-const VideoThumbnail = () => {
+const SubHeadSecFour = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <img style={{height: '450px'}} src={BallotNavThumbnail} />
+            <p>Simple and intuitive.
+            Find out how it works in this short video.</p>
         </div>
     )
 };
 
-export default VideoThumbnail;
+export default SubHeadSecFour;
