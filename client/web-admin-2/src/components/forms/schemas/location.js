@@ -53,11 +53,49 @@ const schema = {
       select: true,
       options: [
         { value: 'description', label: 'Description' },
-        { value: 'hours', label: 'Hours' },
         { value: 'continuous', label: 'Continuous' },
+        { value: 'hours', label: 'Hours' },
       ],
     },
     defaultValue: 'description',
+  },
+  scheduleDescription: {
+    validate: Yup.string(),
+    input: {
+      label: 'Schedule Description',
+      type: 'textarea',
+      multiline: true,
+      rows: 7,
+      variant: 'outlined',
+    },
+  },
+  continuousOpenDate: {
+    validate: Yup.string(),  // TODO: figure this out
+    input: {
+      label: 'Continuous Open Date',
+      type: 'date',
+    },
+  },
+  continuousOpenTime: {
+    validate: Yup.string(),  // TODO: figure this out
+    input: {
+      label: 'Continuous Open Time',
+      type: 'time',
+    },
+  },
+  continuousCloseDate: {
+    validate: Yup.string(),  // TODO: figure this out
+    input: {
+      label: 'Continuous Close Date',
+      type: 'date',
+    },
+  },
+  continuousCloseTime: {
+    validate: Yup.string(),  // TODO: figure this out
+    input: {
+      label: 'Continuous Close Time',
+      type: 'time',
+    },
   },
 }
 

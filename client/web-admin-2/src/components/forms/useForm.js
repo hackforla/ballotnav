@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import FormInput from './FormInput'
 import TextButton from 'components/core/TextButton'
+import moment from 'moment'
 
 // the forms can't handle null, so convert nulls to empty strings.
 // also limit initialValues to the fields in the schema
@@ -40,6 +41,11 @@ function getValidationSchema(schema) {
   return Yup.object(validators)
 }
 
+function getFormattedDate(date) {
+  if (!date) return ''
+  return moment(date).utc().format('yyyy-MM-DD')
+}
+
 export default function useForm({
   schema,
   initialValues: rawInitialValues = {},
@@ -74,21 +80,34 @@ export default function useForm({
   }, [initialValues, form.values])
 
   form.makeInput = useCallback(
-    (field) => (
-      <FormInput
-        margin="dense"
-        fullWidth
-        name={field}
-        label={field}
-        value={form.values[field]}
-        onChange={form.handleChange}
-        helperText={form.touched[field] ? form.errors[field] : null}
-        error={!!form.errors[field] && form.touched[field]}
-        className={trackChanges && form.changed[field] ? 'changed' : undefined}
-        {...inputDefaults}
-        {...schema[field].input}
-      />
-    ),
+    (field) => {
+      const { values, touched, errors, changed, handleChange } = form
+      const { type } = schema[field].input
+      return (
+        <FormInput
+          margin="dense"
+          fullWidth
+          name={field}
+          label={field}
+          value={
+            type === 'date'
+              ? getFormattedDate(values[field])
+              : values[field] || ''
+          }
+          onChange={handleChange}
+          helperText={touched[field] ? errors[field] : null}
+          error={!!errors[field] && touched[field]}
+          className={trackChanges && changed[field] ? 'changed' : undefined}
+          InputLabelProps={
+            type === 'date' || type === 'time'
+              ? { shrink: true }
+              : undefined
+          }
+          {...inputDefaults}
+          {...schema[field].input}
+        />
+      )
+    },
     [schema, form, inputDefaults, trackChanges]
   )
 

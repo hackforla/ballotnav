@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const LocationForm = ({ wipLocation, onSubmit }) => {
   const classes = useStyles()
 
-  const { makeInput, makeSubmitButton, makeResetButton } = useForm({
+  const { makeInput, makeSubmitButton, makeResetButton, values } = useForm({
     schema,
     initialValues: wipLocation,
     onSubmit,
@@ -119,6 +119,33 @@ const LocationForm = ({ wipLocation, onSubmit }) => {
         <Grid item xs={12}>
           {makeInput('scheduleType')}
         </Grid>
+        {(() => {
+          switch (values.scheduleType) {
+            case 'description': return (
+              <Grid item xs={12}>
+                {makeInput('scheduleDescription')}
+              </Grid>
+            )
+            case 'continuous': return (
+              <>
+                <Grid item xs={6}>
+                  {makeInput('continuousOpenDate')}
+                </Grid>
+                <Grid item xs={6}>
+                  {makeInput('continuousOpenTime')}
+                </Grid>
+                <Grid item xs={6}>
+                  {makeInput('continuousCloseDate')}
+                </Grid>
+                <Grid item xs={6}>
+                  {makeInput('continuousCloseTime')}
+                </Grid>
+              </>
+            )
+            default:
+              return null
+          }
+        })()}
         <Grid
           container
           item
