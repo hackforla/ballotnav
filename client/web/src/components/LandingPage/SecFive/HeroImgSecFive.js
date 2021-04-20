@@ -1,6 +1,7 @@
 import React from 'react'
-import LaptopHero from 'assets/images/about-hero.svg'
 import { makeStyles } from '@material-ui/core/styles'
+import JoinUsHero from 'assets/images/join-us-hero.svg'
+
 
 const useStyles = makeStyles({
     root: {
@@ -12,13 +13,13 @@ const useStyles = makeStyles({
     },
 });
 
-const HeroImgSecOne = () => {
+const HeroImgSecFive = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <img style={{height: '455px'}}src={LaptopHero} />
+            <img style={{height: '455px'}}src={JoinUsHero} />
         </div>
     )
 };
 
-export default HeroImgSecOne;
+export default HeroImgSecFive;

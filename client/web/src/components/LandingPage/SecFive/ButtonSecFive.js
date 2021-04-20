@@ -1,24 +1,26 @@
 import React from 'react'
-import LaptopHero from 'assets/images/about-hero.svg'
 import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+
 
 const useStyles = makeStyles({
     root: {
-        // maxWidth: '250px',
         display: 'flex',
-        justifyContent: 'flex-end',
-        // backgroundColor: 'blue',
+        justifyContent: 'flex-start',
+        maxWidth: '58%',
+        marginTop: 55,
+        // backgroundColor: 'green',
         // color: props => props.color,
     },
 });
 
-const HeroImgSecOne = () => {
+const ButtonSecFive = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <img style={{height: '455px'}}src={LaptopHero} />
+            <Button>Meet the team</Button>
         </div>
     )
 };
 
-export default HeroImgSecOne;
+export default ButtonSecFive;

@@ -18,8 +18,8 @@ const HeroImgSecTwo = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <img style={{height: '255px'}}src={MapHero} />
-            <img style={{height: '255px'}}src={VoterHero} />
+            <img style={{height: '325px'}}src={MapHero} />
+            <img style={{height: '455px'}}src={VoterHero} />
         </div>
     )
 };

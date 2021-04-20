@@ -4,6 +4,7 @@ import SectionOne from 'components/LandingPage/SecOne/SectionOne'
 import SectionTwo from 'components/LandingPage/SecTwo/SectionTwo'
 import SectionThree from 'components/LandingPage/SecThree/SectionThree'
 import SectionFour from 'components/LandingPage/SecFour/SectionFour'
+import SectionFive from 'components/LandingPage/SecFive/SectionFive'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,6 +33,7 @@ const Landing = () => {
             <SectionTwo />
             <SectionThree />
             <SectionFour />
+            <SectionFive />
         </div>
     )
 }

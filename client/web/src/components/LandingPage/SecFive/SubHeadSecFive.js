@@ -1,26 +1,29 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
 
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         justifyContent: 'flex-start',
-        maxWidth: '58%',
-        marginTop: 55,
+        flexWrap: 'wrap',
+        maxWidth: '62%',
+        marginTop: 25,
+        color: '#1B2152',
+        fontSize: 25,
         // backgroundColor: 'green',
         // color: props => props.color,
     },
 });
 
-const ButtonSecOne = () => {
+const SubHeadSecFive = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <Button>Launch the Demo!</Button>
+            <p>Can you design, write, or code?  Are you an activist with an idea?
+            You can help Los Angeles live up to its potential at Hack for LA. Everyone is welcome!</p>
         </div>
     )
 };
 
-export default ButtonSecOne;
+export default SubHeadSecFive;
