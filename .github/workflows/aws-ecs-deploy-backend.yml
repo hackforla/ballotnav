@@ -17,6 +17,9 @@ jobs:
       uses: hmarr/debug-action@v1.0.0
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Set GIT short sha
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -43,17 +46,14 @@ jobs:
         registry: ${{ steps.login-ecr.outputs.registry }}
         stages_image_name: ${{ env.AWS_APP_ENVNAME }}
         image_name: ${{ env.AWS_APP_ENVNAME }}
-        image_tag: ${{ github.sha }},latest
-    - name: Set GIT short sha
-      id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        image_tag: ${{ steps.vars.outputs.sha_short }},latest
     - name: Add new image ID in the Amazon ECS task definition
       id: task-definition
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-def.json
         container-name: ${{ env.AWS_APP_ENVNAME }}-container
-        image: ${{ env.DOCKER_REPOSITORY }}:sha-${{ steps.vars.outputs.sha_short }}
+        image: ${{ steps.login-ecr.outputs.registry }}/${{ env.AWS_APP_ENVNAME }}:sha-${{ steps.vars.outputs.sha_short }}
     - name: Deploy Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
