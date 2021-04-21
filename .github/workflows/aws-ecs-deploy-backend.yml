@@ -40,7 +40,7 @@ jobs:
       with:
         context: backend
         dockerfile: Dockerfile
-        registry: ${{ env.AWS_APP_ENVNAME }}
+        registry: ${{ steps.login-ecr.outputs.registry }}
         stages_image_name: ${{ env.AWS_APP_ENVNAME }}
         image_name: ${{ env.AWS_APP_ENVNAME }}
         image_tag: ${{ github.sha }},latest
