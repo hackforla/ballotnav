@@ -5,7 +5,6 @@ on:
       - aws-deployment
 ​
 env:
-  # DOCKER_REPOSITORY: foodoasisla/foodoasisla
   AWS_ECS_CLUSTER_NAME: incubator-prod
   AWS_APP_ENVNAME: ballotnav-dev
   AWS_REGION: us-west-2
