@@ -84,7 +84,7 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
             <CloseIcon color="primary" style={{ fontSize: 32 }} />
           </IconButton>
         </div>
-        <div className={classes.content}>
+        <nav className={classes.content}>
           <div style={{ marginBottom: 30 }}>
             <HomeButton closeMenu={closeMenu} />
           </div>
@@ -94,7 +94,7 @@ const Menu = ({ isMenuOpen, closeMenu }) => {
           <Link to="/volunteer" onClick={closeMenu}>
             Volunteer
           </Link>
-        </div>
+        </nav>
         <Footer />
       </div>
     </div>

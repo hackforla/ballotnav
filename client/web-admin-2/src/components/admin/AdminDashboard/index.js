@@ -6,6 +6,7 @@ import LastUpdated from 'components/core/LastUpdated'
 import Stats from './Stats'
 import Jurisdictions from './Jurisdictions'
 import MapModal from 'components/modals/MapModal'
+import Map2Modal from 'components/modals/Map2Modal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +57,7 @@ const AdminDashboard = () => {
       <Stats jurisdictions={transformed} />
       <Jurisdictions jurisdictions={transformed} />
       <MapModal />
+      <Map2Modal />
     </div>
   )
 }

@@ -20,6 +20,10 @@ const initialState = {
     isOpen: false,
     params: {},
   },
+  map2: {
+    isOpen: false,
+    params: {},
+  },
 }
 
 export default useActions.bind(null, {

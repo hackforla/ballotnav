@@ -40,19 +40,19 @@ const Desktop = withStyles((theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
   },
-  h2: {
+  h1: {
     color: theme.palette.secondary.main,
     fontSize: 46,
     fontWeight: 700,
     marginBottom: 30,
   },
-  h3: {
+  h2: {
     color: theme.palette.primary.main,
     fontSize: 24,
     fontWeight: 400,
     lineHeight: '32px',
   },
-  h4: {
+  message: {
     color: theme.palette.primary.main,
     fontSize: 18,
     fontWeight: 1000,
@@ -70,16 +70,16 @@ const Desktop = withStyles((theme) => ({
       <div className={classes.mainTextOuter}>
         <HeroDesktop className={classes.hero} />
         <div className={classes.mainTextInner}>
-          <h2 className={classes.h2}>Find your drop off locations</h2>
-          <h3 className={classes.h3}>
+          <h1 className={classes.h1}>Find your drop off locations</h1>
+          <h2 className={classes.h2}>
             Find safe, secure, in-person locations to <br />
             drop off your mail-in or absentee ballot
-          </h3>
-          <h4 className={classes.h4}>
+          </h2>
+          <p className={classes.message}>
             BallotNav is currently working on validating information <br />
             for future elections. Please check back in with us later, <br />
             or see how you can help on our Volunteer Page.
-          </h4>
+          </p>
           <div className={classes.search}>
             <SearchBar />
           </div>

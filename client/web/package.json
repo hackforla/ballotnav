@@ -53,7 +53,8 @@
     "build-redirect": "REACT_APP_TYPE=redirect npm run build",
     "deploy-redirect": "npm run build-redirect && gh-pages -d build -v '!CNAME'",
     "lint": "npx prettier --write 'src/**/*.{js,jsx,json}'",
-    "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'"
+    "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'",
+    "scrape": "node bin/scrape"
   },
   "eslintConfig": {
     "extends": "react-app"

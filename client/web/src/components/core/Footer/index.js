@@ -22,13 +22,13 @@ const Desktop = withStyles((theme) => ({
     maxWidth: theme.layout.pageWidth,
   },
 }))(({ classes }) => (
-  <div className={classes.root}>
+  <footer className={classes.root}>
     <div className={classes.content}>
       <Links />
       <Share />
       <Copyright />
     </div>
-  </div>
+  </footer>
 ))
 
 const Mobile = withStyles((theme) => ({
@@ -42,11 +42,11 @@ const Mobile = withStyles((theme) => ({
     },
   },
 }))(({ classes }) => (
-  <div className={classes.root}>
+  <footer className={classes.root}>
     <Links />
     <Share />
     <Copyright />
-  </div>
+  </footer>
 ))
 
 const Footer = ({ hidden = false }) => {
