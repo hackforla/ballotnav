@@ -50,35 +50,37 @@ const Layout = ({ Left, Right, Center }) => {
 
   return (
     <>
-      <div className={classes.root}>
-        {Left && (
-          <div className={classes.left}>
-            <Left
-              isMenuOpen={isMenuOpen}
-              openMenu={openMenu}
-              closeMenu={closeMenu}
-            />
-          </div>
-        )}
-        {Center && (
-          <div className={classes.center}>
-            <Center
-              isMenuOpen={isMenuOpen}
-              openMenu={openMenu}
-              closeMenu={closeMenu}
-            />
-          </div>
-        )}
-        {Right && (
-          <div className={classes.right}>
-            <Right
-              isMenuOpen={isMenuOpen}
-              openMenu={openMenu}
-              closeMenu={closeMenu}
-            />
-          </div>
-        )}
-      </div>
+      <header className={classes.root}>
+        <nav>
+          {Left && (
+            <div className={classes.left}>
+              <Left
+                isMenuOpen={isMenuOpen}
+                openMenu={openMenu}
+                closeMenu={closeMenu}
+              />
+            </div>
+          )}
+          {Center && (
+            <div className={classes.center}>
+              <Center
+                isMenuOpen={isMenuOpen}
+                openMenu={openMenu}
+                closeMenu={closeMenu}
+              />
+            </div>
+          )}
+          {Right && (
+            <div className={classes.right}>
+              <Right
+                isMenuOpen={isMenuOpen}
+                openMenu={openMenu}
+                closeMenu={closeMenu}
+              />
+            </div>
+          )}
+        </nav>
+      </header>
       <Menu isMenuOpen={isMenuOpen} openMenu={openMenu} closeMenu={closeMenu} />
     </>
   )

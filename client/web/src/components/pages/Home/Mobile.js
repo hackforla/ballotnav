@@ -38,20 +38,20 @@ const Mobile = withStyles((theme) => ({
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
   },
-  h2: {
+  h1: {
     color: theme.palette.secondary.main,
     fontSize: 22,
     fontWeight: 700,
     lineHeight: '30px',
     marginBottom: 10,
   },
-  h3: {
+  h2: {
     color: theme.palette.primary.main,
     fontSize: 14,
     fontWeight: 400,
     lineHeight: '18px',
   },
-  h4: {
+  message: {
     color: theme.palette.primary.main,
     fontSize: 12,
     fontWeight: 1000,
@@ -68,20 +68,20 @@ const Mobile = withStyles((theme) => ({
       <div className={classes.mainTextOuter}>
         <HeroMobile className={classes.hero} />
         <div className={classes.mainTextInner}>
-          <h2 className={classes.h2}>
+          <h1 className={classes.h1}>
             Find your <br /> drop off locations
-          </h2>
-          <h3 className={classes.h3}>
+          </h1>
+          <h2 className={classes.h2}>
             Find safe, secure, in-person <br />
             locations to drop off <br />
             your mail-in <br />
             or absentee ballot
-          </h3>
-          <h4 className={classes.h4}>
+          </h2>
+          <p className={classes.message}>
             BallotNav is currently working on validating information <br />
             for future elections. Please check back in with us later, <br />
             or see how you can help on our Volunteer Page.
-          </h4>
+          </p>
         </div>
       </div>
       <div className={classes.search}>
