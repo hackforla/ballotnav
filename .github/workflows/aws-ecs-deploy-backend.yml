@@ -62,7 +62,7 @@ jobs:
       run: |
         echo "::set-output name=task-definition::$(\
           aws ecs describe-task-definition \
-            --task-definition ${{ env.AWS_APPENV }} \
+            --task-definition ${{ env.AWS_APPENV }}-td \
             --query taskDefinition | \
             jq 'del(.taskDefinitionArn,.revision,.status,.registeredBy,.registeredAt,.compatibilities,.requiresAttributes)' > task-def.json)"
     - name: Init Docker Cache
