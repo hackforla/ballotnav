@@ -4,10 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
     root: {
-        display: 'flex',
-        justifyContent: 'flex-start',
+        paddingLeft: 66,
         flexWrap: 'wrap',
-        maxWidth: '58%',
+        maxWidth: '63%',
         marginTop: 75,
         // backgroundColor: 'green',
         // color: props => props.color,
