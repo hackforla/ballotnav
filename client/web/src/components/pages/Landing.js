@@ -7,35 +7,35 @@ import SectionFour from 'components/LandingPage/SecFour/SectionFour'
 import SectionFive from 'components/LandingPage/SecFive/SectionFive'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        width: theme.layout.pageWidth,
-        maxWidth: '100%',
-        margin: '50px',
-        // textAlign: 'start',
-        // '& h1': {
-        //     fontSize: 40,
-        //     fontWeight: 'bold',
-        //     color: '#1B2152',
-        // },
-        // '& a': {
-        //     display: 'block',
-        //     textDecoration: 'underline',
-        //     marginTop: 10,
-        // },
-    },
+  root: {
+    width: theme.layout.pageWidth,
+    maxWidth: '100%',
+    margin: '50px',
+    // textAlign: 'start',
+    // '& h1': {
+    //     fontSize: 40,
+    //     fontWeight: 'bold',
+    //     color: '#1B2152',
+    // },
+    // '& a': {
+    //     display: 'block',
+    //     textDecoration: 'underline',
+    //     marginTop: 10,
+    // },
+  },
 }))
 
 const Landing = () => {
-    const classes = useStyles()
-    return (
-        <div className={classes.root}>
-            <SectionOne />
-            <SectionTwo />
-            <SectionThree />
-            <SectionFour />
-            <SectionFive />
-        </div>
-    )
+  const classes = useStyles()
+  return (
+    <div className={classes.root}>
+      <SectionOne />
+      <SectionTwo />
+      <SectionThree />
+      <SectionFour />
+      <SectionFive />
+    </div>
+  )
 }
 
 export default Landing
