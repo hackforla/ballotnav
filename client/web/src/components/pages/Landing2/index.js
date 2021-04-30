@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     outline: '3px red solid',
     padding: '0 1em',
+    color: theme.palette.primary.main,
   },
 }))
 
