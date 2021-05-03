@@ -1,5 +1,10 @@
-const path = require('path');
+// configures the sequelize cli
+// https://sequelize.org/v4/manual/tutorial/migrations.html#the-sequelizerc-file
+
+const path = require('path')
 
 module.exports = {
-  'config': path.resolve('config', 'config.js')
+  'config': path.resolve('db', 'config', 'sequelize-cli.js'),
+  'models-path': path.resolve('db', 'models'),
+  'migrations-path': path.resolve('db', 'migrations')
 }

@@ -1,21 +1,21 @@
 const Umzug = require('umzug')
 const path = require('path')
-const db = require('@models')
+const sequelize = require('./sequelize')
 
 async function migrate() {
-  if (process.env.DISABLE_DB_MIGRATION_AUTO_RUN) return null
+  if (process.env.DB_AUTO_MIGRATE !== '1') return null
 
   console.log('EXECUTING MIGRATIONS')
 
   const umzug = new Umzug({
     migrations: {
-      path: path.join(__dirname, '../migrations'),
-      params: [db.sequelize.getQueryInterface()],
+      path: path.join(__dirname, './migrations'),
+      params: [sequelize.getQueryInterface()],
     },
     storage: 'sequelize',
     storageOptions: {
-      sequelize: db.sequelize,
-      modelName: db.sequelize.options.migrationStorageTableName,
+      sequelize,
+      modelName: sequelize.options.migrationStorageTableName,
     },
   })
 

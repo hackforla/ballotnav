@@ -29,10 +29,8 @@
     "express": "^4.17.1",
     "express-promise-router": "^4.0.1",
     "express-validator": "^6.6.1",
-    "faker": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
-    "node-fetch": "^2.6.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
@@ -46,12 +44,8 @@
     "prettier": "^2.1.2"
   },
   "_moduleAliases": {
-    "@config": "./config/config.js",
-    "@controllers": "./controllers",
-    "@log": "./log.js",
-    "@middleware": "./middleware",
-    "@models": "./models",
-    "@routes": "./routes",
-    "@services": "./services"
+    "@log": "./utils/log.js",
+    "@controllers": "./api/controllers",
+    "@middleware": "./api/middleware"
   }
 }
