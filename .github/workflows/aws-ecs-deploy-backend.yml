@@ -1,8 +1,5 @@
-name: Build Push and Deploy into AWS ECS
+name: Backend Build and Deploy to AWS ECS
 on:
-  push:
-    branches:
-      - master
   release:
     types:
       - created
@@ -13,14 +10,16 @@ on:
         required: true
         default: 'dev'
       ref:
-        description: 'Branch, Tag, or SHA'
+        description: 'Branch, Tag, or Full SHA'
         required: true
 env:
-  AWS_APP_NAME: ballotnav
+  AWS_APP_NAME: ballotnav-backend
   AWS_REGION: us-west-2
+  DOCKERFILE: backend/Dockerfile
+  DOCKER_PATH: ./backend
 jobs:
-  deploy:
-    name: Deploy to AWS ECS
+  setup_env:
+    name: Set-up environment
     runs-on: ubuntu-latest
     steps:
     - name: Debug Action
@@ -32,12 +31,6 @@ jobs:
     - name: Set AWS Env & Image Tag per workflow
       run: |
         SHORT_SHA=$(git rev-parse --short HEAD)
-        if [[ "$GITHUB_EVENT_NAME" == "push" ]]; then
-            if [[ "$GITHUB_REF" == refs/heads/master ]]; then
-                echo AWS_APPENV="$AWS_APP_NAME"-stage >> $GITHUB_ENV
-                echo IMAGE_TAG=$SHORT_SHA >> $GITHUB_ENV
-            fi
-        fi
         if [[ "$GITHUB_EVENT_NAME" == "release" ]]; then
             RELEASE_TAG=$(git describe --tags)
             echo AWS_APPENV="$AWS_APP_NAME"-prod >> $GITHUB_ENV
@@ -48,6 +41,49 @@ jobs:
             echo AWS_APPENV="$AWS_APP_NAME"-$INPUT_ENV >> $GITHUB_ENV
             echo IMAGE_TAG=$SHORT_SHA >> $GITHUB_ENV
         fi
+    outputs:
+          AWS_APPENV: ${{ env.AWS_APPENV }}
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
+  build:
+    name: Build & Push Docker Image
+    runs-on: ubuntu-latest
+    needs: [setup_env]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.inputs.ref }}
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.INCUBATOR_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.INCUBATOR_AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+    - name: Init Docker Cache
+      uses: satackey/action-docker-layer-caching@v0.0.11
+      with:
+        key: ${{ github.workflow }}-3-{hash}
+        restore-keys: |
+          ${{ github.workflow }}-3-
+    - name: Build & Push Image to ECR
+      uses: kciter/aws-ecr-action@v3
+      with:
+        access_key_id: ${{ secrets.INCUBATOR_AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.INCUBATOR_AWS_SECRET_ACCESS_KEY }}
+        account_id: ${{ secrets.INCUBATOR_AWS_ACCOUNT_ID }}
+        repo: ${{ needs.setup_env.outputs.AWS_APPENV }}
+        region: ${{ env.AWS_REGION }}
+        tags: latest,${{ needs.setup_env.outputs.IMAGE_TAG }}
+        dockerfile: ${{ env.DOCKERFILE }}
+        path: ${{ env.DOCKER_PATH }}
+  deploy:
+    name: Deploy to AWS ECS
+    runs-on: ubuntu-latest
+    needs: [setup_env, build]
+    steps:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -60,42 +96,22 @@ jobs:
     - name: Pull Task Definition & write to file
       id: aws-task-definition
       run: |
-        echo "::set-output name=task-definition::$(\
-          aws ecs describe-task-definition \
-            --task-definition ${{ env.AWS_APPENV }}-td \
-            --query taskDefinition | \
-            jq 'del(.taskDefinitionArn,.revision,.status,.registeredBy,.registeredAt,.compatibilities,.requiresAttributes)' > task-def.json)"
-    - name: Init Docker Cache
-      uses: satackey/action-docker-layer-caching@v0.0.11
-      with:
-        key: ${{ github.workflow }}-1-{hash}
-        restore-keys: |
-          ${{ github.workflow }}-1-
-    - name: Build Docker Image
-      run: docker build --file backend/Dockerfile ./backend
-    - name: Push Docker Image
-      uses: kciter/aws-ecr-action@v3
-      with:
-        access_key_id: ${{ secrets.INCUBATOR_AWS_ACCESS_KEY_ID }}
-        secret_access_key: ${{ secrets.INCUBATOR_AWS_SECRET_ACCESS_KEY }}
-        account_id: ${{ secrets.INCUBATOR_AWS_ACCOUNT_ID }}
-        repo: ${{ env.AWS_APPENV }}
-        region: ${{ env.AWS_REGION }}
-        tags: latest,${{ env.IMAGE_TAG }}
-        dockerfile: backend/Dockerfile
-        path: ./backend
+        aws ecs describe-task-definition \
+          --task-definition ${{ needs.setup_env.outputs.AWS_APPENV }} \
+          --query taskDefinition | \
+          jq 'del(.taskDefinitionArn,.revision,.status,.registeredBy,.registeredAt,.compatibilities,.requiresAttributes)' > task-def-backend.json
     - name: Interpolate new Docker Image into Task Definition
       id: task-definition
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-def.json
-        container-name: ${{ env.AWS_APPENV }}-container
-        image: ${{ steps.login-ecr.outputs.registry }}/${{ env.AWS_APPENV }}:${{ env.IMAGE_TAG }}
+        task-definition: task-def-backend.json
+        container-name: ${{ needs.setup_env.outputs.AWS_APPENV }}
+        image: ${{ steps.login-ecr.outputs.registry }}/${{ needs.setup_env.outputs.AWS_APPENV }}:${{ needs.setup_env.outputs.IMAGE_TAG }}
     - name: Deploy Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-definition.outputs.task-definition }}
-        service: ${{ env.AWS_APPENV }}
-        cluster: incubator-prod
-        wait-for-service-stability: false
-        wait-for-minutes: 5 minutes
+        service: ${{ needs.setup_env.outputs.AWS_APPENV }}
+        cluster: ${{ needs.setup_env.outputs.AWS_APPENV }}
+        wait-for-service-stability: true
+        wait-for-minutes: 7 minutes
