@@ -2,7 +2,7 @@ FROM node:16-slim
 
 WORKDIR /ballotnav
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install
 
