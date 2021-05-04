@@ -1,6 +1,10 @@
+NOTE: the app is currently deployed in the incubator account, so these files
+are not in use.
+https://github.com/hackforla/incubator
+
 # ballotnav infrastructure configuration
 
-These files describe the load balancer and webserver infrastructure of the ballotnav app using [`terraform`](https://www.terraform.io/) HCL. 
+These files describe the load balancer and webserver infrastructure of the ballotnav app using [`terraform`](https://www.terraform.io/) HCL.
 
 Additional configuration and environment-specific values are stored in a private
 github repo.
@@ -10,7 +14,7 @@ To apply this configuration in a new environment:
 
 ## prerequisites
 - `terraform` v0.12.0+
-- aws account and credentials created 
+- aws account and credentials created
 - `awscli` installed and configured [see docs here](https://aws.amazon.com/cli/)
 - all required secrets are created & stored in SSM, see below:
 
@@ -18,7 +22,7 @@ To apply this configuration in a new environment:
 This configuration should create the initial deployment and infra for a load
 balancer and ecs cluster running the ballotnav app at the given version. It
 injects some secrets that the app requires to boot, .e.g `POSTGRES_PASSWORD` and
-`TOKEN_SECRET`. 
+`TOKEN_SECRET`.
 
 When applying this configuration these values are fetched securely from AWS
 Systems Manager Param Store (AWS SSM), and so they must be created there first.
