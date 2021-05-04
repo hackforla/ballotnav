@@ -4,3 +4,4 @@ infrastructure
 db/seed
 db/states
 db/geocode_helpers
+db/postgis

@@ -1,4 +1,4 @@
 .DS_Store
 /node_modules
-/db/reference_csv
+reference_csv
 .env
