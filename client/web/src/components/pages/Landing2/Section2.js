@@ -85,7 +85,8 @@ const Section2 = () => {
       </div>
       {isDesktop && (
         <div className={classes.right}>
-          <img className={classes.hero} src={MapHero} />
+          {/* <img className={classes.hero} src={MapHero} />
+          <img className={classes.hero} src={VoterHero} /> */}
         </div>
       )}
   

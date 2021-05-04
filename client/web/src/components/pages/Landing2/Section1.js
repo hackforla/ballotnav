@@ -55,11 +55,11 @@ const Section1 = () => {
             <div className={classes.left}>
                 <h1 className={classes.heading}>
                     BallotNav is Validating <br />
-          Information for Future Elections.
+            Information for Future Elections.
         </h1>
                 <p className={classes.message}>
-                    BallotNav helps voters find safe, secure,<br/> in-person locations to drop
-                    off your <br/> mail-in or absentee ballot. Launch our <br/> demo to navigate
+                    BallotNav helps voters find safe, secure,<br /> in-person locations to drop
+                    off your <br /> mail-in or absentee ballot. Launch our <br /> demo to navigate
                     BallotNav.
         </p>
                 {isMobile && (
