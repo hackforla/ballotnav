@@ -1,2 +1,6 @@
-venv
 node_modules
+_misc
+infrastructure
+db/seed
+db/states
+db/geocode_helpers

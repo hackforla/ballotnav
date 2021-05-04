@@ -1,36 +1,23 @@
-version: "3.7"
+version: '3.7'
+
 services:
-
-  ballotnav:
-    volumes:
-      - type: bind
-        source: ./node_modules
-        target: /ballotnav/node_modules
-      - type: bind
-        source: .
-        target: /ballotnav
-    build: "./"
-    image: "api"
-    ports:
-      - "8080:8080"
-    links:
-      - db
-    environment:
-      - NODE_ENV=development
-      - DISABLE_DB_MIGRATION_AUTO_RUN=yes
-      - TOKEN_SECRET=verysecretstring
-      - TOKEN_EXPIRY=86400000  # TODO: change this back to 86400
-    depends_on:
-      - db
-    command: ["/usr/local/bin/wait-for-it.sh", "db:5432", "--", "npm", "run", "dev"]
-
   db:
     image: postgis/postgis:13-master
     restart: always
-    environment:
-      POSTGRES_USER: ballotnav
-      POSTGRES_DB: main
-      POSTGRES_PASSWORD: pgpass
     ports:
-      # expose local postgres container on localhost:5434
-      - "5434:5432"
+      - 5434:5432
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+
+  # ballotnav:
+  #   build: .
+  #   ports:
+  #     - 8080:8080
+  #   environment:
+  #     DB_HOSTNAME: db
+  #     DB_PORT: 5432
+  #   depends_on:
+  #     - db
+  #   command: npm run dev
