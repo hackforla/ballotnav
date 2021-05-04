@@ -8,7 +8,10 @@ const db = fs
   .readdirSync(`${__dirname}/models`)
   .map((file) => file.replace('.js', ''))
   .reduce((models, modelName) => {
-    const model = require(`./models/${modelName}`)(sequelize, Sequelize.DataTypes)
+    const model = require(`./models/${modelName}`)(
+      sequelize,
+      Sequelize.DataTypes
+    )
     models[model.name] = model
     return models
   }, {})

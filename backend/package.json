@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "npx nodemon -L app.js",
-    "format": "npx prettier -w '**.js'",
+    "lint": "npx prettier -w '**.js'",
     "db:clean": "npx sequelize-cli db:migrate:undo:all",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:reset": "npm run db:clean && npm run db:migrate"

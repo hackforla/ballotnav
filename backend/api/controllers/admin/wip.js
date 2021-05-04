@@ -310,7 +310,6 @@ exports.updateWipJurisdiction = async (req, res, next) => {
 
     const data = await getWipJurisdiction(wipJurisdictionId, req.db)
     return res.json(data)
-
   } catch (err) {
     next(err)
   }
