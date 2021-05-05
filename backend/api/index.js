@@ -4,7 +4,7 @@ const routes = require('./routes')
 const database = require('./middleware/database')
 const errorHandler = require('./middleware/errorHandler')
 
-const PORT = process.env.PORT || 8080
+const { PORT } = process.env
 
 function start(db) {
   const app = express()
