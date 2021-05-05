@@ -31,7 +31,7 @@
     "eject": "react-scripts eject",
     "lint": "npx prettier --write 'src/**/*.{js,jsx,json}'",
     "lint:check": "npx prettier --check 'src/**/*.{js,jsx,json}'",
-    "deploy": "npm run build && gh-pages -d build -v '!CNAME'"
+    "deploy": "npm run build && gh-pages -d build -o admin -v '!CNAME'"
   },
   "eslintConfig": {
     "extends": [
