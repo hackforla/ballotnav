@@ -74,7 +74,7 @@ export default function useAddStates(map, statefp, setCountyfp, setRegionName) {
     if (!map || !statefp) return
 
     async function loadCounties(map, statefp) {
-      const url = `http://localhost:8080/admin/dashboard/gis/states/${statefp}/counties`
+      const url = `${process.env.REACT_APP_API_URL}/admin/dashboard/gis/states/${statefp}/counties`
       const { data } = await axios.get(url)
       map.getSource(SOURCE_ID).setData(data)
       counties.current = data
