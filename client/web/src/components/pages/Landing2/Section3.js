@@ -7,8 +7,6 @@ import TextIcon from 'assets/features/message-ellipsis.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    outline: '3px green solid',
-    height: 600,
     marginTop: '2em',
   },
   top: {
@@ -43,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
   heading: {
     fontWeight: 700,
-    fontSize: 33,
+    fontSize: 39,
     lineHeight: '45px',
   },
   message: {

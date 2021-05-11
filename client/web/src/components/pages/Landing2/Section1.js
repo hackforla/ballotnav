@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     left: {
-        width: ({ isDesktop }) => isDesktop ? '50%' : '100%',
+        width: ({ isDesktop }) => isDesktop ? '54%' : '100%',
         height: '100%',
         paddingRight: '1em',
         display: 'flex',
