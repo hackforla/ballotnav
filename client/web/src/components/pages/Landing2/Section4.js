@@ -8,8 +8,6 @@ import OpenOaklandIcon from 'assets/brigade-icons/open-oakland.svg'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        outline: '3px green solid',
-        height: 300,
         marginTop: '2em',
     },
     top: {

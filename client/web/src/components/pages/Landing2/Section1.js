@@ -63,7 +63,7 @@ const Section1 = () => {
                     BallotNav.
         </p>
                 {isMobile && (
-                    <img className={classes.hero} src={LaptopHero} />
+                    <img className={classes.hero} src={LaptopHero} alt="Laptop Icon" />
                 )}
                 <Button
                     className={classes.button}
@@ -76,7 +76,7 @@ const Section1 = () => {
             </div>
             {isDesktop && (
                 <div className={classes.right}>
-                    <img className={classes.hero} src={LaptopHero} />
+                    <img className={classes.hero} src={LaptopHero} alt="Laptop Icon" />
                 </div>
             )}
         </div>
