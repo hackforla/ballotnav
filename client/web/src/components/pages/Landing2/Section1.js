@@ -6,43 +6,44 @@ import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '2em',
+        marginTop: '8em',
         display: 'flex',
     },
     left: {
         width: ({ isDesktop }) => isDesktop ? '54%' : '100%',
-        height: '100%',
-        paddingRight: '1em',
+        // paddingRight: '1em',
         display: 'flex',
         flexDirection: 'column',
     },
     right: {
-        width: '50%',
-        height: '100%',
+        width: '61%',
     },
     heading: {
         fontWeight: 700,
-        fontSize: 33,
-        lineHeight: '45px',
+        fontSize: 41,
+        lineHeight: '52px',
     },
     message: {
         marginTop: '2em',
         fontWeight: 400,
-        fontSize: 24,
-        lineHeight: '33px',
+        fontSize: 30,
+        lineHeight: '38px',
     },
     button: {
-        marginTop: '2em',
+        marginTop: '3em',
         borderRadius: '3em',
         padding: '1em 3em',
         fontWeight: 700,
         textTransform: 'none',
-        fontSize: 20,
+        fontSize: 24,
         alignSelf: ({ isDesktop }) => isDesktop ? 'flex-start' : 'center',
     },
     hero: {
         width: '100%',
-        marginTop: '3em',
+        marginTop: '3rem',
+        marginLeft: '2rem',
+        position: 'relative',
+        left: '8%'
     },
 }))
 

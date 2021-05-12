@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column'
     },
     top: {
-
+        width: '92%'
     },
     bottom: {
         display: 'flex',
@@ -19,39 +19,40 @@ const useStyles = makeStyles((theme) => ({
     },
     left: {
         width: ({ isDesktop }) => isDesktop ? '50%' : '100%',
-        marginTop: '1em',
+        marginTop: '1rem',
         paddingRight: '1em',
         display: 'flex',
         flexDirection: 'column',
     },
     right: {
         width: '50%',
-        padding: '1em',
-        paddingLeft: '8em',
+        paddingLeft: '7rem',
+        position: 'relative',
+        left: '7%',
         display: 'flex',
         justifyContent: 'flex-end'
     },
     heading: {
         fontWeight: 700,
-        fontSize: 39,
+        fontSize: 48,
         lineHeight: '45px',
     },
     message: {
-        marginTop: '1em',
+        marginTop: '3rem',
         fontWeight: 400,
-        fontSize: 24,
-        lineHeight: '33px',
-        marginBottom: '1em'
+        fontSize: 29,
+        lineHeight: '42px',
+        marginBottom: '2rem'
     },
     subMessage: {
-        marginTop: '4em',
+        marginTop: '4rem',
         fontWeight: 400,
-        fontSize: 16,
-        lineHeight: '23.58px',
+        fontSize: 19,
+        lineHeight: '29px',
     },
     hero: {
         width: '100%',
-        marginTop: '2em',
+        marginTop: '1rem',
     },
 
 }))
