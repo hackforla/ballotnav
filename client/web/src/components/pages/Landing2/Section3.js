@@ -13,47 +13,58 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center'
     },
+    hero: {
+        width: '98%',
+        marginTop: '1rem',
+        position: 'relative',
+        right: '5%'
+    },
     left: {
         width: '60%',
         height: '60%'
     },
     right: {
-        width: '50%',
+        width: '48%',
         height: '60%',
         display: 'flex',
         flexDirection: 'column',
+
     },
     bottom: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+        // justifyContent: 'space-between'
     },
     bottomIcons: {
-        width: '35%',
+        marginTop: '5rem',
+        marginBottom: '6rem',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '5em 1em',
         "& img": {
             marginRight: '1em'
         }
     },
-
+    iconSize: {
+        // width: '14rem',
+        height: '8.66rem'
+    },
     heading: {
         fontWeight: 700,
-        fontSize: 39,
-        lineHeight: '45px',
+        fontSize: 48,
+        lineHeight: '75px',
     },
     message: {
         marginTop: '1em',
         fontWeight: 400,
-        fontSize: 20,
-        lineHeight: '27px',
+        fontSize: 26,
+        lineHeight: '37px',
     },
     subMessage: {
+        marginLeft: '1rem',
+        marginRight: '1rem',
         fontWeight: 400,
-        fontSize: 20,
-        lineHeight: '27px',
+        fontSize: 22,
+        lineHeight: '32px',
     }
 
 
@@ -67,7 +78,7 @@ const Section3 = () => {
         <div className={classes.root}>
             <div className={classes.top}>
                 <div className={classes.left}>
-                    <img className={classes.hero} src={BallotNavThumbnail} />
+                    <img className={classes.hero} src={BallotNavThumbnail} alt="ballotNav thumbnail" />
                 </div>
                 <div className={classes.right}>
                     <h1 className={classes.heading}>
@@ -79,21 +90,20 @@ const Section3 = () => {
                 </div>
             </div>
             <div className={classes.bottom}>
-
                 <div className={classes.bottomIcons}>
-                    <img src={AccuracyIcon} alt={'accuracy-icon'} />
+                    <img className={classes.iconSize} src={AccuracyIcon} alt={'accuracy-icon'} />
                     <p className={classes.subMessage}>
                         BallotNav <strong>validates election data</strong> to guarantee accurate results.
       </p>
                 </div>
                 <div className={classes.bottomIcons}>
-                    <img src={LocationIcon} alt={'location-icon'} />
+                    <img className={classes.iconSize} src={LocationIcon} alt={'location-icon'} />
                     <p className={classes.subMessage}>
                         Search for your <strong>nearest drop off locations.</strong> View details and directions.
       </p>
                 </div>
                 <div className={classes.bottomIcons}>
-                    <img src={TextIcon} alt={'text-icon'} />
+                    <img className={classes.iconSize} src={TextIcon} alt={'text-icon'} />
                     <p className={classes.subMessage}>
                         Receive <strong>notifications</strong> on your phone.
       </p>

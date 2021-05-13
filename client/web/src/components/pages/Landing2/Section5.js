@@ -12,28 +12,27 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex'
     },
     left: {
-        width: ({ isDesktop }) => isDesktop ? '56%' : '100%',
+        width: ({ isDesktop }) => isDesktop ? '52%' : '100%',
         height: '100%',
         paddingRight: '1em',
         display: 'flex',
         flexDirection: 'column',
     },
     right: {
-        width: '44%',
-        height: '100%',
+        width: '48%',
         display: 'flex',
         justifyContent: 'flex-end'
     },
     heading: {
         fontWeight: 700,
-        fontSize: 48,
+        fontSize: 58,
         lineHeight: '65px',
     },
     message: {
         marginTop: '2em',
         fontWeight: 400,
-        fontSize: 20,
-        lineHeight: '27.24px',
+        fontSize: 24,
+        lineHeight: '32px',
     },
     button: {
         marginTop: '4em',
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '1em 3em',
         fontWeight: 700,
         textTransform: 'none',
-        fontSize: 12,
+        fontSize: 14,
         alignSelf: ({ isDesktop }) => isDesktop ? 'flex-start' : 'center',
     },
     hero: {

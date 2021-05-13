@@ -8,27 +8,27 @@ import OpenOaklandIcon from 'assets/brigade-icons/open-oakland.svg'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '2em',
+        marginTop: '3rem',
     },
     top: {
-        width: '100%'
+        width: '91%'
     },
     heading: {
         fontWeight: 700,
-        fontSize: 39,
+        fontSize: 49,
         lineHeight: '45px',
     },
     message: {
-        marginTop: '1em',
+        marginTop: '4rem',
         fontWeight: 400,
-        fontSize: 24,
-        lineHeight: '33px',
+        fontSize: 30,
+        lineHeight: '42px',
         marginBottom: '1em',
 
     },
     bottom: {
+        height: '7rem',
         display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: '4em'
     },
