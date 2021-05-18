@@ -6,44 +6,44 @@ import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '8em',
+    marginTop: ({ isDesktop }) => (isDesktop ? '6em' : '3em'),
     display: 'flex',
   },
   left: {
-    width: ({ isDesktop }) => (isDesktop ? '54%' : '100%'),
-    // paddingRight: '1em',
+    width: ({ isDesktop }) => (isDesktop ? '50%' : '100%'),
     display: 'flex',
     flexDirection: 'column',
   },
   right: {
-    width: '61%',
+    flex: 1,
   },
   heading: {
     fontWeight: 700,
-    fontSize: 41,
-    lineHeight: '52px',
+    fontSize: 33,
+    lineHeight: '45px',
   },
   message: {
     marginTop: '2em',
     fontWeight: 400,
-    fontSize: 30,
-    lineHeight: '38px',
+    fontSize: 24,
+    lineHeight: '32px',
+    width: ({ isDesktop }) => (isDesktop ? '80%' : '100%'),
   },
   button: {
-    marginTop: '3rem',
+    marginTop: '4rem',
     borderRadius: '3em',
     padding: '1em 3em',
     fontWeight: 700,
     textTransform: 'none',
-    fontSize: 24,
+    fontSize: 20,
     alignSelf: ({ isDesktop }) => (isDesktop ? 'flex-start' : 'center'),
   },
   hero: {
     width: '100%',
     marginTop: '3rem',
-    marginLeft: '2rem',
+    marginLeft: ({ isDesktop }) => (isDesktop ? '2rem' : 0),
     position: 'relative',
-    left: '8%',
+    left: ({ isDesktop }) => (isDesktop ? '8%' : 0),
   },
 }))
 
@@ -55,13 +55,12 @@ const Section1 = () => {
     <div className={classes.root}>
       <div className={classes.left}>
         <h1 className={classes.heading}>
-          BallotNav is Validating <br />
-          Information for Future Elections.
+          BallotNav is Validating Information for Future Elections.
         </h1>
         <p className={classes.message}>
-          BallotNav helps voters find safe, secure,
-          <br /> in-person locations to drop off your <br /> mail-in or absentee
-          ballot. Launch our <br /> demo to navigate BallotNav.
+          BallotNav helps voters find safe, secure, in-person locations to drop
+          off your mail-in or absentee ballot. Launch our demo to navigate
+          BallotNav.
         </p>
         {isMobile && (
           <img className={classes.hero} src={LaptopHero} alt="Laptop Icon" />

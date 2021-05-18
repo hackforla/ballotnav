@@ -1,18 +1,20 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 import ballotNavLogo from 'assets/logos/ballotnav.svg'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingTop: '1rem',
+  },
   hero: {
-    marginTop: '3rem',
-    // marginRight: '6rem',
-    width: '17%',
+    width: ({ isDesktop }) => (isDesktop ? 188 : 140),
   },
 }))
 
 const Header = () => {
-  const classes = useStyles()
+  const { isDesktop } = useBreakpoints()
+  const classes = useStyles({ isDesktop })
 
   return (
     <div className={classes.root}>

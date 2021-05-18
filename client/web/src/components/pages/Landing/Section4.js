@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 import CodeForAmericaIcon from 'assets/brigade-icons/code-for-america.svg'
 import HackForLaIcon from 'assets/brigade-icons/hack-for-la.svg'
 import CodeForSanJoseIcon from 'assets/brigade-icons/code-for-san-jose.svg'
@@ -8,34 +9,34 @@ import OpenOaklandIcon from 'assets/brigade-icons/open-oakland.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '3rem',
+    marginTop: ({ isDesktop }) => (isDesktop ? '3rem' : '1em'),
   },
   top: {
     width: '91%',
   },
   heading: {
     fontWeight: 700,
-    fontSize: 49,
-    lineHeight: '45px',
+    fontSize: 39,
   },
   message: {
-    marginTop: '4rem',
+    marginTop: '2rem',
     fontWeight: 400,
-    fontSize: 30,
-    lineHeight: '42px',
+    fontSize: 24,
+    lineHeight: '33px',
     marginBottom: '1em',
   },
   bottom: {
-    height: '7rem',
     display: 'flex',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginTop: '2em',
+    marginTop: '3em',
   },
 }))
 
 const Section4 = () => {
-  const classes = useStyles()
+  const { isDesktop } = useBreakpoints()
+  const classes = useStyles({ isDesktop })
 
   return (
     <div className={classes.root}>

@@ -1,17 +1,18 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import BallotNavThumbnail from 'assets/images/ballotNavThumbnail.svg'
+import useBreakpoints from 'hooks/useBreakpoints'
 import AccuracyIcon from 'assets/features/check.svg'
 import LocationIcon from 'assets/features/current-location.svg'
 import TextIcon from 'assets/features/message-ellipsis.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '2em',
+    marginTop: '4em',
   },
   top: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: ({ isDesktop }) => (isDesktop ? 'center' : 'flex-start'),
+    flexDirection: ({ isDesktop }) => (isDesktop ? 'row' : 'column-reverse'),
   },
   hero: {
     width: '98%',
@@ -20,65 +21,82 @@ const useStyles = makeStyles((theme) => ({
     right: '5%',
   },
   left: {
-    width: '60%',
-    height: '60%',
+    width: ({ isDesktop }) => (isDesktop ? '50%' : '100%'),
+  },
+  videoContainer: {
+    width: '100%',
+    paddingTop: '56.25%', // 16:9 aspect ratio
+    height: 0,
+    position: 'relative',
+    marginTop: ({ isDesktop }) => (isDesktop ? 0 : '2em'),
+  },
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
   },
   right: {
-    width: '48%',
-    height: '60%',
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
+    paddingLeft: ({ isDesktop }) => (isDesktop ? '4em' : 0),
   },
   bottom: {
     display: 'flex',
-    // justifyContent: 'space-between'
+    flexWrap: ({ isDesktop }) => (isDesktop ? 'nowrap' : 'wrap'),
+    padding: '5em 0',
   },
   bottomIcons: {
-    marginTop: '5rem',
-    marginBottom: '6rem',
+    margin: '1em 0',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     '& img': {
-      marginRight: '1em',
+      marginRight: ({ isDesktop }) => (isDesktop ? '1em' : 0),
     },
   },
   iconSize: {
-    // width: '14rem',
-    height: '8.66rem',
+    height: ({ isDesktop }) => (isDesktop ? '8.66em' : '6em'),
   },
   heading: {
     fontWeight: 700,
-    fontSize: 48,
-    lineHeight: '75px',
+    fontSize: 39,
   },
   message: {
     marginTop: '1em',
     fontWeight: 400,
-    fontSize: 26,
-    lineHeight: '37px',
+    fontSize: 20,
+    lineHeight: '27px',
   },
   subMessage: {
-    marginLeft: '1rem',
-    marginRight: '1rem',
+    marginLeft: '1em',
+    marginRight: '1em',
     fontWeight: 400,
-    fontSize: 22,
+    fontSize: 20,
     lineHeight: '32px',
+    letterSpacing: '-0.41px',
   },
 }))
 
 const Section3 = () => {
-  const classes = useStyles()
+  const { isDesktop } = useBreakpoints()
+  const classes = useStyles({ isDesktop })
 
   return (
     <div className={classes.root}>
       <div className={classes.top}>
         <div className={classes.left}>
-          <img
-            className={classes.hero}
-            src={BallotNavThumbnail}
-            alt="ballotNav thumbnail"
-          />
+          <div className={classes.videoContainer}>
+            <iframe
+              title="demo-video"
+              className={classes.video}
+              allowFullscreen="allowfullscreen"
+              frameBorder="0"
+              src="https://youtube.com/embed/Ozz-6wR5VIE"
+            />
+          </div>
         </div>
         <div className={classes.right}>
           <h1 className={classes.heading}>See how it works</h1>
