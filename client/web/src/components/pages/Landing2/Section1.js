@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import LaptopHero from 'assets/images/about-hero.svg'
 import useBreakpoints from 'hooks/useBreakpoints'
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '8em',
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '38px',
     },
     button: {
-        marginTop: '3em',
+        marginTop: '3rem',
         borderRadius: '3em',
         padding: '1em 3em',
         fontWeight: 700,

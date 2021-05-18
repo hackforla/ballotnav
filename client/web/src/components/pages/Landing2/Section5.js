@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         alignSelf: ({ isDesktop }) => isDesktop ? 'flex-start' : 'center',
     },
     hero: {
-        width: '45%',
+        width: '85%',
     },
 }))
 
@@ -67,8 +67,8 @@ const Section5 = () => {
             <Button
                 className={classes.button}
                 color="primary"
-                variant="contained"
-                href="https://demo.ballotnav.org"
+                variant="outlined"
+                href="https://www.hackforla.org/projects/ballot-nav"
             >
                 Meet the team
         </Button>

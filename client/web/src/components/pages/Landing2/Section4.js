@@ -29,8 +29,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: {
         height: '7rem',
         display: 'flex',
+        alignItems: 'center',
         justifyContent: 'space-around',
-        marginTop: '4em'
+        marginTop: '2em'
     },
 
 }))
