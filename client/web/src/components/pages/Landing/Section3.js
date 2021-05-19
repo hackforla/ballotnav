@@ -92,7 +92,7 @@ const Section3 = () => {
             <iframe
               title="demo-video"
               className={classes.video}
-              allowFullscreen="allowfullscreen"
+              allowFullScreen="allowfullscreen"
               frameBorder="0"
               src="https://youtube.com/embed/Ozz-6wR5VIE"
             />
