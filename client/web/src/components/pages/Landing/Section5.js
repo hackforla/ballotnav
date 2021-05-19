@@ -6,36 +6,33 @@ import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // outline: '3px green solid',
-    height: 350,
-    marginTop: '10em',
+    marginTop: ({ isDesktop }) => (isDesktop ? '8rem' : '2em'),
     display: 'flex',
   },
   left: {
-    width: ({ isDesktop }) => (isDesktop ? '52%' : '100%'),
-    height: '100%',
-    paddingRight: '1em',
+    width: ({ isDesktop }) => (isDesktop ? '55%' : '100%'),
+    padding: '2em 0',
     display: 'flex',
     flexDirection: 'column',
   },
   right: {
-    width: '48%',
+    flex: 1,
     display: 'flex',
     justifyContent: 'flex-end',
   },
   heading: {
     fontWeight: 700,
-    fontSize: 58,
-    lineHeight: '65px',
+    fontSize: 48,
   },
   message: {
     marginTop: '2em',
     fontWeight: 400,
-    fontSize: 24,
-    lineHeight: '32px',
+    fontSize: 20,
+    lineHeight: '27px',
   },
   button: {
-    marginTop: '4em',
+    marginTop: ({ isDesktop }) => (isDesktop ? '4em' : '2em'),
+    marginBottom: ({ isDesktop }) => (isDesktop ? 0 : '4em'),
     borderRadius: '2em',
     padding: '1em 3em',
     fontWeight: 700,
@@ -43,13 +40,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     alignSelf: ({ isDesktop }) => (isDesktop ? 'flex-start' : 'center'),
   },
-  hero: {
-    width: '85%',
-  },
 }))
 
 const Section5 = () => {
-  const { isDesktop, isMobile } = useBreakpoints()
+  const { isDesktop } = useBreakpoints()
   const classes = useStyles({ isDesktop })
 
   return (
@@ -60,13 +54,13 @@ const Section5 = () => {
           Can you design, write, or code? Are you an activist with an idea? You
           can help Los Angeles live up to its potential at{' '}
           <strong>
-            <u>Hack for LA.</u>
+            <u>
+              <a href="https://www.hackforla.org/">Hack for LA.</a>
+            </u>
           </strong>{' '}
           Everyone is welcome!
         </p>
-        {isMobile && (
-          <img className={classes.hero} src={JoinUsHero} alt="Join us icon" />
-        )}
+
         <Button
           className={classes.button}
           color="primary"

@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import useBreakpoints from 'hooks/useBreakpoints'
 import Header from './Header'
 import Rectangle from 'assets/images/rectangle-shape.svg'
 import Section1 from './Section1'
@@ -14,18 +15,22 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     margin: '0 auto',
     color: theme.palette.primary.main,
+    position: 'relative',
+    padding: ({ isDesktop }) => (isDesktop ? '0 10em' : '0 1.5em'),
   },
   background: {
     position: 'absolute',
     zIndex: -1,
-    top: '-2%',
-    left: '0%',
-    width: '1800px',
+    top: 0,
+    left: 0,
+    width: '100%',
+    display: ({ isDesktop }) => (isDesktop ? 'block' : 'none'),
   },
 }))
 
 const Landing = () => {
-  const classes = useStyles()
+  const { isDesktop } = useBreakpoints()
+  const classes = useStyles({ isDesktop })
 
   return (
     <div className={classes.root}>

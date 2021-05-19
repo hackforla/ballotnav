@@ -5,7 +5,7 @@ import useBreakpoints from 'hooks/useBreakpoints'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '10em',
+    marginTop: ({ isDesktop }) => (isDesktop ? '12em' : '6em'),
     display: 'flex',
     flexDirection: 'column',
   },
@@ -33,21 +33,21 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     fontWeight: 700,
-    fontSize: 48,
+    fontSize: 39,
     lineHeight: '45px',
   },
   message: {
-    marginTop: '3rem',
+    marginTop: ({ isDesktop }) => (isDesktop ? '3rem' : '2em'),
     fontWeight: 400,
-    fontSize: 29,
-    lineHeight: '42px',
-    marginBottom: '2rem',
+    fontSize: 24,
+    lineHeight: '35px',
+    marginBottom: '1rem',
   },
   subMessage: {
-    marginTop: '4rem',
+    marginTop: ({ isDesktop }) => (isDesktop ? '4rem' : '2em'),
     fontWeight: 400,
-    fontSize: 19,
-    lineHeight: '29px',
+    fontSize: 16,
+    lineHeight: '24px',
   },
   hero: {
     width: '100%',
@@ -77,20 +77,20 @@ const Section2 = () => {
             Due to distrust in the postal service, misguided information from
             the media, an inconsistent pool of resources provided by the
             government, and societal shifts caused by COVID-19, it is now more
-            important than ever to have useful <br /> resources for those hoping
-            to have their voices heard.{' '}
+            important than ever to have useful resources for those hoping to
+            have their voices heard.{' '}
           </p>
           <p className={classes.subMessage}>
             Information is scattered across state and county websites, each of
             which may individually fail to provide one or more elements of
             crucial information, such as available ballot drop-off times.{' '}
             <strong>
-              The BallotNav project will collect this data <br /> through a
-              network of brigade partnerships and update it accordingly <br />{' '}
-              leading up to mid-term elections in 2022.
+              The BallotNav project will collect this data through a network of
+              brigade partnerships and update it accordingly leading up to
+              mid-term elections in 2022.
             </strong>
           </p>
-          {isMobile && (
+          {false && isMobile && (
             <img
               className={classes.hero}
               src={WhatIsHero}
