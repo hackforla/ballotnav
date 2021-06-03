@@ -46,7 +46,7 @@ const Description = ({ location }) => {
 const LocationSchedule = ({ location, expandable }) => {
   const classes = useStyles()
 
-  const isClosed = true // TODO: calculate this
+  const isClosed = false // TODO: calculate this
 
   return (
     <div className={classes.root}>
