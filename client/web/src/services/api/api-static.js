@@ -1,8 +1,8 @@
 // this mocks the real api (see api-live.js) and returns
 // data from the json files in ./data
 
-import jurisdictions from './data/GA/jurisdictions.json'
-import statesAndJurisdictions from './data/GA/statesAndJurisdictions.json'
+import jurisdictions from './data/NJ/jurisdictions.json'
+import statesAndJurisdictions from './data/NJ/statesAndJurisdictions.json'
 import pointInPolygon from '@turf/boolean-point-in-polygon'
 
 async function getJurisdictions(lon, lat) {

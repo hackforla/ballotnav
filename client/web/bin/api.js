@@ -11,7 +11,7 @@ const axios = axiosModule.create({
   })
 })
 
-const BASE_URL = 'http://localhost:8080/public'
+const BASE_URL = 'https://api.ballotnav.org/public'
 
 async function getJurisdictions(lon, lat) {
   const query = queryString.stringify({ lon, lat })

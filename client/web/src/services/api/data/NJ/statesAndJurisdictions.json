@@ -1,0 +1,93 @@
+[
+  {
+    "id": 57,
+    "name": "New Jersey",
+    "abbreviation": "NJ",
+    "jurisdictions": [
+      {
+        "id": 8184,
+        "name": "Atlantic County"
+      },
+      {
+        "id": 8183,
+        "name": "Bergen County"
+      },
+      {
+        "id": 8174,
+        "name": "Burlington County"
+      },
+      {
+        "id": 8186,
+        "name": "Camden County"
+      },
+      {
+        "id": 8187,
+        "name": "Cape May County"
+      },
+      {
+        "id": 8188,
+        "name": "Cumberland County"
+      },
+      {
+        "id": 8189,
+        "name": "Essex County"
+      },
+      {
+        "id": 8190,
+        "name": "Gloucester County"
+      },
+      {
+        "id": 8185,
+        "name": "Hudson County"
+      },
+      {
+        "id": 8191,
+        "name": "Hunterdon County"
+      },
+      {
+        "id": 8192,
+        "name": "Mercer County"
+      },
+      {
+        "id": 8193,
+        "name": "Middlesex County"
+      },
+      {
+        "id": 8176,
+        "name": "Monmouth County"
+      },
+      {
+        "id": 8173,
+        "name": "Morris County"
+      },
+      {
+        "id": 8177,
+        "name": "Ocean County"
+      },
+      {
+        "id": 8181,
+        "name": "Passaic County"
+      },
+      {
+        "id": 8175,
+        "name": "Salem County"
+      },
+      {
+        "id": 8182,
+        "name": "Somerset County"
+      },
+      {
+        "id": 8178,
+        "name": "Sussex County"
+      },
+      {
+        "id": 8179,
+        "name": "Union County"
+      },
+      {
+        "id": 8180,
+        "name": "Warren County"
+      }
+    ]
+  }
+]
