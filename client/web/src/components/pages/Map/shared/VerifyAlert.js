@@ -41,7 +41,9 @@ const VerifyAlert = () => {
     setOpen(false)
   }
 
-  if (!open) return null
+  // hiding this for new jersey because we don't have official phone number
+  // if (!open) return null
+  if (true || !open) return null
   return (
     <div className={clsx(classes.root, { [classes.mobile]: isMobile })}>
       <Typography variant="body2">
