@@ -26,13 +26,10 @@ This guide will help get you up to speed on what you need to know to get started
 5. Add yourself to the [Team Roster](https://drive.google.com/file/d/1Zxth_WIp3j_QmCbUsIHEijRWoO-x-fsA/view?usp=sharing). Then, Slack our PM with "Added to Roster".
 6. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
 7. Read project details and review our [Project Management Board](https://github.com/hackforla/ballotnav/projects/7)
-8. Weekly team meetings will be Tuesdays 5PM - 6PM (times listed in PT), join our Slack for Zoom link
+8. Weekly team meetings will be Monday 6PM - 7PM (times listed in PT), join our Slack for Zoom link
 
 If you are technical consider reading our [technologies doc](./TECHNOLOGIES.md)
 
 ### Graphic Design, Videomaking, or Marketing Volunteer?
 
 Please contact us at (ballotnav@hackforla.org) for more information
-
-
-
