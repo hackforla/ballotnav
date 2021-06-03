@@ -1,0 +1,1 @@
+{"version":3,"sources":["apps/redirect/index.js"],"names":["window","location"],"mappings":"0EAAAA,OAAOC,SAAW","file":"static/js/6.e4553be8.chunk.js","sourcesContent":["window.location = 'https://about.ballotnav.org'\n"],"sourceRoot":""}
