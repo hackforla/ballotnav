@@ -79,8 +79,7 @@ const Mobile = withStyles((theme) => ({
           </h2>
           <p className={classes.message}>
             BallotNav is currently displaying ballot drop-off <br/>
-            locations for the Democratic primary election in <br/>
-            New Jersey on June 8, 2021.
+            locations for the New Jersey election on June 8, 2021.
             {/*BallotNav is currently working on validating information <br />
             for future elections. Please check back in with us later, <br />
             or see how you can help on our Volunteer Page.*/}
