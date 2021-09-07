@@ -20,9 +20,9 @@ const DesktopLinks = ({ closeMenu }) => {
   const classes = useStyles()
   return (
     <div className={classes.links}>
-      <Link to="/about" onClick={closeMenu}>
+      <a href="https://about.ballotnav.org" onClick={closeMenu}>
         About
-      </Link>
+      </a>
       <Link to="/volunteer" onClick={closeMenu}>
         Volunteer
       </Link>

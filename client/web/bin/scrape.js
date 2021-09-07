@@ -4,9 +4,9 @@ const api = require('./api')
 const fs = require('fs')
 const path = require('path')
 
-// PUT RANGE OF JURISIDICTION ID'S HERE: 
-const FIRST_JID = 397
-const LAST_JID = 555
+// PUT RANGE OF JURISIDICTION ID'S HERE:
+const FIRST_JID = 8173
+const LAST_JID = 8193
 
 const OUT = path.join(__dirname, 'data')
 
