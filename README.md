@@ -21,7 +21,7 @@ This guide will help get you up to speed on what you need to know to get started
 
 1. Read Project Context and More Information (above)
 2. Join the [#BallotNav](https://hackforla.slack.com/archives/C0191KE1XB7) slack channel and introduce yourself.
-3. Slack our PMs [Karen Coronel](https://hackforla.slack.com/team/U010KUGJATC) or [Stacey Rebekah Scott (https://hackforla.slack.com/archives/D030WLHF76C)
+3. Slack our PMs [Karen Coronel](https://hackforla.slack.com/team/U010KUGJATC) or [Stacey Rebekah Scott](https://hackforla.slack.com/archives/D030WLHF76C)
 5. Accept your Google Drive invite to access the shared folder.
 6. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/1N7J7BiboBNJr7-lfv47yNMZnGDG_FXIYK05JTrGAd5Y/edit#gid=0). Then, Slack our PM with "Added to Roster".
 7. Enable [Two Factor Authentication](https://www.hackforla.org/guide-pages/2FA.html) on your Github Account
